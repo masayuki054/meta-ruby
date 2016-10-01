@@ -1,9 +1,7 @@
-#+setupfile: ~/COMM/public_html/org-html-theme/index-readtheorg-header.setup
+#+setupfile: info/theme-sos-header.setup
 #+include: info/common-header.org
 
-[[./ruby.org]] [[./oo.org]]
-
 #+include: lects/contents.org :minlevel 1
-#+include: ruby/contents.org  :minlevel 1
-#+include: oo/contents.org :minlevel 1
+# #+include: ruby/contents.org  :minlevel 1
+# #+include: oo/contents.org :minlevel 1
 
