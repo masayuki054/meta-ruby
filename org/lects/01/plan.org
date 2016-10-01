@@ -1,4 +1,4 @@
-* <2016-10-03 月>の講義予定
+* 講義予定 (1) 2016-10-03 
 ** 講義資料の説明
 
    # #+include: ~/COMM/Lects/meta-ruby/site/links.org

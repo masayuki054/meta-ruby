@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>2016</title>
-<!-- 2016-10-02 日 04:55 -->
+<!-- 2016-10-02 日 05:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
@@ -88,6 +88,20 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/css/sos.css">
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/sos.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -142,16 +156,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</a>
+<li><a href="#sec-1">1. 講義予定 (1) 2016-10-03</a>
 <ul>
 <li><a href="#sec-1-1">1.1. 講義資料の説明</a></li>
 <li><a href="#sec-1-2">1.2. オブジェクト指向入門</a>
 <ul>
-<li><a href="#sec-1-2-1">1.2.1. プログラム言語とは</a></li>
-<li><a href="#sec-1-2-2">1.2.2. WikiPedia.search("オブジェクト指向プログラミング")</a></li>
-<li><a href="#sec-1-2-3">1.2.3. 僕の考え</a></li>
-<li><a href="#sec-1-2-4">1.2.4. Rubyらしさ</a></li>
-<li><a href="#sec-1-2-5">1.2.5. まつもと直伝プログラミングの掟</a></li>
+<li><a href="#sec-1-2-1">プログラム言語とは</a>
+<ul>
+<li><a href="#sec-1-2-1-1">記述のための要素</a></li>
+<li><a href="#sec-1-2-1-2">実行するということ</a></li>
+<li><a href="#sec-1-2-1-3">メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-2">WikiPedia.search("オブジェクト指向プログラミング")</a></li>
+<li><a href="#sec-1-2-3">僕の考え</a></li>
+<li><a href="#sec-1-2-4">Rubyらしさ</a></li>
+<li><a href="#sec-1-2-5">まつもと直伝プログラミングの掟</a>
+<ul>
+<li><a href="#sec-1-2-5-1">第一回　</a></li>
+<li><a href="#sec-1-2-5-2">第二回，第三回，第四回　ぐらい読みたい</a></li>
+<li><a href="#sec-1-2-5-3">まつもと直伝プログラミングの掟のまとめ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#sec-1-3">1.3. Ruby入門</a></li>
@@ -159,8 +185,17 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-5">1.5. メタプログラミング Ruby</a></li>
 <li><a href="#sec-1-6">1.6. .links</a>
 <ul>
-<li><a href="#sec-1-6-1">1.6.1. meta-ruby</a></li>
-<li><a href="#sec-1-6-2">1.6.2. .links</a></li>
+<li><a href="#sec-1-6-1">meta-ruby</a></li>
+<li><a href="#sec-1-6-2">.links</a>
+<ul>
+<li><a href="#sec-1-6-2-1">講義</a>
+<ul>
+<li><a href="#sec-1-6-2-1-1">主たるねらい</a></li>
+<li><a href="#sec-1-6-2-1-2">もうひとつのねらい</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -179,7 +214,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 講義予定 (1) 2016-10-03</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-sec-1-1" class="outline-3">
 <h3 id="sec-1-1"><span class="section-number-3">1.1</span> 講義資料の説明</h3>
@@ -194,9 +229,11 @@ commented
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> オブジェクト指向入門</h3>
 <div class="outline-text-3" id="text-1-2">
 </div><div id="outline-container-sec-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> プログラム言語とは</h4>
+<h4 id="sec-1-2-1">プログラム言語とは</h4>
 <div class="outline-text-4" id="text-1-2-1">
-</div><ol class="org-ol"><li><a id="sec-1-2-1-1" name="sec-1-2-1-1"></a>記述のための要素<br  /><div class="outline-text-5" id="text-1-2-1-1">
+</div><div id="outline-container-sec-1-2-1-1" class="outline-5">
+<h5 id="sec-1-2-1-1">記述のための要素</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
 <ul class="org-ul">
 <li>値と定数
 </li>
@@ -222,9 +259,11 @@ commented
 </li>
 </ul>
 </div>
-</li>
+</div>
 
-<li><a id="sec-1-2-1-2" name="sec-1-2-1-2"></a>実行するということ<br  /><div class="outline-text-5" id="text-1-2-1-2">
+<div id="outline-container-sec-1-2-1-2" class="outline-5">
+<h5 id="sec-1-2-1-2">実行するということ</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
 <ul class="org-ul">
 <li>コードインタープリタ
 </li>
@@ -240,20 +279,22 @@ commented
 </li>
 </ul>
 </div>
-</li>
+</div>
 
-<li><a id="sec-1-2-1-3" name="sec-1-2-1-3"></a>メタプログラミング<br  /><div class="outline-text-5" id="text-1-2-1-3">
+<div id="outline-container-sec-1-2-1-3" class="outline-5">
+<h5 id="sec-1-2-1-3">メタプログラミング</h5>
+<div class="outline-text-5" id="text-1-2-1-3">
 <ul class="org-ul">
 <li>プログラムを生成するプログラムをつくること
 </li>
 </ul>
 </div>
-</li></ol>
+</div>
 </div>
 
 
 <div id="outline-container-sec-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> WikiPedia.search("オブジェクト指向プログラミング")</h4>
+<h4 id="sec-1-2-2">WikiPedia.search("オブジェクト指向プログラミング")</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 特徴
@@ -272,7 +313,7 @@ commented
 </div>
 
 <div id="outline-container-sec-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 僕の考え</h4>
+<h4 id="sec-1-2-3">僕の考え</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li>モジュール
@@ -286,7 +327,7 @@ commented
 </div>
 
 <div id="outline-container-sec-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Rubyらしさ</h4>
+<h4 id="sec-1-2-4">Rubyらしさ</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
 <li>純粋オブジェクト指向
@@ -304,9 +345,11 @@ commented
 </div>
 
 <div id="outline-container-sec-1-2-5" class="outline-4">
-<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h4>
+<h4 id="sec-1-2-5"><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h4>
 <div class="outline-text-4" id="text-1-2-5">
-</div><ol class="org-ol"><li><a id="sec-1-2-5-1" name="sec-1-2-5-1"></a>第一回　<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss">http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss</a><br  /><div class="outline-text-5" id="text-1-2-5-1">
+</div><div id="outline-container-sec-1-2-5-1" class="outline-5">
+<h5 id="sec-1-2-5-1">第一回　<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss">http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss</a></h5>
+<div class="outline-text-5" id="text-1-2-5-1">
 <p>
 <a href="../docs/matz-1-1.html">../docs/matz-1-1.html</a>
 <a href="../docs/matz-1-2.html">../docs/matz-1-2.html</a>
@@ -319,9 +362,11 @@ commented
 </li>
 </ul>
 </div>
-</li>
+</div>
 
-<li><a id="sec-1-2-5-2" name="sec-1-2-5-2"></a>第二回，第三回，第四回　ぐらい読みたい<br  /><div class="outline-text-5" id="text-1-2-5-2">
+<div id="outline-container-sec-1-2-5-2" class="outline-5">
+<h5 id="sec-1-2-5-2">第二回，第三回，第四回　ぐらい読みたい</h5>
+<div class="outline-text-5" id="text-1-2-5-2">
 <ul class="org-ul">
 <li><a href="../docs/matz-2.html">../docs/matz-2.html</a> データ抽象と継承
 </li>
@@ -340,15 +385,17 @@ C++, Java, Perl, &#x2026;
 まとめ
 </p>
 </div>
-</li>
+</div>
 
 
-<li><a id="sec-1-2-5-3" name="sec-1-2-5-3"></a>まつもと直伝プログラミングの掟のまとめ<br  /><div class="outline-text-5" id="text-1-2-5-3">
+<div id="outline-container-sec-1-2-5-3" class="outline-5">
+<h5 id="sec-1-2-5-3">まつもと直伝プログラミングの掟のまとめ</h5>
+<div class="outline-text-5" id="text-1-2-5-3">
 <p>
 <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz">まとめ</a>
 </p>
 </div>
-</li></ol>
+</div>
 </div>
 </div>
 
@@ -404,7 +451,7 @@ gem pry install
 <h3 id="sec-1-6"><span class="section-number-3">1.6</span> .links</h3>
 <div class="outline-text-3" id="text-1-6">
 </div><div id="outline-container-sec-1-6-1" class="outline-4">
-<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> meta-ruby</h4>
+<h4 id="sec-1-6-1">meta-ruby</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <ul class="org-ul">
 <li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby">コンピュータ科学特論Iサイト</a> self
@@ -417,7 +464,7 @@ gem pry install
 </div>
 
 <div id="outline-container-sec-1-6-2" class="outline-4">
-<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> .links</h4>
+<h4 id="sec-1-6-2">.links</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <ul class="org-ul">
 <li>コンピュータ科学特論I <a href="http://wiki.cis.iwate-u.ac.jp/~wiki/meta-ruby.cgi">講義用Wiki</a> .wiki
@@ -448,7 +495,12 @@ path: ~suzuki/lects/meta-ruby/codes/
 </li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="sec-1-6-2-1" name="sec-1-6-2-1"></a>講義<br  /><ol class="org-ol"><li><a id="sec-1-6-2-1-1" name="sec-1-6-2-1-1"></a>主たるねらい<br  /><div class="outline-text-6" id="text-1-6-2-1-1">
+<div id="outline-container-sec-1-6-2-1" class="outline-5">
+<h5 id="sec-1-6-2-1">講義</h5>
+<div class="outline-text-5" id="text-1-6-2-1">
+</div><div id="outline-container-sec-1-6-2-1-1" class="outline-6">
+<h6 id="sec-1-6-2-1-1">主たるねらい</h6>
+<div class="outline-text-6" id="text-1-6-2-1-1">
 <p>
 オブジェクト指向プログラミングの本質，
 </p>
@@ -465,10 +517,12 @@ path: ~suzuki/lects/meta-ruby/codes/
 オブジェクト指向言語 ruby を用いて考察する
 </p>
 </div>
-</li>
+</div>
 
 
-<li><a id="sec-1-6-2-1-2" name="sec-1-6-2-1-2"></a>もうひとつのねらい<br  /><div class="outline-text-6" id="text-1-6-2-1-2">
+<div id="outline-container-sec-1-6-2-1-2" class="outline-6">
+<h6 id="sec-1-6-2-1-2">もうひとつのねらい</h6>
+<div class="outline-text-6" id="text-1-6-2-1-2">
 <p>
 emacs org-mode + babel を使って，
 </p>
@@ -485,15 +539,15 @@ emacs org-mode + babel を使って，
 いつものとおり，どうなりますことやら。
 </p>
 </div>
-</li></ol>
-</li></ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-02 日 04:55</p>
+<p class="date">Created: 2016-10-02 日 05:07</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
