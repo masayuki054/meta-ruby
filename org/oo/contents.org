@@ -1,5 +1,4 @@
-* OO
-
-#+include: to_oo-2.org
-# #+include: to_oo_note.org
-# #+include: oo-note-oo-sucks.org
+# * OO
+#+include: to_oo-2.org :minlevel 1
+#+include: to_oo_note.org :minlevel 1
+#+include: oo-note-oo-sucks.org :minlevel 1

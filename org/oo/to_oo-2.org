@@ -1,7 +1,3 @@
-#+title: オブジェクト指向
-#+SETUPFILE: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
-#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
-
 * オブジェクト指向に至る軌跡
 
 ** オブジェクト指向以前
