@@ -1,0 +1,150 @@
+- [[http://www.rubylife.jp/ini/][ruby入門]] [[file:ruby-note.org][ruby note]] [[http://docs.ruby-lang.org/ja/2.0.0/doc/index.html][リファレンスマニュアル]] [[http://docs.ruby-lang.org/ja/2.0.0/class/String.html][class String]]
+
+[[elisp:eww "http://www.rubylife.jp/ini
+/"][ruby入門]]
+
+* [[http://www.rubylife.jp/ini/string/][文字列 - Ruby入門]]
+
+** 文字列オブジェクト 
+   #+BEGIN_SRC ruby :session ruby :results output both
+String.new("こんにちは\n")
+"こんにちは\n"
+"こんにちは\n".class
+String.class
+'end'
+   #+END_SRC
+   
+   #+RESULTS:
+: "こんにちは\n"
+: "こんにちは\n"
+: String
+: Class
+   
+** バックスラッシュ記法によるエスケープ 
+** %Q、%qによる文字列の作成 
+   
+   #+BEGIN_SRC ruby :session ruby :results output data
+require 'kconv'
+print Kconv.toutf8(%Q[こんにちは"佐藤"さん\nお元気ですか]), "\n"
+print Kconv.toutf8(%q|こんにちは\nお元気ですか|), "\n"
+'end
+   #+END_SRC
+   
+   #+RESULTS:
+: false
+: こんにちは"佐藤"さん¥nお元気ですか
+: nil
+: こんにちは\nお元気ですか
+   
+** ヒアドキュメントによる複数行文字列の作成 
+#    #+BEGIN_SRC ruby :session ruby :results output
+# print <<end
+# こんにちは
+# 世界
+# end
+# 'end'
+#    #+END_SRC
+   
+#    #+RESULTS:
+# : 
+# : こんにちは
+# : 世界
+# : nil
+   
+#    #+BEGIN_SRC ruby :session ruby :results output
+
+# print <<EOS, <<EOS
+# こんにちは
+# お元気ですか
+# ではさようなら
+# EOS
+# ではさようなら
+# お元気ですか
+# こんにちは
+# EOS
+
+# 'end'
+#    #+END_SRC
+   
+#    #+RESULTS:
+# : こんにちは
+# : お元気ですか
+# : ではさようなら
+# : ではさようなら
+# : お元気ですか
+# : こんにちは
+# : nil
+   
+** 文字列の中に式を展開 
+   #+BEGIN_SRC ruby :session ruby :results output
+name = "東京"
+print("出身は #{name*10} です")
+'end'
+   #+END_SRC
+   
+   #+RESULTS:
+: "東京"
+: 出身は 東京東京東京東京東京東京東京東京東京東京 ですnil
+   
+   便利で，よく使います。
+   
+** 文字列 methods 
+# #+BEGIN_SRC ruby :session ruby :results output
+# s = <<EOS
+# こんにちは
+# お元気ですか
+# ではさようなら
+
+# ではさようなら
+# お元気ですか
+# こんにちは
+# EOS
+
+# # 
+# s.length
+
+# # 置換
+# s.sub("では","ではまた")
+# s.gsub("では","ではまた")
+# s.gsub(/さ.*ら/,"good-bye") 
+
+# # split/join
+
+# s.split("\n")
+# s.split("\n").join(" - ")
+
+# # 部分文字列
+# s[10,5]
+# s[10,-1]
+# s.include?("元気")
+# s[s.index("元気"),4]
+
+# # 文字列中の行処理
+# s.each_line { |l| print l.sub("は", "ha") }
+
+# 'end'
+# #+END_SRC
+
+# #+RESULTS:
+# #+begin_example
+# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# 43
+# "こんにちは\nお元気ですか\nではまたさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# "こんにちは\nお元気ですか\nではまたさようなら\n\nではまたさようなら\nお元気ですか\nこんにちは\n"
+# "こんにちは\nお元気ですか\nではgood-bye\n\nではgood-bye\nお元気ですか\nこんにちは\n"
+# ["こんにちは", "お元気ですか", "ではさようなら", "", "ではさようなら", "お元気ですか", "こんにちは"]
+# "こんにちは - お元気ですか - ではさようなら -  - ではさようなら - お元気ですか - こんにちは"
+# "すか\nでは"
+# nil
+# こんにちha
+# お元気ですか
+# でhaさようなら
+
+# でhaさようなら
+# お元気ですか
+# こんにちha
+# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# true
+# "元気です"
+# #+end_example
+

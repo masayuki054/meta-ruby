@@ -1,0 +1,8 @@
+
+  curl 127.0.0.1:9292/ 2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org  2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org/ruby-note.org  2>/dev/null
+  sleep 2
+

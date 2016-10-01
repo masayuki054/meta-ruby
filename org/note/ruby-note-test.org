@@ -1,0 +1,380 @@
+* ruby/test
+
+** test-unit 
+   新らしい単体テスト・フレームワークを使いましょう:
+   - [[http://qiita.com/repeatedly/items/727b08599d87af7fa671][Ruby - Test::Unitでテストを書く - Qiita]]
+
+** install
+
+#+BEGIN_SRC sh 
+  gem install test-unit 
+#+END_SRC
+   
+** テストの書き方
+
+*** 基本
+
+    - classで書く．
+    - TestCase毎に呼ばれる startup/shutdown 
+    - Test毎に呼ばれる setup/teardown/cleanup
+    - テストは test で始まるメソッドで書く
+
+**** require 
+
+#+BEGIN_SRC ruby
+require "rubygems"
+gem "test-unit"
+require 'test/unit'
+#+END_SRC
+
+**** テスト・クラス定義
+
+#+BEGIN_SRC ruby
+class TestSample < Test::Unit::TestCase
+#+END_SRC
+
+**** テスト全体の前後処理メソッド:
+
+#+BEGIN_SRC 
+  class << self
+    # テスト群の実行前に呼ばれる．変な初期化トリックがいらなくなる
+    def startup
+      p :_startup
+    end
+
+    # テスト群の実行後に呼ばれる
+    def shutdown
+      p :_shutdown
+    end
+  end
+#+END_SRC
+
+**** テストの前後の処理:
+
+#+BEGIN_SRC ruby
+
+  # 毎回テスト実行前に呼ばれる
+  def setup
+    p :setup
+  end
+
+  # テストがpassedになっている場合に，テスト実行後に呼ばれる．テスト後の状態確認とかに使える
+  def cleanup
+    p :cleanup
+  end
+
+  # 毎回テスト実行後に呼ばれる
+  def teardown
+    p :treadown
+  end
+#+END_SRC
+
+**** テストを test_で始まるメソッドとして定義する:
+
+#+BEGIN_SRC ruby
+
+  def test_foo
+    p 'test_foo'
+    assert_true(1 == 1)
+  end
+
+  def test_bar
+    p 'test_bar'
+    assert_equal(1, 1)
+  end
+end
+
+#+END_SRC
+
+**** テスト準備
+
+     (defvar org-babel-ruby-command "/users/home/masayuki/.rbenv/shims/ruby"
+     "Name of command to use for executing ruby code.")
+
+#+BEGIN_SRC ruby :results output
+p require "rubygems"
+p gem "test-unit"
+p RUBY_VERSION
+'end'
+
+#+END_SRC
+
+#+RESULTS:
+: false
+: true
+: "2.0.0"
+
+#+BEGIN_SRC ruby :exports none :tangle babel/test/test_sample.rb :mkdirp yes
+require "rubygems"
+# gem "test-unit", "3.1.5"
+require 'test/unit'
+
+class TestSample < Test::Unit::TestCase
+  class << self
+    # テスト群の実行前に呼ばれる．変な初期化トリックがいらなくなる
+    def startup
+      p :_startup
+    end
+
+    # テスト群の実行後に呼ばれる
+    def shutdown
+      p :_shutdown
+    end
+  end
+
+  # 毎回テスト実行前に呼ばれる
+  def setup
+    p :setup
+  end
+
+  # テストがpassedになっている場合に，テスト実行後に呼ばれる．テスト後の状態確認とかに使える
+  def cleanup
+    p :cleanup
+  end
+
+  # 毎回テスト実行後に呼ばれる
+  def teardown
+    p :treadown
+  end
+
+  def test_foo
+    p 'test_foo'
+    assert_true(1 == 1)
+  end
+
+  def test_bar
+    p 'test_bar'
+    assert_equal(1, 1)
+  end
+end
+#+END_SRC
+
+**** テスト実行
+
+    デフォルトだとアルファベット順にテストが実行される．
+
+#+BEGIN_SRC sh :dir babel/test :results output :exports both
+which ruby
+gem install test-unit
+ruby test_sample.rb
+echo 'end'
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+/usr/bin/ruby
+Run options: 
+
+# Running tests:
+
+:setup
+"test_bar"
+:treadown
+.:setup
+"test_foo"
+:treadown
+E
+
+Finished tests in 0.003415s, 585.6515 tests/s, 292.8258 assertions/s.
+
+  1) Error:
+test_foo(TestSample):
+NoMethodError: undefined method `assert_true' for #<TestSample:0x007fb08a8164c8>
+    test_sample.rb:36:in `test_foo'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1301:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit/testcase.rb:17:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:919:in `block in _run_suite'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `map'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `_run_suite'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:657:in `block in _run_suites'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `_run_suites'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:867:in `_run_anything'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1060:in `run_tests'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1047:in `block in _run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `_run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1035:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:21:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:774:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:366:in `block (2 levels) in autorun'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:27:in `run_once'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:365:in `block in autorun'
+
+2 tests, 1 assertions, 0 failures, 1 errors, 0 skips
+
+ruby -v: ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+end
+#+end_example
+
+*** アサーション
+
+    https://test-unit.github.io/test-unit/ja/Test/Unit/Assertions.html
+
+    のページの"Instance Method Summary"にあるassertで始まるメソッド群
+    が該当．各メソッドに飛べば実際のコード例が出てくるので，参照しつつ
+    適宜使い分ける．
+
+*** 便利な機能
+
+**** sub_test_case
+
+RSpecだとdescribeとかでネスト出来るが，それをTest::Unitで出来る．実際
+はTest::Unitでも継承すれば出来るけど，こっちの方が簡潔で好き.
+
+class TestSample < Test::Unit::TestCase
+  sub_test_case "Foo context" do
+    # tests
+  end
+
+  sub_test_case "Bar context" do
+    # tests
+  end
+end
+
+**** test
+
+     メソッド名ベースだと使えない文字とかもあり，少し表現がしにくかっ
+     た．けど，testを使えば解決！
+
+#+BEGIN_SRC ruby
+
+class TestSample < Test::Unit::TestCase
+  test "We can write good information" do
+    # assert_nil(nil)
+  end
+end
+#+END_SRC
+
+     Test::Unitのgemにはdescriptionという機能があって，それとメソッド
+     定義のシンタックスシュガーらしい．以下のコードは上とほぼ同じ．
+
+class TestSample < Test::Unit::TestCase
+  description "We can write good information"
+  def test_foo_bar
+    # assert_nil(nil)
+  end
+end
+
+**** setup/teardown ブロック
+
+     sub_test_caseを使っていると，RSpecのbeforeのように各ケース毎に追
+     加でセットアップ処理を書きたくなる．TestCaseにはsetupメソッドがあ
+     るけど，これはオーバーライドしてしまうので使えない．このような場
+     合にはsetupブロックを使う．setupメソッドとは違い，beforeのように
+     何個でも書ける．
+
+class TestSample < Test::Unit::TestCase
+  setup do
+    puts "parent"
+  end
+
+  sub_test_case "Sub!" do
+    setup do
+      puts "sub1"
+    end
+
+    setup do
+      puts "sub2"
+    end
+
+    def test_sub
+      assert_true(true)
+    end
+  end
+end
+
+上の例を走らせると以下のようになる．もちろん，teardownも同様に出来る．
+
+Loaded suite test_nest
+Started
+parent
+sub1
+sub2
+.
+
+Finished in 0.000896 seconds.
+
+注意点として，setupメソッドとsetupブロックでは優先順位が決まっている．気になるなら，setupブロックで統一した方が良いかもしれない．
+
+**** test_order
+
+テストの実行順序を指定出来る．どうしても定義順に実行したいのであれば，:definedを指定すれば上から順に実行される．
+
+class TestSample < Test::Unit::TestCase
+  self.test_order = :defined
+end
+
+**** データ駆動テスト
+
+     テストとデータを分けて書ける機能です．成功するテストや失敗するテ
+     ストをまとめたりするのに便利．テストの中でeach回すのはイケてない
+     し，かといってコピペで重複したテスト書くのもつらい．この機能使え
+     ば，ちゃんとデータセット毎にテストがわかれます．
+
+#+BEGIN_SRC ruby
+
+class TestSample < Test::Unit::TestCase
+  # 'test1'がラベルで，[1, 1]がtest_equalの引数に渡される
+  data(
+    'test1' => [1, 1],
+    'test2' => [2, 2])
+  def test_equal(data)
+    expected, actual = data
+    assert_equal(expected, actual)
+  end
+
+  data(
+    'test1' => [1, 2],
+    'test2' => [2, 3])
+  def test_not_equal(data)
+    expected, actual = data
+    assert_not_equal(expected, actual)
+  end
+end
+
+#+END_SRC
+
+*** その他
+**** assertの作り方
+
+     Test::Unit::Assertions以下に定義して，そのファイルをrequireで読み
+     込むだけ．assert_blockとかbuild_messageとかのヘルパーが利用可能．
+     assert_blockの中に条件を書く．
+
+#+BEGIN_SRC ruby
+
+require 'test/unit/assertions'
+
+module Test::Unit::Assertions
+  def assert_oreore(expected, actual)
+    assert_block("failure message") do
+      expected == (actual + 'oreore')
+    end
+  end
+end
+
+#+END_SRC
+
+**** Rakeのタスク定義
+
+     コピペで使い回す
+
+#+BEGIN_SRC ruby
+desc 'Run test_unit based test'
+Rake::TestTask.new do |t|
+  # To run test for only one file (or file path pattern)
+  #  $ bundle exec rake test TEST=test/test_specified_path.rb
+  t.libs << "test"
+  t.test_files = Dir["test/**/test_*.rb"]
+  t.verbose = true
+end
+#+END_SRC
+
+*** まとめ
+
+    RSpecほど機能がリッチじゃないので，足りないなら自分で書く必要があ
+    るけど，Fluentdレベルだとそんなに困ってない． 個人的には，
+    Parameterized Testが入ってくれれば嬉しいという所かな．
+
+

@@ -1,0 +1,56 @@
+* makefile
+
+** header 
+
+#+BEGIN_SRC makefile :tangle Makefile
+MYHOME = ../
+ORG = $(MYHOME)/org/
+SITE = $(MYHOME)/docs/
+DIR = ./
+SHELL = zsh
+DATE = `date`
+#+END_SRC
+
+** pages
+
+#+BEGIN_SRC makefile :tangle Makefile
+HTMLS = index.html \
+lects.html \
+ruby.html \
+emacs.html
+
+
+#+END_SRC
+
+#+BEGIN_SRC makefile :tangle Makefile
+
+all: $(HTMLS)
+	git push -u origin master
+
+renewal: 
+	touch *.org
+	touch */*.org
+	make all
+
+index.html: 
+lects.html: $(wildcard lects/*.org)
+
+#+END_SRC
+
+** generating html rules
+
+#+BEGIN_SRC makefile :tangle Makefile
+
+.SUFFIXES: .org .html
+.org.html: info/common-header.org 
+	$(HOME)/bin/org2html $<
+	cp $@ $(SITE)/$(DIR)
+	git stage  $(SITE)/$@ 
+	git commit -a -m "daily $(DATE)"
+
+.PHONY: clean
+clean:
+	rm -f *.html
+	rm -f *~ */*~
+
+#+END_SRC

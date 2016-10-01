@@ -1,0 +1,59 @@
+#+name:test-deck#opener
+#+begin_src ruby :exports none :noweb yes
+require 'test/unit'
+require 'constant'
+require 'card'
+require 'deck'
+
+class TestDeck < Test::Unit::TestCase
+  include Poker
+#+end_src
+
+#+name:test-deck#new
+#+begin_src ruby :exports none :noweb yes
+
+  def test_deck_new
+    @d = Deck.new
+    assert_equal(Const::No_of_Cards, @d.size)
+  end
+#+end_src
+
+#+name:test-deck#draw
+#+begin_src ruby :exports none :noweb yes
+
+  def test_deck_draw
+    @d = Deck.new
+    size = @d.size
+    c = @d.draw
+    assert_equal(Card, c.class)
+    assert_equal(1, size-@d.size)
+  end
+#+end_src
+
+#+name:test-deck#discard
+#+begin_src ruby :exports none :noweb yes
+
+  def test_deck_discard
+    @d = Deck.new
+    (2*Const::No_of_Cards).times do |i|
+      c = @d.draw
+      assert_equal(Card, c.class)
+      @d.discard(c)
+    end
+    assert_equal(0, @d.size)
+  end
+#+end_src
+
+#+name:test-deck#closer
+#+begin_src ruby :exports none :noweb yes
+end
+#+end_src
+
+#+name:test-deck.rb
+#+begin_src ruby :tangle test-deck.rb :noweb yes
+<<test-deck#opener>>
+<<test-deck#new>>
+<<test-deck#draw>>
+<<test-deck#discard>>
+<<test-deck#closer>>
+#+end_src

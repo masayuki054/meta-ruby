@@ -1,0 +1,384 @@
+* .outline
+
+  <2016-02-08 月> の講義予定です。
+
+
+   - 2/8，2/15 に講義します。
+   - レポートの〆切は，2/22にします。
+
+** 今日の org 文書 (emacsで開くために)
+   
+   ~suzuki/Lects.org に org-リンクを置きます。
+
+   - 2/2 のまとめ
+     [[file:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note-meta.org::*2016.02.01%20method][2016.02.01 method]]
+
+   - 2/9 の講義内容
+     [[file:~/COMM/Lects/meta-ruby/site/lects/14/plan.org]]
+
+   - sqlite example
+     [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-sqlite.org]]
+   - block 文書の見直しと要約
+     [[file:~suzuki/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/block.org]]
+
+   - sinatra と org-ruby example
+     [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org]]  
+
+   - OO-sucks? へのコメント
+     [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/oo-note-oo-sucks.org]]
+     考え始めた。
+
+
+** サイト を Emacs (org-mode) で読むために
+
+- ~suzuki/COMM/Lects/meta-ruby/site の下がサイト全体
+
+  - lects/note/ruby-note.org のーと
+
+  - org-docs/meta-ruby/ の下，メタプログラミング Ruby まとめ文書
+
+- ~suzuki/COMM/Prog/ruby/meta の下のディレクトリにコード
+
+- ~suzuki/COMM/Lects/meta-ruby/site/code の下にもコード
+
+- ~suzuki/COMM/Lects/meta-ruby/site/book の下
+
+** レポート提出について
+
+- 提出場所  https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/ 
+
+  自分のdirectory下
+
+- 提出物 [6/6]
+  - [X] pokerゲームのrubyによるテスト駆動開発，
+    - ./poker/ ruby プログラム
+    - poker.org org文書
+
+  - [X] オブジェクト指向に至る軌跡の纏め
+    - oo.org 
+
+  - [X] Ruby におけるオブジェクト指向の実現
+    - ruby-oo.org
+    - 図示でもいい
+
+  - [X] メタプログラミング Ruby のまとめ
+    - meta-programming-ruby.org
+
+  - [X] 課題プログラムの作成 [4/4]
+    org文書で提出してください:
+
+    - [X] 1. uri2org.org
+             - あるWebページを org 文書に変換， 
+             - gem の mechanize と nokogiri を使う
+
+    - [X] 2. dirtree.org
+             - ディレクトリ木の表示 Dir，File, 文字列
+
+    - [X] 3. org-server.org
+             - org文書を表示するWebサーバ.
+             - gem の sinatra と org-rubyを使う
+	     - ruby-note/sinatra-org/readme.org を参考に  
+
+    - [X] 4. sqlite.org
+             - sqlite データベースの中身を rubyを使って調べる
+             - ruby-note の sqliteを参考に
+
+  - [X] 講義への意見感想
+    - about_lecture.org
+
+** Done オブジェクトへ至る道を読みましょう。[6/6]
+   CLOSED: [2016-01-24 日 21:10] SCHEDULED: <2015-10-26 月>
+
+   - [X] 構造化プログラミングの本質を理解しましょう。
+   - [X] モジュラープログラミングを読みましょう。<2015-11-27 金>
+   - [X] 抽象データ型を読み，まとめましょう。<2015-12-07 月>
+   - [X] オブジェクト指向？ <2015-12-14 月>
+   - [X] Simula & C++のオブジェクト指向 <2015-12-14 月>~
+   - [X] SmallTalk & objective-C のオブジェクト指向 <2016-01-18 月>~
+
+   まとめを emacs org-modeの文書で書きためてください。レポートとして提
+   出してもらう予定です。
+
+** Doing Java - オブジェクト指向はクソか？ - Qiita [3/3]
+   SCHEDULED: <2016-01-25 月>
+
+    オブジェクトへ至る道を読み終えたら，関数型プログラミングからの反論
+    を読んでみましょう:
+
+    - [X] [[http://qiita.com/lambda-knight][lambda-knight - Qiita]] 紹介
+
+    - [X] [[http://qiita.com/lambda-knight/items/fb7530232912dc4176c4][Java - オブジェクト指向はクソか？ - Qiita]]
+
+    - [X] [[http://qiita.com/lambda-knight/items/a33feffe947a958a2d3a][その後のJoe Armstrongのオブジェクト指向に対する見解 - Qiita]]
+
+      ruby-note/oo-note-oo-sucks.org に僕の考えを書きました。まだかき
+      なぐりの段階ですが。
+
+** Done poker
+   CLOSED: [2016-02-01 月 08:03]
+
+   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/poker.html][pokerのテスト駆動開発]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/poker/poker.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/poker/poker.org][@s.org]])) 
+
+   - org-mode+babel で書いていきます
+   - test-unit のことも
+   - emacs org-mode+babel のことも
+
+*** Done poker進行 [6/6]
+    CLOSED: [2016-02-01 月 08:03]
+    - [X] test-unit の説明
+    - [X] クラス設計 poker.org
+    - [X] card.org
+    - [X] deck.org
+    - [X] hand.org
+    - [X] play.org
+
+** Doing メタプログラミング ruby 
+   SCHEDULED: <2015-11-02 月>
+
+  01/25
+  - ruby の原理再び
+
+    [[file:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note-object.org]]
+
+    [[file:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org]]#Rubyの原理
+
+    - Scheme の RSR5の序を思い出す。
+      [[http://www.unixuser.org/~euske/doc/r5rs-ja/r5rs-ja.pdf][R5RS-ja.pdf]]
+
+  - オブジェクト・モデル
+
+*** 02/01
+    - method (method_missing と 動的定義と呼び出し)
+
+*** 02/09
+    - block 
+   
+*** 進行について [/]
+
+
+    まとめをemacs org-modeの文書で書きためてください。レポー
+    トとして提出してもらう予定です。
+
+    - オブジェクトとメッセージング
+    - オブジェクト，クラス，メソッド
+    - ブロック
+    - トップレベル
+    - self
+    - クラス階層と継承
+
+** Doing TODO ruby 入門始めましょう。
+   SCHEDULED: <2015-11-02 月> 
+   : ~suzuki/lects/meta-ruby/lects/ruby_begin_note.org
+
+   読むサイトを [[http://www.rubylife.jp/ini/][Ruby入門]] に変更したいです。
+
+   - [X] method をやります。
+   - [X] class 定義
+   - [ ] class 継承 
+   - [ ] pokerゲームの設計
+
+   ruby入門のノートをemacs org-modeの文書で書きためてください。レポー
+   トとして提出してもらう予定です。
+
+** Todo TODO emacs org-mode 憶えませんか？ [0/1]
+   SCHEDULED: <2015-11-02 月>
+
+*** Todo ruby入門の記録を取ってみましょう。
+    SCHEDULED: <2015-11-27 金>
+
+*** org-mode todo
+    - [X] org-mode でプログラミングとメモの作成をはじめました。
+    - [X] 文章の構造を覚えましょう。
+    - [X] ruby ソースコードの埋め込み方
+    - [X] ruby ソースコードの実行方法
+    - [X] ruby ソースコードの編集方法
+    - [ ] include
+    - [ ] link
+
+ * Doing オブジェクト指向とは
+  SCHEDULED: <2015-10-05 月>
+  
+** Done オブジェクト指向プログラミングへ至る道
+   CLOSED: [2016-02-08 月 07:31] SCHEDULED: <2015-10-26 月>
+
+*** Done [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OOへ至る道]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/oo.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/oo.org][@s.org]])) [8/8]
+    CLOSED: [2016-02-01 月 08:04]
+   - [X] ソフトウェア危機 <2015-11-02 月>
+   - [X] 構造化プログラミング<2015-11-16 月>
+   - [X] [[file:/NFS/ufs/mac/masayuki/COMM/Lects/meta-ruby/site/org-docs/oo.org::*%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%A9%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0][モジュラプログラミング]]
+   - [X] 抽象データ型
+   - [X] オブジェクト指向？
+   - [X] Simula & C++ のオブジェクト指向
+   - [X] SmallTalk & objective-C のオブジェクト指向
+   - [X] まとめ
+
+*** Java - オブジェクト指向はクソか？ - Qiita
+
+    オブジェクトへ至る道を読み終えたら，関数型プログラミングからの反論
+    を読んでみましょう:
+
+    [[http://qiita.com/lambda-knight][lambda-knight - Qiita]]
+
+    - [[http://qiita.com/lambda-knight/items/fb7530232912dc4176c4][Java - オブジェクト指向はクソか？ - Qiita]]
+
+    - [[http://qiita.com/lambda-knight/items/a33feffe947a958a2d3a][その後のJoe Armstrongのオブジェクト指向に対する見解 - Qiita]]
+
+     
+** Doing プログラム言語とは
+   SCHEDULED: <2015-10-05 月>
+
+*** Done 記述のための要素
+    CLOSED: [2015-10-26 月 08:37]
+
+   - 値と定数
+   - データ構造体
+   - 型と演算
+   - 変数と代入
+   - 文と流れ
+   - 関数（手続き)
+     - 定義
+     - 呼出し
+   - スコープ
+   - モジュール
+
+*** Done 実行するということ
+    CLOSED: [2015-11-16 月 16:34]
+    - コードインタープリタ
+    - 環境
+      - 実行の流れを保存するスタック
+      - 名前を解決する束縛
+      - 静的か動的か
+
+*** Todo メタプログラミング
+    - プログラムを生成するプログラムをつくること
+
+
+** Todo オブジェクト指向プログラミング
+
+*** [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
+   - カプセル化と情報隠蔽
+   - 多相性
+   - 動的束縛
+   - 継承
+     
+*** Done 僕の考え
+    CLOSED: [2015-11-16 月 16:35]
+     - モジュール
+     - メッセージパッシング
+     - 差をプログラムする
+     
+*** Done Rubyらしさ
+    CLOSED: [2015-11-16 月 16:35]
+
+     - 純粋オブジェクト指向
+       - プログラム可能なものは全て，オブジェクト
+       - クラスもオブジェクト
+       - 実行はすべてメッセージパッシングで起こる
+     - オブジェクトは実行の場
+
+
+** Someday [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+   CLOSED: [2015-10-26 月 10:35]
+
+   今年(2015)は読んでいる暇はなさそうです。
+
+*** まつもと直伝プログラミングの掟のまとめ
+    [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
+
+
+
+* Done Ruby入門
+  CLOSED: [2016-01-24 日 18:59] SCHEDULED: <2015-11-02 月>
+
+  #+BEGIN_SRC sh :results output example
+sh ~/COMM/Lects/bin/org_link_make.sh meta-ruby lects/note/ruby-note.html rubyノート
+#+END_SRC
+
+ - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html][rubyノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/note/ruby-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org][@s.org]])) のテスト
+ - poker
+
+  emacs で見てください。
+  ： ~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org 
+
+  下記リンクの入門は中断します。
+#+BEGIN_QUOTE
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/ruby-begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/ruby-begin.org][@s.org]])) を読みプログラムしてみましょう。
+  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ruby入門ノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
+#+END_QUOTE
+  
+* Todo メタプログラミング Ruby
+  SCHEDULED: <2015-11-02 月>
+
+* Doing TODO emacs org-mode 憶えませんか？ [/]
+  SCHEDULED: <2015-11-02 月>
+
+** 文章の構造を覚えましょう。
+
+   [[info:org#document structure]]
+   - headlines
+   - lists
+   - drawers
+   - blocks
+   
+** ruby ソースコードの埋め込み方
+
+   [[info:org#working with source code]] 
+
+   [[info:org#Structure of code blocks]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby <arguments...>
+body
+#+end_src
+#+end_example
+
+** ruby ソースコードのedit
+
+   [[info:org#Editing source code]]
+
+   C-c '
+
+** ruby ソースコードの実行方法
+
+   [[info:org#Evaluating code blocks]]
+
+
+** ruby ソースコードの export
+   [[info:org#Exporting code blocks]]
+
+#+begin_example
+#+begin_src ruby :exports both
+body
+#+end_src
+#+end_example
+
+
+** ruby ソースコードの extract
+
+   [[info:org#Extracting source code]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby :tangle <file>
+body
+#+end_src
+#+end_example
+
+
+
+
+* Done 講義資料の説明
+  CLOSED: [2015-11-02 月 09:11] SCHEDULED: <2015-10-26 月>
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義資料]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
+
+  - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]])) 追加しました。
+
+** Done announce まだサイトリニューアル中です。未整備なページ等あります。すみません。
+   CLOSED: [2015-11-09 月 10:29]
+           ご指摘ください。
+
+** Done todo emacs環境/ruby環境 整えましょう。
+   CLOSED: [2015-11-02 月 10:29]
+

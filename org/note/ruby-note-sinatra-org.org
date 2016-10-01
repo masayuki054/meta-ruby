@@ -1,0 +1,136 @@
+#+title: sinatra/org-ruby
+
+* references
+
+- ~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)
+- [[http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/][OrgBabelで文芸的プログラミング · ops●tokyo]]
+- [[http://www.sinatrarb.com/intro-ja.html][Sinatra: README (Japanese)]]
+
+* what
+
+./notes にある .org 文書を表示する Webサービスを作成する。
+
+* how
+
+- rubygems の sinatra，org-convergeを用いる
+
+- readme.org に全てを記述する
+
+* directory
+: .
+: +-- readme.org 
+: |
+: +-- org +-- run.org
+: |
+: +-- src +-- app.rb
+: |       +-- Gemfile
+: |       +-- config.ru
+: |
+: +-- notes@
+
+* sinatraのための設定
+** bundler 
+
+bundler を gem install
+
+#+BEGIN_SRC sh
+gem install bundler
+
+#+END_SRC
+
+** gemfile
+
+必要な gem を記述
+
+#+BEGIN_SRC ruby :tangle src/Gemfile
+# src/Gemfile
+gem 'sinatra'
+gem 'org-converge'
+#+END_SRC
+
+** config.ru
+
+sinatraアプリケーションを起動するための設定
+    
+#+BEGIN_SRC ruby :tangle src/config.ru
+# src/config.ru
+require './app.rb'
+run Sinatra::Application
+
+#+END_SRC
+
+* service
+** application
+
+sinatra のDSLで，Webサービスを記述:
+    
+#+BEGIN_SRC ruby :tangle src/app.rb 
+# src/app.rb
+require 'sinatra'
+
+get '/' do
+  'OK'
+end
+
+get '/org' do
+  Dir.glob('../notes/*.org').join("\n")
+end
+
+get '/org/*.org' do |doc|
+  `(cd ../notes; org2html #{doc}.org)`
+  `cat ../notes/#{doc}.html`
+end
+
+#+END_SRC
+
+ここでは，org->HTML変換には，~suzuki/COMM/bin/org2html コマンドを利用しています。
+
+代わりに，((% pandoc -f html -t org %))コマンドを使ってもいいですし，
+rubygem/org-ruby を使ってもいいかもしれません。
+
+** 起動
+
+この文書を，emacs org-mode で C-c C-v C-t して，書き出し，
+下記コマンドでサーバを立ち上げる。
+
+#+BEGIN_SRC sh
+org-converge org/run.org
+
+#+END_SRC
+
+*** 確認
+
+ブラウザで，下記URLにアクセスする:
+- 127.0.0.1:9292/, 
+- 127.0.0.1:9292/org, 
+- 127.0.0.1:9292/org/ORG文書
+
+*** 起動用 org 文書 (org/run.org)
+#+BEGIN_SRC org :tangle org/run.org
+,#+title: running the application
+,#+include "org/app.org"
+
+,** run it
+
+,#+name: server
+,#+BEGIN_SRC sh :dir src
+
+bundle install
+bundle exec rackup
+
+,#+END_SRC
+
+,** access
+
+,#+name: getit
+,#+BEGIN_SRC sh :wait 1
+
+  curl 127.0.0.1:9292/ 2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org  2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org/ruby-note.org  2>/dev/null
+  sleep 2
+
+,#+END_SRC
+#+END_SRC

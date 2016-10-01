@@ -1,0 +1,179 @@
+* hand 
+** test-hand.rb
+#+name:test-hand#opener
+#+BEGIN_SRC ruby 
+require 'test/unit'
+require 'card'
+require 'hand'
+
+include Poker
+
+class Test_Hand < Test::Unit::TestCase
+#+end_src
+#+name:test-hand#closer
+#+BEGIN_SRC ruby 
+end
+#+end_src
+
+*** setup
+#+name:test-hand#setup
+#+BEGIN_SRC ruby :noweb yes
+  def setup
+    @ha = Card.new(Const::HEART, Const::ACE)
+    @sa = Card.new(Const::SPADE, Const::ACE)
+    @ca = Card.new(Const::CLUB, Const::ACE)
+    @sq = Card.new(Const::SPADE, Const::QUEEN)
+    @hq = Card.new(Const::HEART, Const::QUEEN)
+    @hand = Hand.new
+    @hand.putin(@ha)
+    @hand.putin(@sa)
+    @hand.putin(@ca)
+    @hand.putin(@sq)
+    @hand.putin(@hq)
+  end
+#+END_SRC
+
+*** test method
+#+name:test-hand#fullhouse
+#+BEGIN_SRC ruby :noweb yes
+
+  def test_fullhouse
+    assert_equal(:fullHouse, @hand.judge)
+  end
+#+END_SRC
+
+#+name:test-hand.rb
+#+begin_src ruby :tangle babel/test/test-hand.rb :noweb yes :mkdirp yes
+<<test-hand#opener>>
+<<test-hand#setup>>
+<<test-hand#fullhouse>>
+<<test-hand#closer>>
+#+end_src
+
+** hand.rb
+*** hand class の構造
+    
+#+name:hand#opener
+#+begin_src ruby  :noweb yes
+require 'card'
+
+module Poker
+
+  class Hand
+
+    PokerHands = [
+      :highCard, :onePair, :twoPairs, 
+      :threeCards, :straight, :flush, :fullHouse, :fourCards, :straightFlush
+    ]
+#+end_src
+#+name:hand#closer
+#+begin_src ruby  :noweb yes
+    
+  end
+end
+#+end_src
+
+*** initialize
+    
+#+name:hand#initialize
+#+begin_src ruby  :noweb yes
+
+    attr_reader :hand
+
+    def initialize
+      @hand = []
+    end
+#+end_src
+
+*** putin 手札にカードを入れる
+
+#+name:hand#putin
+#+begin_src ruby  :noweb yes
+
+    def putin(card)
+      @hand.push(card).sort!
+    end
+#+end_src
+
+*** rank 役の強さ
+
+#+name:hand#rank
+#+begin_src ruby  :noweb yes
+    
+    def rank
+      PokerHands.index(judge)
+    end
+#+end_src
+
+*** judge 役の判定
+
+#+name:hand#judge
+#+begin_src ruby  :noweb yes
+    
+    def judge
+      s = straight?
+      f = flush?
+      return :straightFlush if s && f 
+      return :straight if s 
+      return :flush if f 
+      return calc_pairs
+    end
+#+end_src
+
+**** calc_pairs ペアの計算
+
+#+name:hand#calc_pairs
+#+begin_src ruby  :noweb yes
+
+    def calc_pairs
+      p = 0
+      @hand.each { |a|
+        @hand.each { |b|
+          p = p+1 if a.no == b.no
+        }
+      }
+      case p 
+      when 5 then :highCard 
+      when 7 then :onePair 
+      when 9 then :twoPairs
+      when 11 then :threeCards
+      when 13 then :fullHouse 
+      when 17 then :fourCards 
+      end
+    end
+#+end_src
+
+**** straight?
+
+#+name:hand#straight?
+#+begin_src ruby  :noweb yes
+
+    def straight?
+      false
+    end
+#+end_src
+
+**** flush?
+
+#+name:hand#flush?
+#+begin_src ruby  :noweb yes
+
+    def flush?
+      false
+    end
+#+end_src
+
+**** hand.rb 全体
+
+#+name:hand.rb
+#+BEGIN_SRC ruby :noweb yes :tangle babel/src/hand.rb
+<<hand#opener>>
+<<hand#initialize>>
+<<hand#putin>>
+<<hand#rank>>
+<<hand#judge>>
+<<hand#calc_pairs>>
+<<hand#straight?>>
+<<hand#flush?>>
+<<hand#closer>>
+#+END_SRC

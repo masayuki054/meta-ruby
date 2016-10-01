@@ -1,0 +1,296 @@
+* pry
+** what is pry?
+
+- what :: irbの代替，デバッグ
+- links ::
+  - [[http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html][Rubyistよ、irbを捨ててPryを使おう - TIM Labs]]
+  - [[https://github.com/pry/pry/wiki][pry Wiki]]
+  - [[http://railscasts.com/episodes/280-pry-with-rails][#280 Pry with Rails - RailsCasts]]
+
+
+** Rubyistよ、irbを捨ててPryを使おう
+   http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html
+*** 起動
+
+: $ pry
+: [1] pry(main)>
+: [2] pry(main)> ->n{ i=0;j=1;n.times{j=i+i=j};i }.call(10)
+: => 55
+: [3] pry(main)> def foo
+: [3] pry(main)*   ^
+
+*** shellとの統合
+
+   Pryはshellと統合し、shellのコマンドをPryコンソール上で実行できます。
+   ただ、コマンドの前に'.'を付けて実行します。
+
+: [1] pry(main)> .ls
+: [2] pry(main)> .pwd
+: [3] pry(main)> .git log --pretty=oneline
+: [4] pry(main)> x = "class Hoge"
+: [5] pry(main)> .find . -name "*.rb" | xargs grep #{x}
+
+   組み込みコマンドのshell-modeを使うと、
+   - プロンプトにカレントディレクトリが表示され、
+   - tabキーでディレクトリ名を補完できるようになり、
+   - よりファイル操作が簡単になります。
+
+: [6] pry(main)> shell-mode
+: pry main:/Users/yoppi $ shell-mode
+: [8] pry(main)>
+
+   shell-modeを抜けるには、再度shell-modeコマンドを実行します。
+
+*** 組み込みコマンド
+
+: [1] pry(main)> help
+
+   以下に便利な組み込みコマンドの一部を紹介します。
+
+- hist :: Pryコンソールで評価した過去の式の一覧を確認できます
+- ls :: 現在のフレームで有効なオブジェクトを表示します。'デバッガとして使う'で詳しく紹介します
+- gem-install、gem-list ::  Pryコンソール上でgemをインストールしたり、gemの一覧を確認できます
+- gist-method :: gemのgistをさらにラップしたものが使えます
+- shell-mode :: Pryからシームレスにファイルにアクセスでき、Pryからファイルを操作したい場合はshell-modeになると便利です
+- ! :: Pryで評価しているフレームをリセットします
+- ri :: riコマンドをPry上で実行します
+- show-doc :: 対象メソッドのドキュメントを表示します
+- show-method :: 対象メソッドの実装表示します
+
+*** オブジェクトを調査する
+
+   Pry独自の概念として、オブジェクト間を移動できます。 デバッガのフレー
+   ムに似ています。 lsコマンドで現在のオブジェクトの一覧を表示し、cdコ
+   マンドでそのオブジェクトに移動できます。
+
+: [1] pry(main)> a = "foo"
+: [2] pry(main)> ls
+: locals: _  _dir_  _ex_  _file_  _in_  _out_  _pry_  a  version
+: [3] pry(main)> cd a
+: [4] pry("foo"):1> nesting
+: Nesting status:
+: --
+: 0. main (Pry top level)
+: 1. "foo"
+: [5] pry("foo"):1> ls
+: Comparable methods: < <= > >= between?
+: String methods: ... 
+: [6] pry("foo"):1> upcase
+: => "FOO"
+
+   深くネストしたオブジェクトの調査もcdして潜っていける
+
+*** 簡易デバッガとして使う
+
+   適当な箇所に次のコードを差し込みましょう。
+
+: binding.pry
+: binding.pry if expression
+
+  ここがブレークポイントになり、Pryコンソールが立ち上がりま
+  す。 
+
+  停止した時点で評価されたオブジェクトにアクセスできるので、デバッグを
+  自由に進められます。 ステップ実行したければ、binding.pryを停止させた
+  い箇所に埋め込みましょう。 
+
+  普通のRubyアプリケーションであれば、edit-methodコマンドで現在のメソッ
+  ド名を指定することでそのメソッドを編集でき、また、直接エディタで編集
+  した場合reload-methodで読み込みなおすとstep実行できます。
+
+** ドキュメントに素早く参照できる
+
+   show-method、stat等のコマンドが用意されています。 また、シェル経由で
+   riコマンドをそのまま使用できます。 VimやEmacs使い達は、それぞれのエ
+   ディタ上で素早くドキュメントを牽けるようにしているはずですが、irbで
+   作業しているときには牽けません。 Pryではこれらの組み込みコマンドが提
+   供されていることで、素早くドキュメントにアクセスできます
+
+: [1] pry(main)> ri Array#sample
+: [2] pry(main)> require 'pathname'
+: [3] pry(main)> show-doc Pathname#children
+
+
+*** gemやCの実装も読める
+
+   さて、Rubyのオブジェクトに対してメソッドを呼び出すわけですが、そのオ
+   ブジェクトがどう実装されているか気になるときがあります。 特に、gemラ
+   イブラリを使っているときに、APIがどんなことをしているのか素早く知り
+   たいわけです。
+
+: [4] pry(main)> require 'nokogiri'
+: [5] pry(main)> show-method Nokogiri::HTML::Document.parse
+: From: /Users/yoppi/opt/local/ruby/ruby-1.9.3-p0/lib/ruby/gems/1.9.1/gems/nokogiri-1.4.4/lib/nokogiri/html/document.rb @ line 64:
+: Number of lines: 22
+: Owner: #<Class:Nokogiri::HTML::Document>
+: Visibility: public
+: 
+: def parse string_or_io, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML
+: ...
+
+   また、Rubyの組み込みライブラリはCで実装されています。 よくRubyiest達
+   はCで実装しているコードを眺めて、実装を楽しんだり、もっと改善できる
+   ところはなかな? と考えるときがあります。 Pryなら簡単に該当する組み込
+   みライブラリのCのコードを読めます。 Cのコードを読むには、pry-docをイ
+   ンストールしておく必要があります。 たとえば、Array#sampleは同様に
+
+: [6] pry(main)> show-method Array#sample
+: static VALUE
+: rb_ary_sample(int argc, VALUE *argv, VALUE ary)
+: {
+:     VALUE nv, result, *ptr;
+:     long n, len, i, j, k, idx[10];
+: ...
+
+   と、show-methodコマンドで牽くだけです。 これでC実装を素早く読めるの
+   で今まで実装を読まなかった人も読むようになり、Rubyの開発も活発になり
+   そうです。 大変便利ですね。
+
+
+** https://github.com/pry/pry
+
+*** ls - change scope 
+
+ : ls [-m|-M|-p|-pM] [-q|-v] [-c|-i] [Object]
+ : ls [-g] [-l]
+
+ : -m, --methods        Show public methods defined on the Object (default)
+ : -M, --module         Show methods defined in a Module or Class
+ : -p, --ppp            Show public, protected (in yellow) and private (in green) methods
+ : -q, --quiet          Show only methods defined on object.singleton_class and object.class
+ : -v, --verbose        Show methods and constants on all super-classes (ignores Pry.config.ls.ceiling)
+ : -g, --globals        Show global variables, including those builtin to Ruby (in cyan)
+ : -l, --locals         Show locals, including those provided by Pry (in red)
+ : -c, --constants      Show constants, highlighting classes (in blue), and exceptions (in purple)
+ : -i, --ivars          Show instance variables (in blue) and class variables (in bright blue)
+ : -G, --grep           Filter output by regular expression
+ : -h, --help           Show help
+
+*** find-method
+*** nesting -- seeing the nested context
+*** jump-to
+ 
+*** switch-to
+
+
+** 今更聞けないpryの使い方と便利プラグイン集
+
+*** info
+
+    site: [[http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f][Ruby - 今更聞けないpryの使い方と便利プラグイン集 - Qiita]]
+
+    linked_from: [[http://qiita.com/tags/pry][pryに関する73件の投稿 - Qiita]]
+
+    - pryが何であるかが書かれていない
+
+      Ruby のデバッガ  
+
+    meta-ruby講義での，pryの実践的な紹介のため
+
+
+*** 最低限の使い方
+
+ まだpryを使ったことがない人はこれだけ知ってれば十分な気がする。
+
+**** binding.pryで任意の場所からREPLを立ち上げる
+
+
+ ソースの任意の箇所にbinding.pryを書いてRubyのプログラムを走らせると、実行中にその行でストップしてpryのREPLが立
+ ち上がり、その環境での変数がどうなっているかなどが参照できる。
+ アプリが原因不明のエラーを出している時、落ちている直前にbinding.pryを挟んで原因を調査したり、テストが落ちている原
+ 因の特定などに便利。
+
+*** pry標準の機能
+
+    pryの便利な機能をよく使いそうな順に紹介する。
+
+**** ?, show-doc, ri, $, show-method
+
+      ?やshow-docを使うとドキュメントやソースコードを見ることができる。
+
+      riはriコマンドを実行する。
+
+      $やshow-methodを使うとメソッドの定義を見ることができる。
+
+**** edit
+
+      今はまだどこにソースがあるかがわからないところにbinding.pryを貼りたいことがある。
+      editを使うとpryで定義場所を調べたあとエディタでそれを開くみたいなコストが減らせる。
+      あとは周辺をそのまま読みたいときにも便利。
+
+      エディタは$EDITORをいじるか.pryrcにPry.editor = 'vim'とか書けば変えられる。
+
+**** cd, ls, Tab補完
+
+ pryも普通のシェルと同じようにcd, lsやタブキーによる補完がある。
+ cdを使うとコンテキストを移動できる。上の画像ではmainからAcitveRecord::RelationやArelの内側に入っている。
+
+ lsは現在のコンテキストにおけるメソッドや変数の一覧が見れる。
+ メソッドの一覧だけ見たいときはls -m。ls --grepで絞込ができる。
+
+**** exit!, !!!, exit-program, disable-pry, edit -m
+
+ 何度も呼ばれるメソッドやループの内側にbinding.pryを書いて何度もブレークして困った事がある人は多いと思う。
+ 一番楽で乱暴な方法はexit!, !!!, exit-programでプロセスを終了してしまうことである。でもこれだと例えばrails s上でやると
+ rails sが落ちる。
+ disable-pryは以降pryが完全に無効になるのでプロセスは死なないけど、以降binding.pryが使えなくなる。
+
+ 多分一番健全な方法は、ちょっと面倒だけどedit -mで現在のメソッドからbinding.pryを取り除くことだと思う。
+
+**** .とshell-mode
+
+
+ 「.」で始めると以降をシェルのコマンド入力として受け付ける。画像のように#{}の式展開が使える。
+ shell-modeを使うとカレントディレクトリを表示してくれるのと、ファイル名補完が有効になる。
+
+**** help
+
+
+ 単にRubyの式を評価するだけでなく、pryには独自のコマンドが存在する。その全リストをhelpコマンドで確認することがで
+ きる。
+ セクションごとに分けて表示してくれるので、例えばpry-railsプラグイン特有の機能のリストを見たいときなどに役に立つ。
+
+ 各コマンドは-h(--help)をつけると使い方を見ることができる。
+ 余力がある人はhist, find-method, whereami(@), nesting あたりは見ておくと良いと思う。
+
+
+*** 便利なプラグイン ([[https://rubygems.org/search?utf8=%E2%9C%93&query=pry-][pry関連プラグイン]])
+
+    個人的には以下の3つだけ知ってれば十分だと思う
+
+**** pry-byebug
+
+ 古代のRuby向けに作られたpry-navとpry-debuggerの後継がpry-byebug。
+ ステップ実行など、デバッガとしてちゃんとpryを使いたい場合はこれが必要になる。
+
+ 以下のコマンドだけ覚えておけば良い。
+
+   コマンド  操作    
+   step  メソッドの内部に入る    
+   next  現在のメソッド内で1行進める    
+   finish  現在のメソッドを抜ける    
+   continue  デバッグを抜ける    
+
+**** pry-stack_explorer
+
+ show-stackしてスタックのリストを出しframe [数字]とやると任意のスタックにコンテキストを移動できる。
+
+**** pry-rails
+
+ rails cを置き換えるのがメインで、いくつかは機能がrake taskとかぶっている。
+ それでも一応使いそうなのを紹介しておく。
+
+******* show-routes
+
+ とにかく実行がめちゃくちゃ速い。spring rake routesより速いので良い。-G(--grep)で絞り込む。
+ 単にパスがどう引っかかるか調べたいときはrecognize-pathを使う。
+
+******* show-model, show-models
+
+ schema.rbとかを開かなくてもスキーマが確認できるので便利。
+ show-modelsを使うと全部表示される。
+
+******* reload!
+
+ rails cを再起動しなくて済む。
+

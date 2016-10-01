@@ -1,0 +1,184 @@
+- [[http://www.rubylife.jp/ini/][ruby入門]] [[file:ruby-note.org][ruby note]] [[http://docs.ruby-lang.org/ja/2.0.0/doc/index.html][リファレンスマニュアル]] 
+
+http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcall.html
+
+http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html
+
+* [[http://www.rubylife.jp/ini/method/][メソッド - Ruby入門]]
+
+** Rubyにおけるトップレベル 
+
+   http://www.rubylife.jp/ini/method/index1.html
+*** トップレベル 
+
+
+
+#+BEGIN_SRC ruby :session ruby :results output
+print("Hello¥n")
+'end'
+#+END_SRC
+
+    
+    クラス定義の外側の部分はトップレベルと呼ばれています。
+
+    ruby が実行されると, トップレベルに記述されたプログラムが順に実行
+    されて行きます。
+
+*** selfとmain
+
+#+BEGIN_SRC ruby :session ruby :results output
+self
+'end'
+#+END_SRC
+
+#+RESULTS:
+: main
+
+    では「main」と言うオブジェクトの元になっているクラスは何かを確認し
+    てみます。オブジェクトに対して「class」メソッドを実行するとそのオ
+    ブジェクトをのクラスを返します。
+
+#+BEGIN_SRC ruby :session ruby :results output
+self
+self.class
+'end'
+#+END_SRC
+
+#+RESULTS:
+: main
+: Object
+
+    「main」オブジェクトの元になっているクラスは「Object」クラスと表示
+    されます。
+
+*** トップレベルに定義されたメソッド
+
+
+    ップレベルの中にもメソッドを定義することが出来ます。
+
+    トップレベルに定義されたメソッドは*「Kernel」モジュール*の中に追加
+    されることになっています。
+
+   「Kernel」モジュールは全てのクラスの元になっている「Object」クラス
+   に読み込まれています。
+
+   その為、トップレベルに定義されたモジュールは、「Kernel」モジュール
+   の中で既に定義されている「print」メソッドなどと同じようにどのクラス
+   内からでも呼び出すことができます。
+
+   またメソッドを呼び出す際に、呼び出し元のオブジェクト(レシーバーと呼
+   ばれています)を省略できるので、あたかも関数のように使用することが可
+   能です。
+
+   よって特定のクラス内ではなくトップレベルの位置にメソッドを定義すれ
+   ば、関数のように使用できるメソッドを定義することが可能となります。
+
+
+** メソッドの定義と呼び出し 
+
+
+: def メソッド名(引数1, 引数2, ...)
+:  実行する処理
+:  実行する処理
+: end
+
+#+BEGIN_SRC ruby :session ruby :results output
+public
+(def printHello
+  print("Hello\n")
+end).class
+
+printHello
+self.printHello
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+: Object
+: Symbol
+: Hello
+: nil
+: Hello
+: nil
+
+
+** メソッドの呼び出し
+
+   定義されたメソッドを呼び出すと、処理がメソッド内に移りメソッド内に
+   記述された処理が実行されます。そしてメソッドの最後まで処理が終わる
+   と、メソッドを呼び出した次の行へ処理が戻ります。
+
+   メソッドを呼び出す時の書式は次の通りです。 
+
+
+   : オブジェクト.メソッド名(引数1, 引数2, ...)
+
+   メソッドはクラス内で定義され、そのクラスから作成されるオブジェクト
+   (レシーバーと呼ばれます)に対して行わせたい処理を記述するものです。
+   その為、メソッドを呼び出す時には対象となるオブジェクトと実行させる
+   メソッド名を指定して呼び出します。
+
+   
+   : メソッド名(引数1, 引数2, ...)
+
+   では定義されたメソッドを呼び出してみます。 
+
+
+*** メソッド定義の位置
+
+    メソッドは実際に呼び出されるよりも前に定義されていなければなりませ
+    ん。例えば次のようなプログラムはエラーとなります。
+
+    上記のようにメソッド呼び出しがメソッドの定義よりも前に実行されると
+    「undefined local variable or method」と言うエラーが表示されます。
+
+#+BEGIN_SRC ruby :session ruby :results output
+x
+'end'
+#+END_SRC
+
+#+RESULTS:
+: NameError: undefined local variable or method `x' for main:Object
+: 	from (irb):119
+: 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
+
+
+** 引数を付けたメソッド呼び出し 
+** 引数のデフォルト値 
+
+通常引数は呼び出し側とメソッド定義側で数が一致している必要がありますが、メソッ
+ド定義側では引数にデフォルト値を設定することが可能です。書式は次の通りです。 
+
+
+   : def メソッド名(変数1=デフォルト値1, 変数2=デフォルト値2, ...)
+   :   実行する処理
+   :   実行する処理
+   : end
+
+#+BEGIN_SRC ruby :session ruby :results output
+
+def printHello(msg="No msg", name="No name")
+  print(msg + "," + name + "¥n")
+end
+
+printHello("Hello", "Yamada")
+printHello("Hello")
+printHello()
+
+def printHello(msg, name="No name")
+  print(msg + "," + name + "¥n")
+end
+
+printHello("Hello", "Yamada")
+printHello("Hello")
+
+'end'
+
+#+END_SRC
+
+
+
+** 引数を配列として受け取る 
+** メソッドの戻り値 
+** 多重代入を使って複数の戻り値を取得 

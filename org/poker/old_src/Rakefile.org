@@ -1,0 +1,34 @@
+* test 用の Rakefile
+** rake 
+
+   [[http://docs.ruby-lang.org/ja/2.2.0/library/rake.html][library rake (Ruby 2.2.0)]] はビルドツール
+
+   Rakefile は，ruby で書ける Makefile
+   
+** Rakefile
+
+#+name:rakefile
+#+begin_src ruby :tangle Rakefile :noweb yes
+# coding:utf-8
+tests = ["test-card.rb", 
+         "test-deck.rb",
+         "test-hand.rb",
+        ]
+
+task :default => :test
+
+task :test do
+  tests.each do |test_file|
+    sh "ruby #{test_file}"
+  end
+end
+#+end_src
+
+#+BEGIN_SRC sh  :results output
+
+rake test
+
+#+END_SRC
+
+#+RESULTS:
+

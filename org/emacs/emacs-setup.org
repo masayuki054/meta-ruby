@@ -1,0 +1,566 @@
+# Time-stamp: <2015-11-02 10:25:08 m>
+#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
+#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
+
+#+title: emacs-setup
+
+* おしらせ
+
+** emacs-24.5 インストールしました。
+
+   [[emacs-24.5]] を見てください。
+
+** この文書について
+
+   - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]]))
+
+  emacs の設定の説明であり，設定を実行する emacs org-mode で書かれたス
+  クリプトでもあります。実行の様子をみるには emacs でみてください。
+
+** 初期化
+
+   以下は先生が実行する時に必要な初期化です。皆さんは，無視してくださ
+   い。
+   
+#+BEGIN_SRC sh :dir ~/ :results none :exports none
+mkdir -p ~/local/share/emacs/site-lisp/init_loader
+# rm -rf .emacs.d
+# mkdir .emacs.d
+#+END_SRC
+
+
+#+BEGIN_SRC sh :dir ~/local/share/emacs/site-lisp/ :exports none
+rm -f package-update.el
+rm -f init.el
+rm -f init_loader/*
+#+END_SRC
+
+
+* emacs
+** Done emacs-24.5 
+   CLOSED: [2015-11-02 月 09:02] SCHEDULED: <2015-10-28 水>
+
+   emacs-24.5 を ~suzuki/local/ にインストールしました。
+   - org-mode が 8系になっている。babel/tangle が改善されているような
+     気がします。
+   - emacs内で動く web ブラウザ eww が入っている。
+
+   コマンド PATH の設定は下記です:
+#+BEGIN_SRC sh
+export PATH=~suzuki/local/bin:$PATH 
+#+END_SRC   
+
+
+
+** Doing emacsのパッケージと設定
+   SCHEDULED: <2015-10-26 月>
+
+   emacs の設定などは，~suzuki/local/share/emacs/site-lisp/ に置きまし
+   た。 ~/.emacs.d/init.el に下記を追加してください:
+
+#+begin_src elisp :tangle ~/.emacs.d/init.el
+(load (expand-file-name "~suzuki/local/share/emacs/site-lisp/init.el"))
+#+end_src
+
+   ~suzuki/local/share/emacs/site-lispの下にあるファイルは:
+   - init.el :: パッケージの初期化と設定
+   - package-update.el :: 講義に必要なパッケージの更新
+   - init_loader/*.el :: パッケージ毎の設定
+
+   init.elの中身です:	
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init.el
+(load (expand-file-name "~suzuki/local/share/emacs/site-lisp/package-update.el"))
+(unless (package-installed-p 'init-loader)
+  (package-install 'init-loader))
+(require 'init-loader)
+(init-loader-load "~suzuki/local/share/emacs/site-lisp/init_loader")
+#+END_SRC
+
+* package
+
+** Done emacs package について
+   CLOSED: [2015-11-02 月 09:03]
+    [[http://emacs-jp.github.io/packages/package-management/package-el.html][package.el - Emacs JP]] のまとめ
+
+*** 設定
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
+
+(require 'package)
+
+;; MELPAを追加
+(add-to-list 'package-archives 
+	     '("melpa" . "http://melpa.org/packages/") t)
+
+;; MELPA-stableを追加
+(add-to-list 'package-archives
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+;; Marmaladeを追加
+(add-to-list 'package-archives  
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+;; Orgを追加
+(add-to-list 'package-archives 
+	     '("org" . "http://orgmode.org/elpa/") t)
+
+;; 初期化
+(package-initialize)
+#+END_SRC
+
+*** 利用方法
+
+    : M-x package-install
+
+    指定したパッケージをインストールする.
+
+    : M-x package-refresh-contents
+
+    パッケージ情報を更新する. 最新のものをインストールしたい場合は, 事
+    前に実行して置くと 良い. 後述の package-list-packagesからインストー
+    ルを行う場合は不要.
+
+    : M-x package-list-packages
+
+    パッケージ操作バッファを開く.
+
+*** 管理例
+    (package-installed-p package-name)で package-nameがインストール済み
+    で あるかを確認することができるので, package-installed-pが nilを返
+    すパッケージを インストールすれば, 同じ環境を構築することができる.
+
+    以下のようなファイルを用意し, M-x eval-bufferを実行することで, イン
+    ストールされて いないパッケージをインストールすることができる.
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
+;; パッケージ情報の更新
+(package-refresh-contents)
+
+;; インストールするパッケージ
+(defvar my/favorite-packages
+  '(
+    ;; for ruby
+    ruby-end
+    inf-ruby
+    ruby-mode
+
+    ;; for org-mode
+    htmlize
+    auto-complete
+    fuzzy
+    popup
+    robe
+    inf-ruby
+    rbenv
+    smart-newline
+
+    recentf
+    elscreen
+    ))
+
+;; my/favorite-packagesからインストールしていないパッケージをインストール
+
+(dolist (package my/favorite-packages)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+#+END_SRC
+
+
+package-installed-p関数はあくまでインストールしているかどうかを 知らせるだけなので, アップグレードできるかどうかを検知できるわけではない.
+
+*** 更新
+
+    package-list-packagesを実行し, U, xとすることで, インストール済みの パッ
+    ケージをすべて upgradeできる.
+
+
+** Todo emacsのruby環境をセットアップする
+   SCHEDULED: <2015-11-02 月>
+
+  http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/
+
+** ruby-mode,ruby-end,ruby-blockをインストール
+
+*** packages
+    - ruby-mode
+    - ruby-end
+    - ruby-block
+
+*** 設定
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+
+;; --------------------------------------------------
+;; ruby-mode
+;; http://shibayu36.hatenablog.com/entry/2013/03/18/192651
+;; --------------------------------------------------
+(autoload 'ruby-mode "ruby-mode"
+  "Mode for editing ruby source files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+;; shebangがrubyの場合、ruby-modeを開く
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode)) 
+
+;; ruby-modeのインデントを改良する
+(setq ruby-deep-indent-paren-style nil)
+(defadvice ruby-indent-line (after unindent-closing-paren activate)
+  (let ((column (current-column))
+        indent offset)
+    (save-excursion
+      (back-to-indentation)
+      (let ((state (syntax-ppss)))
+        (setq offset (- column (current-column)))
+        (when (and (eq (char-after) ?\))
+                   (not (zerop (car state))))
+          (goto-char (cadr state))
+          (setq indent (current-indentation)))))
+    (when indent
+      (indent-line-to indent)
+      (when (> offset 0) (forward-char offset)))))
+
+
+;; --------------------------------------------------
+;; ruby-end
+;; endや括弧などを自動挿入する
+;; http://blog.livedoor.jp/ooboofo3/archives/53748087.html
+;; --------------------------------------------------
+(require 'ruby-end)
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+    (abbrev-mode 1)
+    (electric-pair-mode t)
+    (electric-indent-mode t)
+    (electric-layout-mode t)))
+
+;; --------------------------------------------------
+;; ruby-block
+;; endにカーソルを合わせると、そのendに対応する行をハイライトする
+;; --------------------------------------------------
+(require 'ruby-block)
+(ruby-block-mode t)
+(setq ruby-block-highlight-toggle t)
+#+end_src
+
+** auto-completeのインストール
+
+*** packages
+   - auto-complete
+   - fuzzy
+   - popup
+
+*** 設定
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/02_auto-complete.el
+
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/.cask/24.3.1/elpa/auto-complete-20140824.1658/dict")
+(ac-config-default)
+(setq ac-use-menu-map t)
+#+END_SRC
+
+** robeのインストール
+
+*** pryのインストール
+#+BEGIN_SRC sh
+gem install pry pry-doc bundler
+source ~/.bashrc
+which pry
+#+END_SRC
+
+*** package
+    - robe
+    - inf-ruby
+
+*** 設定
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+
+;; --------------------------------------------------
+;; robe
+;; http://codeout.hatenablog.com/entry/2014/02/04/210237
+;; --------------------------------------------------
+(add-hook 'ruby-mode-hook 'robe-mode)
+(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+(autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
+(add-hook 'robe-mode-hook 'ac-robe-setup)
+#+END_SRC
+
+*** robeの起動方法
+
+   robeを利用するには、
+
+#+BEGIN_SRC emacs
+    M-x inf-ruby   ;; を実行し、裏でirb(pry)を起動させ、
+    M-x robe-start ;; で初めてrobeが使えるようになります。
+#+END_SRC
+
+** rbenvのパスを通す
+
+   Emacs の中で，rbenvのパスを通してくれます。
+
+*** package
+    - rbenv
+
+*** 設定
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+ (require 'rbenv)
+ (global-rbenv-mode)
+ (setq rbenv-installation-dir "~/.rbenv")
+#+END_SRC
+
+** smart-newlineを導入する
+
+   改行をよしなにやってくれます。素敵です。
+
+*** package
+    - smart-newline
+
+*** 設定
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+
+ (add-hook 'ruby-mode-hook
+   (lambda ()
+   (smart-newline-mode t)))
+
+#+END_SRC
+    
+
+** Todo emacsの org-mode 環境をセットアップする
+   SCHEDULED: <2015-11-02 月>
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/04_org.el
+(require 'org)
+(require 'org-compat)
+(require 'org-list)
+
+;; キーバインドの設定
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+
+;; 拡張子がorgのファイルを開いた時，自動的にorg-modeにする
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+;; org-modeでの強調表示を可能にする
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+
+;; 見出しの余分な*を消す
+(setq org-hide-leading-stars t)
+
+;; org-default-notes-fileのディレクトリ
+;;(setq org-directory "~/org/")
+
+;; org-default-notes-fileのファイル名
+;;(setq org-default-notes-file "notes.org")
+
+;; TODO状態
+(setq org-todo-keywords
+      '((sequence "Todo(t)" "Quest(?)" "Sched(@)" "Search(/)" "Doing(i)" "Waiting(w)" "|" "Done(d)" "Someday(s)" "Cancel(c)")))
+
+;; DONEの時刻を記録
+(setq org-log-done 'time)
+
+;; アジェンダ表示の対象ファイル
+(setq org-agenda-files (list org-directory))
+
+;; アジェンダ表示で下線を用いる
+(add-hook 'org-agenda-mode-hok '(lambda () (hl-line-mode 1)))
+(setq hl-line-face 'uderline)
+
+;; tags
+(setq org-tag-alist
+      '(;; where
+	("@UNIV" . ?u) ("@HOME" . ?h) 
+	;; do
+	("BUY" . ?b) ("MAIL". ?m) 
+	;; what to use
+	("PROJECT" . ?p) ("LECT" . ?l) ("SEMI" . ?z)))
+
+(defun org-insert-upheading (arg)
+  (interactive "p")
+  (org-insert-heading arg)
+  (cond ((org-on-heading-p) (org-do-promote))
+	((org-at-item-p) (org-indent-item -1))))
+
+(defun org-insert-heading-dwim (arg)
+  (interactive "p")
+  (case arg
+    (4 (org-insert-subheading nil))
+    (16 (org-insert-upheading nil))
+    (t (org-insert-heading nil))))
+
+(define-key org-mode-map
+  (kbd "<C-return>") 'org-insert-heading-dwim)
+
+;; latex export setting
+
+(setq org-export-latex-coding-system 'utf-8-unix)
+(setq org-export-latex-date-format "%Y-%m-%d")
+(setq org-export-latex-classes nil)
+(add-to-list 'org-export-latex-classes
+	     '("jarticle"
+	       "\\documentclass[a4j]{jarticle}"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+	       ))
+
+(add-to-list 'org-export-latex-classes
+	     '("article"
+	       "\\documentclass[a4j]{jarticle}"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+	       ))
+
+(setq org-export-latex-hyperref-format "\\ref{%s}")
+
+(setq org-beamer-sectioning
+      '(
+	("\\section{%s}" . "\\section*{%s}")
+	("\\subsection{%s}" . "\\subsection*{%s}")
+	("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	("\\paragraph{%s}" . "\\paragraph*{%s}")
+	("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-export-latex-classes
+	     `("beamer"
+	       "\\documentclass[compress,dvipdfm]{beamer}"
+	       ,@org-beamer-sectioning))
+
+
+(global-set-key "\C-c L" 'org-insert-link-global)
+(global-set-key "\C-c o" 'org-open-at-point-global)
+
+
+(require 'org-install)
+(setq org-startup-truncated nil)
+(setq org-return-follows-link t)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(setq org-directory "~/howm/org/")
+(setq org-default-notes-file (concat org-directory "CAPTURE.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry
+         (file+headline nil "Inbox")
+         "** TODO %?\n   %i\n   %a\n   %t")
+        ("b" "Bug" entry
+         (file+headline nil "Inbox")
+         "** TODO %?   :bug:\n   %i\n   %a\n   %t")
+        ("i" "Idea" entry
+         (file+headline nil "New Ideas")
+         "** %?\n   %i\n   %a\n   %t")))
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq org-capture-templates
+      '(("a" "ふつうのエントリー後に追加" entry
+	 (file+headline nil "entry")
+	 "* %?\n%U\n%a\n")
+	("b" "ふつうのエントリー前に追加" entry
+	 (file+headline nil "entry")
+	 "* %?\n%U\n%a\n" :prepend t)
+	("c" "即座に書き込み" entry
+	 (file+headline nil "entry")
+	 "* immediate-finish\n" :immediate-finish t)
+	("d" "ナローイングしない" entry
+	 (file+headline nil "entry")
+	 "* 全体を見る\n\n" :unnarrowed t)
+	("e" "クロック中のエントリに追加" entry (clock)
+	 "* clocking" :unnarrowed t)
+	("f" "リスト" item
+	 (file+headline nil "list")
+	 "- リスト")
+	;; うまく動かない
+	("g" "チェックリスト" checkitem
+	 (file+headline nil "list")
+	 "チェックリスト")
+	("h" "表の行" table-line
+	 (file+headline nil "table")
+	 "|表|")
+	("i" "そのまま" plain
+	 (file+headline nil "plain")
+	 "あいうえお")
+	("j" "ノードをフルパス指定して挿入" entry
+	 (file+olp nil "test" "entry")
+	 "* %?\n%U\n%a\n")
+	;; これもうまく動かない
+	("k" "ノードを正規表現指定して挿入" entry
+	 (file+regexp nil "list")
+	 "* %?\n%U\n%a\n")
+	;; 年月日エントリは追記される
+	("l" "年/月/日のエントリを作成する1" entry
+	 (file+datetree nil))
+	("m" "年/月/日のエントリを作成する2" item
+	 (file+datetree nil))
+	("o" "年/月/日のエントリを作成する prepend" entry
+	 (file+datetree nil) "* a" :prepend t)))
+
+
+;; (require 'ox-freemind)
+
+(defun org-font-lock-ensure ()
+  (font-lock-fontify-buffer))
+
+;;(setq org-doing-file "~/howm/org/doing.org")
+
+;; babel, makefile 中のtabをexpandしないように
+(setq org-src-preserve-indentation t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (emacs-lisp . t)
+   (ruby . t)
+   (dot . t)
+   (ditaa . t)
+   (sh . t)))
+
+; Enable literal links 
+(defun org-turn-on-literal-links ()
+  "enable literal links."
+  (interactive)
+  (org-remove-from-invisibility-spec '(org-link))
+  (org-restart-font-lock))
+
+(defun org-turn-off-literal-links ()
+  "disable literal links."
+  (interactive)
+  (setq buffer-invisibility-spec
+	(cons '(org-link) buffer-invisibility-spec))
+  (org-restart-font-lock))
+
+;; (add-hook 'org-mode-hook 'org-turn-on-literal-links)
+
+#+END_SRC
+
+
+* おまけ
+
+** recentf
+
+   ~/.emacs.d/.recentf に最近使ったfile一覧を保存し、
+   M-x recentf-open-file で使う
+   
+   helm と組合せると検索もできて便利
+
+#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/10_recentf.el
+;; recentf and recentf-ext.el
+;; http://keisanbutsuriya.hateblo.jp/entry/2015/02/15/174758
+
+(require 'recentf)
+(setq recentf-save-file (expand-file-name "~/.emacs.d/.recentf"))
+(setq recentf-max-saved-items 100)            ;; recentf に保存するファイルの数
+(setq recentf-exclude '(".recentf"))           ;; .recentf自体は含まない
+(setq recentf-auto-cleanup 10)                 ;; 保存する内容を整理
+(run-with-idle-timer 30 t 'recentf-save-list)  ;; 30秒
+(recentf-mode 1)
+#+END_SRC   
+
+
+** その他
+
+

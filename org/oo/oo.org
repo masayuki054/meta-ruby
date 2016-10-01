@@ -1,0 +1,7 @@
+#+title: オブジェクト指向
+#+SETUPFILE: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
+#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
+
+#+include: to_oo.org :minlevel 1
+
+

@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>ruby-note-class</title>
+<!-- 2016-02-07 日 14:51 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="m" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">ruby-note-class</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. クラスとは</a>
+<ul>
+<li><a href="#sec-1-1">1.1. クラスとオブジェクト</a></li>
+<li><a href="#sec-1-2">1.2. class Car &#x2026; end</a></li>
+<li><a href="#sec-1-3">1.3. インスタンスメソッド</a></li>
+<li><a href="#sec-1-4">1.4. 継承</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> クラスとは</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> クラスとオブジェクト</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><b>クラス*は *オブジェクト</b> の設計図です。
+</li>
+
+<li>オブジェクトはクラスから生まれる
+<ul class="org-ul">
+<li>具体化 (instantiate)
+</li>
+<li>オブジェクトはクラスの <b>インスタンス</b> (instance)
+</li>
+</ul>
+</li>
+
+<li>オブジェクトの処理を記述するのが*メソッド*
+<ul class="org-ul">
+<li>クラス定義の中に記述する.
+</li>
+</ul>
+</li>
+
+<li>オブジェクト <b>毎</b> の状態を保持するのが <b>インスタンス変数</b>
+</li>
+
+<li>(instance) メソッドの実行
+</li>
+<li>自分の状態 (instance)
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> class Car &#x2026; end</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+class は Carクラスから生まれるオブジェクトの振舞を記述する。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Car
+  def initialize(carname)
+    @name = carname
+  end
+
+  def dispName
+    print(@name)
+  end
+end
+
+car = Car.new("crown")
+car.dispName
+'end'
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li>「車」の設計図であるクラスを定義し、
+
+<p>
+： class Car &#x2026; end
+</p>
+</li>
+
+<li>クラスからオブジェクトを作成した後で、
+
+<pre class="example">
+car = Car.new
+</pre>
+</li>
+
+<li>オブジェクトに対して名前を画面に出力させる
+
+<pre class="example">
+car.dispName
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> インスタンスメソッド</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+クラス内に記述されたメソッドはクラスから作成されたオブジェクトしか
+呼び出すことが出来ません。このようなメソッドを <b>インスタンスメソッ
+ド</b> と呼びます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class クラス名
+
+  def メソッド名(引数1, 引数2, ...)
+    処理
+  end
+
+end
+'end'
+</pre>
+</div>
+
+<p>
+例えばクラス名について表示するだけの簡単なインスタンスメソッドは次のようになり
+ます。 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Car
+  def dispString(str)
+    print(str, "¥n")
+  end
+end
+'end'
+</pre>
+</div>
+
+<p>
+なお、引数が無いメソッドの場合は括弧を省略しても構いません。 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Car
+  def dispClassname
+    print("Car class¥n")
+  end
+
+  def dispString(str, "¥n")
+    print(str)
+  end
+end
+'end'
+</pre>
+</div>
+
+<p>
+インスタンスメソッドの呼び出し
+</p>
+
+<p>
+定義されたインスタンスメソッドはクラスのオブジェクトから呼び出すことができます。
+</p>
+
+
+<p>
+class Car
+  def dispClassname
+    print("Car class¥n")
+  end
+</p>
+
+<p>
+  def dispString(str, "¥n")
+    print(str)
+  end
+end
+</p>
+
+<p>
+car = Car.new
+car.dispClassname
+car.dispString("crown")
+</p>
+
+<p>
+オブジェクトからメソッドを呼び出すにはオブジェクトの後にドット「.」を付けてメ
+ソッドを名を記述します。引数がある場合は括弧の後に引数をカンマで列挙して記述し
+て下さい。引数が無い場合はメソッド名だけで結構です。 
+</p>
+
+
+<p>
+オブジェクト名.メソッド名(引数1, 引数2, &#x2026;)
+オブジェクト名.メソッド名
+</p>
+
+<p>
+またドット「.」の代わりにコロン(:)を2つ続けて次のように記述することも出来ます。
+</p>
+
+
+<p>
+オブジェクト名::メソッド名(引数1, 引数2, &#x2026;)
+オブジェクト名::メソッド名
+</p>
+
+<p>
+どちらの形式も違いはありませんので、どちらかに統一して利用すればいいと思います。
+</p>
+
+<p>
+オブジェクトを作成する為に使用した「new」メソッドはクラスに対して実行しました。
+例えば「Car.new()」のようにです。このようなメソッドはクラスに対して実行するク
+ラスメソッドと呼ばされます。今回のようにクラス内に定義したインスタンスメソッド
+はクラスから作成したオブジェクトに対して実行する点が異なっていることに注意して
+下さい。 
+</p>
+
+<p>
+サンプルプログラム
+</p>
+
+<p>
+では実際に試してみます。 
+</p>
+
+<p>
+ClassTest3.rb 
+</p>
+
+
+<p>
+class Car
+  def dispClassname
+    print("Car class¥n")
+  end
+</p>
+
+<p>
+  def dispString(str)
+    print(str, "¥n")
+  end
+end
+</p>
+
+<p>
+car = Car.new()
+car.dispClassname
+car.dispString("crown")
+</p>
+
+<p>
+上記を実行すると次のように表示されます。 
+</p>
+
+<p>
+インスタンスメソッド 
+</p>
+
+<p>
+今回は2つのインスタンスメソッドを定義し、クラスから作成したオブジェクトに対し
+てメソッドを実行してみました。 
+</p>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Reji
+  SHOUHIZEI = 0.05
+
+  def initialize(init=0)
+    @sum = init
+  end
+
+  def kounyuu(kingaku)
+    @sum += kingaku
+  end
+
+  def goukei()
+    return @sum * (1 + SHOUHIZEI)
+  end
+end
+'end'
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">reji = Reji.new(0)
+reji.kounyuu(100)
+reji.kounyuu(80)
+print(reji.goukei())
+
+'end'
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">SHOUHIZEI
+class \Reji
+print SHOUHIZEI
+end
+Reji::SHOUHIZEI
+'end'
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 継承</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Car
+  def accele
+    print("アクセルを踏みました")
+  end
+
+  def brake
+    print("ブレーキを踏みました")
+  end
+end
+'end'
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">a = Car.new("abc")
+a.brake
+'end'
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Soarer &lt; Car
+  def initialize(name,type)
+     @type = type
+     super(name)
+  end
+  def openroof
+    print("open roof\n");
+  end
+end
+
+class Crown &lt; Car
+  def reclining
+    print("reclining")
+  end
+end
+
+'end'
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">so = Soarer.new("soarer")
+cr = Crown.new("crwon")
+
+so.class
+(so.class).superclass
+
+so.dispName
+'end'
+</pre>
+</div>
+<p>
+\
+</p>
+<pre class="example">
+#&lt;Soarer:0x007fb02b61d888 @name="soarer"&gt;
+#&lt;Crown:0x007fb02b616ec0 @name="crwon"&gt;
+Soarer
+Car
+soarernil
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: m</p>
+<p class="date">Created: 2016-02-07 日 14:51</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+#+name:const#opener
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+module Poker
+  
+  class Const
+#+END_SRC
+
+#+name:const#suit
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    SuitSyms = [:CLUB, :DIAMOND, :HEART, :SPADE]
+    SuitChars = ['C', 'D', 'H', 'S']
+    SuitOrder = []
+    SuitSyms.each_index do |i| 
+      SuitOrder << const_set(SuitSyms[i], i)
+    end
+#+END_SRC
+
+#+name:const#no
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    NoSyms = [:TWO, :THREE, :FOUR, :FIVE, :SIX, :SEVEN, :EIGHT, :NINE, :TEN,
+              :JACK, :QUEEN, :KING, :ACE]
+    NoChars = ['2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A']
+    NoOrder = []
+    NoSyms.each_index do |i| 
+      NoOrder << const_set(NoSyms[i], i)
+    end
+#+END_SRC
+
+#+name:const#no_of_cards
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    No_of_Cards = SuitOrder.size*NoOrder.size
+
+#+END_SRC
+
+#+name:const#closer
+#+BEGIN_SRC ruby :exports none :noweb yes 
+    
+  end
+end
+#+END_SRC
+
+
+#+BEGIN_SRC ruby :tangle constant.rb :noweb yes
+
+<<const#opener>>
+<<const#suit>>
+<<const#no>>
+<<const#no_of_cards>>
+<<const#closer>>
+
+#+END_SRC

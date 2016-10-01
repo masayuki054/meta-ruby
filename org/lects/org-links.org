@@ -1,0 +1,44 @@
+* ~suzuki/Lects.org
+Emacs (org-mode) で読むために org-link を置きます。
+
+* MetaProgramming Site
+** サイト
+   - file://~suzuki/COMM/Lects/meta-ruby/site の下がサイト全体
+     - lect file://~suzuki/COMM/Lects/meta-ruby/site/lects/14/plan.org 
+       - note file://~suzuki/COMM/Lects/meta-ruby/site/lects/note/ 
+       - poker file://~suzuki/COMM/Lects/meta-ruby/site/lects/poker/
+     - org-docs file://~suzuki/COMM/Lects/meta-ruby/site/org-docs
+
+** source code
+   - file://~suzuki/COMM/Prog/ruby/meta の下のディレクトリにコード
+   - file://~suzuki/COMM/Lects/meta-ruby/site/code の下にもコード
+   - file://~suzuki/COMM/Lects/meta-ruby/site/book 
+
+** meta-ruby <2016-02-09 月>
+
+   - 2/8 のまとめ
+     [[file:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note-meta.org::*2016.02.09%20%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF][2016.02.09 ブロック]]
+
+   - 2/15 の講義内容
+     [[file:~/COMM/Lects/meta-ruby/site/lects/15/plan.org]]
+
+*** 2/1 のまとめ
+    [[file:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note-meta.org::*2016.02.01%20method][2016.02.01 method]]
+
+*** 2/8 の講義内容
+    [[file:~/COMM/Lects/meta-ruby/site/lects/14/plan.org]]
+
+*** sqlite example
+    [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-sqlite.org]]
+
+*** block
+    [[file:~suzuki/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/block.org]]
+
+*** sinatra と org-ruby example
+    [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org]]  
+
+*** OO-sucks? へのコメント
+   [[file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/oo-note-oo-sucks.org]]
+   考え始めた。
+
+

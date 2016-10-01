@@ -1,0 +1,45 @@
+* emacs/org-mode/ruby のこと
+** ソースコードをファイルへ書き出す
+
+   org-mode での書き方
+
+#+BEGIN_EXAMPLE
+,#+BEGIN_SRC ruby :tangle example/test_card.rb :mkdirp yes
+# example/test_card.rb
+require 'rubygems'
+require 'test/unit'
+'end'
+,#+END_SRC
+#+END_EXAMPLE
+
+    Emacs コマンド
+    : C-C C-v C-t
+
+#+BEGIN_SRC ruby :tangle example/test_card.rb :mkdirp yes :
+# example/test_card.rb
+require 'rubygems'
+require 'test/unit'
+end'
+#+END_SRC
+
+
+*** ob-shell 
+
+**** ob-sh.el ソースコード
+     
+     [[https://github.com/tkf/org-mode/blob/master/lisp/ob-sh.el][org-mode/ob-sh.el at master · tkf/org-mode]]
+
+***** sh の shell 指定
+
+#+BEGIN_SRC elisp
+(defvar org-babel-sh-command "sh"
+  "Command used to invoke a shell.
+This will be passed to  `shell-command-on-region'")
+
+#+END_SRC
+
+***** sh-ブロックの ruby が ~/.rbenv/shims/ruby ではない時
+
+      ~/.rbevn/shims/ruby が動かないときは，
+      sh-ブロックに :session を指定して，
+      動かして，シェルバッファに移動して，

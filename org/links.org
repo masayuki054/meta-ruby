@@ -1,0 +1,17 @@
+* .links
+** meta-ruby
+
+   - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby][コンピュータ科学特論Iサイト]] self
+
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~wiki/meta-ruby.cgi][講義用Wiki]] .wiki
+
+   - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects][コンピュータ科学特論Iー講義ノート・メモ]] .lect
+     : ~suzuki/lects/meta-ruby/site/docs/lects/     
+
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/meta-ruby][教科書のまとめ]] .text
+     : path: ~suzuki/lects/meta-ruby/site/org-docs/meta-ruby/
+
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs][関連のドキュメント]] .docs
+     : path: ~suzuki/lects/meta-ruby/site/org-docs/
+
+     

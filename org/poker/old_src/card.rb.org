@@ -1,0 +1,59 @@
+#+name:card#opener
+#+BEGIN_SRC ruby :exports none :noweb yes 
+require 'constant'
+
+module Poker
+
+  class Card 
+#+END_SRC
+
+#+name:card#initialize
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    attr_reader :suit, :no
+
+    def initialize(suit, no)
+      no = 14 if no==1
+      @suit = suit
+      @no = no
+    end
+#+END_SRC
+
+#+name:card#compare
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def <=> (another)
+      return 1 if @no > another.no
+      return -1 if @no < another.no
+      return 1 if @suit > another.suit
+      return -1 if @suit < another.suit
+      return 0
+    end
+
+    alias :compare :<=>
+#+END_SRC
+
+#+name:card#to_s
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def to_s
+      (Const::SuitChars[@suit])+(Const::NoChars[@no])
+    end
+
+#+END_SRC
+
+#+name:card#closer
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+  end
+end
+#+END_SRC
+
+#+name: card.rb
+#+BEGIN_SRC ruby :tangle card.rb :noweb yes
+<<card#opener>>
+<<card#initialize>>
+<<card#compare>>
+<<card#to_s>>
+<<card#closer>>
+#+END_SRC

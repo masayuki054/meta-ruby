@@ -1,0 +1,14 @@
+* .org-docs
+
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/meta-ruby][教科書のまとめ]] meta programmin ruby
+     : path: ~suzuki/lects/meta-ruby/site/org-docs/meta-ruby/
+
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs][関連のドキュメント]]
+     : path: ~suzuki/lects/meta-ruby/site/org-docs/
+
+   - 教科書中のコード
+     : path: ~suzuki/lects/meta-ruby/codes/
+
+   - オブジェクト指向へ至る道
+     : path: ~suzuki/lects/meta-ruby/org-docs/oo.org
+

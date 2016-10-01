@@ -1,0 +1,54 @@
+#+BEGIN_SRC ruby :session session :results output
+"string"
+String.new('にほんご')
+'にほんご'.length
+('string'+'にほんご').length
+'string'+'にほんご'
+
+x = "XXX"
+'sting = #{x}'
+"sting = #{x}" # プログラムの埋め込み
+print "string = #{x}\n"
+"string".sub("ring","RING") 
+"string".gsub(/[ri]/, '') # /正規表現/
+'end'
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+"string"
+"にほんご"
+4
+10
+"stringにほんご"
+"XXX"
+"sting = \#{x}"
+"sting = XXX"
+\string = XXX
+nil
+"stRING"
+"stng"
+#+end_example
+
+
+#+BEGIN_SRC ruby :session session :results output
+
+i = 1
+i = "abc"
+C = 1
+C = "abcd"
+$i = 1
+
+'end'
+
+#+END_SRC
+
+#+RESULTS:
+: 1
+: "abc"
+: 1
+: (irb):203: warning: already initialized constant C
+: (irb):202: warning: previous definition of C was here
+: "abcd"
+

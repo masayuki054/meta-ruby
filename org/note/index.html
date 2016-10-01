@@ -1,0 +1,2213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<title>メタプログラミング Ruby 講義ノート・メモ</title>
+<!-- 2016-02-15 月 09:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">メタプログラミング Ruby 講義ノート・メモ</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">オブジェクト指向へ至る道のノート</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-1-0-1">Done ソフトウェア危機</a></li>
+<li><a href="#sec-1-0-2">Done 構造化プログラミング</a></li>
+<li><a href="#sec-1-0-3">Done モジュラプログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-1-0-3-0-1">凝集度と結合度</a></li>
+<li><a href="#sec-1-0-3-0-2">悪い結合、良い結合</a></li>
+<li><a href="#sec-1-0-3-0-3">悪い凝集、良い凝集</a></li>
+<li><a href="#sec-1-0-3-0-4">状態と副作用の支配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-0-4">Done 抽象データ型</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-1-0-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-1">Done オブジェクト指向?</a></li>
+<li><a href="#sec-1-2">Done Simula &amp; C++のオブジェクト指向</a>
+<ul>
+<li><a href="#sec-1-2-1">どの処理を呼び出すか決めるメカニズム</a>
+<ul>
+<li><a href="#sec-1-2-1-1">動的ディスパッチ</a></li>
+<li><a href="#sec-1-2-1-2">継承と委譲</a>
+<ul>
+<li><a href="#sec-1-2-1-2-1">継承</a></li>
+<li><a href="#sec-1-2-1-2-2">委譲</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-2-2">オブジェクト指向の要素</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">Done Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<ul>
+<li><a href="#sec-1-3-1">仮想機械としてのオブジェクト</a></li>
+<li><a href="#sec-1-3-2">メッセージング</a>
+<ul>
+<li><a href="#sec-1-3-2-1">動的な送信</a></li>
+<li><a href="#sec-1-3-2-2">メッセージ転送  (Wikipedia)</a></li>
+<li><a href="#sec-1-3-2-3">非同期送信</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-3">オブジェクト指向という言葉が意味していること</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">オブジェクト指向はクソか</a>
+<ul>
+<li><a href="#sec-2-1">Joe Armstrongのオブジェクト指向はクソだ！</a>
+<ul>
+<li><a href="#sec-2-1-1">オブジェクト指向が"Suck"である理由</a>
+<ul>
+<li><a href="#sec-2-1-1-1">反論その１</a></li>
+<li><a href="#sec-2-1-1-2">反論その２</a></li>
+<li><a href="#sec-2-1-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</a></li>
+<li><a href="#sec-2-1-1-4">反論その４</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-1-2">オブジェクトが広まった理由</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">ruby のノート</a></li>
+<li><a href="#sec-4">emacs のノート</a>
+<ul>
+<li><a href="#sec-4-1">emacs</a></li>
+<li><a href="#sec-4-2">C-x r コマンド レジスタ関連</a></li>
+<li><a href="#sec-4-3">Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</a></li>
+<li><a href="#sec-4-4">Emacs での テキストブラウザ eww を使えるレベルにする</a></li>
+<li><a href="#sec-4-5">eww-mode (eww.el) binding</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">org-mode のノート</a>
+<ul>
+<li><a href="#sec-5-1">org文書の構造</a>
+<ul>
+<li><a href="#sec-5-1-1">文章の構造</a></li>
+<li><a href="#sec-5-1-2">ruby ソースコードの埋め込み方</a></li>
+<li><a href="#sec-5-1-3">ruby ソースコードのedit</a></li>
+<li><a href="#sec-5-1-4">ruby ソースコードの実行方法</a></li>
+<li><a href="#sec-5-1-5">ruby ソースコードの export</a></li>
+<li><a href="#sec-5-1-6">ruby ソースコードの extract</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6">memo</a>
+<ul>
+<li><a href="#sec-6-1">memo</a>
+<ul>
+<li><a href="#sec-6-1-1">Doing test-unit</a></li>
+<li><a href="#sec-6-1-2">Doing poker.org</a></li>
+<li><a href="#sec-6-1-3">global</a></li>
+<li><a href="#sec-6-1-4">ソースコード解説</a></li>
+<li><a href="#sec-6-1-5">ソースコード pry-doc</a></li>
+<li><a href="#sec-6-1-6">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</a></li>
+<li><a href="#sec-6-1-7">gem install spreadsheet for meta-ruby</a></li>
+<li><a href="#sec-6-1-8">meta-ruby 講義内容</a></li>
+<li><a href="#sec-6-1-9">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
+<ul>
+<li><a href="#sec-6-1-9-1">why</a></li>
+<li><a href="#sec-6-1-9-2">how</a></li>
+<li><a href="#sec-6-1-9-3">script</a></li>
+<li><a href="#sec-6-1-9-4">working directory</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-1-10">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
+<ul>
+<li><a href="#sec-6-1-10-1">tangle を make できるように</a>
+<ul>
+<li><a href="#sec-6-1-10-1-1">ruby gem org-converge 中の org-tangle</a></li>
+<li><a href="#sec-6-1-10-1-2">シェルコマンド化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6-1-11">new org-mode babel-include を展開する</a></li>
+<li><a href="#sec-6-1-12">ruby 日本語</a></li>
+<li><a href="#sec-6-1-13">ruby入門のサイトを変更したい</a></li>
+<li><a href="#sec-6-1-14">org babelを調べる</a></li>
+<li><a href="#sec-6-1-15">meta-ruby</a></li>
+<li><a href="#sec-6-1-16">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</a></li>
+<li><a href="#sec-6-1-17">ob-ruby</a></li>
+<li><a href="#sec-6-1-18">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</a></li>
+<li><a href="#sec-6-1-19">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</a></li>
+<li><a href="#sec-6-1-20">emacs-24.5 for @cis.iwate-u.ac.jp</a></li>
+<li><a href="#sec-6-1-21">~/bin/org2html index.org</a></li>
+<li><a href="#sec-6-1-22">Todo ditaa@github install後，ditaa.jar が見つからない</a></li>
+<li><a href="#sec-6-1-23">log new_file  graphviz</a></li>
+<li><a href="#sec-6-1-24">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</a></li>
+<li><a href="#sec-6-1-25">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></a></li>
+<li><a href="#sec-6-1-26">org2HTMLの自動化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">オブジェクト指向へ至る道のノート</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-0-1" class="outline-4">
+<h4 id="sec-1-0-1">Done ソフトウェア危機</h4>
+<div class="outline-text-4" id="text-1-0-1">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> 
+</p>
+
+<p>
+コンピュータが進歩するにつれて、
+より複雑なソフトウェアが求められ始める
+その複雑さをコントロールするための道具やアイデアが不足
+</p>
+
+<p>
+プロジェクト管理手法もなければ、
+抽象度の低いデータ型，変数，制御構造
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-2" class="outline-4">
+<h4 id="sec-1-0-2">Done 構造化プログラミング</h4>
+<div class="outline-text-4" id="text-1-0-2">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
+</p>
+
+<p>
+つまり、現代風に言い換えると「レイヤリングアーキテクチャ」のよう
+なもので、ある土台の上にさらに抽象化した土台をおき、その上にさら
+に・・・というようにプログラムをくみ上げていく考え方のことだ。
+</p>
+
+<p>
+だから、我々は、ひとつのアーキテクチャないし関数の中で異なる抽象
+化レイヤの実装を同居することをさける。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-3" class="outline-4">
+<h4 id="sec-1-0-3">Done モジュラプログラミング</h4>
+<div class="outline-text-4" id="text-1-0-3">
+<p>
+大きく複雑になるプログラムの分割
+</p>
+</div>
+
+<div id="outline-container-sec-1-0-3-0-1" class="outline-6">
+<h6 id="sec-1-0-3-0-1">凝集度と結合度</h6>
+<div class="outline-text-6" id="text-1-0-3-0-1">
+<p>
+結合度：よいコラボレーションとわるいコラボレーションを定義した
+<a href="http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6">http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6</a>
+</p>
+
+<p>
+凝集度：よい機能群のまとめ方とわるい機能のまとめ方を定義した
+<a href="http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6">http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6</a>
+</p>
+
+<p>
+これらは「関心の分離」を行うためにどのようにするべきかという指針でもあった。
+<a href="http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2">http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2</a>
+</p>
+
+<p>
+この「関心」とはそのモジュールの「責任」「責務」と言い換えてもい
+いかもしれない。この責任とモジュールが一致した状態にできるとその
+モジュールは凝集度が高く、結合度を低くすることができる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-3-0-2" class="outline-6">
+<h6 id="sec-1-0-3-0-2">悪い結合、良い結合</h6>
+<div class="outline-text-6" id="text-1-0-3-0-2">
+<p>
+悪い結合としては、あるモジュールが依存しているモジュールの内部デー
+タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
+合）をお互いに参照していたりというようなつながり方だ。
+</p>
+
+<p>
+こうなってしまうとモジュールは自分の足でたっていられなくなる。つ
+まり、片方を修正するともう片方も修正せざるをえなくなったり、予想
+外の動作を強いられることになる。
+</p>
+
+<p>
+逆に良い結合としては、定められたデータの受け渡し(データ結合)やメッ
+セージの送信（メッセージ結合）のように内部構造に依存せず、情報の
+やり取りが明示的になっている状態を言う。
+</p>
+
+<p>
+これはまさにカプセル化とメッセージパッシングのことだよね、と思っ
+た方は正しい。オブジェクト指向は良い結合を導くために考えだされた
+のだから。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-3-0-3" class="outline-6">
+<h6 id="sec-1-0-3-0-3">悪い凝集、良い凝集</h6>
+<div class="outline-text-6" id="text-1-0-3-0-3">
+<p>
+凝集度が低い状態とは，つまり悪い凝集とは，何か，
+</p>
+
+<dl class="org-dl">
+<dt> 暗合的凝集 </dt><dd>アトランダムに選んできた処理を集めたモジュールは
+悪い。何を根拠に集めたのかわからないものも悪い凝集だ。
+</dd>
+
+<dt> 論理的凝集 </dt><dd>論理的に似ている処理だからという理由だけで集めて
+はいけない。
+</dd>
+
+<dt> 時間的凝集 </dt><dd>他にも同じようなタイミングで実施されるからといっ
+て、モジュール化するのもの問題がある。たとえば、
+initという関数の中ですべてのデータ構造の初期化を
+するイメージをしてほしい。
+</dd>
+</dl>
+
+<p>
+一方、良い凝集とはなんなのか、それは
+</p>
+
+<dl class="org-dl">
+<dt> 通信的凝集 </dt><dd>とあるデータに触れる処理をまとめることであるとか、
+</dd>
+
+<dt> 情報的凝集 </dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
+にすること。
+</dd>
+
+<dt> 機能的凝集 </dt><dd>それによって、ひとつのうまく定義されたタスクをこ
+なせるように集めることである。
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-3-0-4" class="outline-6">
+<h6 id="sec-1-0-3-0-4">状態と副作用の支配</h6>
+<div class="outline-text-6" id="text-1-0-3-0-4">
+<p>
+よいモジュール分割とはなにか
+</p>
+
+<ul class="org-ul">
+<li>それは、処理とそれに関連するデータの関係性を明らかにして支配し
+ていくことの重要性だ。
+
+<p>
+できれば、完全にデータの存在を隠蔽できてしまえると良いが、現実
+のプログラムではそうは行かない場合も多い。
+</p>
+</li>
+</ul>
+
+<p>
+こういった実務プログラミングの中で何が難しいかというと、それが状
+態と副作用を持つことだ。
+</p>
+
+<p>
+オブジェクト指向に至るモジュラプログラミングは、こういった状態や
+副作用に対して，積極的に命名，可視化，粗結合化をしていくことで
+「関心の分離」を実現しようとした。
+</p>
+
+<p>
+たとえば、現在でもC言語のプロジェクトなどでは，構造体とそれを引
+数とする関数群ごとにモジュールを分割し，大規模なプログラミングを
+行っている。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-4" class="outline-4">
+<h4 id="sec-1-0-4">Done 抽象データ型</h4>
+<div class="outline-text-4" id="text-1-0-4">
+<p>
+よいモジュール化の肝
+</p>
+<ul class="org-ul">
+<li>状態と副作用を隠蔽し、
+</li>
+<li>データとアルゴリズムをひとまとめにする
+</li>
+</ul>
+
+<p>
+それらを言語的に支援するために抽象データ型という概念が誕生した。
+</p>
+
+<p>
+抽象データ型は、今で言うクラス
+</p>
+<ul class="org-ul">
+<li>すなわちデータとそれに関連する処理をひとまとめにしたデータ型のこ
+とだ。
+</li>
+
+<li>抽象データ型のポイントは、その内部データへのアクセスを抽象データ
+型にひもづいた関数でしか操作することができないという考え方だ。
+</li>
+</ul>
+
+
+<p>
+内部構造を隠し，型とインタフェースを公開する。
+</p>
+
+<ul class="org-ul">
+<li>公開するヘッダと非公開のヘッダを分けることで、情報の隠蔽を行い抽象
+データ型としての役目を成り立たせている。
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-0-4-0-1" class="outline-6">
+<h6 id="sec-1-0-4-0-1">抽象データ型の情報隠蔽とカプセル化</h6>
+<div class="outline-text-6" id="text-1-0-4-0-1">
+<p>
+言語機能として外部からのアクセスを制限できるようにした。
+</p>
+
+<p>
+カプセル化やブラックボックス化というのは情報隠蔽よりも広い概念で
+はあるが、これらの機能によって、「悪い結合」を引き起こさないよう
+にしている。
+</p>
+
+<p>
+これによって、複雑化した要求を抽象化の階層を定義していくという現
+代的なプログラミングスタイルが確立した。
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Done オブジェクト指向?</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+simula
+</p>
+<ul class="org-ul">
+<li>オブジェクト、
+</li>
+<li>クラス（抽象データ型）、
+</li>
+<li>動的ディスパッチ、
+</li>
+<li>継承
+</li>
+<li>ガーベジコレクト
+</li>
+</ul>
+
+<p>
+Simulaの優れたコンセプトをもとに，２つの，今でも使われている，C言語
+拡張が生まれた。
+</p>
+
+<p>
+一つはC++。もう一つはObjective-Cである。
+</p>
+
+<p>
+SimulaのコンセプトをもとにSmalltalkという言語というか環境が爆誕した。
+</p>
+
+<p>
+Smalltalkは、Simulaのコンセプトに「メッセージング」という概念を加え、
+それらを再統合した。Smalltalkはすべての処理がメッセージ式として記述
+される「純粋オブジェクト指向言語」だ。
+</p>
+
+<p>
+そもそもオブジェクト指向という言葉はここで誕生した。
+</p>
+
+<p>
+オブジェクト指向という言葉の発明者であるアランケイは後に「オブジェク
+ト指向という名前は失敗だった」と述べている。メッセージングの概念が軽
+視されて伝わってしまうからだという。
+</p>
+
+<p>
+何にせよ、このSmalltalkの概念をもとにC言語を拡張したのがObjective-C
+だ。
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Done Simula &amp; C++のオブジェクト指向</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+C++のオブジェクト指向
+</p>
+
+<blockquote>
+<p>
+継承と多態性を付加した抽象データ型のスーパーセット
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">どの処理を呼び出すか決めるメカニズム</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
+</p>
+
+<p>
+特に多態がいまいちわかりにくい。オブジェクト指向プログラミングの説明で
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = number.StringValue
+string = date.StringValue
+</pre>
+</div>
+
+<p>
+これで、それぞれ違う関数が呼び出されるのがポリモーフィズムですよと
+呼ばれる。
+</p>
+
+<p>
+これだけだとシグネチャも違うので、違う処理が呼ばれるのも当たり前に
+見える。
+</p>
+
+<p>
+では、こう書いてみたらどうか
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = stringValue(number) // 実際にはNumberToStringが呼ばれる
+string = stringValue(date)   // 実際にはDateToStringが呼ばれる
+</pre>
+</div>
+
+<p>
+このようにしたときに、すこし理解がしやすくなる。引数の型によって呼
+ばれる関数が変わる。こういう関数を polymorphic (poly-複数に morphic-
+変化する) な関数という。
+</p>
+
+<p>
+これをみたときに"関数のオーバーロード"じゃないか？と思った人は鋭い。
+<a href="http://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9">http://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9</a>
+</p>
+
+<p>
+多態とは異なる概念とされるが、引数によって呼ばれる関数が変わるとい
+う意味では似ている。しかし、次のようなケースで変わってくる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">function toString(IStringValue sv) string {
+    return StringValue(sv)
+}
+</pre>
+</div>
+
+<p>
+IStringValueはStringValueという関数を実装しているオブジェクトを表す
+インターフェースだ。これを受け取ったときに、関数のオーバーロードで
+は、どの関数に解決したら良いか判断がつかない。関数のオーバーロード
+は、コンパイル時に型情報を付与した関数を自動的に呼ぶ仕組みだからだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">stringValue(number:Number) =&gt; StringValue-Number(number)
+stringValue(date :Date)  =&gt; StringValue-Date(date)
+
+function toString(IStringValue sv) string {
+    return StringValue(sv) =&gt; StringValue-IStringValue (無い！)
+}
+</pre>
+</div>
+
+<p>
+それに対して、動的なポリモーフィズムを持つコードの場合、次のように
+動作してくれるので、インターフェースを用いた例でも予想通りの動作を
+する。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">function StringValue(v:IstringValue){
+    switch(v.class){ //オブジェクトが自分が何者かということを知っている。
+    case Number: return StringValue-Number(number)
+    case Date   : return StringValue-Date(date)
+    }
+}
+</pre>
+</div>
+
+<p>
+このようにどの関数を呼び出すのかをデータ自身に覚えさせておき、実行
+時に探索して呼び出す手法を <b>動的分配*，*動的ディスパッチ</b> と呼ぶ。
+</p>
+
+<p>
+このように動的なディスパッチによる多態性はどのような意味があるのか。
+</p>
+
+<p>
+それはインターフェースによるコードの再利用と分離である。
+</p>
+
+<p>
+特定のインターフェースを満たすオブジェクトであれば、それを利用した
+コードを別のオブジェクトを作ったとしても再利用できる。
+</p>
+
+<p>
+これによって、悪い凝集で例に挙げた論理的凝集をさけながら、
+汎用的な処理を記述することができるのだ。
+</p>
+
+<p>
+オブジェクト指向がはやり始めた当時は、再利用という言葉が比較的バズっ
+たが、現在的に言い換えるなら、インターフェースに依存した汎用処理と
+して記述すれば、結合度が下がり、テストが書きやすくなったり、仕様変
+更に強くなったりする。
+</p>
+</div>
+
+
+<div id="outline-container-sec-1-2-1-1" class="outline-5">
+<h5 id="sec-1-2-1-1">動的ディスパッチ</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+<p>
+動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
+ており、また、実行時に関数テーブルを探索して、どの関数を実行する
+かというところにある。
+</p>
+
+<p>
+こうなってくると、多態を実現するためには、３つの要素が必要だとわかる。
+</p>
+
+<ul class="org-ul">
+<li>データに自分自身が何者か教える機能
+</li>
+<li>メソッドを呼び出した際にそれを探索する機能
+</li>
+<li>オブジェクト自身を参照できるように引数に束縛する機能
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-1-2" class="outline-5">
+<h5 id="sec-1-2-1-2">継承と委譲</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
+</div><div id="outline-container-sec-1-2-1-2-1" class="outline-6">
+<h6 id="sec-1-2-1-2-1">継承</h6>
+</div>
+
+<div id="outline-container-sec-1-2-1-2-2" class="outline-6">
+<h6 id="sec-1-2-1-2-2">委譲</h6>
+<div class="outline-text-6" id="text-1-2-1-2-2">
+<p>
+このようにメソッドの動的な探索に対して、どのような機構をつけるのかというのが
+オブジェクト指向では重要な構成要素と言える。
+</p>
+
+<p>
+rubyの module やその include, prepend、特異メソッド，特異クラスなどは
+まさにその例だ。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2">オブジェクト指向の要素</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>抽象データ型：データと処理をひもづける
+</li>
+<li>抽象データ型：情報の隠蔽を行うことができる
+</li>
+<li>オブジェクト：データ自身が何者か知っている
+</li>
+<li>動的多態：オブジェクト自身のデータと処理を自動的に探索する
+</li>
+<li>探索先の設定：継承、委譲
+</li>
+</ul>
+
+<p>
+ということになる。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Done Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+アランケイによるオブジェクト指向の定義：
+</p>
+
+<blockquote>
+<p>
+パーソナルコンピューティングに関わる全てを『オブジェクト』とそれらの
+間で交わされる『メッセージ送信』によって表現すること
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">仮想機械としてのオブジェクト</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<dl class="org-dl">
+<dt> アランケイの世界観 </dt><dd>        コンピュータを抽象化するとしたら、データと処理と命令セットをも
+つ仮想機械で抽象化されるべき
+</dd>
+
+<dt> 構造化プログラミング </dt><dd>       仮想機械として階層的に抽象化すべき
+</dd>
+
+<dt> オブジェクト指向 </dt><dd>        オブジェクトを独立した機械と見なし、それに対してメッセージを送
+り、自ら持つデータの責任は自らが負う。
+</dd>
+</dl>
+
+<p>
+Smalltalkの実行環境もまた仮想機械として作られている。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">メッセージング</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+Smalltalkでメッセージ送信は下記のように記述する:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">receiver message
+</pre>
+</div>
+
+<p>
+メッセージングは通信。
+</p>
+
+<ul class="org-ul">
+<li>アドレスさえ知っていれば、メッセージは自由に送れる。
+</li>
+
+<li>レシーバはメッセージを受け取リ，その解釈はレシーバ自身が行う
+</li>
+</ul>
+
+<p>
+このメッセージらしさが出てくる特徴をいくつか紹介しよう。
+</p>
+</div>
+
+<div id="outline-container-sec-1-3-2-1" class="outline-5">
+<h5 id="sec-1-3-2-1">動的な送信</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<p>
+メッセージの内容もまたオブジェクトなので、動的に作成し送ることができる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class A
+  def hello
+    p "hello"
+  end
+end
+
+a = A.new
+# 動的にメソッドを作成
+method = "he" + "ll" + "o"
+# それを呼び出す
+a.send(method)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2-2" class="outline-5">
+<h5 id="sec-1-3-2-2">メッセージ転送  <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">(Wikipedia)</a></h5>
+<div class="outline-text-5" id="text-1-3-2-2">
+<p>
+受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
+り扱うことができる。
+</p>
+
+<ul class="org-ul">
+<li>rubyの method_missing は，メソッドがない時に呼ばれるメソッド。
+メソッドの未定義を知ることができ，その処理を他のオブジェクトにま
+かせるのが，メッセージ転送。
+
+<p>
+proxy.rb
+</p>
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Proxy
+  def method_missing(name, *args, &amp;block)
+    target.send(name, *args, &amp;block)
+  end
+
+  def target
+    @target ||= []
+  end
+end
+
+Proxy.new &lt;&lt; 1
+
+'end'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2-3" class="outline-5">
+<h5 id="sec-1-3-2-3">非同期送信</h5>
+<div class="outline-text-5" id="text-1-3-2-3">
+<p>
+メッセージの送信と結果の受信を別々に行なう。
+</p>
+
+<p>
+並列計算が可能になる。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">オブジェクト指向という言葉が意味していること</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+<a href="http://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang">http://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang</a>
+</p>
+
+<p>
+オブジェクト指向プログラミングの3つの主義は、
+</p>
+
+<ul class="org-ul">
+<li>メッセージ送信に基づいて、
+</li>
+
+<li>オブジェクト間で分離し、
+</li>
+
+<li>ポリモーフィズムを持つ
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">オブジェクト指向はクソか</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Joe Armstrongのオブジェクト指向はクソだ！</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<a href="http://qiita.com/lambda-knight/items/fb7530232912dc4176c4">オブジェクト指向はクソか？ - Qiita</a> を読んで
+</p>
+
+<ul class="org-ul">
+<li>後から見つけた，<a href="https://gist.github.com/posaunehm/4087971">Why OO Sucks by Joe Armstrong</a> の訳の方がぴんときます。
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">オブジェクト指向が"Suck"である理由</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<blockquote>
+<p>
+私のOOPに対する反対意見はOOの基本的なアイデアに対するものも含まれます。
+以下にそのアイデアのアウトラインと私の反対意見を述べます。
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-sec-2-1-1-1" class="outline-5">
+<h5 id="sec-2-1-1-1">反論その１</h5>
+<div class="outline-text-5" id="text-2-1-1-1">
+<blockquote>
+<p>
+
+</p>
+
+<ul class="org-ul">
+<li>データ構造と機能は一緒にすべきではない
+</li>
+</ul>
+
+<p>
+（Objection 1 - Data structure and functions should not be bound
+together）
+</p>
+
+<p>
+オブジェクトは関数とデータ構造が分割出来ない単位としてひとつまとめにし
+ています。しかし、私はこれこそが基本的でかつ大きな誤りであると考えてい
+ます。なぜなら、関数とデータは異なる世界に存在するからです。なぜでしょ
+う。関数は何かを実行します。そして関数はインプットとアウトプットを持ち
+ます。関数の入力と出力はデータ構造であり、関数により変更されます。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>「関数とデータは異なる世界に存在するからです」は，理由が希薄です。
+<ul class="org-ul">
+<li>「関数とデータは，異なるものです。」は認めます。
+</li>
+<li>データとその処理関数は近くにあって，同時に見られた方が，分かりやす
+いことが多いと思う。
+</li>
+<li>データだけからなるクラスがあってもいいし，インタフェースだけからな
+るモジュールがあってもいい。Rubyではそうなっている。
+</li>
+</ul>
+</li>
+</ul>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+多くの言語の関数は命令のシーケンスから作られます。すなわち、「まずはこ
+れを実行して、次はこれを実行しなさい」という手順です。関数を理解するた
+めにはどのような順序でものごとが実行されるかを理解しなければなりません
+（遅延評価をサポートする関数型言語と論理型言語ではこの制限は緩やかで
+す）。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>関数についての説明はそのとおり。
+</li>
+</ul>
+
+<blockquote>
+<p>
+データ構造はそれそのものです。これらは何もしません。これらは本来宣言的
+なものなのです。データ構造を理解することは関数を理解することよりもはる
+かに簡単なことなのです。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>これは違うと思う。データ構造だけを見て，データ構造を用いてできる
+ことを理解することは，ほんとうに難しいこと，だと思う。
+</li>
+</ul>
+
+<blockquote>
+<p>
+関数は，入力から出力へと変換するための，ブラックボックスです。入力と出
+力を理解すれば，関数を理解したことになります。でも理解したからと言って，
+関数を記述できることにはなりません。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>些細なことですが，「入力と出力を理解すれば関数を理解したことになり
+ます」ではなくて，関数を利用できることになるだと思います。そして，
+「関数を利用できない人に，関数の中身は記述できません」だと思います。
+</li>
+</ul>
+
+<blockquote>
+<p>
+関数は通常、コンピュータシステムにおいてジョブがデータ構造をT1からT2に
+変換することの観察を通して理解したことになります。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>ここは最初，理解できませんでした。
+</li>
+<li>「関数を書くには，複数のデータを見なくてはいけない。ある一つの型を主
+にみて，書くことはよくない」と言ってるのかな。
+<ul class="org-ul">
+<li>そうかもしれないが，。。。
+</li>
+<li>適切な抽象度で見れば，関数のやってることは下記の3種 (ほんとかな？):
+<dl class="org-dl">
+<dt> 変換 </dt><dd>自身 -&gt; 自身
+</dd>
+<dt> 簡約 </dt><dd>自身 -&gt; 自明なもの
+</dd>
+<dt> 合成 </dt><dd>自身 -&gt; 高いレベルのもの
+</dd>
+</dl>
+<p>
+だとすると，変換や簡約は自身と一緒に記述してあると，わかりやすい。
+合成は，自身の中に記述するのではなく，高いレベルのものと一緒に書
+くべきだと，思えます。
+</p>
+
+<p>
+入力が複数ある場合は，「どれか主になるものがある」場合や，「一纏
+めとして扱うことができる」場合は，型(データ)を主に，処理の記述が
+でき，何をやっているのかが，分かりやすいと，思えます。
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<blockquote>
+<p>
+このように関数とデータ構造は全く異なるタイプの生き物です。そしてそれを
+同じカゴの中に閉じ込めるのは全く持って間違っていることなのです。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>「異なるタイプの生き物を同じカゴに閉じ込めるのは間違い」は，理由になっていません。
+</li>
+
+<li>関数とデータ構造を近くに置いて，同時に見られることは，いいことです。
+</li>
+
+<li>問題があるとすれば，同じデータ構造に対し，異なる操作関数からなるク
+ラスが沢山ある場合の冗長さかな。
+</li>
+
+<li>「データを理解することは簡単」が考え方の違いの根本ですね，きっと。
+
+<p>
+データ駆動なのか関数駆動(こんな言葉ある？)なのかの違いですね。
+</p>
+
+<p>
+関数駆動において，関数をできるだけ汎用にするためには，入力の型は，
+できるだけシンプルにし，入力の意味を多様に解釈・適応できることが，
+関数の汎用性を高めるこになる。
+</p>
+
+<p>
+オブジェクト指向では，その解釈や適応できることを，書いておきたいんだ
+よね。きっと。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-1-1-2" class="outline-5">
+<h5 id="sec-2-1-1-2">反論その２</h5>
+<div class="outline-text-5" id="text-2-1-1-2">
+<blockquote>
+<p>
+
+</p>
+
+<ul class="org-ul">
+<li>すべてはオブジェクトではない
+</li>
+</ul>
+
+<p>
+(Objection 2 - Everything has to be an object.)
+</p>
+
+<p>
+「時刻」について考えてみましょう。OO言語の立場での「時刻」はオブジェク
+トであるべきです。でも、非OO言語では「時刻」はデータタイプのインスタン
+スです。例えばErlangでは「時刻」の多くのバラエティがあります。これらは
+とても明白で曖昧さがありません。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>時刻を表すデータ型はあったほうがいいでしょう。自明だと思います。時
+刻を表すのに整数の組み合わせをもちいたいならそうもできます。
+オブジェクトであるべきかどうかの議論にはなっていません。
+</li>
+</ul>
+
+<pre class="example">
+    -deftype day() = 1..31.
+    -deftype month() = 1..12.
+    -deftype year() = int().
+    -deftype hour() = 1..24.
+    -deftype minute() = 1..60.
+    -deftype second() = 1..60.
+    -deftype abstime() = {abstime, year(), month(), day(), hour(), min(), sec()}.
+    -deftype hms() = {hms, hour(), min(), sec()}.
+    ...
+
+これらの定義はどの特定のオブジェクトにも属していません。これらはどこで
+も利用できるデータ構造で「時刻」を表現しており、システムのどの関数から
+でも利用することができます。
+
+そしてどのようなメソッドにも関連していません。
+</pre>
+
+<ul class="org-ul">
+<li>これらはインタフェース群とクラス (abstime(), hms()) )に見えるなぁ。
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-1-1-3" class="outline-5">
+<h5 id="sec-2-1-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</h5>
+<div class="outline-text-5" id="text-2-1-1-3">
+<blockquote>
+<p>
+(Objection 3 - In an OOPL data type definitions are spread out all over
+the place.)
+</p>
+
+<p>
+オブジェクト指向ではデータタイプはオブジェクトとして定義されます。そう
+するとデータタイプは一箇所で見つけることができません。ErlangやCではす
+べての私のデータは一箇所であるinclude fileもしくはデータ辞書でみつける
+ことができます。でも、OOPLではこのようなことができず、データタイプ定義
+はあちこちに散らばってしまいます。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>Rubyでは，class/module 単位のまとまりをつくり, 継承やincludeにより
+階層を作り，require によって，必要なライブラリを記述し，
+適切な抽象度で，見ることができる。散らばっているのではなく，
+適切なまとまりごとに*リンク*づけられている。
+一望したければ，ツールをつくればいいだろう。
+</li>
+</ul>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+この例を示しましょう。私が汎用的なデータ構造を定義したいとします。この
+汎用データタイプとはシステムのすべての場所で使えるものです。
+</p>
+
+<p>
+LISPプログラマであれば「わずかな汎用データタイプと多くの小さな関数がこ
+れらに作用すること」が「数多いデータタイプとこれらに作用する少ない数の
+関数よりも良いこと」という真実を知っています。
+</p>
+
+<p>
+そして､汎用データ構造としてリンクリストや配列、ハッシュテーブルがあり、
+さらには時刻、日付、ファイル名などがあります。
+</p>
+
+<p>
+OOPLでは私は汎用的なデータ構造を定義する際にはなにかベースオブジェクト
+の中から選択しなければならないというとても面倒くさいことをしなければな
+りません。そして､そのデータ構造はこのオブジェクトを継承して作る必要が
+あります。もし何か「時刻」のオブジェクトを定義したい場合、これがどのベー
+スオブジェクトに所属していて、それ自体、どのようなオブジェクトであるか
+考えなければならないのです｡
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-1-4" class="outline-5">
+<h5 id="sec-2-1-1-4">反論その４</h5>
+<div class="outline-text-5" id="text-2-1-1-4">
+<blockquote>
+<p>
+
+</p>
+
+<ul class="org-ul">
+<li>オブジェクトはプライベートな状態を持っている
+</li>
+</ul>
+
+<p>
+（Objection 4 - Objects have private state.）
+</p>
+
+<p>
+状態(state)は諸悪の根源です。特に関数の副作用は避けるべきです。しかし
+ながらプログラミング言語において状態は好ましいものではないのに関わらず、
+実世界では状態は至るところに存在します。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>はい，実世界をモデル化するプログラムでは，状態を持つことは 避けら
+れませんね。
+</li>
+</ul>
+
+<blockquote>
+<p>
+例えば私は銀行口座の状態､すなわちに預金残高に大いなる関心があります。
+そしていつ私が入金や出金をする場合には銀行の口座が正しく更新されなけれ
+ばとても困ったことになります。
+</p>
+
+<p>
+実世界でこのような状態が存在したとして、この状態を取り扱うためにはプロ
+グラミング言語はどのような仕組みを提供すればよいのでしょうか。
+</p>
+
+<p>
+OOPLはプログラマから状態を隠しなさいといいます。状態は隠されてアクセス
+関数を通してしか見えません。
+</p>
+
+<p>
+伝統的なプログラミング言語であるCやPasalでは状態変数の可視性は言語のス
+コープのルールによってコントロールされます。
+</p>
+
+<p>
+でも､純粋に宣言的な言語では状態は存在しないことになっています。このよ
+うな宣言的言語ではシステムのグローバルな状態はすべての関数の入力や出力
+になりうるのです。関数型言語におけるモナドや論理型言語におけるDCGでは
+「状態はあたかも関係のないように」プログラミングすることができます。に
+も関わらず必要な場合にはこれらのシステムの状態に完全にアクセスをするこ
+とができるのです。
+</p>
+
+<p>
+ほんとうは「プログラマから状態を隠す」というOOPLで選択されたオプション
+はとても悪いものなのです。状態を公開して状態の厄介さを最小限にしようと
+する努力をすべきなのに､その代わりとしてOOPLではそれを隠し去ってしまっ
+たのです。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>よく理解できていませんが，「プログラマから状態を隠すのは良くない，
+OOPLだけがそうしている」という主張と読みました。
+</li>
+
+<li>「隠くすことも，公開することも，できるようにしよう」という立場だと思
+います。アクセスすべきものは，アクセスできるようにします。でも，アク
+セスする時は，その持ち主のメソッドを通してというのが，Rubyのやり方。
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2">オブジェクトが広まった理由</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<blockquote>
+<p>
+
+</p>
+
+<p>
+オブジェクト指向が広まった理由は次のとおりだといわれています。
+</p>
+
+<ul class="org-ul">
+<li>Reason 1 - It was thought to be easy to learn.
+（簡単に学べると思われていたから）
+</li>
+</ul>
+</blockquote>
+
+<ul class="org-ul">
+<li>Ruby は簡単に学べると思う。
+</li>
+</ul>
+
+<blockquote>
+<p>
+
+</p>
+
+<ul class="org-ul">
+<li>Reason 2 - It was thought to make code reuse easier.
+（再利用がより簡単だと思われているから）
+</li>
+</ul>
+</blockquote>
+
+<ul class="org-ul">
+<li>Rubyでは，再利用が簡単だと思う。
+</li>
+</ul>
+
+<blockquote>
+<p>
+
+</p>
+
+<ul class="org-ul">
+<li>Reason 3 - It was hyped.
+（売り込まれたから）
+</li>
+
+<li>Reason 4 - It created a new software industry.
+（新しいソフトウエア産業を作ったから）
+</li>
+</ul>
+</blockquote>
+
+<ul class="org-ul">
+<li>そういう風潮もありますね。
+</li>
+</ul>
+
+<blockquote>
+<p>
+ 
+しかし、１と２が事実であるという証拠はまったくを持って見たことがありま
+せん。
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>筆者は Ruby を使ったことがあるのかなぁ？
+</li>
+</ul>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+それでも実際にオブジェクト指向が広まった理由はテクノロジーに対す
+る逆向きの作用であると思われます。つまり、あるテクノロジーがひどすぎる
+と、そのテクノロジー自体が作った問題を解決するための新たなビジネスが登
+場して、金儲けをしたい人たちのアイデアになるのです。実はこのことが実際
+のOOPに対する推進力になっているということなのです｡
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>そういう風潮もありますね。
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">ruby のノート</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">rubyノート</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/note/ruby-note.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html">@s.org</a>))
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">emacs のノート</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">emacs</h3>
+<div class="outline-text-3" id="text-4-1">
+<pre class="example">
+C-x SPC (rectangle-mark-mode &amp;optional ARG) 
+M-q 整形
+C-x r x register 
+C-x r g register 
+C-x n n narrow region
+C-x n w widen regions
+M-x string-insert-rectangle
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">C-x r コマンド レジスタ関連</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example">
+C-x r C-@     point-to-register
+C-x r ESC     Prefix Command
+C-x r SPC     point-to-register
+C-x r +               increment-register
+C-x r N               rectangle-number-lines
+C-x r b               bookmark-jump
+C-x r c               clear-rectangle
+C-x r d               delete-rectangle
+C-x r f               frameset-to-register
+C-x r g               insert-register
+C-x r i               insert-register
+C-x r j               jump-to-register
+C-x r k               kill-rectangle
+C-x r l               bookmark-bmenu-list
+C-x r m               bookmark-set
+C-x r n               number-to-register
+C-x r o               open-rectangle
+C-x r r               copy-rectangle-to-register
+C-x r s               copy-to-register
+C-x r t               string-rectangle
+C-x r w               window-configuration-to-register
+C-x r x               copy-to-register
+C-x r y               yank-rectangle
+C-x r C-SPC   point-to-register
+
+C-x r M-w     copy-rectangle-as-kill
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+<a href="http://rubikitch.com/2014/11/19/eww-nocolor/">http://rubikitch.com/2014/11/19/eww-nocolor/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">Emacs での テキストブラウザ eww を使えるレベルにする</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+<a href="http://futurismo.biz/archives/2950">http://futurismo.biz/archives/2950</a>
+</p>
+
+<p>
+KeyBindings
+</p>
+
+<p>
+N (eww-next-url)
+P (eww-previous-url)
+l (eww-back-url)
+r (eww-forward-url)
+H (eww-list-histories)
+&amp; (eww-browse-with-external-browser)
+b (eww-add-bookmark)
+B (eww-list-bookmarks)
+q (quit-window)
+見にくいときは, R eww-readable
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5">eww-mode (eww.el) binding</h3>
+<div class="outline-text-3" id="text-4-5">
+<pre class="example">
+key             binding
+---             -------
+
+ESC             Prefix Command
+SPC             scroll-up-command
+&amp;               eww-browse-with-external-browser
+-               negative-argument
+0 .. 9          digit-argument
+B               eww-list-bookmarks
+C               url-cookie-list
+H               eww-list-histories
+b               eww-add-bookmark
+d               eww-download
+g               eww-reload
+l               eww-back-url
+n               eww-next-url
+p               eww-previous-url
+q               quit-window
+r               eww-forward-url
+t               eww-top-url
+u               eww-up-url
+  (that binding is currently shadowed by another mode)
+v               eww-view-source
+  (that binding is currently shadowed by another mode)
+w               eww-copy-page-url
+  (that binding is currently shadowed by another mode)
+DEL             scroll-down-command
+S-SPC           scroll-down-command
+&lt;delete&gt;        scroll-down-command
+&lt;remap&gt;         Prefix Command
+
+M-n             eww-next-bookmark
+M-p             eww-previous-bookmark
+</pre>
+
+<p>
+This mode runs the hook `eww-mode-hook', as the final step during
+initialization.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">org-mode のノート</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">org文書の構造</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1">文章の構造</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+<a href="org#document structure">org#document structure</a>
+</p>
+<ul class="org-ul">
+<li>headlines
+</li>
+<li>lists
+</li>
+<li>drawers
+</li>
+<li>blocks
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2">ruby ソースコードの埋め込み方</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+<a href="org#working with source code">org#working with source code</a> 
+</p>
+
+<p>
+<a href="org#Structure of code blocks">org#Structure of code blocks</a>
+</p>
+
+<pre class="example">
+#+name: 
+#+begin_src ruby &lt;arguments...&gt;
+body
+#+end_src
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3">ruby ソースコードのedit</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+<a href="org#Editing source code">org#Editing source code</a>
+</p>
+
+<p>
+C-c '
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4">ruby ソースコードの実行方法</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+<a href="org#Evaluating code blocks">org#Evaluating code blocks</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5-1-5" class="outline-4">
+<h4 id="sec-5-1-5">ruby ソースコードの export</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<p>
+<a href="org#Exporting code blocks">org#Exporting code blocks</a>
+</p>
+
+<pre class="example">
+#+begin_src ruby :exports both
+body
+#+end_src
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-6" class="outline-4">
+<h4 id="sec-5-1-6">ruby ソースコードの extract</h4>
+<div class="outline-text-4" id="text-5-1-6">
+<p>
+<a href="org#Extracting source code">org#Extracting source code</a>
+</p>
+
+<pre class="example">
+#+name: 
+#+begin_src ruby :tangle &lt;file&gt;
+body
+#+end_src
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">memo</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">memo</h3>
+<div class="outline-text-3" id="text-6-1">
+</div><div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1">Doing test-unit</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+単体テストの使い方をまとめました。
+</p>
+
+<p>
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-test.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-test.html</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2">Doing poker.org</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+~suzuki/COMM/Lects/meta-ruby/site/lects/poker の下に org 文書を作り
+ました。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-3" class="outline-4">
+<h4 id="sec-6-1-3">global</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+<a href="http://www.machu.jp/diary/20090307.html#p01">ソースコードを快適に読むための GNU GLOBAL 入門 (前編) - まちゅダイアリー(2009-03-07)</a>
+<a href="http://horoama.hatenablog.com/entry/2015/05/16/183359">globalを使いブラウザで快適にソースコードを読む - ほろあま記念館</a>
+</p>
+
+
+<ul class="org-ul">
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-13 日&gt;</span></span> ~suzuki/public_html/Documents/ruby20に置きました。が，cgi動かず。
+</li>
+
+<li>global-6.5.1 install しました。
+<ul class="org-ul">
+<li>~suzuki/local/bin/gtags
+</li>
+</ul>
+</li>
+
+<li>ruby-2.0.0-p353 download し，gtags, htags しておきました。
+<ul class="org-ul">
+<li>~suzuki/working/ruby20/ruby-2.0.0-p353
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby20/">ruby-2.0.0-p353</a> ソースコードをHTML化したもの
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-4" class="outline-4">
+<h4 id="sec-6-1-4">ソースコード解説</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~wiki/rhg.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">R.H.G. Wikky - 講義内容</a> 
+</p>
+
+<p>
+<a href="http://i.loveruby.net/ja/rhg/book/">Rubyソースコード完全解説</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-5" class="outline-4">
+<h4 id="sec-6-1-5">ソースコード pry-doc</h4>
+<div class="outline-text-4" id="text-6-1-5">
+<p>
+<a href="http://qiita.com/joker1007/items/42f00b12c65bbec0e50a">pry-docでカジュアルにRubyのソースコードを読む - Qiita</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-6" class="outline-4">
+<h4 id="sec-6-1-6">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</h4>
+<div class="outline-text-4" id="text-6-1-6">
+<p>
+<a href="http://qiita.com/catatsuy/items/3dda714f4c60c435bb25">http://qiita.com/catatsuy/items/3dda714f4c60c435bb25</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-7" class="outline-4">
+<h4 id="sec-6-1-7">gem install spreadsheet for meta-ruby</h4>
+</div>
+
+<div id="outline-container-sec-6-1-8" class="outline-4">
+<h4 id="sec-6-1-8">meta-ruby 講義内容</h4>
+<div class="outline-text-4" id="text-6-1-8">
+<ul class="org-ul">
+<li>meta な説明
+<ul class="org-ul">
+<li>meta programming
+</li>
+</ul>
+</li>
+<li>class library を使った ruby プログラミング
+</li>
+<li>OO
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-9" class="outline-4">
+<h4 id="sec-6-1-9">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
+<div class="outline-text-4" id="text-6-1-9">
+</div><div id="outline-container-sec-6-1-9-1" class="outline-5">
+<h5 id="sec-6-1-9-1">why</h5>
+<div class="outline-text-5" id="text-6-1-9-1">
+<p>
+include ファイル中の named_src_block の noweb 参照ができない
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-1-9-2" class="outline-5">
+<h5 id="sec-6-1-9-2">how</h5>
+<div class="outline-text-5" id="text-6-1-9-2">
+<ul class="org-ul">
+<li>同一ファイル中の named_src_block は noweb 参照ができるので，
+include を展開することにした。
+</li>
+<li>通常の include は展開したくないので， babel_include だけ展開する
+ことにした。
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6-1-9-3" class="outline-5">
+<h5 id="sec-6-1-9-3">script</h5>
+<div class="outline-text-5" id="text-6-1-9-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">#!/usr/bin/env ruby
+# coding: utf-8
+def org_babel_expand_include (file)
+  File.open(file, 'r:utf-8') do |io|
+    io.read.each_line do |line| 
+      if line =~ /^#\+babel_include:\s*(\S+)/
+	org_babel_expand_include($1)
+      else
+	print line
+      end
+    end
+  end
+end
+
+if __FILE__ == $0
+  org_babel_expand_include(ARGV[0])
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-9-4" class="outline-5">
+<h5 id="sec-6-1-9-4">working directory</h5>
+<div class="outline-text-5" id="text-6-1-9-4">
+<p>
+<a href="file:///home/staff/suzuki/COMM/Prog/org/babel-include/">file:///home/staff/suzuki/COMM/Prog/org/babel-include/</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-10" class="outline-4">
+<h4 id="sec-6-1-10">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
+<div class="outline-text-4" id="text-6-1-10">
+</div><div id="outline-container-sec-6-1-10-1" class="outline-5">
+<h5 id="sec-6-1-10-1">tangle を make できるように</h5>
+<div class="outline-text-5" id="text-6-1-10-1">
+</div><div id="outline-container-sec-6-1-10-1-1" class="outline-6">
+<h6 id="sec-6-1-10-1-1">ruby gem org-converge 中の org-tangle</h6>
+<div class="outline-text-6" id="text-6-1-10-1-1">
+<p>
+:nowebの機能が使えないので，あきらめる
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-10-1-2" class="outline-6">
+<h6 id="sec-6-1-10-1-2">シェルコマンド化</h6>
+<div class="outline-text-6" id="text-6-1-10-1-2">
+<p>
+<a href="file:///home/staff/suzuki/bin/org2html">org2html</a> と同様に， org_tangle を作成
+</p>
+
+<p>
+Makefile 中の tab が展開されるので， config/emacs-org.el を読むよ
+うにする
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">#!/usr/bin/env bash
+# http://blog.nguyenvq.com/2010/10/30/bash-batch-script-to-convert-org-mode-file-to-html/
+# orgdir=/r/src/org-mode/lisp/    # Git版org-modeのディレクトリ
+# opts="-l ~/.org2html-batch.el"  # カスタマイズしなければ "" にする
+opts="-l ~/.emacs.d/config/emacs-org.el"
+f=""
+for file in "$@"
+do
+#    f="${f} --visit ${file} --funcall org-export-as-html-batch"
+#    f="${f} --visit ${file} --funcall org-html-export-as-html"
+    f="${f} --visit ${file} --funcall org-babel-tangle"
+done
+# Emacs標準添付のorg-modeを使う場合はこっち
+~/bin/emacs --batch -l org $opts $f
+#~/bin/emacs --batch -q --no-site-file -l org $opts $f
+# Git版org-modeを使う場合はこっち
+# emacs --batch -q --no-site-file -L $orgdir -l org $opts $f
+</pre>
+</div>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-11-26 木 06:06]</span></span>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-11" class="outline-4">
+<h4 id="sec-6-1-11">new org-mode babel-include を展開する</h4>
+<div class="outline-text-4" id="text-6-1-11">
+<p>
+<a href="file:///home/staff/suzuki/COMM/Prog/org/babel-include/">file:///home/staff/suzuki/COMM/Prog/org/babel-include/</a> 
+</p>
+
+<p>
+~/COMM/bin/babel-expand.rb
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-12" class="outline-4">
+<h4 id="sec-6-1-12">ruby 日本語</h4>
+<div class="outline-text-4" id="text-6-1-12">
+<p>
+ruby -K [e|s|u|n] euc-jp|cp932|utf-8|ascii-8
+</p>
+
+<p>
+<a href="http://docs.ruby-lang.org/ja/2.2.0/doc/spec=2fm17n.html">多言語化 (Ruby 2.2.0)</a>
+</p>
+
+<p>
+<a href="http://docs.ruby-lang.org/ja/2.2.0/class/Encoding.html">class Encoding (Ruby 2.2.0)</a>
+</p>
+
+<p>
+internal_encoding, external_encoding
+default_ &#x2026;
+magic comment
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"># coding:utf-8
+</pre>
+</div>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-11-16 月 11:01]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-13" class="outline-4">
+<h4 id="sec-6-1-13">ruby入門のサイトを変更したい</h4>
+<div class="outline-text-4" id="text-6-1-13">
+<p>
+<a href="http://www.rubylife.jp/ini/">Ruby入門</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-14" class="outline-4">
+<h4 id="sec-6-1-14">org babelを調べる</h4>
+<div class="outline-text-4" id="text-6-1-14">
+<p>
+<a href="file:///NFS/ufs/mac/masayuki/COMM/working/ob-ruby.html">file:///NFS/ufs/mac/masayuki/COMM/working/ob-ruby.html</a>
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-11-16 月 09:43]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-15" class="outline-4">
+<h4 id="sec-6-1-15">meta-ruby</h4>
+<div class="outline-text-4" id="text-6-1-15">
+<p>
+クラス・モジュールの概念 Ruby - Qiita
+<a href="http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de</a>
+</p>
+
+<p>
+カレントオブジェクトselfについて Ruby - Qiita
+<a href="http://qiita.com/ToruFukui/items/be29968da6dc9d125315">http://qiita.com/ToruFukui/items/be29968da6dc9d125315</a>
+</p>
+
+<p>
+誤解されている 6 つの Ruby の機能の真相を知る
+<a href="http://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/">http://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/</a>
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-11-13 金 20:59]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-16" class="outline-4">
+<h4 id="sec-6-1-16">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</h4>
+<div class="outline-text-4" id="text-6-1-16">
+<p>
+<a href="http://qiita.com/taiyop/items/0212a54591e078ae15b6">http://qiita.com/taiyop/items/0212a54591e078ae15b6</a>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-11-13 金 02:17]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-17" class="outline-4">
+<h4 id="sec-6-1-17">ob-ruby</h4>
+<div class="outline-text-4" id="text-6-1-17">
+<p>
+:session name
+を指定すると*nameバッファで inf-ruby が動く
+実行はしているが，プロンプトの定義がおかしいためか，結果が取れてい
+ない。
+</p>
+
+<p>
+pry をやめるとうまく動く
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-18" class="outline-4">
+<h4 id="sec-6-1-18">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</h4>
+<div class="outline-text-4" id="text-6-1-18">
+<p>
+<a href="http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html">http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-19" class="outline-4">
+<h4 id="sec-6-1-19">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</h4>
+<div class="outline-text-4" id="text-6-1-19">
+<p>
+<a href="http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9">http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-20" class="outline-4">
+<h4 id="sec-6-1-20">emacs-24.5 for @cis.iwate-u.ac.jp</h4>
+</div>
+
+<div id="outline-container-sec-6-1-21" class="outline-4">
+<h4 id="sec-6-1-21">~/bin/org2html index.org</h4>
+<div class="outline-text-4" id="text-6-1-21">
+<p>
+Cannot fontify src block (htmlize.el &gt;= 1.34 required)
+</p>
+<ul class="org-ul">
+<li>melpa の htmlize の version は，1.47 なのに
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-22" class="outline-4">
+<h4 id="sec-6-1-22">Todo <a href="http://ditaa.sourceforge.net/">ditaa@github</a> install後，ditaa.jar が見つからない</h4>
+<div class="outline-text-4" id="text-6-1-22">
+<p>
+<a href="lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile">lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-23" class="outline-4">
+<h4 id="sec-6-1-23">log new_file  <a href="file:///home/staff/suzuki/COMM/working/org-graphvix.html">graphviz</a></h4>
+<div class="outline-text-4" id="text-6-1-23">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2015-10-09 金 15:54]</span></span>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-24" class="outline-4">
+<h4 id="sec-6-1-24">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</h4>
+<div class="outline-text-4" id="text-6-1-24">
+<p>
+<a href="http://d.hatena.ne.jp/tamura70/20100222/org">http://d.hatena.ne.jp/tamura70/20100222/org</a>
+</p>
+
+<p>
+org-modeでGraphviz(dot)を使う
+<a href="http://misohena.jp/article/emacs_org_textfigures/dot.html">http://misohena.jp/article/emacs_org_textfigures/dot.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-25" class="outline-4">
+<h4 id="sec-6-1-25">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></h4>
+<div class="outline-text-4" id="text-6-1-25">
+<p>
+<a href="file:///home/staff/suzuki/COMM/Prog/ruby/lstree/lstree.rb">file:///home/staff/suzuki/COMM/Prog/ruby/lstree/lstree.rb</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-1-26" class="outline-4">
+<h4 id="sec-6-1-26">org2HTMLの自動化</h4>
+<div class="outline-text-4" id="text-6-1-26">
+<p>
+~/COMM/bin/org2html
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#33879;&#32773;: suzuki@cis.iwate-u.ac.jp</p>
+<p class="date">Created: 2016-02-15 月 09:28</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

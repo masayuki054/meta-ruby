@@ -1,0 +1,156 @@
+* card module
+** test/test-card.rb
+
+*** 構造
+#+name:test-card#opener
+#+begin_src ruby :noweb yes
+
+require 'test/unit'
+require 'constant'
+require 'card'
+
+class Test_Card < Test::Unit::TestCase
+  include Poker
+#+end_src
+#+name:test-card#closer
+#+begin_src ruby :noweb yes
+
+end
+#+end_src
+
+*** test/setup
+#+name:test-card#setup
+#+begin_src ruby  :noweb yes
+  
+  def setup
+    @sa = Card.new(Const::SPADE, Const::ACE)
+    @sk = Card.new(Const::SPADE, Const::KING)
+  end
+#+end_src
+
+*** test_new
+
+#+name:test-card#new
+#+begin_src ruby  :noweb yes
+
+  def test_card_new
+    assert_equal(Card, @sa.class)
+    assert_equal(Const::SPADE, @sa.suit)
+    assert_equal(Const::ACE, @sa.no)
+  end
+#+end_src
+
+*** test_compare
+
+#+name:test-card#compare
+#+begin_src ruby  :noweb yes
+
+  def test_card_compare
+    assert_equal(1, @sa.compare(@sk))
+    assert_equal(0, @sa.compare(@sa))
+    assert_equal(-1, @sk.compare(@sa))
+  end
+#+end_src
+
+*** test_to_s
+
+#+name:test-card#to_s
+#+begin_src ruby  :noweb yes
+
+  def test_card_to_s
+    assert_equal('SK', @sk.to_s)
+    assert_equal('SA', @sa.to_s)
+  end
+#+end_src
+
+*** test/test-card.rb
+#+name:test-card.rb
+#+begin_src ruby :tangle babel/test/test-card.rb :noweb yes :mkdirp yes
+<<test-card#opener>>
+<<test-card#setup>>
+<<test-card#new>>
+<<test-card#compare>>
+<<test-card#to_s>>
+<<test-card#closer>>
+#+end_src
+
+** card.rb 
+*** 構造
+#+name:card#opener
+#+BEGIN_SRC ruby  :noweb yes 
+require 'constant'
+
+module Poker
+
+  class Card 
+#+END_SRC
+#+name:card#closer
+#+BEGIN_SRC ruby  :noweb yes 
+  end
+end
+#+END_SRC
+
+*** new, suit, no
+
+#+name:card#initialize
+#+BEGIN_SRC ruby :noweb yes 
+
+    attr_reader :suit, :no
+
+    def initialize(suit, no)
+      no = 14 if no==1
+      @suit = suit
+      @no = no
+    end
+#+END_SRC
+
+*** compare
+
+#+name:card#compare
+#+BEGIN_SRC ruby :noweb yes 
+
+    def <=> (another)
+      return 1 if @no > another.no
+      return -1 if @no < another.no
+      return 1 if @suit > another.suit
+      return -1 if @suit < another.suit
+      return 0
+    end
+
+    alias :compare :<=>
+#+END_SRC
+
+*** to_s
+
+#+name:card#to_s
+#+BEGIN_SRC ruby :noweb yes 
+
+    def to_s
+      (Const::SuitChars[@suit])+(Const::NoChars[@no])
+    end
+
+#+END_SRC
+
+*** card.rb
+
+#+name: card.rb
+#+BEGIN_SRC ruby :tangle babel/src/card.rb :noweb yes :mkdirp yes
+<<card#opener>>
+<<card#initialize>>
+<<card#compare>>
+<<card#to_s>>
+<<card#closer>>
+#+END_SRC
+
+** test の実行
+
+#+BEGIN_SRC sh :results output scalar 
+# ~/.rbenv/shims/ruby -I./src/ test/test_card.rb
+ruby -I./src/ test/test_card.rb
+echo 'end'
+#+END_SRC
+
+#+RESULTS:
+: end
+   
+

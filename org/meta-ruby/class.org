@@ -1,0 +1,402 @@
+* クラス定義
+
+   ((:class:)) キーワードは，クラスオブジェクト(のコンテキスト)で
+   ((:end:)) までのブロックを実行すること
+
+   ((:特異クラス:)) はオブジェクトや(オブジェクトとしての)クラスを拡張する
+
+   class の中で特異メソッド（クラスメソッド) が使え、クラス定義中に下記
+   のことが実現できる:
+
+   - クラスマクロ
+     動的なメソッドの生成など
+
+   - アラウンドエイリアス
+     メソッド名の付け替えとラップなど
+
+** クラスに関する説明のつかない事
+
+   例えば，File クラス
+   
+   - File はクラスそれともオブジェクト?
+   - File.open("hoge")は誰がどこで実行する？
+   - File.new と インスタンスメソッドの initialize の関係は？
+
+** クラス定義のわかりやすい説明
+
+*** クラス定義の中身
+
+    class 式は，クラス定義コンテキストで式の中身を実行する
+
+    : class MyClass
+    :   puts 'Hello!'
+    : end
+
+    class式は定義/変更したクラスを返す
+
+    : result = class MyClass
+    :   self
+    : end
+    : result # => MyClass
+
+    クラス定義コンテキストでは self は定義中のクラス自身
+
+*** カレントクラス
+
+**** Rubyプログラムのコンテキスト(?)
+
+     - カレントオブジェクト self,  
+     - カレントクラス (あるいはモジュール)
+      
+**** カレントクラスを参照する方法
+
+     カレントクラスを変更する方法
+
+     : class MyClass
+     :   def my_method
+     :   end
+     : end
+
+     class式は，クラス名がわからないと無力
+    
+**** カレントクラスと特別な場合
+
+     file:~suzuki/Lects/meta-ruby/code/class_definitions/current_class.rb
+
+**** class_eval()
+
+     Module#class_evalは，既存のクラスのコンテキストでブロックを評価
+     する
+
+     [[file:~suzuki/Lects/meta-ruby/code/class_definitions/class_eval.rb]]
+
+     : def add_method_to(a_class)
+     :   a_class.class_eval do
+     :     def m; 'Hello!'; end
+     :   end
+     : end
+
+     : add_method_to String
+     : "abc".m # => 'Hello!'
+
+     コンテキストの変化
+     - class_eval は self とカレントクラスの値が変る
+     - instance_eval は self の値だけが変る
+
+
+*** カレントクラスのまとめ
+    - クラス定義の中では，カレントオブジェクト self は，定義されたク
+      ラスである．
+    - Rubyインタプリタは，常に，カレントクラスの参照を追跡している
+      def で定義された全てのメソッドは，カレントクラスのインスタンス
+      メソッドになる
+    - クラス定義のなかでは，カレントクラスは self と同じ
+    - クラスへの参照をもっていれば， class_eval でオープンできる
+
+*** クラスインスタンス変数
+    Rubyインタプリタは，全てのインスタンス変数はカレントオブジェクト
+    self に属していると思っている．
+
+    [[file:~suzuki/Lects/meta-ruby/code/class_definitions/class_eval.rb]]
+
+    @my_var はMyClassオブジェクトに属している
+
+    : class MyClass
+    :   @my_var = 1
+    :   def self.read; @my_var: end
+    :   def write; @my_var = 2; end
+    :   def read; @my_var; end
+    : end
+    : obj = MyClass.new
+    : obj.write
+    : obj.read   # => 2
+    : MyClass.read # => 1 # self.read 
+
+*** クラス変数
+     
+    : class C; @@v = 1; end
+    : class D < C; def my_method; @@v; end; end
+    : D.new.my_method # =>  1
+
+      @@v は継承されている！
+
+    : @@v = 1
+    : class MyClass; @@v = 2; end
+    : @@v # => 2
+
+    これはrubyの酷いくせ
+    クラス変数は，クラス階層に属している
+    上の例では，@@v は Object クラスに属している
+
+*** Bookwormの作業再び
+    [[file:~suzuki/COMM/Lects/meta-ruby/code/class_definitions/bookworm_classvars.rb]]
+
+**** Loan#to_s()のユニットテストの問題点
+
+     期待すべき結果が日付や時刻に依存するため，テストが書けない
+
+**** 解決方法
+
+     本来の日付や時刻を作成するクラスを置き換えて、
+     テスト用の日付や時刻を切り替えて使えるようにする．
+
+     クラスインスタンス変数 @time_class の有無により，
+     Time クラスを使うか, FakeTime クラスを使うか切り替える．
+
+     切り替えは、instance_eval でクラスインスタンス変数を切り替えるこ
+     とで行う．
+
+
+** クイズ: クラスのタブー
+
+   (({class})) を使わずに 下記 MyClass 
+   
+   : class MyClass < Array
+   :   def my_method
+   :     'Hello!'
+   :   end
+   : end
+
+   を定義するruby プログラムを書くこと
+
+*** クイズの答え
+
+    : c = Class.new(Array) do
+    :   def my_method 
+    :     'Hello'
+    :   end
+    : end
+    : MyClass = c
+
+    このクラスには最初定数名がない! 無名クラスだ．
+    
+    Ruby 処理系は、MyClass へ 無名クラスを代入するときに、特別なこと
+    をする。無名クラスの名前付け，すなわちクラス値から定数名への参照
+    を持つこと，をおこなう。
+    
+** 特異メソッド
+
+   file:~/COMM/Lects/meta-ruby/code/class_definitions/paragraph.rb
+
+   Paragraph クラスは String クラスのごく僅かな拡張で，
+   その拡張 (titleメソッド)が使われる場所もごく限られている
+
+*** 特異メソッドの導入
+    
+    特異メソッドの導入 :: 特定のオブジェクトに定義されたメソッド
+
+    file:~/COMM/Lects/meta-ruby/code/class_definitions/singleton_methods.rb
+
+    
+**** 特異メソッドの実践
+
+     file:~/COMM/Lects/meta-ruby/code/class_definitions/paragraph.rb
+
+*** クラスメソッドの真実
+
+    「クラスもオブジェクト」だった．
+    
+    実は，クラスに対するメソッドの呼び出しは，
+    オブジェクトに対するメソッドの呼び出しと，同じ仕組みだった．
+
+    それはクラス・オブジェクトの特異メソッドだ
+
+    : class MyClass
+    :   def self.s_method
+    :   end
+    : end
+
+    s_method は，オブジェクト MyClass だけに定義されたメソッド．
+     
+*** クラスマクロ
+
+    attr_reader, attr_writer, attr_accessor などは，
+    キーワードのように見えるが，
+    *単なるクラスメソッド* である
+
+    クラスメソッドは，クラス定義中に，
+    クラスコンテキストで実行できる 
+
+** 特異クラス
+
+   オブジェクトモデルの完結
+
+   (*s*) クラスメソッドや特異メソッドが，単なるメソッドにすぎなくなるためのモデル
+   
+*** 特異メソッドの謎
+
+    : def obj.my_singleton_method; 'where is this' end
+    : obj.my_singleton_method => 'where is this'
+
+    obj だけに存在する my_singleton_method はどこにある？
+
+    => obj -- (my_singleton_method) -- class ( ... )
+
+*** 特異クラスの出現
+
+    *特異クラス* はオブジェクトの特異メソッドが住む場所
+
+    「特異クラスはオブジェクトではない」は間違い (*s*)
+
+**** 特異クラスを定義する特別な構文
+
+    : class << an_object; end
+
+**** 特異クラスへの参照を得て特異クラスのクラスを見る
+
+    : obj = Object.new
+    : eigenclass = class << obj
+    :   self
+    : end
+    : eigenclass.class # => Class
+
+**** 特異クラスに特異メソッドが住んでいる
+    
+    : def obj.my_singleton_method; end
+    : eigenclass.instance_methods.grep(/my_/)
+     
+*** メソッド探索再び
+
+**** オブジェクトモデルを調べる実践的な例
+
+    : class C
+    :   def a_method
+    :     'C#a_method()'
+    :   end
+    : end
+    
+    : class D < C; end
+
+    : obj = D.new
+    : obj.a_method
+
+    : class << obj
+    :   def a_singleton_method
+    :     'obj#a_singleton_method()'
+    :   end
+    : end
+
+**** 特異クラスのスーパークラスは？
+
+    : eigenclass.superclass # => D
+
+    #obj.class == obj.class
+
+    :
+
+**** 特異クラスの特異クラス
+
+     : class << "abc"
+     :   class << self
+     :     self 
+     :   end
+     : end
+
+     特異クラスはクラスでありオブジェクトでもある。
+     特異クラスの特異クラスも同様。
+
+
+**** 特異クラスと継承
+
+     オブジェクトの特異クラスを返すヘルパーメソッド (({eigenclass}))
+
+     : class Object
+     :   def eigenclass
+     :     class << self; self; end
+     :   end
+     : end
+
+     : class C
+     :  def a_method
+     :   'C#a_method()'
+     :  end
+     : end
+
+     : class D < C; end
+
+     : class C
+     :  class << self
+     :    def a_class_method
+     :      'C.a_class_method()'
+     :    end
+     :  end
+     : end
+
+     : C.eigenclass # => #<Class:C>
+     : D.eigenclass # => #<Class:D>
+     : D.eigenclass.superclass # => #<Class:C>
+     : C.eigenclass.superclass # => #<Class:Object>
+
+**** 大統一理論
+
+     Rubyのオブジェクトモデルの７つのルール
+
+     1. オブジェクトは１種類しかない。それが通常のオブジェクト化かモ
+	ジュールになる。
+
+     2. モジュールは１種類しかない。それが通常のモジュール、クラス、特
+	異クラス、プロキシクラスのいずれかになる。
+
+     3. メソッドは１種類しかない。メソッドはモジュール（クラス）に住んでいる。
+
+     4. すべてのオブジェクトは「本物のクラス」を持つ。それは特異クラス
+	か通常のクラスである。
+
+     5. すべてのクラスはスーパークラスを持っている。ただしBasicObject
+	にはスーパークラスはない。
+
+     6. オブジェクトの特異クラスのスーパークラスは、オブジェクトのク
+	ラスである。
+
+	クラスの特異クラスのスーパークラスは、クラスのスーパークラスの特異クラス。
+
+     7. メソッドを呼び出すとき、Ruby はレシーバの本物のクラスに向かっ
+	て、「右へ」進み、継承チェーンを「上へ」進む。
+
+** クイズ: モジュールの不具合
+   モジュールを include すると、モジュールのインスタンスメソッドは手に
+   入るが、モジュールのクラスメソッドは手に入らない。
+
+   : module MyModule
+   :  def my_method; 'hello'; end
+   : end
+   
+   : class MyClass
+   :  class << self
+   :   include MyModule
+   :  end
+   : end
+
+   クラスメソッドの住処である特異クラスで include すればよい。
+
+   クラスの特異クラスにメソッドを定義することを *クラス拡張* と呼ぶ
+
+   オブジェクトの特異クラスにメソッドを定義することを *オブジェクト拡張* と呼ぶ
+
+*** Object#extend
+
+   : obj.extend MyModule
+
+   : class MyClass
+   :  extend MyModule
+   : end
+
+** エイリアス 
+   省略
+
+** クイズ: 壊れた計算
+   : 1+1 # => 3
+
+   となるように Fixnum クラスの + メソッドを書き換える
+
+   : class Fixnum
+   :  alias :old_plus, :+
+   :  def +(value)
+   :   self.old_plus(value).old_plus(1)
+   :  end
+   : end
+
+
+    
+
+    

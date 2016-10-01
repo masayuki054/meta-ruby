@@ -1,0 +1,29 @@
+(defvar org-babel-ruby-command "irb"
+  "Name of command to use for executing ruby code.")
+
+#+BEGIN_SRC ruby
+  a = "foo"
+#+END_SRC
+
+#+RESULTS:
+: foo
+
+#+BEGIN_SRC ruby
+  a ||= "bar"
+#+END_SRC
+
+#+RESULTS:
+: bar
+
+#+BEGIN_SRC ruby :session 
+  a ||= "session foo"
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC ruby :session 
+  a += " with bar"
+#+END_SRC
+
+#+RESULTS:
+

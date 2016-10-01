@@ -1,0 +1,170 @@
+* deck
+** test-deck.rb
+
+*** deck test プログラムの構造
+
+#+name:test-deck#opener
+#+begin_src ruby  :noweb yes
+require 'test/unit'
+require 'constant'
+require 'card'
+require 'deck'
+
+class TestDeck < Test::Unit::TestCase
+  include Poker
+#+end_src
+#+name:test-deck#closer
+#+begin_src ruby :noweb yes
+end
+#+end_src
+
+*** newのテスト
+
+#+name:test-deck#new
+#+begin_src ruby :noweb yes
+
+  def test_deck_new
+    @d = Deck.new
+    assert_equal(Const::No_of_Cards, @d.size)
+  end
+#+end_src
+
+*** drawのテスト
+
+#+name:test-deck#draw
+#+begin_src ruby :noweb yes
+
+  def test_deck_draw
+    @d = Deck.new
+    size = @d.size
+    c = @d.draw
+    assert_equal(Card, c.class)
+    assert_equal(1, size-@d.size)
+  end
+#+end_src
+
+*** discardのテスト
+
+#+name:test-deck#discard
+#+begin_src ruby  :noweb yes
+
+  def test_deck_discard
+    @d = Deck.new
+    (2*Const::No_of_Cards).times do |i|
+      c = @d.draw
+      assert_equal(Card, c.class)
+      @d.discard(c)
+    end
+    assert_equal(0, @d.size)
+  end
+#+end_src
+
+*** test全体
+
+#+name:test-deck.rb
+#+begin_src ruby :tangle babel/test/test-deck.rb :noweb yes :mkdirp yes
+<<test-deck#opener>>
+<<test-deck#new>>
+<<test-deck#draw>>
+<<test-deck#discard>>
+<<test-deck#closer>>
+#+end_src
+
+** deck.rb
+
+*** deck class の構造
+#+name:deck#opener
+#+BEGIN_SRC ruby :noweb yes 
+# deck.rb
+module Poker
+  class Deck
+#+END_SRC
+#+name:deck#closer
+#+BEGIN_SRC ruby  :noweb yes 
+
+  end
+end
+
+#+END_SRC
+
+*** initialize 
+
+#+name:deck#initialize
+#+BEGIN_SRC ruby :noweb yes
+
+    def initialize
+
+      @stock = []
+      @used = []
+
+      Const::SuitOrder.each { |suit|
+        Const::NoOrder.each { |no|
+          @stock.push(Card.new(suit, no))
+        }
+      }
+      @stock.shuffle!
+
+    end
+#+END_SRC
+
+*** draw
+
+#+name:deck#draw
+#+BEGIN_SRC ruby  :noweb yes 
+
+    def draw
+      if @stock.size == 0
+        @stock = @used
+        @used = []
+        @stock.shuffle!
+      end
+      @stock.pop
+    end
+
+#+END_SRC
+
+*** size
+
+#+name:deck#size
+#+BEGIN_SRC ruby  :noweb yes 
+
+    def size
+      @stock.size
+    end
+
+#+END_SRC
+
+*** discard
+
+#+name:deck#discard
+#+BEGIN_SRC ruby  :noweb yes 
+
+    def discard(card)
+      @used.push(card)
+      self
+    end
+
+#+END_SRC
+
+*** shuffle!
+
+#+name:deck#shuffle!
+#+BEGIN_SRC ruby  :noweb yes 
+
+    def shuffle!
+      @stock.shuffle!
+    end
+#+END_SRC
+
+*** deck 全体
+
+#+name:deck.rb
+#+BEGIN_SRC ruby :tangle babel/src/deck.rb :noweb yes :mkdirp yes
+<<deck#opener>>
+<<deck#initialize>>
+<<deck#draw>>
+<<deck#discard>>
+<<deck#size>>
+<<deck#shuffle!>>
+<<deck#closer>>
+#+END_SRC

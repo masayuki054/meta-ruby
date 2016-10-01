@@ -1,0 +1,33 @@
+#+title: コンピュータ科学特論 I 開講通知 
+#+AUTHOR: masayuki hoge
+#+LANGUAGE: ja
+#+EMAIL: suzuki@cis.iwate-u.ac.jp
+#+SETUPFILE: ~/COMM/public_html/org-html-theme/setup/theme-readtheorg.setup
+#+OPTIONS: toc:nil
+
+* 開講情報
+
+  - 日時：2016年 10月 03日（月曜日）13:00- 
+  - 場所：端末室
+  - 講義用サイト:
+    http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby (昨年のもの)
+ 
+* 概要
+
+  オブジェクト指向プログラミングの本質，オブジェクト指向システムの仕組
+  み，メタプログラミングの有効性について，オブジェクト指向言語 ruby
+  を用いて考察する
+
+* 初回 10/03
+
+  講義内容の説明とruby実行環境の整備をおこない，ruby 入門をおこなう。
+
+* 休講通知
+
+  10/17 (月)  は休講にします。
+
+* 担当
+
+  - 非常勤講師 鈴木正幸
+  - mail: suzuki@cis.iwate-u.ac.jp
+

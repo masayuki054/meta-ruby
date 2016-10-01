@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>poker</title>
+<!-- 2015-12-19 土 19:33 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Masayuki Suzuki" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">poker</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. pokerゲームのテスト駆動開発</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 目的</a></li>
+<li><a href="#sec-1-2">1.2. ポーカーゲーム開発ストーリー</a></li>
+<li><a href="#sec-1-3">1.3. テスト駆動開発については</a></li>
+<li><a href="#sec-1-4">1.4. test-unit</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 開発概要</a>
+<ul>
+<li><a href="#sec-2-1">2.1. クラスの構造</a></li>
+<li><a href="#sec-2-2">2.2. ディレクトリ構造</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 文芸的プログラムによる開発</a>
+<ul>
+<li><a href="#sec-3-1">3.1. card module</a>
+<ul>
+<li><a href="#sec-3-1-1">3.1.1. card</a></li>
+<li><a href="#sec-3-1-2">3.1.2. Card.new, suit, no</a></li>
+<li><a href="#sec-3-1-3">3.1.3. .compare</a></li>
+<li><a href="#sec-3-1-4">3.1.4. .to<sub>s</sub></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4">4. emacs/org-mode/ruby のこと</a>
+<ul>
+<li><a href="#sec-4-1">4.1. org-mode</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. ソースコードをファイルへ書き出す</a></li>
+<li><a href="#sec-4-1-2">4.1.2. ob-shell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+~suzuki/lects/meta-ruby/lects/poker
+~suzuki/lects/meta-ruby/lects/note
+</p>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> pokerゲームのテスト駆動開発</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 目的</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+ソフトウェア構成論で作ったポーカーを，
+rubyで作り直し，ruby での開発を体験してみましょう。
+</p>
+
+<p>
+テスト駆動開発っぽくやってみましょう。
+</p>
+
+<p>
+emacs org-mode でやりましょう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> ポーカーゲーム開発ストーリー</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+モジュール分けやモジュールの機能については，<a href="http://wiki.cis.iwate-u.ac.jp/~wiki/prog.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">Prog Wikky - 講義内容</a>
+を参考にしてください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> テスト駆動開発については</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/prog/org-docs/what-is-tdd/">ソフトウェア構成論 テスト駆動開発とは</a> を参考にしてください
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> test-unit</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">rubyノート</a> ((<a href="file:///mnt/mini/s/lects/meta-ruby/lects/note/ruby-note.html">@cis.org</a> <a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html">@s.org</a>))
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 開発概要</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> クラスの構造</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Card</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Deck</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Hand</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Player</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Play</span>
+    
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> ディレクトリ構造</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-sh">~/COMM/bin/lstree ../poker
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 文芸的プログラムによる開発</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+例えばcardモジュールは，poker/card.org に作成し，org-babel
+の :tangle でtest/の下にテストを，src/の下にクラスを，作りましょう。
+</p>
+</div>
+
+
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> card module</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> card</h4>
+</div>
+
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> Card.new, suit, no</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div><ol class="org-ol"><li><a id="sec-3-1-2-1" name="sec-3-1-2-1"></a>test<br  /><div class="outline-text-5" id="text-3-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Card</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sk</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">KING</span>)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card</span>
+    assert_equal(<span style="color: #228b22;">Card</span>, <span style="color: #a0522d;">@sa</span>.class)
+    assert_equal(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">ACE</span>, <span style="color: #a0522d;">@sa</span>.no)
+    assert_equal(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">KING</span>, <span style="color: #a0522d;">@sa</span>.no) 
+ <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">C-C C-v C-t</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'rubygems'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #8b2252;">'end'</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="sec-3-1-2-2" name="sec-3-1-2-2"></a>実装 card, .suit, .no<br  /><div class="outline-text-5" id="text-3-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">C-c C-v C-t </span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">card.rb</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Card</span>
+  <span style="color: #228b22;">SPADE</span> = 4
+  <span style="color: #228b22;">HEART</span> = 3
+  <span style="color: #228b22;">DIAMOND</span> = 2
+  <span style="color: #228b22;">CLUB</span> = 1
+
+  <span style="color: #228b22;">ACE</span> = 14
+  <span style="color: #228b22;">KING</span> = 13
+  <span style="color: #228b22;">QUEEN</span> = 12
+  <span style="color: #228b22;">JACK</span> = 11
+
+  <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:suit</span>, <span style="color: #008b8b;">:no</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>(suit, no)
+    <span style="color: #a0522d;">@suit</span> = suit
+    <span style="color: #a0522d;">@no</span> = no
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="sec-3-1-2-3" name="sec-3-1-2-3"></a>テスト<br  /><div class="outline-text-5" id="text-3-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-elisp">    (<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">org-babel-sh-command</span> <span style="color: #8b2252;">"bash"</span>
+    <span style="color: #8b2252;">"Command used to invoke a shell.</span>
+<span style="color: #8b2252;">    This will be passed to  `</span><span style="color: #008b8b;">shell-command-on-region</span><span style="color: #8b2252;">'"</span>) <span style="color: #b22222;">;;</span><span style="color: #b22222;">C-x C-e</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">SHELL</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">~/.rbenv/shims/ruby -I./src/ test/test_card.rb
+ruby -I./src/ test/test_card.rb
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'end'</span>
+</pre>
+</div>
+</div>
+</li></ol>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3"><span class="section-number-4">3.1.3</span> .compare</h4>
+<div class="outline-text-4" id="text-3-1-3">
+</div><ol class="org-ol"><li><a id="sec-3-1-3-1" name="sec-3-1-3-1"></a>test<br  /><div class="outline-text-5" id="text-3-1-3-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Card_compare</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sk</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">KING</span>)
+    <span style="color: #a0522d;">@ca</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@ck</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Card</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #228b22;">Card</span>::<span style="color: #228b22;">KING</span>)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card</span>
+    assert_equal(1, <span style="color: #a0522d;">@sa</span>.compare(sk))
+    assert_equal(-1, <span style="color: #a0522d;">@sk</span>.compare(sa))
+    assert_equal(0, <span style="color: #a0522d;">@sk</span>.compare(sk))
+ <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">C-C C-v C-t</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'rubygems'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #8b2252;">'end'</span>
+</pre>
+</div>
+</div>
+</li>
+
+
+
+<li><a id="sec-3-1-3-2" name="sec-3-1-3-2"></a>implement<br  /></li>
+
+<li><a id="sec-3-1-3-3" name="sec-3-1-3-3"></a>do test<br  /></li></ol>
+</div>
+
+<div id="outline-container-sec-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4"><span class="section-number-4">3.1.4</span> .to<sub>s</sub></h4>
+<div class="outline-text-4" id="text-3-1-4">
+</div><ol class="org-ol"><li><a id="sec-3-1-4-1" name="sec-3-1-4-1"></a>deck module<br  /><ol class="org-ol"><li><a id="sec-3-1-4-1-1" name="sec-3-1-4-1-1"></a>deck<br  /></li>
+
+<li><a id="sec-3-1-4-1-2" name="sec-3-1-4-1-2"></a>Deck.new, .draw,<br  /><ol class="org-ol"><li><a id="sec-3-1-4-1-2-1" name="sec-3-1-4-1-2-1"></a>test<br  /><div class="outline-text-7" id="text-3-1-4-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'deck'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Deck</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck</span>
+    assert_equal(<span style="color: #228b22;">Deck</span>, <span style="color: #a0522d;">@sa</span>.class)
+    assert_equal(<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">ACE</span>, <span style="color: #a0522d;">@sa</span>.no)
+    <span style="color: #a0522d;">@sa</span>.suit=<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">CLUB</span>
+    <span style="color: #a0522d;">@sa</span>.no=<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">KING</span>
+    assert_equal(<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Deck</span>::<span style="color: #228b22;">KING</span>, <span style="color: #a0522d;">@sa</span>.no) 
+ <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="sec-3-1-4-1-2-2" name="sec-3-1-4-1-2-2"></a>実装 deck, .suit, .no<br  /><div class="outline-text-7" id="text-3-1-4-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">C-c C-v C-t </span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">deck.rb</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Deck</span>
+  <span style="color: #228b22;">SPADE</span> = 4
+  <span style="color: #228b22;">HEART</span> = 3
+  <span style="color: #228b22;">DIAMOND</span> = 2
+  <span style="color: #228b22;">CLUB</span> = 1
+
+  <span style="color: #228b22;">ACE</span> = 14
+  <span style="color: #228b22;">KING</span> = 13
+  <span style="color: #228b22;">QUEEN</span> = 12
+  <span style="color: #228b22;">JACK</span> = 11
+
+  <span style="color: #483d8b;">attr_accessor</span> <span style="color: #008b8b;">:suit</span>, <span style="color: #008b8b;">:no</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>(suit, no)
+    <span style="color: #a0522d;">@suit</span> = suit
+    <span style="color: #a0522d;">@no</span> = no
+  <span style="color: #a020f0;">end</span>
+
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="sec-3-1-4-1-2-3" name="sec-3-1-4-1-2-3"></a>テスト<br  /><div class="outline-text-7" id="text-3-1-4-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-elisp">    (<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">org-babel-sh-command</span> <span style="color: #8b2252;">"bash"</span>
+    <span style="color: #8b2252;">"Command used to invoke a shell.</span>
+<span style="color: #8b2252;">    This will be passed to  `</span><span style="color: #008b8b;">shell-command-on-region</span><span style="color: #8b2252;">'"</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">ruby -I./src/ test/test_deck.rb
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'end'</span>
+</pre>
+</div>
+</div>
+</li></ol>
+</li>
+
+
+
+
+
+
+
+
+
+<li><a id="sec-3-1-4-1-3" name="sec-3-1-4-1-3"></a>.compare<br  /></li>
+
+<li><a id="sec-3-1-4-1-4" name="sec-3-1-4-1-4"></a>.to<sub>s</sub><br  /><div class="outline-text-6" id="text-3-1-4-1-4">
+<p>
+##+include: hand.org
+##+include: player.org
+##+include: play.org
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> emacs/org-mode/ruby のこと</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> org-mode</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> ソースコードをファイルへ書き出す</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<pre class="example">
+C-C C-v C-t
+</pre>
+
+<pre class="example">
+#+BEGIN_SRC ruby :tangle example/test_card.rb :mkdirp yes
+,require 'rubygems'
+,require 'test/unit'
+'end'
+#+END_SRC
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'rubygems'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #a020f0;">end</span><span style="color: #8b2252;">'</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2"><span class="section-number-4">4.1.2</span> ob-shell</h4>
+<div class="outline-text-4" id="text-4-1-2">
+</div><ol class="org-ol"><li><a id="sec-4-1-2-1" name="sec-4-1-2-1"></a>ob-sh.el ソースコード<br  /><div class="outline-text-5" id="text-4-1-2-1">
+<p>
+<a href="https://github.com/tkf/org-mode/blob/master/lisp/ob-sh.el">org-mode/ob-sh.el at master · tkf/org-mode</a>
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="sec-4-1-2-1-1" name="sec-4-1-2-1-1"></a>sh の shell 指定<br  /><div class="outline-text-6" id="text-4-1-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">org-babel-sh-command</span> <span style="color: #8b2252;">"sh"</span>
+  <span style="color: #8b2252;">"Command used to invoke a shell.</span>
+<span style="color: #8b2252;">This will be passed to  `</span><span style="color: #008b8b;">shell-command-on-region</span><span style="color: #8b2252;">'"</span>)
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="sec-4-1-2-1-2" name="sec-4-1-2-1-2"></a>sh-ブロックの ruby が ~/.rbenv/shims/ruby ではない時<br  /><div class="outline-text-6" id="text-4-1-2-1-2">
+<p>
+~/.rbevn/shims/ruby が動かないときは，
+sh-ブロックに :session を指定して，
+動かして，シェルバッファに移動して，
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2015-12-19 土 19:33</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

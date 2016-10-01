@@ -1,0 +1,64 @@
+#+name:test-card#opener
+#+begin_src ruby :exports none :noweb yes
+
+require 'test/unit'
+require 'constant'
+require 'card'
+
+class Test_Card < Test::Unit::TestCase
+  include Poker
+#+end_src
+
+#+name:test-card#setup
+#+begin_src ruby :exports none :noweb yes
+  
+  def setup
+    @sa = Card.new(Const::SPADE, Const::ACE)
+    @sk = Card.new(Const::SPADE, Const::KING)
+  end
+#+end_src
+
+#+name:test-card#new
+#+begin_src ruby :exports none :noweb yes
+
+  def test_card_new
+    assert_equal(Card, @sa.class)
+    assert_equal(Const::SPADE, @sa.suit)
+    assert_equal(Const::ACE, @sa.no)
+  end
+#+end_src
+
+#+name:test-card#compare
+#+begin_src ruby :exports none :noweb yes
+
+  def test_card_compare
+    assert_equal(1, @sa.compare(@sk))
+    assert_equal(0, @sa.compare(@sa))
+    assert_equal(-1, @sk.compare(@sa))
+  end
+#+end_src
+
+#+name:test-card#to_s
+#+begin_src ruby :exports none :noweb yes
+
+  def test_card_to_s
+    assert_equal('SK', @sk.to_s)
+    assert_equal('SA', @sa.to_s)
+  end
+#+end_src
+
+#+name:test-card#closer
+#+begin_src ruby :exports none :noweb yes
+end
+#+end_src
+
+#+name:test-card.rb
+#+begin_src ruby :tangle test-card.rb :noweb yes
+<<test-card#opener>>
+<<test-card#setup>>
+<<test-card#new>>
+<<test-card#compare>>
+<<test-card#to_s>>
+<<test-card#closer>>
+#+end_src
+

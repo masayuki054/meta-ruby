@@ -1,0 +1,82 @@
+#+BEGIN_SRC sh
+ls *.org
+
+#+END_SRC
+
+#+RESULTS:
+| Makefile.org    |
+| contents.org    |
+| emacs-setup.org |
+| index.org       |
+| oo.org          |
+| ruby_begin.org  |
+
+#+BEGIN_SRC makefile :tangle Makefile
+SHELL=/bin/bash
+SITE = ~/COMM/Lects/meta-ruby/site
+COMMON_HEADER = $(SITE)/info/common-header.org
+PAGE = org-docs
+SUBDIRS = matz meta-ruby rubymisc
+
+
+ORGS = emacs-setup.org oo.org ruby_begin.org  
+HTMLS = $(ORGS:.org=.html)
+
+.SUFFIXES: .org .html
+.org.html:
+	org2html $<
+
+index.html: index.org contents.org $(ORGS) 
+
+.PHONY: subdirs $(SUBDIRS)
+all: $(HTMLS) subdirs 
+
+subdirs: $(SUBDIRS)
+
+$(SUBDIRS):
+	make -C $@
+
+.PHONY: clean
+clean: 
+	rm -f *.html
+	rm -f */*.html
+	
+#+END_SRC
+
+#+BEGIN_SRC makefile :tangle matz/Makefile
+SHELL=/bin/bash
+SITE = ~/COMM/Lects/meta-ruby/site
+COMMON_HEADER = $(SITE)/info/common-header.org
+PAGE = org-docs/matz
+SUBDIRS = 
+
+ORGS = index.org
+HTMLS = $(ORGS:.org=.html)
+
+.SUFFIXES: .org .html
+.org.html:
+	org2html $<
+
+.PHONY: subdirs $(SUBDIRS)
+all: $(HTMLS) subdirs 
+
+subdirs: $(SUBDIRS)
+
+$(SUBDIRS):
+	make -C $@
+
+.PHONY: clean
+clean: 
+	rm -f *.html
+#+END_SRC
+
+#+BEGIN_SRC sh
+cp matz/Makefile meta-ruby/Makefile
+cp matz/Makefile rubymisc/Makefile
+
+#+END_SRC
+
+#+RESULTS:
+
+
+

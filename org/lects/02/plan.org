@@ -1,0 +1,78 @@
+#+title: <2015-10-26 月>の講義予定
+
+* Todo 講義資料の説明
+  SCHEDULED: <2015-10-26 月>
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][org-docs]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
+
+* Doing オブジェクト指向とは
+  SCHEDULED: <2015-10-05 月>
+
+** Doing プログラム言語とは
+
+*** Done 記述のための要素
+    CLOSED: [2015-10-26 月 08:37]
+
+   - 値と定数
+   - データ構造体
+   - 型と演算
+   - 変数と代入
+   - 文と流れ
+   - 関数（手続き)
+     - 定義
+     - 呼出し
+   - スコープ
+   - モジュール
+
+*** Todo 実行するということ
+
+    - コードインタープリタ
+    - 環境
+      - 実行の流れを保存するスタック
+      - 名前を解決する束縛
+      - 静的か動的か
+
+*** Todo メタプログラミング
+    - プログラムを生成するプログラムをつくること
+
+
+** Todo オブジェクト指向プログラミング
+   [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
+   - カプセル化と情報隠蔽
+   - 多相性
+   - 動的束縛
+   - 継承
+     
+** Todo 僕の考え
+    - モジュール
+    - メッセージパッシング
+    - 差をプログラムする
+    
+** Todo Rubyらしさ
+
+    - 純粋オブジェクト指向
+      - プログラム可能なものは全て，オブジェクト
+      - クラスもオブジェクト
+      - 実行はすべてメッセージパッシングで起こる
+    - オブジェクトは実行の場
+
+** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+
+   今日は紹介
+
+* Ruby入門
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/ruby_begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/ruby-begin.org][@s.org]]))
+
+  - rbenv, gem, bundler のこと
+  - gem pry install
+  - pry 
+  
+* メタプログラミング Ruby
+
+  イントロダクションを紹介
+
+
+
+
+

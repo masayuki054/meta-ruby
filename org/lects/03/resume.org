@@ -1,0 +1,154 @@
+* .resume
+
+  2015.11.02 の講義のまとめです。
+
+** Doing announce まだサイトリニューアル中です。未整備なページ等あります。すみません。
+           ご指摘ください。
+
+** Done todo emacs環境/ruby環境 整えましょう。
+   CLOSED: [2015-11-09 月 09:49]
+
+** TODO ruby 入門始めましょう。
+           : ~suzuki/lects/meta-ruby/lects/ruby_begin_note.org
+
+** Doing TODO emacs org-mode 憶えませんか？
+   
+
+** Doing オブジェクトへ至る道を読みましょう。
+   
+
+** Todo メタプログラミング ruby 読み始めましょう。
+   SCHEDULED: <2015-11-02 月>
+
+   - path :: ~/COMM/Lects/meta-ruby/book
+   - まとめ :: ~/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/
+
+
+* Done 講義資料の説明
+  CLOSED: [2015-11-02 月 09:11] SCHEDULED: <2015-10-26 月>
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義資料]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
+
+  - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]])) 追加しました。
+
+* Doing オブジェクト指向とは
+  SCHEDULED: <2015-10-05 月>
+  
+** Doing オブジェクト指向プログラミングへ至る道
+   SCHEDULED: <2015-10-26 月>
+
+   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OOへ至る道]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/oo.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/oo.org][@s.org]])) 
+
+   - [ ] ソフトウェア危機
+   - [ ] 構造化プログラミング
+
+
+** Doing プログラム言語とは
+   SCHEDULED: <2015-10-05 月>
+
+*** Done 記述のための要素
+    CLOSED: [2015-10-26 月 08:37]
+
+   - 値と定数
+   - データ構造体
+   - 型と演算
+   - 変数と代入
+   - 文と流れ
+   - 関数（手続き)
+     - 定義
+     - 呼出し
+   - スコープ
+   - モジュール
+
+*** Todo 実行するということ
+
+    - コードインタープリタ
+    - 環境
+      - 実行の流れを保存するスタック
+      - 名前を解決する束縛
+      - 静的か動的か
+
+*** Todo メタプログラミング
+    - プログラムを生成するプログラムをつくること
+
+
+** Todo オブジェクト指向プログラミング
+
+*** [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
+   - カプセル化と情報隠蔽
+   - 多相性
+   - 動的束縛
+   - 継承
+     
+*** Todo 僕の考え
+     - モジュール
+     - メッセージパッシング
+     - 差をプログラムする
+     
+*** Todo Rubyらしさ
+
+     - 純粋オブジェクト指向
+       - プログラム可能なものは全て，オブジェクト
+       - クラスもオブジェクト
+       - 実行はすべてメッセージパッシングで起こる
+     - オブジェクトは実行の場
+
+
+** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+
+   今年(2015)は読んでいる暇はなさそうです。
+
+*** まつもと直伝プログラミングの掟のまとめ
+    [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
+
+
+* Todo Ruby入門
+  SCHEDULED: <2015-11-02 月>
+  
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/ruby-begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/ruby-begin.org][@s.org]])) を読みプログラムしてみましょう。
+  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ruby入門ノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
+
+* Todo メタプログラミング Ruby
+  SCHEDULED: <2015-11-02 月>
+  
+  序章を読みましょう。
+
+* .lect record
+
+  ここは，講義中の記録です。
+
+#+BEGIN_SRC sh :results output 
+ls
+
+#+END_SRC
+
+#today.org#
+contents.org
+index.html
+index.html~
+index.org
+outline.org
+plan-02.org
+plan.org
+prog.rb
+today.org
+#+end_example
+
+
+#+BEGIN_SRC ruby :results output code :export both
+
+print "hoge", "\n"
+print 1+2,  "\n"
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+hoge
+3
+#+END_SRC
+
+
+
+
+

@@ -1,0 +1,59 @@
+#+name:test-constant#opener
+#+begin_src ruby  :noweb yes
+
+require 'test/unit'
+require 'constant'
+
+class Test_Constant < Test::Unit::TestCase
+  include Poker
+#+end_src
+#+name:test-constant#closer
+#+begin_src ruby :noweb yes
+
+end
+#+end_src
+
+#+name:test-constant#suit
+#+begin_src ruby  :noweb yes
+
+  def test_constant_suit
+    assert_equal(Const::SuitSyms.index(:CLUB), Const::CLUB)
+    assert_equal(Const::SuitSyms.index(:DIAMOND), Const::DIAMOND)
+    assert_equal(Const::SuitSyms.index(:HEART), Const::HEART)
+    assert_equal(Const::SuitSyms.index(:SPADE), Const::SPADE)
+    assert_equal(Const::SuitOrder[0], Const::CLUB)
+    assert_equal(Const::SuitOrder[1], Const::DIAMOND)
+    assert_equal(Const::SuitOrder[2], Const::HEART)
+    assert_equal(Const::SuitOrder[3], Const::SPADE)
+  end
+#+end_src
+
+#+name:test-constant#no
+#+begin_src ruby  :noweb yes
+
+  def test_constant_no
+    assert_equal(Const::NoOrder, [  
+                   Const::TWO, Const::THREE, Const::FOUR, Const::FIVE,
+                   Const::SIX, Const::SEVEN, Const::EIGHT, Const::NINE,
+                   Const::TEN, Const::JACK, Const::QUEEN, Const::KING,
+                   Const::ACE])
+  end
+#+end_src
+
+#+name:test-constant#card
+#+begin_src ruby  :noweb yes
+
+  def test_constant_card
+    assert_equal(52, Const::No_of_Cards)
+  end
+#+end_src
+
+#+name:test-constant.rb
+#+begin_src ruby :tangle test-constant.rb :noweb yes
+<<test-constant#opener>>
+<<test-constant#suit>>
+<<test-constant#no>>
+<<test-constant#card>>
+<<test-constant#closer>>
+#+end_src
+

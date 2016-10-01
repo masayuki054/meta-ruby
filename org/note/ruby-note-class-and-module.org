@@ -1,0 +1,573 @@
+* クラス・モジュールの概念 Ruby
+
+  - origin:  [[http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de][クラス・モジュールの概念 Ruby - Qiita]]
+
+  ここでクラスとモジュールの概念について学ぶ。
+
+** 関連  [[https://www.ruby-lang.org/ja/][オブジェクト指向スクリプト言語 Ruby]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/index.html][オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html][オブジェクト (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html][クラス (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/class/Module.htm][class Module (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html][クラス／メソッドの定義 (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/class/Class.html][class Class (Ruby 2.0.0)]]
+
+
+** 例 Panda モジュール
+   
+#+BEGIN_SRC ruby :session first :results output
+module Panda
+
+  def visit_to_Japan
+    "Mr.TonTon"
+  end
+
+  def panda
+    @panda = "panda"
+  end
+
+end
+'end'
+#+END_SRC
+
+#+RESULTS:
+: :panda
+
+Pandの型，Pandが受け継いでいる型は何でしょう？
+
+#+BEGIN_SRC ruby :session first :results output
+
+Panda.class ## Pandaの型
+Panda.ancestors ## Panda型の階層
+'end'
+#+END_SRC
+
+#+RESULTS:
+: Module
+: [Module, Object, Kernel, BasicObject]
+: [Panda]
+: NoMethodError: undefined method `new' for Panda:Module
+: 	from (irb):23
+: 	from /opt/local/bin/irb:13:in `<main>'
+
+   Panda は Moduleクラスのオブジェクト， Pand = Module.new
+
+   module Panda; ... ;end は，Panda のトップレベルを開いて，
+   実行すること。
+
+#+BEGIN_SRC ruby :session first :results output
+Panda.new
+'end'
+#+END_SRC
+
+   
+
+   Panda.new とかはできない
+
+#+BEGIN_SRC ruby :session first :results output
+module Panda
+  def panda
+    @panda = "panda"
+  end
+end
+'end'
+#+END_SRC
+
+#+BEGIN_SRC ruby :session first :results output
+Panda.pand
+'end'
+#+END_SRC
+
+#+BEGIN_SRC ruby :session first :results output
+Panda.instance_methods(false)
+
+'end'
+#+END_SRC
+
+
+
+   
+
+
+
+   : module Panda; def m ; end 
+
+   つまり，Panda にメソッドを定義できる。
+
+   : module Panda; CONST = 'panda const'; end 
+   : Panda::CONST
+   : CONST
+
+   つまり，Panda は名前空間。
+
+*** 定数 Module 
+
+    Module の class は Class, つまり Module は Classクラスのオブジェクト，
+    つまりクラス
+
+    Module.new で Module型のオブジェクト(モジュール)を作る
+
+** 例 Zooクラス
+
+#+BEGIN_SRC ruby :session first :results output
+class Zoo
+  def the_zoo
+    "there are lots of animal"
+  end
+end
+'end'
+#+END_SRC
+
+#+RESULTS:
+: :the_zoo
+
+#+BEGIN_SRC ruby :session first :results output
+## Zooの型
+Zoo.class
+(Zoo.class).ancestors
+
+## Zoo型の階層
+Zoo.ancestors
+
+## クラス？
+Zoo.new
+'end'
+#+END_SRC
+
+#+RESULTS:
+: Class
+: [Class, Module, Object, Kernel, BasicObject]
+: [Zoo, Object, Kernel, BasicObject]
+: #<Zoo:0x007f8a43816c10>
+
+   Zoo は Classクラスのオブジェクト， Zoo = Class.new
+
+   class Zoo; ... ; end は， Zoo のトップレベルを開いて，実行すること
+
+   Zoo.new ができる。Zoo.class の ancestors に Class が入っているから
+
+** 例： UenoZoo を Zoo を継承して作る
+
+#+BEGIN_SRC ruby :session first :results output
+
+class UenoZoo < Zoo    # Zooクラスの継承
+  include Panda        # Pandaモジュールを mix-in
+  def monkey
+    @monkey = "monkey"
+  end
+  def elephant
+    @elephant = "elephant"
+  end
+  def lion
+    @lion = "lion"
+  end
+  def self.name        # UenoZooクラスの特異メソッド
+    "Ueno Zoo"
+  end
+end
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC ruby :session first :results output
+(UenoZoo.class).ancestors
+UenoZoo.ancestors
+UenoZoo.new
+'end'
+#+END_SRC
+
+#+RESULTS:
+: [Class, Module, Object, Kernel, BasicObject]
+: [UenoZoo, Panda, Zoo, Object, Kernel, BasicObject]
+: #<UenoZoo:0x007fe5d4080ab8>
+
+** 説明
+
+*** mix-in
+
+   モジュールをクラスに取り込む事をmix-inといい、ソフトクリームの上に
+   載せるトッピングがその名の由来。
+
+*** 継承
+
+   Rubyのクラスは継承ができ、親のクラスのインスタンスメソッドを子が受け継ぐ。
+   １つのクラスに二つ以上のクラスは継承ができなく、これを単純継承という。
+
+*** 継承とMix-in
+
+   上記のコードはUenoZooクラスはZooクラスのメソッドを継承している。またUenoZooク
+   ラスはPandaモジュールをmixinしている。
+
+   Zooクラスで定義されているインスタンスメソッドはUenoZooクラスで使えて、Pandaモ
+   ジュールをインクルードすることによって、Zooクラスでインスタンスメソッドとして
+   使う事ができる。
+
+*** extend 
+
+   モジュールはクラスの使い方にバリエーションを与える。
+
+   もしModuleをクラスメソッドとして定義したい場合は extend を使用する
+   事によって使う事ができる。
+
+#+BEGIN_SRC ruby :session first :results output
+
+class UenoZoo
+  extend Panda
+end
+
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC ruby :session first :results output
+(UenoZoo.class).ancestors
+UenoZoo.ancestors
+UenoZoo.singleton_methods
+UenoZoo.singleton_class
+UenoZoo.new
+'end'
+#+END_SRC
+
+#+RESULTS:
+: [Class, Module, Object, Kernel, BasicObject]
+: [UenoZoo, Panda, Zoo, Object, Kernel, BasicObject]
+: [:name, :visit_to_Japan, :panda]
+: #<Class:UenoZoo>
+: #<UenoZoo:0x007fe5d41715d0>
+
+#+BEGIN_SRC ruby :session first :results output
+UenoZoo.visit_to_Japan
+UenoZoo.name
+UenoZoo.panda
+'end'
+#+END_SRC
+
+#+RESULTS:
+: "Mr.TonTon"
+: "Ueno Zoo"
+: "panda"
+
+   また prepend を使えば継承関係を一番手前にしてモジュールにあるメソッドにsuperを
+   使ってオーバーライド(メソッド上書き)できるようになる、Railsのコントローラーで
+   使われるbefore actionのような機能を実装できる。
+   super メソッドは継承されているクラスのメソッド、もしくはモジュールでmixinされ
+   たメソッドで同名のメソッドを呼ぶ事ができるメソッド。
+
+module Panda
+
+  def visit_to_Japan
+    super + " and " + "Mr.TonTon"
+  end
+
+  def panda
+    @panda = "panda"
+  end
+end
+
+class UenoZoo < Zoo
+  prepend Panda
+  def monkey
+    @monkey = "monkey"
+  end
+
+  def elephant
+    @elephant = "elephant"
+  end
+
+  def lion
+    @lion = "lion"
+  end
+
+  def self.name
+    "Ueno Zoo"
+  end
+
+end
+
+> UenoZoo.ancestors
+
+=> [Panda, UenoZoo, Zoo, Object, Kernel, BasicObject]
+
+# Panda モジュールが手前にくる。includeだと
+
+# => [UenoZoo, Panda, Zoo, Object, Kernel, BasicObject]
+
+# Panda モジュールが後ろにくる。
+
+UenoZoo.new.visit_to_Japan
+
+=> "Mr.RanRan and Mr.TonTon"
+
+ちなみにクラスにはinitializeメソッドという便利なメソッドが定義されている。
+このメソッドはオブジェクトが作成された時に呼ばれるメソッドである。
+
+例えば、上のコードでmonkeyメソッドとelephantメソッドとlionメソッドはインスタン
+ス変数を定義してメソッドに格納しているが下記のメソッドのようにすれば短くなる。
+
+#+BEGIN_SRC ruby
+
+
+class UenoZoo
+
+ def initialize(monkey="monkey", elephant="elephant", lion="lion")
+   @monkey = monkey
+   @elephant = elephant
+   @lion = lion
+ end
+
+end
+
+UenoZoo.new.instance_variables
+
+=> [:@monkey, :@elephant, :@lion]
+#+END_SRC
+
+このままだとメソッドで変数を呼び出せないので, attr_readerを使う。
+
+#+BEGIN_SRC ruby
+
+class UenoZoo
+ attr_reader :monkey, :elephant, :lion  
+
+ def initialize(monkey="monkey", elephant="elephant", lion="lion")
+    @monkey = monkey
+    @elephant = elephant
+    @lion = lion
+ end
+
+end
+
+UenoZoo.new.monkey
+
+=> "monkey"
+Ueno.new.monkey = "pokey"
+=>  undefined method `monkey=' for #<UenoZoo:0x007fa782157008> (NoMethodError)
+#+END_SRC
+
+ただこのメソッドは格納したインスタンス変数を呼び出す機能しかないので、
+書き込み機能も加えるためにattr_accessorを使う。書き込みのみの場合は
+attr_writerを使う。
+
+#+BEGIN_SRC ruby
+
+class UenoZoo
+ attr_accessor :monkey, :elephant, :lion  
+
+ def initialize(monkey="monkey", elephant="elephant", lion="lion")
+    @monkey = monkey
+    @elephant = elephant
+    @lion = lion
+ end
+
+end
+
+UenoZoo.new.monkey
+
+=> "monkey"
+Ueno.new.monkey = "pokey"
+
+=> "pokey"
+
+#+END_SRC
+
+
+** モジュールの使い方
+
+   ２種類ある
+
+   - メソッドの格納庫として使う
+
+   - 名前空間として使う
+
+*** 名前空間としての使い方
+
+    同じクラスを定義して、既存のメソッドとは知らずに新たに定義し直して、将来
+    的なバグに繋がる可能性になる。
+
+    またクラス名とモジュール名は定数で定義されていて、
+    module名で定義された定数はclass名で定義できない。
+    その場合は名前空間として使う。下記のコードを参照してほしい。
+
+#+BEGIN_SRC ruby
+
+class Cat
+  def tuna
+    "delicious"
+  end
+end
+
+module Zoo
+
+  class Cat  
+
+    def tuna
+      "delicious"
+    end
+  end
+
+end
+
+> Zoo::Cat.new.tuna
+=> "delicious"
+> Cat.new.tuna
+=> "delicious"
+#+END_SRC
+
+    CatクラスとZoo::Catクラスは別々のオブジェクトになる。module名と
+    class名は定数だが定数の中から定数を呼ぶ場合はコロンを二個つけて::
+    で呼び出す。
+
+
+** まとめ 
+
+   クラスはインスタンス化能力をもちメソッドを定義できる、モジュールは
+   インスタンス化能力を持たないがメソッドを格納できる。モジュールの利
+   用法はメソッドを格納するか名前空間として利用する。
+
+   クラスにモジュールを取り込むことをmixinといってincludeを使う。
+
+   またクラスメソッドとして取り込む場合はextend、継承関係に着目して取
+   り込む場合はprepend。attr属性(attr_accessor, attr_writer,
+   attr_reader)を使えば、そのクラスに属性を与えられる。initializeメソッ
+   ドを使えば、オブジェクトが生成された時に値を格納したりする事ができ
+   る。
+
+** モジュールの先祖
+
+#+BEGIN_SRC ruby :session first :results output
+module GiantPanda
+end
+'end'
+#+END_SRC
+
+#+RESULTS:
+: nil
+
+#+BEGIN_SRC ruby :session first :results output
+module GiantPanda
+  include Panda
+end
+'end'
+#+END_SRC
+
+
+#+RESULTS:
+: GiantPanda
+
+#+BEGIN_SRC ruby :session first :results output
+(GiantPanda.class).ancestors
+GiantPanda.ancestors
+'end'
+#+END_SRC
+
+#+RESULTS:
+: [Module, Object, Kernel, BasicObject]
+: [GiantPanda, Panda]
+
+
+* meta
+** クラス
+
+- インスタンス化能力を持つ。
+- インスタンスメソッドを格納できる。
+
+- クラスもオブジェクトである。
+- クラスメソッドを格納できる。
+
+** モジュール
+
+- インスタンス化能力は持たない
+- インスタンスメソッドを格納できる
+
+- モジュールもオブジェクトである。
+- クラスメソッドを格納できる
+
+** Class と Module
+
+#+BEGIN_SRC ruby :session first :results output
+Class.class
+Class.ancestors
+C = Class.new
+C.class
+C.ancestors
+c = C.new
+c.class
+c.ancestors
+'end'
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Class
+[Class, Module, Object, Kernel, BasicObject]
+(irb):488: warning: already initialized constant C
+(irb):480: warning: previous definition of C was here
+C
+Class
+[C, Object, Kernel, BasicObject]
+#<C:0x007fe5d601fc20>
+C
+NoMethodError: undefined method `ancestors' for #<C:0x007fe5d601fc20>
+	from (irb):493
+	from /opt/local/bin/irb:13:in `<main>'
+#+end_example
+
+   定数 Class はクラス(クラス型のオブジェクト)である。
+   - C = Class.new は，クラス(クラス型のオブジェクト)を生成する
+
+     : [Class, Module, Object, Kernel, BasicObject] 
+
+   - C.new は，オブジェクトを生成する
+   - Class と C では new の振る舞いは異なる
+
+   定数 Module はクラスでありクラス型のオブジェクトである。
+   - Module = Class.new(Object)
+  
+   あるオブジェクト obj が クラス型であるとは，
+   (obj.class).ancestors に Class が含まれること
+
+** クラス - モジュール
+
+- インスタンス化能力
+
+#+BEGIN_SRC ruby :session first :results output
+
+(Class.new).class
+(Module.new).class
+
+(Class.new).new
+(Module.new).new
+
+(Class.new).ancestors - (Module.new).ancestors
+(Class.new).ancestors
+(Module.new).ancestors
+
+(Class).ancestors - (Module).ancestors
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Class
+Module
+#<#<Class:0x007f97358261c0>:0x007f9735826170>
+NoMethodError: undefined method `new' for #<Module:0x007f97339589c8>
+	from (irb):40
+	from /opt/local/bin/irb:13:in `<main>'
+[#<Class:0x007f9733952938>, Object, Kernel, BasicObject]
+[#<Class:0x007f9733948640>, Object, Kernel, BasicObject]
+[#<Module:0x007f97348488c0>]
+[Class]
+#+end_example
+
+   
+
+          

@@ -1,0 +1,230 @@
+* .outline
+
+  <2015-11-27 金> の講義予定です。
+
+** [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note][note]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/note][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/note][@s.or]]g)) 始めました <2015-11-27 金>
+   講義中のめもなどです。
+
+   - ruby-note.org 入門
+
+   - emacs-note.org めも
+
+   - org-note.org めも
+       
+   まだ HTML 化できていません。emacs で見てください。
+
+** eww 使い始めます <2015-11-27 金>
+
+** Doing オブジェクトへ至る道を読みましょう。[1/2]
+   SCHEDULED: <2015-10-26 月>
+
+   - [X] 構造化プログラミングの本質を理解しましょう。
+   - [ ] モジュラープログラミングを読みましょう。
+
+
+** Doing TODO ruby 入門始めましょう。
+   SCHEDULED: <2015-11-02 月> 
+   : ~suzuki/lects/meta-ruby/lects/ruby_begin_note.org
+
+   読むサイトを [[http://www.rubylife.jp/ini/][Ruby入門]] に変更したいです。
+
+   - method をやります。
+
+** Todo TODO emacs org-mode 憶えませんか？ [0/1]
+   SCHEDULED: <2015-11-02 月>
+
+*** Todo ruby入門の記録を取ってみましょう。
+    SCHEDULED: <2015-11-27 金>
+
+*** org-mode todo
+    - [X] org-mode でプログラミングとメモの作成をはじめました。
+    - [X] 文章の構造を覚えましょう。
+    - [X] ruby ソースコードの埋め込み方
+    - [X] ruby ソースコードの実行方法
+    - [X] ruby ソースコードの編集方法
+    - [ ] include
+    - [ ] link
+
+** Todo メタプログラミング ruby 読み始めましょう。
+   SCHEDULED: <2015-11-02 月>
+
+   object, class, method が使えるようになってからにします。
+   
+   - path :: ~/COMM/Lects/meta-ruby/book
+   - まとめ :: ~/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/
+
+* Todo Ruby入門
+  SCHEDULED: <2015-11-02 月>
+
+  emacs で見てください。
+  ： ~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org 
+
+  下記リンクの入門は中断します。
+#+BEGIN_QUOTE
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/ruby-begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/ruby-begin.org][@s.org]])) を読みプログラムしてみましょう。
+  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ruby入門ノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
+#+END_QUOTE
+  
+
+* Doing オブジェクト指向とは
+  SCHEDULED: <2015-10-05 月>
+  
+** Doing オブジェクト指向プログラミングへ至る道
+   SCHEDULED: <2015-10-26 月>
+
+   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OOへ至る道]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/oo.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/oo.org][@s.org]])) 
+
+   - [X] ソフトウェア危機 <2015-11-02 月>
+   - [X] 構造化プログラミング<2015-11-16 月>
+   - [ ] [[file:/NFS/ufs/mac/masayuki/COMM/Lects/meta-ruby/site/org-docs/oo.org::*%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%A9%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0][モジュラプログラミング]]
+
+
+** Doing プログラム言語とは
+   SCHEDULED: <2015-10-05 月>
+
+*** Done 記述のための要素
+    CLOSED: [2015-10-26 月 08:37]
+
+   - 値と定数
+   - データ構造体
+   - 型と演算
+   - 変数と代入
+   - 文と流れ
+   - 関数（手続き)
+     - 定義
+     - 呼出し
+   - スコープ
+   - モジュール
+
+*** Done 実行するということ
+    CLOSED: [2015-11-16 月 16:34]
+    - コードインタープリタ
+    - 環境
+      - 実行の流れを保存するスタック
+      - 名前を解決する束縛
+      - 静的か動的か
+
+*** Todo メタプログラミング
+    - プログラムを生成するプログラムをつくること
+
+** Todo オブジェクト指向プログラミング
+
+*** [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
+   - カプセル化と情報隠蔽
+   - 多相性
+   - 動的束縛
+   - 継承
+     
+*** Done 僕の考え
+    CLOSED: [2015-11-16 月 16:35]
+     - モジュール
+     - メッセージパッシング
+     - 差をプログラムする
+     
+*** Done Rubyらしさ
+    CLOSED: [2015-11-16 月 16:35]
+
+     - 純粋オブジェクト指向
+       - プログラム可能なものは全て，オブジェクト
+       - クラスもオブジェクト
+       - 実行はすべてメッセージパッシングで起こる
+     - オブジェクトは実行の場
+
+
+** Someday [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+   CLOSED: [2015-10-26 月 10:35]
+
+   今年(2015)は読んでいる暇はなさそうです。
+
+*** まつもと直伝プログラミングの掟のまとめ
+    [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
+
+* Doing TODO emacs org-mode 憶えませんか？ [/]
+  SCHEDULED: <2015-11-02 月>
+
+** 文章の構造を覚えましょう。
+
+   [[info:org#document structure]]
+   - headlines
+   - lists
+   - drawers
+   - blocks
+   
+** ruby ソースコードの埋め込み方
+
+   [[info:org#working with source code]] 
+
+   [[info:org#Structure of code blocks]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby <arguments...>
+body
+#+end_src
+#+end_example
+
+** ruby ソースコードのedit
+
+   [[info:org#Editing source code]]
+
+   C-c '
+
+** ruby ソースコードの実行方法
+
+   [[info:org#Evaluating code blocks]]
+
+
+** ruby ソースコードの export
+   [[info:org#Exporting code blocks]]
+
+#+begin_example
+#+begin_src ruby :exports both
+body
+#+end_src
+#+end_example
+
+
+** ruby ソースコードの extract
+
+   [[info:org#Extracting source code]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby :tangle <file>
+body
+#+end_src
+#+end_example
+
+
+
+
+* Todo メタプログラミング Ruby
+  SCHEDULED: <2015-11-02 月>
+
+  object, class, methods を一通りやってから本の内容をやりましょう。
+
+  ruby入門をやりながら，次のことを理解しましょう:
+  - message_passing
+  - object_model
+  - class
+  - method
+  - block  
+
+* Done 講義資料の説明
+  CLOSED: [2015-11-02 月 09:11] SCHEDULED: <2015-10-26 月>
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義資料]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
+
+  - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]])) 追加しました。
+
+** Done announce まだサイトリニューアル中です。未整備なページ等あります。すみません。
+   CLOSED: [2015-11-09 月 10:29]
+           ご指摘ください。
+
+** Done todo emacs環境/ruby環境 整えましょう。
+   CLOSED: [2015-11-02 月 10:29]
+
+* lect record
+
+  ここは，講義中の記録です。
+

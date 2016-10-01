@@ -1,0 +1,12 @@
+#+title: メタプログラミング Ruby
+#+author: suzuki@cis.iwate-u.ac.jp
+
+[[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html][メタプログラミングRuby]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/][毎回 の講義]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OO へ至る道]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html][ruby 入門]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義ドキュメント]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby][meta-ruby まとめ]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html][ruby-note]] /
+ [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/][poker]] 

@@ -1,0 +1,14 @@
+
+# coding:utf-8
+tests = ["test-card.rb", 
+         "test-deck.rb",
+         "test-hand.rb",
+        ]
+
+task :default => :test
+
+task :test do
+  tests.each do |test_file|
+    sh "ruby #{test_file}"
+  end
+end

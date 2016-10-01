@@ -1,0 +1,188 @@
+** class 階層
+
+#+BEGIN_SRC  ruby :session session :results output
+1
+print 1
+'end'
+#+END_SRC
+
+#+RESULTS:
+: 1
+: 1nil
+
+#+BEGIN_SRC ruby :session ruby :results output
+1.class
+(1.class).superclass
+(1.class).superclass.superclass
+(1.class).superclass.superclass.superclass
+(1.class).superclass.superclass.superclass.superclass
+(1.class).superclass.superclass.superclass.superclass.superclass
+'end'
+#+END_SRC
+
+#+RESULTS:
+: Fixnum
+: Integer
+: Numeric
+: Object
+: BasicObject
+: nil
+
+#+BEGIN_SRC ruby :session session :results output
+1.methods
+(BasicObject.new).methods
+'end'
+#+END_SRC
+
+#+RESULTS:
+: [:%, :&, :*, :+, :-, :/, :<, :>, :^, :|, :~, :-@, :**, :<=>, :<<, :>>, :<=, :>=, :==, :===, :[], :inspect, :size, :succ, :to_s, :to_f, :div, :fdiv, :divmod, :modulo, :abs, :magnitude, :zero?, :odd?, :even?, :bit_length, :to_int, :to_i, :next, :upto, :chr, :ord, :integer?, :floor, :ceil, :round, :truncate, :downto, :times, :pred, :to_r, :numerator, :denominator, :rationalize, :gcd, :lcm, :gcdlcm, :+@, :eql?, :singleton_method_added, :coerce, :i, :remainder, :real?, :nonzero?, :step, :positive?, :negative?, :quo, :arg, :rectangular, :rect, :polar, :real, :imaginary, :imag, :abs2, :angle, :phase, :conjugate, :conj, :to_c, :between?, :instance_variable_get, :public_send, :instance_variable_defined?, :private_methods, :public_methods, :instance_variables, :is_a?, :instance_variable_set, :remove_instance_variable, :instance_of?, :kind_of?, :tap, :extend, :define_singleton_method, :singleton_method, :to_enum, :enum_for, :=~, :!~, :respond_to?, :freeze, :display, :object_id, :send, :method, :public_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :frozen?, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+: NoMethodError: undefined method `methods' for #<BasicObject:0x007ff5248ae140>
+: 	from (irb):11
+: 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
+
+#+BEGIN_SRC ruby :session ruby :results output
+(1.class)
+((1.class).class)
+((1.class).class).superclass
+((1.class).class).superclass.superclass
+((1.class).class).superclass.superclass.superclass
+((1.class).class).superclass.superclass.superclass.superclass
+:end
+#+END_SRC
+
+#+RESULTS:
+: Fixnum
+: Class
+: Module
+: Object
+: BasicObject
+: nil
+
+#+BEGIN_SRC ruby :session ruby :results output
+Class
+(Class.class)
+(Class.class).superclass
+(Class.class).superclass.superclass
+(Class.class).superclass.superclass.superclass
+(Class.class).superclass.superclass.superclass.superclass
+:end
+#+END_SRC
+
+#+RESULTS:
+: Class
+: Class
+: Module
+: Object
+: BasicObject
+: nil
+#+BEGIN_SRC ruby :session ruby :results output
+Module
+(Module.class)
+(Module.class).superclass
+(Module.class).superclass.superclass
+(Module.class).superclass.superclass.superclass
+(Module.class).superclass.superclass.superclass.superclass
+:end
+#+END_SRC
+
+#+RESULTS:
+: Module
+: Class
+: Module
+: Object
+: BasicObject
+: nil
+
+#+BEGIN_SRC ruby :session ruby :results output
+def class_hier(obj)
+  if obj.superclass
+    print " => ", obj.superclass
+    class_hier(obj.superclass)
+  end
+end
+
+class_hier(Class)
+class_hier(Integer)
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+: :class_hier
+: => Module => Object => BasicObjectnil
+: => Numeric => Object => BasicObjectnil
+
+** self 
+
+#+BEGIN_SRC ruby :session ruby :results output
+self
+
+self.class
+
+class H
+  $selfH = self
+  def m
+    $selfm = self
+    puts "m is called."
+    'm'
+  end
+end
+
+print "$selfH = ", $selfH
+
+h = H.new
+h.m
+
+print "$selfm = ", $selfm
+
+:end
+
+#+END_SRC
+
+#+RESULTS:
+: main
+: Object
+: :m
+: $selfH = Hnil
+: #<H:0x007f9a83027720>
+: m is called.
+: "m"
+: $selfm = #<H:0x007f9a83027720>nil
+
+
+** methods
+
+#+BEGIN_SRC ruby :session ruby :results output
+1.methods - (Numeric.new).methods
+Integer(1001)
+String("abc")
+Array(2)
+Array(1..100)
+Kernel.Array(2)
+self.Array(2)
+
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+: [:+, :-, :*, :/, :**, :~, :&, :|, :^, :[], :<<, :>>, :to_f, :size, :bit_length, :odd?, :even?, :succ, :upto, :downto, :times, :next, :pred, :chr, :ord, :to_i, :gcd, :lcm, :gcdlcm, :to_r, :rationalize]
+: 1001
+: "abc"
+: [2]
+: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+: [2]
+: NoMethodError: private method `Array' called for main:Object
+: 	from (irb):487
+: 	from /opt/local/bin/irb:13:in `<main>'
+
+#+BEGIN_SRC ruby :session ruby :results output
+Kernel.methods.include?(:Array)
+Kernel.methods.include?(:Integer)
+'end'
+#+END_SRC
+
+#+RESULTS:
+: true
+: true
+

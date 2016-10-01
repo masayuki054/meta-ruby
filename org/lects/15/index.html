@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<title>メタプログラミング Ruby 13回目の講義予定</title>
+<!-- 2016-02-08 月 10:07 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">メタプログラミング Ruby 13回目の講義予定</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">.outline</a>
+<ul>
+<li><a href="#sec-1-1">今日の org 文書 (emacsで開くために)</a></li>
+<li><a href="#sec-1-2">サイト を Emacs (org-mode) で読むために</a></li>
+<li><a href="#sec-1-3">レポート提出について</a></li>
+<li><a href="#sec-1-4">Done オブジェクトへ至る道を読みましょう。<code>[6/6]</code></a></li>
+<li><a href="#sec-1-5">Doing Java - オブジェクト指向はクソか？ - Qiita <code>[3/3]</code></a></li>
+<li><a href="#sec-1-6">Done poker</a>
+<ul>
+<li><a href="#sec-1-6-1">Done poker進行 <code>[6/6]</code></a></li>
+</ul>
+</li>
+<li><a href="#sec-1-7">Doing メタプログラミング ruby</a>
+<ul>
+<li><a href="#sec-1-7-1">02/01</a></li>
+<li><a href="#sec-1-7-2">02/09</a></li>
+<li><a href="#sec-1-7-3">進行について <code>[/]</code></a></li>
+</ul>
+</li>
+<li><a href="#sec-1-8">Doing TODO ruby 入門始めましょう。</a></li>
+<li><a href="#sec-1-9">Todo TODO emacs org-mode 憶えませんか？ <code>[0/1]</code></a>
+<ul>
+<li><a href="#sec-1-9-1">Todo ruby入門の記録を取ってみましょう。</a></li>
+<li><a href="#sec-1-9-2">org-mode todo</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-10">Done オブジェクト指向プログラミングへ至る道</a>
+<ul>
+<li><a href="#sec-1-10-1">Done OOへ至る道 ((@cis.org @s.org)) <code>[8/8]</code></a></li>
+<li><a href="#sec-1-10-2">Java - オブジェクト指向はクソか？ - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-11">Doing プログラム言語とは</a>
+<ul>
+<li><a href="#sec-1-11-1">Done 記述のための要素</a></li>
+<li><a href="#sec-1-11-2">Done 実行するということ</a></li>
+<li><a href="#sec-1-11-3">Todo メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-12">Todo オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#sec-1-12-1">オブジェクト指向プログラミング (wikipedia)</a></li>
+<li><a href="#sec-1-12-2">Done 僕の考え</a></li>
+<li><a href="#sec-1-12-3">Done Rubyらしさ</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-13">Someday まつもと直伝プログラミングの掟</a>
+<ul>
+<li><a href="#sec-1-13-1">まつもと直伝プログラミングの掟のまとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">Done Ruby入門</a></li>
+<li><a href="#sec-3">Todo メタプログラミング Ruby</a></li>
+<li><a href="#sec-4">Doing TODO emacs org-mode 憶えませんか？ <code>[/]</code></a>
+<ul>
+<li><a href="#sec-4-1">文章の構造を覚えましょう。</a></li>
+<li><a href="#sec-4-2">ruby ソースコードの埋め込み方</a></li>
+<li><a href="#sec-4-3">ruby ソースコードのedit</a></li>
+<li><a href="#sec-4-4">ruby ソースコードの実行方法</a></li>
+<li><a href="#sec-4-5">ruby ソースコードの export</a></li>
+<li><a href="#sec-4-6">ruby ソースコードの extract</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">Done 講義資料の説明</a>
+<ul>
+<li><a href="#sec-5-1">Done announce まだサイトリニューアル中です。未整備なページ等あります。すみません。</a></li>
+<li><a href="#sec-5-2">Done todo emacs環境/ruby環境 整えましょう。</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">.outline</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-08 月&gt;</span></span> の講義予定です。
+</p>
+
+
+<ul class="org-ul">
+<li>2/8，2/15 に講義します。
+</li>
+<li>レポートの〆切は，2/22にします。
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">今日の org 文書 (emacsで開くために)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+~suzuki/Lects.org に org-リンクを置きます。
+</p>
+
+<ul class="org-ul">
+<li>2/2 のまとめ
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-meta.html">2016.02.01 method</a>
+</li>
+
+<li>2/9 の講義内容
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/14/plan.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/14/plan.html</a>
+</li>
+
+<li>sqlite example
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-sqlite.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-sqlite.html</a>
+</li>
+<li>block 文書の見直しと要約
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/block.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/block.html</a>
+</li>
+
+<li>sinatra と org-ruby example
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.html</a>  
+</li>
+
+<li>OO-sucks? へのコメント
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/oo-note-oo-sucks.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/oo-note-oo-sucks.html</a>
+考え始めた。
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">サイト を Emacs (org-mode) で読むために</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>~suzuki/COMM/Lects/meta-ruby/site の下がサイト全体
+
+<ul class="org-ul">
+<li>lects/note/ruby-note.org のーと
+</li>
+
+<li>org-docs/meta-ruby/ の下，メタプログラミング Ruby まとめ文書
+</li>
+</ul>
+</li>
+
+<li>~suzuki/COMM/Prog/ruby/meta の下のディレクトリにコード
+</li>
+
+<li>~suzuki/COMM/Lects/meta-ruby/site/code の下にもコード
+</li>
+
+<li>~suzuki/COMM/Lects/meta-ruby/site/book の下
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">レポート提出について</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>提出場所  <a href="https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/">https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/</a> 
+
+<p>
+自分のdirectory下
+</p>
+</li>
+
+<li>提出物 <code>[6/6]</code>
+<ul class="org-ul">
+<li><code>[X]</code> pokerゲームのrubyによるテスト駆動開発，
+<ul class="org-ul">
+<li>./poker/ ruby プログラム
+</li>
+<li>poker.org org文書
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> オブジェクト指向に至る軌跡の纏め
+<ul class="org-ul">
+<li>oo.org 
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> Ruby におけるオブジェクト指向の実現
+<ul class="org-ul">
+<li>ruby-oo.org
+</li>
+<li>図示でもいい
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> メタプログラミング Ruby のまとめ
+<ul class="org-ul">
+<li>meta-programming-ruby.org
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> 課題プログラムの作成 <code>[4/4]</code>
+    org文書で提出してください:
+
+<ul class="org-ul">
+<li><code>[X]</code> 1. uri2org.org
+<ul class="org-ul">
+<li>あるWebページを org 文書に変換， 
+</li>
+<li>gem の mechanize と nokogiri を使う
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> 2. dirtree.org
+<ul class="org-ul">
+<li>ディレクトリ木の表示 Dir，File, 文字列
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> 3. org-server.org
+<ul class="org-ul">
+<li>org文書を表示するWebサーバ.
+</li>
+<li>gem の sinatra と org-rubyを使う
+</li>
+<li>ruby-note/sinatra-org/readme.org を参考に  
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> 4. sqlite.org
+<ul class="org-ul">
+<li>sqlite データベースの中身を rubyを使って調べる
+</li>
+<li>ruby-note の sqliteを参考に
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> 講義への意見感想
+<ul class="org-ul">
+<li>about_lecture.org
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Done オブジェクトへ至る道を読みましょう。<code>[6/6]</code></h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><code>[X]</code> 構造化プログラミングの本質を理解しましょう。
+</li>
+<li><code>[X]</code> モジュラープログラミングを読みましょう。<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-27 金&gt;</span></span>
+</li>
+<li><code>[X]</code> 抽象データ型を読み，まとめましょう。<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-07 月&gt;</span></span>
+</li>
+<li><code>[X]</code> オブジェクト指向？ <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-14 月&gt;</span></span>
+</li>
+<li><code>[X]</code> Simula &amp; C++のオブジェクト指向 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-14 月&gt;</span></span>~
+</li>
+<li><code>[X]</code> SmallTalk &amp; objective-C のオブジェクト指向 <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-18 月&gt;</span></span>~
+</li>
+</ul>
+
+<p>
+まとめを emacs org-modeの文書で書きためてください。レポートとして提
+出してもらう予定です。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Doing Java - オブジェクト指向はクソか？ - Qiita <code>[3/3]</code></h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+オブジェクトへ至る道を読み終えたら，関数型プログラミングからの反論
+を読んでみましょう:
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> <a href="http://qiita.com/lambda-knight">lambda-knight - Qiita</a> 紹介
+</li>
+
+<li><code>[X]</code> <a href="http://qiita.com/lambda-knight/items/fb7530232912dc4176c4">Java - オブジェクト指向はクソか？ - Qiita</a>
+</li>
+
+<li><code>[X]</code> <a href="http://qiita.com/lambda-knight/items/a33feffe947a958a2d3a">その後のJoe Armstrongのオブジェクト指向に対する見解 - Qiita</a>
+
+<p>
+ruby-note/oo-note-oo-sucks.org に僕の考えを書きました。まだかき
+なぐりの段階ですが。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Done poker</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/poker.html">pokerのテスト駆動開発</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/poker/poker.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/poker/poker.html">@s.org</a>)) 
+</p>
+
+<ul class="org-ul">
+<li>org-mode+babel で書いていきます
+</li>
+<li>test-unit のことも
+</li>
+<li>emacs org-mode+babel のことも
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1">Done poker進行 <code>[6/6]</code></h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><code>[X]</code> test-unit の説明
+</li>
+<li><code>[X]</code> クラス設計 poker.org
+</li>
+<li><code>[X]</code> card.org
+</li>
+<li><code>[X]</code> deck.org
+</li>
+<li><code>[X]</code> hand.org
+</li>
+<li><code>[X]</code> play.org
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">Doing メタプログラミング ruby</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+01/25
+</p>
+<ul class="org-ul">
+<li>ruby の原理再び
+
+<p>
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-object.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-object.html</a>
+</p>
+
+<p>
+<a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html">file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html</a>#Rubyの原理
+</p>
+
+<ul class="org-ul">
+<li>Scheme の RSR5の序を思い出す。
+<a href="http://www.unixuser.org/~euske/doc/r5rs-ja/r5rs-ja.pdf">R5RS-ja.pdf</a>
+</li>
+</ul>
+</li>
+
+<li>オブジェクト・モデル
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1">02/01</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li>method (method_missing と 動的定義と呼び出し)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2">02/09</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li>block 
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7-3" class="outline-4">
+<h4 id="sec-1-7-3">進行について <code>[/]</code></h4>
+<div class="outline-text-4" id="text-1-7-3">
+<p>
+まとめをemacs org-modeの文書で書きためてください。レポー
+トとして提出してもらう予定です。
+</p>
+
+<ul class="org-ul">
+<li>オブジェクトとメッセージング
+</li>
+<li>オブジェクト，クラス，メソッド
+</li>
+<li>ブロック
+</li>
+<li>トップレベル
+</li>
+<li>self
+</li>
+<li>クラス階層と継承
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">Doing TODO ruby 入門始めましょう。</h3>
+<div class="outline-text-3" id="text-1-8">
+<pre class="example">
+~suzuki/lects/meta-ruby/lects/ruby_begin_note.org
+</pre>
+
+<p>
+読むサイトを <a href="http://www.rubylife.jp/ini/">Ruby入門</a> に変更したいです。
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> method をやります。
+</li>
+<li><code>[X]</code> class 定義
+</li>
+<li><code>[&#xa0;]</code> class 継承 
+</li>
+<li><code>[&#xa0;]</code> pokerゲームの設計
+</li>
+</ul>
+
+<p>
+ruby入門のノートをemacs org-modeの文書で書きためてください。レポー
+トとして提出してもらう予定です。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">Todo TODO emacs org-mode 憶えませんか？ <code>[0/1]</code></h3>
+<div class="outline-text-3" id="text-1-9">
+</div>
+
+<div id="outline-container-sec-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1">Todo ruby入門の記録を取ってみましょう。</h4>
+<div class="outline-text-4" id="text-1-9-1">
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2">org-mode todo</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<ul class="org-ul">
+<li><code>[X]</code> org-mode でプログラミングとメモの作成をはじめました。
+</li>
+<li><code>[X]</code> 文章の構造を覚えましょう。
+</li>
+<li><code>[X]</code> ruby ソースコードの埋め込み方
+</li>
+<li><code>[X]</code> ruby ソースコードの実行方法
+</li>
+<li><code>[X]</code> ruby ソースコードの編集方法
+</li>
+<li><code>[&#xa0;]</code> include
+</li>
+<li><code>[&#xa0;]</code> link
+</li>
+
+<li>Doing オブジェクト指向とは
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Done オブジェクト指向プログラミングへ至る道</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+
+<div id="outline-container-sec-1-10-1" class="outline-4">
+<h4 id="sec-1-10-1">Done <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OOへ至る道</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/site/org-docs/oo.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/oo.html">@s.org</a>)) <code>[8/8]</code></h4>
+<div class="outline-text-4" id="text-1-10-1">
+<ul class="org-ul">
+<li><code>[X]</code> ソフトウェア危機 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 月&gt;</span></span>
+</li>
+<li><code>[X]</code> 構造化プログラミング<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-16 月&gt;</span></span>
+</li>
+<li><code>[X]</code> <a href="file:///NFS/ufs/mac/masayuki/COMM/Lects/meta-ruby/site/org-docs/oo.html">モジュラプログラミング</a>
+</li>
+<li><code>[X]</code> 抽象データ型
+</li>
+<li><code>[X]</code> オブジェクト指向？
+</li>
+<li><code>[X]</code> Simula &amp; C++ のオブジェクト指向
+</li>
+<li><code>[X]</code> SmallTalk &amp; objective-C のオブジェクト指向
+</li>
+<li><code>[X]</code> まとめ
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10-2" class="outline-4">
+<h4 id="sec-1-10-2">Java - オブジェクト指向はクソか？ - Qiita</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<p>
+オブジェクトへ至る道を読み終えたら，関数型プログラミングからの反論
+を読んでみましょう:
+</p>
+
+<p>
+<a href="http://qiita.com/lambda-knight">lambda-knight - Qiita</a>
+</p>
+
+<ul class="org-ul">
+<li><a href="http://qiita.com/lambda-knight/items/fb7530232912dc4176c4">Java - オブジェクト指向はクソか？ - Qiita</a>
+</li>
+
+<li><a href="http://qiita.com/lambda-knight/items/a33feffe947a958a2d3a">その後のJoe Armstrongのオブジェクト指向に対する見解 - Qiita</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Doing プログラム言語とは</h3>
+<div class="outline-text-3" id="text-1-11">
+</div>
+
+<div id="outline-container-sec-1-11-1" class="outline-4">
+<h4 id="sec-1-11-1">Done 記述のための要素</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<ul class="org-ul">
+<li>値と定数
+</li>
+<li>データ構造体
+</li>
+<li>型と演算
+</li>
+<li>変数と代入
+</li>
+<li>文と流れ
+</li>
+<li>関数（手続き)
+<ul class="org-ul">
+<li>定義
+</li>
+<li>呼出し
+</li>
+</ul>
+</li>
+<li>スコープ
+</li>
+<li>モジュール
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11-2" class="outline-4">
+<h4 id="sec-1-11-2">Done 実行するということ</h4>
+<div class="outline-text-4" id="text-1-11-2">
+<ul class="org-ul">
+<li>コードインタープリタ
+</li>
+<li>環境
+<ul class="org-ul">
+<li>実行の流れを保存するスタック
+</li>
+<li>名前を解決する束縛
+</li>
+<li>静的か動的か
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11-3" class="outline-4">
+<h4 id="sec-1-11-3">Todo メタプログラミング</h4>
+<div class="outline-text-4" id="text-1-11-3">
+<ul class="org-ul">
+<li>プログラムを生成するプログラムをつくること
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">Todo オブジェクト指向プログラミング</h3>
+<div class="outline-text-3" id="text-1-12">
+</div><div id="outline-container-sec-1-12-1" class="outline-4">
+<h4 id="sec-1-12-1"><a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">オブジェクト指向プログラミング</a> (wikipedia)</h4>
+<div class="outline-text-4" id="text-1-12-1">
+<ul class="org-ul">
+<li>カプセル化と情報隠蔽
+</li>
+<li>多相性
+</li>
+<li>動的束縛
+</li>
+<li>継承
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12-2" class="outline-4">
+<h4 id="sec-1-12-2">Done 僕の考え</h4>
+<div class="outline-text-4" id="text-1-12-2">
+<ul class="org-ul">
+<li>モジュール
+</li>
+<li>メッセージパッシング
+</li>
+<li>差をプログラムする
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12-3" class="outline-4">
+<h4 id="sec-1-12-3">Done Rubyらしさ</h4>
+<div class="outline-text-4" id="text-1-12-3">
+<ul class="org-ul">
+<li>純粋オブジェクト指向
+<ul class="org-ul">
+<li>プログラム可能なものは全て，オブジェクト
+</li>
+<li>クラスもオブジェクト
+</li>
+<li>実行はすべてメッセージパッシングで起こる
+</li>
+</ul>
+</li>
+<li>オブジェクトは実行の場
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">Someday <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+今年(2015)は読んでいる暇はなさそうです。
+</p>
+</div>
+
+<div id="outline-container-sec-1-13-1" class="outline-4">
+<h4 id="sec-1-13-1">まつもと直伝プログラミングの掟のまとめ</h4>
+<div class="outline-text-4" id="text-1-13-1">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz">まとめ</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Done Ruby入門</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-sh">sh ~/COMM/Lects/bin/org_link_make.sh meta-ruby lects/note/ruby-note.html rubyノート
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">rubyノート</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/note/ruby-note.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html">@s.org</a>)) のテスト
+</li>
+<li>poker
+
+<p>
+emacs で見てください。
+： ~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org 
+</p>
+
+<p>
+下記リンクの入門は中断します。
+</p>
+</li>
+</ul>
+<blockquote>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby入門</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/site/ruby-begin.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/ruby-begin.html">@s.org</a>)) を読みプログラムしてみましょう。
+</p>
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html">ruby入門ノート</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/ruby-begin-note.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.html">@s.org</a>))
+</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Todo メタプログラミング Ruby</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Doing TODO emacs org-mode 憶えませんか？ <code>[/]</code></h2>
+<div class="outline-text-2" id="text-4">
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">文章の構造を覚えましょう。</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<a href="org#document structure">org#document structure</a>
+</p>
+<ul class="org-ul">
+<li>headlines
+</li>
+<li>lists
+</li>
+<li>drawers
+</li>
+<li>blocks
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">ruby ソースコードの埋め込み方</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+<a href="org#working with source code">org#working with source code</a> 
+</p>
+
+<p>
+<a href="org#Structure of code blocks">org#Structure of code blocks</a>
+</p>
+
+<pre class="example">
+#+name: 
+#+begin_src ruby &lt;arguments...&gt;
+body
+#+end_src
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">ruby ソースコードのedit</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+<a href="org#Editing source code">org#Editing source code</a>
+</p>
+
+<p>
+C-c '
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">ruby ソースコードの実行方法</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+<a href="org#Evaluating code blocks">org#Evaluating code blocks</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5">ruby ソースコードの export</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+<a href="org#Exporting code blocks">org#Exporting code blocks</a>
+</p>
+
+<pre class="example">
+#+begin_src ruby :exports both
+body
+#+end_src
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6">ruby ソースコードの extract</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+<a href="org#Extracting source code">org#Extracting source code</a>
+</p>
+
+<pre class="example">
+#+name: 
+#+begin_src ruby :tangle &lt;file&gt;
+body
+#+end_src
+</pre>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Done 講義資料の説明</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義資料</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/site/org-docs/">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/">@s.org</a>))
+</p>
+
+<dl class="org-dl">
+<dt> URL </dt><dd><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html">emacsの設定</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/org-docs/emacs-setup.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.html">@s.org</a>)) 追加しました。
+</dd>
+</dl>
+</div>
+
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">Done announce まだサイトリニューアル中です。未整備なページ等あります。すみません。</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+ご指摘ください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Done todo emacs環境/ruby環境 整えましょう。</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#33879;&#32773;: suzuki@cis.iwate-u.ac.jp</p>
+<p class="date">Created: 2016-02-08 月 10:07</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

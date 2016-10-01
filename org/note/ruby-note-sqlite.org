@@ -1,0 +1,1312 @@
+* sqlite3-ruby
+
+** 関連サイト
+- [[http://shuzo-kino.hateblo.jp/entry/20120913/1347551619][Rubyでsqlite3を使ってみる - Bye Bye Moore]]
+- [[https://sites.google.com/site/rubycocoamemo/Home/ruby-guan-lian/sqlite-wo--ruby-de-tsukau][SQLite を Ruby で使う - RubyCocoa メモ]]
+- [[https://github.com/sparklemotion/sqlite3-ruby][sparklemotion/sqlite3-ruby - Ruby]]
+
+** gem
+
+#+BEGIN_SRC sh
+gem install sqlite3
+
+#+END_SRC
+
+** sqlite
+
+[[ja.wikipedia.org/wiki/SQLite][SQLite (wikipedia)]] 手軽なローカル・ファイル型の軽量データベース
+
+** setup   
+
+#+BEGIN_SRC sh
+rm -f database.db
+
+#+END_SRC
+
+#+RESULTS:
+
+** ruby 
+
+#+BEGIN_SRC ruby :sesseion ruby :results output
+# coding: utf-8
+
+require 'rubygems'
+require 'sqlite3'
+
+db = SQLite3::Database.new("database.db")
+
+sql = <<EOT
+create table Person (
+ name varchar(10),
+ age integer,
+ post varchar(200)
+);
+EOT
+
+db.execute(sql)
+puts "New file is created."
+
+db.transaction do
+  sql = "insert into Person values (?, ?, ?)"
+  db.execute(sql, 'hoge', 26, 'hage')
+  db.execute(sql, 'hage', 62, 'hoge')
+end
+
+db.execute('select * from Person') do |row|
+  puts row.join("\t")
+end
+db.close
+
+'end'
+
+#+END_SRC
+
+#+RESULTS:
+: New file is created.
+: hoge	26	hage
+: hage	62	hoge
+
+
+** firefox sqlite database handling
+
+   [[https://support.mozilla.org/ja/kb/profiles-where-firefox-stores-user-data#w_cucgciaaacceaeakiuaiauadaeaoceag][プロファイル | Firefox ヘルプ]] 
+
+firefox が使っている sqlite データベースをコピーして，
+テーブルのレコードを出力する。
+
+#+BEGIN_SRC sh :results output scalar
+ls ~/.mozilla/firefox
+cp -p ~/.mozilla/firefox/5rot7npz.default/content-prefs.sqlite .
+#+END_SRC
+
+#+RESULTS:
+: 5rot7npz.default
+: Crash Reports
+: console.log
+: profiles.ini
+
+#+BEGIN_SRC ruby :session ruby :results output
+# coding: utf-8
+
+require 'rubygems'
+require 'sqlite3'
+require 'pp'
+
+file = "content-prefs.sqlite"
+
+db = SQLite3::Database.open(file)
+
+tables = db.execute("select tbl_name FROM sqlite_master WHERE type == 'table'")
+
+tables.flatten.each do |tbl|
+  puts "== ",  tbl
+  db.results_as_hash = true
+  db.execute("select * from #{tbl}") do |row|
+    # puts row.join("\t")
+    pp row
+  end
+end
+
+p tables
+
+db.close
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+irb(main):135:0* => false
+=> false
+=> false
+irb(main):139:0* => "content-prefs.sqlite"
+irb(main):141:0* => #<SQLite3::Database:0x007f54f97c0d30 @tracefunc=nil, @authorizer=nil, @encoding=nil, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=nil, @type_translation=nil, @readonly=false>
+irb(main):143:0* => [["groups"], ["settings"], ["prefs"]]
+irb(main):145:0* irb(main):146:1* irb(main):147:1> irb(main):148:1> irb(main):149:2* irb(main):150:2* irb(main):151:2> irb(main):152:1> == 
+groups
+{"id"=>1, "name"=>"wiki.cis.iwate-u.ac.jp", 0=>1, 1=>"wiki.cis.iwate-u.ac.jp"}
+{"id"=>2, "name"=>"about:startpage", 0=>2, 1=>"about:startpage"}
+{"id"=>3, "name"=>"www.google.com", 0=>3, 1=>"www.google.com"}
+{"id"=>4, "name"=>"qiita.com", 0=>4, 1=>"qiita.com"}
+{"id"=>5, "name"=>"subversion.apache.org", 0=>5, 1=>"subversion.apache.org"}
+{"id"=>6, "name"=>"stackoverflow.com", 0=>6, 1=>"stackoverflow.com"}
+{"id"=>7, "name"=>"www.google.co.jp", 0=>7, 1=>"www.google.co.jp"}
+{"id"=>8, "name"=>"www.amazon.co.jp", 0=>8, 1=>"www.amazon.co.jp"}
+{"id"=>9, "name"=>"orgmode.org", 0=>9, 1=>"orgmode.org"}
+{"id"=>10, "name"=>"about:newtab", 0=>10, 1=>"about:newtab"}
+{"id"=>11, "name"=>"ja.wikipedia.org", 0=>11, 1=>"ja.wikipedia.org"}
+{"id"=>12,
+ "name"=>"spws01.cis.iwate-u.ac.jp",
+ 0=>12,
+ 1=>"spws01.cis.iwate-u.ac.jp"}
+{"id"=>13, "name"=>"www.ietf.org", 0=>13, 1=>"www.ietf.org"}
+{"id"=>14, "name"=>"www.ipa.go.jp", 0=>14, 1=>"www.ipa.go.jp"}
+{"id"=>15, "name"=>"svn.cis.iwate-u.ac.jp", 0=>15, 1=>"svn.cis.iwate-u.ac.jp"}
+{"id"=>16, "name"=>"www.geocities.jp", 0=>16, 1=>"www.geocities.jp"}
+{"id"=>17, "name"=>"www6.airnet.ne.jp", 0=>17, 1=>"www6.airnet.ne.jp"}
+{"id"=>18, "name"=>"en.wikipedia.org", 0=>18, 1=>"en.wikipedia.org"}
+{"id"=>19, "name"=>"dictionary.goo.ne.jp", 0=>19, 1=>"dictionary.goo.ne.jp"}
+{"id"=>20,
+ "name"=>"wiki.eecs.iwate-u.ac.jp",
+ 0=>20,
+ 1=>"wiki.eecs.iwate-u.ac.jp"}
+{"id"=>21,
+ "name"=>
+  "file:///home/staff/suzuki/COMM/Lects/prog/site/org-docs/cutter/cutter-doc.html",
+ 0=>21,
+ 1=>
+  "file:///home/staff/suzuki/COMM/Lects/prog/site/org-docs/cutter/cutter-doc.html"}
+{"id"=>22,
+ "name"=>"cutter.sourceforge.net",
+ 0=>22,
+ 1=>"cutter.sourceforge.net"}
+{"id"=>23, "name"=>"www.gnu.org", 0=>23, 1=>"www.gnu.org"}
+{"id"=>24,
+ "name"=>"file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/ruby_begin.html",
+ 0=>24,
+ 1=>"file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/ruby_begin.html"}
+{"id"=>25, "name"=>"magazine.rubyist.net", 0=>25, 1=>"magazine.rubyist.net"}
+{"id"=>26, "name"=>"loveruby.net", 0=>26, 1=>"loveruby.net"}
+{"id"=>27,
+ "name"=>
+  "file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/docs/meta-ruby/index.html",
+ 0=>27,
+ 1=>
+  "file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/docs/meta-ruby/index.html"}
+{"id"=>28, "name"=>"ops.tokyo", 0=>28, 1=>"ops.tokyo"}
+{"id"=>29,
+ "name"=>
+  "file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/01/01-GTD.html",
+ 0=>29,
+ 1=>"file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/01/01-GTD.html"}
+{"id"=>30, "name"=>"www.bookshelf.jp", 0=>30, 1=>"www.bookshelf.jp"}
+{"id"=>31, "name"=>"www.ogis-ri.co.jp", 0=>31, 1=>"www.ogis-ri.co.jp"}
+{"id"=>32, "name"=>"mitpress.mit.edu", 0=>32, 1=>"mitpress.mit.edu"}
+{"id"=>33,
+ "name"=>
+  "file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/index.html",
+ 0=>33,
+ 1=>"file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/index.html"}
+{"id"=>34, "name"=>"libro.tuyano.com", 0=>34, 1=>"libro.tuyano.com"}
+{"id"=>35, "name"=>"docs.ruby-lang.org", 0=>35, 1=>"docs.ruby-lang.org"}
+{"id"=>36, "name"=>"d.hatena.ne.jp", 0=>36, 1=>"d.hatena.ne.jp"}
+{"id"=>37, "name"=>"www.rubylife.jp", 0=>37, 1=>"www.rubylife.jp"}
+{"id"=>38, "name"=>"gcc.gnu.org", 0=>38, 1=>"gcc.gnu.org"}
+{"id"=>39, "name"=>"i.loveruby.net", 0=>39, 1=>"i.loveruby.net"}
+{"id"=>40, "name"=>"www.slideshare.net", 0=>40, 1=>"www.slideshare.net"}
+{"id"=>41,
+ "name"=>"file:///home/staff/suzuki/progs/reports/1/report-1.html",
+ 0=>41,
+ 1=>"file:///home/staff/suzuki/progs/reports/1/report-1.html"}
+{"id"=>42, "name"=>"shuzo-kino.hateblo.jp", 0=>42, 1=>"shuzo-kino.hateblo.jp"}
+== 
+settings
+{"id"=>1,
+ "name"=>"browser.content.full-zoom",
+ 0=>1,
+ 1=>"browser.content.full-zoom"}
+== 
+prefs
+{"id"=>1,
+ "groupID"=>1,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>1454302922.032,
+ 0=>1,
+ 1=>1,
+ 2=>1,
+ 3=>3,
+ 4=>1454302922.032}
+{"id"=>2,
+ "groupID"=>2,
+ "settingID"=>1,
+ "value"=>1.2,
+ "timestamp"=>1444708376.262,
+ 0=>2,
+ 1=>2,
+ 2=>1,
+ 3=>1.2,
+ 4=>1444708376.262}
+{"id"=>3,
+ "groupID"=>3,
+ "settingID"=>1,
+ "value"=>1.5,
+ "timestamp"=>0,
+ 0=>3,
+ 1=>3,
+ 2=>1,
+ 3=>1.5,
+ 4=>0}
+{"id"=>4,
+ "groupID"=>4,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1450071779.862,
+ 0=>4,
+ 1=>4,
+ 2=>1,
+ 3=>2.4,
+ 4=>1450071779.862}
+{"id"=>5,
+ "groupID"=>5,
+ "settingID"=>1,
+ "value"=>1.3300000429153442,
+ "timestamp"=>0,
+ 0=>5,
+ 1=>5,
+ 2=>1,
+ 3=>1.3300000429153442,
+ 4=>0}
+{"id"=>6,
+ "groupID"=>6,
+ "settingID"=>1,
+ "value"=>1.5,
+ "timestamp"=>0,
+ 0=>6,
+ 1=>6,
+ 2=>1,
+ 3=>1.5,
+ 4=>0}
+{"id"=>7,
+ "groupID"=>7,
+ "settingID"=>1,
+ "value"=>1.5,
+ "timestamp"=>1444103807.725,
+ 0=>7,
+ 1=>7,
+ 2=>1,
+ 3=>1.5,
+ 4=>1444103807.725}
+{"id"=>8,
+ "groupID"=>8,
+ "settingID"=>1,
+ "value"=>2.4000000953674316,
+ "timestamp"=>0,
+ 0=>8,
+ 1=>8,
+ 2=>1,
+ 3=>2.4000000953674316,
+ 4=>0}
+{"id"=>10,
+ "groupID"=>9,
+ "settingID"=>1,
+ "value"=>1.7000000476837158,
+ "timestamp"=>0,
+ 0=>10,
+ 1=>9,
+ 2=>1,
+ 3=>1.7000000476837158,
+ 4=>0}
+{"id"=>11,
+ "groupID"=>10,
+ "settingID"=>1,
+ "value"=>2,
+ "timestamp"=>1453800023.114,
+ 0=>11,
+ 1=>10,
+ 2=>1,
+ 3=>2,
+ 4=>1453800023.114}
+{"id"=>12,
+ "groupID"=>11,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1448856870.872,
+ 0=>12,
+ 1=>11,
+ 2=>1,
+ 3=>2.4,
+ 4=>1448856870.872}
+{"id"=>13,
+ "groupID"=>12,
+ "settingID"=>1,
+ "value"=>2.4000000953674316,
+ "timestamp"=>0,
+ 0=>13,
+ 1=>12,
+ 2=>1,
+ 3=>2.4000000953674316,
+ 4=>0}
+{"id"=>14,
+ "groupID"=>13,
+ "settingID"=>1,
+ "value"=>1.7000000476837158,
+ "timestamp"=>0,
+ 0=>14,
+ 1=>13,
+ 2=>1,
+ 3=>1.7000000476837158,
+ 4=>0}
+{"id"=>15,
+ "groupID"=>14,
+ "settingID"=>1,
+ "value"=>2,
+ "timestamp"=>0,
+ 0=>15,
+ 1=>14,
+ 2=>1,
+ 3=>2,
+ 4=>0}
+{"id"=>16,
+ "groupID"=>15,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>0,
+ 0=>16,
+ 1=>15,
+ 2=>1,
+ 3=>3,
+ 4=>0}
+{"id"=>17,
+ "groupID"=>16,
+ "settingID"=>1,
+ "value"=>1.7000000476837158,
+ "timestamp"=>0,
+ 0=>17,
+ 1=>16,
+ 2=>1,
+ 3=>1.7000000476837158,
+ 4=>0}
+{"id"=>18,
+ "groupID"=>17,
+ "settingID"=>1,
+ "value"=>1.100000023841858,
+ "timestamp"=>0,
+ 0=>18,
+ 1=>17,
+ 2=>1,
+ 3=>1.100000023841858,
+ 4=>0}
+{"id"=>19,
+ "groupID"=>18,
+ "settingID"=>1,
+ "value"=>1.2000000476837158,
+ "timestamp"=>0,
+ 0=>19,
+ 1=>18,
+ 2=>1,
+ 3=>1.2000000476837158,
+ 4=>0}
+{"id"=>20,
+ "groupID"=>19,
+ "settingID"=>1,
+ "value"=>2,
+ "timestamp"=>0,
+ 0=>20,
+ 1=>19,
+ 2=>1,
+ 3=>2,
+ 4=>0}
+{"id"=>21,
+ "groupID"=>20,
+ "settingID"=>1,
+ "value"=>2,
+ "timestamp"=>1441688316.416,
+ 0=>21,
+ 1=>20,
+ 2=>1,
+ 3=>2,
+ 4=>1441688316.416}
+{"id"=>22,
+ "groupID"=>21,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1443679074.734,
+ 0=>22,
+ 1=>21,
+ 2=>1,
+ 3=>1.7,
+ 4=>1443679074.734}
+{"id"=>23,
+ "groupID"=>22,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1443676271.668,
+ 0=>23,
+ 1=>22,
+ 2=>1,
+ 3=>2.4,
+ 4=>1443676271.668}
+{"id"=>24,
+ "groupID"=>23,
+ "settingID"=>1,
+ "value"=>1.5,
+ "timestamp"=>1443768405.696,
+ 0=>24,
+ 1=>23,
+ 2=>1,
+ 3=>1.5,
+ 4=>1443768405.696}
+{"id"=>25,
+ "groupID"=>24,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1443770712.08,
+ 0=>25,
+ 1=>24,
+ 2=>1,
+ 3=>1.7,
+ 4=>1443770712.08}
+{"id"=>26,
+ "groupID"=>25,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1443770982.739,
+ 0=>26,
+ 1=>25,
+ 2=>1,
+ 3=>1.7,
+ 4=>1443770982.739}
+{"id"=>27,
+ "groupID"=>26,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1443771116.364,
+ 0=>27,
+ 1=>26,
+ 2=>1,
+ 3=>2.4,
+ 4=>1443771116.364}
+{"id"=>28,
+ "groupID"=>27,
+ "settingID"=>1,
+ "value"=>1.5,
+ "timestamp"=>1444021456.195,
+ 0=>28,
+ 1=>27,
+ 2=>1,
+ 3=>1.5,
+ 4=>1444021456.195}
+{"id"=>29,
+ "groupID"=>28,
+ "settingID"=>1,
+ "value"=>1.2,
+ "timestamp"=>1444022203.529,
+ 0=>29,
+ 1=>28,
+ 2=>1,
+ 3=>1.2,
+ 4=>1444022203.529}
+{"id"=>30,
+ "groupID"=>29,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1444023483.543,
+ 0=>30,
+ 1=>29,
+ 2=>1,
+ 3=>2.4,
+ 4=>1444023483.543}
+{"id"=>31,
+ "groupID"=>30,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1444711732.541,
+ 0=>31,
+ 1=>30,
+ 2=>1,
+ 3=>1.7,
+ 4=>1444711732.541}
+{"id"=>32,
+ "groupID"=>31,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>1445833874.97,
+ 0=>32,
+ 1=>31,
+ 2=>1,
+ 3=>3,
+ 4=>1445833874.97}
+{"id"=>33,
+ "groupID"=>32,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>1445834020.522,
+ 0=>33,
+ 1=>32,
+ 2=>1,
+ 3=>3,
+ 4=>1445834020.522}
+{"id"=>34,
+ "groupID"=>33,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1445835456.61,
+ 0=>34,
+ 1=>33,
+ 2=>1,
+ 3=>1.7,
+ 4=>1445835456.61}
+{"id"=>35,
+ "groupID"=>34,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1445836119.049,
+ 0=>35,
+ 1=>34,
+ 2=>1,
+ 3=>2.4,
+ 4=>1445836119.049}
+{"id"=>36,
+ "groupID"=>35,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1450675055.392,
+ 0=>36,
+ 1=>35,
+ 2=>1,
+ 3=>1.7,
+ 4=>1450675055.392}
+{"id"=>37,
+ "groupID"=>36,
+ "settingID"=>1,
+ "value"=>2.4,
+ "timestamp"=>1447648926.778,
+ 0=>37,
+ 1=>36,
+ 2=>1,
+ 3=>2.4,
+ 4=>1447648926.778}
+{"id"=>38,
+ "groupID"=>37,
+ "settingID"=>1,
+ "value"=>1.33,
+ "timestamp"=>1447651818.77,
+ 0=>38,
+ 1=>37,
+ 2=>1,
+ 3=>1.33,
+ 4=>1447651818.77}
+{"id"=>39,
+ "groupID"=>38,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>1447739087.819,
+ 0=>39,
+ 1=>38,
+ 2=>1,
+ 3=>3,
+ 4=>1447739087.819}
+{"id"=>40,
+ "groupID"=>39,
+ "settingID"=>1,
+ "value"=>3,
+ "timestamp"=>1449462201.667,
+ 0=>40,
+ 1=>39,
+ 2=>1,
+ 3=>3,
+ 4=>1449462201.667}
+{"id"=>41,
+ "groupID"=>40,
+ "settingID"=>1,
+ "value"=>1.33,
+ "timestamp"=>1450067874.365,
+ 0=>41,
+ 1=>40,
+ 2=>1,
+ 3=>1.33,
+ 4=>1450067874.365}
+{"id"=>42,
+ "groupID"=>41,
+ "settingID"=>1,
+ "value"=>1.7,
+ "timestamp"=>1453795886.473,
+ 0=>42,
+ 1=>41,
+ 2=>1,
+ 3=>1.7,
+ 4=>1453795886.473}
+{"id"=>43,
+ "groupID"=>42,
+ "settingID"=>1,
+ "value"=>2,
+ "timestamp"=>1454304396.583,
+ 0=>43,
+ 1=>42,
+ 2=>1,
+ 3=>2,
+ 4=>1454304396.583}
+=> ["groups", "settings", "prefs"]
+irb(main):154:0* [["groups"], ["settings"], ["prefs"]]
+=> [["groups"], ["settings"], ["prefs"]]
+irb(main):156:0* => #<SQLite3::Database:0x007f54f97c0d30 @tracefunc=nil, @authorizer=nil, @encoding=#<Encoding:UTF-8>, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=true, @type_translation=nil, @readonly=false>
+#+end_example
+
+
+https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20%28Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20%283%29%29._Icon%0D?dl=0
+
+
+** firefox sqlite database handling 2
+
+#+BEGIN_SRC sh :results output scalar
+
+ls -l ~/.mozilla/firefox/*/*sqlite
+
+#+END_SRC
+
+#+RESULTS:
+: -rw-r--r--  1 m  suzuki    229376 12 24 19:31 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/content-prefs.sqlite
+: -rw-r--r--  1 m  suzuki    524288  1  3 21:08 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/cookies.sqlite
+: -rw-r--r--  1 m  suzuki    196608 12 26 14:29 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/formhistory.sqlite
+: -rw-r--r--  1 m  suzuki   1146880  1  3 21:08 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/healthreport.sqlite
+: -rw-r--r--  1 m  suzuki    131072  1  3 19:52 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/permissions.sqlite
+: -rw-r--r--  1 m  suzuki  10485760  1  3 21:08 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/places.sqlite
+: -rw-r--r--  1 m  suzuki    458752  1  3 19:52 /users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/webappsstore.sqlite
+
+- *.sqlite3 をみんな出力してみましょう。
+- lock されて開けないのもあるので，エラー処理をしましょう。
+- 出力には，=pp= を使いましょう。
+- 各dbの master record を読んでみましょう。
+
+#+BEGIN_SRC ruby :tangle babel/sqlite3-master.rb :results output scalar
+require 'rubygems'
+require 'sqlite3'
+require 'pp'
+
+# dir = '/users/home/masayuki/.mozilla/firefox/1dtrhim2.default-1450953083451/'
+dir = '/home/staff/suzuki/.mozilla/firefox/5rot7npz.default/'
+Dir.chdir(dir) do
+  Dir.glob("*.sqlite").each do |db|
+    puts "** #{db}"
+    begin
+      db = SQLite3::Database.open(db)
+      results = db.execute("select * from sqlite_master")
+      pp results
+    rescue  => e
+      puts e
+    end
+  end
+end
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+** signons.sqlite
+[["table",
+  "moz_logins",
+  "moz_logins",
+  2,
+  "CREATE TABLE moz_logins (id                  INTEGER PRIMARY KEY,hostname            TEXT NOT NULL,httpRealm           TEXT,formSubmitURL       TEXT,usernameField       TEXT NOT NULL,passwordField       TEXT NOT NULL,encryptedUsername   TEXT NOT NULL,encryptedPassword   TEXT NOT NULL,guid                TEXT,encType             INTEGER,timeCreated         INTEGER,timeLastUsed        INTEGER,timePasswordChanged INTEGER,timesUsed           INTEGER)"],
+ ["table",
+  "moz_disabledHosts",
+  "moz_disabledHosts",
+  3,
+  "CREATE TABLE moz_disabledHosts (id                 INTEGER PRIMARY KEY,hostname           TEXT UNIQUE ON CONFLICT REPLACE)"],
+ ["index",
+  "sqlite_autoindex_moz_disabledHosts_1",
+  "moz_disabledHosts",
+  4,
+  nil],
+ ["table",
+  "moz_deleted_logins",
+  "moz_deleted_logins",
+  5,
+  "CREATE TABLE moz_deleted_logins (id                  INTEGER PRIMARY KEY,guid                TEXT,timeDeleted         INTEGER)"],
+ ["index",
+  "moz_logins_hostname_index",
+  "moz_logins",
+  6,
+  "CREATE INDEX moz_logins_hostname_index ON moz_logins(hostname)"],
+ ["index",
+  "moz_logins_hostname_formSubmitURL_index",
+  "moz_logins",
+  7,
+  "CREATE INDEX moz_logins_hostname_formSubmitURL_index ON moz_logins(hostname, formSubmitURL)"],
+ ["index",
+  "moz_logins_hostname_httpRealm_index",
+  "moz_logins",
+  8,
+  "CREATE INDEX moz_logins_hostname_httpRealm_index ON moz_logins(hostname, httpRealm)"],
+ ["index",
+  "moz_logins_guid_index",
+  "moz_logins",
+  9,
+  "CREATE INDEX moz_logins_guid_index ON moz_logins(guid)"],
+ ["index",
+  "moz_logins_encType_index",
+  "moz_logins",
+  10,
+  "CREATE INDEX moz_logins_encType_index ON moz_logins(encType)"]]
+** content-prefs.sqlite
+[["table",
+  "groups",
+  "groups",
+  2,
+  "CREATE TABLE groups (id           INTEGER PRIMARY KEY,                    name         TEXT NOT NULL)"],
+ ["table",
+  "settings",
+  "settings",
+  3,
+  "CREATE TABLE settings (id           INTEGER PRIMARY KEY,                    name         TEXT NOT NULL)"],
+ ["table",
+  "prefs",
+  "prefs",
+  4,
+  "CREATE TABLE prefs (id           INTEGER PRIMARY KEY,                    groupID      INTEGER REFERENCES groups(id),                    settingID    INTEGER NOT NULL REFERENCES settings(id),                    value        BLOB, timestamp INTEGER NOT NULL DEFAULT 0)"],
+ ["index",
+  "groups_idx",
+  "groups",
+  5,
+  "CREATE INDEX groups_idx ON groups(name)"],
+ ["index",
+  "settings_idx",
+  "settings",
+  6,
+  "CREATE INDEX settings_idx ON settings(name)"],
+ ["index",
+  "prefs_idx",
+  "prefs",
+  7,
+  "CREATE INDEX prefs_idx ON prefs\n        (timestamp, groupID, settingID)\n      "]]
+** permissions.sqlite
+[["table",
+  "moz_hosts",
+  "moz_hosts",
+  2,
+  "CREATE TABLE moz_hosts ( id INTEGER PRIMARY KEY,host TEXT,type TEXT,permission INTEGER,expireType INTEGER,expireTime INTEGER,appId INTEGER,isInBrowserElement INTEGER, modificationTime INTEGER)"],
+ ["table",
+  "moz_perms",
+  "moz_perms",
+  3,
+  "CREATE TABLE \"moz_perms\" ( id INTEGER PRIMARY KEY,origin TEXT,type TEXT,permission INTEGER,expireType INTEGER,expireTime INTEGER,modificationTime INTEGER)"],
+ ["table",
+  "moz_hosts_is_backup",
+  "moz_hosts_is_backup",
+  4,
+  "CREATE TABLE moz_hosts_is_backup (dummy INTEGER PRIMARY KEY)"]]
+** formhistory.sqlite
+[["table",
+  "moz_formhistory",
+  "moz_formhistory",
+  2,
+  "CREATE TABLE moz_formhistory (id INTEGER PRIMARY KEY, fieldname TEXT NOT NULL, value TEXT NOT NULL, timesUsed INTEGER, firstUsed INTEGER, lastUsed INTEGER, guid TEXT)"],
+ ["table",
+  "moz_deleted_formhistory",
+  "moz_deleted_formhistory",
+  3,
+  "CREATE TABLE moz_deleted_formhistory (id INTEGER PRIMARY KEY, timeDeleted INTEGER, guid TEXT)"],
+ ["index",
+  "moz_formhistory_index",
+  "moz_formhistory",
+  4,
+  "CREATE INDEX moz_formhistory_index ON moz_formhistory(fieldname)"],
+ ["index",
+  "moz_formhistory_lastused_index",
+  "moz_formhistory",
+  5,
+  "CREATE INDEX moz_formhistory_lastused_index ON moz_formhistory(lastUsed)"],
+ ["index",
+  "moz_formhistory_guid_index",
+  "moz_formhistory",
+  6,
+  "CREATE INDEX moz_formhistory_guid_index ON moz_formhistory(guid)"]]
+** places.sqlite
+[["table",
+  "moz_places",
+  "moz_places",
+  2,
+  "CREATE TABLE moz_places (   id INTEGER PRIMARY KEY, url LONGVARCHAR, title LONGVARCHAR, rev_host LONGVARCHAR, visit_count INTEGER DEFAULT 0, hidden INTEGER DEFAULT 0 NOT NULL, typed INTEGER DEFAULT 0 NOT NULL, favicon_id INTEGER, frecency INTEGER DEFAULT -1 NOT NULL, last_visit_date INTEGER , guid TEXT, foreign_count INTEGER DEFAULT 0 NOT NULL)"],
+ ["table",
+  "moz_historyvisits",
+  "moz_historyvisits",
+  3,
+  "CREATE TABLE moz_historyvisits (  id INTEGER PRIMARY KEY, from_visit INTEGER, place_id INTEGER, visit_date INTEGER, visit_type INTEGER, session INTEGER)"],
+ ["table",
+  "moz_inputhistory",
+  "moz_inputhistory",
+  4,
+  "CREATE TABLE moz_inputhistory (  place_id INTEGER NOT NULL, input LONGVARCHAR NOT NULL, use_count INTEGER, PRIMARY KEY (place_id, input))"],
+ ["index", "sqlite_autoindex_moz_inputhistory_1", "moz_inputhistory", 5, nil],
+ ["table",
+  "moz_hosts",
+  "moz_hosts",
+  6,
+  "CREATE TABLE moz_hosts (  id INTEGER PRIMARY KEY, host TEXT NOT NULL UNIQUE, frecency INTEGER, typed INTEGER NOT NULL DEFAULT 0, prefix TEXT)"],
+ ["index", "sqlite_autoindex_moz_hosts_1", "moz_hosts", 7, nil],
+ ["table",
+  "moz_bookmarks",
+  "moz_bookmarks",
+  8,
+  "CREATE TABLE moz_bookmarks (  id INTEGER PRIMARY KEY, type INTEGER, fk INTEGER DEFAULT NULL, parent INTEGER, position INTEGER, title LONGVARCHAR, keyword_id INTEGER, folder_type TEXT, dateAdded INTEGER, lastModified INTEGER, guid TEXT)"],
+ ["table",
+  "moz_bookmarks_roots",
+  "moz_bookmarks_roots",
+  9,
+  "CREATE TABLE moz_bookmarks_roots (  root_name VARCHAR(16) UNIQUE, folder_id INTEGER)"],
+ ["index",
+  "sqlite_autoindex_moz_bookmarks_roots_1",
+  "moz_bookmarks_roots",
+  10,
+  nil],
+ ["table",
+  "moz_keywords",
+  "moz_keywords",
+  11,
+  "CREATE TABLE moz_keywords (  id INTEGER PRIMARY KEY AUTOINCREMENT, keyword TEXT UNIQUE, place_id INTEGER, post_data TEXT)"],
+ ["index", "sqlite_autoindex_moz_keywords_1", "moz_keywords", 12, nil],
+ ["table",
+  "sqlite_sequence",
+  "sqlite_sequence",
+  13,
+  "CREATE TABLE sqlite_sequence(name,seq)"],
+ ["table",
+  "moz_favicons",
+  "moz_favicons",
+  14,
+  "CREATE TABLE moz_favicons (  id INTEGER PRIMARY KEY, url LONGVARCHAR UNIQUE, data BLOB, mime_type VARCHAR(32), expiration LONG, guid TEXT)"],
+ ["index", "sqlite_autoindex_moz_favicons_1", "moz_favicons", 15, nil],
+ ["table",
+  "moz_anno_attributes",
+  "moz_anno_attributes",
+  16,
+  "CREATE TABLE moz_anno_attributes (  id INTEGER PRIMARY KEY, name VARCHAR(32) UNIQUE NOT NULL)"],
+ ["index",
+  "sqlite_autoindex_moz_anno_attributes_1",
+  "moz_anno_attributes",
+  17,
+  nil],
+ ["table",
+  "moz_annos",
+  "moz_annos",
+  18,
+  "CREATE TABLE moz_annos (  id INTEGER PRIMARY KEY, place_id INTEGER NOT NULL, anno_attribute_id INTEGER, mime_type VARCHAR(32) DEFAULT NULL, content LONGVARCHAR, flags INTEGER DEFAULT 0, expiration INTEGER DEFAULT 0, type INTEGER DEFAULT 0, dateAdded INTEGER DEFAULT 0, lastModified INTEGER DEFAULT 0)"],
+ ["table",
+  "moz_items_annos",
+  "moz_items_annos",
+  19,
+  "CREATE TABLE moz_items_annos (  id INTEGER PRIMARY KEY, item_id INTEGER NOT NULL, anno_attribute_id INTEGER, mime_type VARCHAR(32) DEFAULT NULL, content LONGVARCHAR, flags INTEGER DEFAULT 0, expiration INTEGER DEFAULT 0, type INTEGER DEFAULT 0, dateAdded INTEGER DEFAULT 0, lastModified INTEGER DEFAULT 0)"],
+ ["table",
+  "sqlite_stat1",
+  "sqlite_stat1",
+  20,
+  "CREATE TABLE sqlite_stat1(tbl,idx,stat)"],
+ ["index",
+  "moz_places_faviconindex",
+  "moz_places",
+  21,
+  "CREATE INDEX moz_places_faviconindex ON moz_places (favicon_id)"],
+ ["index",
+  "moz_places_hostindex",
+  "moz_places",
+  22,
+  "CREATE INDEX moz_places_hostindex ON moz_places (rev_host)"],
+ ["index",
+  "moz_places_visitcount",
+  "moz_places",
+  23,
+  "CREATE INDEX moz_places_visitcount ON moz_places (visit_count)"],
+ ["index",
+  "moz_places_frecencyindex",
+  "moz_places",
+  24,
+  "CREATE INDEX moz_places_frecencyindex ON moz_places (frecency)"],
+ ["index",
+  "moz_places_lastvisitdateindex",
+  "moz_places",
+  25,
+  "CREATE INDEX moz_places_lastvisitdateindex ON moz_places (last_visit_date)"],
+ ["index",
+  "moz_historyvisits_placedateindex",
+  "moz_historyvisits",
+  26,
+  "CREATE INDEX moz_historyvisits_placedateindex ON moz_historyvisits (place_id, visit_date)"],
+ ["index",
+  "moz_historyvisits_fromindex",
+  "moz_historyvisits",
+  27,
+  "CREATE INDEX moz_historyvisits_fromindex ON moz_historyvisits (from_visit)"],
+ ["index",
+  "moz_historyvisits_dateindex",
+  "moz_historyvisits",
+  28,
+  "CREATE INDEX moz_historyvisits_dateindex ON moz_historyvisits (visit_date)"],
+ ["index",
+  "moz_bookmarks_itemindex",
+  "moz_bookmarks",
+  29,
+  "CREATE INDEX moz_bookmarks_itemindex ON moz_bookmarks (fk, type)"],
+ ["index",
+  "moz_bookmarks_parentindex",
+  "moz_bookmarks",
+  30,
+  "CREATE INDEX moz_bookmarks_parentindex ON moz_bookmarks (parent, position)"],
+ ["index",
+  "moz_bookmarks_itemlastmodifiedindex",
+  "moz_bookmarks",
+  31,
+  "CREATE INDEX moz_bookmarks_itemlastmodifiedindex ON moz_bookmarks (fk, lastModified)"],
+ ["index",
+  "moz_places_url_uniqueindex",
+  "moz_places",
+  32,
+  "CREATE UNIQUE INDEX moz_places_url_uniqueindex ON moz_places (url)"],
+ ["index",
+  "moz_places_guid_uniqueindex",
+  "moz_places",
+  33,
+  "CREATE UNIQUE INDEX moz_places_guid_uniqueindex ON moz_places (guid)"],
+ ["index",
+  "moz_bookmarks_guid_uniqueindex",
+  "moz_bookmarks",
+  34,
+  "CREATE UNIQUE INDEX moz_bookmarks_guid_uniqueindex ON moz_bookmarks (guid)"],
+ ["index",
+  "moz_annos_placeattributeindex",
+  "moz_annos",
+  35,
+  "CREATE UNIQUE INDEX moz_annos_placeattributeindex ON moz_annos (place_id, anno_attribute_id)"],
+ ["index",
+  "moz_items_annos_itemattributeindex",
+  "moz_items_annos",
+  36,
+  "CREATE UNIQUE INDEX moz_items_annos_itemattributeindex ON moz_items_annos (item_id, anno_attribute_id)"],
+ ["index",
+  "moz_keywords_placepostdata_uniqueindex",
+  "moz_keywords",
+  37,
+  "CREATE UNIQUE INDEX moz_keywords_placepostdata_uniqueindex ON moz_keywords (place_id, post_data)"]]
+** healthreport.sqlite
+[["table",
+  "providers",
+  "providers",
+  2,
+  "CREATE TABLE providers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, UNIQUE (name) )"],
+ ["index", "sqlite_autoindex_providers_1", "providers", 3, nil],
+ ["table",
+  "sqlite_sequence",
+  "sqlite_sequence",
+  4,
+  "CREATE TABLE sqlite_sequence(name,seq)"],
+ ["table",
+  "provider_state",
+  "provider_state",
+  5,
+  "CREATE TABLE provider_state (id INTEGER PRIMARY KEY AUTOINCREMENT, provider_id INTEGER, name TEXT, VALUE TEXT, UNIQUE (provider_id, name), FOREIGN KEY (provider_id) REFERENCES providers(id) ON DELETE CASCADE)"],
+ ["index", "sqlite_autoindex_provider_state_1", "provider_state", 6, nil],
+ ["index",
+  "i_provider_state_provider_id",
+  "provider_state",
+  7,
+  "CREATE INDEX i_provider_state_provider_id ON provider_state (provider_id)"],
+ ["table",
+  "measurements",
+  "measurements",
+  8,
+  "CREATE TABLE measurements (id INTEGER PRIMARY KEY AUTOINCREMENT, provider_id INTEGER, name TEXT, version INTEGER, UNIQUE (provider_id, name, version), FOREIGN KEY (provider_id) REFERENCES providers(id) ON DELETE CASCADE)"],
+ ["index", "sqlite_autoindex_measurements_1", "measurements", 9, nil],
+ ["index",
+  "i_measurements_provider_id",
+  "measurements",
+  10,
+  "CREATE INDEX i_measurements_provider_id ON measurements (provider_id)"],
+ ["view",
+  "v_measurements",
+  "v_measurements",
+  0,
+  "CREATE VIEW v_measurements AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version FROM providers, measurements WHERE measurements.provider_id = providers.id"],
+ ["table",
+  "types",
+  "types",
+  11,
+  "CREATE TABLE types (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, UNIQUE (name))"],
+ ["index", "sqlite_autoindex_types_1", "types", 12, nil],
+ ["table",
+  "fields",
+  "fields",
+  13,
+  "CREATE TABLE fields (id INTEGER PRIMARY KEY AUTOINCREMENT, measurement_id INTEGER, name TEXT, value_type INTEGER , UNIQUE (measurement_id, name), FOREIGN KEY (measurement_id) REFERENCES measurements(id) ON DELETE CASCADE FOREIGN KEY (value_type) REFERENCES types(id) ON DELETE CASCADE )"],
+ ["index", "sqlite_autoindex_fields_1", "fields", 14, nil],
+ ["index",
+  "i_fields_measurement_id",
+  "fields",
+  15,
+  "CREATE INDEX i_fields_measurement_id ON fields (measurement_id)"],
+ ["view",
+  "v_fields",
+  "v_fields",
+  0,
+  "CREATE VIEW v_fields AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, types.id AS type_id, types.name AS type_name FROM providers, measurements, fields, types WHERE fields.measurement_id = measurements.id AND measurements.provider_id = providers.id AND fields.value_type = types.id"],
+ ["table",
+  "daily_counters",
+  "daily_counters",
+  16,
+  "CREATE TABLE daily_counters (field_id INTEGER, day INTEGER, value INTEGER, UNIQUE(field_id, day), FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["index", "sqlite_autoindex_daily_counters_1", "daily_counters", 17, nil],
+ ["index",
+  "i_daily_counters_field_id",
+  "daily_counters",
+  18,
+  "CREATE INDEX i_daily_counters_field_id ON daily_counters (field_id)"],
+ ["index",
+  "i_daily_counters_day",
+  "daily_counters",
+  19,
+  "CREATE INDEX i_daily_counters_day ON daily_counters (day)"],
+ ["view",
+  "v_daily_counters",
+  "v_daily_counters",
+  0,
+  "CREATE VIEW v_daily_counters AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, daily_counters.day AS day, daily_counters.value AS value FROM providers, measurements, fields, daily_counters WHERE daily_counters.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id"],
+ ["table",
+  "daily_discrete_numeric",
+  "daily_discrete_numeric",
+  20,
+  "CREATE TABLE daily_discrete_numeric (id INTEGER PRIMARY KEY AUTOINCREMENT, field_id INTEGER, day INTEGER, value INTEGER, FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["index",
+  "i_daily_discrete_numeric_field_id",
+  "daily_discrete_numeric",
+  21,
+  "CREATE INDEX i_daily_discrete_numeric_field_id ON daily_discrete_numeric (field_id)"],
+ ["index",
+  "i_daily_discrete_numeric_day",
+  "daily_discrete_numeric",
+  22,
+  "CREATE INDEX i_daily_discrete_numeric_day ON daily_discrete_numeric (day)"],
+ ["table",
+  "daily_discrete_text",
+  "daily_discrete_text",
+  23,
+  "CREATE TABLE daily_discrete_text (id INTEGER PRIMARY KEY AUTOINCREMENT, field_id INTEGER, day INTEGER, value TEXT, FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["index",
+  "i_daily_discrete_text_field_id",
+  "daily_discrete_text",
+  24,
+  "CREATE INDEX i_daily_discrete_text_field_id ON daily_discrete_text (field_id)"],
+ ["index",
+  "i_daily_discrete_text_day",
+  "daily_discrete_text",
+  25,
+  "CREATE INDEX i_daily_discrete_text_day ON daily_discrete_text (day)"],
+ ["view",
+  "v_daily_discrete",
+  "v_daily_discrete",
+  0,
+  "CREATE VIEW v_daily_discrete AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, daily_discrete_numeric.id AS value_id, daily_discrete_numeric.day AS day, daily_discrete_numeric.value AS value, \"numeric\" AS value_type FROM providers, measurements, fields, daily_discrete_numeric WHERE daily_discrete_numeric.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id UNION ALL SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, daily_discrete_text.id AS value_id, daily_discrete_text.day AS day, daily_discrete_text.value AS value, \"text\" AS value_type FROM providers, measurements, fields, daily_discrete_text WHERE daily_discrete_text.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id ORDER BY day ASC, value_id ASC"],
+ ["table",
+  "daily_last_numeric",
+  "daily_last_numeric",
+  26,
+  "CREATE TABLE daily_last_numeric (field_id INTEGER, day INTEGER, value NUMERIC, UNIQUE (field_id, day) FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["index",
+  "sqlite_autoindex_daily_last_numeric_1",
+  "daily_last_numeric",
+  27,
+  nil],
+ ["index",
+  "i_daily_last_numeric_field_id",
+  "daily_last_numeric",
+  28,
+  "CREATE INDEX i_daily_last_numeric_field_id ON daily_last_numeric (field_id)"],
+ ["index",
+  "i_daily_last_numeric_day",
+  "daily_last_numeric",
+  29,
+  "CREATE INDEX i_daily_last_numeric_day ON daily_last_numeric (day)"],
+ ["table",
+  "daily_last_text",
+  "daily_last_text",
+  30,
+  "CREATE TABLE daily_last_text (field_id INTEGER, day INTEGER, value TEXT, UNIQUE (field_id, day) FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["index", "sqlite_autoindex_daily_last_text_1", "daily_last_text", 31, nil],
+ ["index",
+  "i_daily_last_text_field_id",
+  "daily_last_text",
+  32,
+  "CREATE INDEX i_daily_last_text_field_id ON daily_last_text (field_id)"],
+ ["index",
+  "i_daily_last_text_day",
+  "daily_last_text",
+  33,
+  "CREATE INDEX i_daily_last_text_day ON daily_last_text (day)"],
+ ["view",
+  "v_daily_last",
+  "v_daily_last",
+  0,
+  "CREATE VIEW v_daily_last AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, daily_last_numeric.day AS day, daily_last_numeric.value AS value, \"numeric\" as value_type FROM providers, measurements, fields, daily_last_numeric WHERE daily_last_numeric.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id UNION ALL SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, daily_last_text.day AS day, daily_last_text.value AS value, \"text\" as value_type FROM providers, measurements, fields, daily_last_text WHERE daily_last_text.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id"],
+ ["table",
+  "last_numeric",
+  "last_numeric",
+  34,
+  "CREATE TABLE last_numeric (field_id INTEGER PRIMARY KEY, day INTEGER, value NUMERIC, FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["table",
+  "last_text",
+  "last_text",
+  35,
+  "CREATE TABLE last_text (field_id INTEGER PRIMARY KEY, day INTEGER, value TEXT, FOREIGN KEY (field_id) REFERENCES fields(id) ON DELETE CASCADE)"],
+ ["view",
+  "v_last",
+  "v_last",
+  0,
+  "CREATE VIEW v_last AS SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, last_numeric.day AS day, last_numeric.value AS value, \"numeric\" AS value_type FROM providers, measurements, fields, last_numeric WHERE last_numeric.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id UNION ALL SELECT providers.id AS provider_id, providers.name AS provider_name, measurements.id AS measurement_id, measurements.name AS measurement_name, measurements.version AS measurement_version, fields.id AS field_id, fields.name AS field_name, last_text.day AS day, last_text.value AS value, \"text\" AS value_type FROM providers, measurements, fields, last_text WHERE last_text.field_id = fields.id AND fields.measurement_id = measurements.id AND measurements.provider_id = providers.id"]]
+** cookies.sqlite
+[["table",
+  "moz_cookies",
+  "moz_cookies",
+  2,
+  "CREATE TABLE moz_cookies (id INTEGER PRIMARY KEY, baseDomain TEXT, appId INTEGER DEFAULT 0, inBrowserElement INTEGER DEFAULT 0, name TEXT, value TEXT, host TEXT, path TEXT, expiry INTEGER, lastAccessed INTEGER, creationTime INTEGER, isSecure INTEGER, isHttpOnly INTEGER, CONSTRAINT moz_uniqueid UNIQUE (name, host, path, appId, inBrowserElement))"],
+ ["index", "sqlite_autoindex_moz_cookies_1", "moz_cookies", 3, nil],
+ ["index",
+  "moz_basedomain",
+  "moz_cookies",
+  4,
+  "CREATE INDEX moz_basedomain ON moz_cookies (baseDomain, appId, inBrowserElement)"]]
+** webappsstore.sqlite
+[["table",
+  "webappsstore2",
+  "webappsstore2",
+  2,
+  "CREATE TABLE webappsstore2 (scope TEXT, key TEXT, value TEXT, secure INTEGER, owner TEXT)"],
+ ["index",
+  "scope_key_index",
+  "webappsstore2",
+  3,
+  "CREATE UNIQUE INDEX scope_key_index ON webappsstore2(scope, key)"]]
+#+end_example
+
+#+BEGIN_SRC sh :results output scalar
+
+ruby babel/sqlite3-master.rb 
+
+#+END_SRC
+
+#+RESULTS:
+
+
+** 
+
+#+BEGIN_SRC ruby :session ruby :results output
+# coding: utf-8
+
+require 'rubygems'
+require 'sqlite3'
+
+file = "content-prefs.sqlite"
+
+db = SQLite3::Database.open(file)
+
+tables = db.execute("select tbl_name FROM sqlite_master WHERE type == 'table'")
+
+tables.flatten.each do |tbl|
+  puts "== ",  tbl
+  db.execute("select * from #{tbl}") do |row|
+    puts row.join("\t")
+  end
+end
+
+p tables
+
+db.close
+
+'end'
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+irb(main):028:0* => false
+=> false
+irb(main):031:0* => "content-prefs.sqlite"
+irb(main):033:0* => #<SQLite3::Database:0x007f58a1bfb778 @tracefunc=nil, @authorizer=nil, @encoding=nil, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=nil, @type_translation=nil, @readonly=false>
+irb(main):035:0* => [["groups"], ["settings"], ["prefs"]]
+irb(main):037:0* irb(main):038:1* irb(main):039:1> irb(main):040:2* irb(main):041:2> irb(main):042:1> == 
+groups
+1	wiki.cis.iwate-u.ac.jp
+2	about:startpage
+3	www.google.com
+4	qiita.com
+5	subversion.apache.org
+6	stackoverflow.com
+7	www.google.co.jp
+8	www.amazon.co.jp
+9	orgmode.org
+10	about:newtab
+11	ja.wikipedia.org
+12	spws01.cis.iwate-u.ac.jp
+13	www.ietf.org
+14	www.ipa.go.jp
+15	svn.cis.iwate-u.ac.jp
+16	www.geocities.jp
+17	www6.airnet.ne.jp
+18	en.wikipedia.org
+19	dictionary.goo.ne.jp
+20	wiki.eecs.iwate-u.ac.jp
+21	file:///home/staff/suzuki/COMM/Lects/prog/site/org-docs/cutter/cutter-doc.html
+22	cutter.sourceforge.net
+23	www.gnu.org
+24	file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/ruby_begin.html
+25	magazine.rubyist.net
+26	loveruby.net
+27	file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/docs/meta-ruby/index.html
+28	ops.tokyo
+29	file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/01/01-GTD.html
+30	www.bookshelf.jp
+31	www.ogis-ri.co.jp
+32	mitpress.mit.edu
+33	file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/index.html
+34	libro.tuyano.com
+35	docs.ruby-lang.org
+36	d.hatena.ne.jp
+37	www.rubylife.jp
+38	gcc.gnu.org
+39	i.loveruby.net
+40	www.slideshare.net
+41	file:///home/staff/suzuki/progs/reports/1/report-1.html
+42	shuzo-kino.hateblo.jp
+== 
+settings
+1	browser.content.full-zoom
+== 
+prefs
+1	1	1	3	1454302922.032
+2	2	1	1.2	1444708376.262
+3	3	1	1.5	0
+4	4	1	2.4	1450071779.862
+5	5	1	1.3300000429153442	0
+6	6	1	1.5	0
+7	7	1	1.5	1444103807.725
+8	8	1	2.4000000953674316	0
+10	9	1	1.7000000476837158	0
+11	10	1	2	1453800023.114
+12	11	1	2.4	1448856870.872
+13	12	1	2.4000000953674316	0
+14	13	1	1.7000000476837158	0
+15	14	1	2	0
+16	15	1	3	0
+17	16	1	1.7000000476837158	0
+18	17	1	1.100000023841858	0
+19	18	1	1.2000000476837158	0
+20	19	1	2	0
+21	20	1	2	1441688316.416
+22	21	1	1.7	1443679074.734
+23	22	1	2.4	1443676271.668
+24	23	1	1.5	1443768405.696
+25	24	1	1.7	1443770712.08
+26	25	1	1.7	1443770982.739
+27	26	1	2.4	1443771116.364
+28	27	1	1.5	1444021456.195
+29	28	1	1.2	1444022203.529
+30	29	1	2.4	1444023483.543
+31	30	1	1.7	1444711732.541
+32	31	1	3	1445833874.97
+33	32	1	3	1445834020.522
+34	33	1	1.7	1445835456.61
+35	34	1	2.4	1445836119.049
+36	35	1	1.7	1450675055.392
+37	36	1	2.4	1447648926.778
+38	37	1	1.33	1447651818.77
+39	38	1	3	1447739087.819
+40	39	1	3	1449462201.667
+41	40	1	1.33	1450067874.365
+42	41	1	1.7	1453795886.473
+43	42	1	2	1454304396.583
+=> ["groups", "settings", "prefs"]
+irb(main):044:0* [["groups"], ["settings"], ["prefs"]]
+=> [["groups"], ["settings"], ["prefs"]]
+irb(main):046:0* => #<SQLite3::Database:0x007f58a1bfb778 @tracefunc=nil, @authorizer=nil, @encoding=#<Encoding:UTF-8>, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=nil, @type_translation=nil, @readonly=false>
+#+end_example
+
+
+https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20%28Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20%283%29%29._Icon%0D?dl=0

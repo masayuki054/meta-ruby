@@ -1,0 +1,39 @@
+* poker.org
+
+** COMMENT card
+   no, suit
+
+#+BEGIN_SRC ruby :session ruby :results output
+module Poker
+
+  class Card
+
+  def initialize(suit, no) @suit = suit @no = no end
+
+  def suit @suit end
+
+  def no @no end
+
+  end
+
+end
+
+p
+ha = Poker::Card.new("HEART", "ACE")
+ha.suit
+ha.no
+'end'
+#+END_SRC
+
+#+RESULTS:
+: :no
+: #<Card:0x007fb02b6d4bc8 @suit="HEART", @no="ACE">
+: "HEART"
+: "ACE"
+
+
+   
+** deck
+** hand
+** player
+** poker

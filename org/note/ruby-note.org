@@ -1,0 +1,49 @@
+#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
+#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
+#+title: Rubyについてのノート
+
+* test-unit
+  
+#+include: ruby-note-test.org
+    
+* 情報元
+   オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)
+   http://docs.ruby-lang.org/ja/2.0.0/doc/index.html
+
+   Ruby入門
+   http://www.rubylife.jp/ini/
+
+* Ruby紹介
+
+#+include: ruby-note-begin.org
+
+* Rubyの原理
+
+#+include: ruby-note-object.org
+
+* 言語上のこと
+
+#+include: ruby-note-variable.org
+#+include: ruby-note-method.org
+#+include: ruby-note-class.org
+
+* クラスライブラリ
+
+#+include: ruby-note-classes.org
+
+#+include: ruby-note-string.org
+
+* クラス・モジュールの概念
+
+#+include: ruby-note-class-and-module.org
+
+* メタプログラミング
+
+#+include: ruby-note-meta.org
+
+* sqlite3
+
+#+include: ruby-note-sqlite.org :minlevel 2
+
+* sinatra-org
+#+include: ruby-note-sinatra-org.org :minlevel 2

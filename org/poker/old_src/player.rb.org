@@ -1,0 +1,33 @@
+#+name:player#opener
+#+begin_src ruby :exports none :noweb yes
+module Poker
+
+  class Player
+#+end_src
+
+#+name:player#initialize
+#+begin_src ruby :exports none :noweb yes
+    
+    attr_reader :name, :hand
+
+    def initialize(name)
+      @name = name
+      @hand = Hand.new()
+    end
+#+end_src
+
+#+name:player#closer
+#+begin_src ruby :exports none :noweb yes
+
+  end
+
+end
+#+end_src
+
+#+name:player.rb
+#+begin_src ruby :exports none :noweb yes :tangle player.rb
+<<player#opener>>
+<<player#initialize>>
+<<player#closer>>
+#+end_src
+

@@ -1,0 +1,60 @@
+* Poker
+
+** poker.rb
+
+#+BEGIN_SRC ruby :tangle babel/poker.rb
+require 'card'
+require 'deck'
+require 'hand'
+require 'player'
+
+module Poker
+
+  class Play
+
+    def initialize (names = ["foo", "bar", "hoge", "nanasi", "gombei"])
+      @players = names.map { |n| Player.new(n) }      
+    end
+
+    def play
+      deck = Deck.new
+      5.times do 
+        @players.each do |p|
+          p.hand.putin(deck.draw)
+        end
+      end
+
+      @players.each do |p|
+        print p.name, ": "
+        print p.hand.hand
+      end
+
+      @players.each do |p|
+        p p.hand.judge
+      end
+    end
+  end
+end
+
+if __FILE__ ==$0
+  (Poker::Play).new.play
+end
+
+#+END_SRC
+
+** run
+
+#+BEGIN_SRC sh :dir babel :results output scalar
+
+ruby -I./src poker.rb
+
+#+END_SRC   
+
+#+RESULTS:
+: foo: [#<Poker::Card:0x007fcc93135968 @suit=3, @no=2>, #<Poker::Card:0x007fcc93135b48 @suit=2, @no=3>, #<Poker::Card:0x007fcc93135af8 @suit=2, @no=5>, #<Poker::Card:0x007fcc93135eb8 @suit=0, @no=7>, #<Poker::Card:0x007fcc93135fa8 @suit=0, @no=14>]bar: [#<Poker::Card:0x007fcc93135fd0 @suit=0, @no=0>, #<Poker::Card:0x007fcc93135ad0 @suit=2, @no=6>, #<Poker::Card:0x007fcc93135a80 @suit=2, @no=8>, #<Poker::Card:0x007fcc93135a58 @suit=2, @no=9>, #<Poker::Card:0x007fcc93135a08 @suit=2, @no=11>]hoge: [#<Poker::Card:0x007fcc931359b8 @suit=3, @no=0>, #<Poker::Card:0x007fcc93135c88 @suit=1, @no=8>, #<Poker::Card:0x007fcc93135878 @suit=3, @no=8>, #<Poker::Card:0x007fcc93135a30 @suit=2, @no=10>, #<Poker::Card:0x007fcc93135da0 @suit=1, @no=14>]nanasi: [#<Poker::Card:0x007fcc93135b70 @suit=2, @no=2>, #<Poker::Card:0x007fcc93135940 @suit=3, @no=3>, #<Poker::Card:0x007fcc93135f30 @suit=0, @no=4>, #<Poker::Card:0x007fcc93135828 @suit=3, @no=10>, #<Poker::Card:0x007fcc93135b98 @suit=2, @no=14>]gombei: [#<Poker::Card:0x007fcc93135d28 @suit=1, @no=4>, #<Poker::Card:0x007fcc931358a0 @suit=3, @no=7>, #<Poker::Card:0x007fcc93135c60 @suit=1, @no=9>, #<Poker::Card:0x007fcc93135e40 @suit=0, @no=10>, #<Poker::Card:0x007fcc93135e18 @suit=0, @no=11>]:highCard
+: :highCard
+: :onePair
+: :highCard
+: :highCard
+
+

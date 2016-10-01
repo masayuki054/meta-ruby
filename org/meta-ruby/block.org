@@ -1,0 +1,479 @@
+* ブロック
+
+  この章で理解すべきこと
+  - スコープ
+  - クロージャ
+  - クロージャによるスコープの操作
+  - 呼び出し可能オブジェクトへの変換
+
+** ブロックの基本
+
+#+BEGIN_SRC ruby
+def a_method(a, b)
+  if block_given?
+    a + yield(a, b)
+  else
+    a
+  end
+end
+y=10
+a_method(1,2) do |x| x+y end
+  
+#+END_SRC
+
+#+RESULTS:
+: 12
+
+*** ブロックの作成
+- do ... end が block 
+- メソッド呼び出しの時のみ
+  - (*s*) class, def でも作れる
+
+*** ブロックが与えられているか？
+- block_given? で調べられる
+   
+*** ブロックの呼び出し
+- 呼ばれたメソッド側で yield により呼び出せる
+- しかし，block は，block が作られた*環境*で実行される
+
+** クイズ: Ruby#
+*** using
+
+リソースの確保，コードの実行，リソースの開放を記述。コードの実行中に例
+外が発生しても，確実にリソースを開放する。
+
+*** using のテスト
+
+[[file://~suzuki/COMM/Lects/meta-ruby/code/blocks/using_test.rb]]
+
+*** using の実装
+
+: module Kernel
+:  def using(resource)
+:    begin
+:      yield
+:    ensure
+:      resource.disclose
+:    end
+:  end
+: end
+
+** クロージャ
+
+変数のスコープを超える方法を学ぼう
+
+*** コードの実行
+
+- ブロックはコード
+- *self*が実行の主体 (場)
+- クロージャ = コード + *束縛* (局所変数，インスタンス変数，... )
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb
+
+ブロックが生まれるとき，自身が生まれた環境を閉じ込めた ((*クロージャ*))
+となる
+
+クロージャが実行される時は，その環境で実行される
+- 定数はselfのクラスから辿れる
+- インスタンス変数、特異メソッドには self から辿れる
+
+**** ブロックローカル変数
+
+: def my_method
+:   yield
+: end
+:
+: top_level_variable = 1
+: my_method do 
+:   top_level_variable += 1
+:   local_to_block = 1
+: end
+: top_level_variable
+: local_to_block
+
+top_level_variable は block のネスティング が行われ, 
+外側のブロックのローカル変数を参照していることを示している．
+
+local_to_block は，block の中で生まれたが，
+block の実行終了とともに消滅した．
+
+*** スコープ
+
+- 束縛
+- self インスタンス変数，メソッド(in self.class)
+- 定数の木
+- グローバル変数
+
+**** スコープの変更
+
+束縛を Kernel#local_variables() メソッドで追跡
+     
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/scopes.rb
+
+- トップレベル スコープ
+- MyClass 定義のトップレベル スコープ
+- メソッドの中のスコープ
+  メソッドのローカル変数，インスタンス変数，定数
+
+**** ((*スコープゲート*))
+
+プログラムが新しいスコープを開く箇所
+- クラス定義 (({class}))
+- モジュール定義 (({module}))
+- メソッド呼び出し (({def}))
+       
+#+BEGIN_SRC ruby
+v1 = 1
+class MyClass        # クラスの入り口
+  v2 = 2
+  local_variables    # => ["v2"]
+  def my_method      # メソッドの入り口
+    v3 = 3
+    local_variables  
+  end                # メソッドの出口
+  local_variables    # => ["v2"]
+end　　              # クラスの出口
+obj = MyClass.new
+obj.my_method        # => ["v3"]
+obj.my_method        # => ["v3"]
+local_variables      # => ["v1", "obj"]
+#+END_SRC
+
+- class や module のブロックは定義時に実行
+- def のブロックはメソッド呼び出し時に実行
+
+*** スコープのフラット化
+    
+[[file:://~suzuki/COMM/Lects/meta-ruby/code/blocks/flat_scope_1.rb]]
+
+**** クラスゲートを越える
+
+- 方針 :: class と同じ効果のあるメソッドに，my_var を閉じ込めたクロー
+          ジャを渡す
+
+- code :: file://~suzuki/COMM/Lects/meta-ruby/code/blocks/flat_scope2.rb
+    
+**** メソッドゲートを越える
+
+- 方針 :: define_method に，my_var を閉じ込めたクロージャを渡す
+
+- code ::
+          file://~suzuki/COMM/Lects/meta-ruby/code/blocks/flat_scope3.rb
+
+**** スコープの共有化
+
+file:://~suzuki/COMM/Lects/meta-ruby/code/blocks/shared_scope.rb]]
+
+- define_methodsの実行 :: 
+  - ブロック内で shared が定義され，
+  - shared への参照と代入をもったクロージャを使って，
+	 Kernel モジュール内に couter, inc メソッドを定義する
+  - 二つのメソッドからだけ参照できる安全な変数の生成
+    
+*** スコープのまとめ
+
+- Rubyのスコープには束縛がある
+- スコープは class, module, def のスコープゲートで区切られ。
+- スコープゲートは，Class.new(), Module.new(), Moduel#define_method()
+  で置き換え，それらに束縛を閉じこめたクロージャを与える。
+- クロージャにより，束縛の共有も可能となる
+
+(*s*) この辺りは，SICP の lambda による実現の方が，シンプルでわかりや
+すい。
+
+** instance_eval()
+
+コードと束縛を好きなように組み合わせるもう一つの方法
+
+- obj.instance_eval block ::
+  - オブジェクトobjのコンテキストで, 
+  - ブロックblockを評価する
+
+  [[file:://~suzuki/COMM/Lects/meta-ruby/code/blocks/instance_eval.rb]]
+
+  : v = 2
+  : obj.instance_eval { @v = v }
+  : obj.instance_eval { @v }
+
+  生成された環境でのローカル変数にも，
+　objのインスタンス変数にもアクセスできる
+
+objをselfにして, クロージャを実行するということ
+
+*** instance_exec (ruby 1.9)
+
+#+BEGIN_SRC ruby
+class C
+  def initialize
+    @x, @y = 1, 2
+  end
+end
+
+C.new.instance_exec(3) {|arg| (@x+@y) * arg }
+#+END_SRC
+    
+
+*** カプセル化の破壊
+
+instance_eval を使うとカプセル化が破壊できる
+
+カプセル化の破壊が正当化されることもある
+
+**** RSpecの例
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/rspec.rb
+
+     
+#+BEGIN_SRC ruby
+ @object = Object.new
+ @object.instance_eval { @options = Object.new }
+ @object.should_receive(:blah)
+ @object.blah
+#+END_SRC     
+
+*** クリーンルーム
+
+- クリーンルーム :: ブロックを評価するためだけに作られたオブジェク
+                    トのこと
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/clean_room.rb
+
+** 呼び出し可能オブジェクト
+ブロックの使用
+- コードの保管
+- ブロックをyieldを使った呼び出し
+  
+コードを保管できる状況
+- (({Proc})) の中．ブロックがオブジェクトになる
+- (({lambda})) の中．
+- メソッドの中
+
+**** Procオブジェクト
+
+ブロックはオブジェクトではないが,
+Proc はブロックをオブジェクトにでき, 
+後から呼び出せる (((*遅延評価*)))
+
+#+BEGIN_SRC ruby :session ruby :results output
+inc = Proc.new { |x| x+1 }
+inc.call(2) #=> 3
+'end'
+#+END_SRC
+
+カーネルメソッド (({lambda})), (({proc})) も
+ブロックを(({Proc}))に変換できる．
+
+: dec = lambda { |x| x-1 }
+: dec.class # => Proc
+: dec.call(2) # => 1
+
+***** &修飾
+- 他のメソッドをブロックに渡す
+- ブロックをProcに変換する
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/ampersand.rb
+
+- ブロックを 引数 &operation で受ける
+- &operationを渡すとブロックを渡すことになる
+
+: def my_method(&the_proc)
+:   the_proc
+: end
+:
+: p = my_method {|name| "Hello, #{name}"}
+: puts p.class
+: puts p.call("Bill") 
+=>
+: Proc
+: Hello, Bill
+
+&the_proc は，ブロックを(({Proc}))に変換して受ける
+次の the_proc は，(({Proc})) 値を返す
+
+(({Proc})) をブロックへ戻すには
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/proc_to_block.rb
+
+***** HighLineの例
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/highline_example.rb
+
+: name = hl.ask("Name?", lambda {|s| s.capitalize})
+: puts "Hello, #{name}"
+
+**** Proc 対 lambda
+
+ブロックを Proc にする方法
+- Proc.new()
+- lambda { }　
+- &修飾
+- ...
+
+Proc と lambda でできるオブジェクトは少し違う
+- Proc は /Proc/, lambda は /lambda/
+
+
+http://d.hatena.ne.jp/vividcode/20100813/1281709854]] が詳しい
+
+http://doc.okkez.net/static/193/doc/spec=2flambda_proc.html
+
+***** Proc, lambda, return
+
+file://~suzuki/COMM/Lects/meta-ruby/code/blocks/proc_vs_lambda.rb
+
+: def double(callable_object)
+:   callable_object.call * 2
+: end
+: l = lambda { return 10 }
+: double(l) # => 20
+
+lambda はメソッド
+
+: def another_double
+:   p = Proc.new { return 10 }
+:   result = p.call
+:   return result * 2
+: end
+: another_double # => 10
+
+http://doc.okkez.net/static/193/doc/spec=2flambda_proc.html
+
+Proc のリターンは，Proc の定義された環境から return 
+(直前の環境へ戻る)
+
+***** Proc, lambda, arity
+
+引数の確認方法の違い
+
+- lambda は厳格 (メソッドに準拠)
+- Proc は柔軟
+
+: p = Proc.new { |a,b| [a, b]}
+: p.arity # => 2
+
+: p.call(1, 2, 3) # => [1, 2]
+: p.call(1) # => [1, nil]
+
+***** Proc対lambda: 判定
+
+lambda がメソッドに似ている [/]
+1. [ ] 項数に厳しく
+2. [ ] return で自身を終える
+
+
+Proc はコンテキスト中のコードの一部，
+lambda は独立したコード
+
+***** Kernel#proc
+
+**** メソッド再び
+
+file:~/COMM/Lects/meta-ruby/code/blocks/methods.rb]]
+
+- Object#method() でメソッドを，Method オブジェクトとして取得可
+- Method オブジェクトは，Method#call() で呼び出し可能
+- Method オブジェクトは，属するオブジェクトのスコープで実行される
+- Method#unbind() は属するオブジェクトを引き離し，UnboundMethod
+  オブジェクトが返る
+- UnboundMethodはMethod#bind()でメソッドに戻せる
+  クラスが異なると，例外が発生
+
+**** 呼び出し可能オブジェクトのまとめ
+
+呼び出し可能オブジェクト [/]
+1. [ ] ブロック
+   - オブジェクトではないが，呼び出し可能
+   - 定義されたスコープで評価される
+2. [ ] Proc
+   - 定義されたスコープで評価される
+3. [ ] lambda
+   - Proc クラスのオブジェクト，クロージャ
+   - 定義されたスコープで評価される
+4. [ ] メソッド
+   - オブジェクトにつながれ，
+   - オブジェクトのスコープで評価される
+
+** ドメイン特化言語を書く
+
+イベントの定義
+
+: event "注文が殺到" {
+:   recent_orders = ... # （データベースから読み込む)
+:   recent_orders > 1000
+: }
+
+***** 初めてのDSL
+
+file:~/COMM/Lects/meta-ruby/code/blocks/monitor_blocks/redflag.rb
+
+file:~/COMM/Lects/meta-ruby/code/blocks/monitor_blocks/test_events.rb
+
+***** イベント間の共有
+
+      file:~/COMM/Lects/meta-ruby/code/blocks/monitor_blocks/more_test_events.rb
+
+      setup で共有変数の初期化をし，
+      event で共有変数を参照する
+      
+**** クイズ: より良い DSL 
+
+     setup 命令の追加
+
+***** ビルの逃亡
+
+      : def event(name, &block)
+      :   @events[name] = block 
+      : end
+
+***** クイズの答え
+
+      [[file:~/COMM/Lects/meta-ruby/code/blocks/monitor_framework/redflag.rb]]
+
+****** redfalg.rb の中身
+
+        *events.rb という名前のファイルすべてに対して
+
+          ファイルをロード (実行) し，
+  	    定義されたイベント組に対し，
+  
+   	      新しいオブジェクトをクリーンルーム用に作成し，
+  
+  	      定義されたセットアップに対し，
+  	        クリーンルーム内でセットアップを実行する
+  	  
+      	      クリーンルーム内でイベントを実行し，
+  	      イベントがあれば，アラートを出す
+  
+****** @setups, @events はグローバル変数のようで良くない
+
+***** もっと良いDSL
+
+      共有スコープをつかってグローバル変数を取り除く
+
+      file:~/COMM/Lects/meta-ruby/code/blocks/monitor_final/redflag.rb
+
+      lambda を使い，
+        共有スコープのために 
+        event, setup, each_event, each_setup メソッドを動的に定義
+      する
+
+      *events.rb という名前のファイルすべてに対して
+        ファイルをロード (実行) し，
+  	定義されたイベント組に対し，
+  
+   	  新しいオブジェクトをクリーンルーム用に作成し，
+  
+  	  定義されたセットアップに対し，
+  	    クリーンルーム内でセットアップを実行する
+  	  
+      	  クリーンルーム内でイベントを実行し，
+  	  イベントがあれば，アラートを出す
+
+       (*s*) 
+       - load するファイルごとに，eventsとsetups を nil に初期化する必
+         要あり?
+
+
+** 参考
+   rhg source eval.c#Init_Proc
+

@@ -1,0 +1,27 @@
+
+#+title: running the application
+#+include "org/app.org"
+
+** run it
+
+#+name: server
+#+BEGIN_SRC sh :dir src
+
+bundle install
+bundle exec rackup
+
+#+END_SRC
+
+** access
+
+#+name: getit
+#+BEGIN_SRC sh :wait 1
+
+  curl 127.0.0.1:9292/ 2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org  2>/dev/null
+  sleep 2
+  curl 127.0.0.1:9292/org/ruby-note.org  2>/dev/null
+  sleep 2
+
+#+END_SRC

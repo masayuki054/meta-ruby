@@ -1,0 +1,1862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<title>メタプログラミング Ruby poker</title>
+<!-- 2015-12-21 月 13:22 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">メタプログラミング Ruby poker</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">pokerのテスト駆動開発</a>
+<ul>
+<li><a href="#sec-1-1">目的</a></li>
+<li><a href="#sec-1-2">ポーカーゲーム開発ストーリー</a></li>
+<li><a href="#sec-1-3">テスト駆動開発については</a></li>
+<li><a href="#sec-1-4">test-unit</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">開発概要</a>
+<ul>
+<li><a href="#sec-2-1">クラスの構造</a></li>
+<li><a href="#sec-2-2">ディレクトリ構造</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">文芸的プログラムによる開発</a></li>
+<li><a href="#sec-4">Constant</a>
+<ul>
+<li><a href="#sec-4-1">constant</a>
+<ul>
+<li><a href="#sec-4-1-1">test-constant.rb</a>
+<ul>
+<li><a href="#sec-4-1-1-1">test の構造</a>
+<ul>
+<li><a href="#sec-4-1-1-1-1">suit に関するテスト</a></li>
+<li><a href="#sec-4-1-1-1-2">no に関するテスト</a></li>
+<li><a href="#sec-4-1-1-1-3">カードの枚数に関するテスト</a></li>
+<li><a href="#sec-4-1-1-1-4">テスト全体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4-1-2">constant.rb</a>
+<ul>
+<li><a href="#sec-4-1-2-1">モジュールの構造</a></li>
+<li><a href="#sec-4-1-2-2">suit に関する定数</a></li>
+<li><a href="#sec-4-1-2-3">no に関する定数</a></li>
+<li><a href="#sec-4-1-2-4">card に関する定数</a></li>
+<li><a href="#sec-4-1-2-5">constant.rb</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-5">Card</a>
+<ul>
+<li><a href="#sec-5-1">card module</a>
+<ul>
+<li><a href="#sec-5-1-1">test/test-card.rb</a>
+<ul>
+<li><a href="#sec-5-1-1-1">構造</a></li>
+<li><a href="#sec-5-1-1-2">test/setup</a></li>
+<li><a href="#sec-5-1-1-3">test_new</a></li>
+<li><a href="#sec-5-1-1-4">test_compare</a></li>
+<li><a href="#sec-5-1-1-5">test_to_s</a></li>
+<li><a href="#sec-5-1-1-6">test/test-card.rb</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-1-2">card.rb</a>
+<ul>
+<li><a href="#sec-5-1-2-1">構造</a></li>
+<li><a href="#sec-5-1-2-2">new, suit, no</a></li>
+<li><a href="#sec-5-1-2-3">compare</a></li>
+<li><a href="#sec-5-1-2-4">to_s</a></li>
+<li><a href="#sec-5-1-2-5">card.rb</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-1-3">test の実行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6">Deck</a>
+<ul>
+<li><a href="#sec-6-1">deck</a>
+<ul>
+<li><a href="#sec-6-1-1">test-deck.rb</a>
+<ul>
+<li><a href="#sec-6-1-1-1">deck test プログラムの構造</a></li>
+<li><a href="#sec-6-1-1-2">newのテスト</a></li>
+<li><a href="#sec-6-1-1-3">drawのテスト</a></li>
+<li><a href="#sec-6-1-1-4">discardのテスト</a></li>
+<li><a href="#sec-6-1-1-5">test全体</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-1-2">deck.rb</a>
+<ul>
+<li><a href="#sec-6-1-2-1">deck class の構造</a></li>
+<li><a href="#sec-6-1-2-2">initialize</a></li>
+<li><a href="#sec-6-1-2-3">draw</a></li>
+<li><a href="#sec-6-1-2-4">size</a></li>
+<li><a href="#sec-6-1-2-5">discard</a></li>
+<li><a href="#sec-6-1-2-6">shuffle!</a></li>
+<li><a href="#sec-6-1-2-7">deck 全体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-7">Hand</a>
+<ul>
+<li><a href="#sec-7-1">hand</a>
+<ul>
+<li><a href="#sec-7-1-1">test-hand.rb</a>
+<ul>
+<li><a href="#sec-7-1-1-1">setup</a></li>
+<li><a href="#sec-7-1-1-2">test method</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-1-2">hand.rb</a>
+<ul>
+<li><a href="#sec-7-1-2-1">hand class の構造</a></li>
+<li><a href="#sec-7-1-2-2">initialize</a></li>
+<li><a href="#sec-7-1-2-3">putin 手札にカードを入れる</a></li>
+<li><a href="#sec-7-1-2-4">rank 役の強さ</a></li>
+<li><a href="#sec-7-1-2-5">judge 役の判定</a>
+<ul>
+<li><a href="#sec-7-1-2-5-1">calc_pairs ペアの計算</a></li>
+<li><a href="#sec-7-1-2-5-2">straight?</a></li>
+<li><a href="#sec-7-1-2-5-3">flush?</a></li>
+<li><a href="#sec-7-1-2-5-4">hand.rb 全体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-8">Player</a>
+<ul>
+<li><a href="#sec-8-1">test-player.rb</a>
+<ul>
+<li><a href="#sec-8-1-1">test構造</a></li>
+<li><a href="#sec-8-1-2">new</a></li>
+<li><a href="#sec-8-1-3">test全体</a></li>
+</ul>
+</li>
+<li><a href="#sec-8-2">player.rb</a>
+<ul>
+<li><a href="#sec-8-2-1">クラス構造</a></li>
+<li><a href="#sec-8-2-2">initialize</a></li>
+<li><a href="#sec-8-2-3">player.rb 全体</a>
+<ul>
+<li><a href="#sec-8-2-3-1">Poker</a>
+<ul>
+<li><a href="#sec-8-2-3-1-1">poker.rb</a></li>
+<li><a href="#sec-8-2-3-1-2">run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-9">Rakefile</a>
+<ul>
+<li><a href="#sec-9-1">test 用の Rakefile</a>
+<ul>
+<li><a href="#sec-9-1-1">rake</a></li>
+<li><a href="#sec-9-1-2">Rakefile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-10">emacs/org-mode/ruby のこと</a>
+<ul>
+<li><a href="#sec-10-1">org-mode</a>
+<ul>
+<li><a href="#sec-10-1-1">ソースコードをファイルへ書き出す</a></li>
+<li><a href="#sec-10-1-2">ob-shell</a>
+<ul>
+<li><a href="#sec-10-1-2-1">ob-sh.el ソースコード</a>
+<ul>
+<li><a href="#sec-10-1-2-1-1">sh の shell 指定</a></li>
+<li><a href="#sec-10-1-2-1-2">sh-ブロックの ruby が ~/.rbenv/shims/ruby ではない時</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回の講義</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OOへ至る道</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby入門</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュ
+メント</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> / <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+<p>
+~suzuki/lects/meta-ruby/lects/poker
+~suzuki/lects/meta-ruby/lects/note
+</p>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">pokerのテスト駆動開発</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">目的</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+ソフトウェア構成論で作ったポーカーを，
+rubyで作り直し，ruby での開発を体験してみましょう。
+</p>
+
+<p>
+テスト駆動開発っぽくやってみましょう。
+</p>
+
+<p>
+emacs org-mode でやりましょう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">ポーカーゲーム開発ストーリー</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+モジュール分けやモジュールの機能については，<a href="http://wiki.cis.iwate-u.ac.jp/~wiki/prog.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">Prog Wikky - 講義内容</a>
+を参考にしてください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">テスト駆動開発については</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/prog/org-docs/what-is-tdd/">ソフトウェア構成論 テスト駆動開発とは</a> を参考にしてください
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">test-unit</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">rubyノート</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/note/ruby-note.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note.html">@s.org</a>))
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">開発概要</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">クラスの構造</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">module</span> <span style="color: #228b22;">Constant</span>
+
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Card</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Deck</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Hand</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Player</span>
+    
+  <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Play</span>
+    
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>12/21 Poker::Constant カードに関する定数をまとめるモジュール
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">ディレクトリ構造</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-sh">~/COMM/bin/lstree ../poker
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">文芸的プログラムによる開発</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+例えばcardモジュールは，poker/card.org に作成し，org-babel
+の :tangle でtest/の下にテストを，src/の下にクラスを，作りましょう。
+</p>
+
+<p>
+~suzuki/lects/meta-ruby/lects/poker の下にこのドキュメントがあります。
+参考にしてください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Constant</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">constant</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+カードに関する定数を定義するモジュール
+</p>
+</div>
+
+<div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1">test-constant.rb</h4>
+<div class="outline-text-4" id="text-4-1-1">
+</div><div id="outline-container-sec-4-1-1-1" class="outline-5">
+<h5 id="sec-4-1-1-1">test の構造</h5>
+<div class="outline-text-5" id="text-4-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Constant</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-1-1-1" class="outline-6">
+<h6 id="sec-4-1-1-1-1">suit に関するテスト</h6>
+<div class="outline-text-6" id="text-4-1-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_suit</span>
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:CLUB</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:DIAMOND</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">DIAMOND</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:HEART</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:SPADE</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[0], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[1], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">DIAMOND</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[2], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[3], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-1-1-2" class="outline-6">
+<h6 id="sec-4-1-1-1-2">no に関するテスト</h6>
+<div class="outline-text-6" id="text-4-1-1-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_no</span>
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoOrder</span>, [  
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">TWO</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">THREE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">FOUR</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">FIVE</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SIX</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SEVEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">EIGHT</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NINE</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">TEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">JACK</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">KING</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>])
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-1-1-3" class="outline-6">
+<h6 id="sec-4-1-1-1-3">カードの枚数に関するテスト</h6>
+<div class="outline-text-6" id="text-4-1-1-1-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_card</span>
+    assert_equal(52, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-1-1-4" class="outline-6">
+<h6 id="sec-4-1-1-1-4">テスト全体</h6>
+<div class="outline-text-6" id="text-4-1-1-1-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Constant</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_suit</span>
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:CLUB</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:DIAMOND</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">DIAMOND</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:HEART</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitSyms</span>.index(<span style="color: #008b8b;">:SPADE</span>), <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[0], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[1], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">DIAMOND</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[2], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>[3], <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_no</span>
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoOrder</span>, [  
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">TWO</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">THREE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">FOUR</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">FIVE</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SIX</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SEVEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">EIGHT</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NINE</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">TEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">JACK</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">KING</span>,
+                   <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>])
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_constant_card</span>
+    assert_equal(52, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>)
+  <span style="color: #a020f0;">end</span>
+
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2">constant.rb</h4>
+<div class="outline-text-4" id="text-4-1-2">
+</div><div id="outline-container-sec-4-1-2-1" class="outline-5">
+<h5 id="sec-4-1-2-1">モジュールの構造</h5>
+<div class="outline-text-5" id="text-4-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+  
+  <span style="color: #a020f0;">module</span> <span style="color: #228b22;">Const</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2-2" class="outline-5">
+<h5 id="sec-4-1-2-2">suit に関する定数</h5>
+<div class="outline-text-5" id="text-4-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #228b22;">SuitSyms</span> = [<span style="color: #008b8b;">:CLUB</span>, <span style="color: #008b8b;">:DIAMOND</span>, <span style="color: #008b8b;">:HEART</span>, <span style="color: #008b8b;">:SPADE</span>] 
+    <span style="color: #228b22;">SuitChars</span> = [<span style="color: #8b2252;">'C'</span>, <span style="color: #8b2252;">'D'</span>, <span style="color: #8b2252;">'H'</span>, <span style="color: #8b2252;">'S'</span>] 
+    <span style="color: #228b22;">SuitOrder</span> = [] <span style="color: #b22222;"># </span><span style="color: #b22222;">suit &#12398;&#24375;&#12373;</span>
+
+    <span style="color: #b22222;"># </span><span style="color: #b22222;">&#23450;&#25968;&#12398;&#29983;&#25104;: CLUB&#65292; DIAMOND, HEART, SPADE </span>
+
+    <span style="color: #228b22;">SuitSyms</span>.each_index <span style="color: #a020f0;">do</span> |i| 
+      <span style="color: #228b22;">SuitOrder</span> &lt;&lt; const_set(<span style="color: #228b22;">SuitSyms</span>[i], i)
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2-3" class="outline-5">
+<h5 id="sec-4-1-2-3">no に関する定数</h5>
+<div class="outline-text-5" id="text-4-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #228b22;">NoSyms</span> = [<span style="color: #008b8b;">:TWO</span>, <span style="color: #008b8b;">:THREE</span>, <span style="color: #008b8b;">:FOUR</span>, <span style="color: #008b8b;">:FIVE</span>, <span style="color: #008b8b;">:SIX</span>, <span style="color: #008b8b;">:SEVEN</span>, <span style="color: #008b8b;">:EIGHT</span>, <span style="color: #008b8b;">:NINE</span>, <span style="color: #008b8b;">:TEN</span>,
+              <span style="color: #008b8b;">:JACK</span>, <span style="color: #008b8b;">:QUEEN</span>, <span style="color: #008b8b;">:KING</span>, <span style="color: #008b8b;">:ACE</span>]
+    <span style="color: #228b22;">NoChars</span> = [<span style="color: #8b2252;">'2'</span>, <span style="color: #8b2252;">'3'</span>, <span style="color: #8b2252;">'4'</span>, <span style="color: #8b2252;">'5'</span>, <span style="color: #8b2252;">'6'</span>, <span style="color: #8b2252;">'7'</span>, <span style="color: #8b2252;">'8'</span>, <span style="color: #8b2252;">'9'</span>, <span style="color: #8b2252;">'0'</span>, <span style="color: #8b2252;">'J'</span>, <span style="color: #8b2252;">'Q'</span>, <span style="color: #8b2252;">'K'</span>, <span style="color: #8b2252;">'A'</span>]
+    <span style="color: #228b22;">NoOrder</span> = []
+    <span style="color: #228b22;">NoSyms</span>.each_index <span style="color: #a020f0;">do</span> |i| 
+      <span style="color: #228b22;">NoOrder</span> &lt;&lt; const_set(<span style="color: #228b22;">NoSyms</span>[i], i)
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2-4" class="outline-5">
+<h5 id="sec-4-1-2-4">card に関する定数</h5>
+<div class="outline-text-5" id="text-4-1-2-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #228b22;">No_of_Cards</span> = <span style="color: #228b22;">SuitOrder</span>.size*<span style="color: #228b22;">NoOrder</span>.size
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2-5" class="outline-5">
+<h5 id="sec-4-1-2-5">constant.rb</h5>
+<div class="outline-text-5" id="text-4-1-2-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+  
+  <span style="color: #a020f0;">module</span> <span style="color: #228b22;">Const</span>
+
+    <span style="color: #228b22;">SuitSyms</span> = [<span style="color: #008b8b;">:CLUB</span>, <span style="color: #008b8b;">:DIAMOND</span>, <span style="color: #008b8b;">:HEART</span>, <span style="color: #008b8b;">:SPADE</span>] 
+    <span style="color: #228b22;">SuitChars</span> = [<span style="color: #8b2252;">'C'</span>, <span style="color: #8b2252;">'D'</span>, <span style="color: #8b2252;">'H'</span>, <span style="color: #8b2252;">'S'</span>] 
+    <span style="color: #228b22;">SuitOrder</span> = [] <span style="color: #b22222;"># </span><span style="color: #b22222;">suit &#12398;&#24375;&#12373;</span>
+
+    <span style="color: #b22222;"># </span><span style="color: #b22222;">&#23450;&#25968;&#12398;&#29983;&#25104;: CLUB&#65292; DIAMOND, HEART, SPADE </span>
+
+    <span style="color: #228b22;">SuitSyms</span>.each_index <span style="color: #a020f0;">do</span> |i| 
+      <span style="color: #228b22;">SuitOrder</span> &lt;&lt; const_set(<span style="color: #228b22;">SuitSyms</span>[i], i)
+    <span style="color: #a020f0;">end</span>
+
+
+    <span style="color: #228b22;">NoSyms</span> = [<span style="color: #008b8b;">:TWO</span>, <span style="color: #008b8b;">:THREE</span>, <span style="color: #008b8b;">:FOUR</span>, <span style="color: #008b8b;">:FIVE</span>, <span style="color: #008b8b;">:SIX</span>, <span style="color: #008b8b;">:SEVEN</span>, <span style="color: #008b8b;">:EIGHT</span>, <span style="color: #008b8b;">:NINE</span>, <span style="color: #008b8b;">:TEN</span>,
+              <span style="color: #008b8b;">:JACK</span>, <span style="color: #008b8b;">:QUEEN</span>, <span style="color: #008b8b;">:KING</span>, <span style="color: #008b8b;">:ACE</span>]
+    <span style="color: #228b22;">NoChars</span> = [<span style="color: #8b2252;">'2'</span>, <span style="color: #8b2252;">'3'</span>, <span style="color: #8b2252;">'4'</span>, <span style="color: #8b2252;">'5'</span>, <span style="color: #8b2252;">'6'</span>, <span style="color: #8b2252;">'7'</span>, <span style="color: #8b2252;">'8'</span>, <span style="color: #8b2252;">'9'</span>, <span style="color: #8b2252;">'0'</span>, <span style="color: #8b2252;">'J'</span>, <span style="color: #8b2252;">'Q'</span>, <span style="color: #8b2252;">'K'</span>, <span style="color: #8b2252;">'A'</span>]
+    <span style="color: #228b22;">NoOrder</span> = []
+    <span style="color: #228b22;">NoSyms</span>.each_index <span style="color: #a020f0;">do</span> |i| 
+      <span style="color: #228b22;">NoOrder</span> &lt;&lt; const_set(<span style="color: #228b22;">NoSyms</span>[i], i)
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #228b22;">No_of_Cards</span> = <span style="color: #228b22;">SuitOrder</span>.size*<span style="color: #228b22;">NoOrder</span>.size
+
+    
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Card</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">card module</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1">test/test-card.rb</h4>
+<div class="outline-text-4" id="text-5-1-1">
+</div><div id="outline-container-sec-5-1-1-1" class="outline-5">
+<h5 id="sec-5-1-1-1">構造</h5>
+<div class="outline-text-5" id="text-5-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Card</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-1-2" class="outline-5">
+<h5 id="sec-5-1-1-2">test/setup</h5>
+<div class="outline-text-5" id="text-5-1-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sk</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">KING</span>)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-1-3" class="outline-5">
+<h5 id="sec-5-1-1-3">test_new</h5>
+<div class="outline-text-5" id="text-5-1-1-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_new</span>
+    assert_equal(<span style="color: #228b22;">Card</span>, <span style="color: #a0522d;">@sa</span>.class)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>, <span style="color: #a0522d;">@sa</span>.no)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-1-4" class="outline-5">
+<h5 id="sec-5-1-1-4">test_compare</h5>
+<div class="outline-text-5" id="text-5-1-1-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_compare</span>
+    assert_equal(1, <span style="color: #a0522d;">@sa</span>.compare(<span style="color: #a0522d;">@sk</span>))
+    assert_equal(0, <span style="color: #a0522d;">@sa</span>.compare(<span style="color: #a0522d;">@sa</span>))
+    assert_equal(-1, <span style="color: #a0522d;">@sk</span>.compare(<span style="color: #a0522d;">@sa</span>))
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-1-5" class="outline-5">
+<h5 id="sec-5-1-1-5">test_to_s</h5>
+<div class="outline-text-5" id="text-5-1-1-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_to_s</span>
+    assert_equal(<span style="color: #8b2252;">'SK'</span>, <span style="color: #a0522d;">@sk</span>.to_s)
+    assert_equal(<span style="color: #8b2252;">'SA'</span>, <span style="color: #a0522d;">@sa</span>.to_s)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-1-6" class="outline-5">
+<h5 id="sec-5-1-1-6">test/test-card.rb</h5>
+<div class="outline-text-5" id="text-5-1-1-6">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Card</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+  
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sk</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">KING</span>)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_new</span>
+    assert_equal(<span style="color: #228b22;">Card</span>, <span style="color: #a0522d;">@sa</span>.class)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #a0522d;">@sa</span>.suit)
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>, <span style="color: #a0522d;">@sa</span>.no)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_compare</span>
+    assert_equal(1, <span style="color: #a0522d;">@sa</span>.compare(<span style="color: #a0522d;">@sk</span>))
+    assert_equal(0, <span style="color: #a0522d;">@sa</span>.compare(<span style="color: #a0522d;">@sa</span>))
+    assert_equal(-1, <span style="color: #a0522d;">@sk</span>.compare(<span style="color: #a0522d;">@sa</span>))
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_card_to_s</span>
+    assert_equal(<span style="color: #8b2252;">'SK'</span>, <span style="color: #a0522d;">@sk</span>.to_s)
+    assert_equal(<span style="color: #8b2252;">'SA'</span>, <span style="color: #a0522d;">@sa</span>.to_s)
+  <span style="color: #a020f0;">end</span>
+
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2">card.rb</h4>
+<div class="outline-text-4" id="text-5-1-2">
+</div><div id="outline-container-sec-5-1-2-1" class="outline-5">
+<h5 id="sec-5-1-2-1">構造</h5>
+<div class="outline-text-5" id="text-5-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Card</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2-2" class="outline-5">
+<h5 id="sec-5-1-2-2">new, suit, no</h5>
+<div class="outline-text-5" id="text-5-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:suit</span>, <span style="color: #008b8b;">:no</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>(suit, no)
+      no = 14 <span style="color: #a020f0;">if</span> no==1
+      <span style="color: #a0522d;">@suit</span> = suit
+      <span style="color: #a0522d;">@no</span> = no
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2-3" class="outline-5">
+<h5 id="sec-5-1-2-3">compare</h5>
+<div class="outline-text-5" id="text-5-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">&lt;=&gt;</span> (another)
+      <span style="color: #a020f0;">return</span> 1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@no</span> &gt; another.no
+      <span style="color: #a020f0;">return</span> -1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@no</span> &lt; another.no
+      <span style="color: #a020f0;">return</span> 1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@suit</span> &gt; another.suit
+      <span style="color: #a020f0;">return</span> -1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@suit</span> &lt; another.suit
+      <span style="color: #a020f0;">return</span> 0
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">alias</span> <span style="color: #008b8b;">:compare</span> <span style="color: #008b8b;">:&lt;=&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2-4" class="outline-5">
+<h5 id="sec-5-1-2-4">to_s</h5>
+<div class="outline-text-5" id="text-5-1-2-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">to_s</span>
+      (<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitChars</span>[<span style="color: #a0522d;">@suit</span>])+(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoChars</span>[<span style="color: #a0522d;">@no</span>])
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2-5" class="outline-5">
+<h5 id="sec-5-1-2-5">card.rb</h5>
+<div class="outline-text-5" id="text-5-1-2-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby" id="card.rb"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Card</span> 
+
+    <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:suit</span>, <span style="color: #008b8b;">:no</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>(suit, no)
+      no = 14 <span style="color: #a020f0;">if</span> no==1
+      <span style="color: #a0522d;">@suit</span> = suit
+      <span style="color: #a0522d;">@no</span> = no
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">&lt;=&gt;</span> (another)
+      <span style="color: #a020f0;">return</span> 1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@no</span> &gt; another.no
+      <span style="color: #a020f0;">return</span> -1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@no</span> &lt; another.no
+      <span style="color: #a020f0;">return</span> 1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@suit</span> &gt; another.suit
+      <span style="color: #a020f0;">return</span> -1 <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@suit</span> &lt; another.suit
+      <span style="color: #a020f0;">return</span> 0
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">alias</span> <span style="color: #008b8b;">:compare</span> <span style="color: #008b8b;">:&lt;=&gt;</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">to_s</span>
+      (<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitChars</span>[<span style="color: #a0522d;">@suit</span>])+(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoChars</span>[<span style="color: #a0522d;">@no</span>])
+    <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3">test の実行</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.rbenv/shims/ruby -I./src/ test/test_card.rb</span>
+ruby -I./src/ test/test_card.rb
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'end'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Deck</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">deck</h3>
+<div class="outline-text-3" id="text-6-1">
+</div><div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1">test-deck.rb</h4>
+<div class="outline-text-4" id="text-6-1-1">
+</div><div id="outline-container-sec-6-1-1-1" class="outline-5">
+<h5 id="sec-6-1-1-1">deck test プログラムの構造</h5>
+<div class="outline-text-5" id="text-6-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'deck'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">TestDeck</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-1-2" class="outline-5">
+<h5 id="sec-6-1-1-2">newのテスト</h5>
+<div class="outline-text-5" id="text-6-1-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_new</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>, <span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-1-3" class="outline-5">
+<h5 id="sec-6-1-1-3">drawのテスト</h5>
+<div class="outline-text-5" id="text-6-1-1-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_draw</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    size = <span style="color: #a0522d;">@d</span>.size
+    c = <span style="color: #a0522d;">@d</span>.draw
+    assert_equal(<span style="color: #228b22;">Card</span>, c.class)
+    assert_equal(1, size-<span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-1-4" class="outline-5">
+<h5 id="sec-6-1-1-4">discardのテスト</h5>
+<div class="outline-text-5" id="text-6-1-1-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_discard</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    (2*<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>).times <span style="color: #a020f0;">do</span> |i|
+      c = <span style="color: #a0522d;">@d</span>.draw
+      assert_equal(<span style="color: #228b22;">Card</span>, c.class)
+      <span style="color: #a0522d;">@d</span>.discard(c)
+    <span style="color: #a020f0;">end</span>
+    assert_equal(0, <span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-1-5" class="outline-5">
+<h5 id="sec-6-1-1-5">test全体</h5>
+<div class="outline-text-5" id="text-6-1-1-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'deck'</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">TestDeck</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_new</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    assert_equal(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>, <span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_draw</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    size = <span style="color: #a0522d;">@d</span>.size
+    c = <span style="color: #a0522d;">@d</span>.draw
+    assert_equal(<span style="color: #228b22;">Card</span>, c.class)
+    assert_equal(1, size-<span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_deck_discard</span>
+    <span style="color: #a0522d;">@d</span> = <span style="color: #228b22;">Deck</span>.new
+    (2*<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">No_of_Cards</span>).times <span style="color: #a020f0;">do</span> |i|
+      c = <span style="color: #a0522d;">@d</span>.draw
+      assert_equal(<span style="color: #228b22;">Card</span>, c.class)
+      <span style="color: #a0522d;">@d</span>.discard(c)
+    <span style="color: #a020f0;">end</span>
+    assert_equal(0, <span style="color: #a0522d;">@d</span>.size)
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2">deck.rb</h4>
+<div class="outline-text-4" id="text-6-1-2">
+</div><div id="outline-container-sec-6-1-2-1" class="outline-5">
+<h5 id="sec-6-1-2-1">deck class の構造</h5>
+<div class="outline-text-5" id="text-6-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">deck.rb</span>
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Deck</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-2" class="outline-5">
+<h5 id="sec-6-1-2-2">initialize</h5>
+<div class="outline-text-5" id="text-6-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>
+
+      <span style="color: #a0522d;">@stock</span> = []
+      <span style="color: #a0522d;">@used</span> = []
+
+      <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>.each { |suit|
+        <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoOrder</span>.each { |no|
+          <span style="color: #a0522d;">@stock</span>.push(<span style="color: #228b22;">Card</span>.new(suit, no))
+        }
+      }
+      <span style="color: #a0522d;">@stock</span>.shuffle!
+
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-3" class="outline-5">
+<h5 id="sec-6-1-2-3">draw</h5>
+<div class="outline-text-5" id="text-6-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">draw</span>
+      <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@stock</span>.size == 0
+        <span style="color: #a0522d;">@stock</span> = <span style="color: #a0522d;">@used</span>
+        <span style="color: #a0522d;">@used</span> = []
+        <span style="color: #a0522d;">@stock</span>.shuffle!
+      <span style="color: #a020f0;">end</span>
+      <span style="color: #a0522d;">@stock</span>.pop
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-4" class="outline-5">
+<h5 id="sec-6-1-2-4">size</h5>
+<div class="outline-text-5" id="text-6-1-2-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">size</span>
+      <span style="color: #a0522d;">@stock</span>.size
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-5" class="outline-5">
+<h5 id="sec-6-1-2-5">discard</h5>
+<div class="outline-text-5" id="text-6-1-2-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">discard</span>(card)
+      <span style="color: #a0522d;">@used</span>.push(card)
+      <span style="color: #a020f0;">self</span>
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-6" class="outline-5">
+<h5 id="sec-6-1-2-6">shuffle!</h5>
+<div class="outline-text-5" id="text-6-1-2-6">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">shuffle!</span>
+      <span style="color: #a0522d;">@stock</span>.shuffle!
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2-7" class="outline-5">
+<h5 id="sec-6-1-2-7">deck 全体</h5>
+<div class="outline-text-5" id="text-6-1-2-7">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">deck.rb</span>
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Deck</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>
+
+      <span style="color: #a0522d;">@stock</span> = []
+      <span style="color: #a0522d;">@used</span> = []
+
+      <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SuitOrder</span>.each { |suit|
+        <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">NoOrder</span>.each { |no|
+          <span style="color: #a0522d;">@stock</span>.push(<span style="color: #228b22;">Card</span>.new(suit, no))
+        }
+      }
+      <span style="color: #a0522d;">@stock</span>.shuffle!
+
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">draw</span>
+      <span style="color: #a020f0;">if</span> <span style="color: #a0522d;">@stock</span>.size == 0
+        <span style="color: #a0522d;">@stock</span> = <span style="color: #a0522d;">@used</span>
+        <span style="color: #a0522d;">@used</span> = []
+        <span style="color: #a0522d;">@stock</span>.shuffle!
+      <span style="color: #a020f0;">end</span>
+      <span style="color: #a0522d;">@stock</span>.pop
+    <span style="color: #a020f0;">end</span>
+
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">discard</span>(card)
+      <span style="color: #a0522d;">@used</span>.push(card)
+      <span style="color: #a020f0;">self</span>
+    <span style="color: #a020f0;">end</span>
+
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">size</span>
+      <span style="color: #a0522d;">@stock</span>.size
+    <span style="color: #a020f0;">end</span>
+
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">shuffle!</span>
+      <span style="color: #a0522d;">@stock</span>.shuffle!
+    <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Hand</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1">hand</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-sec-7-1-1" class="outline-4">
+<h4 id="sec-7-1-1">test-hand.rb</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'hand'</span>
+
+<span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Hand</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-1-1" class="outline-5">
+<h5 id="sec-7-1-1-1">setup</h5>
+<div class="outline-text-5" id="text-7-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@ha</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@ca</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sq</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>)
+    <span style="color: #a0522d;">@hq</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>)
+    <span style="color: #a0522d;">@hand</span> = <span style="color: #228b22;">Hand</span>.new
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@ha</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@sa</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@ca</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@sq</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@hq</span>)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-1-2" class="outline-5">
+<h5 id="sec-7-1-1-2">test method</h5>
+<div class="outline-text-5" id="text-7-1-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_fullhouse</span>
+    assert_equal(<span style="color: #008b8b;">:fullHouse</span>, <span style="color: #a0522d;">@hand</span>.judge)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'hand'</span>
+
+<span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Test_Hand</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">setup</span>
+    <span style="color: #a0522d;">@ha</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sa</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@ca</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">CLUB</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">ACE</span>)
+    <span style="color: #a0522d;">@sq</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">SPADE</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>)
+    <span style="color: #a0522d;">@hq</span> = <span style="color: #228b22;">Card</span>.new(<span style="color: #228b22;">Const</span>::<span style="color: #228b22;">HEART</span>, <span style="color: #228b22;">Const</span>::<span style="color: #228b22;">QUEEN</span>)
+    <span style="color: #a0522d;">@hand</span> = <span style="color: #228b22;">Hand</span>.new
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@ha</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@sa</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@ca</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@sq</span>)
+    <span style="color: #a0522d;">@hand</span>.putin(<span style="color: #a0522d;">@hq</span>)
+  <span style="color: #a020f0;">end</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_fullhouse</span>
+    assert_equal(<span style="color: #008b8b;">:fullHouse</span>, <span style="color: #a0522d;">@hand</span>.judge)
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2" class="outline-4">
+<h4 id="sec-7-1-2">hand.rb</h4>
+<div class="outline-text-4" id="text-7-1-2">
+</div><div id="outline-container-sec-7-1-2-1" class="outline-5">
+<h5 id="sec-7-1-2-1">hand class の構造</h5>
+<div class="outline-text-5" id="text-7-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Hand</span>
+
+    <span style="color: #228b22;">PokerHands</span> = [
+      <span style="color: #008b8b;">:highCard</span>, <span style="color: #008b8b;">:onePair</span>, <span style="color: #008b8b;">:twoPairs</span>, 
+      <span style="color: #008b8b;">:threeCards</span>, <span style="color: #008b8b;">:straight</span>, <span style="color: #008b8b;">:flush</span>, <span style="color: #008b8b;">:fullHouse</span>, <span style="color: #008b8b;">:fourCards</span>, <span style="color: #008b8b;">:straightFlush</span>
+    ]
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-2" class="outline-5">
+<h5 id="sec-7-1-2-2">initialize</h5>
+<div class="outline-text-5" id="text-7-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:hand</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>
+      <span style="color: #a0522d;">@hand</span> = []
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-3" class="outline-5">
+<h5 id="sec-7-1-2-3">putin 手札にカードを入れる</h5>
+<div class="outline-text-5" id="text-7-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">putin</span>(card)
+      <span style="color: #a0522d;">@hand</span>.push(card).sort!
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-4" class="outline-5">
+<h5 id="sec-7-1-2-4">rank 役の強さ</h5>
+<div class="outline-text-5" id="text-7-1-2-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">rank</span>
+      <span style="color: #228b22;">PokerHands</span>.index(judge)
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-5" class="outline-5">
+<h5 id="sec-7-1-2-5">judge 役の判定</h5>
+<div class="outline-text-5" id="text-7-1-2-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">judge</span>
+      s = straight?
+      f = flush?
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:straightFlush</span> <span style="color: #a020f0;">if</span> s &amp;&amp; f 
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:straight</span> <span style="color: #a020f0;">if</span> s 
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:flush</span> <span style="color: #a020f0;">if</span> f 
+      <span style="color: #a020f0;">return</span> calc_pairs
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-5-1" class="outline-6">
+<h6 id="sec-7-1-2-5-1">calc_pairs ペアの計算</h6>
+<div class="outline-text-6" id="text-7-1-2-5-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">calc_pairs</span>
+      p = 0
+      <span style="color: #a0522d;">@hand</span>.each { |a|
+        <span style="color: #a0522d;">@hand</span>.each { |b|
+          p = <span style="color: #483d8b;">p</span>+1 <span style="color: #a020f0;">if</span> a.no == b.no
+        }
+      }
+      <span style="color: #a020f0;">case</span> p 
+      <span style="color: #a020f0;">when</span> 5 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:highCard</span> 
+      <span style="color: #a020f0;">when</span> 7 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:onePair</span> 
+      <span style="color: #a020f0;">when</span> 9 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:twoPairs</span>
+      <span style="color: #a020f0;">when</span> 11 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:threeCards</span>
+      <span style="color: #a020f0;">when</span> 13 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:fullHouse</span> 
+      <span style="color: #a020f0;">when</span> 17 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:fourCards</span> 
+      <span style="color: #a020f0;">end</span>
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-5-2" class="outline-6">
+<h6 id="sec-7-1-2-5-2">straight?</h6>
+<div class="outline-text-6" id="text-7-1-2-5-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">straight?</span>
+      <span style="color: #008b8b;">false</span>
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-5-3" class="outline-6">
+<h6 id="sec-7-1-2-5-3">flush?</h6>
+<div class="outline-text-6" id="text-7-1-2-5-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">flush?</span>
+      <span style="color: #008b8b;">false</span>
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7-1-2-5-4" class="outline-6">
+<h6 id="sec-7-1-2-5-4">hand.rb 全体</h6>
+<div class="outline-text-6" id="text-7-1-2-5-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Hand</span>
+
+    <span style="color: #228b22;">PokerHands</span> = [
+      <span style="color: #008b8b;">:highCard</span>, <span style="color: #008b8b;">:onePair</span>, <span style="color: #008b8b;">:twoPairs</span>, 
+      <span style="color: #008b8b;">:threeCards</span>, <span style="color: #008b8b;">:straight</span>, <span style="color: #008b8b;">:flush</span>, <span style="color: #008b8b;">:fullHouse</span>, <span style="color: #008b8b;">:fourCards</span>, <span style="color: #008b8b;">:straightFlush</span>
+    ]
+
+    <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:hand</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>
+      <span style="color: #a0522d;">@hand</span> = []
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">putin</span>(card)
+      <span style="color: #a0522d;">@hand</span>.push(card).sort!
+    <span style="color: #a020f0;">end</span>
+    
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">rank</span>
+      <span style="color: #228b22;">PokerHands</span>.index(judge)
+    <span style="color: #a020f0;">end</span>
+    
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">judge</span>
+      s = straight?
+      f = flush?
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:straightFlush</span> <span style="color: #a020f0;">if</span> s &amp;&amp; f 
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:straight</span> <span style="color: #a020f0;">if</span> s 
+      <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">:flush</span> <span style="color: #a020f0;">if</span> f 
+      <span style="color: #a020f0;">return</span> calc_pairs
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">calc_pairs</span>
+      p = 0
+      <span style="color: #a0522d;">@hand</span>.each { |a|
+        <span style="color: #a0522d;">@hand</span>.each { |b|
+          p = <span style="color: #483d8b;">p</span>+1 <span style="color: #a020f0;">if</span> a.no == b.no
+        }
+      }
+      <span style="color: #a020f0;">case</span> p 
+      <span style="color: #a020f0;">when</span> 5 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:highCard</span> 
+      <span style="color: #a020f0;">when</span> 7 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:onePair</span> 
+      <span style="color: #a020f0;">when</span> 9 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:twoPairs</span>
+      <span style="color: #a020f0;">when</span> 11 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:threeCards</span>
+      <span style="color: #a020f0;">when</span> 13 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:fullHouse</span> 
+      <span style="color: #a020f0;">when</span> 17 <span style="color: #a020f0;">then</span> <span style="color: #008b8b;">:fourCards</span> 
+      <span style="color: #a020f0;">end</span>
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">straight?</span>
+      <span style="color: #008b8b;">false</span>
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">flush?</span>
+      <span style="color: #008b8b;">false</span>
+    <span style="color: #a020f0;">end</span>
+    
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Player</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1">test-player.rb</h3>
+<div class="outline-text-3" id="text-8-1">
+</div><div id="outline-container-sec-8-1-1" class="outline-4">
+<h4 id="sec-8-1-1">test構造</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'hand'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'player'</span> 
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">TestDeck</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-1-2" class="outline-4">
+<h4 id="sec-8-1-2">new</h4>
+<div class="outline-text-4" id="text-8-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_player_new</span>
+    <span style="color: #a0522d;">@p</span> = <span style="color: #228b22;">Player</span>.new(<span style="color: #8b2252;">"hoge"</span>)
+    assert_equal(<span style="color: #8b2252;">"hoge"</span>,  <span style="color: #a0522d;">@p</span>.name)
+    assert_equal(<span style="color: #228b22;">Hand</span>.new, <span style="color: #a0522d;">@h</span>.hand)
+  <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-1-3" class="outline-4">
+<h4 id="sec-8-1-3">test全体</h4>
+<div class="outline-text-4" id="text-8-1-3">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'constant'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'hand'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'player'</span> 
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">TestDeck</span> &lt; <span style="color: #228b22;">Test</span>::<span style="color: #228b22;">Unit</span>::<span style="color: #228b22;">TestCase</span>
+  <span style="color: #483d8b;">include</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">test_player_new</span>
+    <span style="color: #a0522d;">@p</span> = <span style="color: #228b22;">Player</span>.new(<span style="color: #8b2252;">"hoge"</span>)
+    assert_equal(<span style="color: #8b2252;">"hoge"</span>,  <span style="color: #a0522d;">@p</span>.name)
+    assert_equal(<span style="color: #228b22;">Hand</span>.new, <span style="color: #a0522d;">@h</span>.hand)
+  <span style="color: #a020f0;">end</span>
+
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2">player.rb</h3>
+<div class="outline-text-3" id="text-8-2">
+</div><div id="outline-container-sec-8-2-1" class="outline-4">
+<h4 id="sec-8-2-1">クラス構造</h4>
+<div class="outline-text-4" id="text-8-2-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Player</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-8-2-2" class="outline-4">
+<h4 id="sec-8-2-2">initialize</h4>
+<div class="outline-text-4" id="text-8-2-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby">    <span style="color: #483d8b;">attr_reader</span> <span style="color: #008b8b;">:name</span>, <span style="color: #008b8b;">:hand</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span>(name)
+      <span style="color: #a0522d;">@name</span> = name
+      <span style="color: #a0522d;">@hand</span> = <span style="color: #228b22;">Hand</span>.new()
+    <span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-3" class="outline-4">
+<h4 id="sec-8-2-3">player.rb 全体</h4>
+<div class="outline-text-4" id="text-8-2-3">
+</div>
+<div id="outline-container-sec-8-2-3-1" class="outline-5">
+<h5 id="sec-8-2-3-1">Poker</h5>
+<div class="outline-text-5" id="text-8-2-3-1">
+</div><div id="outline-container-sec-8-2-3-1-1" class="outline-6">
+<h6 id="sec-8-2-3-1-1">poker.rb</h6>
+<div class="outline-text-6" id="text-8-2-3-1-1">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'card'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'deck'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'hand'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'player'</span>
+
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">Poker</span>
+
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Play</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">initialize</span> (names = [<span style="color: #8b2252;">"foo"</span>, <span style="color: #8b2252;">"bar"</span>, <span style="color: #8b2252;">"hoge"</span>, <span style="color: #8b2252;">"nanasi"</span>, <span style="color: #8b2252;">"gombei"</span>])
+      <span style="color: #a0522d;">@players</span> = names.map { |n| <span style="color: #228b22;">Player</span>.new(n) }      
+    <span style="color: #a020f0;">end</span>
+
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">play</span>
+      deck = <span style="color: #228b22;">Deck</span>.new
+      5.times <span style="color: #a020f0;">do</span> 
+        <span style="color: #a0522d;">@players</span>.each <span style="color: #a020f0;">do</span> |p|
+          p.hand.putin(deck.draw)
+        <span style="color: #a020f0;">end</span>
+      <span style="color: #a020f0;">end</span>
+
+      <span style="color: #a0522d;">@players</span>.each <span style="color: #a020f0;">do</span> |p|
+        <span style="color: #483d8b;">print</span> p.name, <span style="color: #8b2252;">": "</span>
+        <span style="color: #483d8b;">print</span> p.hand.hand
+      <span style="color: #a020f0;">end</span>
+
+      <span style="color: #a0522d;">@players</span>.each <span style="color: #a020f0;">do</span> |p|
+        <span style="color: #483d8b;">p</span> p.hand.judge
+      <span style="color: #a020f0;">end</span>
+    <span style="color: #a020f0;">end</span>
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+
+<span style="color: #a020f0;">if</span> <span style="color: #483d8b;">__FILE__</span> ==<span style="color: #483d8b;">$0</span>
+  (<span style="color: #228b22;">Poker</span>::<span style="color: #228b22;">Play</span>).new.play
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-3-1-2" class="outline-6">
+<h6 id="sec-8-2-3-1-2">run</h6>
+<div class="outline-text-6" id="text-8-2-3-1-2">
+<div class="org-src-container">
+
+<pre class="src src-sh">ruby -I./src poker.rb
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">Rakefile</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1">test 用の Rakefile</h3>
+<div class="outline-text-3" id="text-9-1">
+</div><div id="outline-container-sec-9-1-1" class="outline-4">
+<h4 id="sec-9-1-1">rake</h4>
+<div class="outline-text-4" id="text-9-1-1">
+<p>
+<a href="http://docs.ruby-lang.org/ja/2.2.0/library/rake.html">library rake (Ruby 2.2.0)</a> はビルドツール
+</p>
+
+<p>
+Rakefile は，ruby で書ける Makefile
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-9-1-2" class="outline-4">
+<h4 id="sec-9-1-2">Rakefile</h4>
+<div class="outline-text-4" id="text-9-1-2">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">coding:utf-8</span>
+tests = [<span style="color: #8b2252;">"test-card.rb"</span>, 
+         <span style="color: #8b2252;">"test-deck.rb"</span>,
+         <span style="color: #8b2252;">"test-hand.rb"</span>,
+         <span style="color: #8b2252;">"test-player.rb"</span>,
+        ]
+
+task <span style="color: #008b8b;">:default</span> =&gt; <span style="color: #008b8b;">:test</span>
+
+task <span style="color: #008b8b;">:test</span> <span style="color: #a020f0;">do</span>
+  tests.each <span style="color: #a020f0;">do</span> |test_file|
+    sh <span style="color: #8b2252;">"ruby -I./src test/</span><span style="color: #a0522d;">#{test_file}</span><span style="color: #8b2252;">"</span>
+  <span style="color: #a020f0;">end</span>
+<span style="color: #a020f0;">end</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">rake test
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">emacs/org-mode/ruby のこと</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1">org-mode</h3>
+<div class="outline-text-3" id="text-10-1">
+</div><div id="outline-container-sec-10-1-1" class="outline-4">
+<h4 id="sec-10-1-1">ソースコードをファイルへ書き出す</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<p>
+org-mode での書き方
+</p>
+
+<pre class="example">
+#+BEGIN_SRC ruby :tangle example/test_card.rb :mkdirp yes
+# example/test_card.rb
+require 'rubygems'
+require 'test/unit'
+'end'
+#+END_SRC
+</pre>
+
+<p>
+Emacs コマンド
+</p>
+<pre class="example">
+C-C C-v C-t
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #b22222;"># </span><span style="color: #b22222;">example/test_card.rb</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'rubygems'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'test/unit'</span>
+<span style="color: #a020f0;">end</span><span style="color: #8b2252;">'</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-10-1-2" class="outline-4">
+<h4 id="sec-10-1-2">ob-shell</h4>
+<div class="outline-text-4" id="text-10-1-2">
+</div><div id="outline-container-sec-10-1-2-1" class="outline-5">
+<h5 id="sec-10-1-2-1">ob-sh.el ソースコード</h5>
+<div class="outline-text-5" id="text-10-1-2-1">
+<p>
+<a href="https://github.com/tkf/org-mode/blob/master/lisp/ob-sh.el">org-mode/ob-sh.el at master · tkf/org-mode</a>
+</p>
+</div>
+
+<div id="outline-container-sec-10-1-2-1-1" class="outline-6">
+<h6 id="sec-10-1-2-1-1">sh の shell 指定</h6>
+<div class="outline-text-6" id="text-10-1-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-elisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">org-babel-sh-command</span> <span style="color: #8b2252;">"sh"</span>
+  <span style="color: #8b2252;">"Command used to invoke a shell.</span>
+<span style="color: #8b2252;">This will be passed to  `</span><span style="color: #008b8b;">shell-command-on-region</span><span style="color: #8b2252;">'"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10-1-2-1-2" class="outline-6">
+<h6 id="sec-10-1-2-1-2">sh-ブロックの ruby が ~/.rbenv/shims/ruby ではない時</h6>
+<div class="outline-text-6" id="text-10-1-2-1-2">
+<p>
+~/.rbevn/shims/ruby が動かないときは，
+sh-ブロックに :session を指定して，
+動かして，シェルバッファに移動して，
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#33879;&#32773;: suzuki@cis.iwate-u.ac.jp</p>
+<p class="date">Created: 2015-12-21 月 13:22</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

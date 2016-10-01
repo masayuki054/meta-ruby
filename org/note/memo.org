@@ -1,0 +1,203 @@
+* memo
+** Doing test-unit 
+   SCHEDULED: <2015-12-08 火>
+
+   単体テストの使い方をまとめました。
+
+   file:~suzuki/COMM/Lects/meta-ruby/site/lects/note/ruby-note-test.org
+
+   
+** Doing poker.org
+   SCHEDULED: <2015-12-07 月>
+
+   ~suzuki/COMM/Lects/meta-ruby/site/lects/poker の下に org 文書を作り
+   ました。
+
+** global 
+
+   [[http://www.machu.jp/diary/20090307.html#p01][ソースコードを快適に読むための GNU GLOBAL 入門 (前編) - まちゅダイアリー(2009-03-07)]]
+   [[http://horoama.hatenablog.com/entry/2015/05/16/183359][globalを使いブラウザで快適にソースコードを読む - ほろあま記念館]]
+
+
+   - <2015-12-13 日> ~suzuki/public_html/Documents/ruby20に置きました。が，cgi動かず。
+   
+   - global-6.5.1 install しました。
+     - ~suzuki/local/bin/gtags
+
+   - ruby-2.0.0-p353 download し，gtags, htags しておきました。
+     - ~suzuki/working/ruby20/ruby-2.0.0-p353
+
+   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby20/][ruby-2.0.0-p353]] ソースコードをHTML化したもの
+
+** ソースコード解説
+
+   [[http://wiki.cis.iwate-u.ac.jp/~wiki/rhg.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9][R.H.G. Wikky - 講義内容]] 
+
+   [[http://i.loveruby.net/ja/rhg/book/][Rubyソースコード完全解説]]
+
+
+** ソースコード pry-doc
+   SCHEDULED: <2015-12-04 金>
+
+   [[http://qiita.com/joker1007/items/42f00b12c65bbec0e50a][pry-docでカジュアルにRubyのソースコードを読む - Qiita]]
+
+
+** EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita
+   http://qiita.com/catatsuy/items/3dda714f4c60c435bb25
+
+** gem install spreadsheet for meta-ruby
+
+** meta-ruby 講義内容
+   
+   - meta な説明
+     - meta programming
+   - class library を使った ruby プログラミング
+   - OO
+
+** Done .ob org-mode #+babel_include の導入		  :include:babel:org:
+
+*** why
+    include ファイル中の named_src_block の noweb 参照ができない
+*** how
+    - 同一ファイル中の named_src_block は noweb 参照ができるので，
+      include を展開することにした。
+    - 通常の include は展開したくないので， babel_include だけ展開する
+      ことにした。
+*** script
+    #+include: ~/COMM/bin/babel_expand_include.rb src ruby
+
+*** working directory
+    [[file:~/COMM/Prog/org/babel-include/]]
+
+** Doing org-tangle				      :auto:tangle:babel:org:
+
+*** tangle を make できるように
+
+**** ruby gem org-converge 中の org-tangle
+     :nowebの機能が使えないので，あきらめる
+
+**** シェルコマンド化
+     [[file:~/bin/org2html][org2html]] と同様に， org_tangle を作成
+
+     Makefile 中の tab が展開されるので， config/emacs-org.el を読むよ
+     うにする
+
+#+BEGIN_SRC shell
+#!/usr/bin/env bash
+# http://blog.nguyenvq.com/2010/10/30/bash-batch-script-to-convert-org-mode-file-to-html/
+# orgdir=/r/src/org-mode/lisp/    # Git版org-modeのディレクトリ
+# opts="-l ~/.org2html-batch.el"  # カスタマイズしなければ "" にする
+opts="-l ~/.emacs.d/config/emacs-org.el"
+f=""
+for file in "$@"
+do
+#    f="${f} --visit ${file} --funcall org-export-as-html-batch"
+#    f="${f} --visit ${file} --funcall org-html-export-as-html"
+    f="${f} --visit ${file} --funcall org-babel-tangle"
+done
+# Emacs標準添付のorg-modeを使う場合はこっち
+~/bin/emacs --batch -l org $opts $f
+#~/bin/emacs --batch -q --no-site-file -l org $opts $f
+# Git版org-modeを使う場合はこっち
+# emacs --batch -q --no-site-file -L $orgdir -l org $opts $f
+#+END_SRC
+    
+    [2015-11-26 木 06:06]
+
+
+** new org-mode babel-include を展開する
+   [[file:~/COMM/Prog/org/babel-include/]] 
+
+   ~/COMM/bin/babel-expand.rb
+
+** ruby 日本語
+   ruby -K [e|s|u|n] euc-jp|cp932|utf-8|ascii-8
+
+   [[http://docs.ruby-lang.org/ja/2.2.0/doc/spec=2fm17n.html][多言語化 (Ruby 2.2.0)]]
+   
+   [[http://docs.ruby-lang.org/ja/2.2.0/class/Encoding.html][class Encoding (Ruby 2.2.0)]]
+
+   internal_encoding, external_encoding
+   default_ ...
+   magic comment
+
+#+BEGIN_SRC ruby
+# coding:utf-8
+#+END_SRC
+
+   [2015-11-16 月 11:01]
+
+** ruby入門のサイトを変更したい
+   
+   [[http://www.rubylife.jp/ini/][Ruby入門]]
+   
+** org babelを調べる
+   
+   [[file:/NFS/ufs/mac/masayuki/COMM/working/ob-ruby.org]]
+
+   [2015-11-16 月 09:43]
+
+** meta-ruby
+
+   クラス・モジュールの概念 Ruby - Qiita
+   http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de
+
+   カレントオブジェクトselfについて Ruby - Qiita
+   http://qiita.com/ToruFukui/items/be29968da6dc9d125315
+
+   誤解されている 6 つの Ruby の機能の真相を知る
+   http://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/
+
+   [2015-11-13 金 20:59]
+
+** Rubyを勉強する上で有用な情報源まとめてみた - Qiita
+   http://qiita.com/taiyop/items/0212a54591e078ae15b6
+   [2015-11-13 金 02:17]
+
+** ob-ruby
+   :session name
+   を指定すると*nameバッファで inf-ruby が動く
+   実行はしているが，プロンプトの定義がおかしいためか，結果が取れてい
+   ない。
+
+   pry をやめるとうまく動く
+
+** 若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT
+
+   http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html
+
+** Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita
+   http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9
+
+** emacs-24.5 for @cis.iwate-u.ac.jp
+
+** ~/bin/org2html index.org
+   SCHEDULED: <2015-10-10 土>
+   Cannot fontify src block (htmlize.el >= 1.34 required)
+   - melpa の htmlize の version は，1.47 なのに
+
+
+** Todo [[http://ditaa.sourceforge.net/][ditaa@github]] install後，ditaa.jar が見つからない
+   SCHEDULED: <2015-10-09 金>
+
+   [[shell:lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile]]
+
+
+** log new_file  [[file:~/COMM/working/org-graphvix.org::*graphviz][graphviz]] 
+   [2015-10-09 金 15:54]
+
+
+** Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記
+   http://d.hatena.ne.jp/tamura70/20100222/org
+
+   org-modeでGraphviz(dot)を使う
+   http://misohena.jp/article/emacs_org_textfigures/dot.html
+
+** memo lstree							  :directory:
+   SCHEDULED: <2015-09-28 月>
+   [[file:~/COMM/Prog/ruby/lstree/lstree.rb]]
+
+
+** org2HTMLの自動化
+
+   ~/COMM/bin/org2html

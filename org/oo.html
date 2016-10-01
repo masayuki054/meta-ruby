@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2016-10-01 土 17:30 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>ObjectOriented オブジェクト指向 メタプログラミング Ruby</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="masayuki suzuki@cis.iwate-u.ac.jp" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/css/sos.css">
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/sos.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">ObjectOriented オブジェクト指向 メタプログラミング Ruby</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline11">1. OO</a>
+<ul>
+<li><a href="#orgheadline10">1.1. オブジェクト指向に至る軌跡</a>
+<ul>
+<li><a href="#orgheadline9">1.1.1. オブジェクト指向以前</a>
+<ul>
+<li><a href="#orgheadline1"><span class="done Done">Done</span> ソフトウェア危機</a></li>
+<li><a href="#orgheadline2"><span class="done Done">Done</span> 構造化プログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline3"><span class="todo Todo">Todo</span> 構造化プログラミングとは</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline4"><span class="done Done">Done</span> モジュラプログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline5">凝集度と結合度</a></li>
+<li><a href="#orgheadline6">悪い結合、良い結合</a></li>
+<li><a href="#orgheadline7">悪い凝集、良い凝集</a></li>
+<li><a href="#orgheadline8">状態と副作用の支配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">1</span> OO</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.1</span> オブジェクト指向に至る軌跡</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.1.1</span> オブジェクト指向以前</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+オブジェクト指向プログラミング、あるいはオブジェクト指向言語は、
+それに至るまでの様々なアイデアを統合し、再編され、また現実
+的な制約の中で歪みながら生まれてきたものだったりする。
+</p>
+
+<p>
+プログラミングパラダイムは，
+現実世界のプログラミングという人間活動の中で生じた
+課題をどのように整理していくかという中で生まれてきた。
+</p>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-5">
+<h5 id="orgheadline1"><span class="done Done">Done</span> ソフトウェア危機</h5>
+<div class="outline-text-5" id="text-orgheadline1">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> (wikipedia) とは
+</p>
+
+<p>
+1960年代の後半、コンピュータが進歩するにつれて、より複雑
+なソフトウェアが求められ始める時代、その複雑さをコントロールするた
+めの道具やアイデアはあまり多くなかった。
+</p>
+
+<p>
+プロジェクトは、複雑化する一方なのに、管理手法もなければ、データ型
+は基本的な数値でしかなく、変数はメモリアロケーションそのものだった。
+</p>
+
+<p>
+また、プログラムの流れは、gotoやjump命令のようにプログラムカウンタ
+を直にコントロールする抽象度の低いもので制御されることが多かった。
+</p>
+
+<p>
+プログラムはフローチャートで記述され、それをマシン語としてパンチす
+るといったプロジェクトX的な世界のことを考えれば、その理解が正しいの
+かもしれない。
+</p>
+
+<p>
+なんにせよ、そういった当時の人からすると逼迫していたが、今から見る
+となんとも牧歌的な世界観の中で、構造化プログラミングという概念が生
+まれる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-5">
+<h5 id="orgheadline2"><span class="done Done">Done</span> 構造化プログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline2">
+<p>
+ダイクストラは構造化プログラミングを提案した
+</p>
+
+<p>
+ときどき、勘違いされているが構造化プログラミングとは「手続き型言語」
+のことでもなければ「gotoを使わないプログラミング」のことでもない。
+</p>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-7">
+<h7 id="orgheadline3"><span class="todo Todo">Todo</span> 構造化プログラミングとは</h7>
+<div class="outline-text-7" id="text-orgheadline3">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
+</p>
+
+<ul class="org-ul">
+<li>構造化プログラミングではプログラミング言語が持つステートメントを
+直接使ってプログラムを記述するのではなく、</li>
+<li>それらを抽象化したステートメントを持つ仮想機械を想定し、</li>
+<li>その仮想機械上でプログラムを記述する。</li>
+
+<li>普通、抽象化は1段階ではなく階層的である。
+<ul class="org-ul">
+<li>各階層での実装の詳細は他の階層と隔離されており、</li>
+<li>実装の変更の影響はその階層内のみに留まる(Abstract data
+structures)。</li>
+<li>各階層はアプリケーションに近い抽象的な方から土台に向かって順
+序付けられている。</li>
+<li>この順序は各階層を設計した時間的な順番とは必ずしも一致しない</li>
+</ul></li>
+</ul>
+
+<p>
+つまり、現代風に言い換えると「レイヤリングアーキテクチャ」のよう
+なもので、ある土台の上にさらに抽象化した土台をおき、その上にさら
+に・・・というようにプログラムをくみ上げていく考え方のことだ。
+</p>
+
+<p>
+これは、現在のプログラミングにおいても当たり前となっている考え方
+だ。
+</p>
+
+<p>
+だから、我々は、ひとつのアーキテクチャないし関数の中で異なる抽象
+化レイヤの実装を同居することをさける。
+</p>
+
+<p>
+一方、耳目を集めやすいgoto文有害論とともに構造化技法の一部である
+構造化定理(任意のフローチャートは、for文とif文で記述できる)が注目
+され、手続き型プログラミング言語を現代の形に押し上げていった。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-5">
+<h5 id="orgheadline4"><span class="done Done">Done</span> モジュラプログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline4">
+<p>
+こういった背景のなか、プログラムは大きく複雑になり続ける。至極自然
+な流れとして、それを分割しようとしていく。
+</p>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-7">
+<h7 id="orgheadline5">凝集度と結合度</h7>
+<div class="outline-text-7" id="text-orgheadline5">
+<p>
+モジュールの分割には、大きな指針がなかった。現在でもやろうと思え
+ば全然関係のない機能を１つのモジュールに詰め込むことはできる。
+</p>
+
+<p>
+熟練したプログラマとそうでないプログラマで、作り出すモジュールの
+品質は違う。その品質の尺度として、凝集度と結合度という概念がしば
+らくして生まれた。
+</p>
+
+<p>
+結合度：よいコラボレーションとわるいコラボレーションを定義した
+<a href="http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6">http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6</a>
+</p>
+
+<p>
+凝集度：よい機能群のまとめ方とわるい機能のまとめ方を定義した
+<a href="http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6">http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6</a>
+</p>
+
+<p>
+これらは「関心の分離」を行うためにどのようにするべきかという指針でもあった。
+<a href="http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2">http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2</a>
+</p>
+
+<p>
+この「関心」とはそのモジュールの「責任」「責務」と言い換えてもい
+いかもしれない。この責任とモジュールが一致した状態にできるとその
+モジュールは凝集度が高く、結合度を低くすることができる。
+</p>
+
+<p>
+それぞれ悪い例と良い例を見ていき、「責任」「責務」の分解とは何か
+をとらえていこう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-7">
+<h7 id="orgheadline6">悪い結合、良い結合</h7>
+<div class="outline-text-7" id="text-orgheadline6">
+<p>
+悪い結合としては、あるモジュールが依存しているモジュールの内部デー
+タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
+合）をお互いに参照していたりというようなつながり方だ。
+</p>
+
+<p>
+こうなってしまうとモジュールは自分の足でたっていられなくなる。つ
+まり、片方を修正するともう片方も修正せざるをえなくなったり、予想
+外の動作を強いられることになる。
+</p>
+
+<p>
+逆に良い結合としては、定められたデータの受け渡し(データ結合)やメッ
+セージの送信（メッセージ結合）のように内部構造に依存せず、情報の
+やり取りが明示的になっている状態を言う。
+</p>
+
+<p>
+これはまさにカプセル化とメッセージパッシングのことだよね、と思っ
+た方は正しい。オブジェクト指向は良い結合を導くために考えだされた
+のだから。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-7">
+<h7 id="orgheadline7">悪い凝集、良い凝集</h7>
+<div class="outline-text-7" id="text-orgheadline7">
+<p>
+凝集度が低い状態とは，つまり悪い凝集とは，何か，
+</p>
+
+<dl class="org-dl">
+<dt>暗合的凝集</dt><dd>アトランダムに選んできた処理を集めたモジュールは
+悪い。何を根拠に集めたのかわからないものも悪い凝集だ。</dd>
+
+<dt>論理的凝集</dt><dd>論理的に似ている処理だからという理由だけで集めて
+はいけない。</dd>
+</dl>
+
+<p>
+たとえば、入出力の処理だからといって、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">open</span>(<span style="color: #92a65e; font-weight: bold;">type</span>,<span style="color: #92a65e; font-weight: bold;">name</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">switch</span>(type){
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"json"</span>: ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"yaml"</span>: ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"csv"</span> : ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"txt"</span> : ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+        :
+    }
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> result;
+
+}
+</pre>
+</div>
+
+<p>
+openという関数にif文やswitch文を大量に入れて、あらゆるopen処理を
+まとめた関数をイメージしてもらいたい。（その論理的な関係を一つの
+記述にまとめたいと思うこと自体は悪い発想じゃないが、同じ場所に書
+くことで、もっと大事なデータとの関係が危うくなってしまう。その矛
+盾をうまく解決するのが同じメッセージをデータ構造ごとに異なる解釈
+をさせるポリモーフィズムだ。）
+</p>
+
+<p>
+そういった種類のものがメンテナンスしづらいというのはイメージしや
+すいだろう。
+</p>
+
+<dl class="org-dl">
+<dt>時間的凝集</dt><dd>他にも同じようなタイミングで実施されるからといっ
+て、モジュール化するのもの問題がある。たとえば、
+initという関数の中ですべてのデータ構造の初期化を
+するイメージをしてほしい。</dd>
+</dl>
+
+<p>
+一方、良い凝集とはなんなのか、それは
+</p>
+
+<dl class="org-dl">
+<dt>通信的凝集</dt><dd>とあるデータに触れる処理をまとめることであるとか、</dd>
+
+<dt>情報的凝集</dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
+にすること。</dd>
+
+<dt>機能的凝集</dt><dd>それによって、ひとつのうまく定義されたタスクをこ
+なせるように集めることである。</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-7">
+<h7 id="orgheadline8">状態と副作用の支配</h7>
+<div class="outline-text-7" id="text-orgheadline8">
+<p>
+よいモジュール分割とはなにか
+</p>
+
+<ul class="org-ul">
+<li><p>
+それは、処理とそれに関連するデータの関係性を明らかにして支配し
+ていくことの重要性だ。
+</p>
+
+<p>
+できれば、完全にデータの存在を隠蔽できてしまえると良いが、現実
+のプログラムではそうは行かない場合も多い。
+</p></li>
+</ul>
+
+<p>
+こういった実務プログラミングの中で何が難しいかというと、それが状
+態と副作用を持つことだ。
+</p>
+
+<p>
+たとえば、
+</p>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">add</span>(<span style="color: #92a65e; font-weight: bold;">a</span>,<span style="color: #92a65e; font-weight: bold;">b</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> a+b;
+}
+</pre>
+</div>
+
+<p>
+このような副作用を持たない関数はテストもしやすく、バグが入り込む隙が少ない。
+たとえば、計算機のレジスタ機能をこの関数に導入し、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">r</span> = 0;
+<span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">add</span>(<span style="color: #92a65e; font-weight: bold;">a</span>,<span style="color: #92a65e; font-weight: bold;">b</span>){
+    r = a+ (isUndefined(b)||r)
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> r
+}
+</pre>
+</div>
+
+<p>
+このようにすると途端に考慮するべき事柄が増える。関連する状態や副
+作用を含めて、関数を大別すると次のようになる。
+</p>
+
+<p>
+オブジェクト指向に至るモジュラプログラミングは、こういった状態や
+副作用に対して，積極的に命名，可視化，粗結合化をしていくことで
+「関心の分離」を実現しようとした。
+</p>
+
+<p>
+たとえば、現在でもC言語のプロジェクトなどでは，構造体とそれを引
+数とする関数群ごとにモジュールを分割し，大規模なプログラミングを
+行っている。構造体と関数群
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    :
+} <span style="color: #92a65e; font-weight: bold;">Person</span>;
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_init</span>(<span style="color: #92a65e; font-weight: bold;">person</span>*<span style="color: #cae682;">p</span>,...){
+    :
+}
+
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">person_get_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>){
+    :
+}
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_set_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>,<span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>){
+    :
+}
+</pre>
+</div>
+
+<p>
+よくあるのは、上記のように構造体の名前のprefixとしてつけ、構造体
+のポインタを第一引数として渡す手法だ。
+</p>
+
+<p>
+その名残なのか、正確なところはよく知らないが、pythonやperlのオブ
+ジェクト指向では、自分自身を表すデータが、第一引数として関数に渡
+される。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">Person</span>(<span style="color: #e5786d;">object</span>):
+    <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">__init__</span>(<span style="color: #8ac6f2; font-weight: bold;">self</span>, a, b):
+        <span style="color: #8ac6f2; font-weight: bold;">self</span>.a = a
+        <span style="color: #8ac6f2; font-weight: bold;">self</span>.b = b
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Person</span> {
+    <span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">new</span>(){
+        <span style="color: #92a65e; font-weight: bold;">my</span> ($<span style="color: #cae682;">class</span>,$<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+        <span style="color: #92a65e; font-weight: bold;">my</span> $<span style="color: #cae682;">self</span> = bless{},$<span style="color: #cae682;">class</span>;
+        $<span style="color: #cae682;">self</span>-&gt;init($<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>);
+        <span style="color: #8ac6f2; font-weight: bold;">return</span> $<span style="color: #cae682;">self</span>;
+    }
+    <span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">init</span> {
+        <span style="color: #92a65e; font-weight: bold;">my</span> ($<span style="color: #cae682;">self</span>,$<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+        $<span style="color: #cae682;">self</span>-&gt;{a} = $<span style="color: #cae682;">a</span>;
+        $<span style="color: #cae682;">self</span>-&gt;{b} = $<span style="color: #cae682;">b</span>;
+    }
+}
+</pre>
+</div>
+
+<p>
+あくまで関数の純粋性を犠牲にしないように発展を続けた関数型プログ
+ラミングと、状態や副作用をデータ構造として主役にしていった手続き
+型プログラミングの分かれ目として理解すると面白い。
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#33879;&#32773;: masayuki suzuki@cis.iwate-u.ac.jp</p>
+<p class="date">Created: 2016-10-01 土 17:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

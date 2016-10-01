@@ -1,0 +1,120 @@
+#+TITLE: コンピュータ科学特論 I 講義ノート・メモ(1)
+#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
+
+<2015-10-03 月>の講義予定
+
+* 講義資料の説明
+
+#+include: ~/COMM/Lects/meta-ruby/site/links.org
+
+* オブジェクト指向
+
+** プログラム言語一般のこと
+*** 記述のための要素
+
+   - 値と定数
+   - データ構造体
+   - 型と演算
+   - 変数と代入
+   - 文と流れ
+   - 関数（手続き)
+     - 定義
+     - 呼出し
+   - スコープ
+   - モジュール
+
+*** 実行するということ
+
+    - コードインタープリタ
+    - 環境
+      - 実行の流れを保存するスタック
+      - 名前を解決する束縛
+      - 静的か動的か
+
+*** メタプログラミング
+    - プログラムを生成するプログラムをつくること
+
+** WikiPedia.search("オブジェクト指向プログラミング")
+
+特徴
+- 情報隠蔽
+- 多相性
+- 動的束縛
+- 継承
+
+** 僕の考え
+
+- モジュール
+- メッセージパッシング
+- 差をプログラムする
+
+** Rubyのオブジェクト指向らしさ
+
+- 純粋オブジェクト指向
+- プログラム可能なものは全て，オブジェクト
+- クラスもオブジェクト
+- 実行はすべてメッセージパッシングで起こる
+- オブジェクトは実行の場
+
+** Object指向の本懐
+
+** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+*** 第一回　http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss
+    file:../docs/matz-1-1.org
+    file:../docs/matz-1-2.org
+    file:../docs/matz-1-3.org
+
+    - 多相性 ::　一つの名前が，実行されるコンテキストで，違う意味を持
+      ち得ること
+
+*** 第二回，第三回，第四回　ぐらい読みたい
+    - file:../docs/matz-2.org データ抽象と継承
+    - file:../docs/matz-3.org 多重継承
+    - file:../docs/matz-4.org ダックタイピング
+
+    C++, Java, Perl, ... 
+
+
+    まとめ
+
+
+*** まつもと直伝プログラミングの掟のまとめ
+    [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
+
+
+* 講義のための環境つくり [/]
+** ruby実行環境
+** ruby プログラミング環境
+*** emacs
+*** emacs
+** 文芸的プログラミング環境
+    - emacs org-mode 
+
+
+* Ruby入門
+
+  site: http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html
+  org:  file:~suzuki/lects/meta-ruby/site/ruby_begin.org
+
+  rbenv, gem, bundler
+  
+  gem pry install
+  
+* オブジェクト指向プログラミング Ruby
+
+  file:./1.rb
+  
+* メタプログラミング Ruby
+
+   - Object Model 
+     
+   - Method
+
+   - Class
+
+     file:./l1.rb
+     
+
+#+include: ~/COMM/Lects/meta-ruby/site/links.org :minlevel 2
+
+

@@ -1,0 +1,84 @@
+#+name:deck#opener
+#+BEGIN_SRC ruby :noweb yes :exports none
+# deck.rb
+module Poker
+  class Deck
+#+END_SRC
+
+#+name:deck#initialize
+#+BEGIN_SRC ruby :noweb yes
+
+    def initialize
+
+      @stock = []
+      @used = []
+
+      Const::SuitOrder.each { |suit|
+        Const::NoOrder.each { |no|
+          @stock.push(Card.new(suit, no))
+        }
+      }
+      @stock.shuffle!
+
+    end
+#+END_SRC
+
+#+name:deck#draw
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def draw
+      if @stock.size == 0
+        @stock = @used
+        @used = []
+        @stock.shuffle!
+      end
+      @stock.pop
+    end
+
+#+END_SRC
+
+#+name:deck#size
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def size
+      @stock.size
+    end
+
+#+END_SRC
+
+#+name:deck#discard
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def discard(card)
+      @used.push(card)
+      self
+    end
+
+#+END_SRC
+
+#+name:deck#shuffle!
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+    def shuffle!
+      @stock.shuffle!
+    end
+#+END_SRC
+
+#+name:deck#closer
+#+BEGIN_SRC ruby :exports none :noweb yes 
+
+  end
+end
+
+#+END_SRC
+
+#+name:deck.rb
+#+BEGIN_SRC :tangle deck.rb :noweb yes 
+<<deck#opener>>
+<<deck#initialize>>
+<<deck#draw>>
+<<deck#discard>>
+<<deck#size>>
+<<deck#shuffle!>>
+<<deck#closer>>
+#+END_SRC

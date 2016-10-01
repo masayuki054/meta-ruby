@@ -1,0 +1,111 @@
+#+name:hand#opener
+#+begin_src ruby :exports none :noweb yes
+require 'card'
+
+module Poker
+
+  class Hand
+
+    PokerHands = [
+      :highCard, :onePair, :twoPairs, 
+      :threeCards, :straight, :flush, :fullHouse, :fourCards, :straightFlush
+    ]
+#+end_src
+
+    
+#+name:hand#initialize
+#+begin_src ruby :exports none :noweb yes
+
+    attr_reader :hand
+
+    def initialize
+      @hand = []
+    end
+#+end_src
+
+#+name:hand#putin
+#+begin_src ruby :exports none :noweb yes
+
+    def putin(card)
+      @hand.push(card).sort!
+    end
+#+end_src
+
+#+name:hand#rank
+#+begin_src ruby :exports none :noweb yes
+    
+    def rank
+      PokerHands.index(judge)
+    end
+#+end_src
+
+#+name:hand#judge
+#+begin_src ruby :exports none :noweb yes
+    
+    def judge
+      s = straight?
+      f = flush?
+      return :straightFlush if s && f 
+      return :straight if s 
+      return :flush if f 
+      return calc_pairs
+    end
+#+end_src
+
+#+name:hand#calc_pairs
+#+begin_src ruby :exports none :noweb yes
+
+
+    def calc_pairs
+      p = 0
+      @hand.each { |a|
+        @hand.each { |b|
+          p = p+1 if a.no == b.no
+        }
+      }
+      case p 
+      when 5 then :highCard 
+      when 7 then :onePair 
+      when 9 then :twoPairs
+      when 11 then :threeCards
+      when 13 then :fullHouse 
+      when 17 then :fourCards 
+      end
+    end
+#+end_src
+
+#+name:hand#straight?
+#+begin_src ruby :exports none :noweb yes
+
+    def straight?
+      false
+    end
+#+end_src
+
+#+name:hand#flush?
+#+begin_src ruby :exports none :noweb yes
+
+    def flush?
+      false
+    end
+#+end_src
+
+#+name:hand#closer
+#+begin_src ruby :exports none :noweb yes
+    
+  end
+end
+#+end_src
+
+#+name:hand.rb
+#+BEGIN_SRC ruby :noweb yes :tangle hand.rb
+<<hand#opener>>
+<<hand#initialize>>
+<<hand#putin>>
+<<hand#rank>>
+<<hand#judge>>
+<<hand#calc_pairs>>
+<<hand#straight?>>
+<<hand#flush?>>
+<<hand#closer>>
+#+END_SRC

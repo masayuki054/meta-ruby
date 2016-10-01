@@ -1,0 +1,166 @@
+* constant
+  カードに関する定数を定義するモジュール
+
+** test-constant.rb
+
+*** test の構造
+
+#+name:test-constant#opener
+#+begin_src ruby  :noweb yes
+require 'test/unit'
+require 'constant'
+
+class Test_Constant < Test::Unit::TestCase
+  include Poker
+#+end_src
+#+name:test-constant#closer
+#+begin_src ruby :noweb yes
+
+end
+#+end_src
+
+**** suit に関するテスト
+
+#+name:test-constant#suit
+#+begin_src ruby  :noweb yes
+
+  def test_constant_suit
+    assert_equal(Const::SuitSyms.index(:CLUB), Const::CLUB)
+    assert_equal(Const::SuitSyms.index(:DIAMOND), Const::DIAMOND)
+    assert_equal(Const::SuitSyms.index(:HEART), Const::HEART)
+    assert_equal(Const::SuitSyms.index(:SPADE), Const::SPADE)
+    assert_equal(Const::SuitOrder[0], Const::CLUB)
+    assert_equal(Const::SuitOrder[1], Const::DIAMOND)
+    assert_equal(Const::SuitOrder[2], Const::HEART)
+    assert_equal(Const::SuitOrder[3], Const::SPADE)
+  end
+#+end_src
+
+**** no に関するテスト
+
+#+name:test-constant#no
+#+begin_src ruby  :noweb yes
+
+  def test_constant_no
+    assert_equal(Const::NoOrder, [  
+                   Const::TWO, Const::THREE, Const::FOUR, Const::FIVE,
+                   Const::SIX, Const::SEVEN, Const::EIGHT, Const::NINE,
+                   Const::TEN, Const::JACK, Const::QUEEN, Const::KING,
+                   Const::ACE])
+  end
+#+end_src
+
+**** カードの枚数に関するテスト
+
+#+name:test-constant#card
+#+begin_src ruby  :noweb yes
+
+  def test_constant_card
+    assert_equal(52, Const::No_of_Cards)
+  end
+#+end_src
+
+**** テスト全体
+
+#+name:test-constant.rb
+#+begin_src ruby :tangle babel/test/test-constant.rb :noweb yes
+<<test-constant#opener>>
+<<test-constant#suit>>
+<<test-constant#no>>
+<<test-constant#card>>
+<<test-constant#closer>>
+#+end_src
+
+
+** constant.rb
+
+*** モジュールの構造
+
+#+name:const#opener
+#+BEGIN_SRC ruby  :noweb yes 
+
+module Poker
+  
+  module Const
+#+END_SRC
+
+#+name:const#closer
+#+BEGIN_SRC ruby  :noweb yes 
+    
+  end
+end
+#+END_SRC
+
+*** suit に関する定数
+    
+#+name:const#suit
+#+BEGIN_SRC ruby :noweb yes 
+
+    SuitSyms = [:CLUB, :DIAMOND, :HEART, :SPADE] 
+    SuitChars = ['C', 'D', 'H', 'S'] 
+    SuitOrder = [] # suit の強さ
+
+    # 定数の生成: CLUB， DIAMOND, HEART, SPADE 
+
+    SuitSyms.each_index do |i| 
+      SuitOrder << const_set(SuitSyms[i], i)
+    end
+
+#+END_SRC
+
+*** no に関する定数
+
+#+name:const#no
+#+BEGIN_SRC ruby :noweb yes 
+
+    NoSyms = [:TWO, :THREE, :FOUR, :FIVE, :SIX, :SEVEN, :EIGHT, :NINE, :TEN,
+              :JACK, :QUEEN, :KING, :ACE]
+    NoChars = ['2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A']
+    NoOrder = []
+    NoSyms.each_index do |i| 
+      NoOrder << const_set(NoSyms[i], i)
+    end
+#+END_SRC
+
+*** card に関する定数
+
+#+name:const#no_of_cards
+#+BEGIN_SRC ruby :noweb yes 
+
+    No_of_Cards = SuitOrder.size*NoOrder.size
+
+#+END_SRC
+
+*** constant.rb 
+
+#+BEGIN_SRC ruby :tangle babel/src/constant.rb :noweb yes :mkdirp yes
+<<const#opener>>
+<<const#suit>>
+<<const#no>>
+<<const#no_of_cards>>
+<<const#closer>>
+
+#+END_SRC
+
+** run
+
+#+BEGIN_SRC sh :dir babel :results output scalar
+ruby -I./src test/test-constant.rb
+
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Loaded suite test/test-constant
+Started
+...
+
+Finished in 0.000631388 seconds.
+------
+3 tests, 10 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+4751.44 tests/s, 15838.12 assertions/s
+#+end_example
+

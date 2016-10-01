@@ -1,0 +1,357 @@
+* ruby 情報
+** ruby の情報
+
+   - [[http://magazine.rubyist.net/?0050][Rubyist Magazine - Rubyist Magazine 0050 号]]
+
+   - [[http://magazine.rubyist.net/?FirstStepRuby][Rubyist Magazine - Ruby の歩き方]]
+
+** manual
+
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/index.html][オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)]]
+
+   - [[http://docs.ruby-lang.org/ja/search/][最速Rubyリファレンスマニュアル検索！ | るりまサーチ]]
+
+* ruby入門 
+** 2016
+   
+   初回に，
+   [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]]
+   を先ず読み，やってみましょう。
+
+   次に，2~3回かけて，[[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] をやり
+   ましょう。
+
+** 2015
+
+ [[http://libro.tuyano.com/index2?id=953003][ビギナーのためのRubyプログラミング入門]] をやりましょう
+
+  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ビギナーのためのRubyプログラミング入門のノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
+
+*** 内容  [1/10]
+
+ 1. [X] Rubyを使ってみよう!
+
+    - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fintro.html][はじめに (Ruby 2.0.0)]]
+    - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2feval.html][Ruby プログラムの実行 (Ruby 2.0.0)]]
+    - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcommands.html][コマンド (Ruby 2.0.0)]]
+    - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2frubycmd.html][Rubyの起動 (Ruby 2.0.0)]]
+
+    まずは、Rubyをインストールして利用できるようにしてみましょう。そし
+    て実際にRubyのスクリプトを動かすところまでやってみましょう。
+
+ 2. [ ] 基本的な構文を覚えよう [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html][制御構造 (Ruby 2.0.0)]]
+
+    プログラミング言語には、プログラムの流れを制御するための構文が用意
+    されています。基本的な構文の使い方をまとめて覚えましょう。
+
+ 3. [ ]   [[http://libro.tuyano.com/index3?id=959004][配列とハッシュ:ビギナーのためのRubyプログラミング入門]]  
+
+    多数の値をまとめて管理するのが「配列」です。この配列の値を名前で管
+    理できるようにしたものが「ハッシュ（連想配列）」です。これらの基本
+    的な使い方について説明します。
+
+ 4. [ ] 構造化からオブジェクトへ！
+
+    Rubyでは、スクリプトを整理し、構造的にまとめていくための仕組みが用
+    意されています。これは、突き詰めれば、プログラムを「オブジェクト」
+    というものとして作成する考え方へとつながっていきます。この「オブジェ
+    クト」に至るまでの考え方についてここで説明していきましょう。
+
+ 5. [ ] オブジェクトを更に極める！
+
+    オブジェクトというものの働きや使い方を知ることは、Rubyを使い込んで
+    いくためには避けて通れない道です。今回も更にオブジェクトというもの
+    について説明を続けて行きましょう。今回のキーワードは「アクセサ」
+    「クラスメソッド」「継承」といったものです。
+
+ 6. [ ] 日時とTimeクラス
+
+    日時を扱うために用意されているのが「Time」というクラスです。このク
+    ラスには、日時の表現はもちろん、日時を使った計算やさまざまなフォー
+    マットによる出力などのメソッドが一通り揃っています。これらの基本的
+    な使い方についてマスターしましょう。
+
+ 7. [ ] テキスト（Stringクラス）の基本操作
+
+    テキストの値を扱う「String」クラスには、テキスト操作のためのさまざ
+    まなメソッドが用意されています。それらの中から主なものをピックアッ
+    プして使い方を説明しましょう。
+
+ 8. [ ] テキストファイルのアクセス
+
+    Rubyでは、テキストファイルに簡単にアクセスすることができます。テキ
+    ストファイル利用の基本を覚えて、データの読み書きの基本について説明
+    をしましょう。
+
+ 9. [ ] CSVファイル・アクセス
+
+    CSVファイルは、データベースなどの多数の値からなるデータを保存するの
+    に用いられるテキストファイルです。Rubyには、これを利用するための専
+    用機能がいろいろと用意されています。CSVの利用をマスターしてデータ管
+    理を行いましょう。
+
+ 10. [ ] ERBによるWebアプリケーション開発
+
+    Rubyには「ERB」と呼ばれる、HTMLの中にRubyのスクリプトを埋め込んで実
+     行する技術があります。これを使えば、簡単にRubyを使ったWebアプリケー
+     ションが作れるのです。その基本的な使い方を覚えましょう。
+    
+
+
+
+
+
+** その他の入門
+
+  てっとり早く全貌を掴むには，
+  - [[http://loveruby.net/ja/rhg/book/minimum.html][RHG「第1章 Ruby言語ミニマム]]
+
+  プログラミングしながら
+
+  - [[http://www.minituku.net/courses/1049510743/lessons/763190848/drills/282479059?locale=ja][ミニツク - Rubyのe-ラーニング研修システム]]
+  - [[http://dotinstall.com/lessons/basic_ruby_v2][Ruby入門 (全23回) - プログラミングならドットインストール]]
+     一話2〜3分でまあ聴きやすい
+  - rubymonk
+  - 若手エンジニア／初心者のためのRuby 2.1入門 最新記事一覧 - ITmedia Keywords
+    http://www.atmarkit.co.jp/ait/kw/ruby_nyumon.html
+
+
+* ruby 環境作り
+
+   自分用の ruby の環境を作りましょう。
+
+   ruby のための emacs の設定については，[[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]]))
+
+** rbenv/gem/bundler
+*** rbenv 
+
+    [[http://d.hatena.ne.jp/zariganitosh/20141101/what_does_rbenv][rbenvは何をしているのか？ - ザリガニが見ていた...。]]
+
+    - 個人毎に用意できる ruby の環境 
+    - ~/.rbenv/ の配下にバージョンごとに
+    - ~/.rbenv/shims/ の配下にえらんだバージョンのバイナリへのリンクが
+      ある
+*** rubyのインストール 
+
+    [[http://www.task-notes.com/entry/20140707/1404744444][Ruby開発環境の準備+rbenvの使い方 - TASK NOTES]]
+    - 前半はMacOSX用の記述ですが，rbenvインストール後は，そのまま使え
+      ます。
+    
+#+BEGIN_SRC sh
+# [~/]
+rbenv install --list  # インストール可な ruby を表示
+#+END_SRC
+
+    最新の安定版を入れましょう:
+
+#+BEGIN_SRC sh
+rbenv install 2.3-dev #
+rbenv global 2.3-dev  # 
+rbenv init            # シェルの設定
+#+END_SRC
+
+    インストールされたことを確かめましょう:
+
+#+BEGIN_SRC sh
+which ruby # ruby インタプリター
+which gem  # ruby パッケージ管理コマンド
+which irb  # 対話型 ruby インタプリター
+#+END_SRC
+
+    .bashrc に下記のコマンドを付け加えましょう:
+
+#+BEGIN_SRC sh
+eval "$(rbenv init -)"
+#+END_SRC
+    
+*** gem -- ruby のパッケージ管理
+
+    [[http://allabout.co.jp/gm/gc/439246/3/][RubyGems (gem) の使い方・インストール方法]]
+
+    gemを使ってパッケージをいれてみましょう:
+
+#+BEGIN_SRC sh :results output :dir ~/meta-ruby
+gem install pry
+#+END_SRC
+
+*** bundler
+
+    この講義では使いませんが，一応紹介です:
+    - [[http://blog.tokoyax.com/entry/ruby/bundler][Ruby の gem をプロジェクト毎に Bundler で管理する - fugafuga.write()]]
+
+
+** pry
+   pry は irb に替わる対話型インタプリタです。デバッガとして使えます。
+
+    - Ruby - 今更聞けないpryの使い方と便利プラグイン集 - Qiita
+      http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f
+
+    - 第3回　Pry ～IRBをより見やすく、より便利に～
+      http://www.school.ctc-g.co.jp/columns/masuidrive/masuidrive03.html
+
+    - Rubyistよ、irbを捨ててPryを使おう - TIM Labs
+      http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html
+
+    - Emacs×Ruby - PryをEmacsで使ってみる - http://rubikitch.com/に移転しました
+      http://d.hatena.ne.jp/rubikitch/20140627/pry
+
+      - emacs で run-ruby で pry が動きだし，いろいろ便利に使えます。
+
+	
+
+
+* ruby におけるプログラムの実行のまとめ
+
+** プログラム
+   
+*** self とクラス
+
+    - 自分 (self) は，あるクラスから生まれたオブジェクトである
+    - 自分 (self) は，コード (ブロック) を実行する
+
+*** リテラル
+
+    オブジェクトを表す文字列．そのオブジェクトが評価値．
+
+*** 変数
+    オブジェクトの名前，
+    束縛を持ち，その値が評価値
+
+    - ブロックが持つブロックローカル変数
+    - オブジェクトがもつインスタンス変数
+    - クラスが持つクラス変数，定数
+
+*** メッセージパッシング式
+    obj.msg(*args)
+    - オブジェクト obj に文字列 msg とオブジェクト列を(引数として)渡す
+    - msg は操作を表し、その意味は obj によって決まる
+    - obj が組み込みオブジェクトになると計算され結果のオブジェクトとな
+      る
+    - 評価値は上記を再帰的に行うことで計算される
+    
+*** メソッドとクラス
+    メソッドはクラスに属し，
+    クラスは継承でき，
+    継承したクラスのメソッドも利用できる
+
+*** 文と制御
+    
+
+*** スコープの切り替え
+    : class C end
+    : def m() end
+    : { ... } 
+
+
+* rubyあれこれ
+
+** オブジェクトとメソッド呼び出し
+
+メソッド呼び出しができるのは実体 (*オブジェクト*)中のブロック
+
+オブジェクト中の実行の場 (ブロック) は二ヶ所
+- self のトップレベルブロック
+- 実行中のメソッドブロック
+
+** String.newで起こること
+
+   Class
+   - Class オブジェクトだけは，オブジェクトを生み出せる (特異) new メソッドをもつ
+   - Class オブジェクトは，継承できる
+   - Class オブジェクトを，継承したオブジェクトをクラスとする
+   - Class はクラスである
+
+   String は Class を継承して生まれているので，new メソッドが実行できる
+
+   String オブジェクトが new を実行する
+   - String クラスのインスタンスを生成し，selfとする
+   - self.initialize を実行する
+   - self を返す
+
+** オブジェクトとクラスとモジュール
+
+*** オブジェクト
+    - メッセージのレシーバとなり，メソッドの実行ができる
+    - 独自の状態を持てる
+
+*** モジュール < オブジェクト
+    - 独自の名前空間を持つ 名前の定義
+
+*** クラス < モジュール
+    - オブジェクトの性質を継承 (レシーバ)
+    - モジュールの性質を継承 (名前空間)
+    - クラスに特有なメソッドを持つ (オブジェクトの生成，子クラスの生成)
+
+[1,2,3].each { return 1} 
+
+[1,2,3].each { break }
+
+def m
+  [1,2,3].each { return 1} 
+end
+
+def m 
+  [1,2,3].each { break }
+end
+
+** クロージャ
+   - クロージャ :: コードと環境の組み
+     - コード :: 名前を使った一連の操作
+     - 環境 :: 名前に対して値を与える
+     - 名前 :: メソッド名，局所変数，インスタンス変数、クラス変数、グ
+	       ローバル変数, 定数
+
+   self, class, module構造 はクロージャには閉じこめられない？
+
+** フレーム
+   - メソッド呼び出しを実行する環境
+   - ブロックはフレーム内で実行される（と思う）
+   - Procとlambda で，違うのは所属するフレーム
+
+
+
+* rubyは生産性が高い？
+   
+   - ruby を仕事で使おう http://itpro.nikkeibp.co.jp/article/COLUMN/20060921/248715/
+
+   - 上記記事への批評
+     http://d.hatena.ne.jp/fromdusktildawn/20061002/1159784863
+     
+     上記記事への ((s-:)) の考え
+
+     - できるかどうかじゃなくて，そのやり方の「抽象化」が問題なんだよ
+       ね．原則が問題となる．原則がメタのやり方の源．
+
+     - Scheme なら原則はシンプルで，何でもできる．が，自由すぎるのが問題
+       視される．僕は好きだけど．
+
+     - Ruby の原則もシンプル．オブジェクト指向の枠組みの中で自由さが得
+       られる純粋で少ない原則を持つ．
+
+     - Scheme のRS で言っている，少ない原則で無限の拡張性を得ること．
+       それがメタプログラミングの原則．
+
+     - メタプログラミングのやり方は，言語の原則で決まる．
+       じゃ，メタメタプログラミングは？ リフレクティブな手法のすべては，
+       結局言語の原則に依る．
+
+     - 手続き型言語で最もシンプルな原則の言語は，Scheme.
+
+     - 手続き型言語にオブジェクト指向原則を入れて最もシンプルな原則を
+       持つ言語が，Ruby. (だと信じている）
+
+     - ちょっと毛色が変わるけど，実行プロセスが扱えるかと言うのもメタで
+       本質的．対象とできるかということ．言語レベルとは違うメタレベルを
+       手に入れられる．
+
+       これに関しては，Scheme が最もシンプルでキレイ．
+
+       Ruby はオブジェクト指向の枠組みで，最もシンプルでキレイ（と信ず
+       る）．
+
+   - IPA java
+     http://www.ipa.go.jp/software/open/ossc/download/Model_Curriculum_E1_Guidance_4_1_1.pdf 
+
+** 語彙 メタプログラミング
+   - http://ja.wikipedia.org/wiki/メタプログラミング
+   - メタプログラミングの光と影 http://d.hatena.ne.jp/higayasuo/20090208/1234058491

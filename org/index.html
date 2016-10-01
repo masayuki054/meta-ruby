@@ -1,0 +1,3442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<!-- 2016-10-01 土 17:19 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>メタプログラミング Ruby オブジェクト指向 メタプログラミング Ruby</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="suzuki@cis.iwate-u.ac.jp masayuki suzuki@cis.iwate-u.ac.jp" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/css/sos.css">
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/sos.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">メタプログラミング Ruby オブジェクト指向 メタプログラミング Ruby</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline20">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</a>
+<ul>
+<li><a href="#orgheadline1">1.1. 講義資料の説明</a></li>
+<li><a href="#orgheadline13">1.2. オブジェクト指向入門</a>
+<ul>
+<li><a href="#orgheadline5">1.2.1. プログラム言語とは</a>
+<ul>
+<li><a href="#orgheadline2">記述のための要素</a></li>
+<li><a href="#orgheadline3">実行するということ</a></li>
+<li><a href="#orgheadline4">メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline6">1.2.2. WikiPedia.search("オブジェクト指向プログラミング")</a></li>
+<li><a href="#orgheadline7">1.2.3. 僕の考え</a></li>
+<li><a href="#orgheadline8">1.2.4. Rubyらしさ</a></li>
+<li><a href="#orgheadline12">1.2.5. まつもと直伝プログラミングの掟</a>
+<ul>
+<li><a href="#orgheadline9">第一回　</a></li>
+<li><a href="#orgheadline10">第二回，第三回，第四回　ぐらい読みたい</a></li>
+<li><a href="#orgheadline11">まつもと直伝プログラミングの掟のまとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline14">1.3. Ruby入門</a></li>
+<li><a href="#orgheadline15">1.4. オブジェクト指向プログラミング Ruby</a></li>
+<li><a href="#orgheadline16">1.5. メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline19">1.6. .links</a>
+<ul>
+<li><a href="#orgheadline17">1.6.1. meta-ruby</a></li>
+<li><a href="#orgheadline18">1.6.2. .links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline23">2. 講義</a>
+<ul>
+<li><a href="#orgheadline21">2.1. 主たるねらい</a></li>
+<li><a href="#orgheadline22">2.2. もうひとつのねらい</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline93">3. ruby</a>
+<ul>
+<li><a href="#orgheadline26">3.1. ruby 情報</a>
+<ul>
+<li><a href="#orgheadline24">3.1.1. ruby の情報</a></li>
+<li><a href="#orgheadline25">3.1.2. manual</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline31">3.2. ruby入門</a>
+<ul>
+<li><a href="#orgheadline27">3.2.1. 2016</a></li>
+<li><a href="#orgheadline29">3.2.2. 2015</a>
+<ul>
+<li><a href="#orgheadline28">内容  <code>[1/10]</code></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline30">3.2.3. その他の入門</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline38">3.3. ruby 環境作り</a>
+<ul>
+<li><a href="#orgheadline36">3.3.1. rbenv/gem/bundler</a>
+<ul>
+<li><a href="#orgheadline32">rbenv</a></li>
+<li><a href="#orgheadline33">rubyのインストール</a></li>
+<li><a href="#orgheadline34">gem &#x2013; ruby のパッケージ管理</a></li>
+<li><a href="#orgheadline35">bundler</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline37">3.3.2. pry</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline47">3.4. ruby におけるプログラムの実行のまとめ</a>
+<ul>
+<li><a href="#orgheadline46">3.4.1. プログラム</a>
+<ul>
+<li><a href="#orgheadline39">self とクラス</a></li>
+<li><a href="#orgheadline40">リテラル</a></li>
+<li><a href="#orgheadline41">変数</a></li>
+<li><a href="#orgheadline42">メッセージパッシング式</a></li>
+<li><a href="#orgheadline43">メソッドとクラス</a></li>
+<li><a href="#orgheadline44">文と制御</a></li>
+<li><a href="#orgheadline45">スコープの切り替え</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline56">3.5. rubyあれこれ</a>
+<ul>
+<li><a href="#orgheadline48">3.5.1. オブジェクトとメソッド呼び出し</a></li>
+<li><a href="#orgheadline49">3.5.2. String.newで起こること</a></li>
+<li><a href="#orgheadline53">3.5.3. オブジェクトとクラスとモジュール</a>
+<ul>
+<li><a href="#orgheadline50">オブジェクト</a></li>
+<li><a href="#orgheadline51">モジュール &lt; オブジェクト</a></li>
+<li><a href="#orgheadline52">クラス &lt; モジュール</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline54">3.5.4. クロージャ</a></li>
+<li><a href="#orgheadline55">3.5.5. フレーム</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline58">3.6. rubyは生産性が高い？</a>
+<ul>
+<li><a href="#orgheadline57">3.6.1. 語彙 メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline92">3.7. pry</a>
+<ul>
+<li><a href="#orgheadline59">3.7.1. what is pry?</a></li>
+<li><a href="#orgheadline65">3.7.2. Rubyistよ、irbを捨ててPryを使おう</a>
+<ul>
+<li><a href="#orgheadline60">起動</a></li>
+<li><a href="#orgheadline61">shellとの統合</a></li>
+<li><a href="#orgheadline62">組み込みコマンド</a></li>
+<li><a href="#orgheadline63">オブジェクトを調査する</a></li>
+<li><a href="#orgheadline64">簡易デバッガとして使う</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline67">3.7.3. ドキュメントに素早く参照できる</a>
+<ul>
+<li><a href="#orgheadline66">gemやCの実装も読める</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline73">3.7.4. </a>
+<ul>
+<li><a href="#orgheadline68">ls - change scope</a></li>
+<li><a href="#orgheadline69">find-method</a></li>
+<li><a href="#orgheadline70">nesting &#x2013; seeing the nested context</a></li>
+<li><a href="#orgheadline71">jump-to</a></li>
+<li><a href="#orgheadline72">switch-to</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline91">3.7.5. 今更聞けないpryの使い方と便利プラグイン集</a>
+<ul>
+<li><a href="#orgheadline74">info</a></li>
+<li><a href="#orgheadline75">最低限の使い方</a>
+<ul>
+<li><a href="#orgheadline76">binding.pryで任意の場所からREPLを立ち上げる</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline77">pry標準の機能</a>
+<ul>
+<li><a href="#orgheadline78">?, show-doc, ri, $, show-method</a></li>
+<li><a href="#orgheadline79">edit</a></li>
+<li><a href="#orgheadline80">cd, ls, Tab補完</a></li>
+<li><a href="#orgheadline81">exit!, !!!, exit-program, disable-pry, edit -m</a></li>
+<li><a href="#orgheadline82">.とshell-mode</a></li>
+<li><a href="#orgheadline83">help</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline84">便利なプラグイン (pry関連プラグイン)</a>
+<ul>
+<li><a href="#orgheadline85">pry-byebug</a></li>
+<li><a href="#orgheadline86">pry-stack_explorer</a></li>
+<li><a href="#orgheadline87">pry-rails</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline88">show-routes</a></li>
+<li><a href="#orgheadline89">show-model, show-models</a></li>
+<li><a href="#orgheadline90">reload!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline124">4. OO</a>
+<ul>
+<li><a href="#orgheadline123">4.1. オブジェクト指向に至る軌跡</a>
+<ul>
+<li><a href="#orgheadline104">4.1.1. オブジェクト指向以前</a>
+<ul>
+<li><a href="#orgheadline94"><span class="done Done">Done</span> ソフトウェア危機</a></li>
+<li><a href="#orgheadline95"><span class="done Done">Done</span> 構造化プログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline96"><span class="todo Todo">Todo</span> 構造化プログラミングとは</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline97"><span class="done Done">Done</span> モジュラプログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline98">凝集度と結合度</a></li>
+<li><a href="#orgheadline99">悪い結合、良い結合</a></li>
+<li><a href="#orgheadline100">悪い凝集、良い凝集</a></li>
+<li><a href="#orgheadline101">状態と副作用の支配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline102">抽象データ型</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline103">抽象データ型の情報隠蔽とカプセル化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline105">4.1.2. オブジェクト指向?</a></li>
+<li><a href="#orgheadline112">4.1.3. Simula &amp; C++のオブジェクト指向</a>
+<ul>
+<li><a href="#orgheadline106">どの処理を呼び出すか決めるメカニズム</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline107">動的ディスパッチ</a></li>
+<li><a href="#orgheadline110">継承と委譲</a>
+<ul>
+<li><a href="#orgheadline108">継承</a></li>
+<li><a href="#orgheadline109">委譲</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline111">オブジェクト指向の要素</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline119">4.1.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<ul>
+<li><a href="#orgheadline113">仮想機械としてのオブジェクト</a></li>
+<li><a href="#orgheadline114">メッセージング</a>
+<ul>
+<li><a href="#orgheadline115">動的な送信</a></li>
+<li><a href="#orgheadline116">メッセージ転送</a></li>
+<li><a href="#orgheadline117">非同期送信</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline118">オブジェクト指向という言葉が意味していること</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline120">4.1.5. まとめ</a></li>
+<li><a href="#orgheadline121">4.1.6. あとがき</a></li>
+<li><a href="#orgheadline122">4.1.7. オブジェクト指向あれこれ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 講義資料の説明</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+commented
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.2</span> オブジェクト指向入門</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.2.1</span> プログラム言語とは</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div><div id="outline-container-orgheadline2" class="outline-5">
+<h5 id="orgheadline2">記述のための要素</h5>
+<div class="outline-text-5" id="text-orgheadline2">
+<ul class="org-ul">
+<li>値と定数</li>
+<li>データ構造体</li>
+<li>型と演算</li>
+<li>変数と代入</li>
+<li>文と流れ</li>
+<li>関数（手続き)
+<ul class="org-ul">
+<li>定義</li>
+<li>呼出し</li>
+</ul></li>
+<li>スコープ</li>
+<li>モジュール</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-5">
+<h5 id="orgheadline3">実行するということ</h5>
+<div class="outline-text-5" id="text-orgheadline3">
+<ul class="org-ul">
+<li>コードインタープリタ</li>
+<li>環境
+<ul class="org-ul">
+<li>実行の流れを保存するスタック</li>
+<li>名前を解決する束縛</li>
+<li>静的か動的か</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-5">
+<h5 id="orgheadline4">メタプログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline4">
+<ul class="org-ul">
+<li>プログラムを生成するプログラムをつくること</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.2.2</span> WikiPedia.search("オブジェクト指向プログラミング")</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+特徴
+</p>
+<ul class="org-ul">
+<li>情報隠蔽</li>
+<li>多相性</li>
+<li>動的束縛</li>
+<li>継承</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">1.2.3</span> 僕の考え</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>モジュール</li>
+<li>メッセージパッシング</li>
+<li>差をプログラムする</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.2.4</span> Rubyらしさ</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li>純粋オブジェクト指向</li>
+<li>プログラム可能なものは全て，オブジェクト</li>
+<li>クラスもオブジェクト</li>
+<li>実行はすべてメッセージパッシングで起こる</li>
+<li>オブジェクトは実行の場</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.2.5</span> <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h4>
+<div class="outline-text-4" id="text-1-2-5">
+</div><div id="outline-container-orgheadline9" class="outline-5">
+<h5 id="orgheadline9">第一回　<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss">http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss</a></h5>
+<div class="outline-text-5" id="text-orgheadline9">
+<p>
+<a href="../docs/matz-1-1.html">../docs/matz-1-1.html</a>
+<a href="../docs/matz-1-2.html">../docs/matz-1-2.html</a>
+<a href="../docs/matz-1-3.html">../docs/matz-1-3.html</a>
+</p>
+
+<ul class="org-ul">
+<li>多相性 ::　一つの名前が，実行されるコンテキストで，違う意味を持
+ち得ること</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-5">
+<h5 id="orgheadline10">第二回，第三回，第四回　ぐらい読みたい</h5>
+<div class="outline-text-5" id="text-orgheadline10">
+<ul class="org-ul">
+<li><a href="../docs/matz-2.html">../docs/matz-2.html</a> データ抽象と継承</li>
+<li><a href="../docs/matz-3.html">../docs/matz-3.html</a> 多重継承</li>
+<li><a href="../docs/matz-4.html">../docs/matz-4.html</a> ダックタイピング</li>
+</ul>
+
+<p>
+C++, Java, Perl, &#x2026; 
+</p>
+
+
+<p>
+まとめ
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline11" class="outline-5">
+<h5 id="orgheadline11">まつもと直伝プログラミングの掟のまとめ</h5>
+<div class="outline-text-5" id="text-orgheadline11">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz">まとめ</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">1.3</span> Ruby入門</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+site: <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html">http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html</a>
+org:  <a href="file:///users/home/masayuki/lects/meta-ruby/site/ruby_begin.html">file:///users/home/masayuki/lects/meta-ruby/site/ruby_begin.html</a>
+</p>
+
+<p>
+rbenv, gem, bundler
+</p>
+
+<p>
+gem pry install
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.4</span> オブジェクト指向プログラミング Ruby</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<a href="./1.rb">./1.rb</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">1.5</span> メタプログラミング Ruby</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Object Model</li>
+
+<li>Method</li>
+
+<li><p>
+Class
+</p>
+
+<p>
+<a href="./l1.rb">./l1.rb</a>
+</p></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.6</span> .links</h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">1.6.1</span> meta-ruby</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby">コンピュータ科学特論Iサイト</a> self</li>
+
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/">鈴木の講義サイト</a> .super</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">1.6.2</span> .links</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ul class="org-ul">
+<li>コンピュータ科学特論I <a href="http://wiki.cis.iwate-u.ac.jp/~wiki/meta-ruby.cgi">講義用Wiki</a> .wiki</li>
+
+<li><p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects">コンピュータ科学特論Iー講義ノート・メモ</a> .lect
+</p>
+<pre class="example">
+~suzuki/lects/meta-ruby/site/docs/lects/     
+</pre></li>
+
+<li><p>
+コンピュータ科学特論I <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/meta-ruby">教科書のまとめ</a> .text
+</p>
+<pre class="example">
+path: ~suzuki/lects/meta-ruby/site/org-docs/meta-ruby/
+</pre></li>
+
+<li><p>
+コンピュータ科学特論I <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs">関連のドキュメント</a> .docs
+</p>
+<pre class="example">
+path: ~suzuki/lects/meta-ruby/site/org-docs/
+</pre></li>
+
+<li><p>
+教科書中のコード .codes
+</p>
+<pre class="example">
+path: ~suzuki/lects/meta-ruby/codes/
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">2</span> 講義</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">2.1</span> 主たるねらい</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+オブジェクト指向プログラミングの本質，
+</p>
+
+<p>
+オブジェクト指向システムの仕組み，
+</p>
+
+<p>
+メタプログラミングの有効性について，
+</p>
+
+<p>
+オブジェクト指向言語 ruby を用いて考察する
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">2.2</span> もうひとつのねらい</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+emacs org-mode + babel を使って，
+</p>
+
+<p>
+文芸的プログラミングをおこないながら，
+</p>
+
+<p>
+講義しようとたくらんでいますが，
+</p>
+
+<p>
+いつものとおり，どうなりますことやら。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline93" class="outline-2">
+<h2 id="orgheadline93"><span class="section-number-2">3</span> ruby</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">3.1</span> ruby 情報</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">3.1.1</span> ruby の情報</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li><a href="http://magazine.rubyist.net/?0050">Rubyist Magazine - Rubyist Magazine 0050 号</a></li>
+
+<li><a href="http://magazine.rubyist.net/?FirstStepRuby">Rubyist Magazine - Ruby の歩き方</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">3.1.2</span> manual</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)</a></li>
+
+<li><a href="http://docs.ruby-lang.org/ja/search/">最速Rubyリファレンスマニュアル検索！ | るりまサーチ</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">3.2</span> ruby入門</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">3.2.1</span> 2016</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+初回に，
+<a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a>
+を先ず読み，やってみましょう。
+</p>
+
+<p>
+次に，2~3回かけて，<a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> をやり
+ましょう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">3.2.2</span> 2015</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+<a href="http://libro.tuyano.com/index2?id=953003">ビギナーのためのRubyプログラミング入門</a> をやりましょう
+</p>
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html">ビギナーのためのRubyプログラミング入門のノート</a> ((<a href="file:///users/home/masayuki/lects/meta-ruby/lects/ruby-begin-note.html">@cis.org</a> <a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.html">@s.org</a>))</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-5">
+<h5 id="orgheadline28">内容  <code>[1/10]</code></h5>
+<div class="outline-text-5" id="text-orgheadline28">
+<ol class="org-ol">
+<li class="on"><code>[X]</code> <p>
+Rubyを使ってみよう!
+</p>
+
+<ul class="org-ul">
+<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fintro.html">はじめに (Ruby 2.0.0)</a></li>
+<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2feval.html">Ruby プログラムの実行 (Ruby 2.0.0)</a></li>
+<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcommands.html">コマンド (Ruby 2.0.0)</a></li>
+<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2frubycmd.html">Rubyの起動 (Ruby 2.0.0)</a></li>
+</ul>
+<p>
+まずは、Rubyをインストールして利用できるようにしてみましょう。そし
+て実際にRubyのスクリプトを動かすところまでやってみましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+基本的な構文を覚えよう <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html">制御構造 (Ruby 2.0.0)</a>
+</p>
+
+<p>
+プログラミング言語には、プログラムの流れを制御するための構文が用意
+されています。基本的な構文の使い方をまとめて覚えましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+<a href="http://libro.tuyano.com/index3?id=959004">配列とハッシュ:ビギナーのためのRubyプログラミング入門</a>  
+</p>
+
+<p>
+多数の値をまとめて管理するのが「配列」です。この配列の値を名前で管
+理できるようにしたものが「ハッシュ（連想配列）」です。これらの基本
+的な使い方について説明します。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+構造化からオブジェクトへ！
+</p>
+
+<p>
+Rubyでは、スクリプトを整理し、構造的にまとめていくための仕組みが用
+意されています。これは、突き詰めれば、プログラムを「オブジェクト」
+というものとして作成する考え方へとつながっていきます。この「オブジェ
+クト」に至るまでの考え方についてここで説明していきましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+オブジェクトを更に極める！
+</p>
+
+<p>
+オブジェクトというものの働きや使い方を知ることは、Rubyを使い込んで
+いくためには避けて通れない道です。今回も更にオブジェクトというもの
+について説明を続けて行きましょう。今回のキーワードは「アクセサ」
+「クラスメソッド」「継承」といったものです。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+日時とTimeクラス
+</p>
+
+<p>
+日時を扱うために用意されているのが「Time」というクラスです。このク
+ラスには、日時の表現はもちろん、日時を使った計算やさまざまなフォー
+マットによる出力などのメソッドが一通り揃っています。これらの基本的
+な使い方についてマスターしましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+テキスト（Stringクラス）の基本操作
+</p>
+
+<p>
+テキストの値を扱う「String」クラスには、テキスト操作のためのさまざ
+まなメソッドが用意されています。それらの中から主なものをピックアッ
+プして使い方を説明しましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+テキストファイルのアクセス
+</p>
+
+<p>
+Rubyでは、テキストファイルに簡単にアクセスすることができます。テキ
+ストファイル利用の基本を覚えて、データの読み書きの基本について説明
+をしましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+CSVファイル・アクセス
+</p>
+
+<p>
+CSVファイルは、データベースなどの多数の値からなるデータを保存するの
+に用いられるテキストファイルです。Rubyには、これを利用するための専
+用機能がいろいろと用意されています。CSVの利用をマスターしてデータ管
+理を行いましょう。
+</p></li>
+
+<li class="off"><code>[&#xa0;]</code> <p>
+ERBによるWebアプリケーション開発
+</p>
+
+<p>
+Rubyには「ERB」と呼ばれる、HTMLの中にRubyのスクリプトを埋め込んで実
+ 行する技術があります。これを使えば、簡単にRubyを使ったWebアプリケー
+ ションが作れるのです。その基本的な使い方を覚えましょう。
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">3.2.3</span> その他の入門</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+てっとり早く全貌を掴むには，
+</p>
+<ul class="org-ul">
+<li><a href="http://loveruby.net/ja/rhg/book/minimum.html">RHG「第1章 Ruby言語ミニマム</a></li>
+</ul>
+
+<p>
+プログラミングしながら
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www.minituku.net/courses/1049510743/lessons/763190848/drills/282479059?locale=ja">ミニツク - Rubyのe-ラーニング研修システム</a></li>
+<li><a href="http://dotinstall.com/lessons/basic_ruby_v2">Ruby入門 (全23回) - プログラミングならドットインストール</a>
+     一話2〜3分でまあ聴きやすい</li>
+<li>rubymonk</li>
+<li>若手エンジニア／初心者のためのRuby 2.1入門 最新記事一覧 - ITmedia Keywords
+<a href="http://www.atmarkit.co.jp/ait/kw/ruby_nyumon.html">http://www.atmarkit.co.jp/ait/kw/ruby_nyumon.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">3.3</span> ruby 環境作り</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+自分用の ruby の環境を作りましょう。
+</p>
+
+<p>
+ruby のための emacs の設定については，<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html">emacsの設定</a> ((<a href="file:///users/home/masayuki/lects/meta-ruby/org-docs/emacs-setup.html">@cis.org</a> <a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.html">@s.org</a>))
+</p>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">3.3.1</span> rbenv/gem/bundler</h4>
+<div class="outline-text-4" id="text-3-3-1">
+</div><div id="outline-container-orgheadline32" class="outline-5">
+<h5 id="orgheadline32">rbenv</h5>
+<div class="outline-text-5" id="text-orgheadline32">
+<p>
+<a href="http://d.hatena.ne.jp/zariganitosh/20141101/what_does_rbenv">rbenvは何をしているのか？ - ザリガニが見ていた&#x2026;。</a>
+</p>
+
+<ul class="org-ul">
+<li>個人毎に用意できる ruby の環境</li>
+<li>~/.rbenv/ の配下にバージョンごとに</li>
+<li>~/.rbenv/shims/ の配下にえらんだバージョンのバイナリへのリンクが
+ある</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-5">
+<h5 id="orgheadline33">rubyのインストール</h5>
+<div class="outline-text-5" id="text-orgheadline33">
+<p>
+<a href="http://www.task-notes.com/entry/20140707/1404744444">Ruby開発環境の準備+rbenvの使い方 - TASK NOTES</a>
+</p>
+<ul class="org-ul">
+<li>前半はMacOSX用の記述ですが，rbenvインストール後は，そのまま使え
+ます。</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #99968b;"># </span><span style="color: #99968b;">[~/]</span>
+rbenv install --list  <span style="color: #99968b;"># </span><span style="color: #99968b;">&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;&#21487;&#12394; ruby &#12434;&#34920;&#31034;</span>
+</pre>
+</div>
+
+<p>
+最新の安定版を入れましょう:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">rbenv install 2.3-dev <span style="color: #99968b;">#</span>
+rbenv global 2.3-dev  <span style="color: #99968b;"># </span>
+rbenv init            <span style="color: #99968b;"># </span><span style="color: #99968b;">&#12471;&#12455;&#12523;&#12398;&#35373;&#23450;</span>
+</pre>
+</div>
+
+<p>
+インストールされたことを確かめましょう:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #e5786d;">which</span> ruby <span style="color: #99968b;"># </span><span style="color: #99968b;">ruby &#12452;&#12531;&#12479;&#12503;&#12522;&#12479;&#12540;</span>
+<span style="color: #e5786d;">which</span> gem  <span style="color: #99968b;"># </span><span style="color: #99968b;">ruby &#12497;&#12483;&#12465;&#12540;&#12472;&#31649;&#29702;&#12467;&#12510;&#12531;&#12489;</span>
+<span style="color: #e5786d;">which</span> irb  <span style="color: #99968b;"># </span><span style="color: #99968b;">&#23550;&#35441;&#22411; ruby &#12452;&#12531;&#12479;&#12503;&#12522;&#12479;&#12540;</span>
+</pre>
+</div>
+
+<p>
+.bashrc に下記のコマンドを付け加えましょう:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #e5786d;">eval</span> <span style="color: #95e454;">"$(rbenv init -)"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline34" class="outline-5">
+<h5 id="orgheadline34">gem &#x2013; ruby のパッケージ管理</h5>
+<div class="outline-text-5" id="text-orgheadline34">
+<p>
+<a href="http://allabout.co.jp/gm/gc/439246/3/">RubyGems (gem) の使い方・インストール方法</a>
+</p>
+
+<p>
+gemを使ってパッケージをいれてみましょう:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">gem install pry
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline35" class="outline-5">
+<h5 id="orgheadline35">bundler</h5>
+<div class="outline-text-5" id="text-orgheadline35">
+<p>
+この講義では使いませんが，一応紹介です:
+</p>
+<ul class="org-ul">
+<li><a href="http://blog.tokoyax.com/entry/ruby/bundler">Ruby の gem をプロジェクト毎に Bundler で管理する - fugafuga.write()</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">3.3.2</span> pry</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+pry は irb に替わる対話型インタプリタです。デバッガとして使えます。
+</p>
+
+<ul class="org-ul">
+<li>Ruby - 今更聞けないpryの使い方と便利プラグイン集 - Qiita
+<a href="http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f">http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f</a></li>
+
+<li>第3回　Pry ～IRBをより見やすく、より便利に～
+<a href="http://www.school.ctc-g.co.jp/columns/masuidrive/masuidrive03.html">http://www.school.ctc-g.co.jp/columns/masuidrive/masuidrive03.html</a></li>
+
+<li>Rubyistよ、irbを捨ててPryを使おう - TIM Labs
+<a href="http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html">http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html</a></li>
+
+<li>Emacs×Ruby - PryをEmacsで使ってみる - <a href="http://rubikitch.com/%E3%81%AB%E7%A7%BB%E8%BB%A2%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">http://rubikitch.com/%E3%81%AB%E7%A7%BB%E8%BB%A2%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F</a>
+      <a href="http://d.hatena.ne.jp/rubikitch/20140627/pry">http://d.hatena.ne.jp/rubikitch/20140627/pry</a>
+
+<ul class="org-ul">
+<li>emacs で run-ruby で pry が動きだし，いろいろ便利に使えます。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">3.4</span> ruby におけるプログラムの実行のまとめ</h3>
+<div class="outline-text-3" id="text-3-4">
+</div><div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">3.4.1</span> プログラム</h4>
+<div class="outline-text-4" id="text-3-4-1">
+</div><div id="outline-container-orgheadline39" class="outline-5">
+<h5 id="orgheadline39">self とクラス</h5>
+<div class="outline-text-5" id="text-orgheadline39">
+<ul class="org-ul">
+<li>自分 (self) は，あるクラスから生まれたオブジェクトである</li>
+<li>自分 (self) は，コード (ブロック) を実行する</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-5">
+<h5 id="orgheadline40">リテラル</h5>
+<div class="outline-text-5" id="text-orgheadline40">
+<p>
+オブジェクトを表す文字列．そのオブジェクトが評価値．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline41" class="outline-5">
+<h5 id="orgheadline41">変数</h5>
+<div class="outline-text-5" id="text-orgheadline41">
+<p>
+オブジェクトの名前，
+束縛を持ち，その値が評価値
+</p>
+
+<ul class="org-ul">
+<li>ブロックが持つブロックローカル変数</li>
+<li>オブジェクトがもつインスタンス変数</li>
+<li>クラスが持つクラス変数，定数</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline42" class="outline-5">
+<h5 id="orgheadline42">メッセージパッシング式</h5>
+<div class="outline-text-5" id="text-orgheadline42">
+<p>
+obj.msg(*args)
+</p>
+<ul class="org-ul">
+<li>オブジェクト obj に文字列 msg とオブジェクト列を(引数として)渡す</li>
+<li>msg は操作を表し、その意味は obj によって決まる</li>
+<li>obj が組み込みオブジェクトになると計算され結果のオブジェクトとな
+る</li>
+<li>評価値は上記を再帰的に行うことで計算される</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-5">
+<h5 id="orgheadline43">メソッドとクラス</h5>
+<div class="outline-text-5" id="text-orgheadline43">
+<p>
+メソッドはクラスに属し，
+クラスは継承でき，
+継承したクラスのメソッドも利用できる
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-5">
+<h5 id="orgheadline44">文と制御</h5>
+</div>
+
+
+<div id="outline-container-orgheadline45" class="outline-5">
+<h5 id="orgheadline45">スコープの切り替え</h5>
+<div class="outline-text-5" id="text-orgheadline45">
+<pre class="example">
+class C end
+def m() end
+{ ... } 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">3.5</span> rubyあれこれ</h3>
+<div class="outline-text-3" id="text-3-5">
+</div><div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">3.5.1</span> オブジェクトとメソッド呼び出し</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+メソッド呼び出しができるのは実体 (<b>オブジェクト</b>)中のブロック
+</p>
+
+<p>
+オブジェクト中の実行の場 (ブロック) は二ヶ所
+</p>
+<ul class="org-ul">
+<li>self のトップレベルブロック</li>
+<li>実行中のメソッドブロック</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">3.5.2</span> String.newで起こること</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+Class
+</p>
+<ul class="org-ul">
+<li>Class オブジェクトだけは，オブジェクトを生み出せる (特異) new メソッドをもつ</li>
+<li>Class オブジェクトは，継承できる</li>
+<li>Class オブジェクトを，継承したオブジェクトをクラスとする</li>
+<li>Class はクラスである</li>
+</ul>
+
+<p>
+String は Class を継承して生まれているので，new メソッドが実行できる
+</p>
+
+<p>
+String オブジェクトが new を実行する
+</p>
+<ul class="org-ul">
+<li>String クラスのインスタンスを生成し，selfとする</li>
+<li>self.initialize を実行する</li>
+<li>self を返す</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">3.5.3</span> オブジェクトとクラスとモジュール</h4>
+<div class="outline-text-4" id="text-3-5-3">
+</div><div id="outline-container-orgheadline50" class="outline-5">
+<h5 id="orgheadline50">オブジェクト</h5>
+<div class="outline-text-5" id="text-orgheadline50">
+<ul class="org-ul">
+<li>メッセージのレシーバとなり，メソッドの実行ができる</li>
+<li>独自の状態を持てる</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-5">
+<h5 id="orgheadline51">モジュール &lt; オブジェクト</h5>
+<div class="outline-text-5" id="text-orgheadline51">
+<ul class="org-ul">
+<li>独自の名前空間を持つ 名前の定義</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-5">
+<h5 id="orgheadline52">クラス &lt; モジュール</h5>
+<div class="outline-text-5" id="text-orgheadline52">
+<ul class="org-ul">
+<li>オブジェクトの性質を継承 (レシーバ)</li>
+<li>モジュールの性質を継承 (名前空間)</li>
+<li>クラスに特有なメソッドを持つ (オブジェクトの生成，子クラスの生成)</li>
+</ul>
+
+<p>
+[1,2,3].each { return 1} 
+</p>
+
+<p>
+[1,2,3].each { break }
+</p>
+
+<p>
+def m
+  [1,2,3].each { return 1} 
+end
+</p>
+
+<p>
+def m 
+  [1,2,3].each { break }
+end
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">3.5.4</span> クロージャ</h4>
+<div class="outline-text-4" id="text-3-5-4">
+<dl class="org-dl">
+<dt>クロージャ</dt><dd>コードと環境の組み
+<dl class="org-dl">
+<dt>コード</dt><dd>名前を使った一連の操作</dd>
+<dt>環境</dt><dd>名前に対して値を与える</dd>
+<dt>名前</dt><dd>メソッド名，局所変数，インスタンス変数、クラス変数、グ
+ローバル変数, 定数</dd>
+</dl></dd>
+</dl>
+
+<p>
+self, class, module構造 はクロージャには閉じこめられない？
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">3.5.5</span> フレーム</h4>
+<div class="outline-text-4" id="text-3-5-5">
+<ul class="org-ul">
+<li>メソッド呼び出しを実行する環境</li>
+<li>ブロックはフレーム内で実行される（と思う）</li>
+<li>Procとlambda で，違うのは所属するフレーム</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">3.6</span> rubyは生産性が高い？</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li>ruby を仕事で使おう <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060921/248715/">http://itpro.nikkeibp.co.jp/article/COLUMN/20060921/248715/</a></li>
+
+<li><p>
+上記記事への批評
+<a href="http://d.hatena.ne.jp/fromdusktildawn/20061002/1159784863">http://d.hatena.ne.jp/fromdusktildawn/20061002/1159784863</a>
+</p>
+
+<p>
+上記記事への ((s-:)) の考え
+</p>
+
+<ul class="org-ul">
+<li>できるかどうかじゃなくて，そのやり方の「抽象化」が問題なんだよ
+ね．原則が問題となる．原則がメタのやり方の源．</li>
+
+<li>Scheme なら原則はシンプルで，何でもできる．が，自由すぎるのが問題
+視される．僕は好きだけど．</li>
+
+<li>Ruby の原則もシンプル．オブジェクト指向の枠組みの中で自由さが得
+られる純粋で少ない原則を持つ．</li>
+
+<li>Scheme のRS で言っている，少ない原則で無限の拡張性を得ること．
+それがメタプログラミングの原則．</li>
+
+<li>メタプログラミングのやり方は，言語の原則で決まる．
+じゃ，メタメタプログラミングは？ リフレクティブな手法のすべては，
+結局言語の原則に依る．</li>
+
+<li>手続き型言語で最もシンプルな原則の言語は，Scheme.</li>
+
+<li>手続き型言語にオブジェクト指向原則を入れて最もシンプルな原則を
+持つ言語が，Ruby. (だと信じている）</li>
+
+<li><p>
+ちょっと毛色が変わるけど，実行プロセスが扱えるかと言うのもメタで
+本質的．対象とできるかということ．言語レベルとは違うメタレベルを
+手に入れられる．
+</p>
+
+<p>
+これに関しては，Scheme が最もシンプルでキレイ．
+</p>
+
+<p>
+Ruby はオブジェクト指向の枠組みで，最もシンプルでキレイ（と信ず
+る）．
+</p></li>
+</ul></li>
+
+<li>IPA java
+<a href="http://www.ipa.go.jp/software/open/ossc/download/Model_Curriculum_E1_Guidance_4_1_1.pdf">http://www.ipa.go.jp/software/open/ossc/download/Model_Curriculum_E1_Guidance_4_1_1.pdf</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57"><span class="section-number-4">3.6.1</span> 語彙 メタプログラミング</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<ul class="org-ul">
+<li><a href="http://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%BF%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">http://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%BF%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0</a></li>
+<li>メタプログラミングの光と影 <a href="http://d.hatena.ne.jp/higayasuo/20090208/1234058491">http://d.hatena.ne.jp/higayasuo/20090208/1234058491</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92"><span class="section-number-3">3.7</span> pry</h3>
+<div class="outline-text-3" id="text-3-7">
+</div><div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">3.7.1</span> what is pry?</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<dl class="org-dl">
+<dt>what</dt><dd>irbの代替，デバッグ</dd>
+<dt>links</dt><dd><ul class="org-ul">
+<li><a href="http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html">Rubyistよ、irbを捨ててPryを使おう - TIM Labs</a></li>
+<li><a href="https://github.com/pry/pry/wiki">pry Wiki</a></li>
+<li><a href="http://railscasts.com/episodes/280-pry-with-rails">#280 Pry with Rails - RailsCasts</a></li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline65" class="outline-4">
+<h4 id="orgheadline65"><span class="section-number-4">3.7.2</span> Rubyistよ、irbを捨ててPryを使おう</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+<a href="http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html">http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html</a>
+</p>
+</div>
+<div id="outline-container-orgheadline60" class="outline-5">
+<h5 id="orgheadline60">起動</h5>
+<div class="outline-text-5" id="text-orgheadline60">
+<pre class="example">
+$ pry
+[1] pry(main)&gt;
+[2] pry(main)&gt; -&gt;n{ i=0;j=1;n.times{j=i+i=j};i }.call(10)
+=&gt; 55
+[3] pry(main)&gt; def foo
+[3] pry(main)*   ^
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline61" class="outline-5">
+<h5 id="orgheadline61">shellとの統合</h5>
+<div class="outline-text-5" id="text-orgheadline61">
+<p>
+Pryはshellと統合し、shellのコマンドをPryコンソール上で実行できます。
+ただ、コマンドの前に'.'を付けて実行します。
+</p>
+
+<pre class="example">
+[1] pry(main)&gt; .ls
+[2] pry(main)&gt; .pwd
+[3] pry(main)&gt; .git log --pretty=oneline
+[4] pry(main)&gt; x = "class Hoge"
+[5] pry(main)&gt; .find . -name "*.rb" | xargs grep #{x}
+</pre>
+
+<p>
+組み込みコマンドのshell-modeを使うと、
+</p>
+<ul class="org-ul">
+<li>プロンプトにカレントディレクトリが表示され、</li>
+<li>tabキーでディレクトリ名を補完できるようになり、</li>
+<li>よりファイル操作が簡単になります。</li>
+</ul>
+
+<pre class="example">
+[6] pry(main)&gt; shell-mode
+pry main:/Users/yoppi $ shell-mode
+[8] pry(main)&gt;
+</pre>
+
+<p>
+shell-modeを抜けるには、再度shell-modeコマンドを実行します。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-5">
+<h5 id="orgheadline62">組み込みコマンド</h5>
+<div class="outline-text-5" id="text-orgheadline62">
+<pre class="example">
+[1] pry(main)&gt; help
+</pre>
+
+<p>
+以下に便利な組み込みコマンドの一部を紹介します。
+</p>
+
+<dl class="org-dl">
+<dt>hist</dt><dd>Pryコンソールで評価した過去の式の一覧を確認できます</dd>
+<dt>ls</dt><dd>現在のフレームで有効なオブジェクトを表示します。'デバッガとして使う'で詳しく紹介します</dd>
+<dt>gem-install、gem-list</dt><dd>Pryコンソール上でgemをインストールしたり、gemの一覧を確認できます</dd>
+<dt>gist-method</dt><dd>gemのgistをさらにラップしたものが使えます</dd>
+<dt>shell-mode</dt><dd>Pryからシームレスにファイルにアクセスでき、Pryからファイルを操作したい場合はshell-modeになると便利です</dd>
+<dt>!</dt><dd>Pryで評価しているフレームをリセットします</dd>
+<dt>ri</dt><dd>riコマンドをPry上で実行します</dd>
+<dt>show-doc</dt><dd>対象メソッドのドキュメントを表示します</dd>
+<dt>show-method</dt><dd>対象メソッドの実装表示します</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-5">
+<h5 id="orgheadline63">オブジェクトを調査する</h5>
+<div class="outline-text-5" id="text-orgheadline63">
+<p>
+Pry独自の概念として、オブジェクト間を移動できます。 デバッガのフレー
+ムに似ています。 lsコマンドで現在のオブジェクトの一覧を表示し、cdコ
+マンドでそのオブジェクトに移動できます。
+</p>
+
+<pre class="example">
+[1] pry(main)&gt; a = "foo"
+[2] pry(main)&gt; ls
+locals: _  _dir_  _ex_  _file_  _in_  _out_  _pry_  a  version
+[3] pry(main)&gt; cd a
+[4] pry("foo"):1&gt; nesting
+Nesting status:
+--
+0. main (Pry top level)
+1. "foo"
+[5] pry("foo"):1&gt; ls
+Comparable methods: &lt; &lt;= &gt; &gt;= between?
+String methods: ... 
+[6] pry("foo"):1&gt; upcase
+=&gt; "FOO"
+</pre>
+
+<p>
+深くネストしたオブジェクトの調査もcdして潜っていける
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline64" class="outline-5">
+<h5 id="orgheadline64">簡易デバッガとして使う</h5>
+<div class="outline-text-5" id="text-orgheadline64">
+<p>
+適当な箇所に次のコードを差し込みましょう。
+</p>
+
+<pre class="example">
+binding.pry
+binding.pry if expression
+</pre>
+
+<p>
+ここがブレークポイントになり、Pryコンソールが立ち上がりま
+す。 
+</p>
+
+<p>
+停止した時点で評価されたオブジェクトにアクセスできるので、デバッグを
+自由に進められます。 ステップ実行したければ、binding.pryを停止させた
+い箇所に埋め込みましょう。 
+</p>
+
+<p>
+普通のRubyアプリケーションであれば、edit-methodコマンドで現在のメソッ
+ド名を指定することでそのメソッドを編集でき、また、直接エディタで編集
+した場合reload-methodで読み込みなおすとstep実行できます。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67"><span class="section-number-4">3.7.3</span> ドキュメントに素早く参照できる</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+show-method、stat等のコマンドが用意されています。 また、シェル経由で
+riコマンドをそのまま使用できます。 VimやEmacs使い達は、それぞれのエ
+ディタ上で素早くドキュメントを牽けるようにしているはずですが、irbで
+作業しているときには牽けません。 Pryではこれらの組み込みコマンドが提
+供されていることで、素早くドキュメントにアクセスできます
+</p>
+
+<pre class="example">
+[1] pry(main)&gt; ri Array#sample
+[2] pry(main)&gt; require 'pathname'
+[3] pry(main)&gt; show-doc Pathname#children
+</pre>
+</div>
+
+
+<div id="outline-container-orgheadline66" class="outline-5">
+<h5 id="orgheadline66">gemやCの実装も読める</h5>
+<div class="outline-text-5" id="text-orgheadline66">
+<p>
+さて、Rubyのオブジェクトに対してメソッドを呼び出すわけですが、そのオ
+ブジェクトがどう実装されているか気になるときがあります。 特に、gemラ
+イブラリを使っているときに、APIがどんなことをしているのか素早く知り
+たいわけです。
+</p>
+
+<pre class="example">
+[4] pry(main)&gt; require 'nokogiri'
+[5] pry(main)&gt; show-method Nokogiri::HTML::Document.parse
+From: /Users/yoppi/opt/local/ruby/ruby-1.9.3-p0/lib/ruby/gems/1.9.1/gems/nokogiri-1.4.4/lib/nokogiri/html/document.rb @ line 64:
+Number of lines: 22
+Owner: #&lt;Class:Nokogiri::HTML::Document&gt;
+Visibility: public
+
+def parse string_or_io, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML
+...
+</pre>
+
+<p>
+また、Rubyの組み込みライブラリはCで実装されています。 よくRubyiest達
+はCで実装しているコードを眺めて、実装を楽しんだり、もっと改善できる
+ところはなかな? と考えるときがあります。 Pryなら簡単に該当する組み込
+みライブラリのCのコードを読めます。 Cのコードを読むには、pry-docをイ
+ンストールしておく必要があります。 たとえば、Array#sampleは同様に
+</p>
+
+<pre class="example">
+[6] pry(main)&gt; show-method Array#sample
+static VALUE
+rb_ary_sample(int argc, VALUE *argv, VALUE ary)
+{
+    VALUE nv, result, *ptr;
+    long n, len, i, j, k, idx[10];
+...
+</pre>
+
+<p>
+と、show-methodコマンドで牽くだけです。 これでC実装を素早く読めるの
+で今まで実装を読まなかった人も読むようになり、Rubyの開発も活発になり
+そうです。 大変便利ですね。
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73"><span class="section-number-4">3.7.4</span> <a href="https://github.com/pry/pry">https://github.com/pry/pry</a></h4>
+<div class="outline-text-4" id="text-3-7-4">
+</div><div id="outline-container-orgheadline68" class="outline-5">
+<h5 id="orgheadline68">ls - change scope</h5>
+<div class="outline-text-5" id="text-orgheadline68">
+<pre class="example">
+ls [-m|-M|-p|-pM] [-q|-v] [-c|-i] [Object]
+ls [-g] [-l]
+</pre>
+
+<pre class="example">
+-m, --methods        Show public methods defined on the Object (default)
+-M, --module         Show methods defined in a Module or Class
+-p, --ppp            Show public, protected (in yellow) and private (in green) methods
+-q, --quiet          Show only methods defined on object.singleton_class and object.class
+-v, --verbose        Show methods and constants on all super-classes (ignores Pry.config.ls.ceiling)
+-g, --globals        Show global variables, including those builtin to Ruby (in cyan)
+-l, --locals         Show locals, including those provided by Pry (in red)
+-c, --constants      Show constants, highlighting classes (in blue), and exceptions (in purple)
+-i, --ivars          Show instance variables (in blue) and class variables (in bright blue)
+-G, --grep           Filter output by regular expression
+-h, --help           Show help
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline69" class="outline-5">
+<h5 id="orgheadline69">find-method</h5>
+</div>
+<div id="outline-container-orgheadline70" class="outline-5">
+<h5 id="orgheadline70">nesting &#x2013; seeing the nested context</h5>
+</div>
+<div id="outline-container-orgheadline71" class="outline-5">
+<h5 id="orgheadline71">jump-to</h5>
+</div>
+
+<div id="outline-container-orgheadline72" class="outline-5">
+<h5 id="orgheadline72">switch-to</h5>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline91" class="outline-4">
+<h4 id="orgheadline91"><span class="section-number-4">3.7.5</span> 今更聞けないpryの使い方と便利プラグイン集</h4>
+<div class="outline-text-4" id="text-3-7-5">
+</div><div id="outline-container-orgheadline74" class="outline-5">
+<h5 id="orgheadline74">info</h5>
+<div class="outline-text-5" id="text-orgheadline74">
+<p>
+site: <a href="http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f">Ruby - 今更聞けないpryの使い方と便利プラグイン集 - Qiita</a>
+</p>
+
+<p>
+linked_from: <a href="http://qiita.com/tags/pry">pryに関する73件の投稿 - Qiita</a>
+</p>
+
+<ul class="org-ul">
+<li><p>
+pryが何であるかが書かれていない
+</p>
+
+<p>
+Ruby のデバッガ  
+</p></li>
+</ul>
+
+<p>
+meta-ruby講義での，pryの実践的な紹介のため
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline75" class="outline-5">
+<h5 id="orgheadline75">最低限の使い方</h5>
+<div class="outline-text-5" id="text-orgheadline75">
+<p>
+まだpryを使ったことがない人はこれだけ知ってれば十分な気がする。
+</p>
+</div>
+
+<div id="outline-container-orgheadline76" class="outline-6">
+<h6 id="orgheadline76">binding.pryで任意の場所からREPLを立ち上げる</h6>
+<div class="outline-text-6" id="text-orgheadline76">
+<p>
+ソースの任意の箇所にbinding.pryを書いてRubyのプログラムを走らせると、実行中にその行でストップしてpryのREPLが立
+ち上がり、その環境での変数がどうなっているかなどが参照できる。
+アプリが原因不明のエラーを出している時、落ちている直前にbinding.pryを挟んで原因を調査したり、テストが落ちている原
+因の特定などに便利。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-5">
+<h5 id="orgheadline77">pry標準の機能</h5>
+<div class="outline-text-5" id="text-orgheadline77">
+<p>
+pryの便利な機能をよく使いそうな順に紹介する。
+</p>
+</div>
+
+<div id="outline-container-orgheadline78" class="outline-6">
+<h6 id="orgheadline78">?, show-doc, ri, $, show-method</h6>
+<div class="outline-text-6" id="text-orgheadline78">
+<p>
+?やshow-docを使うとドキュメントやソースコードを見ることができる。
+</p>
+
+<p>
+riはriコマンドを実行する。
+</p>
+
+<p>
+$やshow-methodを使うとメソッドの定義を見ることができる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline79" class="outline-6">
+<h6 id="orgheadline79">edit</h6>
+<div class="outline-text-6" id="text-orgheadline79">
+<p>
+今はまだどこにソースがあるかがわからないところにbinding.pryを貼りたいことがある。
+editを使うとpryで定義場所を調べたあとエディタでそれを開くみたいなコストが減らせる。
+あとは周辺をそのまま読みたいときにも便利。
+</p>
+
+<p>
+エディタは$EDITORをいじるか.pryrcにPry.editor = 'vim'とか書けば変えられる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline80" class="outline-6">
+<h6 id="orgheadline80">cd, ls, Tab補完</h6>
+<div class="outline-text-6" id="text-orgheadline80">
+<p>
+pryも普通のシェルと同じようにcd, lsやタブキーによる補完がある。
+cdを使うとコンテキストを移動できる。上の画像ではmainからAcitveRecord::RelationやArelの内側に入っている。
+</p>
+
+<p>
+lsは現在のコンテキストにおけるメソッドや変数の一覧が見れる。
+メソッドの一覧だけ見たいときはls -m。ls &#x2013;grepで絞込ができる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline81" class="outline-6">
+<h6 id="orgheadline81">exit!, !!!, exit-program, disable-pry, edit -m</h6>
+<div class="outline-text-6" id="text-orgheadline81">
+<p>
+何度も呼ばれるメソッドやループの内側にbinding.pryを書いて何度もブレークして困った事がある人は多いと思う。
+一番楽で乱暴な方法はexit!, !!!, exit-programでプロセスを終了してしまうことである。でもこれだと例えばrails s上でやると
+rails sが落ちる。
+disable-pryは以降pryが完全に無効になるのでプロセスは死なないけど、以降binding.pryが使えなくなる。
+</p>
+
+<p>
+多分一番健全な方法は、ちょっと面倒だけどedit -mで現在のメソッドからbinding.pryを取り除くことだと思う。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline82" class="outline-6">
+<h6 id="orgheadline82">.とshell-mode</h6>
+<div class="outline-text-6" id="text-orgheadline82">
+<p>
+「.」で始めると以降をシェルのコマンド入力として受け付ける。画像のように#{}の式展開が使える。
+shell-modeを使うとカレントディレクトリを表示してくれるのと、ファイル名補完が有効になる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline83" class="outline-6">
+<h6 id="orgheadline83">help</h6>
+<div class="outline-text-6" id="text-orgheadline83">
+<p>
+単にRubyの式を評価するだけでなく、pryには独自のコマンドが存在する。その全リストをhelpコマンドで確認することがで
+きる。
+セクションごとに分けて表示してくれるので、例えばpry-railsプラグイン特有の機能のリストを見たいときなどに役に立つ。
+</p>
+
+<p>
+各コマンドは-h(&#x2013;help)をつけると使い方を見ることができる。
+余力がある人はhist, find-method, whereami(@), nesting あたりは見ておくと良いと思う。
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline84" class="outline-5">
+<h5 id="orgheadline84">便利なプラグイン (<a href="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=pry-">pry関連プラグイン</a>)</h5>
+<div class="outline-text-5" id="text-orgheadline84">
+<p>
+個人的には以下の3つだけ知ってれば十分だと思う
+</p>
+</div>
+
+<div id="outline-container-orgheadline85" class="outline-6">
+<h6 id="orgheadline85">pry-byebug</h6>
+<div class="outline-text-6" id="text-orgheadline85">
+<p>
+古代のRuby向けに作られたpry-navとpry-debuggerの後継がpry-byebug。
+ステップ実行など、デバッガとしてちゃんとpryを使いたい場合はこれが必要になる。
+</p>
+
+<p>
+以下のコマンドだけ覚えておけば良い。
+</p>
+
+<p>
+コマンド  操作    
+step  メソッドの内部に入る    
+next  現在のメソッド内で1行進める    
+finish  現在のメソッドを抜ける    
+continue  デバッグを抜ける    
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline86" class="outline-6">
+<h6 id="orgheadline86">pry-stack_explorer</h6>
+<div class="outline-text-6" id="text-orgheadline86">
+<p>
+show-stackしてスタックのリストを出しframe [数字]とやると任意のスタックにコンテキストを移動できる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline87" class="outline-6">
+<h6 id="orgheadline87">pry-rails</h6>
+<div class="outline-text-6" id="text-orgheadline87">
+<p>
+rails cを置き換えるのがメインで、いくつかは機能がrake taskとかぶっている。
+それでも一応使いそうなのを紹介しておく。
+</p>
+</div>
+
+<div id="outline-container-orgheadline88" class="outline-9">
+<h9 id="orgheadline88">show-routes</h9>
+<div class="outline-text-9" id="text-orgheadline88">
+<p>
+とにかく実行がめちゃくちゃ速い。spring rake routesより速いので良い。-G(&#x2013;grep)で絞り込む。
+単にパスがどう引っかかるか調べたいときはrecognize-pathを使う。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline89" class="outline-9">
+<h9 id="orgheadline89">show-model, show-models</h9>
+<div class="outline-text-9" id="text-orgheadline89">
+<p>
+schema.rbとかを開かなくてもスキーマが確認できるので便利。
+show-modelsを使うと全部表示される。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline90" class="outline-9">
+<h9 id="orgheadline90">reload!</h9>
+<div class="outline-text-9" id="text-orgheadline90">
+<p>
+rails cを再起動しなくて済む。
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline124" class="outline-2">
+<h2 id="orgheadline124"><span class="section-number-2">4</span> OO</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
+ <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+</p>
+</div>
+
+<div id="outline-container-orgheadline123" class="outline-3">
+<h3 id="orgheadline123"><span class="section-number-3">4.1</span> オブジェクト指向に至る軌跡</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-orgheadline104" class="outline-4">
+<h4 id="orgheadline104"><span class="section-number-4">4.1.1</span> オブジェクト指向以前</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+オブジェクト指向プログラミング、あるいはオブジェクト指向言語は、
+それに至るまでの様々なアイデアを統合し、再編され、また現実
+的な制約の中で歪みながら生まれてきたものだったりする。
+</p>
+
+<p>
+プログラミングパラダイムは，
+現実世界のプログラミングという人間活動の中で生じた
+課題をどのように整理していくかという中で生まれてきた。
+</p>
+</div>
+
+<div id="outline-container-orgheadline94" class="outline-5">
+<h5 id="orgheadline94"><span class="done Done">Done</span> ソフトウェア危機</h5>
+<div class="outline-text-5" id="text-orgheadline94">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> (wikipedia) とは
+</p>
+
+<p>
+1960年代の後半、コンピュータが進歩するにつれて、より複雑
+なソフトウェアが求められ始める時代、その複雑さをコントロールするた
+めの道具やアイデアはあまり多くなかった。
+</p>
+
+<p>
+プロジェクトは、複雑化する一方なのに、管理手法もなければ、データ型
+は基本的な数値でしかなく、変数はメモリアロケーションそのものだった。
+</p>
+
+<p>
+また、プログラムの流れは、gotoやjump命令のようにプログラムカウンタ
+を直にコントロールする抽象度の低いもので制御されることが多かった。
+</p>
+
+<p>
+プログラムはフローチャートで記述され、それをマシン語としてパンチす
+るといったプロジェクトX的な世界のことを考えれば、その理解が正しいの
+かもしれない。
+</p>
+
+<p>
+なんにせよ、そういった当時の人からすると逼迫していたが、今から見る
+となんとも牧歌的な世界観の中で、構造化プログラミングという概念が生
+まれる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline95" class="outline-5">
+<h5 id="orgheadline95"><span class="done Done">Done</span> 構造化プログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline95">
+<p>
+ダイクストラは構造化プログラミングを提案した
+</p>
+
+<p>
+ときどき、勘違いされているが構造化プログラミングとは「手続き型言語」
+のことでもなければ「gotoを使わないプログラミング」のことでもない。
+</p>
+</div>
+
+<div id="outline-container-orgheadline96" class="outline-7">
+<h7 id="orgheadline96"><span class="todo Todo">Todo</span> 構造化プログラミングとは</h7>
+<div class="outline-text-7" id="text-orgheadline96">
+<p>
+<a href="http://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
+</p>
+
+<ul class="org-ul">
+<li>構造化プログラミングではプログラミング言語が持つステートメントを
+直接使ってプログラムを記述するのではなく、</li>
+<li>それらを抽象化したステートメントを持つ仮想機械を想定し、</li>
+<li>その仮想機械上でプログラムを記述する。</li>
+
+<li>普通、抽象化は1段階ではなく階層的である。
+<ul class="org-ul">
+<li>各階層での実装の詳細は他の階層と隔離されており、</li>
+<li>実装の変更の影響はその階層内のみに留まる(Abstract data
+structures)。</li>
+<li>各階層はアプリケーションに近い抽象的な方から土台に向かって順
+序付けられている。</li>
+<li>この順序は各階層を設計した時間的な順番とは必ずしも一致しない</li>
+</ul></li>
+</ul>
+
+<p>
+つまり、現代風に言い換えると「レイヤリングアーキテクチャ」のよう
+なもので、ある土台の上にさらに抽象化した土台をおき、その上にさら
+に・・・というようにプログラムをくみ上げていく考え方のことだ。
+</p>
+
+<p>
+これは、現在のプログラミングにおいても当たり前となっている考え方
+だ。
+</p>
+
+<p>
+だから、我々は、ひとつのアーキテクチャないし関数の中で異なる抽象
+化レイヤの実装を同居することをさける。
+</p>
+
+<p>
+一方、耳目を集めやすいgoto文有害論とともに構造化技法の一部である
+構造化定理(任意のフローチャートは、for文とif文で記述できる)が注目
+され、手続き型プログラミング言語を現代の形に押し上げていった。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline97" class="outline-5">
+<h5 id="orgheadline97"><span class="done Done">Done</span> モジュラプログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline97">
+<p>
+こういった背景のなか、プログラムは大きく複雑になり続ける。至極自然
+な流れとして、それを分割しようとしていく。
+</p>
+</div>
+
+<div id="outline-container-orgheadline98" class="outline-7">
+<h7 id="orgheadline98">凝集度と結合度</h7>
+<div class="outline-text-7" id="text-orgheadline98">
+<p>
+モジュールの分割には、大きな指針がなかった。現在でもやろうと思え
+ば全然関係のない機能を１つのモジュールに詰め込むことはできる。
+</p>
+
+<p>
+熟練したプログラマとそうでないプログラマで、作り出すモジュールの
+品質は違う。その品質の尺度として、凝集度と結合度という概念がしば
+らくして生まれた。
+</p>
+
+<p>
+結合度：よいコラボレーションとわるいコラボレーションを定義した
+<a href="http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6">http://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6</a>
+</p>
+
+<p>
+凝集度：よい機能群のまとめ方とわるい機能のまとめ方を定義した
+<a href="http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6">http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6</a>
+</p>
+
+<p>
+これらは「関心の分離」を行うためにどのようにするべきかという指針でもあった。
+<a href="http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2">http://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2</a>
+</p>
+
+<p>
+この「関心」とはそのモジュールの「責任」「責務」と言い換えてもい
+いかもしれない。この責任とモジュールが一致した状態にできるとその
+モジュールは凝集度が高く、結合度を低くすることができる。
+</p>
+
+<p>
+それぞれ悪い例と良い例を見ていき、「責任」「責務」の分解とは何か
+をとらえていこう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline99" class="outline-7">
+<h7 id="orgheadline99">悪い結合、良い結合</h7>
+<div class="outline-text-7" id="text-orgheadline99">
+<p>
+悪い結合としては、あるモジュールが依存しているモジュールの内部デー
+タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
+合）をお互いに参照していたりというようなつながり方だ。
+</p>
+
+<p>
+こうなってしまうとモジュールは自分の足でたっていられなくなる。つ
+まり、片方を修正するともう片方も修正せざるをえなくなったり、予想
+外の動作を強いられることになる。
+</p>
+
+<p>
+逆に良い結合としては、定められたデータの受け渡し(データ結合)やメッ
+セージの送信（メッセージ結合）のように内部構造に依存せず、情報の
+やり取りが明示的になっている状態を言う。
+</p>
+
+<p>
+これはまさにカプセル化とメッセージパッシングのことだよね、と思っ
+た方は正しい。オブジェクト指向は良い結合を導くために考えだされた
+のだから。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline100" class="outline-7">
+<h7 id="orgheadline100">悪い凝集、良い凝集</h7>
+<div class="outline-text-7" id="text-orgheadline100">
+<p>
+凝集度が低い状態とは，つまり悪い凝集とは，何か，
+</p>
+
+<dl class="org-dl">
+<dt>暗合的凝集</dt><dd>アトランダムに選んできた処理を集めたモジュールは
+悪い。何を根拠に集めたのかわからないものも悪い凝集だ。</dd>
+
+<dt>論理的凝集</dt><dd>論理的に似ている処理だからという理由だけで集めて
+はいけない。</dd>
+</dl>
+
+<p>
+たとえば、入出力の処理だからといって、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">open</span>(<span style="color: #92a65e; font-weight: bold;">type</span>,<span style="color: #92a65e; font-weight: bold;">name</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">switch</span>(type){
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"json"</span>: ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"yaml"</span>: ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"csv"</span> : ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> <span style="color: #95e454;">"txt"</span> : ... <span style="color: #8ac6f2; font-weight: bold;">break</span>;
+        :
+    }
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> result;
+
+}
+</pre>
+</div>
+
+<p>
+openという関数にif文やswitch文を大量に入れて、あらゆるopen処理を
+まとめた関数をイメージしてもらいたい。（その論理的な関係を一つの
+記述にまとめたいと思うこと自体は悪い発想じゃないが、同じ場所に書
+くことで、もっと大事なデータとの関係が危うくなってしまう。その矛
+盾をうまく解決するのが同じメッセージをデータ構造ごとに異なる解釈
+をさせるポリモーフィズムだ。）
+</p>
+
+<p>
+そういった種類のものがメンテナンスしづらいというのはイメージしや
+すいだろう。
+</p>
+
+<dl class="org-dl">
+<dt>時間的凝集</dt><dd>他にも同じようなタイミングで実施されるからといっ
+て、モジュール化するのもの問題がある。たとえば、
+initという関数の中ですべてのデータ構造の初期化を
+するイメージをしてほしい。</dd>
+</dl>
+
+<p>
+一方、良い凝集とはなんなのか、それは
+</p>
+
+<dl class="org-dl">
+<dt>通信的凝集</dt><dd>とあるデータに触れる処理をまとめることであるとか、</dd>
+
+<dt>情報的凝集</dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
+にすること。</dd>
+
+<dt>機能的凝集</dt><dd>それによって、ひとつのうまく定義されたタスクをこ
+なせるように集めることである。</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline101" class="outline-7">
+<h7 id="orgheadline101">状態と副作用の支配</h7>
+<div class="outline-text-7" id="text-orgheadline101">
+<p>
+よいモジュール分割とはなにか
+</p>
+
+<ul class="org-ul">
+<li><p>
+それは、処理とそれに関連するデータの関係性を明らかにして支配し
+ていくことの重要性だ。
+</p>
+
+<p>
+できれば、完全にデータの存在を隠蔽できてしまえると良いが、現実
+のプログラムではそうは行かない場合も多い。
+</p></li>
+</ul>
+
+<p>
+こういった実務プログラミングの中で何が難しいかというと、それが状
+態と副作用を持つことだ。
+</p>
+
+<p>
+たとえば、
+</p>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">add</span>(<span style="color: #92a65e; font-weight: bold;">a</span>,<span style="color: #92a65e; font-weight: bold;">b</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> a+b;
+}
+</pre>
+</div>
+
+<p>
+このような副作用を持たない関数はテストもしやすく、バグが入り込む隙が少ない。
+たとえば、計算機のレジスタ機能をこの関数に導入し、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">r</span> = 0;
+<span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">add</span>(<span style="color: #92a65e; font-weight: bold;">a</span>,<span style="color: #92a65e; font-weight: bold;">b</span>){
+    r = a+ (isUndefined(b)||r)
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> r
+}
+</pre>
+</div>
+
+<p>
+このようにすると途端に考慮するべき事柄が増える。関連する状態や副
+作用を含めて、関数を大別すると次のようになる。
+</p>
+
+<p>
+オブジェクト指向に至るモジュラプログラミングは、こういった状態や
+副作用に対して，積極的に命名，可視化，粗結合化をしていくことで
+「関心の分離」を実現しようとした。
+</p>
+
+<p>
+たとえば、現在でもC言語のプロジェクトなどでは，構造体とそれを引
+数とする関数群ごとにモジュールを分割し，大規模なプログラミングを
+行っている。構造体と関数群
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    :
+} <span style="color: #92a65e; font-weight: bold;">Person</span>;
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_init</span>(<span style="color: #92a65e; font-weight: bold;">person</span>*<span style="color: #cae682;">p</span>,...){
+    :
+}
+
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">person_get_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>){
+    :
+}
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_set_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>,<span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>){
+    :
+}
+</pre>
+</div>
+
+<p>
+よくあるのは、上記のように構造体の名前のprefixとしてつけ、構造体
+のポインタを第一引数として渡す手法だ。
+</p>
+
+<p>
+その名残なのか、正確なところはよく知らないが、pythonやperlのオブ
+ジェクト指向では、自分自身を表すデータが、第一引数として関数に渡
+される。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">Person</span>(<span style="color: #e5786d;">object</span>):
+    <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">__init__</span>(<span style="color: #8ac6f2; font-weight: bold;">self</span>, a, b):
+        <span style="color: #8ac6f2; font-weight: bold;">self</span>.a = a
+        <span style="color: #8ac6f2; font-weight: bold;">self</span>.b = b
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Person</span> {
+    <span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">new</span>(){
+        <span style="color: #92a65e; font-weight: bold;">my</span> ($<span style="color: #cae682;">class</span>,$<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+        <span style="color: #92a65e; font-weight: bold;">my</span> $<span style="color: #cae682;">self</span> = bless{},$<span style="color: #cae682;">class</span>;
+        $<span style="color: #cae682;">self</span>-&gt;init($<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>);
+        <span style="color: #8ac6f2; font-weight: bold;">return</span> $<span style="color: #cae682;">self</span>;
+    }
+    <span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">init</span> {
+        <span style="color: #92a65e; font-weight: bold;">my</span> ($<span style="color: #cae682;">self</span>,$<span style="color: #cae682;">a</span>,$<span style="color: #cae682;">b</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+        $<span style="color: #cae682;">self</span>-&gt;{a} = $<span style="color: #cae682;">a</span>;
+        $<span style="color: #cae682;">self</span>-&gt;{b} = $<span style="color: #cae682;">b</span>;
+    }
+}
+</pre>
+</div>
+
+<p>
+あくまで関数の純粋性を犠牲にしないように発展を続けた関数型プログ
+ラミングと、状態や副作用をデータ構造として主役にしていった手続き
+型プログラミングの分かれ目として理解すると面白い。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline102" class="outline-5">
+<h5 id="orgheadline102">抽象データ型</h5>
+<div class="outline-text-5" id="text-orgheadline102">
+<p>
+よいモジュール化の肝は、状態と副作用を隠蔽し、データとアルゴリズム
+をひとまとめにすることだった。
+</p>
+
+<p>
+それらを言語的に支援するために抽象データ型という概念が誕生した。
+</p>
+
+<p>
+抽象データ型は、今で言うクラスのことだ。すなわちデータとそれに関連
+する処理をひとまとめにしたデータ型のことだ。ようやくオブジェクト指
+向の話に近づいてきた。ダイクストラの構造化プログラミングでは、デー
+タ処理をどのように抽象化するかが課題として残っていた。
+</p>
+
+<p>
+また、データ型と実際のメモリアロケーションは別であるので、新たに変
+数を定義するとデータの共有はしない。あるデータ型を実際に存在するメ
+モリに割り当てることをインスタンス化という。
+</p>
+
+<p>
+抽象データ型のポイントは、その内部データへのアクセスを抽象データ型
+にひもづいた関数でしか操作することができないという考え方だ。
+</p>
+
+<p>
+これはつまり、たとえば、先ほどのC言語の例でいうと
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #99968b;">//</span><span style="color: #99968b;">people.h</span>
+
+<span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #99968b;">//</span><span style="color: #99968b;">&#20869;&#37096;&#27083;&#36896;&#12418;&#20844;&#38283;&#12375;&#12390;&#12356;&#12427;</span>
+} <span style="color: #92a65e; font-weight: bold;">people</span>;
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">people_init</span>(<span style="color: #92a65e; font-weight: bold;">people</span> *<span style="color: #cae682;">p</span>,...);
+
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">people_get_name</span>(<span style="color: #92a65e; font-weight: bold;">people</span> *<span style="color: #cae682;">p</span>);
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">people_set_name</span>(<span style="color: #92a65e; font-weight: bold;">people</span> *<span style="color: #cae682;">p</span>,<span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>);
+</pre>
+</div>
+
+<p>
+このままだと、構造体の内部構造も公開しているので、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #92a65e; font-weight: bold;">people</span> <span style="color: #cae682;">user</span>;
+user.age = 10;
+printf(<span style="color: #95e454;">"%d years old"</span>,user.age);
+</pre>
+</div>
+
+<p>
+のように内部構造に直接アクセスできてしまう。C言語では、テクニック
+としてperson.h　こちらを公開する
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> <span style="color: #92a65e; font-weight: bold;">sPerson</span> <span style="color: #92a65e; font-weight: bold;">person</span>;
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_init</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>,...);
+
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">person_get_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>);
+
+<span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">person_set_name</span>(<span style="color: #92a65e; font-weight: bold;">person</span> *<span style="color: #cae682;">p</span>,<span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>);
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #99968b;">//</span><span style="color: #99968b;">people_private.h&#12288;&#12371;&#12385;&#12425;&#12399;&#12514;&#12472;&#12517;&#12540;&#12523;&#20869;&#12391;&#21033;&#29992;&#12377;&#12427;</span>
+
+<span style="color: #e5786d;">#include</span> <span style="color: #95e454;">"person.h"</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">struct</span> <span style="color: #92a65e; font-weight: bold;">sPerson</span> {
+    <span style="color: #99968b;">//</span><span style="color: #99968b;">&#12288;&#12371;&#12371;&#12395;&#20869;&#37096;&#27083;&#36896;</span>
+};
+
+<span style="color: #99968b;">//</span><span style="color: #99968b;">&#38750;&#20844;&#38283;&#29992;&#38306;&#25968;</span>
+_person_private(person *p,....);
+</pre>
+</div>
+
+<p>
+公開するヘッダと非公開のヘッダを分けることで、情報の隠蔽を行い抽象
+データ型としての役目を成り立たせている。
+</p>
+</div>
+
+<div id="outline-container-orgheadline103" class="outline-7">
+<h7 id="orgheadline103">抽象データ型の情報隠蔽とカプセル化</h7>
+<div class="outline-text-7" id="text-orgheadline103">
+<p>
+C言語の構造体であっても、ヘッダファイルの定義と実装を分けることで、
+抽象データ型の内部構造を隠蔽することができたが、言語機能として外
+部からのアクセスに対する制限を明示できるようにサポートした。カプ
+セル化やブラックボックス化というのは情報隠蔽よりも広い概念ではあ
+るが、これらの機能によって、「悪い結合」を引き起こさないようにし
+ている。
+</p>
+
+<p>
+JavaやC#などのアクセス修飾子がそれにあたる。
+</p>
+
+<p>
+PerlやJavaScriptなどアクセス修飾子の無い言語では、公開と非公開を
+明確に区別せず、_privateMethodのようにアンダースコアを先頭につけ
+ることで、擬似的に公開と非公開を区別する。
+</p>
+
+<p>
+いずれにしても、ポイントは抽象化されたデータを取り扱うレイヤは、
+抽象化されていない生の階層を直接触ることがないという階層化の考え
+方だ。
+</p>
+
+<p>
+これによって、複雑化した要求を抽象化の階層を定義していくという現
+代的なプログラミングスタイルが確立した。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline105" class="outline-4">
+<h4 id="orgheadline105"><span class="section-number-4">4.1.2</span> オブジェクト指向?</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+最初のオブジェクト指向言語は、1960年代に出現したSimulaという言語だ。
+</p>
+
+<p>
+これはシミュレーション記述のために作られた言語であったが、後に汎用言
+語となった。
+</p>
+
+<p>
+オブジェクト、クラス（抽象データ型）、動的ディスパッチ、継承が既にあ
+り、ガーベジコレクトまで実装されていたらしい。汎用言語としてそこまで
+はやることはなかったが、これらの優れたコンセプトは今現在まで生き残っ
+ている。
+</p>
+
+<p>
+Simulaの優れたコンセプトをもとに，２つの，今でも使われている，C言語
+拡張が生まれた。
+</p>
+
+<p>
+一つはC++。もう一つはObjective-Cである。
+</p>
+
+<p>
+C言語はとても実際的なものだったので、それにプリプロセッサの形で優れ
+たコンセプトを輸入しようとしたのは当然の成り行きといえばそうだ。
+</p>
+
+<p>
+SimulaのコンセプトをもとにSmalltalkという言語というか環境が爆誕した。
+</p>
+
+<p>
+Smalltalkは、Simulaのコンセプトに「メッセージング」という概念を加え、
+それらを再統合した。Smalltalkはすべての処理がメッセージ式として記述
+される「純粋オブジェクト指向言語」だ。
+</p>
+
+<p>
+そもそもオブジェクト指向という言葉はここで誕生した。
+</p>
+
+<p>
+オブジェクト指向という言葉の発明者であるアランケイは後に「オブジェク
+ト指向という名前は失敗だった」と述べている。メッセージングの概念が軽
+視されて伝わってしまうからだという。
+</p>
+
+<p>
+何にせよ、このSmalltalkの概念をもとにC言語を拡張したのがObjective-C
+だ。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline112" class="outline-4">
+<h4 id="orgheadline112"><span class="section-number-4">4.1.3</span> Simula &amp; C++のオブジェクト指向</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+C++の作者であるビャーネ・ストロヴストルップは、オブジェクト指向を
+「『継承』機構と『多態性』を付加した『抽象データ型』のスーパーセット」
+として整理した。
+</p>
+
+<p>
+C++ではメソッドのことをメンバー関数と呼ぶ。これはSimulaがメンバープ
+ロシージャと読んでいるところに由来する。メソッドは、Smalltalkが発明
+した用語だ。
+</p>
+</div>
+
+<div id="outline-container-orgheadline106" class="outline-5">
+<h5 id="orgheadline106">どの処理を呼び出すか決めるメカニズム</h5>
+<div class="outline-text-5" id="text-orgheadline106">
+<p>
+さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
+</p>
+
+<p>
+特に多態がいまいちわかりにくい。オブジェクト指向プログラミングの説明で
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = number.StringValue
+string = date.StringValue
+</pre>
+</div>
+
+<p>
+これで、それぞれ違う関数が呼び出されるのがポリモーフィズムですよと
+呼ばれる。
+</p>
+
+<p>
+これだけだとシグネチャも違うので、違う処理が呼ばれるのも当たり前に
+見える。
+</p>
+
+<p>
+では、こう書いてみたらどうか
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = stringValue(number) <span style="color: #99968b;">// </span><span style="color: #99968b;">&#23455;&#38555;&#12395;&#12399;NumberToString&#12364;&#21628;&#12400;&#12428;&#12427;</span>
+string = stringValue(date)   <span style="color: #99968b;">// </span><span style="color: #99968b;">&#23455;&#38555;&#12395;&#12399;DateToString&#12364;&#21628;&#12400;&#12428;&#12427;</span>
+</pre>
+</div>
+
+<p>
+このようにしたときに、すこし理解がしやすくなる。引数の型によって呼
+ばれる関数が変わる。こういう関数を polymorphic (poly-複数に morphic-
+変化する) な関数という。
+</p>
+
+<p>
+これをみたときに"関数のオーバーロード"じゃないか？と思った人は鋭い。
+<a href="http://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9">http://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9</a>
+</p>
+
+<p>
+多態とは異なる概念とされるが、引数によって呼ばれる関数が変わるとい
+う意味では似ている。しかし、次のようなケースで変わってくる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">toString</span>(<span style="color: #92a65e; font-weight: bold;">IStringValue</span> <span style="color: #cae682;">sv</span>) string {
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> StringValue(sv)
+}
+</pre>
+</div>
+
+<p>
+IStringValueはStringValueという関数を実装しているオブジェクトを表す
+インターフェースだ。これを受け取ったときに、関数のオーバーロードで
+は、どの関数に解決したら良いか判断がつかない。関数のオーバーロード
+は、コンパイル時に型情報を付与した関数を自動的に呼ぶ仕組みだからだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">stringValue(number:Number) =&gt; StringValue-Number(number)
+stringValue(date :Date)  =&gt; StringValue-Date(date)
+
+<span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">toString</span>(<span style="color: #92a65e; font-weight: bold;">IStringValue</span> <span style="color: #cae682;">sv</span>) string {
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> StringValue(sv) =&gt; StringValue-IStringValue (&#28961;&#12356;&#65281;)
+}
+</pre>
+</div>
+
+<p>
+それに対して、動的なポリモーフィズムを持つコードの場合、次のように
+動作してくれるので、インターフェースを用いた例でも予想通りの動作を
+する。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">StringValue</span>(v:IstringValue){
+    <span style="color: #8ac6f2; font-weight: bold;">switch</span>(v.<span style="color: #8ac6f2; font-weight: bold;">class</span>){ <span style="color: #99968b;">//</span><span style="color: #99968b;">&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12364;&#33258;&#20998;&#12364;&#20309;&#32773;&#12363;&#12392;&#12356;&#12358;&#12371;&#12392;&#12434;&#30693;&#12387;&#12390;&#12356;&#12427;&#12290;</span>
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> Number: <span style="color: #8ac6f2; font-weight: bold;">return</span> StringValue-Number(number)
+    <span style="color: #8ac6f2; font-weight: bold;">case</span> Date   : <span style="color: #8ac6f2; font-weight: bold;">return</span> StringValue-Date(date)
+    }
+}
+</pre>
+</div>
+
+
+<p>
+このようにどの関数を呼び出すのかをデータ自身に覚えさせておき、実行
+時に探索して呼び出す手法を <b>動的分配*，*動的ディスパッチ</b> と呼ぶ。
+</p>
+
+<p>
+このように動的なディスパッチによる多態性はどのような意味があるのか。
+</p>
+
+<p>
+それはインターフェースによるコードの再利用と分離である。
+</p>
+
+<p>
+特定のインターフェースを満たすオブジェクトであれば、それを利用した
+コードを別のオブジェクトを作ったとしても再利用できる。
+</p>
+
+<p>
+これによって、悪い凝集で例に挙げた論理的凝集をさけながら、
+汎用的な処理を記述することができるのだ。
+</p>
+
+<p>
+オブジェクト指向がはやり始めた当時は、再利用という言葉が比較的バズっ
+たが、現在的に言い換えるなら、インターフェースに依存した汎用処理と
+して記述すれば、結合度が下がり、テストが書きやすくなったり、仕様変
+更に強くなったりする。
+</p>
+</div>
+
+<div id="outline-container-orgheadline107" class="outline-7">
+<h7 id="orgheadline107">動的ディスパッチ</h7>
+<div class="outline-text-7" id="text-orgheadline107">
+<p>
+動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
+ており、また、実行時に関数テーブルを探索して、どの関数を実行する
+かというところにある。SimulaもC++もvirtualという予約語を用いて、
+仮想関数の動的分配をすることを宣言できる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #99968b;">/*</span>
+<span style="color: #99968b;">Vtable for B1</span>
+<span style="color: #99968b;">B1::_ZTV2B1: 3u entries</span>
+<span style="color: #99968b;">0     (int (*)(...))0</span>
+<span style="color: #99968b;">8     (int (*)(...))(&amp; _ZTI2B1)</span>
+<span style="color: #99968b;">16    B1::f1</span>
+
+<span style="color: #99968b;">Class B1</span>
+<span style="color: #99968b;">   size=16 align=8</span>
+<span style="color: #99968b;">   base size=16 base align=8</span>
+<span style="color: #99968b;">B1 (0x7ff8afb7ad90) 0</span>
+<span style="color: #99968b;">    vptr=((&amp; B1::_ZTV2B1) + 16u)</span>
+<span style="color: #99968b;"> */</span>
+<span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">B1</span> {
+<span style="color: #8ac6f2; font-weight: bold;">public</span>:
+    <span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">f0</span>(){}
+    <span style="color: #8ac6f2; font-weight: bold;">virtual</span> <span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">f1</span>(){}
+    <span style="color: #92a65e; font-weight: bold;">char</span> <span style="color: #cae682;">before_b0_char</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">member_b1</span>;
+};
+<span style="color: #99968b;">/*</span>
+<span style="color: #99968b;">Class B0</span>
+<span style="color: #99968b;">   size=4 align=4</span>
+<span style="color: #99968b;">   base size=4 base align=4</span>
+<span style="color: #99968b;">B0 (0x7ff8afb7e1c0) 0</span>
+<span style="color: #99968b;"> */</span>
+<span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">B0</span>{
+<span style="color: #8ac6f2; font-weight: bold;">private</span>:
+    <span style="color: #92a65e; font-weight: bold;">void</span> <span style="color: #cae682;">f</span>(){};
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">member_b1</span>;
+};
+</pre>
+</div>
+
+<p>
+このようにデータ自身にvtable(仮想関数テーブル）へのポインタを埋め込んであり、
+それをたどることで解決する。
+</p>
+
+<p>
+逆にvirtual宣言をしなければ、仮想関数テーブルをたどるというオーバー
+ヘッドなしに関数を呼ぶことができる。Javaでは、デフォルトでvirtual
+宣言されているのと等価に動的なディスパッチが行われる。C++やC#では、
+動的ディスパッチのコストを必要なときにしか利用しないために(ゼロオー
+バーヘッドポリシー)、virtual宣言を明示的にする必要がある。
+</p>
+
+<p>
+objective-Cも同様であるが、関数ポインタを直に取得することでこのオー
+バーヘッドを回避することができる。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #99968b;">//</span><span style="color: #99968b;">objectivce-c.m</span>
+
+<span style="color: #92a65e; font-weight: bold;">SEL</span> <span style="color: #cae682;">selector</span> = @selector(f0); 
+<span style="color: #92a65e; font-weight: bold;">IMP</span> <span style="color: #cae682;">p_func</span> = [obj methodForSelector : selector ];
+<span style="color: #99968b;">// </span><span style="color: #99968b;">p_func&#12434;&#20445;&#25345;&#12375;&#12390;&#12362;&#12356;&#12390;&#12289;&#32368;&#12426;&#36820;&#12375;&#12394;&#12393;&#12391;</span>
+   :
+pfunc(obj , selector);   <span style="color: #99968b;">// </span><span style="color: #99968b;">pfunc&#20351;&#12358;&#12392;&#12289;&#25506;&#32034;&#12467;&#12473;&#12488;&#12434;&#28187;&#12425;&#12379;&#12427;&#12290;</span>
+<span style="color: #99968b;">// </span><span style="color: #99968b;">&#20309;&#12363;&#37325;&#35201;&#12391;&#12394;&#12356;&#38480;&#12426;&#12377;&#12427;&#24517;&#35201;&#12399;&#12394;&#12356;&#12290;</span>
+</pre>
+</div>
+
+<p>
+疑似コードで、この動的なディスパッチを表現するとこのようになる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #99968b;">//</span><span style="color: #99968b;">&#21205;&#30340;&#12487;&#12451;&#12473;&#12497;&#12483;&#12481;&#12398;&#30097;&#20284;&#12467;&#12540;&#12489;</span>
+
+<span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">PERSON_TABLE</span> = {
+    <span style="color: #95e454;">"getName"</span> : function(self){<span style="color: #8ac6f2; font-weight: bold;">return</span> self.name},
+};
+
+<span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">object</span> = {
+    _vt_ : PERSON_TABLE, <span style="color: #99968b;">// </span><span style="color: #99968b;">&#33258;&#20998;&#12364;&#20309;&#12364;&#12391;&#12365;&#12427;&#12363;&#25945;&#12360;&#12427;</span>
+    name : <span style="color: #95e454;">"daichi hiroki"</span>
+};
+
+<span style="color: #99968b;">// </span><span style="color: #99968b;">&#12513;&#12477;&#12483;&#12489;&#12434;&#21205;&#30340;&#12395;&#21628;&#12403;&#20986;&#12377;</span>
+<span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">methodCall</span>(object,methodName){
+    <span style="color: #99968b;">// </span><span style="color: #99968b;">&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#33258;&#36523;&#12434;&#31532;&#19968;&#24341;&#25968;&#12392;&#12375;&#12390;&#26463;&#32283;&#12377;&#12427;</span>
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> object._vt_[methodName](object)
+}
+
+methodCall(object,<span style="color: #95e454;">"getName"</span>);
+</pre>
+</div>
+
+<p>
+こうなってくると、多態を実現するためには、３つの要素が必要だとわかる。
+</p>
+
+<ul class="org-ul">
+<li>データに自分自身が何者か教える機能</li>
+<li>メソッドを呼び出した際にそれを探索する機能</li>
+<li>オブジェクト自身を参照できるように引数に束縛する機能</li>
+</ul>
+
+<p>
+あとからオブジェクト指向的機能を追加したperl5の例が、これらを端的
+に追加しているので見ていこう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Person</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">new</span> {
+    <span style="color: #92a65e; font-weight: bold;">my</span>($<span style="color: #cae682;">class</span>,$<span style="color: #cae682;">ref</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+    <span style="color: #99968b;">#&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;&#12392;&#12497;&#12483;&#12465;&#12540;&#12472;&#12434;&#32080;&#12403;&#12388;&#12369;&#12427;bless&#38306;&#25968;</span>
+    <span style="color: #99968b;"># $class&#12399;Person&#12497;&#12483;&#12465;&#12540;&#12472;&#12434;&#34920;&#12377;</span>
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> bless( $<span style="color: #cae682;">object</span>, $<span style="color: #cae682;">ref</span> );
+}
+<span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">get_name</span>{
+    <span style="color: #92a65e; font-weight: bold;">my</span> ($<span style="color: #cae682;">self</span>) = @<span style="color: #cae682; text-decoration: underline;">_</span>;
+    $<span style="color: #cae682;">self</span>-&gt;{name};
+}
+
+<span style="color: #99968b;">#</span><span style="color: #99968b;">&#12513;&#12477;&#12483;&#12489;&#12398;&#21205;&#30340;&#12394;&#25506;&#32034;&#12392;&#31532;&#19968;&#24341;&#25968;&#12395;&#26463;&#32283;&#12377;&#12427;-&gt;&#12450;&#12525;&#12540;&#28436;&#31639;&#23376;</span>
+<span style="color: #92a65e; font-weight: bold;">my</span> $<span style="color: #cae682;">person</span> = Person-&gt;new({ name =&gt; <span style="color: #95e454;">"daichi hiroki"</span>});
+$<span style="color: #cae682;">person</span>-&gt;get_name;
+</pre>
+</div>
+
+<p>
+このなかで、bless関数はリファレンスに対して、リファレンス自身が
+「関数を探索するべきモジュールはここですよ。」と教えている。
+（blessは祝福するという意味。パッケージのご加護が守護霊みたいにくっ
+つくイメージ。）
+</p>
+
+<p>
+また-&gt;演算子を使うことで、自動的に探索と呼び出しを実現している。
+</p>
+
+<p>
+あと付けでOOP機能を足そうというときに、たった二つの機能で多態を実
+現したPerl5のアプローチにはたぐいまれなセンスを感じる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline110" class="outline-7">
+<h7 id="orgheadline110">継承と委譲</h7>
+<div class="outline-text-7" id="text-orgheadline110">
+</div><div id="outline-container-orgheadline108" class="outline-8">
+<h8 id="orgheadline108">継承</h8>
+<div class="outline-text-8" id="text-orgheadline108">
+<p>
+さて、SimulaとC++がもたらした最後の要素は継承だ。継承は、あるク
+ラスの機能をもったまま、別の機能を追加したもう一つのクラスを作る
+仕組みだ。
+</p>
+
+<p>
+まずはデータだけで考えてみよう。
+生徒と先生の管理をしたいというときに、
+二つに共通しているデータ構造は名前、性別、年齢であり、
+生徒は追加して、学科と年次を管理し、
+先生は追加して、専門と月収を管理したいとする。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">age</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">sex</span>;
+    <span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>;
+} <span style="color: #92a65e; font-weight: bold;">Person</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #92a65e; font-weight: bold;">People</span> <span style="color: #cae682;">people</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">grade</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">study</span>:
+} <span style="color: #92a65e; font-weight: bold;">Student</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #92a65e; font-weight: bold;">People</span> <span style="color: #cae682;">people</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">field</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">salary</span>;
+} <span style="color: #92a65e; font-weight: bold;">Teacher</span>;
+
+<span style="color: #92a65e; font-weight: bold;">Teacher</span> <span style="color: #cae682;">t</span>;
+t.people.age = 10;
+</pre>
+</div>
+
+<p>
+とするとこのように構造体に構造体を埋め込むことで、共通するデータ
+構造を持つことができる。
+</p>
+
+<p>
+これに処理を追加する場合、次のようにするだろう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">person_get_name</span>(<span style="color: #92a65e; font-weight: bold;">Person</span> *<span style="color: #cae682;">self</span>) {
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> self-&gt;name;
+}
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">teacher_get_name</span>(<span style="color: #92a65e; font-weight: bold;">Teacher</span> *<span style="color: #cae682;">self</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> person_get_name((<span style="color: #92a65e; font-weight: bold;">People</span> *)self);
+}
+
+<span style="color: #92a65e; font-weight: bold;">char</span> * <span style="color: #cae682;">teacher_get_name_2</span>(<span style="color: #92a65e; font-weight: bold;">Teacher</span> *<span style="color: #cae682;">self</span>){
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> person_get_name(&amp;self.person);
+}
+
+<span style="color: #92a65e; font-weight: bold;">Teacher</span> *<span style="color: #cae682;">pt</span> = teacher_alloc_init(30,MALE,<span style="color: #95e454;">"daichi hiroki"</span>,MATH,30);
+teacher_get_name(pt);
+</pre>
+</div>
+
+<p>
+このようにアップキャストして、埋め込んだ構造体内部にアクセスすることができる。
+それか、埋め込んだ構造体をそのまま渡すなどして、処理の共通化を実現する。
+</p>
+
+<p>
+しかし、これでは処理の共通化をするごとにその呼び出しコードを追加する必要がある。
+これをうまく提供してくれるのが 継承機能だ。
+</p>
+
+<p>
+public/protectedなメンバー関数やメンバー変数に対して、継承関係をたどって
+探すことができる。
+</p>
+
+<p>
+そのため
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">Teacher</span> *<span style="color: #cae682;">t</span> = <span style="color: #8ac6f2; font-weight: bold;">new</span> <span style="color: #92a65e; font-weight: bold;">Teacher</span>;
+t-&gt;get_name; <span style="color: #99968b;">// </span><span style="color: #99968b;">Teacher&#33258;&#20307;&#12395;&#23459;&#35328;&#12364;&#12394;&#12367;&#12390;&#12418;&#12289;People&#12463;&#12521;&#12473;&#12434;&#25506;&#32034;&#12375;&#12390;&#12367;&#12428;&#12427;&#12290;</span>
+</pre>
+</div>
+
+<p>
+のように書くことができる。
+</p>
+
+<p>
+また、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">string</span> <span style="color: #cae682;">nameFormat</span>(<span style="color: #92a65e; font-weight: bold;">People</span> *<span style="color: #cae682;">p</span>)  {
+    <span style="color: #8ac6f2; font-weight: bold;">return</span> sprintf(<span style="color: #95e454;">"%s(%d) %s"</span>,p-&gt;get_name,p-&gt;get_age,(p-&gt;get_sex == MALE) ? <span style="color: #95e454;">"&#30007;&#24615;"</span> :<span style="color: #95e454;">"&#22899;&#24615;"</span>);  
+}
+</pre>
+</div>
+
+<p>
+というような関数があったときに、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">Person</span> *<span style="color: #cae682;">p</span> = <span style="color: #8ac6f2; font-weight: bold;">new</span> <span style="color: #92a65e; font-weight: bold;">Person</span>;
+<span style="color: #92a65e; font-weight: bold;">Student</span> *<span style="color: #cae682;">s</span> = <span style="color: #8ac6f2; font-weight: bold;">new</span> <span style="color: #92a65e; font-weight: bold;">Student</span>;
+<span style="color: #92a65e; font-weight: bold;">Teacher</span> *<span style="color: #cae682;">t</span> = <span style="color: #8ac6f2; font-weight: bold;">new</span> <span style="color: #92a65e; font-weight: bold;">Teacher</span>;
+
+nameFormat(p);
+nameFormat(s);
+nameFormat(t);
+</pre>
+</div>
+
+<p>
+Person自身かそのサブクラスであれば、共通の処理を利用することができる。
+</p>
+
+<p>
+この継承関係を言語機能として提供するためにperl5では、もう一つの機能を追加する。
+それが@ISAだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Person</span>;
+<span style="color: #8ac6f2; font-weight: bold;">sub</span> <span style="color: #cae682;">get_name</span>{<span style="color: #95e454;">"person"</span>}
+
+<span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Student</span>;
+<span style="color: #99968b;"># </span><span style="color: #99968b;">@ISA&#12395;&#12497;&#12483;&#12465;&#12540;&#12472;&#12434;&#36861;&#21152;&#12377;&#12427;&#12392;bless&#12373;&#12428;&#12383;&#12497;&#12483;&#12465;&#12540;&#12472;&#12395;&#38306;&#25968;&#12364;&#12394;&#12363;&#12387;&#12383;&#22580;&#21512;&#12395;&#12381;&#12385;&#12425;&#12434;&#25506;&#32034;&#12395;&#34892;&#12367;</span>
+our @<span style="color: #cae682; text-decoration: underline;">ISA</span> = qw<span style="color: #95e454;">/Person/</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">package</span> <span style="color: #cae682;">Teacher</span>;
+our @<span style="color: #cae682; text-decoration: underline;">ISA</span> = qw<span style="color: #95e454;">/Person/</span>;
+</pre>
+</div>
+
+<p>
+このようにどこを探索するのかという情報だけ宣言できるようにすれば、
+問題なく継承関係を表現することができる。
+</p>
+
+<p>
+ちょうど、FQNで表記すると
+</p>
+
+<p>
+@Teacher::ISA="Person"という表現になり、teacher is a personという関係が成り立っていることを表現している。
+</p>
+
+<p>
+このときのメソッド探索を疑似コードで書くと次のようになる。
+動的ディスパッチの疑似コード
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">PERSON_TABLE</span> = {
+    <span style="color: #95e454;">"getName"</span> : function(self){<span style="color: #8ac6f2; font-weight: bold;">return</span> self.name}
+};
+
+<span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">STUDENT_TABLE</span> = {
+    <span style="color: #95e454;">"getGrade"</span> : function(self){<span style="color: #8ac6f2; font-weight: bold;">return</span> self.grade},
+    <span style="color: #95e454;">"#is-a#"</span>  : PERSON_TABLE
+};
+
+<span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">object</span> = {
+    _vt_ : STUDENT_TABLE, <span style="color: #99968b;">// </span><span style="color: #99968b;">&#33258;&#20998;&#12364;&#20309;&#12364;&#12391;&#12365;&#12427;&#12363;&#25945;&#12360;&#12427;</span>
+    name : <span style="color: #95e454;">"daichi hiroki"</span>
+};
+
+<span style="color: #99968b;">// </span><span style="color: #99968b;">&#12513;&#12477;&#12483;&#12489;&#12434;&#21205;&#30340;&#12395;&#21628;&#12403;&#20986;&#12377;</span>
+<span style="color: #92a65e; font-weight: bold;">function</span> <span style="color: #cae682;">methodCall</span>(object,methodName){
+
+    <span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">vt</span> = object._vt_;
+    <span style="color: #99968b;">// </span><span style="color: #99968b;">is-a&#12434;&#38918;&#30058;&#12395;&#12383;&#12393;&#12387;&#12390;method&#12434;&#35211;&#12388;&#12369;&#12390;&#23455;&#34892;&#12377;&#12427;</span>
+    <span style="color: #8ac6f2; font-weight: bold;">while</span>(vt){
+        <span style="color: #92a65e; font-weight: bold;">var</span> <span style="color: #cae682;">method</span> = vt[methodName];
+        <span style="color: #8ac6f2; font-weight: bold;">if</span>( method ) <span style="color: #8ac6f2; font-weight: bold;">return</span> method(object);
+        vt = vt[<span style="color: #95e454;">"#is-a#"</span>];
+    }
+    <span style="color: #8ac6f2; font-weight: bold;">throw</span> <span style="color: #92a65e; font-weight: bold;">Error</span>;
+}
+
+methodCall(object,<span style="color: #95e454;">"getName"</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline109" class="outline-8">
+<h8 id="orgheadline109">委譲</h8>
+<div class="outline-text-8" id="text-orgheadline109">
+<p>
+継承の代わりに委譲という手段を用いているプログラミング言語がある。
+これはSimulaとC++の系譜とは少し違うが、動的ディスパッチの話をしたので
+簡単に説明する。
+</p>
+
+<p>
+これは、クラスベースのオブジェクト指向に対してプロトタイプベース
+のオブジェクト指向と呼ばれたりする。身近な例ではJavaScriptなどだ。
+</p>
+
+<p>
+継承と委譲の違いは先ほどのC言語の例で言えば、すごく単純で埋め込む構造体が
+ポインタかそうでないかという違いくらいだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">age</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">sex</span>;
+    <span style="color: #92a65e; font-weight: bold;">char</span> *<span style="color: #cae682;">name</span>;
+} <span style="color: #92a65e; font-weight: bold;">Person</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+        <span style="color: #92a65e; font-weight: bold;">Person</span>* <span style="color: #cae682;">person</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">grade</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">study</span>:
+} <span style="color: #92a65e; font-weight: bold;">Student</span>;
+
+<span style="color: #8ac6f2; font-weight: bold;">typedef</span> <span style="color: #8ac6f2; font-weight: bold;">struct</span> {
+    <span style="color: #92a65e; font-weight: bold;">Person</span>* <span style="color: #cae682;">person</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">field</span>;
+    <span style="color: #92a65e; font-weight: bold;">int</span> <span style="color: #cae682;">salary</span>;
+} <span style="color: #92a65e; font-weight: bold;">Teacher</span>;
+</pre>
+</div>
+
+<p>
+委譲は、探索先のオブジェクトを動的に書き換えることができる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">t-&gt;person = <span style="color: #8ac6f2; font-weight: bold;">new</span> <span style="color: #92a65e; font-weight: bold;">Person</span>;
+</pre>
+</div>
+
+<p>
+疑似コードで言えば、
+動的ディスパッチの疑似コード
+</p>
+
+<p>
+var hogetaro = {
+    getName : function(self){return self.name},
+    name       : "hogetaro"
+};
+</p>
+
+<p>
+var object = {
+    <span class="underline">prototype</span> : hogetaro, // 次に探索するオブジェクトを決める
+    name : "daichi hiroki"
+};
+</p>
+
+<p>
+// メソッドを動的に呼び出す
+function methodCall(object,methodName){
+    //　最初は自分自身
+    var pt = object;
+    // is-aを順番にたどってmethodを見つけて実行する
+    while(pt){
+        var method = pt[methodName];
+        if( method ) return method(object);
+        pt = pt._prototype_;
+    }
+    throw Error;
+}
+</p>
+
+<p>
+methodCall(object,"getName");
+object._prototype_ = { getName:function(){return "hello"}};
+// プロトタイプは動的に書き換えることができる。
+methodCall(object,"getName");
+</p>
+
+<p>
+このようになる。
+こうやって、prototypeを順番に追って検索していくのをjavascriptではプロトタイプチェーンと読んでいる。luaであれば同じ役割をするのがmetatableというものがある。
+</p>
+
+<p>
+こういった委譲によるメソッド探索は、動的継承とも呼ばれている。
+</p>
+
+<p>
+このようにメソッドの動的な探索に対して、どのような機構をつけるのかというのが
+オブジェクト指向では重要な構成要素と言える。
+</p>
+
+<p>
+rubyのmoduleやそのinclude,prepend、特異メソッド、特異クラスなどは
+まさにその例だ。
+</p>
+
+<p>
+それらをjavascriptで疑似コード的に実装した例として、こちらを参照してもらいたい。
+<a href="http://qiita.com/hirokidaichi/items/f653a843208971981c37">http://qiita.com/hirokidaichi/items/f653a843208971981c37</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline111" class="outline-7">
+<h7 id="orgheadline111">オブジェクト指向の要素</h7>
+<div class="outline-text-7" id="text-orgheadline111">
+<p>
+このようにオブジェクト指向のための機能は、
+</p>
+
+<p>
+抽象データ型：データと処理をひもづける
+抽象データ型：情報の隠蔽を行うことができる
+オブジェクト：データ自身が何者か知っている
+動的多態：オブジェクト自身のデータと処理を自動的に探索する
+探索先の設定：継承、委譲
+</p>
+
+<p>
+ということになる。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline119" class="outline-4">
+<h4 id="orgheadline119"><span class="section-number-4">4.1.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h4>
+<div class="outline-text-4" id="text-4-1-4">
+<p>
+アランケイの「オブジェクト指向」の定義:
+</p>
+<blockquote>
+<p>
+パーソナルコンピューティングに関わる全てを『オブジェクト』とそれらの間
+で交わされる『メッセージ送信』によって表現すること
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-orgheadline113" class="outline-5">
+<h5 id="orgheadline113">仮想機械としてのオブジェクト</h5>
+<div class="outline-text-5" id="text-orgheadline113">
+<p>
+アランケイの世界観の中では、メモリとCPUとそれに対する命令を持つ機械
+をさらに抽象化するとしたら、それは同じくデータと処理と命令セットを
+もつ仮想機械で抽象化されるべきだと考えていた。
+</p>
+
+<p>
+構造化プログラミングの中でダイクストラが仮想機械として階層
+的に抽象化すべきだと言っていたこととかぶる。
+</p>
+
+<p>
+オブジェクトは独立した機械と見なし，それに対してメッセージを送り、
+自ら持つデータの責任は自らが負う。
+</p>
+
+<p>
+Smalltalkの実行環境もまた仮想機械として作られている。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline114" class="outline-5">
+<h5 id="orgheadline114">メッセージング</h5>
+<div class="outline-text-5" id="text-orgheadline114">
+<p>
+Smalltalkでメッセージ送信は下記のように記述する:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">receiver message
+</pre>
+</div>
+
+<p>
+Objective-Cであれば、C言語の中に次のように書く:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-objective-c">[receiver message]
+[receiver methodName:args1 with:args]
+</pre>
+</div>
+
+<p>
+メッセージとは通信のアナロジーだ。アドレスさえ知っていれば、メッセー
+ジは自由に送れる。受信者(レシーバ)はメッセージを受け取っているにす
+ぎないので、その解釈は自由に行うことができる。
+</p>
+
+<p>
+このメッセージらしさが出てくる特徴をいくつか紹介しよう。
+</p>
+</div>
+
+<div id="outline-container-orgheadline115" class="outline-6">
+<h6 id="orgheadline115">動的な送信</h6>
+<div class="outline-text-6" id="text-orgheadline115">
+<p>
+メッセージ内容もまたオブジェクトにすぎないので、動的に作成し、送ることができる。
+たとえば、rubyのObject#sendがその性質をそのまま表現している。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">A</span>
+  <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">hello</span>
+    <span style="color: #e5786d;">p</span> <span style="color: #95e454;">"hello"</span>
+  <span style="color: #8ac6f2; font-weight: bold;">end</span>
+<span style="color: #8ac6f2; font-weight: bold;">end</span>
+
+a = <span style="color: #92a65e; font-weight: bold;">A</span>.new
+<span style="color: #99968b;"># </span><span style="color: #99968b;">&#21205;&#30340;&#12395;&#12513;&#12477;&#12483;&#12489;&#12434;&#20316;&#25104;</span>
+method = <span style="color: #95e454;">"he"</span> + <span style="color: #95e454;">"ll"</span> + <span style="color: #95e454;">"o"</span>
+<span style="color: #99968b;"># </span><span style="color: #99968b;">&#12381;&#12428;&#12434;&#21628;&#12403;&#20986;&#12377;</span>
+a.send(method)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline116" class="outline-6">
+<h6 id="orgheadline116">メッセージ転送</h6>
+<div class="outline-text-6" id="text-orgheadline116">
+<p>
+受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
+り扱うことができる。
+</p>
+
+<p>
+<a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">メッセージ転送 - Wikipedia</a>
+</p>
+
+<ul class="org-ul">
+<li>rubyの method_missing や Objective-C の forwardInvocation がそれ
+にあたる。他にもPerlのAUTOLOADなど、最近の動的型言語には用意され
+ていることが多い。</li>
+
+<li>proxy.rb</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">Proxy</span>
+  <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">method_missing</span>(name, *args, &amp;block)
+    target.send(name, *args, &amp;block)
+  <span style="color: #8ac6f2; font-weight: bold;">end</span>
+
+  <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">target</span>
+    <span style="color: #cae682;">@target</span> ||= []
+  <span style="color: #8ac6f2; font-weight: bold;">end</span>
+<span style="color: #8ac6f2; font-weight: bold;">end</span>
+
+<span style="color: #92a65e; font-weight: bold;">Proxy</span>.new &lt;&lt; 1
+
+<span style="color: #95e454;">'end'</span>
+</pre>
+</div>
+
+<p>
+たとえば、Proxyクラスをこのように定義してあげるとすべてのメッセージ
+を@targetのオブジェクトにそのまま転送してあげることができる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline117" class="outline-6">
+<h6 id="orgheadline117">非同期送信</h6>
+<div class="outline-text-6" id="text-orgheadline117">
+<p>
+ほとんどの言語でメッセージの結果を同期的に受け取るようになっている
+ので、意識しづらいが、メッセージというアナロジーである以上、それを
+同期的に待ち受ける必要はない。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline118" class="outline-5">
+<h5 id="orgheadline118">オブジェクト指向という言葉が意味していること</h5>
+<div class="outline-text-5" id="text-orgheadline118">
+<p>
+このようにメッセージパッシングというアナロジーを使うことで、様々な
+性質がオブジェクト指向には加わることになった。
+</p>
+
+<p>
+しかし、オブジェクト指向という言葉が意味しているのが、C++の再定義
+したオブジェクト指向として理解されることで、このメッセージパッシン
+グの要素が意識されなくなってしまったため、前述したようにアランケイ
+はその命名が不適切だったと考えているらしい
+</p>
+
+<p>
+<a href="http://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang">http://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang</a>
+</p>
+
+<p>
+この記事は今までの議論の流れをふまえると、理解がしやすいと思う。
+特に
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+私は、オブジェクト指向プログラミングというものに疑問を持ち始めまし
+た。Erlangはオブジェクト指向ではなく、関数型プログラミング言語だと
+考えました。そして、私の論文の指導教官が言いました。「だが、あなた
+は間違っている。Erlangはきわめてオブジェクト指向です。」 彼は、オ
+ブジェクト指向言語はオブジェクト指向ではないといいました。これを信
+じるかどうかは確かではありませんでしたが、Erlangは唯一のオブジェク
+ト指向言語かもしれないと思いました。オブジェクト指向プログラミング
+の3つの主義は、メッセージ送信に基づいて、オブジェクト間で分離し、
+ポリモーフィズムを持つものです。
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline120" class="outline-4">
+<h4 id="orgheadline120"><span class="section-number-4">4.1.5</span> まとめ</h4>
+<div class="outline-text-4" id="text-4-1-5">
+<ul class="org-ul">
+<li>オブジェクト指向も構造化プログラミングも問題の抽象化で同じことを見ていた。</li>
+
+<li>C++はSimulaからモジュール化や抽象データ型、動的多態といった良い性質を採用した。</li>
+
+<li>一方、SmalltalkはSimulaの着想をメッセージとオブジェクトという概念
+で統合した。それによって、様々な動的な性質を現在の言語にもたらして
+きた。</li>
+
+<li>また、メッセージパッシングという概念は、本質的には現在注目を浴びて
+いる Actor や CSP のような並行モデルと似通っており、興味深い。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline121" class="outline-4">
+<h4 id="orgheadline121"><span class="section-number-4">4.1.6</span> あとがき</h4>
+<div class="outline-text-4" id="text-4-1-6">
+<p>
+少しはオブジェクト指向という考え方の背景が見えてきて、それがより良い
+設計やコーディングにつながればうれしいです。
+</p>
+
+<p>
+この説明は、オブジェクト指向の説明の本流ではない、いわば傍流的なもの
+ではありますが、より実際的で、より技術的理解を必要とするものなので、
+初学者向けではなかったかと思います。ですが、これを理解することで、様々
+な言語機能の背景を推察することができ、バラバラの事柄が有機的につなが
+ることを期待しています。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline122" class="outline-4">
+<h4 id="orgheadline122"><span class="section-number-4">4.1.7</span> オブジェクト指向あれこれ</h4>
+<div class="outline-text-4" id="text-4-1-7">
+<p>
+オブジェクト指向あれこれ
+<a href="http://d.hatena.ne.jp/asakichy/20090428/1240878836">http://d.hatena.ne.jp/asakichy/20090428/1240878836</a>
+</p>
+
+<p>
+アジャイル設計と5つの原則 - かまずにまるのみ。
+<a href="http://tdak.hateblo.jp/entry/20130703/1372842149">http://tdak.hateblo.jp/entry/20130703/1372842149</a>
+</p>
+
+<p>
+オブジェクト指向の法則集 - Qiita
+<a href="http://qiita.com/kenjihiranabe/items/9eddc70e279861992274">http://qiita.com/kenjihiranabe/items/9eddc70e279861992274</a>
+</p>
+
+<p>
+オブジェクト指向の本懐 - Strategic Choice
+<a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">http://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#33879;&#32773;: suzuki@cis.iwate-u.ac.jp masayuki suzuki@cis.iwate-u.ac.jp</p>
+<p class="date">Created: 2016-10-01 土 17:19</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

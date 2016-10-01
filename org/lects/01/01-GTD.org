@@ -1,0 +1,309 @@
+#+title: ~/COMM/Lects/meta-ruby/site/lects/01
+
+* GTD
+** はじめに
+
+  まだ，何人聴講するかもわかりません。
+
+  みなさんの希望内容もわかりません。
+
+  おおまかにやりたい内容の説明をして，
+
+  反応や希望を聞いて，決めたいと思います。
+
+** サイト [1/4]
+    http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/site
+    - [X] ねらい
+    - [ ] 講義 http://wiki.cis.iwate-u.ac.jp/~wiki/meta-ruby.cgi?講義について
+    - [ ] 教科書，参考書
+    - [ ] 自己紹介，org-mode+babel, teaching
+
+*** パス [/]
+   emacs等で見る時のパスです:    
+   - site
+   : path: ~suzuki/lects/meta-ruby/site/
+   - text
+   : path: ~suzuki/lects/meta-ruby/text
+   - codes
+   : path: ~suzuki/lects/meta-ruby/codes
+
+** オブジェクト指向入門とは
+
+*** プログラム言語とは
+
+**** 記述のための要素
+
+    - 値と定数
+    - データ構造体
+    - 型と演算
+    - 変数と代入
+    - 文と流れ
+    - 関数（手続き)
+      - 定義
+      - 呼出し
+    - スコープ
+    - モジュール
+
+**** 実行するということ
+
+     - コードインタープリタ
+     - 環境
+       - 実行の流れを保存するスタック
+       - 名前を解決する束縛
+       - 静的か動的か
+
+**** メタプログラミング
+     - プログラムを生成するプログラムをつくること
+
+
+*** WikiPedia.search("オブジェクト指向プログラミング")
+
+特徴
+- 情報隠蔽
+- 多相性
+- 動的束縛
+- 継承
+
+*** 僕の考え
+
+- モジュール
+- メッセージパッシング
+- 差をプログラムする
+
+*** Rubyらしさ
+
+- 純粋オブジェクト指向
+- プログラム可能なものは全て，オブジェクト
+- クラスもオブジェクト
+- 実行はすべてメッセージパッシングで起こる
+- オブジェクトは実行の場
+
+*** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
+**** 第一回　http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss
+     file:../docs/matz-1-1.org
+     file:../docs/matz-1-2.org
+     file:../docs/matz-1-3.org
+
+     - 多相性 ::　一つの名前が，実行されるコンテキストで，違う意味を持
+       ち得ること
+
+**** 第二回，第三回，第四回　ぐらい読みたい
+     - file:../docs/matz-2.org データ抽象と継承
+     - file:../docs/matz-3.org 多重継承
+     - file:../docs/matz-4.org ダックタイピング
+
+     C++, Java, Perl, ... 
+
+
+     まとめ
+
+
+**** まつもと直伝プログラミングの掟のまとめ
+     [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
+
+** ruby.begin [0/0] 
+*** ruby の情報
+
+Rubyist Magazine - Rubyist Magazine 0050 号
+http://magazine.rubyist.net/?0050
+
+Rubyist Magazine - Ruby の歩き方
+http://magazine.rubyist.net/?FirstStepRuby
+
+
+
+** Ruby begin
+   site: http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html
+   : org-path:  ~/lects/meta-ruby/site/ruby_begin.org
+   - rbenv, gem, bundler
+   - gem pry install
+   
+
+** rubyインストール [/]
+*** [ ] rbenv/gem/bundler [/]
+
+**** [ ] rbenv とは
+     - 個人毎に用意できる ruby の環境 
+     - ~/.rbenv の配下
+
+     rbenvは何をしているのか？ - ザリガニが見ていた...。
+     http://d.hatena.ne.jp/zariganitosh/20141101/what_does_rbenv
+
+**** [ ] rbenv で ruby をインストール    
+
+#+BEGIN_SRC sh :dir ~/COMM/Lects/meta-ruby/site/lects/01/
+ls -l
+eval "$(rbenv init -)" #初期化
+# rbenv install --list # インストール可な ruby を表示
+# rbenv install 2.3-dev # 最新
+# rbenv init # pathの再設定 と .bashrc への追加
+#+END_SRC
+
+#+RESULTS:
+| 合計       | 156 |        |    |       |      |    |       |              |
+| -rw-r--r-- |   1 | suzuki | os | 10085 | 10月 |  5 | 14:31 | #01-GTD.org# |
+| -rw-r--r-- |   1 | suzuki | os | 25742 | 10月 |  5 | 14:36 | 01-GTD.html  |
+| -rw-r--r-- |   1 | suzuki | os | 10037 | 10月 | 26 | 10:47 | 01-GTD.org   |
+| -rw-r--r-- |   1 | suzuki | os |  3120 | 10月 |  5 | 11:09 | 01-todo.org  |
+| -rw-r--r-- |   1 | suzuki | os | 16444 | 10月 | 26 | 10:47 | 1.html       |
+| -rw-r--r-- |   1 | suzuki | os |  2585 | 10月 | 26 | 10:47 | 1.org        |
+| -rw-r--r-- |   1 | suzuki | os | 30455 | 10月 |  5 | 11:58 | index.html   |
+| -rw-r--r-- |   1 | suzuki | os | 30455 | 10月 |  5 | 11:48 | index.html~  |
+| -rw-r--r-- |   1 | suzuki | os |   241 | 10月 |  5 | 12:25 | index.org    |
+| -rw-r--r-- |   1 | suzuki | os |   166 | 10月 |  5 | 11:20 | index.org~   |
+| -rw-r--r-- |   1 | suzuki | os |  2647 | 10月 | 26 | 10:47 | plan.org     |
+
+**** gemとは
+
+     Rubyを扱う際に出てくる「rbenv」や「gem」などの用語を理解する | RAINGARDEN
+     http://xraingardenx.com/ruby-beginner/
+
+     - [X] local gem install
+       ((% gem install -i /path/to/dir name %))
+**** bundler
+
+     Ruby の gem をプロジェクト毎に Bundler で管理する - fugafuga.write()
+     http://blog.tokoyax.com/entry/ruby/bundler
+
+*** [ ] pry
+    ruby の高機能デバッガ
+
+**** links
+
+      - Ruby - 今更聞けないpryの使い方と便利プラグイン集 - Qiita
+       	http://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f
+
+      - 第3回　Pry ～IRBをより見やすく、より便利に～
+       	http://www.school.ctc-g.co.jp/columns/masuidrive/masuidrive03.html
+
+      - Rubyistよ、irbを捨ててPryを使おう - TIM Labs
+       	http://labs.timedia.co.jp/2011/12/rubyist-should-use-pry.html
+
+      - Emacs×Ruby - PryをEmacsで使ってみる - http://rubikitch.com/に移転しました
+       	http://d.hatena.ne.jp/rubikitch/20140627/pry
+
+       	
+**** install
+#+BEGIN_SRC sh :dir ~/COMM/Lects/meta-ruby/site/lects/01/
+cd ~/
+gem install pry
+#+END_SRC    
+
+** ruby入門
+
+   最初は ruby になれるために，入門をやりましょう。
+
+*** ビギナーのためのRubyプログラミング入門
+     http://libro.tuyano.com/index2?id=953003
+
+**** 内容  [1/10]
+1. [X] Rubyを使ってみよう! 
+
+   まずは、Rubyをインストールして利用できるようにしてみましょう。そし
+   て実際にRubyのスクリプトを動かすところまでやってみましょう。
+
+2. [ ] 基本的な構文を覚えよう 
+
+   プログラミング言語には、プログラムの流れを制御するための構文が用意
+   されています。基本的な構文の使い方をまとめて覚えましょう。
+
+
+3. [ ] 配列とハッシュ 
+
+   多数の値をまとめて管理するのが「配列」です。この配列の値を名前で管
+   理できるようにしたものが「ハッシュ（連想配列）」です。これらの基本
+   的な使い方について説明します。
+
+4. [ ] 構造化からオブジェクトへ！
+
+   Rubyでは、スクリプトを整理し、構造的にまとめていくための仕組みが用
+   意されています。これは、突き詰めれば、プログラムを「オブジェクト」
+   というものとして作成する考え方へとつながっていきます。この「オブジェ
+   クト」に至るまでの考え方についてここで説明していきましょう。
+
+
+5. [ ] オブジェクトを更に極める！
+
+   オブジェクトというものの働きや使い方を知ることは、Rubyを使い込んで
+   いくためには避けて通れない道です。今回も更にオブジェクトというもの
+   について説明を続けて行きましょう。今回のキーワードは「アクセサ」
+   「クラスメソッド」「継承」といったものです。
+
+
+6. [ ] 日時とTimeクラス
+
+   日時を扱うために用意されているのが「Time」というクラスです。このク
+   ラスには、日時の表現はもちろん、日時を使った計算やさまざまなフォー
+   マットによる出力などのメソッドが一通り揃っています。これらの基本的
+   な使い方についてマスターしましょう。
+
+7. [ ] テキスト（Stringクラス）の基本操作
+
+   テキストの値を扱う「String」クラスには、テキスト操作のためのさまざ
+   まなメソッドが用意されています。それらの中から主なものをピックアッ
+   プして使い方を説明しましょう。
+
+8. [ ] テキストファイルのアクセス
+
+   Rubyでは、テキストファイルに簡単にアクセスすることができます。テキ
+   ストファイル利用の基本を覚えて、データの読み書きの基本について説明
+   をしましょう。
+
+9. [ ] CSVファイル・アクセス
+
+   CSVファイルは、データベースなどの多数の値からなるデータを保存するの
+   に用いられるテキストファイルです。Rubyには、これを利用するための専
+   用機能がいろいろと用意されています。CSVの利用をマスターしてデータ管
+   理を行いましょう。
+
+10. [ ] ERBによるWebアプリケーション開発
+
+   Rubyには「ERB」と呼ばれる、HTMLの中にRubyのスクリプトを埋め込んで実
+    行する技術があります。これを使えば、簡単にRubyを使ったWebアプリケー
+    ションが作れるのです。その基本的な使い方を覚えましょう。
+    
+
+*** ほかの ruby の入門サイト
+    全貌を掴む
+    - 第1章 Ruby言語ミニマム
+       http://loveruby.net/ja/rhg/book/minimum.html
+
+       まず最初の overlooking のために
+
+    プログラミングしながら
+
+    - ミニツク - Rubyのe-ラーニング研修システム
+      http://www.minituku.net/courses/1049510743/lessons/763190848/drills/282479059?locale=ja
+
+    - [[http://dotinstall.com/lessons/basic_ruby_v2][Ruby入門 (全23回) - プログラミングならドットインストール]]
+       一話2〜3分でまあ聴きやすい
+       vagrantを使っているが，cis環境にインストールしてもらえるか？
+
+    - [[http://libro.tuyano.com/index2?id=953003][ビギナーのためのRubyプログラミング入門]]
+
+    - rubymonk
+       
+    - 若手エンジニア／初心者のためのRuby 2.1入門 最新記事一覧 - ITmedia Keywords
+      http://www.atmarkit.co.jp/ait/kw/ruby_nyumon.html
+
+** ruby概観
+
+    -  全貌を掴む  [[http://loveruby.net/ja/rhg/book/minimum.html][第1章 Ruby言語ミニマム]]
+
+** メタプログラミングRuby begin
+   今日は紹介だけ。
+   site:
+   http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/site/meta-ruby
+   : path ~suzuki/lects/meta_ruby/site/meta-ruby
+
+** emacs org-mode
+
+   - file:~/COMM/Lects/org-feature.org
+
+** org-babel
+   [[http://orgmode.org/ja/features.html][Org mode for Emacs – Org-modeでできること]]
+   - org-mode と org-babel-mode による文芸的プログラミング
+   - 紹介 file:~/COMM/Lects/Prog/ruby/babel      
+
+
+

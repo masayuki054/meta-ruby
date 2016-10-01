@@ -1,0 +1,522 @@
+rake 
+rake 
+ruby test-card.rb
+...
+
+Finished in 0.000906 seconds.
+------
+3 tests, 8 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+3311.26 tests/s, 8830.02 assertions/s
+server% 
+
+server% la
+la
+zsh: command not found: la
+server% rake
+rake
+ruby test-card.rb
+...
+
+Finished in 0.000934 seconds.
+------
+3 tests, 8 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+3211.99 tests/s, 8565.31 assertions/s
+ruby test-deck.rb
+.
+
+Finished in 0.004622 seconds.
+------
+1 tests, 106 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+216.36 tests/s, 22933.79 assertions/s
+ruby test-hand.rb
+E
+
+Error: test_first(Test_Hand): NameError: uninitialized constant Poker::Card::HEART
+test-hand.rb:9:in `setup'
+
+
+
+Finished in 0.004429 seconds.
+------
+1 tests, 0 assertions, 0 failures, 1 errors, 0 pendings, 0 omissions, 0 notifications
+0% passed
+------
+225.78 tests/s, 0.00 assertions/s
+rake aborted!
+Command failed with status (1): [ruby test-hand.rb...]
+/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/old_src/Rakefile:12:in `block (2 levels) in <top (required)>'
+/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/old_src/Rakefile:11:in `each'
+/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/old_src/Rakefile:11:in `block in <top (required)>'
+Tasks: TOP => default => test
+(See full trace by running task with --trace)
+server% rake
+rake
+ruby test-card.rb
+...
+
+Finished in 0.000929 seconds.
+------
+3 tests, 8 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+3229.28 tests/s, 8611.41 assertions/s
+ruby test-deck.rb
+.
+
+Finished in 0.004796 seconds.
+------
+1 tests, 106 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+208.51 tests/s, 22101.75 assertions/s
+ruby test-hand.rb
+.
+
+Finished in 0.000621 seconds.
+------
+1 tests, 1 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+1610.31 tests/s, 1610.31 assertions/s
+server% pwd
+pwd
+/users/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/old_src
+server% cd ..
+cd ..
+server% ls
+ls
+#card.org#	example/	org-test.org	src/
+card.org	index.html	poker.html	test/
+deck.org	old_src/	poker.org
+server% ruby -I./src test/test-card.rb
+ruby -I./src test/test-card.rb
+/NFS/ufs/mac/masayuki/.rbenv/versions/2.1.0-preview2/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- constant (LoadError)
+	from /NFS/ufs/mac/masayuki/.rbenv/versions/2.1.0-preview2/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from test/test-card.rb:3:in `<main>'
+server% pwd
+pwd
+/users/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker
+server% cd
+cd
+server% cd progs
+cd progs
+server% 
+ls
+CardDisplay/	card_display/	game/
+README.org	cutter/		lects/
+server% cd game
+cd game
+server% ls
+ls
+server% server% 
+server% 
+zsh: command not found: server%
+server% pwd
+pwd
+/users/home/masayuki/progs/game
+server% ls
+ls
+suzuki/
+server% cd
+cd
+server% cd COMM/Lects/meta-ruby/site/lects/
+cd COMM/Lects/meta-ruby/site/lects/
+server% cd poker/
+cd poker/
+server% ls
+ls
+#card.org#		example/		poker.org
+#player.rb.org#		hand.rb.org		poker.rb.org
+#poker.org#		index.html		src/
+Rakefile.org		old_src/		test/
+babel/			org-test.org		test-card.rb.org
+card.org		player.rb		test-deck.rb.org
+constant.org		player.rb.org		test-poker.rb
+deck.org		poker.html
+server% rm -rf example/
+rm -rf example/
+server% less test-poker.rb
+less test-poker.rb
+WARNING: terminal is not fully functional
+test-poker.rb  (press RETURN)
+require 'test/unit'
+require 'card'
+require 'hand'
+require 'poker'
+
+include Poker
+
+class Test_Poker < Test::Unit::TestCase
+  def setup
+    @poker = Poker.new(["a", "b", "c", "d", "e"])
+  end
+
+  def test_first
+    assert_equal(:fullHouse, @poker.play)
+  end
+end
+
+    
+test-poker.rb (END) q
+ 
+server% 
+server% 
+
+server% ls
+ls
+#card.org#		hand.rb.org		poker.rb.org
+#player.rb.org#		index.html		src/
+#poker.org#		old_src/		test/
+Rakefile.org		org-test.org		test-card.rb.org
+babel/			player.rb		test-deck.rb.org
+card.org		player.rb.org		test-poker.rb
+constant.org		poker.html
+deck.org		poker.org
+server% rm test-*
+rm test-*
+remove test-card.rb.org? 
+
+remove test-deck.rb.org? 
+
+remove test-poker.rb? 
+
+server% ls
+ls
+#card.org#		hand.rb.org		poker.rb.org
+#player.rb.org#		index.html		src/
+#poker.org#		old_src/		test/
+Rakefile.org		org-test.org		test-card.rb.org
+babel/			player.rb		test-deck.rb.org
+card.org		player.rb.org		test-poker.rb
+constant.org		poker.html
+deck.org		poker.org
+server% 
+
+server% pwdsvn add index.org
+svn add index.org
+A         index.org
+server% ls
+ls
+Rakefile.org		hand.rb.org		poker.org
+Rakefile.org~		index.html		poker.rb.org
+babel/			index.org		src/
+card.org		old_src/		test/
+constant.org		org-test.org		test-card.rb.org
+constant.org~		player.rb		test-deck.rb.org
+deck.org		player.rb.org		test-poker.rb
+hand.org		poker.html
+server% svn ls
+svn ls
+babel/
+card.org
+deck.org
+index.html
+old_src/
+poker.org
+src/
+test/
+server% svn rm src test
+svn rm src test
+svn: E195006: Use --force to override this restriction (local modifications may be lost)
+svn: E195006: '/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/src/card.rb' has local modifications -- commit or revert them first
+server% svn ci -m daily
+svn ci -m daily
+送信しています              card.org
+送信しています              deck.org
+追加しています              index.org
+送信しています              poker.org
+送信しています              src/card.rb
+ファイルのデータを送信しています .....done
+Committing transaction...
+Committed revision 2407.
+server% svn rm src test
+svn rm src test
+svn: E200005: Use --force to override this restriction (local modifications may be lost)
+svn: E200005: '/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/src/constant.rb' はバージョン管理下におかれていません
+server% rm src/constant.rb
+rm src/constant.rb
+remove src/constant.rb? y
+y
+server% svn rm src
+svn rm src
+D         src
+D         src/card.rb
+server% svn rm test
+svn rm test
+svn: E200005: Use --force to override this restriction (local modifications may be lost)
+svn: E200005: '/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/test/test-card.rb' はバージョン管理下におかれていません
+server% rm test/tes*
+rm test/tes*
+remove test/test-card.rb? y
+y
+remove test/test_card.rb? y
+y
+server% svn rm test
+svn rm test
+D         test
+D         test/test_card.rb
+server% svn ci -m daily
+svn ci -m daily
+削除しています              src
+svn: E155011: コミットに失敗しました (詳しい理由は以下のとおりです):
+svn: E155011: ディレクトリ '/NFS/ufs/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/src' はリポジトリ側と比べて古くなっています
+svn: E170004: Item '/Lects/meta-ruby/site/lects/poker/src' is out of date
+server% svn up
+svn up
+Updating '.':
+'old_src/test_deck.rb.org' を元に戻しました
+リビジョン 2407 です。
+server% 
+
+server% ls
+ls
+#index.org#		hand.org		poker.html
+Rakefile.org		hand.rb.org		poker.org
+Rakefile.org~		index.html		poker.rb.org
+babel/			index.org		test-card.rb.org
+card.org		old_src/		test-deck.rb.org
+constant.org		org-test.org		test-poker.rb
+constant.org~		player.rb
+deck.org		player.rb.org
+server% svn ls
+svn ls
+card.org
+deck.org
+index.html
+index.org
+old_src/
+org-test.org
+poker.html
+poker.org
+src/
+test/
+server% svn rm src test
+svn rm src test
+server% svn ci -m daily
+svn ci -m daily
+削除しています              src
+削除しています              test
+Committing transaction...
+Committed revision 2408.
+server% 
+
+server% ls
+ls
+#index.org#		hand.org		poker.html
+Rakefile.org		hand.rb.org		poker.org
+Rakefile.org~		index.html		poker.rb.org
+babel/			index.org		test-card.rb.org
+card.org		old_src/		test-deck.rb.org
+constant.org		org-test.org		test-poker.rb
+constant.org~		player.rb
+deck.org		player.rb.org
+server% svn ls
+svn ls
+card.org
+deck.org
+index.html
+index.org
+old_src/
+org-test.org
+poker.html
+poker.org
+src/
+test/
+server% svn add hand.org
+svn add hand.org
+A         hand.org
+server% rm hand.rb.org
+rm hand.rb.org
+remove hand.rb.org? y
+y
+server% ls
+ls
+#index.org#		deck.org		player.rb.org
+Rakefile.org		hand.org		poker.html
+Rakefile.org~		index.html		poker.org
+babel/			index.org		poker.rb.org
+card.org		old_src/		test-card.rb.org
+constant.org		org-test.org		test-deck.rb.org
+constant.org~		player.rb		test-poker.rb
+server% rm *~
+rm *~
+remove Rakefile.org~? y
+y
+remove constant.org~? y
+y
+server% svn add Rakefile.org
+svn add Rakefile.org
+A         Rakefile.org
+server% svn ci -m daily
+svn ci -m daily
+追加しています              Rakefile.org
+追加しています              hand.org
+ファイルのデータを送信しています ..done
+Committing transaction...
+Committed revision 2409.
+server% 
+
+server% ls
+ls
+#index.org#		index.html		poker.org
+Rakefile.org		index.org		poker.rb.org
+babel/			old_src/		test-card.rb.org
+card.org		org-test.org		test-deck.rb.org
+constant.org		player.rb		test-poker.rb
+deck.org		player.rb.org
+hand.org		poker.html
+server% svn ls
+svn ls
+card.org
+deck.org
+index.html
+index.org
+old_src/
+org-test.org
+poker.html
+poker.org
+src/
+test/
+server% rm test*
+rm test*
+remove test-card.rb.org? y
+y
+remove test-deck.rb.org? y
+y
+remove test-poker.rb? y
+y
+server% ls
+ls
+#index.org#	constant.org	index.org	player.rb.org
+Rakefile.org	deck.org	old_src/	poker.html
+babel/		hand.org	org-test.org	poker.org
+card.org	index.html	player.rb	poker.rb.org
+server% svn ls
+svn ls
+card.org
+deck.org
+index.html
+index.org
+old_src/
+org-test.org
+poker.html
+poker.org
+src/
+test/
+server% cd old_src
+cd old_src
+server% ls
+ls
+Rakefile		hand.rb			test-card.rb.org
+Rakefile.org		hand.rb.org		test-deck.rb
+card.rb			play.rb			test-deck.rb.org
+card.rb.org		player.rb		test-hand.rb
+constant.rb		player.rb.org		test-poker.rb
+constant.rb.org		poker.rb		test_deck.rb.org
+deck.rb			poker.rb.org
+deck.rb.org		test-card.rb
+server% rm *_*
+rm *_*
+remove test_deck.rb.org? y
+y
+server% ls
+ls
+Rakefile		deck.rb.org		poker.rb.org
+Rakefile.org		hand.rb			test-card.rb
+card.rb			hand.rb.org		test-card.rb.org
+card.rb.org		play.rb			test-deck.rb
+constant.rb		player.rb		test-deck.rb.org
+constant.rb.org		player.rb.org		test-hand.rb
+deck.rb			poker.rb		test-poker.rb
+server% pwdsvn add index.org
+pwdsvn add index.org
+zsh: command not found: pwdsvn
+server% pwd
+pwd
+/users/home/masayuki/COMM/Lects/meta-ruby/site/lects/poker/old_src
+server% ruby test-constant.rb
+ruby test-constant.rb
+test-constant.rb:25: syntax error, unexpected end-of-input, expecting keyword_end
+server% ruby test-constant.rb
+ruby test-constant.rb
+E
+
+Error: test_constant_no(Test_Constant): NameError: uninitialized constant Test_Constant::NoOrder
+test-constant.rb:20:in `test_constant_no'
+     17:   end
+     18: 
+     19:   def test_constant_no
+  => 20:     assert_equal(NoOrder, [  
+     21:                    Const::TWO, Const::THREE, Const::FOUR, Const::FIVE,
+     22:                    Const::SIX, Const::SEVEN, Const::EIGHT, Const::NINE,
+     23:                    Const::TEN, Const::JACK, Const::QUEEN, Const::KING,
+
+E
+
+Error: test_constant_suit(Test_Constant): NameError: uninitialized constant Test_Constant::SuitSyms
+test-constant.rb:9:in `test_constant_suit'
+      6:   include Poker
+      7: 
+      8:   def test_constant_suit
+  =>  9:     assert_equal(SuitSyms.index(:CLUB), Const::CLUB)
+     10:     assert_equal(SuitSyms.index(:DIAMOND), Const::DIAMOND)
+     11:     assert_equal(SuitSyms.index(:HEART), Const::HEART)
+     12:     assert_equal(SuitSyms.index(:SPADE), Const::SPADE)
+
+
+
+Finished in 0.006404 seconds.
+------
+2 tests, 0 assertions, 0 failures, 2 errors, 0 pendings, 0 omissions, 0 notifications
+0% passed
+------
+312.30 tests/s, 0.00 assertions/s
+server% ruby test-constant.rb
+ruby test-constant.rb
+E
+
+Error: test_constant_no(Test_Constant): NameError: uninitialized constant Test_Constant::NoOrder
+test-constant.rb:20:in `test_constant_no'
+     17:   end
+     18: 
+     19:   def test_constant_no
+  => 20:     assert_equal(NoOrder, [  
+     21:                    Const::TWO, Const::THREE, Const::FOUR, Const::FIVE,
+     22:                    Const::SIX, Const::SEVEN, Const::EIGHT, Const::NINE,
+     23:                    Const::TEN, Const::JACK, Const::QUEEN, Const::KING,
+
+.
+
+Finished in 0.005722 seconds.
+------
+2 tests, 8 assertions, 0 failures, 1 errors, 0 pendings, 0 omissions, 0 notifications
+50% passed
+------
+349.53 tests/s, 1398.11 assertions/s
+server% ruby test-constant.rb
+ruby test-constant.rb
+..
+
+Finished in 0.000804 seconds.
+------
+2 tests, 9 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+2487.56 tests/s, 11194.03 assertions/s
+server% ruby test-constant.rb
+ruby test-constant.rb
+...
+
+Finished in 0.001989 seconds.
+------
+3 tests, 10 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+1508.30 tests/s, 5027.65 assertions/s
+server% 

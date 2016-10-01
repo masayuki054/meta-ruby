@@ -1,0 +1,43 @@
+** メタプログラミングRubyのまとめ
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby][メタプログラミングRubyのまとめ]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/meta-ruby][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/meta-ruby][@s.org]]))
+
+   - 教科書のまとめです。org-mode で書いてあります。2012年に書いたもの
+     を，すこしづつ org-babel で書き直すつもりです。
+     : path ~suzuki/lects/meta-ruby/site/org-docs/meta-ruby/
+
+** ruby.begin
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/ruby_begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/ruby_begin.org][@s.org]]))
+
+  - rubyの情報，環境，入門書などについてです。
+  : path: ~suzuki/lects/meta-ruby/site/org-docs/ruby_begin.org
+
+** rubyについてあれこれ
+  [[s-:]] のめもです。
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/rubymisc/][rubymisc]]
+  : path: ~suzuki/lects/meta-ruby/site/org-docs/rubymisc
+
+
+** オブジェクト指向へ至る道
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OOへ至る道]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/oo.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/oo.org][@s.org]]))
+
+  - オブジェクト指向が出現するまでの考え方とか
+    : path: ~suzuki/lects/meta-ruby/site/org-docs/oo.org
+
+** matz のプログラミング直伝
+
+  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/matz][matzのプログラミング直伝]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/matz][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/matz][@s.org]]))
+
+  - rubyについてです
+    : path: ~suzuki/lects/meta-ruby/site/org-docs/matz
+
+
+  
+** emacsの設定
+
+  [[file:./emacs-setup.org]]
+  
+  
