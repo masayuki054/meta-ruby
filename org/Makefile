@@ -7,7 +7,8 @@ DATE = `date`
 
 HTMLS = index.html \
 lects.html \
-ruby.html 
+ruby.html \
+emacs.html \
 
 all: $(HTMLS)
 	git push -u origin master

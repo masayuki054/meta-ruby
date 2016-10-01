@@ -1,44 +1,7 @@
-# Time-stamp: <2015-11-02 10:25:08 m>
-#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
-#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
-
-#+title: emacs-setup
-
+# Time-stamp: <2016-10-01 19:30:22 m>
 * おしらせ
-
-** emacs-24.5 インストールしました。
-
-   [[emacs-24.5]] を見てください。
-
-** この文書について
-
-   - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]]))
-
-  emacs の設定の説明であり，設定を実行する emacs org-mode で書かれたス
-  クリプトでもあります。実行の様子をみるには emacs でみてください。
-
-** 初期化
-
-   以下は先生が実行する時に必要な初期化です。皆さんは，無視してくださ
-   い。
-   
-#+BEGIN_SRC sh :dir ~/ :results none :exports none
-mkdir -p ~/local/share/emacs/site-lisp/init_loader
-# rm -rf .emacs.d
-# mkdir .emacs.d
-#+END_SRC
-
-
-#+BEGIN_SRC sh :dir ~/local/share/emacs/site-lisp/ :exports none
-rm -f package-update.el
-rm -f init.el
-rm -f init_loader/*
-#+END_SRC
-
-
 * emacs
-** Done emacs-24.5 
-   CLOSED: [2015-11-02 月 09:02] SCHEDULED: <2015-10-28 水>
+** emacs-24.5 
 
    emacs-24.5 を ~suzuki/local/ にインストールしました。
    - org-mode が 8系になっている。babel/tangle が改善されているような
@@ -52,8 +15,7 @@ export PATH=~suzuki/local/bin:$PATH
 
 
 
-** Doing emacsのパッケージと設定
-   SCHEDULED: <2015-10-26 月>
+** emacsのパッケージと設定
 
    emacs の設定などは，~suzuki/local/share/emacs/site-lisp/ に置きまし
    た。 ~/.emacs.d/init.el に下記を追加してください:
@@ -78,8 +40,7 @@ export PATH=~suzuki/local/bin:$PATH
 
 * package
 
-** Done emacs package について
-   CLOSED: [2015-11-02 月 09:03]
+** emacs package について
     [[http://emacs-jp.github.io/packages/package-management/package-el.html][package.el - Emacs JP]] のまとめ
 
 *** 設定
@@ -175,8 +136,7 @@ package-installed-p関数はあくまでインストールしているかどう�
     ケージをすべて upgradeできる.
 
 
-** Todo emacsのruby環境をセットアップする
-   SCHEDULED: <2015-11-02 月>
+** emacsのruby環境をセットアップする
 
   http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/
 
@@ -559,8 +519,5 @@ which pry
 (run-with-idle-timer 30 t 'recentf-save-list)  ;; 30秒
 (recentf-mode 1)
 #+END_SRC   
-
-
-** その他
 
 

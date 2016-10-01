@@ -16,7 +16,9 @@ DATE = `date`
 #+BEGIN_SRC makefile :tangle Makefile
 HTMLS = index.html \
 lects.html \
-ruby.html 
+ruby.html \
+emacs.html \
+
 #+END_SRC
 
 #+BEGIN_SRC makefile :tangle Makefile
