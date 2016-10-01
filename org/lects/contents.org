@@ -1,2 +1,2 @@
-#+include: 01/contents.org 
-#+include: preface.org 
+#+include: 01/contents.org :minlevel 1
+#+include: preface.org :minlevel 1

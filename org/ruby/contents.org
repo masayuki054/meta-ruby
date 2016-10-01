@@ -1,3 +1,2 @@
-* ruby
-#+include: ruby.org 
-#+include: pry.org 
+#+include: ruby.org :minlevel 1
+#+include: pry.org :minlevel 1
