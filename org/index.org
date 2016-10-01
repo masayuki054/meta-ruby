@@ -1,4 +1,4 @@
-#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
+#+setupfile: ~/COMM/public_html/org-html-theme/index-readtheorg-header.setup
 #+include: info/common-header.org
 
 [[./ruby.org]] [[./oo.org]]
