@@ -16,10 +16,7 @@ DATE = `date`
 #+BEGIN_SRC makefile :tangle Makefile
 HTMLS = index.html \
 lects.html \
-ruby.html \
-emacs.html
-
-
+ruby.html 
 #+END_SRC
 
 #+BEGIN_SRC makefile :tangle Makefile
@@ -34,6 +31,7 @@ renewal:
 
 index.html: 
 lects.html: $(wildcard lects/*.org)
+ruby.html: $(wildcard ruby/*.org)
 
 #+END_SRC
 

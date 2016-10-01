@@ -1,8 +1,34 @@
-index.html: index.org info/common-header.org
-	org2html index.org
+MYHOME = ../
+ORG = $(MYHOME)/org/
+SITE = $(MYHOME)/docs/
+DIR = ./
+SHELL = zsh
+DATE = `date`
 
-all: index.html
-	(cd org-docs; make)
-	(cd lects; make)
+HTMLS = index.html \
+lects.html \
+ruby.html 
 
-	
+all: $(HTMLS)
+	git push -u origin master
+
+renewal: 
+	touch *.org
+	touch */*.org
+	make all
+
+index.html: 
+lects.html: $(wildcard lects/*.org)
+ruby.html: $(wildcard ruby/*.org)
+
+.SUFFIXES: .org .html
+.org.html: info/common-header.org 
+	$(HOME)/bin/org2html $<
+	cp $@ $(SITE)/$(DIR)
+	git stage  $(SITE)/$@ 
+	git commit -a -m "daily $(DATE)"
+
+.PHONY: clean
+clean:
+	rm -f *.html
+	rm -f *~ */*~

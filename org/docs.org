@@ -1,7 +1,7 @@
 * .org-docs
 
-   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/meta-ruby][教科書のまとめ]] meta programmin ruby
-     : path: ~suzuki/lects/meta-ruby/site/org-docs/meta-ruby/
+   - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/git/org/meta-ruby][教科書のまとめ/]] meta programmin ruby
+     : path: ~suzuki/lects/meta-ruby/git/org/meta-ruby.html
 
    - コンピュータ科学特論I [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs][関連のドキュメント]]
      : path: ~suzuki/lects/meta-ruby/site/org-docs/
