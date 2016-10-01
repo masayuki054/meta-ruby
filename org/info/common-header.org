@@ -1,13 +1,9 @@
-#+title: メタプログラミング
+#+title: 2016
 #+author: suzuki@cis.iwate-u.ac.jp
-
-[[http://masayuki054.github.io/meta-ruby]]/
-[[http://masayuki054.github.io/meta-ruby/lects.html][lects]]/
-[[http://masayuki054.github.io/meta-ruby/emacs.html][emacs]]/
-[[http://masayuki054.github.io/meta-ruby/ruby.thml][ruby]]/
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OO へ至る道]] /
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義ドキュメント]] /
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby][meta-ruby まとめ]] /
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] /
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html][ruby-note]] /
- [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/][poker]] 
+[[./][ホーム]] /
+[[./ruby.org][ruby]] / 
+[[./oo.org][OO]] / 
+[[./emacs.org][emacs]] / 
+[[./meta.org][meta]] /
+[[./note.org][note]] /
+[[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/][2015]]
