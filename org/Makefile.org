@@ -47,8 +47,7 @@ oo.html: $(wildcard oo/*.org)
 .SUFFIXES: .org .html
 .org.html: info/common-header.org 
 	$(HOME)/bin/org2html $<
-	cp $@ $(SITE)/$(DIR)
-	sed -e "s/http:\/\/https:/\/\//g" $(SITE)/$(DIR)/$@
+	sed -e "s/http:\/\/https:/\/\//g" $@ > $(SITE)/$@
 	git stage  $(SITE)/$@ 
 	git commit -a -m "daily $(DATE)"
 
