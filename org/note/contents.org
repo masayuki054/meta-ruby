@@ -1,19 +1,7 @@
-** オブジェクト指向へ至る道のノート
+* ruby のノート
+#+include: ruby-note.org
 
-#+include: oo-note.org
-
-** オブジェクト指向はクソか
-#+include: oo-note-oo-sucks.org
-
-** ruby のノート
- - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html][rubyノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/note/ruby-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/note/ruby-note.org][@s.org]]))
-
-** emacs のノート
-#+include: emacs-note.org
-
-** org-mode のノート
-#+include: org-note.org
-** memo
+* memo
 #+include:  memo.org
 
 

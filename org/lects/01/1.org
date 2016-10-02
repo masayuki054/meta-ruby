@@ -82,15 +82,6 @@
     [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
 
 
-* 講義のための環境つくり [/]
-** ruby実行環境
-** ruby プログラミング環境
-*** emacs
-*** emacs
-** 文芸的プログラミング環境
-    - emacs org-mode 
-
-
 * Ruby入門
 
   site: http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html

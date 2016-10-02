@@ -19,18 +19,16 @@ lects.html \
 ruby.html \
 emacs.html \
 oo.html
-
 #+END_SRC
 
 #+BEGIN_SRC makefile :tangle Makefile
 
 all: $(HTMLS)
+
+push:
 	git push -u origin master
 
 renewal: 
-	touch *.org
-	touch */*.org
-	make all
 
 index.html: info/common-header.org 
 lects.html: $(wildcard lects/*.org) info/common-header.org 

@@ -1,4 +1,6 @@
 # * OO
-#+include: to_oo-2.org :minlevel 1
-#+include: to_oo_note.org :minlevel 1
+#+include: to_oo.org :minlevel 1
+* オブジェクト指向に至るまで (まとめのまとめ）
+#+include: to_oo_note.org
+
 #+include: oo-note-oo-sucks.org :minlevel 1
