@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>2016 Ruby</title>
-<!-- 2016-10-02 日 22:06 -->
+<!-- 2016-10-03 月 07:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
@@ -89,7 +89,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/css/sos.css">
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/css/sos.css">
 <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
@@ -100,8 +100,8 @@
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/hideshow.js"></script>
-<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/sos.js"></script>
+<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/js/sos.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -178,9 +178,10 @@ for the JavaScript code in this tag.
 <li><a href="#sec-3-1">3.1. rbenv/gem/bundler</a>
 <ul>
 <li><a href="#sec-3-1-1">rbenv</a></li>
-<li><a href="#sec-3-1-2">rubyのインストール</a></li>
-<li><a href="#sec-3-1-3">gem &#x2013; ruby のパッケージ管理</a></li>
-<li><a href="#sec-3-1-4">bundler</a></li>
+<li><a href="#sec-3-1-2">自前で rbenv+ruby-build をインストール</a></li>
+<li><a href="#sec-3-1-3">rubyのインストール</a></li>
+<li><a href="#sec-3-1-4">gem &#x2013; ruby のパッケージ管理</a></li>
+<li><a href="#sec-3-1-5">bundler</a></li>
 </ul>
 </li>
 <li><a href="#sec-3-2">3.2. pry</a></li>
@@ -360,7 +361,7 @@ for the JavaScript code in this tag.
 </p>
 
 <ul class="org-ul">
-<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html">ビギナーのためのRubyプログラミング入門のノート</a> ((<a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/git/org/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html">@cis.org</a> <a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.html">@s.org</a>))
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html">ビギナーのためのRubyプログラミング入門のノート</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/lects/ruby-begin-note.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.html">@s.org</a>))
 </li>
 </ul>
 </div>
@@ -520,7 +521,7 @@ Rubyには「ERB」と呼ばれる、HTMLの中にRubyのスクリプトを埋�
 </p>
 
 <p>
-ruby のための emacs の設定については，<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html">emacsの設定</a> ((<a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/git/org/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html">@cis.org</a> <a href="file:///users/home/masayuki/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.html">@s.org</a>))
+ruby のための emacs の設定については，<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html">emacsの設定</a> ((<a href="file:///home/staff/suzuki/lects/meta-ruby/org-docs/emacs-setup.html">@cis.org</a> <a href="file:///home/staff/suzuki/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.html">@s.org</a>))
 </p>
 </div>
 
@@ -545,9 +546,36 @@ ruby のための emacs の設定については，<a href="http://wiki.cis.iwat
 </ul>
 </div>
 </div>
+
 <div id="outline-container-sec-3-1-2" class="outline-4">
-<h4 id="sec-3-1-2">rubyのインストール</h4>
+<h4 id="sec-3-1-2">自前で rbenv+ruby-build をインストール</h4>
 <div class="outline-text-4" id="text-3-1-2">
+<p>
+古いLinuxでも，最新の ruby が使えるように。
+</p>
+
+<p>
+<a href="http://dev.classmethod.jp/server-side/language/build-ruby-environment-by-rbenv/">rbenv を利用した Ruby 環境の構築 ｜ Developers.IO</a>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bash_profile
+echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bash_profile
+
+source ~/.bash_profile
+rbenv --version
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3">rubyのインストール</h4>
+<div class="outline-text-4" id="text-3-1-3">
 <p>
 <a href="http://www.task-notes.com/entry/20140707/1404744444">Ruby開発環境の準備+rbenvの使い方 - TASK NOTES</a>
 </p>
@@ -600,9 +628,9 @@ which irb  # 対話型 ruby インタプリター
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3" class="outline-4">
-<h4 id="sec-3-1-3">gem &#x2013; ruby のパッケージ管理</h4>
-<div class="outline-text-4" id="text-3-1-3">
+<div id="outline-container-sec-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4">gem &#x2013; ruby のパッケージ管理</h4>
+<div class="outline-text-4" id="text-3-1-4">
 <p>
 <a href="http://allabout.co.jp/gm/gc/439246/3/">RubyGems (gem) の使い方・インストール方法</a>
 </p>
@@ -619,9 +647,9 @@ gemを使ってパッケージをいれてみましょう:
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-4" class="outline-4">
-<h4 id="sec-3-1-4">bundler</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-sec-3-1-5" class="outline-4">
+<h4 id="sec-3-1-5">bundler</h4>
+<div class="outline-text-4" id="text-3-1-5">
 <p>
 この講義では使いませんが，一応紹介です:
 </p>
@@ -1527,7 +1555,7 @@ rails cを再起動しなくて済む。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-02 日 22:06</p>
+<p class="date">Created: 2016-10-03 月 07:42</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
