@@ -131,6 +131,25 @@
     - ~/.rbenv/ の配下にバージョンごとに
     - ~/.rbenv/shims/ の配下にえらんだバージョンのバイナリへのリンクが
       ある
+
+*** 自前で rbenv+ruby-build をインストール
+
+古いLinuxでも，最新の ruby が使えるように。
+
+[[http://dev.classmethod.jp/server-side/language/build-ruby-environment-by-rbenv/][rbenv を利用した Ruby 環境の構築 ｜ Developers.IO]]
+
+#+BEGIN_SRC sh
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+source ~/.bash_profile
+rbenv --version
+
+#+END_SRC
+
 *** rubyのインストール 
 
     [[http://www.task-notes.com/entry/20140707/1404744444][Ruby開発環境の準備+rbenvの使い方 - TASK NOTES]]
