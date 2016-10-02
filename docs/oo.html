@@ -4,7 +4,7 @@
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>2016 ObjectOrientedについて</title>
-<!-- 2016-10-02 日 20:16 -->
+<!-- 2016-10-02 日 21:54 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
@@ -160,8 +160,8 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1-1">1.1. オブジェクト指向以前</a>
 <ul>
-<li><a href="#sec-1-1-1">Done ソフトウェア危機</a></li>
-<li><a href="#sec-1-1-2">Done 構造化プログラミング</a>
+<li><a href="#sec-1-1-1">ソフトウェア危機</a></li>
+<li><a href="#sec-1-1-2">構造化プログラミング</a>
 <ul>
 <li>
 <ul>
@@ -170,7 +170,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#sec-1-1-3">Done モジュラプログラミング</a>
+<li><a href="#sec-1-1-3">モジュラプログラミング</a>
 <ul>
 <li>
 <ul>
@@ -182,78 +182,128 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-2">2. オブジェクト指向に至るまで</a>
-<ul>
-<li><a href="#sec-2-1">2.1. ソフトウェア危機</a></li>
-<li><a href="#sec-2-2">2.2. 構造化プログラミング</a></li>
-<li><a href="#sec-2-3">2.3. モジュラプログラミング</a>
+<li><a href="#sec-1-1-4">抽象データ型</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-3-0-1">凝集度と結合度</a></li>
-<li><a href="#sec-2-3-0-2">悪い結合、良い結合</a></li>
-<li><a href="#sec-2-3-0-3">悪い凝集、良い凝集</a></li>
-<li><a href="#sec-2-3-0-4">状態と副作用の支配</a></li>
+<li><a href="#sec-1-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-2-4">2.4. 抽象データ型</a>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. オブジェクト指向?</a></li>
+<li><a href="#sec-1-3">1.3. Simula &amp; C++のオブジェクト指向</a>
+<ul>
+<li><a href="#sec-1-3-1">どの処理を呼び出すか決めるメカニズム</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-2-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-3">3. オブジェクト指向?</a></li>
-<li><a href="#sec-4">4. Simula &amp; C++のオブジェクト指向</a>
+<li><a href="#sec-1-3-1-0-1">動的ディスパッチ</a></li>
+<li><a href="#sec-1-3-1-0-2">継承と委譲</a>
 <ul>
-<li><a href="#sec-4-1">4.1. どの処理を呼び出すか決めるメカニズム</a>
-<ul>
-<li><a href="#sec-4-1-1">動的ディスパッチ</a></li>
-<li><a href="#sec-4-1-2">継承と委譲</a>
-<ul>
-<li><a href="#sec-4-1-2-1">継承</a></li>
-<li><a href="#sec-4-1-2-2">委譲</a></li>
+<li><a href="#sec-1-3-1-0-2-1">継承</a></li>
+<li><a href="#sec-1-3-1-0-2-2">委譲</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-1-0-3">オブジェクト指向の要素</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4-2">4.2. オブジェクト指向の要素</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<li><a href="#sec-1-4">1.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
 <ul>
-<li><a href="#sec-5-1">5.1. 仮想機械としてのオブジェクト</a></li>
-<li><a href="#sec-5-2">5.2. メッセージング</a>
+<li><a href="#sec-1-4-1">仮想機械としてのオブジェクト</a></li>
+<li><a href="#sec-1-4-2">メッセージング</a>
 <ul>
-<li><a href="#sec-5-2-1">動的な送信</a></li>
-<li><a href="#sec-5-2-2">メッセージ転送  (Wikipedia)</a></li>
-<li><a href="#sec-5-2-3">非同期送信</a></li>
+<li><a href="#sec-1-4-2-1">動的な送信</a></li>
+<li><a href="#sec-1-4-2-2">メッセージ転送</a></li>
+<li><a href="#sec-1-4-2-3">非同期送信</a></li>
 </ul>
 </li>
-<li><a href="#sec-5-3">5.3. オブジェクト指向という言葉が意味していること</a></li>
+<li><a href="#sec-1-4-3">オブジェクト指向という言葉が意味していること</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. Joe Armstrongのオブジェクト指向はクソだ！</a>
-<ul>
-<li><a href="#sec-6-1">6.1. オブジェクト指向が"Suck"である理由</a>
-<ul>
-<li><a href="#sec-6-1-1">反論その１</a></li>
-<li><a href="#sec-6-1-2">反論その２</a></li>
-<li><a href="#sec-6-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</a></li>
-<li><a href="#sec-6-1-4">反論その４</a></li>
+<li><a href="#sec-1-5">1.5. まとめ</a></li>
+<li><a href="#sec-1-6">1.6. あとがき</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-2">6.2. オブジェクトが広まった理由</a></li>
+<li><a href="#sec-2">2. オブジェクト指向あれこれ</a></li>
+<li><a href="#sec-3">3. オブジェクト指向に至るまで (まとめのまとめ）</a>
+<ul>
+<li><a href="#sec-3-1">3.1. オブジェクト指向に至るまで</a>
+<ul>
+<li><a href="#sec-3-1-1">ソフトウェア危機</a></li>
+<li><a href="#sec-3-1-2">構造化プログラミング</a></li>
+<li><a href="#sec-3-1-3">モジュラプログラミング</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-3-1-3-0-1">凝集度と結合度</a></li>
+<li><a href="#sec-3-1-3-0-2">悪い結合、良い結合</a></li>
+<li><a href="#sec-3-1-3-0-3">悪い凝集、良い凝集</a></li>
+<li><a href="#sec-3-1-3-0-4">状態と副作用の支配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3-1-4">抽象データ型</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-3-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3-2">3.2. オブジェクト指向?</a></li>
+<li><a href="#sec-3-3">3.3. Simula &amp; C++のオブジェクト指向</a>
+<ul>
+<li><a href="#sec-3-3-1">どの処理を呼び出すか決めるメカニズム</a>
+<ul>
+<li><a href="#sec-3-3-1-1">動的ディスパッチ</a></li>
+<li><a href="#sec-3-3-1-2">継承と委譲</a>
+<ul>
+<li><a href="#sec-3-3-1-2-1">継承</a></li>
+<li><a href="#sec-3-3-1-2-2">委譲</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3-3-2">オブジェクト指向の要素</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-4">3.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<ul>
+<li><a href="#sec-3-4-1">仮想機械としてのオブジェクト</a></li>
+<li><a href="#sec-3-4-2">メッセージング</a>
+<ul>
+<li><a href="#sec-3-4-2-1">動的な送信</a></li>
+<li><a href="#sec-3-4-2-2">メッセージ転送  (Wikipedia)</a></li>
+<li><a href="#sec-3-4-2-3">非同期送信</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-4-3">オブジェクト指向という言葉が意味していること</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Joe Armstrongのオブジェクト指向はクソだ！</a>
+<ul>
+<li><a href="#sec-4-1">4.1. オブジェクト指向が"Suck"である理由</a>
+<ul>
+<li><a href="#sec-4-1-1">反論その１</a></li>
+<li><a href="#sec-4-1-2">反論その２</a></li>
+<li><a href="#sec-4-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</a></li>
+<li><a href="#sec-4-1-4">反論その４</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2">4.2. オブジェクトが広まった理由</a></li>
 </ul>
 </li>
 </ul>
@@ -289,7 +339,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-sec-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">Done ソフトウェア危機</h4>
+<h4 id="sec-1-1-1">ソフトウェア危機</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> (wikipedia) とは
@@ -326,7 +376,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-sec-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">Done 構造化プログラミング</h4>
+<h4 id="sec-1-1-2">構造化プログラミング</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 ダイクストラは構造化プログラミングを提案した
@@ -396,7 +446,7 @@ structures)。
 </div>
 
 <div id="outline-container-sec-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">Done モジュラプログラミング</h4>
+<h4 id="sec-1-1-3">モジュラプログラミング</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 こういった背景のなか、プログラムは大きく複雑になり続ける。至極自然
@@ -685,14 +735,1136 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 </div>
+
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4">抽象データ型</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+よいモジュール化の肝は、状態と副作用を隠蔽し、データとアルゴリズム
+をひとまとめにすることだった。
+</p>
+
+<p>
+それらを言語的に支援するために抽象データ型という概念が誕生した。
+</p>
+
+<p>
+抽象データ型は、今で言うクラスのことだ。すなわちデータとそれに関連
+する処理をひとまとめにしたデータ型のことだ。ようやくオブジェクト指
+向の話に近づいてきた。ダイクストラの構造化プログラミングでは、デー
+タ処理をどのように抽象化するかが課題として残っていた。
+</p>
+
+<p>
+また、データ型と実際のメモリアロケーションは別であるので、新たに変
+数を定義するとデータの共有はしない。あるデータ型を実際に存在するメ
+モリに割り当てることをインスタンス化という。
+</p>
+
+<p>
+抽象データ型のポイントは、その内部データへのアクセスを抽象データ型
+にひもづいた関数でしか操作することができないという考え方だ。
+</p>
+
+<p>
+これはつまり、たとえば、先ほどのC言語の例でいうと
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">//people.h
+
+typedef struct {
+    //内部構造も公開している
+} people;
+
+void people_init(people *p,...);
+
+char * people_get_name(people *p);
+
+void people_set_name(people *p,char *name);
+</pre>
+</div>
+
+<p>
+このままだと、構造体の内部構造も公開しているので、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">people user;
+user.age = 10;
+printf("%d years old",user.age);
+</pre>
+</div>
+
+<p>
+のように内部構造に直接アクセスできてしまう。C言語では、テクニック
+としてperson.h　こちらを公開する
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">typedef struct sPerson person;
+
+void person_init(person *p,...);
+
+char * person_get_name(person *p);
+
+void person_set_name(person *p,char *name);
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c">//people_private.h　こちらはモジュール内で利用する
+
+#include "person.h";
+
+struct sPerson {
+    //　ここに内部構造
+};
+
+//非公開用関数
+_person_private(person *p,....);
+</pre>
+</div>
+
+<p>
+公開するヘッダと非公開のヘッダを分けることで、情報の隠蔽を行い抽象
+データ型としての役目を成り立たせている。
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-4-0-1" class="outline-6">
+<h6 id="sec-1-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</h6>
+<div class="outline-text-6" id="text-1-1-4-0-1">
+<p>
+C言語の構造体であっても、ヘッダファイルの定義と実装を分けることで、
+抽象データ型の内部構造を隠蔽することができたが、言語機能として外
+部からのアクセスに対する制限を明示できるようにサポートした。カプ
+セル化やブラックボックス化というのは情報隠蔽よりも広い概念ではあ
+るが、これらの機能によって、「悪い結合」を引き起こさないようにし
+ている。
+</p>
+
+<p>
+JavaやC#などのアクセス修飾子がそれにあたる。
+</p>
+
+<p>
+PerlやJavaScriptなどアクセス修飾子の無い言語では、公開と非公開を
+明確に区別せず、_privateMethodのようにアンダースコアを先頭につけ
+ることで、擬似的に公開と非公開を区別する。
+</p>
+
+<p>
+いずれにしても、ポイントは抽象化されたデータを取り扱うレイヤは、
+抽象化されていない生の階層を直接触ることがないという階層化の考え
+方だ。
+</p>
+
+<p>
+これによって、複雑化した要求を抽象化の階層を定義していくという現
+代的なプログラミングスタイルが確立した。
+</p>
 </div>
 </div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> オブジェクト指向?</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+最初のオブジェクト指向言語は、1960年代に出現したSimulaという言語だ。
+</p>
+
+<p>
+これはシミュレーション記述のために作られた言語であったが、後に汎用言
+語となった。
+</p>
+
+<p>
+オブジェクト、クラス（抽象データ型）、動的ディスパッチ、継承が既にあ
+り、ガーベジコレクトまで実装されていたらしい。汎用言語としてそこまで
+はやることはなかったが、これらの優れたコンセプトは今現在まで生き残っ
+ている。
+</p>
+
+<p>
+Simulaの優れたコンセプトをもとに，２つの，今でも使われている，C言語
+拡張が生まれた。
+</p>
+
+<p>
+一つはC++。もう一つはObjective-Cである。
+</p>
+
+<p>
+C言語はとても実際的なものだったので、それにプリプロセッサの形で優れ
+たコンセプトを輸入しようとしたのは当然の成り行きといえばそうだ。
+</p>
+
+<p>
+SimulaのコンセプトをもとにSmalltalkという言語というか環境が爆誕した。
+</p>
+
+<p>
+Smalltalkは、Simulaのコンセプトに「メッセージング」という概念を加え、
+それらを再統合した。Smalltalkはすべての処理がメッセージ式として記述
+される「純粋オブジェクト指向言語」だ。
+</p>
+
+<p>
+そもそもオブジェクト指向という言葉はここで誕生した。
+</p>
+
+<p>
+オブジェクト指向という言葉の発明者であるアランケイは後に「オブジェク
+ト指向という名前は失敗だった」と述べている。メッセージングの概念が軽
+視されて伝わってしまうからだという。
+</p>
+
+<p>
+何にせよ、このSmalltalkの概念をもとにC言語を拡張したのがObjective-C
+だ。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Simula &amp; C++のオブジェクト指向</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+C++の作者であるビャーネ・ストロヴストルップは、オブジェクト指向を
+「『継承』機構と『多態性』を付加した『抽象データ型』のスーパーセット」
+として整理した。
+</p>
+
+<p>
+C++ではメソッドのことをメンバー関数と呼ぶ。これはSimulaがメンバープ
+ロシージャと読んでいるところに由来する。メソッドは、Smalltalkが発明
+した用語だ。
+</p>
+</div>
+
+<div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">どの処理を呼び出すか決めるメカニズム</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
+</p>
+
+<p>
+特に多態がいまいちわかりにくい。オブジェクト指向プログラミングの説明で
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = number.StringValue
+string = date.StringValue
+</pre>
+</div>
+
+<p>
+これで、それぞれ違う関数が呼び出されるのがポリモーフィズムですよと
+呼ばれる。
+</p>
+
+<p>
+これだけだとシグネチャも違うので、違う処理が呼ばれるのも当たり前に
+見える。
+</p>
+
+<p>
+では、こう書いてみたらどうか
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string = stringValue(number) // 実際にはNumberToStringが呼ばれる
+string = stringValue(date)   // 実際にはDateToStringが呼ばれる
+</pre>
+</div>
+
+<p>
+このようにしたときに、すこし理解がしやすくなる。引数の型によって呼
+ばれる関数が変わる。こういう関数を polymorphic (poly-複数に morphic-
+変化する) な関数という。
+</p>
+
+<p>
+これをみたときに"関数のオーバーロード"じゃないか？と思った人は鋭い。
+<a href="https://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9">https://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E5%AE%9A%E7%BE%A9</a>
+</p>
+
+<p>
+多態とは異なる概念とされるが、引数によって呼ばれる関数が変わるとい
+う意味では似ている。しかし、次のようなケースで変わってくる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">function toString(IStringValue sv) string {
+    return StringValue(sv)
+}
+</pre>
+</div>
+
+<p>
+IStringValueはStringValueという関数を実装しているオブジェクトを表す
+インターフェースだ。これを受け取ったときに、関数のオーバーロードで
+は、どの関数に解決したら良いか判断がつかない。関数のオーバーロード
+は、コンパイル時に型情報を付与した関数を自動的に呼ぶ仕組みだからだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">stringValue(number:Number) =&gt; StringValue-Number(number)
+stringValue(date :Date)  =&gt; StringValue-Date(date)
+
+function toString(IStringValue sv) string {
+    return StringValue(sv) =&gt; StringValue-IStringValue (無い！)
+}
+</pre>
+</div>
+
+<p>
+それに対して、動的なポリモーフィズムを持つコードの場合、次のように
+動作してくれるので、インターフェースを用いた例でも予想通りの動作を
+する。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">function StringValue(v:IstringValue){
+    switch(v.class){ //オブジェクトが自分が何者かということを知っている。
+    case Number: return StringValue-Number(number)
+    case Date   : return StringValue-Date(date)
+    }
+}
+</pre>
+</div>
+
+
+<p>
+このようにどの関数を呼び出すのかをデータ自身に覚えさせておき、実行
+時に探索して呼び出す手法を <b>動的分配*，*動的ディスパッチ</b> と呼ぶ。
+</p>
+
+<p>
+このように動的なディスパッチによる多態性はどのような意味があるのか。
+</p>
+
+<p>
+それはインターフェースによるコードの再利用と分離である。
+</p>
+
+<p>
+特定のインターフェースを満たすオブジェクトであれば、それを利用した
+コードを別のオブジェクトを作ったとしても再利用できる。
+</p>
+
+<p>
+これによって、悪い凝集で例に挙げた論理的凝集をさけながら、
+汎用的な処理を記述することができるのだ。
+</p>
+
+<p>
+オブジェクト指向がはやり始めた当時は、再利用という言葉が比較的バズっ
+たが、現在的に言い換えるなら、インターフェースに依存した汎用処理と
+して記述すれば、結合度が下がり、テストが書きやすくなったり、仕様変
+更に強くなったりする。
+</p>
+</div>
+
+<div id="outline-container-sec-1-3-1-0-1" class="outline-6">
+<h6 id="sec-1-3-1-0-1">動的ディスパッチ</h6>
+<div class="outline-text-6" id="text-1-3-1-0-1">
+<p>
+動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
+ており、また、実行時に関数テーブルを探索して、どの関数を実行する
+かというところにある。SimulaもC++もvirtualという予約語を用いて、
+仮想関数の動的分配をすることを宣言できる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">/*
+Vtable for B1
+B1::_ZTV2B1: 3u entries
+0     (int (*)(...))0
+8     (int (*)(...))(&amp; _ZTI2B1)
+16    B1::f1
+
+Class B1
+   size=16 align=8
+   base size=16 base align=8
+B1 (0x7ff8afb7ad90) 0
+    vptr=((&amp; B1::_ZTV2B1) + 16u)
+ */
+class B1 {
+public:
+    void f0(){}
+    virtual void f1(){}
+    char before_b0_char;
+    int member_b1;
+};
+/*
+Class B0
+   size=4 align=4
+   base size=4 base align=4
+B0 (0x7ff8afb7e1c0) 0
+ */
+class B0{
+private:
+    void f(){};
+    int member_b1;
+};
+</pre>
+</div>
+
+<p>
+このようにデータ自身にvtable(仮想関数テーブル）へのポインタを埋め込んであり、
+それをたどることで解決する。
+</p>
+
+<p>
+逆にvirtual宣言をしなければ、仮想関数テーブルをたどるというオーバー
+ヘッドなしに関数を呼ぶことができる。Javaでは、デフォルトでvirtual
+宣言されているのと等価に動的なディスパッチが行われる。C++やC#では、
+動的ディスパッチのコストを必要なときにしか利用しないために(ゼロオー
+バーヘッドポリシー)、virtual宣言を明示的にする必要がある。
+</p>
+
+<p>
+objective-Cも同様であるが、関数ポインタを直に取得することでこのオー
+バーヘッドを回避することができる。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++">//objectivce-c.m
+
+SEL selector = @selector(f0); 
+IMP p_func = [obj methodForSelector : selector ];
+// p_funcを保持しておいて、繰り返しなどで
+   :
+pfunc(obj , selector);   // pfunc使うと、探索コストを減らせる。
+// 何か重要でない限りする必要はない。
+</pre>
+</div>
+
+<p>
+疑似コードで、この動的なディスパッチを表現するとこのようになる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">//動的ディスパッチの疑似コード
+
+var PERSON_TABLE = {
+    "getName" : function(self){return self.name},
+};
+
+var object = {
+    _vt_ : PERSON_TABLE, // 自分が何ができるか教える
+    name : "daichi hiroki"
+};
+
+// メソッドを動的に呼び出す
+function methodCall(object,methodName){
+    // オブジェクト自身を第一引数として束縛する
+    return object._vt_[methodName](object)
+}
+
+methodCall(object,"getName");
+</pre>
+</div>
+
+<p>
+こうなってくると、多態を実現するためには、３つの要素が必要だとわかる。
+</p>
+
+<ul class="org-ul">
+<li>データに自分自身が何者か教える機能
+</li>
+<li>メソッドを呼び出した際にそれを探索する機能
+</li>
+<li>オブジェクト自身を参照できるように引数に束縛する機能
+</li>
+</ul>
+
+<p>
+あとからオブジェクト指向的機能を追加したperl5の例が、これらを端的
+に追加しているので見ていこう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">package Person;
+
+sub new {
+    my($class,$ref) = @_;
+    #リファレンスとパッケージを結びつけるbless関数
+    # $classはPersonパッケージを表す
+    return bless( $object, $ref );
+}
+sub get_name{
+    my ($self) = @_;
+    $self-&gt;{name};
+}
+
+#メソッドの動的な探索と第一引数に束縛する-&gt;アロー演算子
+my $person = Person-&gt;new({ name =&gt; "daichi hiroki"});
+$person-&gt;get_name;
+</pre>
+</div>
+
+<p>
+このなかで、bless関数はリファレンスに対して、リファレンス自身が
+「関数を探索するべきモジュールはここですよ。」と教えている。
+（blessは祝福するという意味。パッケージのご加護が守護霊みたいにくっ
+つくイメージ。）
+</p>
+
+<p>
+また-&gt;演算子を使うことで、自動的に探索と呼び出しを実現している。
+</p>
+
+<p>
+あと付けでOOP機能を足そうというときに、たった二つの機能で多態を実
+現したPerl5のアプローチにはたぐいまれなセンスを感じる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-1-0-2" class="outline-6">
+<h6 id="sec-1-3-1-0-2">継承と委譲</h6>
+<div class="outline-text-6" id="text-1-3-1-0-2">
+</div><div id="outline-container-sec-1-3-1-0-2-1" class="outline-7">
+<h7 id="sec-1-3-1-0-2-1">継承</h7>
+<div class="outline-text-7" id="text-1-3-1-0-2-1">
+<p>
+さて、SimulaとC++がもたらした最後の要素は継承だ。継承は、あるク
+ラスの機能をもったまま、別の機能を追加したもう一つのクラスを作る
+仕組みだ。
+</p>
+
+<p>
+まずはデータだけで考えてみよう。
+生徒と先生の管理をしたいというときに、
+二つに共通しているデータ構造は名前、性別、年齢であり、
+生徒は追加して、学科と年次を管理し、
+先生は追加して、専門と月収を管理したいとする。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">typedef struct {
+    int age;
+    int sex;
+    char *name;
+} Person;
+
+typedef struct {
+    People people;
+    int grade;
+    int study:
+} Student;
+
+typedef struct {
+    People people;
+    int field;
+    int salary;
+} Teacher;
+
+Teacher t;
+t.people.age = 10;
+</pre>
+</div>
+
+<p>
+とするとこのように構造体に構造体を埋め込むことで、共通するデータ
+構造を持つことができる。
+</p>
+
+<p>
+これに処理を追加する場合、次のようにするだろう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c">char * person_get_name(Person *self) {
+    return self-&gt;name;
+}
+char * teacher_get_name(Teacher *self){
+    return person_get_name((People *)self);
+}
+
+char * teacher_get_name_2(Teacher *self){
+    return person_get_name(&amp;self.person);
+}
+
+Teacher *pt = teacher_alloc_init(30,MALE,"daichi hiroki",MATH,30);
+teacher_get_name(pt);
+</pre>
+</div>
+
+<p>
+このようにアップキャストして、埋め込んだ構造体内部にアクセスすることができる。
+それか、埋め込んだ構造体をそのまま渡すなどして、処理の共通化を実現する。
+</p>
+
+<p>
+しかし、これでは処理の共通化をするごとにその呼び出しコードを追加する必要がある。
+これをうまく提供してくれるのが 継承機能だ。
+</p>
+
+<p>
+public/protectedなメンバー関数やメンバー変数に対して、継承関係をたどって
+探すことができる。
+</p>
+
+<p>
+そのため
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">Teacher *t = new Teacher;
+t-&gt;get_name; // Teacher自体に宣言がなくても、Peopleクラスを探索してくれる。
+</pre>
+</div>
+
+<p>
+のように書くことができる。
+</p>
+
+<p>
+また、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">string nameFormat(People *p)  {
+    return sprintf("%s(%d) %s",p-&gt;get_name,p-&gt;get_age,(p-&gt;get_sex == MALE) ? "男性" :"女性");  
+}
+</pre>
+</div>
+
+<p>
+というような関数があったときに、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">Person *p = new Person;
+Student *s = new Student;
+Teacher *t = new Teacher;
+
+nameFormat(p);
+nameFormat(s);
+nameFormat(t);
+</pre>
+</div>
+
+<p>
+Person自身かそのサブクラスであれば、共通の処理を利用することができる。
+</p>
+
+<p>
+この継承関係を言語機能として提供するためにperl5では、もう一つの機能を追加する。
+それが@ISAだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">package Person;
+sub get_name{"person"}
+
+package Student;
+# @ISAにパッケージを追加するとblessされたパッケージに関数がなかった場合にそちらを探索に行く
+our @ISA = qw/Person/;
+
+package Teacher;
+our @ISA = qw/Person/;
+</pre>
+</div>
+
+<p>
+このようにどこを探索するのかという情報だけ宣言できるようにすれば、
+問題なく継承関係を表現することができる。
+</p>
+
+<p>
+ちょうど、FQNで表記すると
+</p>
+
+<p>
+@Teacher::ISA="Person"という表現になり、teacher is a personという関係が成り立っていることを表現している。
+</p>
+
+<p>
+このときのメソッド探索を疑似コードで書くと次のようになる。
+動的ディスパッチの疑似コード
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">var PERSON_TABLE = {
+    "getName" : function(self){return self.name}
+};
+
+var STUDENT_TABLE = {
+    "getGrade" : function(self){return self.grade},
+    "#is-a#"  : PERSON_TABLE
+};
+
+var object = {
+    _vt_ : STUDENT_TABLE, // 自分が何ができるか教える
+    name : "daichi hiroki"
+};
+
+// メソッドを動的に呼び出す
+function methodCall(object,methodName){
+
+    var vt = object._vt_;
+    // is-aを順番にたどってmethodを見つけて実行する
+    while(vt){
+	var method = vt[methodName];
+	if( method ) return method(object);
+	vt = vt["#is-a#"];
+    }
+    throw Error;
+}
+
+methodCall(object,"getName");
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-1-0-2-2" class="outline-7">
+<h7 id="sec-1-3-1-0-2-2">委譲</h7>
+<div class="outline-text-7" id="text-1-3-1-0-2-2">
+<p>
+継承の代わりに委譲という手段を用いているプログラミング言語がある。
+これはSimulaとC++の系譜とは少し違うが、動的ディスパッチの話をしたので
+簡単に説明する。
+</p>
+
+<p>
+これは、クラスベースのオブジェクト指向に対してプロトタイプベース
+のオブジェクト指向と呼ばれたりする。身近な例ではJavaScriptなどだ。
+</p>
+
+<p>
+継承と委譲の違いは先ほどのC言語の例で言えば、すごく単純で埋め込む構造体が
+ポインタかそうでないかという違いくらいだ。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">typedef struct {
+    int age;
+    int sex;
+    char *name;
+} Person;
+
+typedef struct {
+	Person* person;
+    int grade;
+    int study:
+} Student;
+
+typedef struct {
+    Person* person;
+    int field;
+    int salary;
+} Teacher;
+</pre>
+</div>
+
+<p>
+委譲は、探索先のオブジェクトを動的に書き換えることができる。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++">t-&gt;person = new Person;
+</pre>
+</div>
+
+<p>
+疑似コードで言えば、
+動的ディスパッチの疑似コード
+</p>
+
+<p>
+var hogetaro = {
+    getName : function(self){return self.name},
+    name       : "hogetaro"
+};
+</p>
+
+<p>
+var object = {
+    <span class="underline">prototype</span> : hogetaro, // 次に探索するオブジェクトを決める
+    name : "daichi hiroki"
+};
+</p>
+
+<p>
+// メソッドを動的に呼び出す
+function methodCall(object,methodName){
+    //　最初は自分自身
+    var pt = object;
+    // is-aを順番にたどってmethodを見つけて実行する
+    while(pt){
+        var method = pt[methodName];
+        if( method ) return method(object);
+        pt = pt._prototype_;
+    }
+    throw Error;
+}
+</p>
+
+<p>
+methodCall(object,"getName");
+object._prototype_ = { getName:function(){return "hello"}};
+// プロトタイプは動的に書き換えることができる。
+methodCall(object,"getName");
+</p>
+
+<p>
+このようになる。
+こうやって、prototypeを順番に追って検索していくのをjavascriptではプロトタイプチェーンと読んでいる。luaであれば同じ役割をするのがmetatableというものがある。
+</p>
+
+<p>
+こういった委譲によるメソッド探索は、動的継承とも呼ばれている。
+</p>
+
+<p>
+このようにメソッドの動的な探索に対して、どのような機構をつけるのかというのが
+オブジェクト指向では重要な構成要素と言える。
+</p>
+
+<p>
+rubyのmoduleやそのinclude,prepend、特異メソッド、特異クラスなどは
+まさにその例だ。
+</p>
+
+<p>
+それらをjavascriptで疑似コード的に実装した例として、こちらを参照してもらいたい。
+<a href="https://qiita.com/hirokidaichi/items/f653a843208971981c37">https://qiita.com/hirokidaichi/items/f653a843208971981c37</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3-1-0-3" class="outline-6">
+<h6 id="sec-1-3-1-0-3">オブジェクト指向の要素</h6>
+<div class="outline-text-6" id="text-1-3-1-0-3">
+<p>
+このようにオブジェクト指向のための機能は、
+</p>
+
+<p>
+抽象データ型：データと処理をひもづける
+抽象データ型：情報の隠蔽を行うことができる
+オブジェクト：データ自身が何者か知っている
+動的多態：オブジェクト自身のデータと処理を自動的に探索する
+探索先の設定：継承、委譲
+</p>
+
+<p>
+ということになる。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+アランケイの「オブジェクト指向」の定義:
+</p>
+<blockquote>
+<p>
+パーソナルコンピューティングに関わる全てを『オブジェクト』とそれらの間
+で交わされる『メッセージ送信』によって表現すること
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1">仮想機械としてのオブジェクト</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+アランケイの世界観の中では、メモリとCPUとそれに対する命令を持つ機械
+をさらに抽象化するとしたら、それは同じくデータと処理と命令セットを
+もつ仮想機械で抽象化されるべきだと考えていた。
+</p>
+
+<p>
+構造化プログラミングの中でダイクストラが仮想機械として階層
+的に抽象化すべきだと言っていたこととかぶる。
+</p>
+
+<p>
+オブジェクトは独立した機械と見なし，それに対してメッセージを送り、
+自ら持つデータの責任は自らが負う。
+</p>
+
+<p>
+Smalltalkの実行環境もまた仮想機械として作られている。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2">メッセージング</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+Smalltalkでメッセージ送信は下記のように記述する:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">receiver message
+</pre>
+</div>
+
+<p>
+Objective-Cであれば、C言語の中に次のように書く:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-objective-c">[receiver message]
+[receiver methodName:args1 with:args]
+</pre>
+</div>
+
+<p>
+メッセージとは通信のアナロジーだ。アドレスさえ知っていれば、メッセー
+ジは自由に送れる。受信者(レシーバ)はメッセージを受け取っているにす
+ぎないので、その解釈は自由に行うことができる。
+</p>
+
+<p>
+このメッセージらしさが出てくる特徴をいくつか紹介しよう。
+</p>
+</div>
+
+<div id="outline-container-sec-1-4-2-1" class="outline-5">
+<h5 id="sec-1-4-2-1">動的な送信</h5>
+<div class="outline-text-5" id="text-1-4-2-1">
+<p>
+メッセージ内容もまたオブジェクトにすぎないので、動的に作成し、送ることができる。
+たとえば、rubyのObject#sendがその性質をそのまま表現している。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class A
+  def hello
+    p "hello"
+  end
+end
+
+a = A.new
+# 動的にメソッドを作成
+method = "he" + "ll" + "o"
+# それを呼び出す
+a.send(method)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-2-2" class="outline-5">
+<h5 id="sec-1-4-2-2">メッセージ転送</h5>
+<div class="outline-text-5" id="text-1-4-2-2">
+<p>
+受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
+り扱うことができる。
+</p>
+
+<p>
+<a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">メッセージ転送 - Wikipedia</a>
+</p>
+
+<ul class="org-ul">
+<li>rubyの method_missing や Objective-C の forwardInvocation がそれ
+にあたる。他にもPerlのAUTOLOADなど、最近の動的型言語には用意され
+ていることが多い。
+</li>
+
+<li>proxy.rb
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class Proxy
+  def method_missing(name, *args, &amp;block)
+    target.send(name, *args, &amp;block)
+  end
+
+  def target
+    @target ||= []
+  end
+end
+
+Proxy.new &lt;&lt; 1
+
+'end'
+</pre>
+</div>
+
+<p>
+たとえば、Proxyクラスをこのように定義してあげるとすべてのメッセージ
+を@targetのオブジェクトにそのまま転送してあげることができる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-2-3" class="outline-5">
+<h5 id="sec-1-4-2-3">非同期送信</h5>
+<div class="outline-text-5" id="text-1-4-2-3">
+<p>
+ほとんどの言語でメッセージの結果を同期的に受け取るようになっている
+ので、意識しづらいが、メッセージというアナロジーである以上、それを
+同期的に待ち受ける必要はない。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3">オブジェクト指向という言葉が意味していること</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<p>
+このようにメッセージパッシングというアナロジーを使うことで、様々な
+性質がオブジェクト指向には加わることになった。
+</p>
+
+<p>
+しかし、オブジェクト指向という言葉が意味しているのが、C++の再定義
+したオブジェクト指向として理解されることで、このメッセージパッシン
+グの要素が意識されなくなってしまったため、前述したようにアランケイ
+はその命名が不適切だったと考えているらしい
+</p>
+
+<p>
+<a href="https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang">https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang</a>
+</p>
+
+<p>
+この記事は今までの議論の流れをふまえると、理解がしやすいと思う。
+特に
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+私は、オブジェクト指向プログラミングというものに疑問を持ち始めまし
+た。Erlangはオブジェクト指向ではなく、関数型プログラミング言語だと
+考えました。そして、私の論文の指導教官が言いました。「だが、あなた
+は間違っている。Erlangはきわめてオブジェクト指向です。」 彼は、オ
+ブジェクト指向言語はオブジェクト指向ではないといいました。これを信
+じるかどうかは確かではありませんでしたが、Erlangは唯一のオブジェク
+ト指向言語かもしれないと思いました。オブジェクト指向プログラミング
+の3つの主義は、メッセージ送信に基づいて、オブジェクト間で分離し、
+ポリモーフィズムを持つものです。
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> まとめ</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>オブジェクト指向も構造化プログラミングも問題の抽象化で同じことを見ていた。
+</li>
+
+<li>C++はSimulaからモジュール化や抽象データ型、動的多態といった良い性質を採用した。
+</li>
+
+<li>一方、SmalltalkはSimulaの着想をメッセージとオブジェクトという概念
+で統合した。それによって、様々な動的な性質を現在の言語にもたらして
+きた。
+</li>
+
+<li>また、メッセージパッシングという概念は、本質的には現在注目を浴びて
+いる Actor や CSP のような並行モデルと似通っており、興味深い。
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> あとがき</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+少しはオブジェクト指向という考え方の背景が見えてきて、それがより良い
+設計やコーディングにつながればうれしいです。
+</p>
+
+<p>
+この説明は、オブジェクト指向の説明の本流ではない、いわば傍流的なもの
+ではありますが、より実際的で、より技術的理解を必要とするものなので、
+初学者向けではなかったかと思います。ですが、これを理解することで、様々
+な言語機能の背景を推察することができ、バラバラの事柄が有機的につなが
+ることを期待しています。
+</p>
+</div>
+</div>
+</div>
+
+
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> オブジェクト指向に至るまで</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> オブジェクト指向あれこれ</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> ソフトウェア危機</h3>
-<div class="outline-text-3" id="text-2-1">
+<p>
+オブジェクト指向あれこれ
+<a href="https://d.hatena.ne.jp/asakichy/20090428/1240878836">https://d.hatena.ne.jp/asakichy/20090428/1240878836</a>
+</p>
+
+<p>
+アジャイル設計と5つの原則 - かまずにまるのみ。
+<a href="https://tdak.hateblo.jp/entry/20130703/1372842149">https://tdak.hateblo.jp/entry/20130703/1372842149</a>
+</p>
+
+<p>
+オブジェクト指向の法則集 - Qiita
+<a href="https://qiita.com/kenjihiranabe/items/9eddc70e279861992274">https://qiita.com/kenjihiranabe/items/9eddc70e279861992274</a>
+</p>
+
+<p>
+オブジェクト指向の本懐 - Strategic Choice
+<a href="https://d.hatena.ne.jp/asakichy/20090421/1240277448">https://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> オブジェクト指向に至るまで (まとめのまとめ）</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> オブジェクト指向に至るまで</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1">ソフトウェア危機</h4>
+<div class="outline-text-4" id="text-3-1-1">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> 
 </p>
@@ -710,9 +1882,9 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 構造化プログラミング</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2">構造化プログラミング</h4>
+<div class="outline-text-4" id="text-3-1-2">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
 </p>
@@ -730,17 +1902,17 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> モジュラプログラミング</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3">モジュラプログラミング</h4>
+<div class="outline-text-4" id="text-3-1-3">
 <p>
 大きく複雑になるプログラムの分割
 </p>
 </div>
 
-<div id="outline-container-sec-2-3-0-1" class="outline-5">
-<h5 id="sec-2-3-0-1">凝集度と結合度</h5>
-<div class="outline-text-5" id="text-2-3-0-1">
+<div id="outline-container-sec-3-1-3-0-1" class="outline-6">
+<h6 id="sec-3-1-3-0-1">凝集度と結合度</h6>
+<div class="outline-text-6" id="text-3-1-3-0-1">
 <p>
 結合度：よいコラボレーションとわるいコラボレーションを定義した
 <a href="https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6">https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6</a>
@@ -764,9 +1936,9 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 
-<div id="outline-container-sec-2-3-0-2" class="outline-5">
-<h5 id="sec-2-3-0-2">悪い結合、良い結合</h5>
-<div class="outline-text-5" id="text-2-3-0-2">
+<div id="outline-container-sec-3-1-3-0-2" class="outline-6">
+<h6 id="sec-3-1-3-0-2">悪い結合、良い結合</h6>
+<div class="outline-text-6" id="text-3-1-3-0-2">
 <p>
 悪い結合としては、あるモジュールが依存しているモジュールの内部デー
 タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
@@ -793,9 +1965,9 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 
-<div id="outline-container-sec-2-3-0-3" class="outline-5">
-<h5 id="sec-2-3-0-3">悪い凝集、良い凝集</h5>
-<div class="outline-text-5" id="text-2-3-0-3">
+<div id="outline-container-sec-3-1-3-0-3" class="outline-6">
+<h6 id="sec-3-1-3-0-3">悪い凝集、良い凝集</h6>
+<div class="outline-text-6" id="text-3-1-3-0-3">
 <p>
 凝集度が低い状態とは，つまり悪い凝集とは，何か，
 </p>
@@ -835,9 +2007,9 @@ initという関数の中ですべてのデータ構造の初期化を
 </div>
 </div>
 
-<div id="outline-container-sec-2-3-0-4" class="outline-5">
-<h5 id="sec-2-3-0-4">状態と副作用の支配</h5>
-<div class="outline-text-5" id="text-2-3-0-4">
+<div id="outline-container-sec-3-1-3-0-4" class="outline-6">
+<h6 id="sec-3-1-3-0-4">状態と副作用の支配</h6>
+<div class="outline-text-6" id="text-3-1-3-0-4">
 <p>
 よいモジュール分割とはなにか
 </p>
@@ -873,9 +2045,9 @@ initという関数の中ですべてのデータ構造の初期化を
 </div>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 抽象データ型</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-sec-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4">抽象データ型</h4>
+<div class="outline-text-4" id="text-3-1-4">
 <p>
 よいモジュール化の肝
 </p>
@@ -915,9 +2087,9 @@ initという関数の中ですべてのデータ構造の初期化を
 </ul>
 </div>
 
-<div id="outline-container-sec-2-4-0-1" class="outline-5">
-<h5 id="sec-2-4-0-1">抽象データ型の情報隠蔽とカプセル化</h5>
-<div class="outline-text-5" id="text-2-4-0-1">
+<div id="outline-container-sec-3-1-4-0-1" class="outline-6">
+<h6 id="sec-3-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</h6>
+<div class="outline-text-6" id="text-3-1-4-0-1">
 <p>
 言語機能として外部からのアクセスを制限できるようにした。
 </p>
@@ -939,9 +2111,9 @@ initという関数の中ですべてのデータ構造の初期化を
 
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> オブジェクト指向?</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> オブジェクト指向?</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 simula
 </p>
@@ -996,9 +2168,9 @@ Smalltalkは、Simulaのコンセプトに「メッセージング」という�
 
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Simula &amp; C++のオブジェクト指向</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Simula &amp; C++のオブジェクト指向</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 C++のオブジェクト指向
 </p>
@@ -1010,9 +2182,9 @@ C++のオブジェクト指向
 </blockquote>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> どの処理を呼び出すか決めるメカニズム</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-sec-3-3-1" class="outline-4">
+<h4 id="sec-3-3-1">どの処理を呼び出すか決めるメカニズム</h4>
+<div class="outline-text-4" id="text-3-3-1">
 <p>
 さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
 </p>
@@ -1140,9 +2312,9 @@ function toString(IStringValue sv) string {
 </div>
 
 
-<div id="outline-container-sec-4-1-1" class="outline-4">
-<h4 id="sec-4-1-1">動的ディスパッチ</h4>
-<div class="outline-text-4" id="text-4-1-1">
+<div id="outline-container-sec-3-3-1-1" class="outline-5">
+<h5 id="sec-3-3-1-1">動的ディスパッチ</h5>
+<div class="outline-text-5" id="text-3-3-1-1">
 <p>
 動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
 ており、また、実行時に関数テーブルを探索して、どの関数を実行する
@@ -1164,16 +2336,16 @@ function toString(IStringValue sv) string {
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2" class="outline-4">
-<h4 id="sec-4-1-2">継承と委譲</h4>
-<div class="outline-text-4" id="text-4-1-2">
-</div><div id="outline-container-sec-4-1-2-1" class="outline-5">
-<h5 id="sec-4-1-2-1">継承</h5>
+<div id="outline-container-sec-3-3-1-2" class="outline-5">
+<h5 id="sec-3-3-1-2">継承と委譲</h5>
+<div class="outline-text-5" id="text-3-3-1-2">
+</div><div id="outline-container-sec-3-3-1-2-1" class="outline-6">
+<h6 id="sec-3-3-1-2-1">継承</h6>
 </div>
 
-<div id="outline-container-sec-4-1-2-2" class="outline-5">
-<h5 id="sec-4-1-2-2">委譲</h5>
-<div class="outline-text-5" id="text-4-1-2-2">
+<div id="outline-container-sec-3-3-1-2-2" class="outline-6">
+<h6 id="sec-3-3-1-2-2">委譲</h6>
+<div class="outline-text-6" id="text-3-3-1-2-2">
 <p>
 このようにメソッドの動的な探索に対して、どのような機構をつけるのかというのが
 オブジェクト指向では重要な構成要素と言える。
@@ -1189,9 +2361,9 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </div>
 
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> オブジェクト指向の要素</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-sec-3-3-2" class="outline-4">
+<h4 id="sec-3-3-2">オブジェクト指向の要素</h4>
+<div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>抽象データ型：データと処理をひもづける
 </li>
@@ -1213,9 +2385,9 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </div>
 
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 アランケイによるオブジェクト指向の定義：
 </p>
@@ -1228,18 +2400,18 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </blockquote>
 </div>
 
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 仮想機械としてのオブジェクト</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-sec-3-4-1" class="outline-4">
+<h4 id="sec-3-4-1">仮想機械としてのオブジェクト</h4>
+<div class="outline-text-4" id="text-3-4-1">
 <dl class="org-dl">
-<dt> アランケイの世界観 </dt><dd>        コンピュータを抽象化するとしたら、データと処理と命令セットをも
+<dt> アランケイの世界観 </dt><dd>         コンピュータを抽象化するとしたら、データと処理と命令セットをも
 つ仮想機械で抽象化されるべき
 </dd>
 
-<dt> 構造化プログラミング </dt><dd>       仮想機械として階層的に抽象化すべき
+<dt> 構造化プログラミング </dt><dd>        仮想機械として階層的に抽象化すべき
 </dd>
 
-<dt> オブジェクト指向 </dt><dd>        オブジェクトを独立した機械と見なし、それに対してメッセージを送
+<dt> オブジェクト指向 </dt><dd>         オブジェクトを独立した機械と見なし、それに対してメッセージを送
 り、自ら持つデータの責任は自らが負う。
 </dd>
 </dl>
@@ -1250,9 +2422,9 @@ Smalltalkの実行環境もまた仮想機械として作られている。
 </div>
 </div>
 
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2"><span class="section-number-3">5.2</span> メッセージング</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-sec-3-4-2" class="outline-4">
+<h4 id="sec-3-4-2">メッセージング</h4>
+<div class="outline-text-4" id="text-3-4-2">
 <p>
 Smalltalkでメッセージ送信は下記のように記述する:
 </p>
@@ -1280,9 +2452,9 @@ Smalltalkでメッセージ送信は下記のように記述する:
 </p>
 </div>
 
-<div id="outline-container-sec-5-2-1" class="outline-4">
-<h4 id="sec-5-2-1">動的な送信</h4>
-<div class="outline-text-4" id="text-5-2-1">
+<div id="outline-container-sec-3-4-2-1" class="outline-5">
+<h5 id="sec-3-4-2-1">動的な送信</h5>
+<div class="outline-text-5" id="text-3-4-2-1">
 <p>
 メッセージの内容もまたオブジェクトなので、動的に作成し送ることができる。
 </p>
@@ -1305,9 +2477,9 @@ a.send(method)
 </div>
 </div>
 
-<div id="outline-container-sec-5-2-2" class="outline-4">
-<h4 id="sec-5-2-2">メッセージ転送  <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">(Wikipedia)</a></h4>
-<div class="outline-text-4" id="text-5-2-2">
+<div id="outline-container-sec-3-4-2-2" class="outline-5">
+<h5 id="sec-3-4-2-2">メッセージ転送  <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">(Wikipedia)</a></h5>
+<div class="outline-text-5" id="text-3-4-2-2">
 <p>
 受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
 り扱うことができる。
@@ -1344,9 +2516,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-5-2-3" class="outline-4">
-<h4 id="sec-5-2-3">非同期送信</h4>
-<div class="outline-text-4" id="text-5-2-3">
+<div id="outline-container-sec-3-4-2-3" class="outline-5">
+<h5 id="sec-3-4-2-3">非同期送信</h5>
+<div class="outline-text-5" id="text-3-4-2-3">
 <p>
 メッセージの送信と結果の受信を別々に行なう。
 </p>
@@ -1358,9 +2530,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-5-3" class="outline-3">
-<h3 id="sec-5-3"><span class="section-number-3">5.3</span> オブジェクト指向という言葉が意味していること</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-sec-3-4-3" class="outline-4">
+<h4 id="sec-3-4-3">オブジェクト指向という言葉が意味していること</h4>
+<div class="outline-text-4" id="text-3-4-3">
 <p>
 <a href="https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang">https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang</a>
 </p>
@@ -1382,9 +2554,11 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Joe Armstrongのオブジェクト指向はクソだ！</h2>
-<div class="outline-text-2" id="text-6">
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Joe Armstrongのオブジェクト指向はクソだ！</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <a href="https://qiita.com/lambda-knight/items/fb7530232912dc4176c4">オブジェクト指向はクソか？ - Qiita</a> を読んで
 </p>
@@ -1395,9 +2569,9 @@ Proxy.new &lt;&lt; 1
 </ul>
 </div>
 
-<div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> オブジェクト指向が"Suck"である理由</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> オブジェクト指向が"Suck"である理由</h3>
+<div class="outline-text-3" id="text-4-1">
 <blockquote>
 <p>
 私のOOPに対する反対意見はOOの基本的なアイデアに対するものも含まれます。
@@ -1406,9 +2580,9 @@ Proxy.new &lt;&lt; 1
 </blockquote>
 </div>
 
-<div id="outline-container-sec-6-1-1" class="outline-4">
-<h4 id="sec-6-1-1">反論その１</h4>
-<div class="outline-text-4" id="text-6-1-1">
+<div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1">反論その１</h4>
+<div class="outline-text-4" id="text-4-1-1">
 <blockquote>
 <p>
 
@@ -1576,9 +2750,9 @@ together）
 </div>
 
 
-<div id="outline-container-sec-6-1-2" class="outline-4">
-<h4 id="sec-6-1-2">反論その２</h4>
-<div class="outline-text-4" id="text-6-1-2">
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2">反論その２</h4>
+<div class="outline-text-4" id="text-4-1-2">
 <blockquote>
 <p>
 
@@ -1634,9 +2808,9 @@ together）
 </div>
 
 
-<div id="outline-container-sec-6-1-3" class="outline-4">
-<h4 id="sec-6-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</h4>
-<div class="outline-text-4" id="text-6-1-3">
+<div id="outline-container-sec-4-1-3" class="outline-4">
+<h4 id="sec-4-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</h4>
+<div class="outline-text-4" id="text-4-1-3">
 <blockquote>
 <p>
 (Objection 3 - In an OOPL data type definitions are spread out all over
@@ -1694,9 +2868,9 @@ OOPLでは私は汎用的なデータ構造を定義する際にはなにかベ�
 </div>
 </div>
 
-<div id="outline-container-sec-6-1-4" class="outline-4">
-<h4 id="sec-6-1-4">反論その４</h4>
-<div class="outline-text-4" id="text-6-1-4">
+<div id="outline-container-sec-4-1-4" class="outline-4">
+<h4 id="sec-4-1-4">反論その４</h4>
+<div class="outline-text-4" id="text-4-1-4">
 <blockquote>
 <p>
 
@@ -1777,9 +2951,9 @@ OOPLだけがそうしている」という主張と読みました。
 </div>
 </div>
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> オブジェクトが広まった理由</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> オブジェクトが広まった理由</h3>
+<div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
 
@@ -1876,7 +3050,7 @@ OOPLだけがそうしている」という主張と読みました。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-02 日 20:16</p>
+<p class="date">Created: 2016-10-02 日 21:54</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="https://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
