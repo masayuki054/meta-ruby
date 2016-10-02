@@ -1,5 +1,4 @@
-#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
-#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
+#+setupfile: ../info/index-bigblow-header.setup
 #+title: 講義ノート・メモ
 
 #+include: contents.org

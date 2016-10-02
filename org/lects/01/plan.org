@@ -1,8 +1,12 @@
 * 講義予定 (1) 2016-10-03 
 ** 講義資料の説明
+- [[./index.org][ホーム]] :: https://masayuki054.github.io/meta-ruby
+- [[./ruby.org][ruby]] :: ruby 関連資料
+- [[./oo.org][OO]] Object指向についての資料
+- [[./emacs.org][emacs]] :: Emacs についての資料
+- [[./meta.org][meta]] :: ruby の メタプログラミングについての資料
+- [[./note.org][note]] :: 昨年度の講義に関するメモ
 
-   # #+include: ~/COMM/Lects/meta-ruby/site/links.org
-   commented
 
 ** オブジェクト指向入門
 

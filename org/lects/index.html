@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-01 土 15:50 -->
+<!-- 2016-10-02 日 19:53 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>メタプログラミング Ruby 講義ノート・メモ</title>
+<title>講義ノート・メモ</title>
 <meta  name="generator" content="Org-mode" />
-<meta  name="author" content="masayuki suzuki@cis.iwate-u.ac.jp" />
+<meta  name="author" content="Masayuki Suzuki" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -94,17 +94,20 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/css/sos.css">
 <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="http://nat054.ddo.jp/~masayuki/org-html-theme/styles/sos/js/sos.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -154,53 +157,54 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">メタプログラミング Ruby 講義ノート・メモ</h1>
+<h1 class="title">講義ノート・メモ</h1>
 <div id="table-of-contents">
-<h2>&#30446;&#27425;</h2>
+<h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 今日の講義</a></li>
-<li><a href="#orgheadline21">2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</a>
+<li><a href="#orgheadline3">1. 講義のねらい</a>
 <ul>
-<li><a href="#orgheadline2">2.1. 講義資料の説明</a></li>
-<li><a href="#orgheadline14">2.2. オブジェクト指向入門</a>
-<ul>
-<li><a href="#orgheadline6">2.2.1. プログラム言語とは</a>
-<ul>
-<li><a href="#orgheadline3">記述のための要素</a></li>
-<li><a href="#orgheadline4">実行するということ</a></li>
-<li><a href="#orgheadline5">メタプログラミング</a></li>
+<li><a href="#orgheadline1">1.1. 主たるねらい</a></li>
+<li><a href="#orgheadline2">1.2. もうひとつのねらい</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">2.2.2. WikiPedia.search("オブジェクト指向プログラミング")</a></li>
-<li><a href="#orgheadline8">2.2.3. 僕の考え</a></li>
-<li><a href="#orgheadline9">2.2.4. Rubyらしさ</a></li>
-<li><a href="#orgheadline13">2.2.5. まつもと直伝プログラミングの掟</a>
+<li><a href="#orgheadline6">2. おしらせ</a>
 <ul>
-<li><a href="#orgheadline10">第一回　</a></li>
-<li><a href="#orgheadline11">第二回，第三回，第四回　ぐらい読みたい</a></li>
-<li><a href="#orgheadline12">まつもと直伝プログラミングの掟のまとめ</a></li>
+<li><a href="#orgheadline4">2.1. 2016-10-17 休講します。</a></li>
+<li><a href="#orgheadline5">2.2. 2016-10-03 開講します。</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline26">3. 講義予定 (1) 2016-10-03</a>
+<ul>
+<li><a href="#orgheadline7">3.1. 講義資料の説明</a></li>
+<li><a href="#orgheadline19">3.2. オブジェクト指向入門</a>
+<ul>
+<li><a href="#orgheadline11">プログラム言語とは</a>
+<ul>
+<li><a href="#orgheadline8">記述のための要素</a></li>
+<li><a href="#orgheadline9">実行するということ</a></li>
+<li><a href="#orgheadline10">メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">WikiPedia.search("オブジェクト指向プログラミング")</a></li>
+<li><a href="#orgheadline13">僕の考え</a></li>
+<li><a href="#orgheadline14">Rubyらしさ</a></li>
+<li><a href="#orgheadline18">まつもと直伝プログラミングの掟</a>
+<ul>
+<li><a href="#orgheadline15">第一回　</a></li>
+<li><a href="#orgheadline16">第二回，第三回，第四回　ぐらい読みたい</a></li>
+<li><a href="#orgheadline17">まつもと直伝プログラミングの掟のまとめ</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline15">2.3. Ruby入門</a></li>
-<li><a href="#orgheadline16">2.4. オブジェクト指向プログラミング Ruby</a></li>
-<li><a href="#orgheadline17">2.5. メタプログラミング Ruby</a></li>
-<li><a href="#orgheadline20">2.6. .links</a>
+<li><a href="#orgheadline20">3.3. Ruby入門</a></li>
+<li><a href="#orgheadline21">3.4. オブジェクト指向プログラミング Ruby</a></li>
+<li><a href="#orgheadline22">3.5. メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline25">3.6. .links</a>
 <ul>
-<li><a href="#orgheadline18">2.6.1. meta-ruby</a></li>
-<li><a href="#orgheadline19">2.6.2. .links</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline25">3. 講義情報</a>
-<ul>
-<li><a href="#orgheadline24">3.1. 講義</a>
-<ul>
-<li><a href="#orgheadline22">3.1.1. 主たるねらい</a></li>
-<li><a href="#orgheadline23">3.1.2. もうひとつのねらい</a></li>
+<li><a href="#orgheadline23">meta-ruby</a></li>
+<li><a href="#orgheadline24">.links</a></li>
 </ul>
 </li>
 </ul>
@@ -208,41 +212,97 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> 講義のねらい</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 主たるねらい</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/index.html">メタプログラミングRuby</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/">毎回 の講義</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html">OO へ至る道</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html">ruby 入門</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/">講義ドキュメント</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/meta-ruby">meta-ruby まとめ</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/ruby-note.html">ruby-note</a> /
- <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/poker/">poker</a> 
+オブジェクト指向プログラミングの本質，
 </p>
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 今日の講義</h2>
-</div>
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-10-03 月&gt;</span></span>の講義予定</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> 講義資料の説明</h3>
-<div class="outline-text-3" id="text-2-1">
+
 <p>
-commented
+オブジェクト指向システムの仕組み，
+</p>
+
+<p>
+メタプログラミングの有効性について，
+</p>
+
+<p>
+オブジェクト指向言語 ruby を用いて考察する
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.2</span> オブジェクト指向入門</h3>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> もうひとつのねらい</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+emacs org-mode + babel を使って，
+</p>
+
+<p>
+文芸的プログラミングをおこないながら，
+</p>
+
+<p>
+講義しようとたくらんでいますが，
+</p>
+
+<p>
+いつものとおり，どうなりますことやら。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> おしらせ</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.1</span> 2016-10-17 休講します。</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+((s-:)) ネンリンピック長崎 サッカー出場のため
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.2</span> 2016-10-03 開講します。</h3>
 <div class="outline-text-3" id="text-2-2">
-</div><div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">2.2.1</span> プログラム言語とは</h4>
-<div class="outline-text-4" id="text-2-2-1">
-</div><div id="outline-container-orgheadline3" class="outline-5">
-<h5 id="orgheadline3">記述のための要素</h5>
-<div class="outline-text-5" id="text-orgheadline3">
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">3</span> 講義予定 (1) 2016-10-03</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">3.1</span> 講義資料の説明</h3>
+<div class="outline-text-3" id="text-3-1">
+<dl class="org-dl">
+<dt><a href="./index.html">ホーム</a></dt><dd><a href="https://masayuki054.github.io/meta-ruby">https://masayuki054.github.io/meta-ruby</a></dd>
+<dt><a href="./ruby.html">ruby</a></dt><dd>ruby 関連資料</dd>
+<dt>(no term)</dt><dd><a href="./oo.html">OO</a> Object指向についての資料</dd>
+<dt><a href="./emacs.html">emacs</a></dt><dd>Emacs についての資料</dd>
+<dt><a href="./meta.html">meta</a></dt><dd>ruby の メタプログラミングについての資料</dd>
+<dt><a href="./note.html">note</a></dt><dd>昨年度の講義に関するメモ</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.2</span> オブジェクト指向入門</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11">プログラム言語とは</h4>
+<div class="outline-text-4" id="text-orgheadline11">
+</div><div id="outline-container-orgheadline8" class="outline-5">
+<h5 id="orgheadline8">記述のための要素</h5>
+<div class="outline-text-5" id="text-orgheadline8">
 <ul class="org-ul">
 <li>値と定数</li>
 <li>データ構造体</li>
@@ -260,9 +320,9 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-5">
-<h5 id="orgheadline4">実行するということ</h5>
-<div class="outline-text-5" id="text-orgheadline4">
+<div id="outline-container-orgheadline9" class="outline-5">
+<h5 id="orgheadline9">実行するということ</h5>
+<div class="outline-text-5" id="text-orgheadline9">
 <ul class="org-ul">
 <li>コードインタープリタ</li>
 <li>環境
@@ -275,9 +335,9 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-5">
-<h5 id="orgheadline5">メタプログラミング</h5>
-<div class="outline-text-5" id="text-orgheadline5">
+<div id="outline-container-orgheadline10" class="outline-5">
+<h5 id="orgheadline10">メタプログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline10">
 <ul class="org-ul">
 <li>プログラムを生成するプログラムをつくること</li>
 </ul>
@@ -286,9 +346,9 @@ commented
 </div>
 
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">2.2.2</span> WikiPedia.search("オブジェクト指向プログラミング")</h4>
-<div class="outline-text-4" id="text-2-2-2">
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12">WikiPedia.search("オブジェクト指向プログラミング")</h4>
+<div class="outline-text-4" id="text-orgheadline12">
 <p>
 特徴
 </p>
@@ -301,9 +361,9 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.2.3</span> 僕の考え</h4>
-<div class="outline-text-4" id="text-2-2-3">
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13">僕の考え</h4>
+<div class="outline-text-4" id="text-orgheadline13">
 <ul class="org-ul">
 <li>モジュール</li>
 <li>メッセージパッシング</li>
@@ -312,9 +372,9 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">2.2.4</span> Rubyらしさ</h4>
-<div class="outline-text-4" id="text-2-2-4">
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14">Rubyらしさ</h4>
+<div class="outline-text-4" id="text-orgheadline14">
 <ul class="org-ul">
 <li>純粋オブジェクト指向</li>
 <li>プログラム可能なものは全て，オブジェクト</li>
@@ -325,12 +385,12 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13"><span class="section-number-4">2.2.5</span> <a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h4>
-<div class="outline-text-4" id="text-2-2-5">
-</div><div id="outline-container-orgheadline10" class="outline-5">
-<h5 id="orgheadline10">第一回　<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss">http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss</a></h5>
-<div class="outline-text-5" id="text-orgheadline10">
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/">まつもと直伝プログラミングの掟</a></h4>
+<div class="outline-text-4" id="text-orgheadline18">
+</div><div id="outline-container-orgheadline15" class="outline-5">
+<h5 id="orgheadline15">第一回　<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss">http://itpro.nikkeibp.co.jp/article/COLUMN/20050831/220318/?ST=oss</a></h5>
+<div class="outline-text-5" id="text-orgheadline15">
 <p>
 <a href="../docs/matz-1-1.html">../docs/matz-1-1.html</a>
 <a href="../docs/matz-1-2.html">../docs/matz-1-2.html</a>
@@ -344,9 +404,9 @@ commented
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-5">
-<h5 id="orgheadline11">第二回，第三回，第四回　ぐらい読みたい</h5>
-<div class="outline-text-5" id="text-orgheadline11">
+<div id="outline-container-orgheadline16" class="outline-5">
+<h5 id="orgheadline16">第二回，第三回，第四回　ぐらい読みたい</h5>
+<div class="outline-text-5" id="text-orgheadline16">
 <ul class="org-ul">
 <li><a href="../docs/matz-2.html">../docs/matz-2.html</a> データ抽象と継承</li>
 <li><a href="../docs/matz-3.html">../docs/matz-3.html</a> 多重継承</li>
@@ -365,9 +425,9 @@ C++, Java, Perl, &#x2026;
 </div>
 
 
-<div id="outline-container-orgheadline12" class="outline-5">
-<h5 id="orgheadline12">まつもと直伝プログラミングの掟のまとめ</h5>
-<div class="outline-text-5" id="text-orgheadline12">
+<div id="outline-container-orgheadline17" class="outline-5">
+<h5 id="orgheadline17">まつもと直伝プログラミングの掟のまとめ</h5>
+<div class="outline-text-5" id="text-orgheadline17">
 <p>
 <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz">まとめ</a>
 </p>
@@ -376,9 +436,9 @@ C++, Java, Perl, &#x2026;
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.3</span> Ruby入門</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">3.3</span> Ruby入門</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 site: <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html">http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta_ruby/ruby_begin.html</a>
 org:  <a href="file:///users/home/masayuki/lects/meta-ruby/site/ruby_begin.html">file:///users/home/masayuki/lects/meta-ruby/site/ruby_begin.html</a>
@@ -394,18 +454,18 @@ gem pry install
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.4</span> オブジェクト指向プログラミング Ruby</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">3.4</span> オブジェクト指向プログラミング Ruby</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 <a href="./1.rb">./1.rb</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">2.5</span> メタプログラミング Ruby</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">3.5</span> メタプログラミング Ruby</h3>
+<div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>Object Model</li>
 
@@ -423,12 +483,12 @@ Class
 </div>
 
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">2.6</span> .links</h3>
-<div class="outline-text-3" id="text-2-6">
-</div><div id="outline-container-orgheadline18" class="outline-4">
-<h4 id="orgheadline18"><span class="section-number-4">2.6.1</span> meta-ruby</h4>
-<div class="outline-text-4" id="text-2-6-1">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">3.6</span> .links</h3>
+<div class="outline-text-3" id="text-3-6">
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23">meta-ruby</h4>
+<div class="outline-text-4" id="text-orgheadline23">
 <ul class="org-ul">
 <li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby">コンピュータ科学特論Iサイト</a> self</li>
 
@@ -437,9 +497,9 @@ Class
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19"><span class="section-number-4">2.6.2</span> .links</h4>
-<div class="outline-text-4" id="text-2-6-2">
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24">.links</h4>
+<div class="outline-text-4" id="text-orgheadline24">
 <ul class="org-ul">
 <li>コンピュータ科学特論I <a href="http://wiki.cis.iwate-u.ac.jp/~wiki/meta-ruby.cgi">講義用Wiki</a> .wiki</li>
 
@@ -475,60 +535,10 @@ path: ~suzuki/lects/meta-ruby/codes/
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">3</span> 講義情報</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">3.1</span> 講義</h3>
-<div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">3.1.1</span> 主たるねらい</h4>
-<div class="outline-text-4" id="text-3-1-1">
-<p>
-オブジェクト指向プログラミングの本質，
-</p>
-
-<p>
-オブジェクト指向システムの仕組み，
-</p>
-
-<p>
-メタプログラミングの有効性について，
-</p>
-
-<p>
-オブジェクト指向言語 ruby を用いて考察する
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">3.1.2</span> もうひとつのねらい</h4>
-<div class="outline-text-4" id="text-3-1-2">
-<p>
-emacs org-mode + babel を使って，
-</p>
-
-<p>
-文芸的プログラミングをおこないながら，
-</p>
-
-<p>
-講義しようとたくらんでいますが，
-</p>
-
-<p>
-いつものとおり，どうなりますことやら。
-</p>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">&#33879;&#32773;: masayuki suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-01 土 15:50</p>
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2016-10-02 日 19:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

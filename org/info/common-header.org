@@ -4,6 +4,6 @@
 [[./ruby.org][ruby]] / 
 [[./oo.org][OO]] / 
 [[./emacs.org][emacs]] / 
-[[./meta.org][meta]] /
+[[./meta-ruby.org][meta-ruby]] /
 [[./note.org][note]] /
 [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/][2015]]

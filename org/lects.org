@@ -1,4 +1,3 @@
 #+setupfile: info/index-sos-header.setup
-#+include: info/common-header.org
 #+title: 講義のこと
 #+include: lects/contents.org :minlevel 1

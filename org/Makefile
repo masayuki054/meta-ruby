@@ -24,13 +24,15 @@ lects.html: $(wildcard lects/*.org)
 ruby.html: $(wildcard ruby/*.org)
 emacs.html: $(wildcard emacs/*.org)
 oo.html: $(wildcard oo/*.org)
+meta-ruby.html: $(wildcard meta-ruby/*.org)
+note.html: $(wildcard note/*.org)
 
 .SUFFIXES: .org .html
 .org.html: info/common-header.org 
 	$(HOME)/bin/org2html $<
-#	sed -e 's/http:\/\//https:\/\//g' $@ > $(SITE)/$@
-	cp -p $@  $(SITE)/$@
-	git stage  $(SITE)/$@ 
+	sed -e 's/http:\/\//https:\/\//g' $@ > $(SITE)/$@
+#	cp -p $@  $(SITE)/$@
+	git add  $(SITE)/$@ 
 	git commit -a -m "daily $(DATE)"
 
 .PHONY: clean

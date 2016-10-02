@@ -1,6 +1,6 @@
 #+setupfile: info/index-sos-header.setup
 #+include: info/common-header.org
-
+#+title: meta-ruby
 #+include: lects/contents.org 
 # #+include: ruby/contents.org  :minlevel 1
 # #+include: oo/contents.org :minlevel 1
