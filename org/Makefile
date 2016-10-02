@@ -12,12 +12,12 @@ emacs.html \
 oo.html
 
 all: $(HTMLS)
+
+
+push:
 	git push -u origin master
 
 renewal: 
-	touch *.org
-	touch */*.org
-	make all
 
 index.html: info/common-header.org 
 lects.html: $(wildcard lects/*.org) info/common-header.org 
@@ -30,8 +30,8 @@ note.html: $(wildcard note/*.org) info/common-header.org
 .SUFFIXES: .org .html
 .org.html: info/common-header.org 
 	$(HOME)/bin/org2html $<
-	sed -e 's/http:\/\//https:\/\//g' $@ > $(SITE)/$@
-#	cp -p $@  $(SITE)/$@
+#	sed -e 's/http:\/\//https:\/\//g' $@ > $(SITE)/$@
+	cp -p $@  $(SITE)/$@
 	git add  $(SITE)/$@ 
 	git commit -a -m "daily $(DATE)"
 
