@@ -1,0 +1,56 @@
+* org文書の構造
+
+** 文章の構造
+
+   [[info:org#document structure]]
+   - headlines
+   - lists
+   - drawers
+   - blocks
+   
+** ruby ソースコードの埋め込み方
+
+   [[info:org#working with source code]] 
+
+   [[info:org#Structure of code blocks]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby <arguments...>
+body
+#+end_src
+#+end_example
+
+** ruby ソースコードのedit
+
+   [[info:org#Editing source code]]
+
+   C-c '
+
+** ruby ソースコードの実行方法
+
+   [[info:org#Evaluating code blocks]]
+
+
+** ruby ソースコードの export
+   [[info:org#Exporting code blocks]]
+
+#+begin_example
+#+begin_src ruby :exports both
+body
+#+end_src
+#+end_example
+
+** ruby ソースコードの extract
+
+   [[info:org#Extracting source code]]
+
+#+begin_example
+#+name: 
+#+begin_src ruby :tangle <file>
+body
+#+end_src
+#+end_example
+
+  
+

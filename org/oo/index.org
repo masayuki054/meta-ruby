@@ -1,0 +1,4 @@
+#+setupfile: ../info/index-sos-header.setup
+# #+include: ../info/common-header.org
+#+title: ObjectOrientedについて
+#+include: contents.org
