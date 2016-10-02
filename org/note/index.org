@@ -1,6 +1,5 @@
-#+setupfile: ../info/index-bigblow-header.setup
+#+setupfile: ../info/index-sos-header.setup
 #+title: 講義ノート・メモ
-
 #+include: contents.org
 
 

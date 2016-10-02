@@ -29,8 +29,6 @@ all: $(HTMLS)
 push:
 	git push -u origin master
 
-renewal: 
-
 index.html: info/common-header.org 
 lects.html: $(wildcard lects/*.org) info/common-header.org 
 ruby.html: $(wildcard ruby/*.org) info/common-header.org 

@@ -1,5 +1,3 @@
-#+title: sinatra/org-ruby
-
 * references
 
 - ~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)

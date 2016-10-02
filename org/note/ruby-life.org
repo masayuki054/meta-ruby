@@ -1,50 +1,48 @@
-#+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
-#+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
-#+title: rubylife 練習ノート
+* rubylife 練習ノート
 
 [[http://libro.tuyano.com/index2?id=953003][ビギナーのためのRubyプログラミング入門]]
 
-* [[http://libro.tuyano.com/index3?id=959002&page=1][基本的な構文を覚えよう]]
+** [[http://libro.tuyano.com/index3?id=959002&page=1][基本的な構文を覚えよう]]
 
-** 関連るりま
+*** 関連るりま
   
- - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2feval.html][Ruby プログラムの実行 (Ruby 2.0.0)]]
- - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html][制御構造 (Ruby 2.0.0)]]
+  - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2feval.html][Ruby プログラムの実行 (Ruby 2.0.0)]]
+  - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html][制御構造 (Ruby 2.0.0)]]
 
-** Rubyを動かしてみる!
+*** Rubyを動かしてみる!
 
-#+BEGIN_SRC sh 
+ #+BEGIN_SRC sh 
 ruby
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
+ #+RESULTS:
 
-これでRuby (インタプリター) が起動し, ここで、Rubyのスクリプトを書くと、そ
-れがこの場で実行できるのです。
+ これでRuby (インタプリター) が起動し, ここで、Rubyのスクリプトを書くと、そ
+ れがこの場で実行できるのです。
 
-では、以下のようにタイプしてみてください。１行ずつ書いてはEnterして記述をしましょう。
+ では、以下のようにタイプしてみてください。１行ずつ書いてはEnterして記述をしましょう。
 
-#+BEGIN_SRC ruby :results output 
+ #+BEGIN_SRC ruby :results output 
 a = 10
 b = 20
 c = 30
 result = (a + b) * c
 puts("答え：" + result.to_s)
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: 答え：900
+ #+RESULTS:
+ : 答え：900
 
-Rubyなどの言語では、その言語で書かれたプログラムリストのことを「スクリ
-プト」と呼びます。
+ Rubyなどの言語では、その言語で書かれたプログラムリストのことを「スクリ
+ プト」と呼びます。
 
-スクリプトを実行する、それが言語の役目ですね。
+ スクリプトを実行する、それが言語の役目ですね。
 
-スクリプトを書いたら、Ctrlキーを押したままの状態で「D」キーを押します。
+ スクリプトを書いたら、Ctrlキーを押したままの状態で「D」キーを押します。
 
-次は，Rubyのインタプリタ irb を使ってみます。
+ 次は，Rubyのインタプリタ irb を使ってみます。
 
-#+BEGIN_SRC sh :results output 
+ #+BEGIN_SRC sh :results output 
 
 irb <<END
 a = 10
@@ -53,10 +51,10 @@ c = 30
 result = (a + b) * c
 puts("答え：" + result.to_s)
 END
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-#+begin_example
+ #+RESULTS:
+ #+begin_example
 Switch to inspect mode.
 a = 10
 10
@@ -70,44 +68,44 @@ puts("答え：" + result.to_s)
 答え：900
 nil
 
-#+end_example
+ #+end_example
 
-** スクリプトファイルを実行する
+*** スクリプトファイルを実行する
 
-    一般的なRubyの使い方として、あらかじめスクリプトを書いたファイルを
-    作成しておき、これを実行する、というやりかたになるでしょう。これも
-    やってみましょう。
+     一般的なRubyの使い方として、あらかじめスクリプトを書いたファイルを
+     作成しておき、これを実行する、というやりかたになるでしょう。これも
+     やってみましょう。
 
-    テキストエディタを起動し、先ほど書いたスクリプトを記述して下さい。
-    そしてそれを「sample.rb」というファイル名で保存します。まぁ、ファ
-    イル名はなんでもいいのですが、Rubyのスクリプトファイルは「.rb」と
-    いう拡張子をつけて保存するようにして下さい。また、テキストエンコー
-    ディングは「UTF-8」にしておきます（BOMなしは不可）。
+     テキストエディタを起動し、先ほど書いたスクリプトを記述して下さい。
+     そしてそれを「sample.rb」というファイル名で保存します。まぁ、ファ
+     イル名はなんでもいいのですが、Rubyのスクリプトファイルは「.rb」と
+     いう拡張子をつけて保存するようにして下さい。また、テキストエンコー
+     ディングは「UTF-8」にしておきます（BOMなしは不可）。
 
-    ファイルを保存したら、コマンドプロンプトを起動し、そのファイルがあ
-    る場所にcdコマンドで移動をします。例えばデスクトップならば、（コマ
-    ンドプロンプトを起動したときはホームディレクトリが開かれてるので）、
-    「cd Desktop」と入力しEnterすればデスクトップに移動します。そして、
+     ファイルを保存したら、コマンドプロンプトを起動し、そのファイルがあ
+     る場所にcdコマンドで移動をします。例えばデスクトップならば、（コマ
+     ンドプロンプトを起動したときはホームディレクトリが開かれてるので）、
+     「cd Desktop」と入力しEnterすればデスクトップに移動します。そして、
 
-#+BEGIN_SRC sh
+ #+BEGIN_SRC sh
 ruby sample.rb
-#+END_SRC
+ #+END_SRC
 
-    このように実行すれば、スクリプトが実行されます。このように「ruby
-    ファイル名」というように実行するスクリプトファイルを指定することで、
-    そのファイルを実行させることができます。
+     このように実行すれば、スクリプトが実行されます。このように「ruby
+     ファイル名」というように実行するスクリプトファイルを指定することで、
+     そのファイルを実行させることができます。
 
-#+BEGIN_SRC ruby
+ #+BEGIN_SRC ruby
 a = 10
 b = 20
 c = 30
 result = (a + b) * c
 puts("答え：" + result.to_s)
-#+END_SRC
+ #+END_SRC
 
-** if 文
+*** if 文
 
-#+BEGIN_SRC ruby :results output :session if
+ #+BEGIN_SRC ruby :results output :session if
 a = 10
 b = 20
 if (a == b) then
@@ -116,18 +114,18 @@ else
     puts('２つは違う値。')
 end
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
+ #+RESULTS:
 
 
 
-: a == b  (a).==(b), == は「等しいか？」の述語
-: puts(文字列) 出力
+ : a == b  (a).==(b), == は「等しいか？」の述語
+ : puts(文字列) 出力
 
-** case文
+*** case文
 
-#+BEGIN_SRC ruby :results output :session case
+ #+BEGIN_SRC ruby :results output :session case
 # coding: utf-8 
 a = 8
 case a
@@ -144,17 +142,17 @@ when 12
 else
     puts('something wrong')
 end
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: 8
-: summer
+ #+RESULTS:
+ : 8
+ : summer
 
-： 1..2, 3..5, ...  範囲 [[http://docs.ruby-lang.org/ja/1.9.3/class/Range.html][class Range (Ruby 1.9.3)]]
+ ： 1..2, 3..5, ...  範囲 [[http://docs.ruby-lang.org/ja/1.9.3/class/Range.html][class Range (Ruby 1.9.3)]]
 
-** while文
+*** while文
 
-#+BEGIN_SRC ruby :results output :session while
+ #+BEGIN_SRC ruby :results output :session while
 a = 100
 x = 0
 y = 0
@@ -164,20 +162,20 @@ while  x <= a
     x += 1
 end
 puts(y)
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: 100
-: 0
-: 0
-: 100までの合計
-: nil
-: nil
-: 5050
+ #+RESULTS:
+ : 100
+ : 0
+ : 0
+ : 100までの合計
+ : nil
+ : nil
+ : 5050
 
-: a.to_s オブジェクトを文字列にする
+ : a.to_s オブジェクトを文字列にする
 
-#+BEGIN_SRC ruby :session while :results output
+ #+BEGIN_SRC ruby :session while :results output
 a = 12300
 x = a
 y = 2
@@ -197,10 +195,10 @@ if x > 1 then
     puts(x)
 end
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-#+begin_example
+ #+RESULTS:
+ #+begin_example
 12300
 12300
 2
@@ -213,26 +211,26 @@ nil
 5
 nil
 41
-#+end_example
+ #+end_example
 
 
-* 配列とハッシュ
+** 配列とハッシュ
 
-  [[http://libro.tuyano.com/index3?id=959004][配列とハッシュ(1/4):ビギナーのためのRubyプログラミング入門]]
+   [[http://libro.tuyano.com/index3?id=959004][配列とハッシュ(1/4):ビギナーのためのRubyプログラミング入門]]
 
-** 配列
+*** 配列
 
-   [[http://docs.ruby-lang.org/ja/2.0.0/class/Array.html][class Array (Ruby 2.0.0)]]
+    [[http://docs.ruby-lang.org/ja/2.0.0/class/Array.html][class Array (Ruby 2.0.0)]]
 
-*** 配列の作成
+**** 配列の作成
 
-    配列は値の列で，添字で列の要素にアクセスできます。
+     配列は値の列で，添字で列の要素にアクセスできます。
 
-    : Array.new
-    : Array.new( 数 )
-    : [値1, 値2, ……]
+     : Array.new
+     : Array.new( 数 )
+     : [値1, 値2, ……]
 
-#+BEGIN_SRC ruby :results output
+ #+BEGIN_SRC ruby :results output
 p Array.new
 p Array.new(10)
 p [1,2,3,4]
@@ -240,45 +238,45 @@ p [1,2,3,4][0]
 p [1,2,3,4][1]
 p [1,2,3,4][2]
 p [1,2,3,4][3]
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: []
-: [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-: [1, 2, 3, 4]
-: 1
-: 2
-: 3
-: 4
+ #+RESULTS:
+ : []
+ : [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+ : [1, 2, 3, 4]
+ : 1
+ : 2
+ : 3
+ : 4
 
-*** 値の取得／変更
+**** 値の取得／変更
 
-: 配列 [ 番号 ]
-: 配列 [ 番号 ] = 値
+ : 配列 [ 番号 ]
+ : 配列 [ 番号 ] = 値
 
-#+BEGIN_SRC ruby
+ #+BEGIN_SRC ruby
 
 arr = [0, 10, 20, 30]
 arr[0] = arr[1] + arr[2] + arr[3]
 puts(arr[0])
 
-#+END_SRC
+ #+END_SRC
 
-最初に、0, 10, 20, 30という４つの値を保管した配列を作り、変数arrに設定
-します。そして、保管した1, 2, 3番の値の合計を計算し、0番に設定します。
-このように、配列の番号は「ゼロ」から割り振られます。１からではないので
-注意して下さい。
+ 最初に、0, 10, 20, 30という４つの値を保管した配列を作り、変数arrに設定
+ します。そして、保管した1, 2, 3番の値の合計を計算し、0番に設定します。
+ このように、配列の番号は「ゼロ」から割り振られます。１からではないので
+ 注意して下さい。
 
-*** 配列と「for」構文
+**** 配列と「for」構文
 
-    全部の値をまとめて処理する場合
+     全部の値をまとめて処理する場合
 
-: for 変数 in 配列
-:    ……繰り返す処理……
-: end
+ : for 変数 in 配列
+ :    ……繰り返す処理……
+ : end
 
 
-#+BEGIN_SRC ruby :results output
+ #+BEGIN_SRC ruby :results output
 arr = [10, 20, 30, 40, 50]
 total = 0
 for item in arr
@@ -298,49 +296,49 @@ puts(total)
 total = arr.inject(0,:+) 
 puts(total)
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: 150
-: 150
-: 150
-: 150
+ #+RESULTS:
+ : 150
+ : 150
+ : 150
+ : 150
 
-*** 範囲演算子について
+**** 範囲演算子について
 
-#+BEGIN_SRC ruby
+ #+BEGIN_SRC ruby
 total = 0
 for item in 1..1000
     total += item
 end
 puts(total)
-#+END_SRC
+ #+END_SRC
 
-..は範囲演算子というもので、文字通り「ある値からある値までの範囲」を指
-定するためのものです。
+ ..は範囲演算子というもので、文字通り「ある値からある値までの範囲」を指
+ 定するためのものです。
 
-この範囲演算子を使った値は、正確にいえば「配列」ではありません。Range
-という範囲を示すオブジェクトなんです。が、for構文で利用することに限定
-して考えれば、両者はほとんど同じ感覚で扱うことができます。ですので、まぁ
-今の段階では「配列みたいなもの」と考えておいてよいでしょう。
+ この範囲演算子を使った値は、正確にいえば「配列」ではありません。Range
+ という範囲を示すオブジェクトなんです。が、for構文で利用することに限定
+ して考えれば、両者はほとんど同じ感覚で扱うことができます。ですので、まぁ
+ 今の段階では「配列みたいなもの」と考えておいてよいでしょう。
 
-** Hash
+*** Hash
 
-   class Hash (Ruby 2.0.0)
-   http://docs.ruby-lang.org/ja/2.0.0/class/Hash.html
+    class Hash (Ruby 2.0.0)
+    http://docs.ruby-lang.org/ja/2.0.0/class/Hash.html
 
-*** ハッシュ（連想配列）とは？
+**** ハッシュ（連想配列）とは？
 
-    キー・バリュー・ストア (key-value-store)
+     キー・バリュー・ストア (key-value-store)
 
-    名前を添字として使える配列
+     名前を添字として使える配列
 
-*** ハッシュの作成
+**** ハッシュの作成
 
-    ： Hash.new
-    ： { キー1 => 値1 , キー2 => 値2 , ……}
+     ： Hash.new
+     ： { キー1 => 値1 , キー2 => 値2 , ……}
 
-#+BEGIN_SRC ruby :session ruby :results output
+ #+BEGIN_SRC ruby :session ruby :results output
 
 hash = Hash.new(0)
 
@@ -349,130 +347,130 @@ hash['key'] = 'value'
 hash
 
 'end'
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: {}
-: "value"
-: {"key"=>"value"}
+ #+RESULTS:
+ : {}
+ : "value"
+ : {"key"=>"value"}
 
 
-*** 値の取得／変更
+**** 値の取得／変更
 
-    ： 配列 [ キー]
-    ： 配列 [ キー] = 値
+     ： 配列 [ キー]
+     ： 配列 [ キー] = 値
 
-基本的な使い方は配列と同じです。ハッシュを作成する際の書き方だけ注意す
-る必要があるでしょう。例えば、「123」「456」といった値にそれぞれ「x」
-「y」といったキーを設定してハッシュを作成するなら、こんな具合に記述し
-ます。
-#+BEGIN_SRC ruby
+ 基本的な使い方は配列と同じです。ハッシュを作成する際の書き方だけ注意す
+ る必要があるでしょう。例えば、「123」「456」といった値にそれぞれ「x」
+ 「y」といったキーを設定してハッシュを作成するなら、こんな具合に記述し
+ ます。
+ #+BEGIN_SRC ruby
 arr = {'x'=>123, 'y'=>456}
 val = arr['x']
 arr['y'] = 789
-#+END_SRC
+ #+END_SRC
 
-=>という記号でキーと値をつなげて記述するわけですね。これさえ気をつけれ
-ば、後はそれほど難しくはありません。例えば、xのキーの値を取り出したり、
-yのキーの値を変更したりするには、
+ =>という記号でキーと値をつなげて記述するわけですね。これさえ気をつけれ
+ ば、後はそれほど難しくはありません。例えば、xのキーの値を取り出したり、
+ yのキーの値を変更したりするには、
 
-こんな具合にすればいいわけです。配列のインデックス番号がキーに変わるだ
-けですからそう悩むことはないでしょう。
+ こんな具合にすればいいわけです。配列のインデックス番号がキーに変わるだ
+ けですからそう悩むことはないでしょう。
 
-*** ハッシュと繰り返し処理
+**** ハッシュと繰り返し処理
 
-    問題は、「すべての要素を扱う」場合でしょう。
+     問題は、「すべての要素を扱う」場合でしょう。
 
-    配列と違い、ハッシュは番号をつけて値を管理していません。これは前要
-    素を取り出し処理したい場合、どうすればいいのでしょう？
+     配列と違い、ハッシュは番号をつけて値を管理していません。これは前要
+     素を取り出し処理したい場合、どうすればいいのでしょう？
 
-    実は、ハッシュもちゃんとfor構文で順番に値を取り出すことができるの
-    です。書き方は配列と全く同じ。
+     実は、ハッシュもちゃんとfor構文で順番に値を取り出すことができるの
+     です。書き方は配列と全く同じ。
 
-    : for 変数 in ハッシュ
-    :   ……繰り返す処理……
-    : end
+     : for 変数 in ハッシュ
+     :   ……繰り返す処理……
+     : end
 
-    注意すべきは、ハッシュから値を取り出される変数の中身です。これは、
-    ただ取り出した値が保管されるのではありません。この変数に設定される
-    のは、「キーと値をひとまとめにした配列」なのです。インデックス番号
-    「0」にキーが、「1」に値が保管された配列になるのです。
+     注意すべきは、ハッシュから値を取り出される変数の中身です。これは、
+     ただ取り出した値が保管されるのではありません。この変数に設定される
+     のは、「キーと値をひとまとめにした配列」なのです。インデックス番号
+     「0」にキーが、「1」に値が保管された配列になるのです。
 
-#+BEGIN_SRC ruby
+ #+BEGIN_SRC ruby
 arr = {'A' =>'Hello', 'B' => 'Welcome', 'C' => 'Bye!'}
 for item in arr
     puts(item[0] + ":" + item[1])
 end
-#+END_SRC 
+ #+END_SRC 
 
 
 
-*** eachによる繰り返し処理
+**** eachによる繰り返し処理
 
-    配列やハッシュは、for以外にも実はいろいろな形で利用する機能を備え
-    ています。配列やハッシュは、「オブジェクト」と呼ばれる値であり、そ
-    れらの中に用意されている「メソッド」という機能を呼び出すことで、い
-    ろいろな処理が実行できるのです。
+     配列やハッシュは、for以外にも実はいろいろな形で利用する機能を備え
+     ています。配列やハッシュは、「オブジェクト」と呼ばれる値であり、そ
+     れらの中に用意されている「メソッド」という機能を呼び出すことで、い
+     ろいろな処理が実行できるのです。
 
-    オブジェクトについてはいずれ改めて説明するとして、ここでは配列／ハッ
-    シュの要素を処理する「each」というメソッドを紹介しておくことにしま
-    しょう。
+     オブジェクトについてはいずれ改めて説明するとして、ここでは配列／ハッ
+     シュの要素を処理する「each」というメソッドを紹介しておくことにしま
+     しょう。
 
-    : 配列 .each do | 変数 |
-    :   ……実行する処理……
-    : end
+     : 配列 .each do | 変数 |
+     :   ……実行する処理……
+     : end
 
 
-    : ハッシュ .each do | 変数1, 変数2 |
-    :  ……実行する処理……
-    : end
+     : ハッシュ .each do | 変数1, 変数2 |
+     :  ……実行する処理……
+     : end
 
-    eachは、配列／ハッシュのオブジェクトの中にある機能です。これは、配
-    列／ハッシュが保管されている変数名の後にドットを付け、続けて「each」
-    と記述します。その後に、do | 変数 |と記述します。変数の前後にある|
-    は、必ず付けないといけません。
+     eachは、配列／ハッシュのオブジェクトの中にある機能です。これは、配
+     列／ハッシュが保管されている変数名の後にドットを付け、続けて「each」
+     と記述します。その後に、do | 変数 |と記述します。変数の前後にある|
+     は、必ず付けないといけません。
 
-    配列の場合、取り出された値が変数に設定されていきます。ハッシュの場
-    合は、取り出した項目のキーと値がそれぞれ別々に変数に設定されます。
+     配列の場合、取り出された値が変数に設定されていきます。ハッシュの場
+     合は、取り出した項目のキーと値がそれぞれ別々に変数に設定されます。
 
-    下に簡単な利用例を挙げておきましょう。配列arrから順に値を取り出し
-    て表示するだけの簡単なものですが、eachの働きがよく分かるでしょう。
+     下に簡単な利用例を挙げておきましょう。配列arrから順に値を取り出し
+     て表示するだけの簡単なものですが、eachの働きがよく分かるでしょう。
 
-    このeachもfor構文も、基本的には「保管された要素を順番に取り出して
-    変数に設定し、繰り返しを行う」という点に変わりはありません。まぁ、
-    ビギナーのうちは、どちらか一方だけ知っていればOKと考えていいでしょ
-    う。
+     このeachもfor構文も、基本的には「保管された要素を順番に取り出して
+     変数に設定し、繰り返しを行う」という点に変わりはありません。まぁ、
+     ビギナーのうちは、どちらか一方だけ知っていればOKと考えていいでしょ
+     う。
 
-#+BEGIN_SRC ruby :session ruby :results output
+ #+BEGIN_SRC ruby :session ruby :results output
 
 arr = [10, 20, 30, 40, 50]
 arr.each do |item|
     puts(item)
 end
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: [10, 20, 30, 40, 50]
-: 10
-: 20
-: 30
-: 40
-: 50
+ #+RESULTS:
+ : [10, 20, 30, 40, 50]
+ : 10
+ : 20
+ : 30
+ : 40
+ : 50
 
-** map
-#+BEGIN_SRC ruby :session ruby :results output
+*** map
+ #+BEGIN_SRC ruby :session ruby :results output
 
 arr.map { |val| val+1 }
 
 'end'
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: [11, 21, 31, 41, 51]
+ #+RESULTS:
+ : [11, 21, 31, 41, 51]
 
-#+BEGIN_SRC ruby :session ruby :results output
+ #+BEGIN_SRC ruby :session ruby :results output
 
 hash = { 'a'=> 1, 'b' => 2}
 
@@ -481,162 +479,162 @@ new_hash = hash.map { |k,v|  k => v }
 
 'end'
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: {"a"=>1, "b"=>2}
-: SyntaxError: (irb):585: syntax error, unexpected =>, expecting '}'
-: new_hash = hash.map { |k,v|  k => v } 
-:                                  ^
-: 	from /opt/local/bin/irb:13:in `<main>'
+ #+RESULTS:
+ : {"a"=>1, "b"=>2}
+ : SyntaxError: (irb):585: syntax error, unexpected =>, expecting '}'
+ : new_hash = hash.map { |k,v|  k => v } 
+ :                                  ^
+ : 	from /opt/local/bin/irb:13:in `<main>'
 
 
-#+BEGIN_SRC ruby :session ruby :results output
+ #+BEGIN_SRC ruby :session ruby :results output
 'a' => 1
 'end'
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: SyntaxError: (irb):591: syntax error, unexpected =>, expecting end-of-input
-: 'a' => 1
-:       ^
-: 	from /opt/local/bin/irb:13:in `<main>'
-
-
-* メソッドで処理をまとめる
-
-プログラムを構造的に作っていくやり方を「構造化」といいます。構造化のた
-めの最初の一歩は、「まとまった処理を他とは切り離して扱えるようにする」
-ということです。
-
-Rubyでは、「メソッド」がこれに相当します。メソッドは、以下のような形で定義します。
+ #+RESULTS:
+ : SyntaxError: (irb):591: syntax error, unexpected =>, expecting end-of-input
+ : 'a' => 1
+ :       ^
+ : 	from /opt/local/bin/irb:13:in `<main>'
 
 
-: def メソッド名
-:     ……実行する処理……
-: end
+** メソッドで処理をまとめる
 
-これで、defの後に記述した名前を呼び出すだけでいつでも定義されている処
-理を実行させることができます。このメソッドは、スクリプトの中にあっても
-そのまま実行されたりはしません。外部からメソッドの名前を使って呼び出さ
-れた時だけ実行されます。例を挙げましょう。
+ プログラムを構造的に作っていくやり方を「構造化」といいます。構造化のた
+ めの最初の一歩は、「まとまった処理を他とは切り離して扱えるようにする」
+ ということです。
 
-#+BEGIN_SRC ruby :results output :session new
+ Rubyでは、「メソッド」がこれに相当します。メソッドは、以下のような形で定義します。
+
+
+ : def メソッド名
+ :     ……実行する処理……
+ : end
+
+ これで、defの後に記述した名前を呼び出すだけでいつでも定義されている処
+ 理を実行させることができます。このメソッドは、スクリプトの中にあっても
+ そのまま実行されたりはしません。外部からメソッドの名前を使って呼び出さ
+ れた時だけ実行されます。例を挙げましょう。
+
+ #+BEGIN_SRC ruby :results output :session new
 
 def hello
     puts("Hello!")
 end
 
 hello
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
+ #+RESULTS:
 
-#+BEGIN_SRC ruby :results output :session
+ #+BEGIN_SRC ruby :results output :session
 
 hello
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-
-
-** 引数と返り値
-
-   これは、ただ名前を指定して呼び出すだけのものでしたが、メソッドはも
-   う少し複雑なこともできます。特に、メソッドの重要な要素である「引数」
-   と「返り値」を覚えることで、メソッドを呼び出す側と値をやり取りしな
-   がら処理を実行することができるようになります。
+ #+RESULTS:
 
 
-*** 引数を使うには？
+*** 引数と返り値
 
-    メソッドを呼び出す際に必要な値などを受けたしたい場合もあるでしょう。
-    こうしたときは、「引数」というものを利用します。これは最初のdef行
-    を以下のように記述します。
-
-    : def メソッド名 ( 引数1, 引数2, ……)
-
-()内にある引数というところには、値を受け取るための変数を用意します。このようにすることで、呼び出す際に値をこれらの変数に受け渡し、メソッドで利用することができるようになります。これを呼び出すときは、
-
-メソッド名 ( 値1, 値2, ……)
-
-このように記述します。メソッド名の後に()をつけ、その中に受け渡す値を用意するわけです。これも、実際に例を挙げましょう。
-
-def helo(name)
-    puts("Hello, " + name + "!")
-end
-
-helo("Taro")
-helo("Hanako")
-
-実行すると、「Hello, Taro!」「Hello, Hanako!」といったテキストが表示されます。def helo(name)で、引数に用意している変数nameに値が渡され、それをputsで表示していることがわかりますね。これを呼び出している部分では、helo("Taro")というように記述しています。これで、"Taro"というテキストが、heloメソッドの引数にある変数nameに受け渡される、というわけです。
+    これは、ただ名前を指定して呼び出すだけのものでしたが、メソッドはも
+    う少し複雑なこともできます。特に、メソッドの重要な要素である「引数」
+    と「返り値」を覚えることで、メソッドを呼び出す側と値をやり取りしな
+    がら処理を実行することができるようになります。
 
 
-●返り値を使うには？
-メソッドは、呼び出して何かを実行しておしまい、というだけではなく、「実行した後の結果」を受け取る事もできます。「返り値（または、戻り値）」というもので、以下のような形で記述します。
+**** 引数を使うには？
 
-def メソッドの宣言
-    ……実行する処理……
-    return 値
-end
+     メソッドを呼び出す際に必要な値などを受けたしたい場合もあるでしょう。
+     こうしたときは、「引数」というものを利用します。これは最初のdef行
+     を以下のように記述します。
 
-「return」というのは、メソッドを抜け、呼び出し元に処理を返すためのものです。このとき、指定した値を呼び出し元に返すことができます。その値を変数などに納めて利用することができるのです。
+     : def メソッド名 ( 引数1, 引数2, ……)
 
-変数 = メソッド名
+ ()内にある引数というところには、値を受け取るための変数を用意します。このようにすることで、呼び出す際に値をこれらの変数に受け渡し、メソッドで利用することができるようになります。これを呼び出すときは、
 
-こんな具合にすれば、メソッドでreturnされた値が変数に代入されます。つまり返り値を持つメソッドは、変数や値と同じ感覚で扱うことができる、と考えればよいでしょう。では、先ほどの例を返り値を持つ形に修正してみましょう。
+ メソッド名 ( 値1, 値2, ……)
 
-def helo(name)
-    return "Hello, " + name + "!"
-end
+ このように記述します。メソッド名の後に()をつけ、その中に受け渡す値を用意するわけです。これも、実際に例を挙げましょう。
 
-puts(helo("Sachiko"))
+ def helo(name)
+     puts("Hello, " + name + "!")
+ end
 
-ここでは、heloメソッドを実行すると、テキストを生成してreturnするようになっています。putsの()内にheloメソッドを用意することで、returnされたテキストを表示しているのですね。
+ helo("Taro")
+ helo("Hanako")
+
+ 実行すると、「Hello, Taro!」「Hello, Hanako!」といったテキストが表示されます。def helo(name)で、引数に用意している変数nameに値が渡され、それをputsで表示していることがわかりますね。これを呼び出している部分では、helo("Taro")というように記述しています。これで、"Taro"というテキストが、heloメソッドの引数にある変数nameに受け渡される、というわけです。
+
+
+ ●返り値を使うには？
+ メソッドは、呼び出して何かを実行しておしまい、というだけではなく、「実行した後の結果」を受け取る事もできます。「返り値（または、戻り値）」というもので、以下のような形で記述します。
+
+ def メソッドの宣言
+     ……実行する処理……
+     return 値
+ end
+
+ 「return」というのは、メソッドを抜け、呼び出し元に処理を返すためのものです。このとき、指定した値を呼び出し元に返すことができます。その値を変数などに納めて利用することができるのです。
+
+ 変数 = メソッド名
+
+ こんな具合にすれば、メソッドでreturnされた値が変数に代入されます。つまり返り値を持つメソッドは、変数や値と同じ感覚で扱うことができる、と考えればよいでしょう。では、先ほどの例を返り値を持つ形に修正してみましょう。
+
+ def helo(name)
+     return "Hello, " + name + "!"
+ end
+
+ puts(helo("Sachiko"))
+
+ ここでは、heloメソッドを実行すると、テキストを生成してreturnするようになっています。putsの()内にheloメソッドを用意することで、returnされたテキストを表示しているのですね。
 
 
 
-(by. 掌田津耶乃.)
-*program list*
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+ (by. 掌田津耶乃.)
+ *program list*
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
 	
-※引数の利用例
+ ※引数の利用例
  
-def helo(name)
-    puts("Hello, " + name + "!")
-end
+ def helo(name)
+     puts("Hello, " + name + "!")
+ end
  
-helo("Taro")
-helo("Hanako")
+ helo("Taro")
+ helo("Hanako")
  
  
-※返り値の利用例
+ ※返り値の利用例
  
-def helo(name)
-    return "Hello, " + name + "!"
-end
+ def helo(name)
+     return "Hello, " + name + "!"
+ end
  
-puts(helo("Sachiko"))
+ puts(helo("Sachiko"))
 
-* info
-  - [[http://libro.tuyano.com/index2?id=953003][ビギナーのためのRubyプログラミング入門]] 
+** info
+   - [[http://libro.tuyano.com/index2?id=953003][ビギナーのためのRubyプログラミング入門]] 
 
 
-  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ビギナーのためのRubyプログラミング入門のノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
+   - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ビギナーのためのRubyプログラミング入門のノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
