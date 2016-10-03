@@ -138,7 +138,7 @@
 
 [[http://dev.classmethod.jp/server-side/language/build-ruby-environment-by-rbenv/][rbenv を利用した Ruby 環境の構築 ｜ Developers.IO]]
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC sh :exports code
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 

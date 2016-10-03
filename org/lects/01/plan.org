@@ -78,20 +78,61 @@
 
 ** オブジェクト指向へ至るまで
   
+  
+** メタプログラミング Ruby
+
+今年は，黒魔術本のその本質だけやるつもりです。
+
+- Ruby の原理
+- Ruby の動的プログラミング(メタプログラミング)
+
 ** オブジェクト指向プログラミング
 
 オブジェクト指向設計原則やプログラミング原則について一緒に勉強しましょ
+
 う。
 
-- [[file:/NFS/ufs/mac/masayuki/COMM/Lects/meta-ruby/2016/review.org::*%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%AE%E6%9C%AC%E6%87%90%20-%20Strategic%20Choice][オブジェクト指向の本懐 - Strategic Choice]] (ruby ではないが)
+*** Strategic Choice を読もう
+**** 記事一覧
+http://d.hatena.ne.jp/asakichy/archive
+
+- meta programming ruby の講義の一部にしよう
+
+**** 抽象データ型 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20090225/1235547089
+
+ モジュールという考え方があった。
+ しかし，複数のインスタンスが作れない。
+
+**** オブジェクト指向の本懐 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090421/1240277448
+
+**** オブジェクト指向設計原則 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090122/1232879842
+
+**** プログラミング原則 [Unix思想] - Strategic Choice
+http://d.hatena.ne.jp/asakichy/searchdiary?word=%2A%5BUnix%BB%D7%C1%DB%5D
+
+**** ソフトウェア開発の真実とウソ - Strategic Choice
+ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
+
+**** ソフトウェア開発原則一覧 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20100205/1265329796
+
+**** 七つの設計原理 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090806/1249526499
+
+**** 漏れのある抽象化の法則 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20160729/1469743543
+
+
+*** デザイン・パターン
+
+デザイン・パターンも
 
 - [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターンを作りました - 酒と泪とRubyとRailsと]]
 
 - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]]
 
-  
-** メタプログラミング Ruby
-
-Ruby の原理とメタプログラミングを学びましょう。
 
 
