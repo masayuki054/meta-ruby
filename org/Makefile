@@ -29,7 +29,7 @@ note.html: $(wildcard note/*.org) info/common-header.org
 .SUFFIXES: .org .html
 .org.html: info/common-header.org 
 	$(HOME)/bin/org2html $<
-	sed -e 's/http:\/\//https:\/\//g' | sed -e 's/https:\/\/www.pirilampo.org/https:\/\/wiki.cis.iwate-u.ac.jp\/~suzuki\/org-html-theme/' $@ > $(SITE)/$@
+	sed -e 's/http:\/\//https:\/\//g' $@ | sed -e 's/https:\/\/www.pirilampo.org/https:\/\/wiki.cis.iwate-u.ac.jp\/~suzuki\/org-html-theme/' > $(SITE)/$@
 #	cp -p $@  $(SITE)/$@
 	git add  $(SITE)/$@ 
 	git commit -a -m "daily $(DATE)"
