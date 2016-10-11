@@ -65,16 +65,24 @@
 
 ** 講義のための環境つくり
 
-*** ruby実行環境
-    - rbenv, gem
+
+*** ruby実行環境 
+    [[./ruby.org]] [0/2]
+    - [ ] ruby情報
+    - [ ] ruby環境作り [0/3]
+      - [ ] rbenv とは 
+      - [ ] 自前で rbenv+ruby-build をインストール
+      - [ ] ruby のインストール
+      - [ ] gem (rubyのパッケージ管理)
 
 *** ruby プログラミング環境
-    - Emacs package
+    [[./emacs.org][Emacs]]
+    - [ ] emacs-24.5
+    - [ ] emacsのパッケージと設定
 
 *** 文芸的プログラミング環境 
-    - emacs org-mode 
+    - emacs org-mode
 
+** ruby入門   
 
-
-
-
+   [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]]  ([[./ruby.org]] 2.ruby入門-2.1 2016) 
