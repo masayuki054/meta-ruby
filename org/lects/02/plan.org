@@ -1,76 +1,78 @@
-#+title: <2015-10-26 月>の講義予定
-
-* Todo 講義資料の説明
-  SCHEDULED: <2015-10-26 月>
-
-  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][org-docs]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
-
-* Doing オブジェクト指向とは
-  SCHEDULED: <2015-10-05 月>
-
-** Doing プログラム言語とは
-
-*** Done 記述のための要素
-    CLOSED: [2015-10-26 月 08:37]
-
-   - 値と定数
-   - データ構造体
-   - 型と演算
-   - 変数と代入
-   - 文と流れ
-   - 関数（手続き)
-     - 定義
-     - 呼出し
-   - スコープ
-   - モジュール
-
-*** Todo 実行するということ
-
-    - コードインタープリタ
-    - 環境
-      - 実行の流れを保存するスタック
-      - 名前を解決する束縛
-      - 静的か動的か
-
-*** Todo メタプログラミング
-    - プログラムを生成するプログラムをつくること
+* 講義予定 (2) 2016-10-12
+** 講義内容（の提案）
+*** Ruby入門
 
 
-** Todo オブジェクト指向プログラミング
-   [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
-   - カプセル化と情報隠蔽
-   - 多相性
-   - 動的束縛
-   - 継承
-     
-** Todo 僕の考え
-    - モジュール
-    - メッセージパッシング
-    - 差をプログラムする
-    
-** Todo Rubyらしさ
-
-    - 純粋オブジェクト指向
-      - プログラム可能なものは全て，オブジェクト
-      - クラスもオブジェクト
-      - 実行はすべてメッセージパッシングで起こる
-    - オブジェクトは実行の場
-
-** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
-
-   今日は紹介
-
-* Ruby入門
-
-  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/ruby_begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/ruby-begin.org][@s.org]]))
-
-  - rbenv, gem, bundler のこと
-  - gem pry install
-  - pry 
+*** オブジェクト指向について学ぶ
   
-* メタプログラミング Ruby
+ オブジェクト指向設計原則やプログラミング原則について一緒に勉強しましょう。  
 
-  イントロダクションを紹介
+**** [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] を読もう。
+
+**** Strategic Choice を読もう
+***** 記事一覧
+ http://d.hatena.ne.jp/asakichy/archive
+
+ - meta programming ruby の講義の一部にしよう
+
+***** 抽象データ型 - Strategic Choice
+  http://d.hatena.ne.jp/asakichy/20090225/1235547089
+
+  モジュールという考え方があった。
+  しかし，複数のインスタンスが作れない。
+
+***** オブジェクト指向の本懐 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20090421/1240277448
+
+***** オブジェクト指向設計原則 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20090122/1232879842
+
+***** プログラミング原則 [Unix思想] - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/searchdiary?word=%2A%5BUnix%BB%D7%C1%DB%5D
+
+***** ソフトウェア開発の真実とウソ - Strategic Choice
+ ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
+
+***** ソフトウェア開発原則一覧 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20100205/1265329796
+
+***** 七つの設計原理 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20090806/1249526499
+
+***** 漏れのある抽象化の法則 - Strategic Choice
+ http://d.hatena.ne.jp/asakichy/20160729/1469743543
+
+
+*** メタプログラミング Ruby
+
+ 今年は，黒魔術本のその本質だけやるつもりです。
+
+ - Ruby の原理
+ - Ruby の動的プログラミング(メタプログラミング)
+
+*** Ruby オブジェクト指向プログラミング
+
+**** poker ゲーム
+**** デザイン・パターン
+
+ デザイン・パターンについても下記サイトを読んでみましょう:
+
+ - [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターンを作りました]] ::
+      ruby で書いたデザイン・パターンの実装例です。
+
+ - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] ::
+      デザインパターンのリファレンスに使いましょう。
+
+** 講義のための環境つくり
+
+*** ruby実行環境
+    - rbenv, gem
+
+*** ruby プログラミング環境
+    - Emacs package
+
+*** 文芸的プログラミング環境 
+    - emacs org-mode 
 
 
 
