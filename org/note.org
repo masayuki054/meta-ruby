@@ -1,4 +1,4 @@
-#+setupfile: info/index-sos-header.setup
+#+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+title: 講義ノート・メモ
 #+include: note/contents.org

@@ -1,4 +1,3 @@
-
 MYHOME = ../
 ORG = $(MYHOME)/org/
 SITE = $(MYHOME)/docs/
@@ -10,6 +9,7 @@ HTMLS = index.html \
 lects.html \
 ruby.html \
 emacs.html \
+note.html \
 oo.html
 
 all: $(HTMLS)
