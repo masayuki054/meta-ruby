@@ -1,149 +1,76 @@
-* .outline
+* 講義予定 (3) 2016-10-24
 
-  2015.11.02 の講義予定です。
+** 講義内容
 
-** Doing announce まだサイトリニューアル中です。未整備なページ等あります。すみません。
-           ご指摘ください。
+*** Todo Ruby入門 [0/2]
+    SCHEDULED: <2016-10-24 月>
 
-** todo emacs環境/ruby環境 整えましょう。
-** TODO ruby 入門始めましょう。
-           : ~suzuki/lects/meta-ruby/lects/ruby_begin_note.org
+    ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 
-** TODO emacs org-mode 憶えませんか？
-** Doing オブジェクトへ至る道を読みましょう。
-** Todo メタプログラミング ruby 読み始めましょう。
-   SCHEDULED: <2015-11-02 月>
+**** Todo [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
+     10/24 終了予定
 
-   - path :: ~/COMM/Lects/meta-ruby/book
-   - まとめ :: ~/COMM/Lects/meta-ruby/site/org-docs/meta-ruby/
+**** Todo [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
+     10/24~ 2~3回
 
-* Done 講義資料の説明
-  CLOSED: [2015-11-02 月 09:11] SCHEDULED: <2015-10-26 月>
-
-  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/][講義資料]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/][@s.org]]))
-
-  - URL ::  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/emacs-setup.html][emacsの設定]] (([[file+emacs:~suzuki/lects/meta-ruby/org-docs/emacs-setup.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/emacs-setup.org][@s.org]])) 追加しました。
-
-* Doing オブジェクト指向とは
-  SCHEDULED: <2015-10-05 月>
+*** オブジェクト指向について
   
-** Doing オブジェクト指向プログラミングへ至る道
-   SCHEDULED: <2015-10-26 月>
+    [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] を読みまとめ
+    始めましょう。
 
-   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/oo.html][OOへ至る道]] (([[file+emacs:~suzuki/lects/meta-ruby/site/org-docs/oo.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/org-docs/oo.org][@s.org]])) 
+    - ソフトウェア危機
+    - 構造化プログラミング
 
-   - [ ] ソフトウェア危機
-   - [ ] 構造化プログラミング
+**** oo.org にまとめはじめましょう 
 
+     - org-mode で書いてみましょう
 
-** Doing プログラム言語とは
-   SCHEDULED: <2015-10-05 月>
+*** Todo メタプログラミング Ruby
+    SCHEDULED: <2016-10-24 月>
 
-*** Done 記述のための要素
-    CLOSED: [2015-10-26 月 08:37]
+    ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 
-   - 値と定数
-   - データ構造体
-   - 型と演算
-   - 変数と代入
-   - 文と流れ
-   - 関数（手続き)
-     - 定義
-     - 呼出し
-   - スコープ
-   - モジュール
+    まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
+    - self の存在
+    - いったい self とは何でしょう？
 
-*** Todo 実行するということ
+#+BEGIN_SRC ruby :results output :exports both
+self
 
-    - コードインタープリタ
-    - 環境
-      - 実行の流れを保存するスタック
-      - 名前を解決する束縛
-      - 静的か動的か
+self.class
 
-*** Todo メタプログラミング
-    - プログラムを生成するプログラムをつくること
+self.class.ancestors
 
-
-** Todo オブジェクト指向プログラミング
-
-*** [[https://ja.wikipedia.org/wiki/オブジェクト指向プログラミング][オブジェクト指向プログラミング]] (wikipedia)
-   - カプセル化と情報隠蔽
-   - 多相性
-   - 動的束縛
-   - 継承
-     
-*** Todo 僕の考え
-     - モジュール
-     - メッセージパッシング
-     - 差をプログラムする
-     
-*** Todo Rubyらしさ
-
-     - 純粋オブジェクト指向
-       - プログラム可能なものは全て，オブジェクト
-       - クラスもオブジェクト
-       - 実行はすべてメッセージパッシングで起こる
-     - オブジェクトは実行の場
-
-
-** [[http://itpro.nikkeibp.co.jp/article/COLUMN/20060825/246409/][まつもと直伝プログラミングの掟]]
-
-   今年(2015)は読んでいる暇はなさそうです。
-
-*** まつもと直伝プログラミングの掟のまとめ
-    [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/matz][まとめ]]
-
-
-* Todo Ruby入門
-  SCHEDULED: <2015-11-02 月>
-  
-  [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/org-docs/ruby_begin.html][ruby入門]] (([[file+emacs:~suzuki/lects/meta-ruby/site/ruby-begin.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/ruby-begin.org][@s.org]])) を読みプログラムしてみましょう。
-  - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/ruby-begin-note.html][ruby入門ノート]] (([[file+emacs:~suzuki/lects/meta-ruby/lects/ruby-begin-note.org][@cis.org]] [[file+emacs:~/COMM/Lects/meta-ruby/site/lects/ruby-begin-note.org][@s.org]]))
-
-* Todo メタプログラミング Ruby
-  SCHEDULED: <2015-11-02 月>
-  
-  序章を読みましょう。
-
-* lect record
-
-  ここは，講義中の記録です。
-
-#+BEGIN_SRC sh :results output 
-ls
+self.methods
 
 #+END_SRC
 
 #+RESULTS:
-#+begin_example
-#today.org#
-contents.org
-index.html
-index.html~
-index.org
-outline.org
-plan-02.org
-plan.org
-prog.rb
-today.org
-#+end_example
+
+    
+    Ruby入門で行なったプログラムの実行について考察しましょう。
 
 
-#+BEGIN_SRC ruby :results output code :export both
+*** Ruby オブジェクト指向プログラミング
 
-print "hoge", "\n"
-print 1+2,  "\n"
+    まだ始まりません。
 
-#+END_SRC
+** 講義のための環境つくり
 
-#+RESULTS:
-#+BEGIN_SRC ruby
-hoge
-3
-#+END_SRC
+*** ruby実行環境 
+    [[./ruby.org]] [2/2]
+    - [X] ruby情報
+    - [X] ruby環境作り [4/4]
+      - [X] rbenv とは 
+      - [X] 自前で rbenv+ruby-build をインストール
+      - [X] ruby のインストール
+      - [X] gem (rubyのパッケージ管理)
 
+*** ruby プログラミング環境
+    [[./emacs.org][Emacs]]
+    - [ ] emacs-24.5
+    - [ ] emacsのパッケージと設定
 
-
-
+*** 文芸的プログラミング環境 
+    - emacs org-mode
 

@@ -4,3 +4,7 @@
 #+include: to_oo_note.org
 
 #+include: oo-note-oo-sucks.org :minlevel 1
+
+#+include: strategic-choice.org :minlevel 1
+
+

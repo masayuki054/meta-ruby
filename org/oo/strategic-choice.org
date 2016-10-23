@@ -1,0 +1,33 @@
+* Strategic Choice を読もう
+** 記事一覧
+http://d.hatena.ne.jp/asakichy/archive
+
+** 抽象データ型 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090225/1235547089
+
+モジュールという考え方があった。
+しかし，複数のインスタンスが作れない。
+
+
+** オブジェクト指向の本懐 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090421/1240277448
+
+** オブジェクト指向設計原則 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090122/1232879842
+
+** プログラミング原則 [Unix思想] - Strategic Choice
+http://d.hatena.ne.jp/asakichy/searchdiary?word=%2A%5BUnix%BB%D7%C1%DB%5D
+
+** ソフトウェア開発の真実とウソ - Strategic Choice
+ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
+
+** ソフトウェア開発原則一覧 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20100205/1265329796
+
+** 七つの設計原理 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20090806/1249526499
+
+** 漏れのある抽象化の法則 - Strategic Choice
+http://d.hatena.ne.jp/asakichy/20160729/1469743543
+
+
