@@ -2,6 +2,7 @@
 #+include: info/common-header.org
 #+title: meta-ruby
 #+include: lects/03/plan.org 
+#+include: lects/03/03-note.org 
 # #+include: ruby/contents.org  :minlevel 1
 # #+include: oo/contents.org :minlevel 1
 

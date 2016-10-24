@@ -1,4 +1,5 @@
 * 講義予定 (3) 2016-10-24
+  self => ~suzuki/meta-ruby.git/org/lects/03/plan.org
 
 ** 講義内容
 

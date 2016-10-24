@@ -1,2 +1,3 @@
 #+include: plan.org :minlevel 1
+#+include: 03-note.org :minlevel 1
 
