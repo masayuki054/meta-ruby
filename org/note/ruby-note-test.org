@@ -35,7 +35,7 @@ class TestSample < Test::Unit::TestCase
 
 **** テスト全体の前後処理メソッド:
 
-#+BEGIN_SRC 
+#+BEGIN_SRC ruby 
   class << self
     # テスト群の実行前に呼ばれる．変な初期化トリックがいらなくなる
     def startup

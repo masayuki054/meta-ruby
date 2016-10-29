@@ -14,7 +14,7 @@ gem install sqlite3
 
 ** sqlite
 
-[[ja.wikipedia.org/wiki/SQLite][SQLite (wikipedia)]] 手軽なローカル・ファイル型の軽量データベース
+[[http://ja.wikipedia.org/wiki/SQLite][SQLite (wikipedia)]] 手軽なローカル・ファイル型の軽量データベース
 
 ** setup   
 

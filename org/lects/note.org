@@ -1,0 +1,62 @@
+* 講義へのメモ
+
+ここには，((:-s)) の，講義前や講義後に思ったことを，書き留めてあります。
+
+** 2016.10.31 へのメモ
+
+*** ruby tutorial
+
+    - irb の使い方
+    - run-ruby の使い方
+
+*** oo.begin
+
+    - ~/xxxx/oo.org
+
+*** emacs 
+    - org-mode
+    - org-mode babel
+
+
+
+** 2016.10.24 のメモ
+
+   self => ~suzuki/meta-ruby.git/org/lects/note.org
+
+*** emacsの設定
+
+    - ruby-mode
+    - org-mode
+
+**** Emacs24.5日本語マニュアル登場！！info作成方法
+     http://emacs.rubikitch.com/emacs245-manual-ja/
+
+     suzuki@cis.iwate-u.ac.jp:local/info
+
+**** #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方
+     http://emacs.rubikitch.com/sd1503-helm/
+
+*** org-mode の紹介
+
+    [[info:org]]
+
+    http://orgmode.org/ja
+
+**** #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方
+     http://emacs.rubikitch.com/sd1502-org-mode/
+
+*** org-mode babel の紹介
+
+  #+BEGIN_SRC ruby :exports both :results output
+p 1.class
+p "abc".class
+
+  #+END_SRC
+
+  #+RESULTS:
+  : Fixnum
+  : String
+
+
+  
+

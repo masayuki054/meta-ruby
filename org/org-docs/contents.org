@@ -14,7 +14,7 @@
   : path: ~suzuki/lects/meta-ruby/site/org-docs/ruby_begin.org
 
 ** rubyについてあれこれ
-  [[s-:]] のめもです。
+  ((s-:)) のめもです。
 
   [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/docs/rubymisc/][rubymisc]]
   : path: ~suzuki/lects/meta-ruby/site/org-docs/rubymisc

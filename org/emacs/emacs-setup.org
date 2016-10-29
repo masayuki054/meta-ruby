@@ -1,6 +1,6 @@
-# Time-stamp: <2016-10-01 19:30:22 m>
-* おしらせ
-* emacs
+# Time-stamp: <2016-10-29 20:49:40 m>
+* emacs 設定 for meta-ruby
+
 ** emacs-24.5 
 
    emacs-24.5 を ~suzuki/local/ にインストールしました。
@@ -38,14 +38,15 @@ export PATH=~suzuki/local/bin:$PATH
 (init-loader-load "~suzuki/local/share/emacs/site-lisp/init_loader")
 #+END_SRC
 
-* package
 
-** emacs package について
-    [[http://emacs-jp.github.io/packages/package-management/package-el.html][package.el - Emacs JP]] のまとめ
+** package
 
-*** 設定
+*** emacs package について
+     [[http://emacs-jp.github.io/packages/package-management/package-el.html][package.el - Emacs JP]] のまとめ
 
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
+**** 設定
+
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
 
 (require 'package)
 
@@ -67,33 +68,33 @@ export PATH=~suzuki/local/bin:$PATH
 
 ;; 初期化
 (package-initialize)
-#+END_SRC
+ #+END_SRC
 
-*** 利用方法
+**** 利用方法
 
-    : M-x package-install
+     : M-x package-install
 
-    指定したパッケージをインストールする.
+     指定したパッケージをインストールする.
 
-    : M-x package-refresh-contents
+     : M-x package-refresh-contents
 
-    パッケージ情報を更新する. 最新のものをインストールしたい場合は, 事
-    前に実行して置くと 良い. 後述の package-list-packagesからインストー
-    ルを行う場合は不要.
+     パッケージ情報を更新する. 最新のものをインストールしたい場合は, 事
+     前に実行して置くと 良い. 後述の package-list-packagesからインストー
+     ルを行う場合は不要.
 
-    : M-x package-list-packages
+     : M-x package-list-packages
 
-    パッケージ操作バッファを開く.
+     パッケージ操作バッファを開く.
 
-*** 管理例
-    (package-installed-p package-name)で package-nameがインストール済み
-    で あるかを確認することができるので, package-installed-pが nilを返
-    すパッケージを インストールすれば, 同じ環境を構築することができる.
+**** 管理例
+     (package-installed-p package-name)で package-nameがインストール済み
+     で あるかを確認することができるので, package-installed-pが nilを返
+     すパッケージを インストールすれば, 同じ環境を構築することができる.
 
-    以下のようなファイルを用意し, M-x eval-bufferを実行することで, イン
-    ストールされて いないパッケージをインストールすることができる.
+     以下のようなファイルを用意し, M-x eval-bufferを実行することで, イン
+     ストールされて いないパッケージをインストールすることができる.
 
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/package-update.el
 ;; パッケージ情報の更新
 (package-refresh-contents)
 
@@ -125,31 +126,31 @@ export PATH=~suzuki/local/bin:$PATH
   (unless (package-installed-p package)
     (package-install package)))
 
-#+END_SRC
+ #+END_SRC
 
 
-package-installed-p関数はあくまでインストールしているかどうかを 知らせるだけなので, アップグレードできるかどうかを検知できるわけではない.
+ package-installed-p関数はあくまでインストールしているかどうかを 知らせるだけなので, アップグレードできるかどうかを検知できるわけではない.
 
-*** 更新
+**** 更新
 
-    package-list-packagesを実行し, U, xとすることで, インストール済みの パッ
-    ケージをすべて upgradeできる.
+     package-list-packagesを実行し, U, xとすることで, インストール済みの パッ
+     ケージをすべて upgradeできる.
 
 
-** emacsのruby環境をセットアップする
+*** emacsのruby環境をセットアップする
 
-  http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/
+   http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/
 
-** ruby-mode,ruby-end,ruby-blockをインストール
+*** ruby-mode,ruby-end,ruby-blockをインストール
 
-*** packages
-    - ruby-mode
-    - ruby-end
-    - ruby-block
+**** packages
+     - ruby-mode
+     - ruby-end
+     - ruby-block
 
-*** 設定
+**** 設定
 
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
 
 ;; --------------------------------------------------
 ;; ruby-mode
@@ -201,39 +202,39 @@ package-installed-p関数はあくまでインストールしているかどう�
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
-#+end_src
+ #+end_src
 
-** auto-completeのインストール
+*** auto-completeのインストール
 
-*** packages
-   - auto-complete
-   - fuzzy
-   - popup
+**** packages
+    - auto-complete
+    - fuzzy
+    - popup
 
-*** 設定
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/02_auto-complete.el
+**** 設定
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/02_auto-complete.el
 
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/.cask/24.3.1/elpa/auto-complete-20140824.1658/dict")
 (ac-config-default)
 (setq ac-use-menu-map t)
-#+END_SRC
+ #+END_SRC
 
-** robeのインストール
+*** robeのインストール
 
-*** pryのインストール
-#+BEGIN_SRC sh
+**** pryのインストール
+ #+BEGIN_SRC sh
 gem install pry pry-doc bundler
 source ~/.bashrc
 which pry
-#+END_SRC
+ #+END_SRC
 
-*** package
-    - robe
-    - inf-ruby
+**** package
+     - robe
+     - inf-ruby
 
-*** 設定
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+**** 設定
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
 
 ;; --------------------------------------------------
 ;; robe
@@ -243,53 +244,53 @@ which pry
 (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
 (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
-#+END_SRC
+ #+END_SRC
 
-*** robeの起動方法
+**** robeの起動方法
 
-   robeを利用するには、
+    robeを利用するには、
 
-#+BEGIN_SRC emacs
+ #+BEGIN_SRC emacs
     M-x inf-ruby   ;; を実行し、裏でirb(pry)を起動させ、
     M-x robe-start ;; で初めてrobeが使えるようになります。
-#+END_SRC
+ #+END_SRC
 
-** rbenvのパスを通す
+*** rbenvのパスを通す
 
-   Emacs の中で，rbenvのパスを通してくれます。
+    Emacs の中で，rbenvのパスを通してくれます。
 
-*** package
-    - rbenv
+**** package
+     - rbenv
 
-*** 設定
+**** 設定
 
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
  (require 'rbenv)
  (global-rbenv-mode)
  (setq rbenv-installation-dir "~/.rbenv")
-#+END_SRC
+ #+END_SRC
 
-** smart-newlineを導入する
+*** smart-newlineを導入する
 
-   改行をよしなにやってくれます。素敵です。
+    改行をよしなにやってくれます。素敵です。
 
-*** package
-    - smart-newline
+**** package
+     - smart-newline
 
-*** 設定
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
+**** 設定
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/03_ruby.el
 
  (add-hook 'ruby-mode-hook
    (lambda ()
    (smart-newline-mode t)))
 
-#+END_SRC
+ #+END_SRC
     
 
-** Todo emacsの org-mode 環境をセットアップする
-   SCHEDULED: <2015-11-02 月>
+*** Todo emacsの org-mode 環境をセットアップする
+    SCHEDULED: <2015-11-02 月>
 
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/04_org.el
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/04_org.el
 (require 'org)
 (require 'org-compat)
 (require 'org-list)
@@ -495,29 +496,6 @@ which pry
 
 ;; (add-hook 'org-mode-hook 'org-turn-on-literal-links)
 
-#+END_SRC
-
-
-* おまけ
-
-** recentf
-
-   ~/.emacs.d/.recentf に最近使ったfile一覧を保存し、
-   M-x recentf-open-file で使う
-   
-   helm と組合せると検索もできて便利
-
-#+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/10_recentf.el
-;; recentf and recentf-ext.el
-;; http://keisanbutsuriya.hateblo.jp/entry/2015/02/15/174758
-
-(require 'recentf)
-(setq recentf-save-file (expand-file-name "~/.emacs.d/.recentf"))
-(setq recentf-max-saved-items 100)            ;; recentf に保存するファイルの数
-(setq recentf-exclude '(".recentf"))           ;; .recentf自体は含まない
-(setq recentf-auto-cleanup 10)                 ;; 保存する内容を整理
-(run-with-idle-timer 30 t 'recentf-save-list)  ;; 30秒
-(recentf-mode 1)
-#+END_SRC   
+ #+END_SRC
 
 

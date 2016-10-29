@@ -1,3 +1,4 @@
+
 all:
 	make index.html
 

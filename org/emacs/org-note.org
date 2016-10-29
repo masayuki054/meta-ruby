@@ -1,5 +1,8 @@
 * org文書の構造
 
+** #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方
+   http://emacs.rubikitch.com/sd1502-org-mode/
+
 ** 文章の構造
 
    [[info:org#document structure]]

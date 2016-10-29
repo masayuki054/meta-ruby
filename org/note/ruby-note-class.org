@@ -295,7 +295,8 @@ so.class
 so.dispName
 'end'
 #+END_SRC
-\
+
+
 #+RESULTS:
 : #<Soarer:0x007fb02b61d888 @name="soarer">
 : #<Crown:0x007fb02b616ec0 @name="crwon">

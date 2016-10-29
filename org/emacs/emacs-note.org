@@ -1,4 +1,5 @@
-* emacs 
+* emacs アレコレ
+  
 ** emacs 
    : C-x SPC (rectangle-mark-mode &optional ARG) 
    : M-q 整形
@@ -38,8 +39,27 @@
     : C-x r M-w     copy-rectangle-as-kill
 
 
-** Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」
-   http://rubikitch.com/2014/11/19/eww-nocolor/
+** recentf
+
+    ~/.emacs.d/.recentf に最近使ったfile一覧を保存し、
+    M-x recentf-open-file で使う
+   
+    helm と組合せると検索もできて便利
+
+ #+BEGIN_SRC elisp :tangle ~/local/share/emacs/site-lisp/init_loader/10_recentf.el
+;; recentf and recentf-ext.el
+;; http://keisanbutsuriya.hateblo.jp/entry/2015/02/15/174758
+
+(require 'recentf)
+(setq recentf-save-file (expand-file-name "~/.emacs.d/.recentf"))
+(setq recentf-max-saved-items 100)            ;; recentf に保存するファイルの数
+(setq recentf-exclude '(".recentf"))           ;; .recentf自体は含まない
+(setq recentf-auto-cleanup 10)                 ;; 保存する内容を整理
+(run-with-idle-timer 30 t 'recentf-save-list)  ;; 30秒
+(recentf-mode 1)
+ #+END_SRC   
+
+
 
 ** Emacs での テキストブラウザ eww を使えるレベルにする
    http://futurismo.biz/archives/2950
@@ -97,4 +117,19 @@
 
    This mode runs the hook `eww-mode-hook', as the final step during
    initialization.
+
+
+** Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」
+   http://rubikitch.com/2014/11/19/eww-nocolor/
+
+
+
+
+** Emacs24.5日本語マニュアル登場！！info作成方法
+   http://emacs.rubikitch.com/emacs245-manual-ja/
+
+   suzuki@cis.iwate-u.ac.jp:local/info
+
+** #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方
+   http://emacs.rubikitch.com/sd1503-helm/
 

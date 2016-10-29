@@ -1,3 +1,4 @@
 # * Emacs
 #+include: emacs-setup.org 
 #+include: emacs-note.org 
+#+include: org-note.org 
