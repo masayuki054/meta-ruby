@@ -12,6 +12,7 @@
 **** Doing [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
      10/31 終了予定
 
+     : ~suzuki/rubys/ruby-begin.org
 
 **** Todo [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
      10/31~ 2~3回
@@ -26,12 +27,14 @@
 
 **** oo.org にまとめはじめましょう 
 
-     - org-mode で書いてみましょう
+    : ~/rubys/oo.org
+
+    - org-mode で書いてみましょう
 
 *** Todo メタプログラミング Ruby
     SCHEDULED: <2016-10-24 月>
 
-    ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+    : ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 
     まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
     - self の存在
