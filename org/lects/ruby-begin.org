@@ -1,0 +1,269 @@
+** インタラクティブRuby
+
+irb の起動
+
+: % irb
+: irb(main):001:0>
+
+#+BEGIN_SRC ruby :exports both
+
+"Hello World"
+
+#+END_SRC
+
+#+RESULTS:
+: => Hello World
+
+IRBが最後の式を実行した結果
+を教えてくれている。 
+
+"Hello World"と出力したいのであれば
+
+#+BEGIN_SRC ruby :results output :exports both
+
+puts "Hello World"
+
+#+END_SRC
+
+#+RESULTS:
+: Hello World
+: => nil
+
+putsはRubyで何かを出力する基本的なコマンドです。 
+
+=> nilは, このコマンドの評価結果です。 putsは必ずnilを返します。nil
+は、「まったく何もない」ことを表すRubyの「値」です。
+
+
+#+BEGIN_SRC ruby :exports both
+
+3+2
+
+#+END_SRC
+
+#+RESULTS:
+: => 5
+
+#+BEGIN_SRC ruby :exports both
+
+3*2
+
+#+END_SRC
+
+#+RESULTS:
+: => 6
+
+#+BEGIN_SRC ruby :exports both
+
+3**2
+#+END_SRC
+
+#+RESULTS:
+: => 9
+
+平方根(square root)を求めるにはMathモジュールを使う:
+
+#+BEGIN_SRC ruby :exports both
+
+Math.sqrt(9)
+
+#+END_SRC
+
+#+RESULTS:
+: =>3.0
+
+** Math は一体なんでしょうか？
+
+Math は数学のためのビルトインモジュール(標準で組み込まれているモジュー
+ル)です。
+
+#+BEGIN_SRC ruby :exports both
+
+Math.class
+
+#+END_SRC
+
+#+RESULTS:
+: Module
+
+
+Rubyでは、モジュールには2通りの役割があります。これはその1つ目の役割、
+関連するメソッドを馴染みのある名前でグループ化するものです。Math は
+sin() や tan() といったメソッドも持っています。
+
+#+BEGIN_SRC ruby :exports both :results code
+
+(Math.methods)
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+[:atan2, :cos, :sin, :tan, :acos, :asin, :atan, :cosh, :sinh, :tanh, :acosh, :asinh, :atanh, :exp, :log, :log2, :log10, :sqrt, :cbrt, :frexp, :ldexp, :hypot, :erf, :erfc, :gamma, :lgamma, :<=>, :module_exec, :class_exec, :<=, :>=, :==, :===, :include?, :included_modules, :ancestors, :name, :public_instance_methods, :instance_methods, :private_instance_methods, :protected_instance_methods, :const_get, :constants, :const_defined?, :const_set, :class_variables, :class_variable_get, :remove_class_variable, :class_variable_defined?, :class_variable_set, :private_constant, :public_constant, :singleton_class?, :deprecate_constant, :freeze, :inspect, :module_eval, :const_missing, :prepend, :method_defined?, :class_eval, :public_method_defined?, :private_method_defined?, :<, :public_class_method, :>, :protected_method_defined?, :private_class_method, :to_s, :autoload, :autoload?, :instance_method, :public_instance_method, :include, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :public_method, :singleton_method, :is_a?, :extend, :define_singleton_method, :method, :to_enum, :enum_for, :=~, :!~, :eql?, :respond_to?, :display, :object_id, :send, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+#+END_SRC
+
+
+その次はドット（.）です。
+
+** このドットは何でしょうか？ 
+
+これは、*レシーバ* の *メッセージ* を指定するためのものです。 
+
+*メッセージ* とは何でしょうか？ この例では、sqrt(9)がメッセージになります。
+
+これは「平方根(square root)」の省略形、 sqrtというメソッドにパラメータ
+として9を与えて呼び出しています。 このメソッド呼び出しの実行結果は3.0
+という値になります。 3 ではないことに気づいたかもしれません。 平方根は
+たいてい整数にならないためです。 そのため、このメソッドは必ず小数（浮
+動小数点数）を返します。
+
+
+** 実行結果を変数に代入
+
+#+BEGIN_SRC ruby :exports both
+a = 3 ** 2
+
+b = 4 ** 2
+
+Math.sqrt(a+b)
+
+#+END_SRC
+
+#+RESULTS:
+: => 5.0
+
+
+** メソッドを定義
+
+#+BEGIN_SRC ruby :exports both :session ruby
+
+def hi
+  puts "Hello World!"
+end
+
+#+END_SRC
+
+#+RESULTS:
+: :hi
+
+=> :hi
+
+** 簡潔で繰り返せるメソッド
+
+それではこのメソッドを何度か実行してみましょう。
+#+BEGIN_SRC ruby :exports both :results output :session ruby
+
+hi
+
+#+END_SRC
+
+#+RESULTS:
+: Hello World!
+: => Hello World!
+
+#+BEGIN_SRC ruby :exports both :results output :session ruby
+
+hi()
+
+#+END_SRC
+
+#+RESULTS:
+: Hello World!
+: => Hello World!
+
+
+#+BEGIN_SRC ruby :exports both :session ruby
+
+def hi(name)
+ puts "Hello #{name}!"
+end
+
+#+END_SRC
+
+#+RESULTS:
+: => :hi
+
+
+** Stringに穴を開ける
+
+#{name}は、文字列に何かを挿入する際のRubyでのやり方です。
+
+ブレースの間にあるものは（もし文字列でなければ）
+文字列に変換され、その外側の文字列の中に置き換えられます。このしくみは、
+誰かの名前を正しくcapitalizedするのにも使えます。
+
+#+BEGIN_SRC ruby :session ruby :exports both 
+
+ def hi(name = "World")
+ puts "Hello #{name.capitalize}!"
+ end
+
+#+END_SRC
+
+#+RESULTS:
+: => :hi
+
+#+BEGIN_SRC ruby :exports both :session ruby :results output
+
+hi "chris"
+
+#+END_SRC
+
+#+RESULTS:
+: Hello Chris!
+: => nil
+
+#+BEGIN_SRC ruby :exports both :session ruby :results output
+
+hi 
+
+#+END_SRC
+
+#+RESULTS:
+: Hello World!
+: => nil
+
+- カッコなしでメソッド呼び出しが使われていることです。何をやっているか
+  明確であれば、カッコは省略できます。
+
+- デフォルト引数のWorldです。
+
+** 挨拶人(Greeter)への進化
+
+本物の挨拶人がいたのなら、あなたの名前を覚えてくれる上、歓迎し、いつで
+も丁重に扱ってくれるでしょう。そのためにオブジェクトを使いたくなりそう
+です。“Greeter”クラスを作ってみましょう。
+
+#+BEGIN_SRC ruby :exports both :session ruby
+
+ class Greeter
+   def initialize(name = "World")
+     @name = name
+   end
+   def say_hi
+     puts "Hi #{@name}!"
+   end
+   def say_bye
+     puts "Bye #{@name}, come back soon."
+   end
+ end
+
+#+END_SRC
+
+#+RESULTS:
+: => :say_bye
+
+*** 新しいキーワードはclassです。
+
+これはGreeterという新しいクラスと、そのクラスのメソッドをいくつか定義
+しています。
+
+また、@nameにも気づいたかもしれません。これは
+インスタンス変数で、このクラスにある全てのメソッドで使うことができます。
+
+見ての通り、say_hi と say_byeで使われています。
+
+さて、どうすればこのGreeterクラスを動かせるでしょうか？
+
+
+** オブジェクトを作りましょう。
