@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-31 月 09:05 -->
+<!-- 2016-10-31 月 09:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 meta-ruby</title>
@@ -330,7 +330,6 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-
 <div id="outline-container-orgheadline7" class="outline-4">
 <h4 id="orgheadline7">Ruby オブジェクト指向プログラミング</h4>
 <div class="outline-text-4" id="text-orgheadline7">
@@ -356,7 +355,26 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 <ul class="org-ul">
 <li class="on"><code>[X]</code> rbenv とは</li>
 <li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
-<li class="on"><code>[X]</code> ruby のインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
 <li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
 </ul></li>
 </ul>
@@ -512,7 +530,7 @@ String
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-31 月 09:05</p>
+<p class="date">Created: 2016-10-31 月 09:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
