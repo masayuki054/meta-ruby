@@ -1,3 +1,16 @@
+
+ class Greeter
+   def initialize(name = "World")
+     @name = name
+   end
+   def say_hi
+     puts "Hi #{@name}!"
+   end
+   def say_bye
+     puts "Bye #{@name}, come back soon."
+   end
+ end
+
 class MegaGreeter
   attr_accessor :names
 
@@ -20,7 +33,7 @@ class MegaGreeter
     end
 
     #say bye to everybody
-    def say_hi
+    def say_bye
       if @names.nil?
         puts "..."
       elsif @names.respond_to?("join")
@@ -34,7 +47,7 @@ class MegaGreeter
 end
 
 if __FILE__ == $0
-  mg = MegaGreeTer.new
+  mg = MegaGreeter.new
   mg.say_hi
   mg.say_bye
 

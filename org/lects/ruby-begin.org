@@ -86,7 +86,6 @@ Math.class
 #+RESULTS:
 : Module
 
-
 Rubyでは、モジュールには2通りの役割があります。これはその1つ目の役割、
 関連するメソッドを馴染みのある名前でグループ化するものです。Math は
 sin() や tan() といったメソッドも持っています。
@@ -101,7 +100,6 @@ sin() や tan() といったメソッドも持っています。
 #+BEGIN_SRC ruby
 [:atan2, :cos, :sin, :tan, :acos, :asin, :atan, :cosh, :sinh, :tanh, :acosh, :asinh, :atanh, :exp, :log, :log2, :log10, :sqrt, :cbrt, :frexp, :ldexp, :hypot, :erf, :erfc, :gamma, :lgamma, :<=>, :module_exec, :class_exec, :<=, :>=, :==, :===, :include?, :included_modules, :ancestors, :name, :public_instance_methods, :instance_methods, :private_instance_methods, :protected_instance_methods, :const_get, :constants, :const_defined?, :const_set, :class_variables, :class_variable_get, :remove_class_variable, :class_variable_defined?, :class_variable_set, :private_constant, :public_constant, :singleton_class?, :deprecate_constant, :freeze, :inspect, :module_eval, :const_missing, :prepend, :method_defined?, :class_eval, :public_method_defined?, :private_method_defined?, :<, :public_class_method, :>, :protected_method_defined?, :private_class_method, :to_s, :autoload, :autoload?, :instance_method, :public_instance_method, :include, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :public_method, :singleton_method, :is_a?, :extend, :define_singleton_method, :method, :to_enum, :enum_for, :=~, :!~, :eql?, :respond_to?, :display, :object_id, :send, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
 #+END_SRC
-
 
 その次はドット（.）です。
 
@@ -275,7 +273,7 @@ greeter = Greeter.new("Paul")
 #+END_SRC
 
 #+RESULTS:
-: #<Greeter:0x007f6b4dbe8f88 @name="Paul">
+: #<Greeter:0x007f5a42934ee8 @name="Paul">
 
 
 #+BEGIN_SRC ruby :session ruby
@@ -285,7 +283,7 @@ greeter = Greeter.new("Mary")
 #+END_SRC
 
 #+RESULTS:
-: #<Greeter:0x007f6b4db7ea98 @name="Mary">
+: #<Greeter:0x007f5a427447a0 @name="Mary">
 
 #+BEGIN_SRC ruby :session ruby :exports both :results code
 
@@ -298,10 +296,25 @@ Greeter.instance_methods(false)
 [:say_hi, :say_bye]
 #+END_SRC
 
+initialize メソッドが，(public) instance_methods に現れないのは，
+initialize メソッドは自動的に private になるため
 
 
+#+BEGIN_SRC ruby :session ruby :exports both :results code
 
-respond_to?
+Greeter.private_instance_methods(false)
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+[:initialize]
+#+END_SRC
+
+
+*** respond_to? 
+
+返事がもらえるか
 
 #+BEGIN_SRC ruby :session ruby :exports both :results code
 
@@ -313,6 +326,8 @@ greeter.respond_to?("name")
 #+BEGIN_SRC ruby
 false
 #+END_SRC
+
+後から，name メソッドを追加 (できる)
 
 #+BEGIN_SRC ruby :session ruby :exports both :results code
 class Greeter
@@ -326,7 +341,6 @@ end
 #+RESULTS:
 #+BEGIN_SRC ruby
 :name
-
 #+END_SRC
 
 #+BEGIN_SRC ruby :session ruby :exports both :results code
@@ -340,18 +354,20 @@ greeter.respond_to?("name")
 true
 #+END_SRC
 
+*** ruby スクリプト
+
 #+BEGIN_SRC ruby :tangle ri20min.rb
- class Greeter
-   def initialize(name = "World")
+class Greeter
+  def initialize(name = "World")
      @name = name
-   end
-   def say_hi
-     puts "Hi #{@name}!"
-   end
-   def say_bye
-     puts "Bye #{@name}, come back soon."
-   end
- end
+  end
+  def say_hi
+    puts "Hi #{@name}!"
+  end
+  def say_bye
+    puts "Bye #{@name}, come back soon."
+  end
+end
 
 class MegaGreeter
   attr_accessor :names
@@ -375,7 +391,7 @@ class MegaGreeter
     end
 
     #say bye to everybody
-    def say_hi
+    def say_bye
       if @names.nil?
         puts "..."
       elsif @names.respond_to?("join")
@@ -402,6 +418,8 @@ if __FILE__ == $0
   mg.say_bye
 end
 #+END_SRC
+
+#+RESULTS:
 
   
 
