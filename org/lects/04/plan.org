@@ -53,9 +53,7 @@ self.methods
 
 #+RESULTS:
 
-    
     Ruby入門で行なったプログラムの実行について考察しましょう。
-
 
 *** Ruby オブジェクト指向プログラミング
 
@@ -70,7 +68,16 @@ self.methods
     - [X] ruby環境作り [4/4]
       - [X] rbenv とは 
       - [X] 自前で rbenv+ruby-build をインストール
+
       - [X] ruby のインストール
+	先週，    
+	: rbenv install 2.3.0-dev 
+	ができない人がいましたが，どうも，
+        : ~/.rbenv/plugins/ruby-build/bin 
+	にある，ruby-install が認識されていないためのようです。
+	取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+        ださい。
+	
       - [X] gem (rubyのパッケージ管理)
 
 *** Done ruby プログラミング環境
@@ -81,4 +88,3 @@ self.methods
 
 *** Doing 文芸的プログラミング環境 
     - emacs org-mode
-
