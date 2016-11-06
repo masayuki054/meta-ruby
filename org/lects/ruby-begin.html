@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>ruby-begin</title>
+<!-- 2016-10-31 月 10:51 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Masayuki Suzuki" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">ruby-begin</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. インタラクティブRuby</a></li>
+<li><a href="#sec-2">2. Math は一体なんでしょうか？</a></li>
+<li><a href="#sec-3">3. このドットは何でしょうか？</a></li>
+<li><a href="#sec-4">4. 実行結果を変数に代入</a></li>
+<li><a href="#sec-5">5. メソッドを定義</a></li>
+<li><a href="#sec-6">6. 簡潔で繰り返せるメソッド</a></li>
+<li><a href="#sec-7">7. Stringに穴を開ける</a></li>
+<li><a href="#sec-8">8. 挨拶人(Greeter)への進化</a>
+<ul>
+<li><a href="#sec-8-1">8.1. 新しいキーワードはclassです。</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. オブジェクトを作りましょう。</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> インタラクティブRuby</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+irb の起動
+</p>
+
+<pre class="example">
+% irb
+irb(main):001:0&gt;
+</pre>
+<p>
+&lt;sTAB
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #95e454;">"Hello World"</span>
+</pre>
+</div>
+
+<pre class="example">
+Hello World
+</pre>
+
+<p>
+IRBが最後の式を実行した結果
+を教えてくれている。 
+</p>
+
+<p>
+"Hello World"と出力したいのであれば
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Hello World"</span>
+</pre>
+</div>
+
+<pre class="example">
+Hello World
+</pre>
+
+<p>
+putsはRubyで何かを出力する基本的なコマンドです。 
+</p>
+
+<p>
+=&gt; nilは, このコマンドの評価結果です。 putsは必ずnilを返します。nil
+は、「まったく何もない」ことを表すRubyの「値」です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">3+2
+</pre>
+</div>
+
+<pre class="example">
+5
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">3*2
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">3**2
+</pre>
+</div>
+
+<pre class="example">
+9
+</pre>
+
+<p>
+平方根(square root)を求めるにはMathモジュールを使う:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #92a65e; font-weight: bold;">Math</span>.sqrt(9)
+</pre>
+</div>
+
+<pre class="example">
+3.0
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Math は一体なんでしょうか？</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Math は数学のためのビルトインモジュール(標準で組み込まれているモジュー
+ル)です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #92a65e; font-weight: bold;">Math</span>.class
+</pre>
+</div>
+
+<pre class="example">
+Module
+</pre>
+
+
+<p>
+Rubyでは、モジュールには2通りの役割があります。これはその1つ目の役割、
+関連するメソッドを馴染みのある名前でグループ化するものです。Math は
+sin() や tan() といったメソッドも持っています。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">(<span style="color: #92a65e; font-weight: bold;">Math</span>.methods)
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">[<span style="color: #e5786d;">:atan2</span>, <span style="color: #e5786d;">:cos</span>, <span style="color: #e5786d;">:sin</span>, <span style="color: #e5786d;">:tan</span>, <span style="color: #e5786d;">:acos</span>, <span style="color: #e5786d;">:asin</span>, <span style="color: #e5786d;">:atan</span>, <span style="color: #e5786d;">:cosh</span>, <span style="color: #e5786d;">:sinh</span>, <span style="color: #e5786d;">:tanh</span>, <span style="color: #e5786d;">:acosh</span>, <span style="color: #e5786d;">:asinh</span>, <span style="color: #e5786d;">:atanh</span>, <span style="color: #e5786d;">:exp</span>, <span style="color: #e5786d;">:log</span>, <span style="color: #e5786d;">:log2</span>, <span style="color: #e5786d;">:log10</span>, <span style="color: #e5786d;">:sqrt</span>, <span style="color: #e5786d;">:cbrt</span>, <span style="color: #e5786d;">:frexp</span>, <span style="color: #e5786d;">:ldexp</span>, <span style="color: #e5786d;">:hypot</span>, <span style="color: #e5786d;">:erf</span>, <span style="color: #e5786d;">:erfc</span>, <span style="color: #e5786d;">:gamma</span>, <span style="color: #e5786d;">:lgamma</span>, <span style="color: #e5786d;">:&lt;=&gt;</span>, <span style="color: #e5786d;">:module_exec</span>, <span style="color: #e5786d;">:class_exec</span>, <span style="color: #e5786d;">:&lt;=</span>, <span style="color: #e5786d;">:&gt;=</span>, <span style="color: #e5786d;">:==</span>, <span style="color: #e5786d;">:===</span>, <span style="color: #e5786d;">:include?</span>, <span style="color: #e5786d;">:included_modules</span>, <span style="color: #e5786d;">:ancestors</span>, <span style="color: #e5786d;">:name</span>, <span style="color: #e5786d;">:public_instance_methods</span>, <span style="color: #e5786d;">:instance_methods</span>, <span style="color: #e5786d;">:private_instance_methods</span>, <span style="color: #e5786d;">:protected_instance_methods</span>, <span style="color: #e5786d;">:const_get</span>, <span style="color: #e5786d;">:constants</span>, <span style="color: #e5786d;">:const_defined?</span>, <span style="color: #e5786d;">:const_set</span>, <span style="color: #e5786d;">:class_variables</span>, <span style="color: #e5786d;">:class_variable_get</span>, <span style="color: #e5786d;">:remove_class_variable</span>, <span style="color: #e5786d;">:class_variable_defined?</span>, <span style="color: #e5786d;">:class_variable_set</span>, <span style="color: #e5786d;">:private_constant</span>, <span style="color: #e5786d;">:public_constant</span>, <span style="color: #e5786d;">:singleton_class?</span>, <span style="color: #e5786d;">:deprecate_constant</span>, <span style="color: #e5786d;">:freeze</span>, <span style="color: #e5786d;">:inspect</span>, <span style="color: #e5786d;">:module_eval</span>, <span style="color: #e5786d;">:const_missing</span>, <span style="color: #e5786d;">:prepend</span>, <span style="color: #e5786d;">:method_defined?</span>, <span style="color: #e5786d;">:class_eval</span>, <span style="color: #e5786d;">:public_method_defined?</span>, <span style="color: #e5786d;">:private_method_defined?</span>, <span style="color: #e5786d;">:&lt;</span>, <span style="color: #e5786d;">:public_class_method</span>, <span style="color: #e5786d;">:&gt;</span>, <span style="color: #e5786d;">:protected_method_defined?</span>, <span style="color: #e5786d;">:private_class_method</span>, <span style="color: #e5786d;">:to_s</span>, <span style="color: #e5786d;">:autoload</span>, <span style="color: #e5786d;">:autoload?</span>, <span style="color: #e5786d;">:instance_method</span>, <span style="color: #e5786d;">:public_instance_method</span>, <span style="color: #e5786d;">:include</span>, <span style="color: #e5786d;">:instance_of?</span>, <span style="color: #e5786d;">:public_send</span>, <span style="color: #e5786d;">:instance_variable_get</span>, <span style="color: #e5786d;">:instance_variable_set</span>, <span style="color: #e5786d;">:instance_variable_defined?</span>, <span style="color: #e5786d;">:remove_instance_variable</span>, <span style="color: #e5786d;">:private_methods</span>, <span style="color: #e5786d;">:kind_of?</span>, <span style="color: #e5786d;">:instance_variables</span>, <span style="color: #e5786d;">:tap</span>, <span style="color: #e5786d;">:public_method</span>, <span style="color: #e5786d;">:singleton_method</span>, <span style="color: #e5786d;">:is_a?</span>, <span style="color: #e5786d;">:extend</span>, <span style="color: #e5786d;">:define_singleton_method</span>, <span style="color: #e5786d;">:method</span>, <span style="color: #e5786d;">:to_enum</span>, <span style="color: #e5786d;">:enum_for</span>, <span style="color: #e5786d;">:=~</span>, <span style="color: #e5786d;">:!~</span>, <span style="color: #e5786d;">:eql?</span>, <span style="color: #e5786d;">:respond_to?</span>, <span style="color: #e5786d;">:display</span>, <span style="color: #e5786d;">:object_id</span>, <span style="color: #e5786d;">:send</span>, <span style="color: #e5786d;">:nil?</span>, <span style="color: #e5786d;">:hash</span>, <span style="color: #e5786d;">:class</span>, <span style="color: #e5786d;">:singleton_class</span>, <span style="color: #e5786d;">:clone</span>, <span style="color: #e5786d;">:dup</span>, <span style="color: #e5786d;">:itself</span>, <span style="color: #e5786d;">:taint</span>, <span style="color: #e5786d;">:tainted?</span>, <span style="color: #e5786d;">:untaint</span>, <span style="color: #e5786d;">:untrust</span>, <span style="color: #e5786d;">:trust</span>, <span style="color: #e5786d;">:untrusted?</span>, <span style="color: #e5786d;">:methods</span>, <span style="color: #e5786d;">:protected_methods</span>, <span style="color: #e5786d;">:frozen?</span>, <span style="color: #e5786d;">:public_methods</span>, <span style="color: #e5786d;">:singleton_methods</span>, <span style="color: #e5786d;">:!</span>, <span style="color: #e5786d;">:!=</span>, <span style="color: #e5786d;">:__send__</span>, <span style="color: #e5786d;">:equal?</span>, <span style="color: #e5786d;">:instance_eval</span>, <span style="color: #e5786d;">:instance_exec</span>, <span style="color: #e5786d;">:__id__</span>]
+</pre>
+</div>
+
+
+<p>
+その次はドット（.）です。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> このドットは何でしょうか？</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+これは、*レシーバ* の <b>メッセージ</b> を指定するためのものです。 
+</p>
+
+<p>
+<b>メッセージ</b> とは何でしょうか？ この例では、sqrt(9)がメッセージになります。
+</p>
+
+<p>
+これは「平方根(square root)」の省略形、 sqrtというメソッドにパラメータ
+として9を与えて呼び出しています。 このメソッド呼び出しの実行結果は3.0
+という値になります。 3 ではないことに気づいたかもしれません。 平方根は
+たいてい整数にならないためです。 そのため、このメソッドは必ず小数（浮
+動小数点数）を返します。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 実行結果を変数に代入</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-ruby">a = 3 ** 2
+
+b = 4 ** 2
+
+<span style="color: #92a65e; font-weight: bold;">Math</span>.sqrt(a+b)
+</pre>
+</div>
+
+<pre class="example">
+5.0
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> メソッドを定義</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">hi</span>
+  <span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Hello World!"</span>
+<span style="color: #8ac6f2; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<pre class="example">
+:hi
+</pre>
+
+<p>
+=&gt; :hi
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 簡潔で繰り返せるメソッド</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+それではこのメソッドを何度か実行してみましょう。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby">hi
+</pre>
+</div>
+
+<pre class="example">
+Hello World!
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">hi()
+</pre>
+</div>
+
+<pre class="example">
+Hello World!
+</pre>
+
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">hi</span>(name)
+ <span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Hello </span><span style="color: #cae682;">#{name}</span><span style="color: #95e454;">!"</span>
+<span style="color: #8ac6f2; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<pre class="example">
+:hi
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Stringに穴を開ける</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+#{name}は、文字列に何かを挿入する際のRubyでのやり方です。
+</p>
+
+<p>
+ブレースの間にあるものは（もし文字列でなければ）
+文字列に変換され、その外側の文字列の中に置き換えられます。このしくみは、
+誰かの名前を正しくcapitalizedするのにも使えます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"> <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">hi</span>(name = <span style="color: #95e454;">"World"</span>)
+ <span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Hello </span><span style="color: #cae682;">#{name.capitalize}</span><span style="color: #95e454;">!"</span>
+ <span style="color: #8ac6f2; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<pre class="example">
+:hi
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">hi <span style="color: #95e454;">"chris"</span>
+</pre>
+</div>
+
+<pre class="example">
+Hello Chris!
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">hi
+</pre>
+</div>
+
+<pre class="example">
+Hello World!
+</pre>
+
+<ul class="org-ul">
+<li>カッコなしでメソッド呼び出しが使われていることです。何をやっているか
+明確であれば、カッコは省略できます。
+</li>
+
+<li>デフォルト引数のWorldです。
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 挨拶人(Greeter)への進化</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+本物の挨拶人がいたのなら、あなたの名前を覚えてくれる上、歓迎し、いつで
+も丁重に扱ってくれるでしょう。そのためにオブジェクトを使いたくなりそう
+です。“Greeter”クラスを作ってみましょう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"> <span style="color: #8ac6f2; font-weight: bold;">class</span> <span style="color: #92a65e; font-weight: bold;">Greeter</span>
+   <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">initialize</span>(name = <span style="color: #95e454;">"World"</span>)
+     <span style="color: #cae682;">@name</span> = name
+   <span style="color: #8ac6f2; font-weight: bold;">end</span>
+   <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">say_hi</span>
+     <span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Hi </span><span style="color: #cae682;">#{@name}</span><span style="color: #95e454;">!"</span>
+   <span style="color: #8ac6f2; font-weight: bold;">end</span>
+   <span style="color: #8ac6f2; font-weight: bold;">def</span> <span style="color: #cae682;">say_bye</span>
+     <span style="color: #e5786d;">puts</span> <span style="color: #95e454;">"Bye </span><span style="color: #cae682;">#{@name}</span><span style="color: #95e454;">, come back soon."</span>
+   <span style="color: #8ac6f2; font-weight: bold;">end</span>
+ <span style="color: #8ac6f2; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<pre class="example">
+:say_bye
+</pre>
+</div>
+
+<div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> 新しいキーワードはclassです。</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+これはGreeterという新しいクラスと、そのクラスのメソッドをいくつか定義
+しています。
+</p>
+
+<p>
+また、@nameにも気づいたかもしれません。これは
+インスタンス変数で、このクラスにある全てのメソッドで使うことができます。
+</p>
+
+<p>
+見ての通り、say<sub>hi</sub> と say<sub>byeで使われています。</sub>
+</p>
+
+<p>
+さて、どうすればこのGreeterクラスを動かせるでしょうか？
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> オブジェクトを作りましょう。</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2016-10-31 月 10:51</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
