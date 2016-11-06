@@ -4,6 +4,7 @@ irb の起動
 
 : % irb
 : irb(main):001:0>
+<sTAB
 
 #+BEGIN_SRC ruby :exports both
 
@@ -12,7 +13,7 @@ irb の起動
 #+END_SRC
 
 #+RESULTS:
-: => Hello World
+: Hello World
 
 IRBが最後の式を実行した結果
 を教えてくれている。 
@@ -33,7 +34,6 @@ putsはRubyで何かを出力する基本的なコマンドです。
 
 => nilは, このコマンドの評価結果です。 putsは必ずnilを返します。nil
 は、「まったく何もない」ことを表すRubyの「値」です。
-
 
 #+BEGIN_SRC ruby :exports both
 
@@ -251,7 +251,7 @@ hi
 #+END_SRC
 
 #+RESULTS:
-: => :say_bye
+: :say_bye
 
 *** 新しいキーワードはclassです。
 
@@ -267,3 +267,141 @@ hi
 
 
 ** オブジェクトを作りましょう。
+
+#+BEGIN_SRC ruby :session ruby
+
+greeter = Greeter.new("Paul")
+
+#+END_SRC
+
+#+RESULTS:
+: #<Greeter:0x007f6b4dbe8f88 @name="Paul">
+
+
+#+BEGIN_SRC ruby :session ruby
+
+greeter = Greeter.new("Mary")
+
+#+END_SRC
+
+#+RESULTS:
+: #<Greeter:0x007f6b4db7ea98 @name="Mary">
+
+#+BEGIN_SRC ruby :session ruby :exports both :results code
+
+Greeter.instance_methods(false)
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+[:say_hi, :say_bye]
+#+END_SRC
+
+
+
+
+respond_to?
+
+#+BEGIN_SRC ruby :session ruby :exports both :results code
+
+greeter.respond_to?("name")
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+false
+#+END_SRC
+
+#+BEGIN_SRC ruby :session ruby :exports both :results code
+class Greeter
+  def name
+    @name
+  end
+end
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+:name
+
+#+END_SRC
+
+#+BEGIN_SRC ruby :session ruby :exports both :results code
+
+greeter.respond_to?("name")
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ruby
+true
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle ri20min.rb
+ class Greeter
+   def initialize(name = "World")
+     @name = name
+   end
+   def say_hi
+     puts "Hi #{@name}!"
+   end
+   def say_bye
+     puts "Bye #{@name}, come back soon."
+   end
+ end
+
+class MegaGreeter
+  attr_accessor :names
+
+  #create the object
+  def initialize(names="world")
+    @name = names
+  end
+
+  #say hi to everybody
+  def say_hi
+    if @names.nil?
+      puts "..."
+    elsif @names.respond_to?("each")
+      # @names is a list some kind, iterate!
+      @names.each do |name|
+        puts "Hello #{name}!"
+      end
+    else
+      puts "Hello #{@names}!"
+    end
+
+    #say bye to everybody
+    def say_hi
+      if @names.nil?
+        puts "..."
+      elsif @names.respond_to?("join")
+      # Join the list elements with commas
+        puts "Goodby #{@names.join(", ")}. come back soon!"
+      else
+        puts "Goodby #{@names}. come back soon!"
+      end
+    end
+  end
+end
+
+if __FILE__ == $0
+  mg = MegaGreeter.new
+  mg.say_hi
+  mg.say_bye
+
+  mg.names = "zeke"
+  mg.say_hi
+  mg.say_bye
+
+  mg.names = ["Albert", "Brenda", "Charles"]
+  mg.say_hi
+  mg.say_bye
+end
+#+END_SRC
+
+  
+
