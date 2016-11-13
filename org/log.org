@@ -1,0 +1,20 @@
+
+
+* lects/meta-programmin-ruby.org <2016-11-07 月>
+
+  ruby のメタプログラミングについてのメモ
+
+  
+
+* lects/ruby-begin.org <2016-10-31 月>
+
+
+  20分で始めるRuby のまとめ
+
+
+* lects/note.org <2016-10-31 月>
+
+  その日の講義のメモ
+
+
+  

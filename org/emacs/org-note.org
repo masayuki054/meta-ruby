@@ -1,16 +1,31 @@
 * org文書の構造
 
 ** #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方
+
    http://emacs.rubikitch.com/sd1502-org-mode/
 
-** 文章の構造
+** 文書の構造
 
-   [[info:org#document structure]]
+Emacs で M-x info で，Org-mode を開き，Document Structure を読みましょ
+う。
+
+org 文書の中で，
+
+
+
+
+\[\[info:org#document structure\]\]
+
    - headlines
    - lists
    - drawers
    - blocks
-   
+     - 
+
+* 文芸的プログラミング
+
+  [[http://d.hatena.ne.jp/tamura70/20100310/org][org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記]]
+
 ** ruby ソースコードの埋め込み方
 
    [[info:org#working with source code]] 

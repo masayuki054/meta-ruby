@@ -1,6 +1,6 @@
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+title: meta-ruby
-#+include: lects/04/plan.org 
+#+include: lects/06/plan.org 
 #+include: lects/note.org 
 

@@ -1,6 +1,6 @@
-* 講義予定 (6) 2016-11-14
+* 講義実施内容 (5) 2016-11-07
 
-  self => ~suzuki/meta-ruby.git/org/lects/06/plan.org
+  self => ~suzuki/meta-ruby.git/org/lects/04/plan.org
 
 ** 講義内容
 
@@ -10,18 +10,14 @@
     ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 
 **** Done [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     CLOSED: [2016-11-07 月]
+     CLOSED: [2016-11-13 日 15:58]
 
      : ~suzuki/rubys/ruby-begin.org
 
 **** Todo [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     11/14 ~ 2回
-
-     
-
+     11/07 ~ 2~3回
 
 *** Todo オブジェクト指向について
-    SCHEDULED: <2016-11-14 月>
   
     [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] を読みまとめ
     始めましょう。
@@ -35,8 +31,7 @@
 
     - org-mode で書いてみましょう
 
-
-*** Todo メタプログラミング Ruby
+*** Doing メタプログラミング Ruby
     SCHEDULED: <2016-11-07 月>
 
     : ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
@@ -63,7 +58,6 @@ self.methods
 *** Ruby オブジェクト指向プログラミング
 
     まだ始まりません。
-
 
 ** 講義のための環境つくり
 
@@ -94,6 +88,3 @@ self.methods
 
 *** Doing 文芸的プログラミング環境 
     - emacs org-mode
-    - emacs org-mode + babel
-
-

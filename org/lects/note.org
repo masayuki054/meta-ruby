@@ -1,8 +1,22 @@
 * 講義へのメモ
 
 ここには，((:-s)) の，講義前や講義後に思ったことを，書き留めてあります。
+** 2016.11.14へのメモ
 
-** 2016.10.31 へのメモ
+- [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] は，toorg しながらノートを
+
+- toorg 
+  - ~suzuki/COMM/Prog/elisp/toorg.el
+  - ~suzuki/COMM/bin/toorg 
+
+- [[http://wiki.cis.iwate-u.ac.jp/~wiki/eiffel.cgi?%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e5%85%a5%e9%96%80%e3%81%ae%e3%81%be%e3%81%a8%e3%82%81   ][オブジェクト指向入門のまとめ]] にも言及
+  - よいソフトウェアとは
+  - 評価基準と原則
+  - モジュール性
+
+- OOへ至る道
+
+** 2016.10.31~11.07 へのメモ
 
 *** ruby tutorial
 
@@ -16,8 +30,6 @@
 *** emacs 
     - org-mode
     - org-mode babel
-
-
 
 ** 2016.10.24 のメモ
 
