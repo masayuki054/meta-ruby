@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-14 月 06:39 -->
+<!-- 2016-11-14 月 09:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 Ruby</title>
@@ -579,8 +579,8 @@ rbenv install --list  # インストール可な ruby を表示
 
 <div class="org-src-container">
 
-<pre class="src src-sh">rbenv install 2.3-dev #
-rbenv global 2.3-dev  # 
+<pre class="src src-sh">rbenv install 2.3.0-dev #
+rbenv global 2.3.0-dev  # 
 rbenv init            # シェルの設定
 </pre>
 </div>
@@ -671,8 +671,6 @@ pry は irb に替わる対話型インタプリタです。デバッガとし�
 </div>
 
 
-
-
 <div id="outline-container-orgheadline25" class="outline-2">
 <h2 id="orgheadline25"><span class="section-number-2">4</span> ruby におけるプログラムの実行のまとめ</h2>
 <div class="outline-text-2" id="text-4">
@@ -743,6 +741,24 @@ obj.msg(*args)
 
 <div id="outline-container-orgheadline22" class="outline-4">
 <h4 id="orgheadline22">文と制御</h4>
+<div class="outline-text-4" id="text-orgheadline22">
+<ul class="org-ul">
+<li>begin &#x2026; end
+<ul class="org-ul">
+<li>rescue, ensure</li>
+<li>retry, raise</li>
+</ul></li>
+
+<li>if, unless, case</li>
+
+<li>while, until, for
+<ul class="org-ul">
+<li>break, next, redo, retry</li>
+</ul></li>
+
+<li>def, alias, undef</li>
+</ul>
+</div>
 </div>
 
 
@@ -758,7 +774,6 @@ def m() end
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-orgheadline34" class="outline-2">
 <h2 id="orgheadline34"><span class="section-number-2">5</span> rubyあれこれ</h2>
@@ -1465,7 +1480,7 @@ rails cを再起動しなくて済む。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-11-14 月 06:39</p>
+<p class="date">Created: 2016-11-14 月 09:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
