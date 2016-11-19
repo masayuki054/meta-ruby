@@ -1,7 +1,10 @@
 * 講義へのメモ
 
 ここには，((:-s)) の，講義前や講義後に思ったことを，書き留めてあります。
+
 ** 2016.11.14へのメモ
+
+- wiki https://github.com/masayuki054/meta-ruby/wiki
 
 - [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] は，toorg しながらノートを
 

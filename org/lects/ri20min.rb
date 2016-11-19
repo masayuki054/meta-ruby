@@ -1,15 +1,14 @@
-
- class Greeter
-   def initialize(name = "World")
-     @name = name
-   end
-   def say_hi
-     puts "Hi #{@name}!"
-   end
-   def say_bye
-     puts "Bye #{@name}, come back soon."
-   end
- end
+class Greeter
+  def initialize(name = "World")
+    @name = name
+  end
+  def say_hi
+    puts "Hi #{@name}!"
+  end
+  def say_bye
+    puts "Bye #{@name}, come back soon."
+  end
+end
 
 class MegaGreeter
   attr_accessor :names
@@ -37,7 +36,7 @@ class MegaGreeter
       if @names.nil?
         puts "..."
       elsif @names.respond_to?("join")
-      # Join the list elements with commas
+        # Join the list elements with commas
         puts "Goodby #{@names.join(", ")}. come back soon!"
       else
         puts "Goodby #{@names}. come back soon!"

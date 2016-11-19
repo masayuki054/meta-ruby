@@ -164,8 +164,8 @@ rbenv install --list  # インストール可な ruby を表示
     最新の安定版を入れましょう:
 
 #+BEGIN_SRC sh
-rbenv install 2.3-dev #
-rbenv global 2.3-dev  # 
+rbenv install 2.3.0-dev #
+rbenv global 2.3.0-dev  # 
 rbenv init            # シェルの設定
 #+END_SRC
 
@@ -217,8 +217,6 @@ gem install pry
       - emacs で run-ruby で pry が動きだし，いろいろ便利に使えます。
 
 	
-
-
 * ruby におけるプログラムの実行のまとめ
 
 ** プログラム
@@ -254,13 +252,23 @@ gem install pry
     継承したクラスのメソッドも利用できる
 
 *** 文と制御
+
+- begin ... end
+  - rescue, ensure
+  - retry, raise
+
+- if, unless, case
+
+- while, until, for
+  - break, next, redo, retry
+
+- def, alias, undef 
     
 
 *** スコープの切り替え
     : class C end
     : def m() end
     : { ... } 
-
 
 * rubyあれこれ
 
