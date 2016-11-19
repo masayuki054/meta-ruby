@@ -1,15 +1,15 @@
 
- class Greeter
-   def initialize(name = "World")
+class Greeter
+  def initialize(name = "World")
      @name = name
-   end
-   def say_hi
-     puts "Hi #{@name}!"
-   end
-   def say_bye
-     puts "Bye #{@name}, come back soon."
-   end
- end
+  end
+  def say_hi
+    puts "Hi #{@name}!"
+  end
+  def say_bye
+    puts "Bye #{@name}, come back soon."
+  end
+end
 
 class MegaGreeter
   attr_accessor :names
@@ -52,6 +52,7 @@ if __FILE__ == $0
   mg.say_bye
 
   mg.names = "zeke"
+
   mg.say_hi
   mg.say_bye
 
