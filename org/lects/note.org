@@ -1,6 +1,64 @@
+
 * 講義へのメモ
 
 ここには，((:-s)) の，講義前や講義後に思ったことを，書き留めてあります。
+
+*** ruby program
+- fileの読み書き
+- Directory 操作
+  - directory構造のコピー
+    - 各ファイルになんらかの変更を加える
+  - directory の木構造を印刷する
+
+  Dir, File, Io, Array, String
+
+  
+*** tohoho
+
+- 構文
+    - Rubyの書き方
+    - 文・式
+    - コメント(#) 
+
+- 数値・文字列・型
+    - 整数(Integer)
+    - 浮動少数点数(Float)
+    - 論理型(Boolean)
+    - 文字列(String)
+    - エスケープシーケンス(\x)
+    - 式展開(#{...})
+    - コマンド出力(`...`)
+    - ヒアドキュメント(<<) 
+
+- 変数・定数
+
+    - 識別子
+    - ローカル変数(var)
+    - インスタンス変数(@var)
+    - クラス変数(@@var)
+    - グローバル変数($var)
+    - 定数(CONST)
+    - 擬似変数(true, false, nil, self) 
+
+- 配列・ハッシュ・範囲
+
+    - 配列(Array)
+    - ハッシュ(Hash)
+    - 範囲(Range) 
+
+- 制御構文
+
+    - もし～ならば(if, then, else, elsif)
+    - もし～でなければ(unless, then)
+    - ～のあいだ(while, do)
+    - ～になるまでのあいだ(until, do)
+    - ～のあいだ(for, in, do)
+    - ～の場合(case, when)
+    - ループを抜ける(break)
+    - ループを繰り返す(next)
+    - ループを繰り返す(redo)
+    - 例外処理(raise, begin, rescue, else, ensure) 
+
 
 ** 2016.11.14へのメモ
 
