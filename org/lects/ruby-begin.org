@@ -471,3 +471,32 @@ end
 
   
 
+
+* 例題
+
+** file_print.rb
+
+あるファイルの
+
+- 利用クラスライブラリ: File<IO
+  - File.open, 
+  - openされたファイルは，IOとして扱える
+  - IO.read, 
+
+#+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/file_print.rb
+
+def file_print(file_name)
+  File.open(file_name) do |io|
+    print (io.read)
+  end
+end
+
+if __FILE__==$0
+
+end
+
+#+END_SRC
+
+
+
+
