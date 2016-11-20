@@ -1,0 +1,24 @@
+* meta programming ruby
+
+** メッセージング
+
+#+BEGIN_SRC ruby :session ruby
+   1.+(2)
+#+END_SRC
+
+#+RESULTS:
+: 3
+
+
+
+
+
+** self
+
+** .class
+
+** .methods
+
+   
+
+  

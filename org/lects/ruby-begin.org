@@ -1,4 +1,4 @@
-* 20分で始める Ruby
+* 20分で始める Ruby の のーと
 
 ** インタラクティブRuby
 
@@ -376,6 +376,7 @@ greeter.respond_to?("name")
 true
 #+END_SRC
 
+
 *** ruby スクリプト
 
 #+BEGIN_SRC ruby :tangle ri20min.rb
@@ -428,7 +429,11 @@ class MegaGreeter
   end
 end
 
+
 if __FILE__ == $0
+
+  # スクリプトとして実行されている場合
+
   mg = MegaGreeter.new
   mg.say_hi
   mg.say_bye
@@ -440,6 +445,7 @@ if __FILE__ == $0
   mg.names = ["Albert", "Brenda", "Charles"]
   mg.say_hi
   mg.say_bye
+
 end
 #+END_SRC
 
@@ -469,8 +475,18 @@ end
 : c
 : => ["a", "b", "c"]
 
-  
+* メタな視点
 
+** 見えるもの
+ 
+- オブジェクト，クラス，メソッド がある
+
+- すべて，メッセージングで行なわれること
+  - あるクラスのインスタンスを作ることも
+
+クラス
+- オープン・クラスであること
+- クラスが開ける 
 
 * 例題
 

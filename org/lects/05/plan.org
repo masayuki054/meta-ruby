@@ -1,4 +1,4 @@
-* 講義予定 (4) 2016-10-31
+* 講義予定 (5) 2016-11-07
 
   self => ~suzuki/meta-ruby.git/org/lects/04/plan.org
 
@@ -10,12 +10,12 @@
     ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 
 **** Doing [[https://www.ruby-lang.org/ja/documentation/quickstart/][20分ではじめるRuby]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     10/31 終了予定
+     11/07 終了予定
 
      : ~suzuki/rubys/ruby-begin.org
 
 **** Todo [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     10/31~ 2~3回
+     11/07 ~ 2~3回
 
 *** Todo オブジェクト指向について
   
@@ -32,7 +32,7 @@
     - org-mode で書いてみましょう
 
 *** Todo メタプログラミング Ruby
-    SCHEDULED: <2016-10-24 月>
+    SCHEDULED: <2016-11-07 月>
 
     : ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 

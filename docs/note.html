@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-31 月 09:31 -->
+<!-- 2016-11-14 月 09:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 講義ノート・メモ</title>
@@ -94,17 +94,17 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/bigblow.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/hideshow.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -161,322 +161,322 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline182">1. ruby のノート</a>
 <ul>
-<li><a href="#orgheadline24">1.1. test-unit</a>
+<li><a href="#orgheadline3">1.1. Ruby紹介</a>
 <ul>
-<li><a href="#orgheadline23">ruby/test</a>
+<li><a href="#orgheadline1">はじめに</a>
 <ul>
-<li><a href="#orgheadline1">test-unit</a></li>
-<li><a href="#orgheadline2">install</a></li>
-<li><a href="#orgheadline22">テストの書き方</a>
-<ul>
-<li><a href="#orgheadline3">基本</a>
-<ul>
-<li><a href="#orgheadline4">require</a></li>
-<li><a href="#orgheadline5">テスト・クラス定義</a></li>
-<li><a href="#orgheadline6">テスト全体の前後処理メソッド:</a></li>
-<li><a href="#orgheadline7">テストの前後の処理:</a></li>
-<li><a href="#orgheadline8">テストを test_で始まるメソッドとして定義する:</a></li>
-<li><a href="#orgheadline9">テスト準備</a></li>
-<li><a href="#orgheadline10">テスト実行</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline11">アサーション</a></li>
-<li><a href="#orgheadline17">便利な機能</a>
-<ul>
-<li><a href="#orgheadline12">sub_test_case</a></li>
-<li><a href="#orgheadline13">test</a></li>
-<li><a href="#orgheadline14">setup/teardown ブロック</a></li>
-<li><a href="#orgheadline15">test_order</a></li>
-<li><a href="#orgheadline16">データ駆動テスト</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline20">その他</a>
-<ul>
-<li><a href="#orgheadline18">assertの作り方</a></li>
-<li><a href="#orgheadline19">Rakeのタスク定義</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline21">まとめ</a></li>
+<li><a href="#orgheadline2">Rubyの特長</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline25">1.2. 情報元</a></li>
-<li><a href="#orgheadline29">1.3. Ruby紹介</a>
+<li><a href="#orgheadline13">1.2. Rubyの原理</a>
 <ul>
-<li><a href="#orgheadline26">Ruby</a>
+<li><a href="#orgheadline4">オブジェクト</a>
 <ul>
-<li><a href="#orgheadline27">はじめに</a>
+<li><a href="#orgheadline5">オブジェクトとは</a></li>
+<li><a href="#orgheadline6">クラス</a>
 <ul>
-<li><a href="#orgheadline28">Rubyの特長</a></li>
+<li><a href="#orgheadline7">モジュール</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline8">メソッド</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline40">1.4. Rubyの原理</a>
+<li><a href="#orgheadline12">Todo クラス</a>
 <ul>
-<li><a href="#orgheadline30">Rubyの原理</a>
+<li><a href="#orgheadline9">クラスとオブジェクト</a></li>
+<li><a href="#orgheadline10">モジュール</a></li>
+<li><a href="#orgheadline11">特異クラス</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline14">1.3. 言語上のこと</a></li>
+<li><a href="#orgheadline20">1.4. 変数 変数 - Ruby入門</a>
 <ul>
-<li><a href="#orgheadline31">Todo オブジェクト</a>
+<li><a href="#orgheadline15">変数への代入</a></li>
+<li><a href="#orgheadline16">変数の種類</a></li>
+<li><a href="#orgheadline17">Ruby予約語</a></li>
+<li><a href="#orgheadline18">自己代入</a></li>
+<li><a href="#orgheadline19">多重代入</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline21">1.5. スコープ</a></li>
+<li><a href="#orgheadline34">1.6. メソッド - Ruby入門</a>
 <ul>
-<li><a href="#orgheadline32">オブジェクトとは</a></li>
-<li><a href="#orgheadline33">クラス</a>
+<li><a href="#orgheadline22">Rubyにおけるトップレベル</a>
 <ul>
-<li><a href="#orgheadline34">モジュール</a></li>
+<li><a href="#orgheadline23">トップレベル</a></li>
+<li><a href="#orgheadline24">selfとmain</a></li>
+<li><a href="#orgheadline25">トップレベルに定義されたメソッド</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline35">メソッド</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline39">Todo クラス</a>
+<li><a href="#orgheadline26">メソッドの定義と呼び出し</a></li>
+<li><a href="#orgheadline27">メソッドの呼び出し</a>
 <ul>
-<li><a href="#orgheadline36">クラスとオブジェクト</a></li>
-<li><a href="#orgheadline37">モジュール</a></li>
-<li><a href="#orgheadline38">特異クラス</a></li>
+<li><a href="#orgheadline28">メソッド定義の位置</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline29">引数を付けたメソッド呼び出し</a></li>
+<li><a href="#orgheadline30">引数のデフォルト値</a></li>
+<li><a href="#orgheadline31">引数を配列として受け取る</a></li>
+<li><a href="#orgheadline32">メソッドの戻り値</a></li>
+<li><a href="#orgheadline33">多重代入を使って複数の戻り値を取得</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline66">1.5. 言語上のこと</a>
+<li><a href="#orgheadline39">1.7. クラスとは</a>
 <ul>
-<li><a href="#orgheadline46">変数 変数 - Ruby入門</a>
+<li><a href="#orgheadline35">クラスとオブジェクト</a></li>
+<li><a href="#orgheadline36">class Car &#x2026; end</a></li>
+<li><a href="#orgheadline37">インスタンスメソッド</a></li>
+<li><a href="#orgheadline38">継承</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline54">1.8. クラス・モジュールの概念</a>
 <ul>
-<li><a href="#orgheadline41">変数への代入</a></li>
-<li><a href="#orgheadline42">変数の種類</a></li>
-<li><a href="#orgheadline43">Ruby予約語</a></li>
-<li><a href="#orgheadline44">自己代入</a></li>
-<li><a href="#orgheadline45">多重代入</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline47">スコープ</a></li>
-<li><a href="#orgheadline60">メソッド - Ruby入門</a>
+<li><a href="#orgheadline40">関連  オブジェクト指向スクリプト言語 Ruby</a></li>
+<li><a href="#orgheadline41">例 Panda モジュール</a>
 <ul>
-<li><a href="#orgheadline48">Rubyにおけるトップレベル</a>
+<li><a href="#orgheadline42">定数 Module</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline43">例 Zooクラス</a></li>
+<li><a href="#orgheadline44">例： UenoZoo を Zoo を継承して作る</a></li>
+<li><a href="#orgheadline49">説明</a>
 <ul>
-<li><a href="#orgheadline49">トップレベル</a></li>
-<li><a href="#orgheadline50">selfとmain</a></li>
-<li><a href="#orgheadline51">トップレベルに定義されたメソッド</a></li>
+<li><a href="#orgheadline45">mix-in</a></li>
+<li><a href="#orgheadline46">継承</a></li>
+<li><a href="#orgheadline47">継承とMix-in</a></li>
+<li><a href="#orgheadline48">extend</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline52">メソッドの定義と呼び出し</a></li>
-<li><a href="#orgheadline53">メソッドの呼び出し</a>
+<li><a href="#orgheadline50">モジュールの使い方</a>
 <ul>
-<li><a href="#orgheadline54">メソッド定義の位置</a></li>
+<li><a href="#orgheadline51">名前空間としての使い方</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline55">引数を付けたメソッド呼び出し</a></li>
-<li><a href="#orgheadline56">引数のデフォルト値</a></li>
-<li><a href="#orgheadline57">引数を配列として受け取る</a></li>
-<li><a href="#orgheadline58">メソッドの戻り値</a></li>
-<li><a href="#orgheadline59">多重代入を使って複数の戻り値を取得</a></li>
+<li><a href="#orgheadline52">まとめ</a></li>
+<li><a href="#orgheadline53">モジュールの先祖</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline65">クラスとは</a>
+<li><a href="#orgheadline59">1.9. meta</a>
 <ul>
-<li><a href="#orgheadline61">クラスとオブジェクト</a></li>
-<li><a href="#orgheadline62">class Car &#x2026; end</a></li>
-<li><a href="#orgheadline63">インスタンスメソッド</a></li>
-<li><a href="#orgheadline64">継承</a></li>
+<li><a href="#orgheadline55">クラス</a></li>
+<li><a href="#orgheadline56">モジュール</a></li>
+<li><a href="#orgheadline57">Class と Module</a></li>
+<li><a href="#orgheadline58">クラス - モジュール</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline100">1.6. クラスライブラリ</a>
+<li><a href="#orgheadline91">1.10. メタプログラミング Ruby のノート</a>
 <ul>
-<li><a href="#orgheadline67">Rubyリファレンス</a></li>
-<li><a href="#orgheadline68">BasicObject</a>
+<li><a href="#orgheadline68">オブジェクトモデル</a>
 <ul>
-<li><a href="#orgheadline72">メソッド一覧</a>
+<li><a href="#orgheadline60">class定義</a></li>
+<li><a href="#orgheadline61">object のクラス階層</a></li>
+<li><a href="#orgheadline62">クラスのクラス階層</a></li>
+<li><a href="#orgheadline63">メタクラスのクラス階層</a></li>
+<li><a href="#orgheadline66">特異クラスと特異メソッド</a>
 <ul>
-<li><a href="#orgheadline69">クラスメソッド</a></li>
-<li><a href="#orgheadline70">インスタンスメソッド</a></li>
-<li><a href="#orgheadline71">特別な役割のメソッド</a></li>
+<li><a href="#orgheadline64">特異メソッド</a></li>
+<li><a href="#orgheadline65"><code>m</code> は何処にあるか？</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline67">test class hier</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline73">Object</a>
+<li><a href="#orgheadline73">method</a>
 <ul>
-<li><a href="#orgheadline74">親クラスとモジュール</a></li>
-<li><a href="#orgheadline79">メソッド一覧</a>
+<li><a href="#orgheadline69">method_missing</a></li>
+<li><a href="#orgheadline70">動的methodの仕組み</a></li>
+<li><a href="#orgheadline71">method_missing(method, *args)の利用</a></li>
+<li><a href="#orgheadline72">最終形</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline74">ブロック</a>
 <ul>
-<li><a href="#orgheadline75">クラスメソッド</a></li>
-<li><a href="#orgheadline76">インスタンスメソッド</a></li>
-<li><a href="#orgheadline77">privateメソッド</a></li>
-<li><a href="#orgheadline78">Rubyから呼び出されるメソッド</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline80">Module</a>
+<li><a href="#orgheadline78">ブロックの基本</a>
 <ul>
-<li><a href="#orgheadline81">親クラスとモジュール</a></li>
-<li><a href="#orgheadline86">メソッド一覧</a>
+<li><a href="#orgheadline75">ブロックの作成</a></li>
+<li><a href="#orgheadline76">ブロックが与えられているか？</a></li>
+<li><a href="#orgheadline77">ブロックの呼び出し</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline81">クロージャ</a>
 <ul>
-<li><a href="#orgheadline82">クラスメソッド</a></li>
-<li><a href="#orgheadline83">publicなインスタンスメソッド</a></li>
-<li><a href="#orgheadline84">privateなインスタンスメソッド</a></li>
-<li><a href="#orgheadline85">Rubyから呼び出されるメソッド</a></li>
+<li><a href="#orgheadline79">コードの実行</a></li>
+<li><a href="#orgheadline80">スコープのまとめ</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline87">Class</a>
+<li><a href="#orgheadline82">instance_eval()</a>
 <ul>
-<li><a href="#orgheadline88">親クラスとモジュール</a></li>
-<li><a href="#orgheadline92">メソッド一覧</a>
-<ul>
-<li><a href="#orgheadline89">クラスメソッド</a></li>
-<li><a href="#orgheadline90">インスタンスメソッド</a></li>
-<li><a href="#orgheadline91">Rubyから呼び出されるメソッド</a></li>
+<li><a href="#orgheadline83">カプセル化の破壊</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline99">文字列 - Ruby入門</a>
-<ul>
-<li><a href="#orgheadline93">文字列オブジェクト</a></li>
-<li><a href="#orgheadline94">バックスラッシュ記法によるエスケープ</a></li>
-<li><a href="#orgheadline95">%Q、%qによる文字列の作成</a></li>
-<li><a href="#orgheadline96">ヒアドキュメントによる複数行文字列の作成</a></li>
-<li><a href="#orgheadline97">文字列の中に式を展開</a></li>
-<li><a href="#orgheadline98">文字列 methods</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline121">1.7. クラス・モジュールの概念</a>
-<ul>
-<li><a href="#orgheadline101">クラス・モジュールの概念 Ruby</a>
-<ul>
-<li><a href="#orgheadline102">関連  オブジェクト指向スクリプト言語 Ruby</a></li>
-<li><a href="#orgheadline103">例 Panda モジュール</a>
-<ul>
-<li><a href="#orgheadline104">定数 Module</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline105">例 Zooクラス</a></li>
-<li><a href="#orgheadline106">例： UenoZoo を Zoo を継承して作る</a></li>
-<li><a href="#orgheadline111">説明</a>
-<ul>
-<li><a href="#orgheadline107">mix-in</a></li>
-<li><a href="#orgheadline108">継承</a></li>
-<li><a href="#orgheadline109">継承とMix-in</a></li>
-<li><a href="#orgheadline110">extend</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline112">モジュールの使い方</a>
-<ul>
-<li><a href="#orgheadline113">名前空間としての使い方</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline114">まとめ</a></li>
-<li><a href="#orgheadline115">モジュールの先祖</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline120">meta</a>
-<ul>
-<li><a href="#orgheadline116">クラス</a></li>
-<li><a href="#orgheadline117">モジュール</a></li>
-<li><a href="#orgheadline118">Class と Module</a></li>
-<li><a href="#orgheadline119">クラス - モジュール</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline157">1.8. メタプログラミング</a>
+<li><a href="#orgheadline84">呼び出し可能オブジェクト</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgheadline130">2016.01.25 オブジェクトモデル</a>
+<li><a href="#orgheadline85">Proc 対 lambda</a></li>
+<li><a href="#orgheadline89">メソッド再び</a></li>
+<li><a href="#orgheadline90">呼び出し可能オブジェクトのまとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline95">1.11. memo コード</a>
 <ul>
-<li><a href="#orgheadline122">class定義</a></li>
-<li><a href="#orgheadline123">object のクラス階層</a></li>
-<li><a href="#orgheadline124">クラスのクラス階層</a></li>
-<li><a href="#orgheadline125">メタクラスのクラス階層</a></li>
-<li><a href="#orgheadline128">特異クラスと特異メソッド</a>
+<li><a href="#orgheadline92">class 階層</a></li>
+<li><a href="#orgheadline93">self</a></li>
+<li><a href="#orgheadline94">methods</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline122">1.12. クラスライブラリ</a>
 <ul>
-<li><a href="#orgheadline126">特異メソッド</a></li>
-<li><a href="#orgheadline127"><code>m</code> は何処にあるか？</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline129">test class hier</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline135">2016.02.01 method</a>
+<li><a href="#orgheadline96">Rubyリファレンス</a></li>
+<li><a href="#orgheadline97">BasicObject</a>
 <ul>
-<li><a href="#orgheadline131">method_missing</a></li>
-<li><a href="#orgheadline132">動的methodの仕組み</a></li>
-<li><a href="#orgheadline133">method_missing(method, *args)の利用</a></li>
-<li><a href="#orgheadline134">最終形</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline136">2016.02.09 ブロック</a>
+<li><a href="#orgheadline101">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline140">ブロックの基本</a>
+<li><a href="#orgheadline98">クラスメソッド</a></li>
+<li><a href="#orgheadline99">インスタンスメソッド</a></li>
+<li><a href="#orgheadline100">特別な役割のメソッド</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline102">Object</a>
 <ul>
-<li><a href="#orgheadline137">ブロックの作成</a></li>
-<li><a href="#orgheadline138">ブロックが与えられているか？</a></li>
-<li><a href="#orgheadline139">ブロックの呼び出し</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline143">クロージャ</a>
+<li><a href="#orgheadline103">親クラスとモジュール</a></li>
+<li><a href="#orgheadline108">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline141">コードの実行</a></li>
-<li><a href="#orgheadline142">スコープのまとめ</a></li>
+<li><a href="#orgheadline104">クラスメソッド</a></li>
+<li><a href="#orgheadline105">インスタンスメソッド</a></li>
+<li><a href="#orgheadline106">privateメソッド</a></li>
+<li><a href="#orgheadline107">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline144">instance_eval()</a>
+</ul>
+</li>
+<li><a href="#orgheadline109">Module</a>
 <ul>
-<li><a href="#orgheadline145">カプセル化の破壊</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline146">呼び出し可能オブジェクト</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline156">memo コード</a>
+<li><a href="#orgheadline110">親クラスとモジュール</a></li>
+<li><a href="#orgheadline115">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline153">class 階層</a></li>
-<li><a href="#orgheadline154">self</a></li>
-<li><a href="#orgheadline155">methods</a></li>
+<li><a href="#orgheadline111">クラスメソッド</a></li>
+<li><a href="#orgheadline112">publicなインスタンスメソッド</a></li>
+<li><a href="#orgheadline113">privateなインスタンスメソッド</a></li>
+<li><a href="#orgheadline114">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline158">1.9. sqlite3</a></li>
-<li><a href="#orgheadline167">1.10. sqlite3-ruby</a>
+<li><a href="#orgheadline116">Class</a>
 <ul>
-<li><a href="#orgheadline159">関連サイト</a></li>
-<li><a href="#orgheadline160">gem</a></li>
-<li><a href="#orgheadline161">sqlite</a></li>
-<li><a href="#orgheadline162">setup</a></li>
-<li><a href="#orgheadline163">ruby</a></li>
-<li><a href="#orgheadline164">firefox sqlite database handling</a></li>
-<li><a href="#orgheadline165">firefox sqlite database handling 2</a></li>
-<li><a href="#orgheadline166"></a></li>
+<li><a href="#orgheadline117">親クラスとモジュール</a></li>
+<li><a href="#orgheadline121">メソッド一覧</a>
+<ul>
+<li><a href="#orgheadline118">クラスメソッド</a></li>
+<li><a href="#orgheadline119">インスタンスメソッド</a></li>
+<li><a href="#orgheadline120">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline168">1.11. sinatra-org</a></li>
-<li><a href="#orgheadline169">1.12. references</a></li>
-<li><a href="#orgheadline170">1.13. what</a></li>
-<li><a href="#orgheadline171">1.14. how</a></li>
-<li><a href="#orgheadline172">1.15. directory</a></li>
-<li><a href="#orgheadline176">1.16. sinatraのための設定</a>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline129">1.13. 文字列 - Ruby入門</a>
+<ul>
+<li><a href="#orgheadline123">文字列オブジェクト</a></li>
+<li><a href="#orgheadline124">バックスラッシュ記法によるエスケープ</a></li>
+<li><a href="#orgheadline125">%Q、%qによる文字列の作成</a></li>
+<li><a href="#orgheadline126">ヒアドキュメントによる複数行文字列の作成</a></li>
+<li><a href="#orgheadline127">文字列の中に式を展開</a></li>
+<li><a href="#orgheadline128">文字列 methods</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline153">1.14. test-unit</a>
+<ul>
+<li><a href="#orgheadline152">ruby/test</a>
+<ul>
+<li><a href="#orgheadline130">test-unit</a></li>
+<li><a href="#orgheadline131">install</a></li>
+<li><a href="#orgheadline151">テストの書き方</a>
+<ul>
+<li><a href="#orgheadline132">基本</a>
+<ul>
+<li><a href="#orgheadline133">require</a></li>
+<li><a href="#orgheadline134">テスト・クラス定義</a></li>
+<li><a href="#orgheadline135">テスト全体の前後処理メソッド:</a></li>
+<li><a href="#orgheadline136">テストの前後の処理:</a></li>
+<li><a href="#orgheadline137">テストを test_で始まるメソッドとして定義する:</a></li>
+<li><a href="#orgheadline138">テスト準備</a></li>
+<li><a href="#orgheadline139">テスト実行</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline140">アサーション</a></li>
+<li><a href="#orgheadline146">便利な機能</a>
+<ul>
+<li><a href="#orgheadline141">sub_test_case</a></li>
+<li><a href="#orgheadline142">test</a></li>
+<li><a href="#orgheadline143">setup/teardown ブロック</a></li>
+<li><a href="#orgheadline144">test_order</a></li>
+<li><a href="#orgheadline145">データ駆動テスト</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline149">その他</a>
+<ul>
+<li><a href="#orgheadline147">assertの作り方</a></li>
+<li><a href="#orgheadline148">Rakeのタスク定義</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline150">まとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline155">1.15. プログラミング</a>
+<ul>
+<li><a href="#orgheadline154">sqlite3-ruby</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline168">1.16. sqlite3-ruby</a>
+<ul>
+<li><a href="#orgheadline156">関連サイト</a></li>
+<li><a href="#orgheadline157">gem</a></li>
+<li><a href="#orgheadline158">sqlite</a></li>
+<li><a href="#orgheadline159">setup</a></li>
+<li><a href="#orgheadline160">ruby</a></li>
+<li><a href="#orgheadline161">firefox sqlite database handling</a></li>
+<li><a href="#orgheadline162">firefox sqlite database handling 2</a></li>
+<li><a href="#orgheadline163"></a>
+<ul>
+<li><a href="#orgheadline164">関連サイト</a></li>
+<li><a href="#orgheadline165">gem</a></li>
+<li><a href="#orgheadline166">sqlite</a></li>
+<li><a href="#orgheadline167">sinatra-org</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline169">1.17. references</a></li>
+<li><a href="#orgheadline170">1.18. what</a></li>
+<li><a href="#orgheadline171">1.19. how</a></li>
+<li><a href="#orgheadline172">1.20. directory</a></li>
+<li><a href="#orgheadline176">1.21. sinatraのための設定</a>
 <ul>
 <li><a href="#orgheadline173">bundler</a></li>
 <li><a href="#orgheadline174">gemfile</a></li>
 <li><a href="#orgheadline175">config.ru</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline181">1.17. service</a>
+<li><a href="#orgheadline181">1.22. service</a>
 <ul>
 <li><a href="#orgheadline177">application</a></li>
 <li><a href="#orgheadline178">起動</a>
@@ -550,521 +550,22 @@ for the JavaScript code in this tag.
 <a href="./emacs.html">emacs</a> / 
 <a href="./meta-ruby.html">meta-ruby</a> /
 <a href="./note.html">note</a> /
-<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a>
+<a href="https://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a>
 </p>
 <div id="outline-container-orgheadline182" class="outline-2">
 <h2 id="orgheadline182"><span class="section-number-2">1</span> ruby のノート</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">1.1</span> test-unit</h3>
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.1</span> Ruby紹介</h3>
 <div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23">ruby/test</h4>
-<div class="outline-text-4" id="text-orgheadline23">
-</div><div id="outline-container-orgheadline1" class="outline-5">
-<h5 id="orgheadline1">test-unit</h5>
-<div class="outline-text-5" id="text-orgheadline1">
 <p>
-新らしい単体テスト・フレームワークを使いましょう:
-</p>
-<ul class="org-ul">
-<li><a href="http://qiita.com/repeatedly/items/727b08599d87af7fa671">Ruby - Test::Unitでテストを書く - Qiita</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline2" class="outline-5">
-<h5 id="orgheadline2">install</h5>
-<div class="outline-text-5" id="text-orgheadline2">
-<div class="org-src-container">
-
-<pre class="src src-sh">gem install test-unit
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline22" class="outline-5">
-<h5 id="orgheadline22">テストの書き方</h5>
-<div class="outline-text-5" id="text-orgheadline22">
-</div><div id="outline-container-orgheadline3" class="outline-6">
-<h6 id="orgheadline3">基本</h6>
-<div class="outline-text-6" id="text-orgheadline3">
-<ul class="org-ul">
-<li>classで書く．</li>
-<li>TestCase毎に呼ばれる startup/shutdown</li>
-<li>Test毎に呼ばれる setup/teardown/cleanup</li>
-<li>テストは test で始まるメソッドで書く</li>
-</ul>
-</div>
-
-<div id="outline-container-orgheadline4" class="outline-7">
-<h7 id="orgheadline4">require</h7>
-<div class="outline-text-7" id="text-orgheadline4">
-<div class="org-src-container">
-
-<pre class="src src-ruby">require "rubygems"
-gem "test-unit"
-require 'test/unit'
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-7">
-<h7 id="orgheadline5">テスト・クラス定義</h7>
-<div class="outline-text-7" id="text-orgheadline5">
-<div class="org-src-container">
-
-<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline6" class="outline-7">
-<h7 id="orgheadline6">テスト全体の前後処理メソッド:</h7>
-<div class="outline-text-7" id="text-orgheadline6">
-<div class="org-src-container">
-
-<pre class="src src-ruby">class &lt;&lt; self
-  # テスト群の実行前に呼ばれる．変な初期化トリックがいらなくなる
-  def startup
-    p :_startup
-  end
-
-  # テスト群の実行後に呼ばれる
-  def shutdown
-    p :_shutdown
-  end
-end
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline7" class="outline-7">
-<h7 id="orgheadline7">テストの前後の処理:</h7>
-<div class="outline-text-7" id="text-orgheadline7">
-<div class="org-src-container">
-
-<pre class="src src-ruby"># 毎回テスト実行前に呼ばれる
-def setup
-  p :setup
-end
-
-# テストがpassedになっている場合に，テスト実行後に呼ばれる．テスト後の状態確認とかに使える
-def cleanup
-  p :cleanup
-end
-
-# 毎回テスト実行後に呼ばれる
-def teardown
-  p :treadown
-end
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline8" class="outline-7">
-<h7 id="orgheadline8">テストを test_で始まるメソッドとして定義する:</h7>
-<div class="outline-text-7" id="text-orgheadline8">
-<div class="org-src-container">
-
-<pre class="src src-ruby">  def test_foo
-    p 'test_foo'
-    assert_true(1 == 1)
-  end
-
-  def test_bar
-    p 'test_bar'
-    assert_equal(1, 1)
-  end
-end
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline9" class="outline-7">
-<h7 id="orgheadline9">テスト準備</h7>
-<div class="outline-text-7" id="text-orgheadline9">
-<p>
-(defvar org-babel-ruby-command "<i>users/home/masayuki</i>.rbenv/shims/ruby"
-"Name of command to use for executing ruby code.")
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-ruby">p require "rubygems"
-p gem "test-unit"
-p RUBY_VERSION
-'end'
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline10" class="outline-7">
-<h7 id="orgheadline10">テスト実行</h7>
-<div class="outline-text-7" id="text-orgheadline10">
-<p>
-デフォルトだとアルファベット順にテストが実行される．
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">which ruby
-gem install test-unit
-ruby test_sample.rb
-echo 'end'
-</pre>
-</div>
-
-<pre class="example">
-/usr/bin/ruby
-Run options: 
-
-# Running tests:
-
-:setup
-"test_bar"
-:treadown
-.:setup
-"test_foo"
-:treadown
-E
-
-Finished tests in 0.003415s, 585.6515 tests/s, 292.8258 assertions/s.
-
-  1) Error:
-test_foo(TestSample):
-NoMethodError: undefined method `assert_true' for #&lt;TestSample:0x007fb08a8164c8&gt;
-    test_sample.rb:36:in `test_foo'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1301:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit/testcase.rb:17:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:919:in `block in _run_suite'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `map'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `_run_suite'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:657:in `block in _run_suites'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `each'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `_run_suites'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:867:in `_run_anything'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1060:in `run_tests'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1047:in `block in _run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `each'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `_run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1035:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:21:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:774:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:366:in `block (2 levels) in autorun'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:27:in `run_once'
-    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:365:in `block in autorun'
-
-2 tests, 1 assertions, 0 failures, 1 errors, 0 skips
-
-ruby -v: ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
-end
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline11" class="outline-6">
-<h6 id="orgheadline11">アサーション</h6>
-<div class="outline-text-6" id="text-orgheadline11">
-<p>
-<a href="https://test-unit.github.io/test-unit/ja/Test/Unit/Assertions.html">https://test-unit.github.io/test-unit/ja/Test/Unit/Assertions.html</a>
-</p>
-
-<p>
-のページの"Instance Method Summary"にあるassertで始まるメソッド群
-が該当．各メソッドに飛べば実際のコード例が出てくるので，参照しつつ
-適宜使い分ける．
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline17" class="outline-6">
-<h6 id="orgheadline17">便利な機能</h6>
-<div class="outline-text-6" id="text-orgheadline17">
-</div><div id="outline-container-orgheadline12" class="outline-7">
-<h7 id="orgheadline12">sub_test_case</h7>
-<div class="outline-text-7" id="text-orgheadline12">
-<p>
-RSpecだとdescribeとかでネスト出来るが，それをTest::Unitで出来る．実際
-はTest::Unitでも継承すれば出来るけど，こっちの方が簡潔で好き.
-</p>
-
-<p>
-class TestSample &lt; Test::Unit::TestCase
-  sub_test_case "Foo context" do
-</p>
-
-<p>
-end
-</p>
-
-<p>
-sub_test_case "Bar context" do
-</p>
-
-<p>
-  end
-end
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline13" class="outline-7">
-<h7 id="orgheadline13">test</h7>
-<div class="outline-text-7" id="text-orgheadline13">
-<p>
-メソッド名ベースだと使えない文字とかもあり，少し表現がしにくかっ
-た．けど，testを使えば解決！
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
-  test "We can write good information" do
-    # assert_nil(nil)
-  end
-end
-</pre>
-</div>
-
-<p>
-Test::Unitのgemにはdescriptionという機能があって，それとメソッド
-定義のシンタックスシュガーらしい．以下のコードは上とほぼ同じ．
-</p>
-
-<p>
-class TestSample &lt; Test::Unit::TestCase
-  description "We can write good information"
-  def test_foo_bar
-</p>
-
-<p>
-  end
-end
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline14" class="outline-7">
-<h7 id="orgheadline14">setup/teardown ブロック</h7>
-<div class="outline-text-7" id="text-orgheadline14">
-<p>
-sub_test_caseを使っていると，RSpecのbeforeのように各ケース毎に追
-加でセットアップ処理を書きたくなる．TestCaseにはsetupメソッドがあ
-るけど，これはオーバーライドしてしまうので使えない．このような場
-合にはsetupブロックを使う．setupメソッドとは違い，beforeのように
-何個でも書ける．
-</p>
-
-<p>
-class TestSample &lt; Test::Unit::TestCase
-  setup do
-    puts "parent"
-  end
-</p>
-
-<p>
-sub_test_case "Sub!" do
-  setup do
-    puts "sub1"
-  end
-</p>
-
-<p>
-setup do
-  puts "sub2"
-end
-</p>
-
-<p>
-    def test_sub
-      assert_true(true)
-    end
-  end
-end
-</p>
-
-<p>
-上の例を走らせると以下のようになる．もちろん，teardownも同様に出来る．
-</p>
-
-<p>
-Loaded suite test_nest
-Started
-parent
-sub1
-sub2
-.
-</p>
-
-<p>
-Finished in 0.000896 seconds.
-</p>
-
-<p>
-注意点として，setupメソッドとsetupブロックでは優先順位が決まっている．気になるなら，setupブロックで統一した方が良いかもしれない．
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline15" class="outline-7">
-<h7 id="orgheadline15">test_order</h7>
-<div class="outline-text-7" id="text-orgheadline15">
-<p>
-テストの実行順序を指定出来る．どうしても定義順に実行したいのであれば，:definedを指定すれば上から順に実行される．
-</p>
-
-<p>
-class TestSample &lt; Test::Unit::TestCase
-  self.test_order = :defined
-end
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline16" class="outline-7">
-<h7 id="orgheadline16">データ駆動テスト</h7>
-<div class="outline-text-7" id="text-orgheadline16">
-<p>
-テストとデータを分けて書ける機能です．成功するテストや失敗するテ
-ストをまとめたりするのに便利．テストの中でeach回すのはイケてない
-し，かといってコピペで重複したテスト書くのもつらい．この機能使え
-ば，ちゃんとデータセット毎にテストがわかれます．
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
-  # 'test1'がラベルで，[1, 1]がtest_equalの引数に渡される
-  data(
-    'test1' =&gt; [1, 1],
-    'test2' =&gt; [2, 2])
-  def test_equal(data)
-    expected, actual = data
-    assert_equal(expected, actual)
-  end
-
-  data(
-    'test1' =&gt; [1, 2],
-    'test2' =&gt; [2, 3])
-  def test_not_equal(data)
-    expected, actual = data
-    assert_not_equal(expected, actual)
-  end
-end
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline20" class="outline-6">
-<h6 id="orgheadline20">その他</h6>
-<div class="outline-text-6" id="text-orgheadline20">
-</div><div id="outline-container-orgheadline18" class="outline-7">
-<h7 id="orgheadline18">assertの作り方</h7>
-<div class="outline-text-7" id="text-orgheadline18">
-<p>
-Test::Unit::Assertions以下に定義して，そのファイルをrequireで読み
-込むだけ．assert_blockとかbuild_messageとかのヘルパーが利用可能．
-assert_blockの中に条件を書く．
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-ruby">require 'test/unit/assertions'
-
-module Test::Unit::Assertions
-  def assert_oreore(expected, actual)
-    assert_block("failure message") do
-      expected == (actual + 'oreore')
-    end
-  end
-end
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline19" class="outline-7">
-<h7 id="orgheadline19">Rakeのタスク定義</h7>
-<div class="outline-text-7" id="text-orgheadline19">
-<p>
-コピペで使い回す
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-ruby">desc 'Run test_unit based test'
-Rake::TestTask.new do |t|
-  # To run test for only one file (or file path pattern)
-  #  $ bundle exec rake test TEST=test/test_specified_path.rb
-  t.libs &lt;&lt; "test"
-  t.test_files = Dir["test/**/test_*.rb"]
-  t.verbose = true
-end
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline21" class="outline-6">
-<h6 id="orgheadline21">まとめ</h6>
-<div class="outline-text-6" id="text-orgheadline21">
-<p>
-RSpecほど機能がリッチじゃないので，足りないなら自分で書く必要があ
-るけど，Fluentdレベルだとそんなに困ってない． 個人的には，
-Parameterized Testが入ってくれれば嬉しいという所かな．
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">1.2</span> 情報元</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">http://docs.ruby-lang.org/ja/2.0.0/doc/index.html</a>
-</p>
-
-<p>
-Ruby入門
-<a href="http://www.rubylife.jp/ini/">http://www.rubylife.jp/ini/</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">1.3</span> Ruby紹介</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-<a href="http://www.rubylife.jp/ini/">ruby入門</a> <a href="ruby-note.html">ruby note</a> <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">リファレンスマニュアル</a> 
+<a href="https://docs.ruby-lang.org/ja/2.0.0/doc/index.html">Ruby リファレンスマニュアル (Ruby 2.0.0)</a> より
 </p>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26">Ruby</h4>
-<div class="outline-text-4" id="text-orgheadline26">
-<p>
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">Ruby リファレンスマニュアル (Ruby 2.0.0)</a> より
-</p>
-</div>
-
-<div id="outline-container-orgheadline27" class="outline-5">
-<h5 id="orgheadline27">はじめに</h5>
-<div class="outline-text-5" id="text-orgheadline27">
+<div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1">はじめに</h4>
+<div class="outline-text-4" id="text-orgheadline1">
 <ul class="org-ul">
 <li>Rubyは手軽なオブジェクト指向プログラミングのためのインタプリタ言語</li>
 <li>Rubyはテキスト処理やシステム管理のための豊富な機能を持っています。</li>
@@ -1072,9 +573,9 @@ Ruby入門
 </ul>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-6">
-<h6 id="orgheadline28">Rubyの特長</h6>
-<div class="outline-text-6" id="text-orgheadline28">
+<div id="outline-container-orgheadline2" class="outline-5">
+<h5 id="orgheadline2">Rubyの特長</h5>
+<div class="outline-text-5" id="text-orgheadline2">
 <ul class="org-ul">
 <li><p>
 インタプリタ
@@ -1228,31 +729,30 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">1.4</span> Rubyの原理</h3>
-<div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30">Rubyの原理</h4>
-<div class="outline-text-4" id="text-orgheadline30">
+
+
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.2</span> Rubyの原理</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>原典: <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html">オブジェクト</a>  (ruby-lang.org)</li>
-<li>原典:  <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html">クラス (Ruby 2.0.0)</a></li>
+<li>原典: <a href="https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html">オブジェクト</a>  (ruby-lang.org)</li>
+<li>原典:  <a href="https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html">クラス (Ruby 2.0.0)</a></li>
 </ul>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-5">
-<h5 id="orgheadline31">Todo オブジェクト</h5>
-<div class="outline-text-5" id="text-orgheadline31">
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4">オブジェクト</h4>
+<div class="outline-text-4" id="text-orgheadline4">
 <p>
 ここに，ruby の基本原理， が書かれていると，((s-:)) は思う。
 </p>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-6">
-<h6 id="orgheadline32">オブジェクトとは</h6>
-<div class="outline-text-6" id="text-orgheadline32">
+<div id="outline-container-orgheadline5" class="outline-5">
+<h5 id="orgheadline5">オブジェクトとは</h5>
+<div class="outline-text-5" id="text-orgheadline5">
 <ul class="org-ul">
 <li>Ruby で扱える全ての値はオブジェクトです。</li>
 <li>Rubyのオブジェクトに対して可能な操作はメソッド呼び出しのみです。</li>
@@ -1266,9 +766,9 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-6">
-<h6 id="orgheadline33">クラス</h6>
-<div class="outline-text-6" id="text-orgheadline33">
+<div id="outline-container-orgheadline6" class="outline-5">
+<h5 id="orgheadline6">クラス</h5>
+<div class="outline-text-5" id="text-orgheadline6">
 <ul class="org-ul">
 <li>クラスは自身に所属するオブジェクトが反応できるメソッドを決定します。</li>
 <li>所属するオブジェクトに対してあるメソッドを呼び出すことができるなら、
@@ -1285,9 +785,9 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </ul>
 </div>
 
-<div id="outline-container-orgheadline34" class="outline-7">
-<h7 id="orgheadline34">モジュール</h7>
-<div class="outline-text-7" id="text-orgheadline34">
+<div id="outline-container-orgheadline7" class="outline-6">
+<h6 id="orgheadline7">モジュール</h6>
+<div class="outline-text-6" id="text-orgheadline7">
 <ul class="org-ul">
 <li>ちょっと特殊でクラスではない。しかし機能は同じ。</li>
 </ul>
@@ -1295,9 +795,9 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-6">
-<h6 id="orgheadline35">メソッド</h6>
-<div class="outline-text-6" id="text-orgheadline35">
+<div id="outline-container-orgheadline8" class="outline-5">
+<h5 id="orgheadline8">メソッド</h5>
+<div class="outline-text-5" id="text-orgheadline8">
 <ul class="org-ul">
 <li>メソッドは実行することができます。その実行を開始することを通常「呼び
 出す」と言います。</li>
@@ -1312,12 +812,12 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 
 
 
-<div id="outline-container-orgheadline39" class="outline-5">
-<h5 id="orgheadline39">Todo クラス</h5>
-<div class="outline-text-5" id="text-orgheadline39">
-</div><div id="outline-container-orgheadline36" class="outline-6">
-<h6 id="orgheadline36">クラスとオブジェクト</h6>
-<div class="outline-text-6" id="text-orgheadline36">
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12">Todo クラス</h4>
+<div class="outline-text-4" id="text-orgheadline12">
+</div><div id="outline-container-orgheadline9" class="outline-5">
+<h5 id="orgheadline9">クラスとオブジェクト</h5>
+<div class="outline-text-5" id="text-orgheadline9">
 <ul class="org-ul">
 <li>Ruby プログラムからはクラスもまたオブジェクトとして扱うことができる。</li>
 
@@ -1331,9 +831,9 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-6">
-<h6 id="orgheadline37">モジュール</h6>
-<div class="outline-text-6" id="text-orgheadline37">
+<div id="outline-container-orgheadline10" class="outline-5">
+<h5 id="orgheadline10">モジュール</h5>
+<div class="outline-text-5" id="text-orgheadline10">
 <ul class="org-ul">
 <li>Ruby プログラムからはクラスもまたオブジェクトとして扱うことができる。</li>
 
@@ -1352,9 +852,9 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 
 
-<div id="outline-container-orgheadline38" class="outline-6">
-<h6 id="orgheadline38">特異クラス</h6>
-<div class="outline-text-6" id="text-orgheadline38">
+<div id="outline-container-orgheadline11" class="outline-5">
+<h5 id="orgheadline11">特異クラス</h5>
+<div class="outline-text-5" id="text-orgheadline11">
 <p>
 あるオブジェクトだけに定義されたクラス (by ((s-:)))
 </p>
@@ -1362,29 +862,23 @@ OSが許せば、オブジェクトファイルを実行時に読み込む機能
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline66" class="outline-3">
-<h3 id="orgheadline66"><span class="section-number-3">1.5</span> 言語上のこと</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">1.3</span> 言語上のこと</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li><p>
-<a href="http://www.rubylife.jp/ini/">ruby入門</a> <a href="ruby-note.html">ruby note</a> <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">リファレンスマニュアル</a> 
-</p>
-
-<p>
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/s">変数と定数 (Ruby 2.0.0)</a>
-</p></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/doc/s">変数と定数 (Ruby 2.0.0)</a></li>
 </ul>
 </div>
+</div>
 
 
-<div id="outline-container-orgheadline46" class="outline-4">
-<h4 id="orgheadline46">変数 <a href="http://www.rubylife.jp/ini/var/">http://www.rubylife.jp/ini/var/</a>          変数 - Ruby入門</h4>
-<div class="outline-text-4" id="text-orgheadline46">
-</div><div id="outline-container-orgheadline41" class="outline-5">
-<h5 id="orgheadline41">変数への代入</h5>
-<div class="outline-text-5" id="text-orgheadline41">
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">1.4</span> 変数 <a href="https://www.rubylife.jp/ini/var/">https://www.rubylife.jp/ini/var/</a>          変数 - Ruby入門</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15">変数への代入</h4>
+<div class="outline-text-4" id="text-orgheadline15">
 <p>
 変数への代入
 </p>
@@ -1411,11 +905,11 @@ x1, x2, x3 = [1, 2, 3]
 </div>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-5">
-<h5 id="orgheadline42">変数の種類</h5>
-<div class="outline-text-5" id="text-orgheadline42">
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16">変数の種類</h4>
+<div class="outline-text-4" id="text-orgheadline16">
 <p>
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/s">http://docs.ruby-lang.org/ja/2.0.0/doc/s</a> 変数と定数 (Ruby 2.0.0)
+<a href="https://docs.ruby-lang.org/ja/2.0.0/doc/s">https://docs.ruby-lang.org/ja/2.0.0/doc/s</a> 変数と定数 (Ruby 2.0.0)
 </p>
 
 <ul class="org-ul">
@@ -1429,9 +923,9 @@ x1, x2, x3 = [1, 2, 3]
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-5">
-<h5 id="orgheadline43">Ruby予約語</h5>
-<div class="outline-text-5" id="text-orgheadline43">
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17">Ruby予約語</h4>
+<div class="outline-text-4" id="text-orgheadline17">
 <p>
 ： BEGIN    class    ensure   nil      self     when
 ： END      def      false    not      super    while
@@ -1448,17 +942,17 @@ x1, x2, x3 = [1, 2, 3]
 </div>
 </div>
 
-<div id="outline-container-orgheadline44" class="outline-5">
-<h5 id="orgheadline44">自己代入</h5>
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18">自己代入</h4>
 </div>
-<div id="outline-container-orgheadline45" class="outline-5">
-<h5 id="orgheadline45">多重代入</h5>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19">多重代入</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline47" class="outline-4">
-<h4 id="orgheadline47">スコープ</h4>
-<div class="outline-text-4" id="text-orgheadline47">
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">1.5</span> スコープ</h3>
+<div class="outline-text-3" id="text-1-5">
 <p>
 講義後半で説明します。
 </p>
@@ -1491,33 +985,24 @@ Module/Class (?) - ((<b>自信なし</b>))
 <ul class="org-ul">
 <li>定数</li>
 </ul>
-<ul class="org-ul">
-<li><a href="http://www.rubylife.jp/ini/">ruby入門</a> <a href="ruby-note.html">ruby note</a> <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">リファレンスマニュアル</a></li>
-</ul>
-
-<p>
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcall.html">http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcall.html</a>
-</p>
-
-<p>
-<a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html">http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html</a>
-</p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline60" class="outline-4">
-<h4 id="orgheadline60"><a href="http://www.rubylife.jp/ini/method/">メソッド - Ruby入門</a></h4>
-<div class="outline-text-4" id="text-orgheadline60">
-</div><div id="outline-container-orgheadline48" class="outline-5">
-<h5 id="orgheadline48">Rubyにおけるトップレベル</h5>
-<div class="outline-text-5" id="text-orgheadline48">
+
+
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">1.6</span> <a href="https://www.rubylife.jp/ini/method/">メソッド - Ruby入門</a></h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22">Rubyにおけるトップレベル</h4>
+<div class="outline-text-4" id="text-orgheadline22">
 <p>
-<a href="http://www.rubylife.jp/ini/method/index1.html">http://www.rubylife.jp/ini/method/index1.html</a>
+<a href="https://www.rubylife.jp/ini/method/index1.html">https://www.rubylife.jp/ini/method/index1.html</a>
 </p>
 </div>
-<div id="outline-container-orgheadline49" class="outline-6">
-<h6 id="orgheadline49">トップレベル</h6>
-<div class="outline-text-6" id="text-orgheadline49">
+<div id="outline-container-orgheadline23" class="outline-5">
+<h5 id="orgheadline23">トップレベル</h5>
+<div class="outline-text-5" id="text-orgheadline23">
 <div class="org-src-container">
 
 <pre class="src src-ruby">print("Hello¥n")
@@ -1537,9 +1022,9 @@ ruby が実行されると, トップレベルに記述されたプログラム�
 </div>
 </div>
 
-<div id="outline-container-orgheadline50" class="outline-6">
-<h6 id="orgheadline50">selfとmain</h6>
-<div class="outline-text-6" id="text-orgheadline50">
+<div id="outline-container-orgheadline24" class="outline-5">
+<h5 id="orgheadline24">selfとmain</h5>
+<div class="outline-text-5" id="text-orgheadline24">
 <div class="org-src-container">
 
 <pre class="src src-ruby">self
@@ -1568,9 +1053,9 @@ self.class
 </div>
 </div>
 
-<div id="outline-container-orgheadline51" class="outline-6">
-<h6 id="orgheadline51">トップレベルに定義されたメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline51">
+<div id="outline-container-orgheadline25" class="outline-5">
+<h5 id="orgheadline25">トップレベルに定義されたメソッド</h5>
+<div class="outline-text-5" id="text-orgheadline25">
 <p>
 ップレベルの中にもメソッドを定義することが出来ます。
 </p>
@@ -1606,9 +1091,9 @@ self.class
 </div>
 
 
-<div id="outline-container-orgheadline52" class="outline-5">
-<h5 id="orgheadline52">メソッドの定義と呼び出し</h5>
-<div class="outline-text-5" id="text-orgheadline52">
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26">メソッドの定義と呼び出し</h4>
+<div class="outline-text-4" id="text-orgheadline26">
 <pre class="example">
 def メソッド名(引数1, 引数2, ...)
  実行する処理
@@ -1633,9 +1118,9 @@ self.printHello
 </div>
 
 
-<div id="outline-container-orgheadline53" class="outline-5">
-<h5 id="orgheadline53">メソッドの呼び出し</h5>
-<div class="outline-text-5" id="text-orgheadline53">
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27">メソッドの呼び出し</h4>
+<div class="outline-text-4" id="text-orgheadline27">
 <p>
 定義されたメソッドを呼び出すと、処理がメソッド内に移りメソッド内に
 記述された処理が実行されます。そしてメソッドの最後まで処理が終わる
@@ -1669,9 +1154,9 @@ self.printHello
 </div>
 
 
-<div id="outline-container-orgheadline54" class="outline-6">
-<h6 id="orgheadline54">メソッド定義の位置</h6>
-<div class="outline-text-6" id="text-orgheadline54">
+<div id="outline-container-orgheadline28" class="outline-5">
+<h5 id="orgheadline28">メソッド定義の位置</h5>
+<div class="outline-text-5" id="text-orgheadline28">
 <p>
 メソッドは実際に呼び出されるよりも前に定義されていなければなりませ
 ん。例えば次のようなプログラムはエラーとなります。
@@ -1693,12 +1178,12 @@ self.printHello
 </div>
 
 
-<div id="outline-container-orgheadline55" class="outline-5">
-<h5 id="orgheadline55">引数を付けたメソッド呼び出し</h5>
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29">引数を付けたメソッド呼び出し</h4>
 </div>
-<div id="outline-container-orgheadline56" class="outline-5">
-<h5 id="orgheadline56">引数のデフォルト値</h5>
-<div class="outline-text-5" id="text-orgheadline56">
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30">引数のデフォルト値</h4>
+<div class="outline-text-4" id="text-orgheadline30">
 <p>
 通常引数は呼び出し側とメソッド定義側で数が一致している必要がありますが、メソッ
 ド定義側では引数にデフォルト値を設定することが可能です。書式は次の通りです。 
@@ -1737,22 +1222,23 @@ printHello("Hello")
 
 
 
-<div id="outline-container-orgheadline57" class="outline-5">
-<h5 id="orgheadline57">引数を配列として受け取る</h5>
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31">引数を配列として受け取る</h4>
 </div>
-<div id="outline-container-orgheadline58" class="outline-5">
-<h5 id="orgheadline58">メソッドの戻り値</h5>
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32">メソッドの戻り値</h4>
 </div>
-<div id="outline-container-orgheadline59" class="outline-5">
-<h5 id="orgheadline59">多重代入を使って複数の戻り値を取得</h5>
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33">多重代入を使って複数の戻り値を取得</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline65" class="outline-4">
-<h4 id="orgheadline65">クラスとは</h4>
-<div class="outline-text-4" id="text-orgheadline65">
-</div><div id="outline-container-orgheadline61" class="outline-5">
-<h5 id="orgheadline61">クラスとオブジェクト</h5>
-<div class="outline-text-5" id="text-orgheadline61">
+
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">1.7</span> クラスとは</h3>
+<div class="outline-text-3" id="text-1-7">
+</div><div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35">クラスとオブジェクト</h4>
+<div class="outline-text-4" id="text-orgheadline35">
 <ul class="org-ul">
 <li><b>クラス*は *オブジェクト</b> の設計図です。</li>
 
@@ -1776,9 +1262,9 @@ printHello("Hello")
 </div>
 
 
-<div id="outline-container-orgheadline62" class="outline-5">
-<h5 id="orgheadline62">class Car &#x2026; end</h5>
-<div class="outline-text-5" id="text-orgheadline62">
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36">class Car &#x2026; end</h4>
+<div class="outline-text-4" id="text-orgheadline36">
 <p>
 class は Carクラスから生まれるオブジェクトの振舞を記述する。
 </p>
@@ -1830,9 +1316,9 @@ car.dispName
 </div>
 </div>
 
-<div id="outline-container-orgheadline63" class="outline-5">
-<h5 id="orgheadline63">インスタンスメソッド</h5>
-<div class="outline-text-5" id="text-orgheadline63">
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37">インスタンスメソッド</h4>
+<div class="outline-text-4" id="text-orgheadline37">
 <p>
 クラス内に記述されたメソッドはクラスから作成されたオブジェクトしか
 呼び出すことが出来ません。このようなメソッドを <b>インスタンスメソッ
@@ -2044,9 +1530,9 @@ Reji::SHOUHIZEI
 </div>
 
 
-<div id="outline-container-orgheadline64" class="outline-5">
-<h5 id="orgheadline64">継承</h5>
-<div class="outline-text-5" id="text-orgheadline64">
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38">継承</h4>
+<div class="outline-text-4" id="text-orgheadline38">
 <div class="org-src-container">
 
 <pre class="src src-ruby">class Car
@@ -2105,550 +1591,29 @@ so.dispName
 'end'
 </pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgheadline100" class="outline-3">
-<h3 id="orgheadline100"><span class="section-number-3">1.6</span> クラスライブラリ</h3>
-<div class="outline-text-3" id="text-1-6">
-</div><div id="outline-container-orgheadline67" class="outline-4">
-<h4 id="orgheadline67">Rubyリファレンス</h4>
-<div class="outline-text-4" id="text-orgheadline67">
 <p>
-原典
+\
 </p>
-<ul class="org-ul">
-<li><a href="http://ref.xaio.jp/ruby/">http://ref.xaio.jp/ruby/</a></li>
-<li><a href="http://ref.xaio.jp/ruby/classes">http://ref.xaio.jp/ruby/classes</a></li>
-</ul>
-
-<p>
-method名やkeywordからクラスを探せるようにこの org文書を作成しました。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline68" class="outline-4">
-<h4 id="orgheadline68">BasicObject</h4>
-<div class="outline-text-4" id="text-orgheadline68">
-<p>
-<a href="http://ref.xaio.jp/ruby/classes/basic_object">http://ref.xaio.jp/ruby/classes/basic_object</a>
-</p>
-
-<p>
-*=BasicObject=*クラスは、Ruby 1.9で新しく用意されたクラスで、=Object=
-クラスの親クラスです。通常は、=BasicObject=オブジェクトを直接使うこと
-はありません。
-</p>
-
-<p>
-=BasicObject=は=Object=や=Kernel=のメソッドを持たないので、「メソッド
-がほぼゼロの白紙のクラスを作りたい」というときは、=BasicObject=を継承
-したサブクラスで実現できます。
-</p>
-</div>
-
-<div id="outline-container-orgheadline72" class="outline-5">
-<h5 id="orgheadline72">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline72">
-</div><div id="outline-container-orgheadline69" class="outline-6">
-<h6 id="orgheadline69">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline69">
-<ul class="org-ul">
-<li><code>new</code> : インスタンスの作成。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline70" class="outline-6">
-<h6 id="orgheadline70">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline70">
-<ul class="org-ul">
-<li><code>!</code> : 否定。</li>
-<li><code>!=</code> : 別のものか調べる。</li>
-<li><code>==</code> : オブジェクトの内容が同じか調べる。</li>
-<li><code>__send__</code> : メソッドを呼び出す。</li>
-<li><code>equal?</code> : 同じオブジェクトか調べる。</li>
-<li><code>instance_eval</code> : インスタンスの元でコードを実行。</li>
-<li><code>instance_exec</code> : インスタンスの元でコードを実行。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline71" class="outline-6">
-<h6 id="orgheadline71">特別な役割のメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline71">
-<ul class="org-ul">
-<li><code>initialize</code> : オブジェクトを作成（=new=）するとき呼ばれる。</li>
-<li><code>initialize_copy</code> :
-オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。</li>
-<li><code>method_missing</code> : メソッドが見つからないとき呼ばれる。</li>
-<li><code>singleton_method_added</code> : 特異メソッドを定義するとき呼ばれる。</li>
-<li><code>singleton_method_removed</code> : 特異メソッドを削除するとき呼ばれる。</li>
-<li><code>singleton_method_undefined</code> :
-特異メソッドを未定義にするとき呼ばれる。</li>
-</ul>
-
-<p>
-<a href="file:///ruby/about">このサイトについて</a> <a href="file:///ruby/legend">記事の読み方</a>
-<a href="file:///ruby/references">参考文献</a>
-</p>
-
-<p>
-Sponsored by <a href="http://www.oiax.jp/">Oiax Inc.</a> / Powered by Ruby on
-Rails and AmiWiki
-</p>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgheadline73" class="outline-4">
-<h4 id="orgheadline73">Object</h4>
-<div class="outline-text-4" id="text-orgheadline73">
-<ul class="org-ul">
-<li><a href="http://ref.xaio.jp/ruby/classes/object">http://ref.xaio.jp/ruby/classes/object</a></li>
-</ul>
-
-<p>
-*=Object=*クラスは、すべてのクラスの親クラスです。
-</p>
-</div>
-
-<div id="outline-container-orgheadline74" class="outline-5">
-<h5 id="orgheadline74">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline74">
-<p>
-=Object=クラスは=Kernel=モジュールをインクルードしています。
-</p>
-
-<p>
-=BasicObject=クラスが=Object=クラスの親クラスになりました。
-</p>
-
 <pre class="example">
-Object &lt; Kernel (&lt; BasicObject)
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgheadline79" class="outline-5">
-<h5 id="orgheadline79">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline79">
-</div><div id="outline-container-orgheadline75" class="outline-6">
-<h6 id="orgheadline75">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline75">
-<ul class="org-ul">
-<li><code>new</code> : インスタンスの作成。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline76" class="outline-6">
-<h6 id="orgheadline76">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline76">
-<p>
-これらのメソッドは、実際には=Kernel=モジュールの=public=なメソッドとして実装されていますが、一般的に=Object=クラスのメソッドとして扱われます。また、この一覧には=BasicObject=のメソッドも混ぜてあります。
-</p>
-
-<ul class="org-ul">
-<li><code>!</code> : 否定。Ruby 1.9</li>
-<li><code>!=</code> : 別のものか調べる。Ruby 1.9</li>
-<li><code>!~</code> : パターンマッチの否定。Ruby 1.9</li>
-<li><code>==</code> : オブジェクトの内容が同じか調べる。</li>
-<li><code>===</code> : =case=式でオブジェクトをテストする。</li>
-<li><code>=~</code> : パターンマッチ。</li>
-<li><code>__id__</code> : オブジェクトIDを返す。</li>
-<li><code>__send__</code> : メソッドを呼び出す。</li>
-<li><code>class</code> : オブジェクトのクラスを返す。</li>
-<li><code>clone</code> : オブジェクトのコピーを作成する。</li>
-<li><code>define_singleton_method</code> : 特異メソッドを定義する。Ruby 1.9</li>
-<li><code>display</code> : オブジェクトを文字列として出力する。</li>
-<li><code>dup</code> : オブジェクトのコピーを作成する。</li>
-<li><code>eql?</code> : ハッシュのキーとして同じか調べる。</li>
-<li><code>equal?</code> : 同じオブジェクトか調べる。</li>
-<li><code>enum_for</code> : =Enumerator=オブジェクトの作成。Ruby 1.8.7</li>
-<li><code>extend</code> : モジュールのメソッドを取り込む。</li>
-<li><code>freeze</code> : オブジェクトを凍結する。</li>
-<li><code>frozen?</code> : オブジェクトの凍結状態を調べる。</li>
-<li><code>hash</code> : ハッシュ値を返す。</li>
-<li><code>id</code> : オブジェクトIDを返す。+Ruby 1.9+</li>
-<li><code>inspect</code> : 読みやすい文字列に変換。</li>
-<li><code>instance_eval</code> : インスタンスの元でコードを実行。</li>
-<li><code>instance_exec</code> : インスタンスの元でコードを実行。Ruby 1.8.7</li>
-<li><code>instance_of?</code> : クラスに属しているか調べる。</li>
-<li><code>instance_variable_defined?</code> : インスタンス変数があるか調べる。</li>
-<li><code>instance_variable_get</code> : インスタンス変数の値を得る。</li>
-<li><code>instance_variable_set</code> : インスタンス変数の値を変える。</li>
-<li><code>instance_variables</code> : インスタンス変数の名前を配列で返す。</li>
-<li><code>is_a?</code> : クラスに属しているか調べる。</li>
-<li><code>kind_of?</code> : クラスに属しているか調べる。</li>
-<li><code>method</code> : メソッドから=Method=オブジェクトを作成。</li>
-<li><code>methods</code> : メソッドの名前を配列で返す。</li>
-<li><code>nil?</code> : =nil=かどうか調べる。</li>
-<li><code>object_id</code> : オブジェクトIDを返す。</li>
-<li><code>private_methods</code> : =private=なメソッドの名前を配列で返す。</li>
-<li><code>protected_methods</code> : =protected=なメソッドの名前を配列で返す。</li>
-<li><code>public_method</code> :
-=public=なメソッドから=Method=オブジェクトを作成。Ruby 1.9</li>
-<li><code>public_methods</code> : =public=なメソッドの名前を配列で返す。</li>
-<li><code>public_send</code> : =public=なメソッドを呼び出す。Ruby 1.9</li>
-<li><code>respond_to?</code> : メソッドを呼び出せるか調べる。</li>
-<li><code>send</code> : メソッドを呼び出す。</li>
-<li><code>singleton_class</code> : 特異クラスを返す。Ruby 1.9.2</li>
-<li><code>singleton_methods</code> : 特異メソッドの名前を配列で返す。</li>
-<li><code>taint</code> : オブジェクトを汚染する。</li>
-<li><code>tainted?</code> : 汚染状態を調べる。</li>
-<li><code>tap</code> : ブロックに自身を渡し、自身を返す。Ruby 1.8.7</li>
-<li><code>to_a</code> : 配列に変換。+Ruby 1.9+</li>
-<li><code>to_enum</code> : =Enumerator=オブジェクトの作成。Ruby 1.8.7</li>
-<li><code>to_s</code> : 文字列に変換。</li>
-<li><code>trust</code> : 信頼される状態に戻す。Ruby 1.9</li>
-<li><code>type</code> : オブジェクトのクラスを返す。+Ruby 1.9+</li>
-<li><code>untaint</code> : オブジェクトの汚染を除く。</li>
-<li><code>untrust</code> : オブジェクトを信頼されない状態にする。Ruby 1.9</li>
-<li><code>untrusted?</code> : 信頼状態を調べる。Ruby 1.9</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline77" class="outline-6">
-<h6 id="orgheadline77">privateメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline77">
-<ul class="org-ul">
-<li><code>remove_instance_variable</code> : インスタンス変数の削除。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline78" class="outline-6">
-<h6 id="orgheadline78">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline78">
-<ul class="org-ul">
-<li><code>initialize</code> : オブジェクトを作成（=new=）するとき呼ばれる。</li>
-<li><code>initialize_copy</code> :
-オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。</li>
-<li><code>method_missing</code> : メソッドが見つからないとき呼ばれる。</li>
-<li><code>respond_to_missing?</code> : =respond_to?=が=false=のとき呼ばれる。Ruby
-1.9.2</li>
-<li><code>singleton_method_added</code> : 特異メソッドを定義するとき呼ばれる。</li>
-<li><code>singleton_method_removed</code> : 特異メソッドを削除するとき呼ばれる。</li>
-<li><code>singleton_method_undefined</code> :
-特異メソッドを未定義にするとき呼ばれる。</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgheadline80" class="outline-4">
-<h4 id="orgheadline80">Module</h4>
-<div class="outline-text-4" id="text-orgheadline80">
-<p>
-=Module=クラスは、クラスとモジュールを表すクラスです。=Class=クラスは
-=Module=のサブクラスで、クラスだけを表します。
-</p>
-
-<p>
-クラス・モジュールを定義すると、クラス名・モジュール名は
-=Class=/=Module=オブジェクトを指す変数（定数）になります。
-=Class=/=Module=オブジェクトをレシーバにすれば、=Class=/=Module=クラス
-の=public=メソッドを呼び出せます。
-</p>
-
-<p>
-クラス・モジュール定義の中のように、=self=が=Class=/=Module=オブジェク
-トである場所では、=Class=/=Module=クラスの=private=メソッドを呼び出せ
-ます。=attr_accessor=や=include=は=Module=クラスの=private=メソッドで
-す。
-</p>
-</div>
-
-<div id="outline-container-orgheadline81" class="outline-5">
-<h5 id="orgheadline81">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline81">
-<p>
-=Module=クラスの親クラスは=Object=クラスです。
-</p>
-
-<pre class="example">
-Module &lt; Object &lt; Kernel (&lt; BasicObject)
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgheadline86" class="outline-5">
-<h5 id="orgheadline86">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline86">
-</div><div id="outline-container-orgheadline82" class="outline-6">
-<h6 id="orgheadline82">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline82">
-<ul class="org-ul">
-<li><code>constants</code> : 現在使える定数名の一覧を返す。</li>
-<li><code>nesting</code> : 現在のクラス・モジュールのネスト状態を調べる。</li>
-<li><code>new</code> : モジュール定義を使わずにモジュールを作成。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline83" class="outline-6">
-<h6 id="orgheadline83">publicなインスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline83">
-<ul class="org-ul">
-<li><code>&lt;, &lt;</code>, &gt;, &gt;== : 2つのクラスやモジュールの関係を調べる。</li>
-<li><code>&lt;=&gt;</code> : 2つのクラスやモジュールの関係を調べる。</li>
-<li><code>==</code> : 同じものか調べる。</li>
-<li><code>===</code> : クラスに属しているか調べる。</li>
-<li><code>ancestors</code> : 祖先クラスとモジュールの一覧を返す。</li>
-<li><code>autoload</code> : 定数に対応するファイルを自動ロードする。</li>
-<li><code>autoload?</code> : 定数が自動ロードされるか調べる。</li>
-<li><code>class_eval</code> : クラスやモジュールの元でコードを実行。</li>
-<li><code>class_exec</code> : クラスやモジュールの元でコードを実行。Ruby 1.8.7</li>
-<li><code>class_variable_defined?</code> : クラス変数があるか調べる。</li>
-<li><code>class_variables</code> : クラス変数名の一覧を返す。</li>
-<li><code>const_defined?</code> : 定数があるか調べる。</li>
-<li><code>const_get</code> : 定数の値を得る。</li>
-<li><code>const_set</code> : 定数を設定する。</li>
-<li><code>constants</code> : 定数名の一覧を返す。</li>
-<li><code>freeze</code> : クラスやモジュールを凍結する。</li>
-<li><code>include?</code> : モジュールをインクルードしているか調べる。</li>
-<li><code>included_modules</code> : インクルードしているモジュールの一覧を返す。</li>
-<li><code>instance_method</code> : メソッドから=UnboundMethod=オブジェクトを作成。</li>
-<li><code>instance_methods</code> : メソッドの名前を配列で返す。</li>
-<li><code>method_defined?</code> : メソッドがあるか調べる。</li>
-<li><code>module_eval</code> : クラスやモジュールの元でコードを実行。</li>
-<li><code>module_exec</code> : クラスやモジュールの元でコードを実行。Ruby 1.8.7</li>
-<li><code>name</code> : クラスやモジュールの名前を返す。</li>
-<li><code>private_class_method</code> : クラスメソッドを=private=にする。</li>
-<li><code>private_instance_methods</code> : =private=メソッドの名前を配列で返す。</li>
-<li><code>private_method_defined?</code> : =private=メソッドがあるか調べる。</li>
-<li><code>protected_instance_methods</code> :
-=protected=メソッドの名前を配列で返す。</li>
-<li><code>protected_method_defined?</code> : =protected=メソッドがあるか調べる。</li>
-<li><code>public_class_method</code> : クラスメソッドを=public=にする。</li>
-<li><code>public_instance_method</code> :
-=public=メソッドから=UnboundMethod=オブジェクトを作成。Ruby 1.9</li>
-<li><code>public_instance_methods</code> : =public=メソッドの名前を配列で返す。</li>
-<li><code>public_method_defined?</code> : =public=メソッドがあるか調べる。</li>
-<li><code>to_s</code> : クラスやモジュールを表す文字列を返す。</li>
-</ul>
-
-<p>
-以下のメソッドは、Ruby 1.8では=private=でしたが、Ruby
-1.9では=public=になりました。
-</p>
-
-<ul class="org-ul">
-<li><code>class_variable_get</code> : クラス変数の値を得る。</li>
-<li><code>class_variable_set</code> : クラス変数を設定する。</li>
-<li><code>remove_class_variable</code> : クラス変数の削除。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline84" class="outline-6">
-<h6 id="orgheadline84">privateなインスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline84">
-<ul class="org-ul">
-<li><code>alias_method</code> : メソッドに別名を付ける。</li>
-<li><code>attr</code> : インスタンス変数のアクセサを定義する。</li>
-<li><code>attr_accessor</code> : インスタンス変数のアクセサを定義する。</li>
-<li><code>attr_reader</code> : インスタンス変数の読み出し専用アクセサを定義する。</li>
-<li><code>attr_writer</code> : インスタンス変数の書き込み専用アクセサを定義する。</li>
-<li><code>define_method</code> : メソッドを定義する。</li>
-<li><code>include</code> : モジュールをインクルードする。</li>
-<li><code>module_function</code> : モジュールのメソッドをモジュール関数にする。</li>
-<li><code>private</code> : メソッドを=private=にする。</li>
-<li><code>protected</code> : メソッドを=protected=にする。</li>
-<li><code>public</code> : メソッドを=public=にする。</li>
-<li><code>remove_const</code> : 定数の削除。</li>
-<li><code>remove_method</code> : メソッドの削除。</li>
-<li><code>undef_method</code> : メソッドを未定義にする。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline85" class="outline-6">
-<h6 id="orgheadline85">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline85">
-<ul class="org-ul">
-<li><code>append_features</code> : インクルードされる前に呼ばれる。</li>
-<li><code>const_missing</code> : 存在しない定数を参照したときに呼ばれる。</li>
-<li><code>included</code> : インクルードされたあとで呼ばれる。</li>
-<li><code>extended</code> : オブジェクトに取り込まれたあとで呼ばれる。</li>
-<li><code>extend_object</code> : オブジェクトに取り込まれる前に呼ばれる。</li>
-<li><code>method_added</code> : メソッドを定義したときに呼ばれる。</li>
-<li><code>method_removed</code> : メソッドを削除したときに呼ばれる。</li>
-<li><code>method_undefined</code> : メソッドを未定義にしたときに呼ばれる。</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgheadline87" class="outline-4">
-<h4 id="orgheadline87">Class</h4>
-<div class="outline-text-4" id="text-orgheadline87">
-<p>
-=Class=クラスは、クラスを表すクラスで、=Module=クラスのサブクラスです。
-</p>
-
-<p>
-クラスに関する機能のほとんどは、=Module=クラスに実装されていますので、=Module=クラスのほうを先に調べるといいでしょう。=Class=クラスの機能は、「=Module=の機能＋インスタンスの作成とクラスの継承」です。
-</p>
-</div>
-
-<div id="outline-container-orgheadline88" class="outline-5">
-<h5 id="orgheadline88">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline88">
-<p>
-=Class=クラスの親クラスは=Module=クラスです。
-</p>
-
-<pre class="example">
-Class &lt; Module &lt; Object &lt; Kernel (&lt; BasicObject)
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgheadline92" class="outline-5">
-<h5 id="orgheadline92">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline92">
-</div><div id="outline-container-orgheadline89" class="outline-6">
-<h6 id="orgheadline89">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline89">
-<ul class="org-ul">
-<li><p>
-<code>new</code> : クラス定義を使わずにクラスを作成。 
-</p>
-
-<p>
-Class.new で無名クラスを作る
-</p></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline90" class="outline-6">
-<h6 id="orgheadline90">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline90">
-<ul class="org-ul">
-<li><code>allocate</code> : インスタンスの作成。</li>
-<li><code>new</code> : インスタンスの作成と初期化。</li>
-<li><code>superclass</code> : 親クラスを返す。</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline91" class="outline-6">
-<h6 id="orgheadline91">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline91">
-<ul class="org-ul">
-<li><code>inherited</code> : クラスが継承されたときに呼ばれる。</li>
-</ul>
-
-<p>
-次のメソッドは=Module=クラスで定義されていますが、=Class=クラスでは未定義にされています：<br  />
- <code>append_features=、=extend_object</code>
-</p>
-
-<p>
-<a href="file:///ruby/about">このサイトについて</a> <a href="file:///ruby/legend">記事の読み方</a>
-<a href="file:///ruby/references">参考文献</a>
-</p>
-
-<p>
-Sponsored by <a href="http://www.oiax.jp/">Oiax Inc.</a> / Powered by Ruby on
-Rails and AmiWiki
-</p>
-
-<ul class="org-ul">
-<li><a href="http://www.rubylife.jp/ini/">ruby入門</a> <a href="ruby-note.html">ruby note</a> <a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">リファレンスマニュアル</a> <a href="http://docs.ruby-lang.org/ja/2.0.0/class/String.html">class String</a></li>
-</ul>
-
-<p>
-<a href="eww "http://www.rubylife.jp/ini /"">ruby入門</a>
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline99" class="outline-4">
-<h4 id="orgheadline99"><a href="http://www.rubylife.jp/ini/string/">文字列 - Ruby入門</a></h4>
-<div class="outline-text-4" id="text-orgheadline99">
-</div><div id="outline-container-orgheadline93" class="outline-5">
-<h5 id="orgheadline93">文字列オブジェクト</h5>
-<div class="outline-text-5" id="text-orgheadline93">
-<div class="org-src-container">
-
-<pre class="src src-ruby">String.new("こんにちは\n")
-"こんにちは\n"
-"こんにちは\n".class
-String.class
-'end'
+#&lt;Soarer:0x007fb02b61d888 @name="soarer"&gt;
+#&lt;Crown:0x007fb02b616ec0 @name="crwon"&gt;
+Soarer
+Car
+soarernil
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline94" class="outline-5">
-<h5 id="orgheadline94">バックスラッシュ記法によるエスケープ</h5>
-</div>
-<div id="outline-container-orgheadline95" class="outline-5">
-<h5 id="orgheadline95">%Q、%qによる文字列の作成</h5>
-<div class="outline-text-5" id="text-orgheadline95">
-<div class="org-src-container">
 
-<pre class="src src-ruby">require 'kconv'
-print Kconv.toutf8(%Q[こんにちは"佐藤"さん\nお元気ですか]), "\n"
-print Kconv.toutf8(%q|こんにちは\nお元気ですか|), "\n"
-'end
-</pre>
-</div>
-</div>
-</div>
 
-<div id="outline-container-orgheadline96" class="outline-5">
-<h5 id="orgheadline96">ヒアドキュメントによる複数行文字列の作成</h5>
-</div>
-<div id="outline-container-orgheadline97" class="outline-5">
-<h5 id="orgheadline97">文字列の中に式を展開</h5>
-<div class="outline-text-5" id="text-orgheadline97">
-<div class="org-src-container">
 
-<pre class="src src-ruby">name = "東京"
-print("出身は #{name*10} です")
-'end'
-</pre>
-</div>
 
-<p>
-便利で，よく使います。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline98" class="outline-5">
-<h5 id="orgheadline98">文字列 methods</h5>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline121" class="outline-3">
-<h3 id="orgheadline121"><span class="section-number-3">1.7</span> クラス・モジュールの概念</h3>
-<div class="outline-text-3" id="text-1-7">
-</div><div id="outline-container-orgheadline101" class="outline-4">
-<h4 id="orgheadline101">クラス・モジュールの概念 Ruby</h4>
-<div class="outline-text-4" id="text-orgheadline101">
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">1.8</span> クラス・モジュールの概念</h3>
+<div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
-<li>origin:  <a href="http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">クラス・モジュールの概念 Ruby - Qiita</a></li>
+<li>origin:  <a href="https://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">クラス・モジュールの概念 Ruby - Qiita</a></li>
 </ul>
 
 <p>
@@ -2656,29 +1621,29 @@ print("出身は #{name*10} です")
 </p>
 </div>
 
-<div id="outline-container-orgheadline102" class="outline-5">
-<h5 id="orgheadline102">関連  <a href="https://www.ruby-lang.org/ja/">オブジェクト指向スクリプト言語 Ruby</a></h5>
-<div class="outline-text-5" id="text-orgheadline102">
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40">関連  <a href="https://www.ruby-lang.org/ja/">オブジェクト指向スクリプト言語 Ruby</a></h4>
+<div class="outline-text-4" id="text-orgheadline40">
 <ul class="org-ul">
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/index.html">オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/doc/index.html">オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)</a></li>
 
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html">オブジェクト (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html">オブジェクト (Ruby 2.0.0)</a></li>
 
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html">クラス (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html">クラス (Ruby 2.0.0)</a></li>
 
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/class/Module.htm">class Module (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/class/Module.htm">class Module (Ruby 2.0.0)</a></li>
 
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html">クラス／メソッドの定義 (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html">クラス／メソッドの定義 (Ruby 2.0.0)</a></li>
 
-<li><a href="http://docs.ruby-lang.org/ja/2.0.0/class/Class.html">class Class (Ruby 2.0.0)</a></li>
+<li><a href="https://docs.ruby-lang.org/ja/2.0.0/class/Class.html">class Class (Ruby 2.0.0)</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline103" class="outline-5">
-<h5 id="orgheadline103">例 Panda モジュール</h5>
-<div class="outline-text-5" id="text-orgheadline103">
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41">例 Panda モジュール</h4>
+<div class="outline-text-4" id="text-orgheadline41">
 <div class="org-src-container">
 
 <pre class="src src-ruby">module Panda
@@ -2757,11 +1722,6 @@ end
 </div>
 
 
-
-
-
-
-
 <pre class="example">
 module Panda; def m ; end 
 </pre>
@@ -2781,9 +1741,9 @@ CONST
 </p>
 </div>
 
-<div id="outline-container-orgheadline104" class="outline-6">
-<h6 id="orgheadline104">定数 Module</h6>
-<div class="outline-text-6" id="text-orgheadline104">
+<div id="outline-container-orgheadline42" class="outline-5">
+<h5 id="orgheadline42">定数 Module</h5>
+<div class="outline-text-5" id="text-orgheadline42">
 <p>
 Module の class は Class, つまり Module は Classクラスのオブジェクト，
 つまりクラス
@@ -2796,9 +1756,9 @@ Module.new で Module型のオブジェクト(モジュール)を作る
 </div>
 </div>
 
-<div id="outline-container-orgheadline105" class="outline-5">
-<h5 id="orgheadline105">例 Zooクラス</h5>
-<div class="outline-text-5" id="text-orgheadline105">
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43">例 Zooクラス</h4>
+<div class="outline-text-4" id="text-orgheadline43">
 <div class="org-src-container">
 
 <pre class="src src-ruby">class Zoo
@@ -2839,9 +1799,9 @@ Zoo.new ができる。Zoo.class の ancestors に Class が入っているか�
 </div>
 </div>
 
-<div id="outline-container-orgheadline106" class="outline-5">
-<h5 id="orgheadline106">例： UenoZoo を Zoo を継承して作る</h5>
-<div class="outline-text-5" id="text-orgheadline106">
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44">例： UenoZoo を Zoo を継承して作る</h4>
+<div class="outline-text-4" id="text-orgheadline44">
 <div class="org-src-container">
 
 <pre class="src src-ruby">class UenoZoo &lt; Zoo    # Zooクラスの継承
@@ -2873,12 +1833,12 @@ UenoZoo.new
 </div>
 </div>
 
-<div id="outline-container-orgheadline111" class="outline-5">
-<h5 id="orgheadline111">説明</h5>
-<div class="outline-text-5" id="text-orgheadline111">
-</div><div id="outline-container-orgheadline107" class="outline-6">
-<h6 id="orgheadline107">mix-in</h6>
-<div class="outline-text-6" id="text-orgheadline107">
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49">説明</h4>
+<div class="outline-text-4" id="text-orgheadline49">
+</div><div id="outline-container-orgheadline45" class="outline-5">
+<h5 id="orgheadline45">mix-in</h5>
+<div class="outline-text-5" id="text-orgheadline45">
 <p>
 モジュールをクラスに取り込む事をmix-inといい、ソフトクリームの上に
 載せるトッピングがその名の由来。
@@ -2886,9 +1846,9 @@ UenoZoo.new
 </div>
 </div>
 
-<div id="outline-container-orgheadline108" class="outline-6">
-<h6 id="orgheadline108">継承</h6>
-<div class="outline-text-6" id="text-orgheadline108">
+<div id="outline-container-orgheadline46" class="outline-5">
+<h5 id="orgheadline46">継承</h5>
+<div class="outline-text-5" id="text-orgheadline46">
 <p>
 Rubyのクラスは継承ができ、親のクラスのインスタンスメソッドを子が受け継ぐ。
 １つのクラスに二つ以上のクラスは継承ができなく、これを単純継承という。
@@ -2896,9 +1856,9 @@ Rubyのクラスは継承ができ、親のクラスのインスタンスメソ�
 </div>
 </div>
 
-<div id="outline-container-orgheadline109" class="outline-6">
-<h6 id="orgheadline109">継承とMix-in</h6>
-<div class="outline-text-6" id="text-orgheadline109">
+<div id="outline-container-orgheadline47" class="outline-5">
+<h5 id="orgheadline47">継承とMix-in</h5>
+<div class="outline-text-5" id="text-orgheadline47">
 <p>
 上記のコードはUenoZooクラスはZooクラスのメソッドを継承している。またUenoZooク
 ラスはPandaモジュールをmixinしている。
@@ -2912,9 +1872,9 @@ Zooクラスで定義されているインスタンスメソッドはUenoZooク�
 </div>
 </div>
 
-<div id="outline-container-orgheadline110" class="outline-6">
-<h6 id="orgheadline110">extend</h6>
-<div class="outline-text-6" id="text-orgheadline110">
+<div id="outline-container-orgheadline48" class="outline-5">
+<h5 id="orgheadline48">extend</h5>
+<div class="outline-text-5" id="text-orgheadline48">
 <p>
 モジュールはクラスの使い方にバリエーションを与える。
 </p>
@@ -3108,9 +2068,9 @@ Ueno.new.monkey = "pokey"
 </div>
 
 
-<div id="outline-container-orgheadline112" class="outline-5">
-<h5 id="orgheadline112">モジュールの使い方</h5>
-<div class="outline-text-5" id="text-orgheadline112">
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50">モジュールの使い方</h4>
+<div class="outline-text-4" id="text-orgheadline50">
 <p>
 ２種類ある
 </p>
@@ -3122,9 +2082,9 @@ Ueno.new.monkey = "pokey"
 </ul>
 </div>
 
-<div id="outline-container-orgheadline113" class="outline-6">
-<h6 id="orgheadline113">名前空間としての使い方</h6>
-<div class="outline-text-6" id="text-orgheadline113">
+<div id="outline-container-orgheadline51" class="outline-5">
+<h5 id="orgheadline51">名前空間としての使い方</h5>
+<div class="outline-text-5" id="text-orgheadline51">
 <p>
 同じクラスを定義して、既存のメソッドとは知らずに新たに定義し直して、将来
 的なバグに繋がる可能性になる。
@@ -3172,9 +2132,9 @@ class名は定数だが定数の中から定数を呼ぶ場合はコロンを二
 </div>
 
 
-<div id="outline-container-orgheadline114" class="outline-5">
-<h5 id="orgheadline114">まとめ</h5>
-<div class="outline-text-5" id="text-orgheadline114">
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52">まとめ</h4>
+<div class="outline-text-4" id="text-orgheadline52">
 <p>
 クラスはインスタンス化能力をもちメソッドを定義できる、モジュールは
 インスタンス化能力を持たないがメソッドを格納できる。モジュールの利
@@ -3195,9 +2155,9 @@ attr_reader)を使えば、そのクラスに属性を与えられる。initiali
 </div>
 </div>
 
-<div id="outline-container-orgheadline115" class="outline-5">
-<h5 id="orgheadline115">モジュールの先祖</h5>
-<div class="outline-text-5" id="text-orgheadline115">
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53">モジュールの先祖</h4>
+<div class="outline-text-4" id="text-orgheadline53">
 <div class="org-src-container">
 
 <pre class="src src-ruby">module GiantPanda
@@ -3228,12 +2188,12 @@ GiantPanda.ancestors
 </div>
 
 
-<div id="outline-container-orgheadline120" class="outline-4">
-<h4 id="orgheadline120">meta</h4>
-<div class="outline-text-4" id="text-orgheadline120">
-</div><div id="outline-container-orgheadline116" class="outline-5">
-<h5 id="orgheadline116">クラス</h5>
-<div class="outline-text-5" id="text-orgheadline116">
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">1.9</span> meta</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55">クラス</h4>
+<div class="outline-text-4" id="text-orgheadline55">
 <ul class="org-ul">
 <li>インスタンス化能力を持つ。</li>
 <li>インスタンスメソッドを格納できる。</li>
@@ -3244,9 +2204,9 @@ GiantPanda.ancestors
 </div>
 </div>
 
-<div id="outline-container-orgheadline117" class="outline-5">
-<h5 id="orgheadline117">モジュール</h5>
-<div class="outline-text-5" id="text-orgheadline117">
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56">モジュール</h4>
+<div class="outline-text-4" id="text-orgheadline56">
 <ul class="org-ul">
 <li>インスタンス化能力は持たない</li>
 <li>インスタンスメソッドを格納できる</li>
@@ -3257,9 +2217,9 @@ GiantPanda.ancestors
 </div>
 </div>
 
-<div id="outline-container-orgheadline118" class="outline-5">
-<h5 id="orgheadline118">Class と Module</h5>
-<div class="outline-text-5" id="text-orgheadline118">
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57">Class と Module</h4>
+<div class="outline-text-4" id="text-orgheadline57">
 <div class="org-src-container">
 
 <pre class="src src-ruby">Class.class
@@ -3304,9 +2264,9 @@ C = Class.new は，クラス(クラス型のオブジェクト)を生成する
 </div>
 </div>
 
-<div id="outline-container-orgheadline119" class="outline-5">
-<h5 id="orgheadline119">クラス - モジュール</h5>
-<div class="outline-text-5" id="text-orgheadline119">
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58">クラス - モジュール</h4>
+<div class="outline-text-4" id="text-orgheadline58">
 <ul class="org-ul">
 <li>インスタンス化能力</li>
 </ul>
@@ -3331,17 +2291,17 @@ C = Class.new は，クラス(クラス型のオブジェクト)を生成する
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline157" class="outline-3">
-<h3 id="orgheadline157"><span class="section-number-3">1.8</span> メタプログラミング</h3>
-<div class="outline-text-3" id="text-1-8">
-</div><div id="outline-container-orgheadline130" class="outline-5">
-<h5 id="orgheadline130">2016.01.25 オブジェクトモデル</h5>
-<div class="outline-text-5" id="text-orgheadline130">
-</div><div id="outline-container-orgheadline122" class="outline-6">
-<h6 id="orgheadline122">class定義</h6>
-<div class="outline-text-6" id="text-orgheadline122">
+
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91"><span class="section-number-3">1.10</span> メタプログラミング Ruby のノート</h3>
+<div class="outline-text-3" id="text-1-10">
+</div><div id="outline-container-orgheadline68" class="outline-4">
+<h4 id="orgheadline68">オブジェクトモデル</h4>
+<div class="outline-text-4" id="text-orgheadline68">
+</div><div id="outline-container-orgheadline60" class="outline-5">
+<h5 id="orgheadline60">class定義</h5>
+<div class="outline-text-5" id="text-orgheadline60">
 <div class="org-src-container">
 
 <pre class="src src-ruby">what_is_self_in_class_def =
@@ -3404,15 +2364,14 @@ NameError: uninitialized constant CONSTANT
 <li><code>class MyClass</code> で，=MyClass= (クラス)オブジェクトのトップレベルに入
 る</li>
 <li>ruby のクラスは変更に対し，開かれている (オープン・クラス)</li>
-<li>▼定数=CONSTANT= はMyClass の名前空間に定義されている</li>
+<li>定数=CONSTANT= はMyClass の名前空間に定義されている</li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline123" class="outline-6">
-<h6 id="orgheadline123">object のクラス階層</h6>
-<div class="outline-text-6" id="text-orgheadline123">
+<div id="outline-container-orgheadline61" class="outline-5">
+<h5 id="orgheadline61">object のクラス階層</h5>
+<div class="outline-text-5" id="text-orgheadline61">
 <div class="org-src-container">
 
 <pre class="src src-ruby">obj= MyClass.new
@@ -3434,9 +2393,9 @@ objの型
 </div>
 </div>
 
-<div id="outline-container-orgheadline124" class="outline-6">
-<h6 id="orgheadline124">クラスのクラス階層</h6>
-<div class="outline-text-6" id="text-orgheadline124">
+<div id="outline-container-orgheadline62" class="outline-5">
+<h5 id="orgheadline62">クラスのクラス階層</h5>
+<div class="outline-text-5" id="text-orgheadline62">
 <div class="org-src-container">
 
 <pre class="src src-ruby">MyClass.class
@@ -3456,9 +2415,9 @@ MyClassのオブジェクトとしての型階層
 </div>
 </div>
 
-<div id="outline-container-orgheadline125" class="outline-6">
-<h6 id="orgheadline125">メタクラスのクラス階層</h6>
-<div class="outline-text-6" id="text-orgheadline125">
+<div id="outline-container-orgheadline63" class="outline-5">
+<h5 id="orgheadline63">メタクラスのクラス階層</h5>
+<div class="outline-text-5" id="text-orgheadline63">
 <div class="org-src-container">
 
 <pre class="src src-ruby">MyClass.singleton_class
@@ -3477,12 +2436,12 @@ MyClassのオブジェクトとしての型階層
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline128" class="outline-6">
-<h6 id="orgheadline128">特異クラスと特異メソッド</h6>
-<div class="outline-text-6" id="text-orgheadline128">
-</div><div id="outline-container-orgheadline126" class="outline-7">
-<h7 id="orgheadline126">特異メソッド</h7>
-<div class="outline-text-7" id="text-orgheadline126">
+<div id="outline-container-orgheadline66" class="outline-5">
+<h5 id="orgheadline66">特異クラスと特異メソッド</h5>
+<div class="outline-text-5" id="text-orgheadline66">
+</div><div id="outline-container-orgheadline64" class="outline-6">
+<h6 id="orgheadline64">特異メソッド</h6>
+<div class="outline-text-6" id="text-orgheadline64">
 <p>
 あるオブジェクトにだけ実行できるメソッドを定義できる:
 </p>
@@ -3518,9 +2477,9 @@ irb(main):010:0* =&gt; true
 </div>
 </div>
 
-<div id="outline-container-orgheadline127" class="outline-7">
-<h7 id="orgheadline127"><code>m</code> は何処にあるか？</h7>
-<div class="outline-text-7" id="text-orgheadline127">
+<div id="outline-container-orgheadline65" class="outline-6">
+<h6 id="orgheadline65"><code>m</code> は何処にあるか？</h6>
+<div class="outline-text-6" id="text-orgheadline65">
 <ul class="org-ul">
 <li>obj1とobj2 の <code>class</code> は，Object.</li>
 <li><code>class</code> はリンク。</li>
@@ -3571,9 +2530,9 @@ obj1.singleton_class
 
 
 
-<div id="outline-container-orgheadline129" class="outline-6">
-<h6 id="orgheadline129">test class hier</h6>
-<div class="outline-text-6" id="text-orgheadline129">
+<div id="outline-container-orgheadline67" class="outline-5">
+<h5 id="orgheadline67">test class hier</h5>
+<div class="outline-text-5" id="text-orgheadline67">
 <div class="org-src-container">
 
 <pre class="src src-ruby">def find_instance_method(klass, method)
@@ -3609,12 +2568,12 @@ find_singleton_method(Module,:constants)
 </div>
 
 
-<div id="outline-container-orgheadline135" class="outline-5">
-<h5 id="orgheadline135">2016.02.01 method</h5>
-<div class="outline-text-5" id="text-orgheadline135">
-</div><div id="outline-container-orgheadline131" class="outline-6">
-<h6 id="orgheadline131">method_missing</h6>
-<div class="outline-text-6" id="text-orgheadline131">
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73">method</h4>
+<div class="outline-text-4" id="text-orgheadline73">
+</div><div id="outline-container-orgheadline69" class="outline-5">
+<h5 id="orgheadline69">method_missing</h5>
+<div class="outline-text-5" id="text-orgheadline69">
 <ul class="org-ul">
 <li>メソッド が class 階層中にない時，</li>
 <li>missing_method が呼ばれる</li>
@@ -3624,9 +2583,9 @@ find_singleton_method(Module,:constants)
 </div>
 </div>
 
-<div id="outline-container-orgheadline132" class="outline-6">
-<h6 id="orgheadline132">動的methodの仕組み</h6>
-<div class="outline-text-6" id="text-orgheadline132">
+<div id="outline-container-orgheadline70" class="outline-5">
+<h5 id="orgheadline70">動的methodの仕組み</h5>
+<div class="outline-text-5" id="text-orgheadline70">
 <ul class="org-ul">
 <li>動的定義 define_method (:method_id) block</li>
 <li>動的呼び出し send("method", *args)</li>
@@ -3634,9 +2593,9 @@ find_singleton_method(Module,:constants)
 </div>
 </div>
 
-<div id="outline-container-orgheadline133" class="outline-6">
-<h6 id="orgheadline133">method_missing(method, *args)の利用</h6>
-<div class="outline-text-6" id="text-orgheadline133">
+<div id="outline-container-orgheadline71" class="outline-5">
+<h5 id="orgheadline71">method_missing(method, *args)の利用</h5>
+<div class="outline-text-5" id="text-orgheadline71">
 <ul class="org-ul">
 <li>動的に未定義のメソッドと引数が取得できる</li>
 <li>他のメソッドへ委譲したり (動的proxy)</li>
@@ -3646,9 +2605,9 @@ find_singleton_method(Module,:constants)
 </div>
 </div>
 
-<div id="outline-container-orgheadline134" class="outline-6">
-<h6 id="orgheadline134">最終形</h6>
-<div class="outline-text-6" id="text-orgheadline134">
+<div id="outline-container-orgheadline72" class="outline-5">
+<h5 id="orgheadline72">最終形</h5>
+<div class="outline-text-5" id="text-orgheadline72">
 <p>
 様々なComputer の様々な付属品を扱う多種のデータベースへのアクセス
 を簡単にする：
@@ -3664,9 +2623,9 @@ find_singleton_method(Module,:constants)
 </div>
 
 
-<div id="outline-container-orgheadline136" class="outline-5">
-<h5 id="orgheadline136">2016.02.09 ブロック</h5>
-<div class="outline-text-5" id="text-orgheadline136">
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74">ブロック</h4>
+<div class="outline-text-4" id="text-orgheadline74">
 <p>
 この章で理解すべきこと
 </p>
@@ -3678,12 +2637,12 @@ find_singleton_method(Module,:constants)
 </ul>
 </div>
 
-<div id="outline-container-orgheadline140" class="outline-6">
-<h6 id="orgheadline140">ブロックの基本</h6>
-<div class="outline-text-6" id="text-orgheadline140">
-</div><div id="outline-container-orgheadline137" class="outline-7">
-<h7 id="orgheadline137">ブロックの作成</h7>
-<div class="outline-text-7" id="text-orgheadline137">
+<div id="outline-container-orgheadline78" class="outline-5">
+<h5 id="orgheadline78">ブロックの基本</h5>
+<div class="outline-text-5" id="text-orgheadline78">
+</div><div id="outline-container-orgheadline75" class="outline-6">
+<h6 id="orgheadline75">ブロックの作成</h6>
+<div class="outline-text-6" id="text-orgheadline75">
 <ul class="org-ul">
 <li>do &#x2026; end が block</li>
 <li>メソッド呼び出しの時のみ</li>
@@ -3691,18 +2650,18 @@ find_singleton_method(Module,:constants)
 </div>
 </div>
 
-<div id="outline-container-orgheadline138" class="outline-7">
-<h7 id="orgheadline138">ブロックが与えられているか？</h7>
-<div class="outline-text-7" id="text-orgheadline138">
+<div id="outline-container-orgheadline76" class="outline-6">
+<h6 id="orgheadline76">ブロックが与えられているか？</h6>
+<div class="outline-text-6" id="text-orgheadline76">
 <ul class="org-ul">
 <li>block_given? で調べられる</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline139" class="outline-7">
-<h7 id="orgheadline139">ブロックの呼び出し</h7>
-<div class="outline-text-7" id="text-orgheadline139">
+<div id="outline-container-orgheadline77" class="outline-6">
+<h6 id="orgheadline77">ブロックの呼び出し</h6>
+<div class="outline-text-6" id="text-orgheadline77">
 <ul class="org-ul">
 <li>呼ばれたメソッド側で yield により呼び出せる</li>
 <li>しかし，block は，block が作られた*環境*で実行される</li>
@@ -3711,12 +2670,12 @@ find_singleton_method(Module,:constants)
 </div>
 </div>
 
-<div id="outline-container-orgheadline143" class="outline-6">
-<h6 id="orgheadline143">クロージャ</h6>
-<div class="outline-text-6" id="text-orgheadline143">
-</div><div id="outline-container-orgheadline141" class="outline-7">
-<h7 id="orgheadline141">コードの実行</h7>
-<div class="outline-text-7" id="text-orgheadline141">
+<div id="outline-container-orgheadline81" class="outline-5">
+<h5 id="orgheadline81">クロージャ</h5>
+<div class="outline-text-5" id="text-orgheadline81">
+</div><div id="outline-container-orgheadline79" class="outline-6">
+<h6 id="orgheadline79">コードの実行</h6>
+<div class="outline-text-6" id="text-orgheadline79">
 <ul class="org-ul">
 <li>ブロックはコード</li>
 
@@ -3772,9 +2731,9 @@ self は <b>環境</b> を持つ
 </div>
 </div>
 
-<div id="outline-container-orgheadline142" class="outline-7">
-<h7 id="orgheadline142">スコープのまとめ</h7>
-<div class="outline-text-7" id="text-orgheadline142">
+<div id="outline-container-orgheadline80" class="outline-6">
+<h6 id="orgheadline80">スコープのまとめ</h6>
+<div class="outline-text-6" id="text-orgheadline80">
 <ul class="org-ul">
 <li>Rubyのスコープには束縛がある</li>
 <li>スコープは class, module, def のスコープゲートで区切られ。</li>
@@ -3791,9 +2750,9 @@ self は <b>環境</b> を持つ
 </div>
 </div>
 
-<div id="outline-container-orgheadline144" class="outline-6">
-<h6 id="orgheadline144">instance_eval()</h6>
-<div class="outline-text-6" id="text-orgheadline144">
+<div id="outline-container-orgheadline82" class="outline-5">
+<h5 id="orgheadline82">instance_eval()</h5>
+<div class="outline-text-5" id="text-orgheadline82">
 <dl class="org-dl">
 <dt>obj.instance_eval block</dt><dd><ul class="org-ul">
 <li>オブジェクトobjのコンテキストで,</li>
@@ -3804,9 +2763,9 @@ self は <b>環境</b> を持つ
 </dl>
 </div>
 
-<div id="outline-container-orgheadline145" class="outline-7">
-<h7 id="orgheadline145">カプセル化の破壊</h7>
-<div class="outline-text-7" id="text-orgheadline145">
+<div id="outline-container-orgheadline83" class="outline-6">
+<h6 id="orgheadline83">カプセル化の破壊</h6>
+<div class="outline-text-6" id="text-orgheadline83">
 <p>
 instance_eval を使うとカプセル化が破壊できる
 </p>
@@ -3814,9 +2773,9 @@ instance_eval を使うとカプセル化が破壊できる
 </div>
 </div>
 
-<div id="outline-container-orgheadline146" class="outline-6">
-<h6 id="orgheadline146">呼び出し可能オブジェクト</h6>
-<div class="outline-text-6" id="text-orgheadline146">
+<div id="outline-container-orgheadline84" class="outline-5">
+<h5 id="orgheadline84">呼び出し可能オブジェクト</h5>
+<div class="outline-text-5" id="text-orgheadline84">
 <p>
 ブロックの使用
 </p>
@@ -3835,7 +2794,9 @@ instance_eval を使うとカプセル化が破壊できる
 </ul>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline147"></a>Proc 対 lambda<br  /><div class="outline-text-8" id="text-orgheadline147">
+<div id="outline-container-orgheadline85" class="outline-7">
+<h7 id="orgheadline85">Proc 対 lambda</h7>
+<div class="outline-text-7" id="text-orgheadline85">
 <p>
 ブロックを Proc にする方法
 </p>
@@ -3846,14 +2807,14 @@ instance_eval を使うとカプセル化が破壊できる
 </ul>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline148"></a>Proc, lambda, return<br  /><div class="outline-text-9" id="text-orgheadline148">
+<ul class="org-ul"><li><a id="orgheadline86"></a>Proc, lambda, return<br  /><div class="outline-text-8" id="text-orgheadline86">
 <p>
 Proc のリターンは，Proc の定義された環境から return 
 (直前の環境へ戻る)
 </p>
 </div></li>
 
-<li><a id="orgheadline149"></a>Proc, lambda, arity<br  /><div class="outline-text-9" id="text-orgheadline149">
+<li><a id="orgheadline87"></a>Proc, lambda, arity<br  /><div class="outline-text-8" id="text-orgheadline87">
 <p>
 引数の確認方法の違い
 </p>
@@ -3864,7 +2825,7 @@ Proc のリターンは，Proc の定義された環境から return
 </ul>
 </div></li>
 
-<li><a id="orgheadline150"></a>Proc対lambda: 判定<br  /><div class="outline-text-9" id="text-orgheadline150">
+<li><a id="orgheadline88"></a>Proc対lambda: 判定<br  /><div class="outline-text-8" id="text-orgheadline88">
 <p>
 lambda がメソッドに似ている <code>[/]</code>
 </p>
@@ -3877,9 +2838,12 @@ lambda がメソッドに似ている <code>[/]</code>
 Proc はコンテキスト中のコードの一部，
 lambda は独立したコード
 </p>
-</div></li></ul></li>
+</div></li></ul>
+</div>
 
-<li><a id="orgheadline151"></a>メソッド再び<br  /><div class="outline-text-8" id="text-orgheadline151">
+<div id="outline-container-orgheadline89" class="outline-7">
+<h7 id="orgheadline89">メソッド再び</h7>
+<div class="outline-text-7" id="text-orgheadline89">
 <ul class="org-ul">
 <li>Object#method() でメソッドを，Method オブジェクトとして取得可</li>
 <li>Method オブジェクトは，Method#call() で呼び出し可能</li>
@@ -3889,9 +2853,12 @@ lambda は独立したコード
 <li>UnboundMethodはMethod#bind()でメソッドに戻せる
 クラスが異なると，例外が発生</li>
 </ul>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline152"></a>呼び出し可能オブジェクトのまとめ<br  /><div class="outline-text-8" id="text-orgheadline152">
+<div id="outline-container-orgheadline90" class="outline-7">
+<h7 id="orgheadline90">呼び出し可能オブジェクトのまとめ</h7>
+<div class="outline-text-7" id="text-orgheadline90">
 <p>
 呼び出し可能オブジェクト <code>[/]</code>
 </p>
@@ -3921,19 +2888,18 @@ lambda は独立したコード
 <li>オブジェクトのスコープで評価される</li>
 </ul></li>
 </ol>
-</div></li></ul>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-
-
-
-<div id="outline-container-orgheadline156" class="outline-4">
-<h4 id="orgheadline156">memo コード</h4>
-<div class="outline-text-4" id="text-orgheadline156">
-</div><div id="outline-container-orgheadline153" class="outline-5">
-<h5 id="orgheadline153">class 階層</h5>
-<div class="outline-text-5" id="text-orgheadline153">
+<div id="outline-container-orgheadline95" class="outline-3">
+<h3 id="orgheadline95"><span class="section-number-3">1.11</span> memo コード</h3>
+<div class="outline-text-3" id="text-1-11">
+</div><div id="outline-container-orgheadline92" class="outline-4">
+<h4 id="orgheadline92">class 階層</h4>
+<div class="outline-text-4" id="text-orgheadline92">
 <div class="org-src-container">
 
 <pre class="src src-ruby">1.class
@@ -4086,9 +3052,9 @@ Module.ancestors
 </div>
 </div>
 
-<div id="outline-container-orgheadline154" class="outline-5">
-<h5 id="orgheadline154">self</h5>
-<div class="outline-text-5" id="text-orgheadline154">
+<div id="outline-container-orgheadline93" class="outline-4">
+<h4 id="orgheadline93">self</h4>
+<div class="outline-text-4" id="text-orgheadline93">
 <div class="org-src-container">
 
 <pre class="src src-ruby">self
@@ -4112,9 +3078,9 @@ print "$selfm = ", $selfm
 </div>
 </div>
 
-<div id="outline-container-orgheadline155" class="outline-5">
-<h5 id="orgheadline155">methods</h5>
-<div class="outline-text-5" id="text-orgheadline155">
+<div id="outline-container-orgheadline94" class="outline-4">
+<h4 id="orgheadline94">methods</h4>
+<div class="outline-text-4" id="text-orgheadline94">
 <div class="org-src-container">
 
 <pre class="src src-ruby">1.methods - (Numeric.new).methods
@@ -4140,29 +3106,1035 @@ Kernel.methods.include?(:Integer)
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline158" class="outline-3">
-<h3 id="orgheadline158"><span class="section-number-3">1.9</span> sqlite3</h3>
-</div>
 
-<div id="outline-container-orgheadline167" class="outline-3">
-<h3 id="orgheadline167"><span class="section-number-3">1.10</span> sqlite3-ruby</h3>
-<div class="outline-text-3" id="text-1-10">
-</div><div id="outline-container-orgheadline159" class="outline-4">
-<h4 id="orgheadline159">関連サイト</h4>
-<div class="outline-text-4" id="text-orgheadline159">
+
+
+<div id="outline-container-orgheadline122" class="outline-3">
+<h3 id="orgheadline122"><span class="section-number-3">1.12</span> クラスライブラリ</h3>
+<div class="outline-text-3" id="text-1-12">
+</div><div id="outline-container-orgheadline96" class="outline-4">
+<h4 id="orgheadline96">Rubyリファレンス</h4>
+<div class="outline-text-4" id="text-orgheadline96">
+<p>
+原典
+</p>
 <ul class="org-ul">
-<li><a href="http://shuzo-kino.hateblo.jp/entry/20120913/1347551619">Rubyでsqlite3を使ってみる - Bye Bye Moore</a></li>
+<li><a href="https://ref.xaio.jp/ruby/">https://ref.xaio.jp/ruby/</a></li>
+<li><a href="https://ref.xaio.jp/ruby/classes">https://ref.xaio.jp/ruby/classes</a></li>
+</ul>
+
+<p>
+method名やkeywordからクラスを探せるようにこの org文書を作成しました。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline97" class="outline-4">
+<h4 id="orgheadline97">BasicObject</h4>
+<div class="outline-text-4" id="text-orgheadline97">
+<p>
+<a href="https://ref.xaio.jp/ruby/classes/basic_object">https://ref.xaio.jp/ruby/classes/basic_object</a>
+</p>
+
+<p>
+*=BasicObject=*クラスは、Ruby 1.9で新しく用意されたクラスで、=Object=
+クラスの親クラスです。通常は、=BasicObject=オブジェクトを直接使うこと
+はありません。
+</p>
+
+<p>
+=BasicObject=は=Object=や=Kernel=のメソッドを持たないので、「メソッド
+がほぼゼロの白紙のクラスを作りたい」というときは、=BasicObject=を継承
+したサブクラスで実現できます。
+</p>
+</div>
+
+<div id="outline-container-orgheadline101" class="outline-5">
+<h5 id="orgheadline101">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline101">
+</div><div id="outline-container-orgheadline98" class="outline-6">
+<h6 id="orgheadline98">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline98">
+<ul class="org-ul">
+<li><code>new</code> : インスタンスの作成。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline99" class="outline-6">
+<h6 id="orgheadline99">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline99">
+<ul class="org-ul">
+<li><code>!</code> : 否定。</li>
+<li><code>!=</code> : 別のものか調べる。</li>
+<li><code>==</code> : オブジェクトの内容が同じか調べる。</li>
+<li><code>__send__</code> : メソッドを呼び出す。</li>
+<li><code>equal?</code> : 同じオブジェクトか調べる。</li>
+<li><code>instance_eval</code> : インスタンスの元でコードを実行。</li>
+<li><code>instance_exec</code> : インスタンスの元でコードを実行。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline100" class="outline-6">
+<h6 id="orgheadline100">特別な役割のメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline100">
+<ul class="org-ul">
+<li><code>initialize</code> : オブジェクトを作成（=new=）するとき呼ばれる。</li>
+<li><code>initialize_copy</code> :
+オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。</li>
+<li><code>method_missing</code> : メソッドが見つからないとき呼ばれる。</li>
+<li><code>singleton_method_added</code> : 特異メソッドを定義するとき呼ばれる。</li>
+<li><code>singleton_method_removed</code> : 特異メソッドを削除するとき呼ばれる。</li>
+<li><code>singleton_method_undefined</code> :
+特異メソッドを未定義にするとき呼ばれる。</li>
+</ul>
+
+<p>
+<a href="file:///ruby/about">このサイトについて</a> <a href="file:///ruby/legend">記事の読み方</a>
+<a href="file:///ruby/references">参考文献</a>
+</p>
+
+<p>
+Sponsored by <a href="https://www.oiax.jp/">Oiax Inc.</a> / Powered by Ruby on
+Rails and AmiWiki
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline102" class="outline-4">
+<h4 id="orgheadline102">Object</h4>
+<div class="outline-text-4" id="text-orgheadline102">
+<ul class="org-ul">
+<li><a href="https://ref.xaio.jp/ruby/classes/object">https://ref.xaio.jp/ruby/classes/object</a></li>
+</ul>
+
+<p>
+*=Object=*クラスは、すべてのクラスの親クラスです。
+</p>
+</div>
+
+<div id="outline-container-orgheadline103" class="outline-5">
+<h5 id="orgheadline103">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline103">
+<p>
+=Object=クラスは=Kernel=モジュールをインクルードしています。
+</p>
+
+<p>
+=BasicObject=クラスが=Object=クラスの親クラスになりました。
+</p>
+
+<pre class="example">
+Object &lt; Kernel (&lt; BasicObject)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline108" class="outline-5">
+<h5 id="orgheadline108">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline108">
+</div><div id="outline-container-orgheadline104" class="outline-6">
+<h6 id="orgheadline104">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline104">
+<ul class="org-ul">
+<li><code>new</code> : インスタンスの作成。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline105" class="outline-6">
+<h6 id="orgheadline105">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline105">
+<p>
+これらのメソッドは、実際には=Kernel=モジュールの=public=なメソッドとして実装されていますが、一般的に=Object=クラスのメソッドとして扱われます。また、この一覧には=BasicObject=のメソッドも混ぜてあります。
+</p>
+
+<ul class="org-ul">
+<li><code>!</code> : 否定。Ruby 1.9</li>
+<li><code>!=</code> : 別のものか調べる。Ruby 1.9</li>
+<li><code>!~</code> : パターンマッチの否定。Ruby 1.9</li>
+<li><code>==</code> : オブジェクトの内容が同じか調べる。</li>
+<li><code>===</code> : =case=式でオブジェクトをテストする。</li>
+<li><code>=~</code> : パターンマッチ。</li>
+<li><code>__id__</code> : オブジェクトIDを返す。</li>
+<li><code>__send__</code> : メソッドを呼び出す。</li>
+<li><code>class</code> : オブジェクトのクラスを返す。</li>
+<li><code>clone</code> : オブジェクトのコピーを作成する。</li>
+<li><code>define_singleton_method</code> : 特異メソッドを定義する。Ruby 1.9</li>
+<li><code>display</code> : オブジェクトを文字列として出力する。</li>
+<li><code>dup</code> : オブジェクトのコピーを作成する。</li>
+<li><code>eql?</code> : ハッシュのキーとして同じか調べる。</li>
+<li><code>equal?</code> : 同じオブジェクトか調べる。</li>
+<li><code>enum_for</code> : =Enumerator=オブジェクトの作成。Ruby 1.8.7</li>
+<li><code>extend</code> : モジュールのメソッドを取り込む。</li>
+<li><code>freeze</code> : オブジェクトを凍結する。</li>
+<li><code>frozen?</code> : オブジェクトの凍結状態を調べる。</li>
+<li><code>hash</code> : ハッシュ値を返す。</li>
+<li><code>id</code> : オブジェクトIDを返す。+Ruby 1.9+</li>
+<li><code>inspect</code> : 読みやすい文字列に変換。</li>
+<li><code>instance_eval</code> : インスタンスの元でコードを実行。</li>
+<li><code>instance_exec</code> : インスタンスの元でコードを実行。Ruby 1.8.7</li>
+<li><code>instance_of?</code> : クラスに属しているか調べる。</li>
+<li><code>instance_variable_defined?</code> : インスタンス変数があるか調べる。</li>
+<li><code>instance_variable_get</code> : インスタンス変数の値を得る。</li>
+<li><code>instance_variable_set</code> : インスタンス変数の値を変える。</li>
+<li><code>instance_variables</code> : インスタンス変数の名前を配列で返す。</li>
+<li><code>is_a?</code> : クラスに属しているか調べる。</li>
+<li><code>kind_of?</code> : クラスに属しているか調べる。</li>
+<li><code>method</code> : メソッドから=Method=オブジェクトを作成。</li>
+<li><code>methods</code> : メソッドの名前を配列で返す。</li>
+<li><code>nil?</code> : =nil=かどうか調べる。</li>
+<li><code>object_id</code> : オブジェクトIDを返す。</li>
+<li><code>private_methods</code> : =private=なメソッドの名前を配列で返す。</li>
+<li><code>protected_methods</code> : =protected=なメソッドの名前を配列で返す。</li>
+<li><code>public_method</code> :
+=public=なメソッドから=Method=オブジェクトを作成。Ruby 1.9</li>
+<li><code>public_methods</code> : =public=なメソッドの名前を配列で返す。</li>
+<li><code>public_send</code> : =public=なメソッドを呼び出す。Ruby 1.9</li>
+<li><code>respond_to?</code> : メソッドを呼び出せるか調べる。</li>
+<li><code>send</code> : メソッドを呼び出す。</li>
+<li><code>singleton_class</code> : 特異クラスを返す。Ruby 1.9.2</li>
+<li><code>singleton_methods</code> : 特異メソッドの名前を配列で返す。</li>
+<li><code>taint</code> : オブジェクトを汚染する。</li>
+<li><code>tainted?</code> : 汚染状態を調べる。</li>
+<li><code>tap</code> : ブロックに自身を渡し、自身を返す。Ruby 1.8.7</li>
+<li><code>to_a</code> : 配列に変換。+Ruby 1.9+</li>
+<li><code>to_enum</code> : =Enumerator=オブジェクトの作成。Ruby 1.8.7</li>
+<li><code>to_s</code> : 文字列に変換。</li>
+<li><code>trust</code> : 信頼される状態に戻す。Ruby 1.9</li>
+<li><code>type</code> : オブジェクトのクラスを返す。+Ruby 1.9+</li>
+<li><code>untaint</code> : オブジェクトの汚染を除く。</li>
+<li><code>untrust</code> : オブジェクトを信頼されない状態にする。Ruby 1.9</li>
+<li><code>untrusted?</code> : 信頼状態を調べる。Ruby 1.9</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline106" class="outline-6">
+<h6 id="orgheadline106">privateメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline106">
+<ul class="org-ul">
+<li><code>remove_instance_variable</code> : インスタンス変数の削除。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline107" class="outline-6">
+<h6 id="orgheadline107">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline107">
+<ul class="org-ul">
+<li><code>initialize</code> : オブジェクトを作成（=new=）するとき呼ばれる。</li>
+<li><code>initialize_copy</code> :
+オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。</li>
+<li><code>method_missing</code> : メソッドが見つからないとき呼ばれる。</li>
+<li><code>respond_to_missing?</code> : =respond_to?=が=false=のとき呼ばれる。Ruby
+1.9.2</li>
+<li><code>singleton_method_added</code> : 特異メソッドを定義するとき呼ばれる。</li>
+<li><code>singleton_method_removed</code> : 特異メソッドを削除するとき呼ばれる。</li>
+<li><code>singleton_method_undefined</code> :
+特異メソッドを未定義にするとき呼ばれる。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline109" class="outline-4">
+<h4 id="orgheadline109">Module</h4>
+<div class="outline-text-4" id="text-orgheadline109">
+<p>
+=Module=クラスは、クラスとモジュールを表すクラスです。=Class=クラスは
+=Module=のサブクラスで、クラスだけを表します。
+</p>
+
+<p>
+クラス・モジュールを定義すると、クラス名・モジュール名は
+=Class=/=Module=オブジェクトを指す変数（定数）になります。
+=Class=/=Module=オブジェクトをレシーバにすれば、=Class=/=Module=クラス
+の=public=メソッドを呼び出せます。
+</p>
+
+<p>
+クラス・モジュール定義の中のように、=self=が=Class=/=Module=オブジェク
+トである場所では、=Class=/=Module=クラスの=private=メソッドを呼び出せ
+ます。=attr_accessor=や=include=は=Module=クラスの=private=メソッドで
+す。
+</p>
+</div>
+
+<div id="outline-container-orgheadline110" class="outline-5">
+<h5 id="orgheadline110">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline110">
+<p>
+=Module=クラスの親クラスは=Object=クラスです。
+</p>
+
+<pre class="example">
+Module &lt; Object &lt; Kernel (&lt; BasicObject)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline115" class="outline-5">
+<h5 id="orgheadline115">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline115">
+</div><div id="outline-container-orgheadline111" class="outline-6">
+<h6 id="orgheadline111">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline111">
+<ul class="org-ul">
+<li><code>constants</code> : 現在使える定数名の一覧を返す。</li>
+<li><code>nesting</code> : 現在のクラス・モジュールのネスト状態を調べる。</li>
+<li><code>new</code> : モジュール定義を使わずにモジュールを作成。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline112" class="outline-6">
+<h6 id="orgheadline112">publicなインスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline112">
+<ul class="org-ul">
+<li><code>&lt;, &lt;</code>, &gt;, &gt;== : 2つのクラスやモジュールの関係を調べる。</li>
+<li><code>&lt;=&gt;</code> : 2つのクラスやモジュールの関係を調べる。</li>
+<li><code>==</code> : 同じものか調べる。</li>
+<li><code>===</code> : クラスに属しているか調べる。</li>
+<li><code>ancestors</code> : 祖先クラスとモジュールの一覧を返す。</li>
+<li><code>autoload</code> : 定数に対応するファイルを自動ロードする。</li>
+<li><code>autoload?</code> : 定数が自動ロードされるか調べる。</li>
+<li><code>class_eval</code> : クラスやモジュールの元でコードを実行。</li>
+<li><code>class_exec</code> : クラスやモジュールの元でコードを実行。Ruby 1.8.7</li>
+<li><code>class_variable_defined?</code> : クラス変数があるか調べる。</li>
+<li><code>class_variables</code> : クラス変数名の一覧を返す。</li>
+<li><code>const_defined?</code> : 定数があるか調べる。</li>
+<li><code>const_get</code> : 定数の値を得る。</li>
+<li><code>const_set</code> : 定数を設定する。</li>
+<li><code>constants</code> : 定数名の一覧を返す。</li>
+<li><code>freeze</code> : クラスやモジュールを凍結する。</li>
+<li><code>include?</code> : モジュールをインクルードしているか調べる。</li>
+<li><code>included_modules</code> : インクルードしているモジュールの一覧を返す。</li>
+<li><code>instance_method</code> : メソッドから=UnboundMethod=オブジェクトを作成。</li>
+<li><code>instance_methods</code> : メソッドの名前を配列で返す。</li>
+<li><code>method_defined?</code> : メソッドがあるか調べる。</li>
+<li><code>module_eval</code> : クラスやモジュールの元でコードを実行。</li>
+<li><code>module_exec</code> : クラスやモジュールの元でコードを実行。Ruby 1.8.7</li>
+<li><code>name</code> : クラスやモジュールの名前を返す。</li>
+<li><code>private_class_method</code> : クラスメソッドを=private=にする。</li>
+<li><code>private_instance_methods</code> : =private=メソッドの名前を配列で返す。</li>
+<li><code>private_method_defined?</code> : =private=メソッドがあるか調べる。</li>
+<li><code>protected_instance_methods</code> :
+=protected=メソッドの名前を配列で返す。</li>
+<li><code>protected_method_defined?</code> : =protected=メソッドがあるか調べる。</li>
+<li><code>public_class_method</code> : クラスメソッドを=public=にする。</li>
+<li><code>public_instance_method</code> :
+=public=メソッドから=UnboundMethod=オブジェクトを作成。Ruby 1.9</li>
+<li><code>public_instance_methods</code> : =public=メソッドの名前を配列で返す。</li>
+<li><code>public_method_defined?</code> : =public=メソッドがあるか調べる。</li>
+<li><code>to_s</code> : クラスやモジュールを表す文字列を返す。</li>
+</ul>
+
+<p>
+以下のメソッドは、Ruby 1.8では=private=でしたが、Ruby
+1.9では=public=になりました。
+</p>
+
+<ul class="org-ul">
+<li><code>class_variable_get</code> : クラス変数の値を得る。</li>
+<li><code>class_variable_set</code> : クラス変数を設定する。</li>
+<li><code>remove_class_variable</code> : クラス変数の削除。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline113" class="outline-6">
+<h6 id="orgheadline113">privateなインスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline113">
+<ul class="org-ul">
+<li><code>alias_method</code> : メソッドに別名を付ける。</li>
+<li><code>attr</code> : インスタンス変数のアクセサを定義する。</li>
+<li><code>attr_accessor</code> : インスタンス変数のアクセサを定義する。</li>
+<li><code>attr_reader</code> : インスタンス変数の読み出し専用アクセサを定義する。</li>
+<li><code>attr_writer</code> : インスタンス変数の書き込み専用アクセサを定義する。</li>
+<li><code>define_method</code> : メソッドを定義する。</li>
+<li><code>include</code> : モジュールをインクルードする。</li>
+<li><code>module_function</code> : モジュールのメソッドをモジュール関数にする。</li>
+<li><code>private</code> : メソッドを=private=にする。</li>
+<li><code>protected</code> : メソッドを=protected=にする。</li>
+<li><code>public</code> : メソッドを=public=にする。</li>
+<li><code>remove_const</code> : 定数の削除。</li>
+<li><code>remove_method</code> : メソッドの削除。</li>
+<li><code>undef_method</code> : メソッドを未定義にする。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline114" class="outline-6">
+<h6 id="orgheadline114">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline114">
+<ul class="org-ul">
+<li><code>append_features</code> : インクルードされる前に呼ばれる。</li>
+<li><code>const_missing</code> : 存在しない定数を参照したときに呼ばれる。</li>
+<li><code>included</code> : インクルードされたあとで呼ばれる。</li>
+<li><code>extended</code> : オブジェクトに取り込まれたあとで呼ばれる。</li>
+<li><code>extend_object</code> : オブジェクトに取り込まれる前に呼ばれる。</li>
+<li><code>method_added</code> : メソッドを定義したときに呼ばれる。</li>
+<li><code>method_removed</code> : メソッドを削除したときに呼ばれる。</li>
+<li><code>method_undefined</code> : メソッドを未定義にしたときに呼ばれる。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline116" class="outline-4">
+<h4 id="orgheadline116">Class</h4>
+<div class="outline-text-4" id="text-orgheadline116">
+<p>
+=Class=クラスは、クラスを表すクラスで、=Module=クラスのサブクラスです。
+</p>
+
+<p>
+クラスに関する機能のほとんどは、=Module=クラスに実装されていますので、=Module=クラスのほうを先に調べるといいでしょう。=Class=クラスの機能は、「=Module=の機能＋インスタンスの作成とクラスの継承」です。
+</p>
+</div>
+
+<div id="outline-container-orgheadline117" class="outline-5">
+<h5 id="orgheadline117">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline117">
+<p>
+=Class=クラスの親クラスは=Module=クラスです。
+</p>
+
+<pre class="example">
+Class &lt; Module &lt; Object &lt; Kernel (&lt; BasicObject)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline121" class="outline-5">
+<h5 id="orgheadline121">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline121">
+</div><div id="outline-container-orgheadline118" class="outline-6">
+<h6 id="orgheadline118">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline118">
+<ul class="org-ul">
+<li><p>
+<code>new</code> : クラス定義を使わずにクラスを作成。 
+</p>
+
+<p>
+Class.new で無名クラスを作る
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline119" class="outline-6">
+<h6 id="orgheadline119">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline119">
+<ul class="org-ul">
+<li><code>allocate</code> : インスタンスの作成。</li>
+<li><code>new</code> : インスタンスの作成と初期化。</li>
+<li><code>superclass</code> : 親クラスを返す。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline120" class="outline-6">
+<h6 id="orgheadline120">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline120">
+<ul class="org-ul">
+<li><code>inherited</code> : クラスが継承されたときに呼ばれる。</li>
+</ul>
+
+<p>
+次のメソッドは=Module=クラスで定義されていますが、=Class=クラスでは未定義にされています：<br  />
+ <code>append_features=、=extend_object</code>
+</p>
+
+<p>
+<a href="file:///ruby/about">このサイトについて</a> <a href="file:///ruby/legend">記事の読み方</a>
+<a href="file:///ruby/references">参考文献</a>
+</p>
+
+<p>
+Sponsored by <a href="https://www.oiax.jp/">Oiax Inc.</a> / Powered by Ruby on
+Rails and AmiWiki
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline129" class="outline-3">
+<h3 id="orgheadline129"><span class="section-number-3">1.13</span> <a href="https://www.rubylife.jp/ini/string/">文字列 - Ruby入門</a></h3>
+<div class="outline-text-3" id="text-1-13">
+</div><div id="outline-container-orgheadline123" class="outline-4">
+<h4 id="orgheadline123">文字列オブジェクト</h4>
+<div class="outline-text-4" id="text-orgheadline123">
+<div class="org-src-container">
+
+<pre class="src src-ruby">String.new("こんにちは\n")
+"こんにちは\n"
+"こんにちは\n".class
+String.class
+'end'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline124" class="outline-4">
+<h4 id="orgheadline124">バックスラッシュ記法によるエスケープ</h4>
+</div>
+<div id="outline-container-orgheadline125" class="outline-4">
+<h4 id="orgheadline125">%Q、%qによる文字列の作成</h4>
+<div class="outline-text-4" id="text-orgheadline125">
+<div class="org-src-container">
+
+<pre class="src src-ruby">require 'kconv'
+print Kconv.toutf8(%Q[こんにちは"佐藤"さん\nお元気ですか]), "\n"
+print Kconv.toutf8(%q|こんにちは\nお元気ですか|), "\n"
+'end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline126" class="outline-4">
+<h4 id="orgheadline126">ヒアドキュメントによる複数行文字列の作成</h4>
+</div>
+<div id="outline-container-orgheadline127" class="outline-4">
+<h4 id="orgheadline127">文字列の中に式を展開</h4>
+<div class="outline-text-4" id="text-orgheadline127">
+<div class="org-src-container">
+
+<pre class="src src-ruby">name = "東京"
+print("出身は #{name*10} です")
+'end'
+</pre>
+</div>
+
+<p>
+便利で，よく使います。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline128" class="outline-4">
+<h4 id="orgheadline128">文字列 methods</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline153" class="outline-3">
+<h3 id="orgheadline153"><span class="section-number-3">1.14</span> test-unit</h3>
+<div class="outline-text-3" id="text-1-14">
+</div><div id="outline-container-orgheadline152" class="outline-4">
+<h4 id="orgheadline152">ruby/test</h4>
+<div class="outline-text-4" id="text-orgheadline152">
+</div><div id="outline-container-orgheadline130" class="outline-5">
+<h5 id="orgheadline130">test-unit</h5>
+<div class="outline-text-5" id="text-orgheadline130">
+<p>
+新らしい単体テスト・フレームワークを使いましょう:
+</p>
+<ul class="org-ul">
+<li><a href="https://qiita.com/repeatedly/items/727b08599d87af7fa671">Ruby - Test::Unitでテストを書く - Qiita</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline131" class="outline-5">
+<h5 id="orgheadline131">install</h5>
+<div class="outline-text-5" id="text-orgheadline131">
+<div class="org-src-container">
+
+<pre class="src src-sh">gem install test-unit
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline151" class="outline-5">
+<h5 id="orgheadline151">テストの書き方</h5>
+<div class="outline-text-5" id="text-orgheadline151">
+</div><div id="outline-container-orgheadline132" class="outline-6">
+<h6 id="orgheadline132">基本</h6>
+<div class="outline-text-6" id="text-orgheadline132">
+<ul class="org-ul">
+<li>classで書く．</li>
+<li>TestCase毎に呼ばれる startup/shutdown</li>
+<li>Test毎に呼ばれる setup/teardown/cleanup</li>
+<li>テストは test で始まるメソッドで書く</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline133" class="outline-7">
+<h7 id="orgheadline133">require</h7>
+<div class="outline-text-7" id="text-orgheadline133">
+<div class="org-src-container">
+
+<pre class="src src-ruby">require "rubygems"
+gem "test-unit"
+require 'test/unit'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline134" class="outline-7">
+<h7 id="orgheadline134">テスト・クラス定義</h7>
+<div class="outline-text-7" id="text-orgheadline134">
+<div class="org-src-container">
+
+<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline135" class="outline-7">
+<h7 id="orgheadline135">テスト全体の前後処理メソッド:</h7>
+<div class="outline-text-7" id="text-orgheadline135">
+<div class="org-src-container">
+
+<pre class="src src-ruby">class &lt;&lt; self
+  # テスト群の実行前に呼ばれる．変な初期化トリックがいらなくなる
+  def startup
+    p :_startup
+  end
+
+  # テスト群の実行後に呼ばれる
+  def shutdown
+    p :_shutdown
+  end
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline136" class="outline-7">
+<h7 id="orgheadline136">テストの前後の処理:</h7>
+<div class="outline-text-7" id="text-orgheadline136">
+<div class="org-src-container">
+
+<pre class="src src-ruby"># 毎回テスト実行前に呼ばれる
+def setup
+  p :setup
+end
+
+# テストがpassedになっている場合に，テスト実行後に呼ばれる．テスト後の状態確認とかに使える
+def cleanup
+  p :cleanup
+end
+
+# 毎回テスト実行後に呼ばれる
+def teardown
+  p :treadown
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline137" class="outline-7">
+<h7 id="orgheadline137">テストを test_で始まるメソッドとして定義する:</h7>
+<div class="outline-text-7" id="text-orgheadline137">
+<div class="org-src-container">
+
+<pre class="src src-ruby">  def test_foo
+    p 'test_foo'
+    assert_true(1 == 1)
+  end
+
+  def test_bar
+    p 'test_bar'
+    assert_equal(1, 1)
+  end
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline138" class="outline-7">
+<h7 id="orgheadline138">テスト準備</h7>
+<div class="outline-text-7" id="text-orgheadline138">
+<p>
+(defvar org-babel-ruby-command "<i>users/home/masayuki</i>.rbenv/shims/ruby"
+"Name of command to use for executing ruby code.")
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">p require "rubygems"
+p gem "test-unit"
+p RUBY_VERSION
+'end'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline139" class="outline-7">
+<h7 id="orgheadline139">テスト実行</h7>
+<div class="outline-text-7" id="text-orgheadline139">
+<p>
+デフォルトだとアルファベット順にテストが実行される．
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">which ruby
+gem install test-unit
+ruby test_sample.rb
+echo 'end'
+</pre>
+</div>
+
+<pre class="example">
+/usr/bin/ruby
+Run options: 
+
+# Running tests:
+
+:setup
+"test_bar"
+:treadown
+.:setup
+"test_foo"
+:treadown
+E
+
+Finished tests in 0.003415s, 585.6515 tests/s, 292.8258 assertions/s.
+
+  1) Error:
+test_foo(TestSample):
+NoMethodError: undefined method `assert_true' for #&lt;TestSample:0x007fb08a8164c8&gt;
+    test_sample.rb:36:in `test_foo'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1301:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit/testcase.rb:17:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:919:in `block in _run_suite'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `map'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:912:in `_run_suite'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:657:in `block in _run_suites'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:655:in `_run_suites'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:867:in `_run_anything'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1060:in `run_tests'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1047:in `block in _run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1046:in `_run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/minitest/unit.rb:1035:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:21:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:774:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:366:in `block (2 levels) in autorun'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:27:in `run_once'
+    /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/test/unit.rb:365:in `block in autorun'
+
+2 tests, 1 assertions, 0 failures, 1 errors, 0 skips
+
+ruby -v: ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline140" class="outline-6">
+<h6 id="orgheadline140">アサーション</h6>
+<div class="outline-text-6" id="text-orgheadline140">
+<p>
+<a href="https://test-unit.github.io/test-unit/ja/Test/Unit/Assertions.html">https://test-unit.github.io/test-unit/ja/Test/Unit/Assertions.html</a>
+</p>
+
+<p>
+のページの"Instance Method Summary"にあるassertで始まるメソッド群
+が該当．各メソッドに飛べば実際のコード例が出てくるので，参照しつつ
+適宜使い分ける．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline146" class="outline-6">
+<h6 id="orgheadline146">便利な機能</h6>
+<div class="outline-text-6" id="text-orgheadline146">
+</div><div id="outline-container-orgheadline141" class="outline-7">
+<h7 id="orgheadline141">sub_test_case</h7>
+<div class="outline-text-7" id="text-orgheadline141">
+<p>
+RSpecだとdescribeとかでネスト出来るが，それをTest::Unitで出来る．実際
+はTest::Unitでも継承すれば出来るけど，こっちの方が簡潔で好き.
+</p>
+
+<p>
+class TestSample &lt; Test::Unit::TestCase
+  sub_test_case "Foo context" do
+</p>
+
+<p>
+end
+</p>
+
+<p>
+sub_test_case "Bar context" do
+</p>
+
+<p>
+  end
+end
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline142" class="outline-7">
+<h7 id="orgheadline142">test</h7>
+<div class="outline-text-7" id="text-orgheadline142">
+<p>
+メソッド名ベースだと使えない文字とかもあり，少し表現がしにくかっ
+た．けど，testを使えば解決！
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
+  test "We can write good information" do
+    # assert_nil(nil)
+  end
+end
+</pre>
+</div>
+
+<p>
+Test::Unitのgemにはdescriptionという機能があって，それとメソッド
+定義のシンタックスシュガーらしい．以下のコードは上とほぼ同じ．
+</p>
+
+<p>
+class TestSample &lt; Test::Unit::TestCase
+  description "We can write good information"
+  def test_foo_bar
+</p>
+
+<p>
+  end
+end
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline143" class="outline-7">
+<h7 id="orgheadline143">setup/teardown ブロック</h7>
+<div class="outline-text-7" id="text-orgheadline143">
+<p>
+sub_test_caseを使っていると，RSpecのbeforeのように各ケース毎に追
+加でセットアップ処理を書きたくなる．TestCaseにはsetupメソッドがあ
+るけど，これはオーバーライドしてしまうので使えない．このような場
+合にはsetupブロックを使う．setupメソッドとは違い，beforeのように
+何個でも書ける．
+</p>
+
+<p>
+class TestSample &lt; Test::Unit::TestCase
+  setup do
+    puts "parent"
+  end
+</p>
+
+<p>
+sub_test_case "Sub!" do
+  setup do
+    puts "sub1"
+  end
+</p>
+
+<p>
+setup do
+  puts "sub2"
+end
+</p>
+
+<p>
+    def test_sub
+      assert_true(true)
+    end
+  end
+end
+</p>
+
+<p>
+上の例を走らせると以下のようになる．もちろん，teardownも同様に出来る．
+</p>
+
+<p>
+Loaded suite test_nest
+Started
+parent
+sub1
+sub2
+.
+</p>
+
+<p>
+Finished in 0.000896 seconds.
+</p>
+
+<p>
+注意点として，setupメソッドとsetupブロックでは優先順位が決まっている．気になるなら，setupブロックで統一した方が良いかもしれない．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline144" class="outline-7">
+<h7 id="orgheadline144">test_order</h7>
+<div class="outline-text-7" id="text-orgheadline144">
+<p>
+テストの実行順序を指定出来る．どうしても定義順に実行したいのであれば，:definedを指定すれば上から順に実行される．
+</p>
+
+<p>
+class TestSample &lt; Test::Unit::TestCase
+  self.test_order = :defined
+end
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline145" class="outline-7">
+<h7 id="orgheadline145">データ駆動テスト</h7>
+<div class="outline-text-7" id="text-orgheadline145">
+<p>
+テストとデータを分けて書ける機能です．成功するテストや失敗するテ
+ストをまとめたりするのに便利．テストの中でeach回すのはイケてない
+し，かといってコピペで重複したテスト書くのもつらい．この機能使え
+ば，ちゃんとデータセット毎にテストがわかれます．
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">class TestSample &lt; Test::Unit::TestCase
+  # 'test1'がラベルで，[1, 1]がtest_equalの引数に渡される
+  data(
+    'test1' =&gt; [1, 1],
+    'test2' =&gt; [2, 2])
+  def test_equal(data)
+    expected, actual = data
+    assert_equal(expected, actual)
+  end
+
+  data(
+    'test1' =&gt; [1, 2],
+    'test2' =&gt; [2, 3])
+  def test_not_equal(data)
+    expected, actual = data
+    assert_not_equal(expected, actual)
+  end
+end
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline149" class="outline-6">
+<h6 id="orgheadline149">その他</h6>
+<div class="outline-text-6" id="text-orgheadline149">
+</div><div id="outline-container-orgheadline147" class="outline-7">
+<h7 id="orgheadline147">assertの作り方</h7>
+<div class="outline-text-7" id="text-orgheadline147">
+<p>
+Test::Unit::Assertions以下に定義して，そのファイルをrequireで読み
+込むだけ．assert_blockとかbuild_messageとかのヘルパーが利用可能．
+assert_blockの中に条件を書く．
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">require 'test/unit/assertions'
+
+module Test::Unit::Assertions
+  def assert_oreore(expected, actual)
+    assert_block("failure message") do
+      expected == (actual + 'oreore')
+    end
+  end
+end
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline148" class="outline-7">
+<h7 id="orgheadline148">Rakeのタスク定義</h7>
+<div class="outline-text-7" id="text-orgheadline148">
+<p>
+コピペで使い回す
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">desc 'Run test_unit based test'
+Rake::TestTask.new do |t|
+  # To run test for only one file (or file path pattern)
+  #  $ bundle exec rake test TEST=test/test_specified_path.rb
+  t.libs &lt;&lt; "test"
+  t.test_files = Dir["test/**/test_*.rb"]
+  t.verbose = true
+end
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline150" class="outline-6">
+<h6 id="orgheadline150">まとめ</h6>
+<div class="outline-text-6" id="text-orgheadline150">
+<p>
+RSpecほど機能がリッチじゃないので，足りないなら自分で書く必要があ
+るけど，Fluentdレベルだとそんなに困ってない． 個人的には，
+Parameterized Testが入ってくれれば嬉しいという所かな．
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline155" class="outline-3">
+<h3 id="orgheadline155"><span class="section-number-3">1.15</span> プログラミング</h3>
+<div class="outline-text-3" id="text-1-15">
+</div><div id="outline-container-orgheadline154" class="outline-4">
+<h4 id="orgheadline154">sqlite3-ruby</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline168" class="outline-3">
+<h3 id="orgheadline168"><span class="section-number-3">1.16</span> sqlite3-ruby</h3>
+<div class="outline-text-3" id="text-1-16">
+</div><div id="outline-container-orgheadline156" class="outline-4">
+<h4 id="orgheadline156">関連サイト</h4>
+<div class="outline-text-4" id="text-orgheadline156">
+<ul class="org-ul">
+<li><a href="https://shuzo-kino.hateblo.jp/entry/20120913/1347551619">Rubyでsqlite3を使ってみる - Bye Bye Moore</a></li>
 <li><a href="https://sites.google.com/site/rubycocoamemo/Home/ruby-guan-lian/sqlite-wo--ruby-de-tsukau">SQLite を Ruby で使う - RubyCocoa メモ</a></li>
 <li><a href="https://github.com/sparklemotion/sqlite3-ruby">sparklemotion/sqlite3-ruby - Ruby</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline160" class="outline-4">
-<h4 id="orgheadline160">gem</h4>
-<div class="outline-text-4" id="text-orgheadline160">
+<div id="outline-container-orgheadline157" class="outline-4">
+<h4 id="orgheadline157">gem</h4>
+<div class="outline-text-4" id="text-orgheadline157">
 <div class="org-src-container">
 
 <pre class="src src-sh">gem install sqlite3
@@ -4171,18 +4143,18 @@ Kernel.methods.include?(:Integer)
 </div>
 </div>
 
-<div id="outline-container-orgheadline161" class="outline-4">
-<h4 id="orgheadline161">sqlite</h4>
-<div class="outline-text-4" id="text-orgheadline161">
+<div id="outline-container-orgheadline158" class="outline-4">
+<h4 id="orgheadline158">sqlite</h4>
+<div class="outline-text-4" id="text-orgheadline158">
 <p>
-<a href="http://ja.wikipedia.org/wiki/SQLite">SQLite (wikipedia)</a> 手軽なローカル・ファイル型の軽量データベース
+<a href="https://ja.wikipedia.org/wiki/SQLite">SQLite (wikipedia)</a> 手軽なローカル・ファイル型の軽量データベース
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline162" class="outline-4">
-<h4 id="orgheadline162">setup</h4>
-<div class="outline-text-4" id="text-orgheadline162">
+<div id="outline-container-orgheadline159" class="outline-4">
+<h4 id="orgheadline159">setup</h4>
+<div class="outline-text-4" id="text-orgheadline159">
 <div class="org-src-container">
 
 <pre class="src src-sh">rm -f database.db
@@ -4191,9 +4163,9 @@ Kernel.methods.include?(:Integer)
 </div>
 </div>
 
-<div id="outline-container-orgheadline163" class="outline-4">
-<h4 id="orgheadline163">ruby</h4>
-<div class="outline-text-4" id="text-orgheadline163">
+<div id="outline-container-orgheadline160" class="outline-4">
+<h4 id="orgheadline160">ruby</h4>
+<div class="outline-text-4" id="text-orgheadline160">
 <div class="org-src-container">
 
 <pre class="src src-ruby"># coding: utf-8
@@ -4232,9 +4204,9 @@ db.close
 </div>
 
 
-<div id="outline-container-orgheadline164" class="outline-4">
-<h4 id="orgheadline164">firefox sqlite database handling</h4>
-<div class="outline-text-4" id="text-orgheadline164">
+<div id="outline-container-orgheadline161" class="outline-4">
+<h4 id="orgheadline161">firefox sqlite database handling</h4>
+<div class="outline-text-4" id="text-orgheadline161">
 <p>
 <a href="https://support.mozilla.org/ja/kb/profiles-where-firefox-stores-user-data#w_cucgciaaacceaeakiuaiauadaeaoceag">プロファイル | Firefox ヘルプ</a> 
 </p>
@@ -4290,9 +4262,9 @@ db.close
 </div>
 
 
-<div id="outline-container-orgheadline165" class="outline-4">
-<h4 id="orgheadline165">firefox sqlite database handling 2</h4>
-<div class="outline-text-4" id="text-orgheadline165">
+<div id="outline-container-orgheadline162" class="outline-4">
+<h4 id="orgheadline162">firefox sqlite database handling 2</h4>
+<div class="outline-text-4" id="text-orgheadline162">
 <div class="org-src-container">
 
 <pre class="src src-sh">ls -l ~/.mozilla/firefox/*/*sqlite
@@ -4338,9 +4310,9 @@ end
 </div>
 
 
-<div id="outline-container-orgheadline166" class="outline-4">
-<h4 id="orgheadline166"></h4>
-<div class="outline-text-4" id="text-orgheadline166">
+<div id="outline-container-orgheadline163" class="outline-4">
+<h4 id="orgheadline163"></h4>
+<div class="outline-text-4" id="text-orgheadline163">
 <div class="org-src-container">
 
 <pre class="src src-ruby"># coding: utf-8
@@ -4374,26 +4346,58 @@ db.close
 <a href="https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0">https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0</a>
 </p>
 </div>
+
+<div id="outline-container-orgheadline164" class="outline-5">
+<h5 id="orgheadline164">関連サイト</h5>
+<div class="outline-text-5" id="text-orgheadline164">
+<ul class="org-ul">
+<li><a href="https://shuzo-kino.hateblo.jp/entry/20120913/1347551619">Rubyでsqlite3を使ってみる - Bye Bye Moore</a></li>
+<li><a href="https://sites.google.com/site/rubycocoamemo/Home/ruby-guan-lian/sqlite-wo--ruby-de-tsukau">SQLite を Ruby で使う - RubyCocoa メモ</a></li>
+<li><a href="https://github.com/sparklemotion/sqlite3-ruby">sparklemotion/sqlite3-ruby - Ruby</a></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline168" class="outline-3">
-<h3 id="orgheadline168"><span class="section-number-3">1.11</span> sinatra-org</h3>
+<div id="outline-container-orgheadline165" class="outline-5">
+<h5 id="orgheadline165">gem</h5>
+<div class="outline-text-5" id="text-orgheadline165">
+<div class="org-src-container">
+
+<pre class="src src-sh">gem install sqlite3
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline166" class="outline-5">
+<h5 id="orgheadline166">sqlite</h5>
+<div class="outline-text-5" id="text-orgheadline166">
+<p>
+<a href="https://ja.wikipedia.org/wiki/SQLite">SQLite (wikipedia)</a> 手軽なローカル・ファイル型の軽量データベース
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline167" class="outline-5">
+<h5 id="orgheadline167">sinatra-org</h5>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline169" class="outline-3">
-<h3 id="orgheadline169"><span class="section-number-3">1.12</span> references</h3>
-<div class="outline-text-3" id="text-1-12">
+<h3 id="orgheadline169"><span class="section-number-3">1.17</span> references</h3>
+<div class="outline-text-3" id="text-1-17">
 <ul class="org-ul">
 <li>~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)</li>
-<li><a href="http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a></li>
-<li><a href="http://www.sinatrarb.com/intro-ja.html">Sinatra: README (Japanese)</a></li>
+<li><a href="https://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a></li>
+<li><a href="https://www.sinatrarb.com/intro-ja.html">Sinatra: README (Japanese)</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-orgheadline170" class="outline-3">
-<h3 id="orgheadline170"><span class="section-number-3">1.13</span> what</h3>
-<div class="outline-text-3" id="text-1-13">
+<h3 id="orgheadline170"><span class="section-number-3">1.18</span> what</h3>
+<div class="outline-text-3" id="text-1-18">
 <p>
 ./notes にある .org 文書を表示する Webサービスを作成する。
 </p>
@@ -4401,8 +4405,8 @@ db.close
 </div>
 
 <div id="outline-container-orgheadline171" class="outline-3">
-<h3 id="orgheadline171"><span class="section-number-3">1.14</span> how</h3>
-<div class="outline-text-3" id="text-1-14">
+<h3 id="orgheadline171"><span class="section-number-3">1.19</span> how</h3>
+<div class="outline-text-3" id="text-1-19">
 <ul class="org-ul">
 <li>rubygems の sinatra，org-convergeを用いる</li>
 
@@ -4412,8 +4416,8 @@ db.close
 </div>
 
 <div id="outline-container-orgheadline172" class="outline-3">
-<h3 id="orgheadline172"><span class="section-number-3">1.15</span> directory</h3>
-<div class="outline-text-3" id="text-1-15">
+<h3 id="orgheadline172"><span class="section-number-3">1.20</span> directory</h3>
+<div class="outline-text-3" id="text-1-20">
 <pre class="example">
 .
 +-- readme.org 
@@ -4430,8 +4434,8 @@ db.close
 </div>
 
 <div id="outline-container-orgheadline176" class="outline-3">
-<h3 id="orgheadline176"><span class="section-number-3">1.16</span> sinatraのための設定</h3>
-<div class="outline-text-3" id="text-1-16">
+<h3 id="orgheadline176"><span class="section-number-3">1.21</span> sinatraのための設定</h3>
+<div class="outline-text-3" id="text-1-21">
 </div><div id="outline-container-orgheadline173" class="outline-4">
 <h4 id="orgheadline173">bundler</h4>
 <div class="outline-text-4" id="text-orgheadline173">
@@ -4483,8 +4487,8 @@ run Sinatra::Application
 </div>
 
 <div id="outline-container-orgheadline181" class="outline-3">
-<h3 id="orgheadline181"><span class="section-number-3">1.17</span> service</h3>
-<div class="outline-text-3" id="text-1-17">
+<h3 id="orgheadline181"><span class="section-number-3">1.22</span> service</h3>
+<div class="outline-text-3" id="text-1-22">
 </div><div id="outline-container-orgheadline177" class="outline-4">
 <h4 id="orgheadline177">application</h4>
 <div class="outline-text-4" id="text-orgheadline177">
@@ -4625,8 +4629,8 @@ bundle exec rackup
 <h4 id="orgheadline185">global</h4>
 <div class="outline-text-4" id="text-orgheadline185">
 <p>
-<a href="http://www.machu.jp/diary/20090307.html#p01">ソースコードを快適に読むための GNU GLOBAL 入門 (前編) - まちゅダイアリー(2009-03-07)</a>
-<a href="http://horoama.hatenablog.com/entry/2015/05/16/183359">globalを使いブラウザで快適にソースコードを読む - ほろあま記念館</a>
+<a href="https://www.machu.jp/diary/20090307.html#p01">ソースコードを快適に読むための GNU GLOBAL 入門 (前編) - まちゅダイアリー(2009-03-07)</a>
+<a href="https://horoama.hatenablog.com/entry/2015/05/16/183359">globalを使いブラウザで快適にソースコードを読む - ほろあま記念館</a>
 </p>
 
 
@@ -4645,7 +4649,7 @@ bundle exec rackup
 </ul>
 
 <p>
-<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby20/">ruby-2.0.0-p353</a> ソースコードをHTML化したもの
+<a href="https://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/ruby20/">ruby-2.0.0-p353</a> ソースコードをHTML化したもの
 </p>
 </div>
 </div>
@@ -4654,11 +4658,11 @@ bundle exec rackup
 <h4 id="orgheadline186">ソースコード解説</h4>
 <div class="outline-text-4" id="text-orgheadline186">
 <p>
-<a href="http://wiki.cis.iwate-u.ac.jp/~wiki/rhg.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">R.H.G. Wikky - 講義内容</a> 
+<a href="https://wiki.cis.iwate-u.ac.jp/~wiki/rhg.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">R.H.G. Wikky - 講義内容</a> 
 </p>
 
 <p>
-<a href="http://i.loveruby.net/ja/rhg/book/">Rubyソースコード完全解説</a>
+<a href="https://i.loveruby.net/ja/rhg/book/">Rubyソースコード完全解説</a>
 </p>
 </div>
 </div>
@@ -4668,7 +4672,7 @@ bundle exec rackup
 <h4 id="orgheadline187">ソースコード pry-doc</h4>
 <div class="outline-text-4" id="text-orgheadline187">
 <p>
-<a href="http://qiita.com/joker1007/items/42f00b12c65bbec0e50a">pry-docでカジュアルにRubyのソースコードを読む - Qiita</a>
+<a href="https://qiita.com/joker1007/items/42f00b12c65bbec0e50a">pry-docでカジュアルにRubyのソースコードを読む - Qiita</a>
 </p>
 </div>
 </div>
@@ -4678,7 +4682,7 @@ bundle exec rackup
 <h4 id="orgheadline188">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</h4>
 <div class="outline-text-4" id="text-orgheadline188">
 <p>
-<a href="http://qiita.com/catatsuy/items/3dda714f4c60c435bb25">http://qiita.com/catatsuy/items/3dda714f4c60c435bb25</a>
+<a href="https://qiita.com/catatsuy/items/3dda714f4c60c435bb25">https://qiita.com/catatsuy/items/3dda714f4c60c435bb25</a>
 </p>
 </div>
 </div>
@@ -4790,7 +4794,7 @@ Makefile 中の tab が展開されるので， config/emacs-org.el を読むよ
 <div class="org-src-container">
 
 <pre class="src src-shell">#!/usr/bin/env bash
-# http://blog.nguyenvq.com/2010/10/30/bash-batch-script-to-convert-org-mode-file-to-html/
+# https://blog.nguyenvq.com/2010/10/30/bash-batch-script-to-convert-org-mode-file-to-html/
 # orgdir=/r/src/org-mode/lisp/    # Git版org-modeのディレクトリ
 # opts="-l ~/.org2html-batch.el"  # カスタマイズしなければ "" にする
 opts="-l ~/.emacs.d/config/emacs-org.el"
@@ -4839,11 +4843,11 @@ ruby -K [e|s|u|n] euc-jp|cp932|utf-8|ascii-8
 </p>
 
 <p>
-<a href="http://docs.ruby-lang.org/ja/2.2.0/doc/spec=2fm17n.html">多言語化 (Ruby 2.2.0)</a>
+<a href="https://docs.ruby-lang.org/ja/2.2.0/doc/spec=2fm17n.html">多言語化 (Ruby 2.2.0)</a>
 </p>
 
 <p>
-<a href="http://docs.ruby-lang.org/ja/2.2.0/class/Encoding.html">class Encoding (Ruby 2.2.0)</a>
+<a href="https://docs.ruby-lang.org/ja/2.2.0/class/Encoding.html">class Encoding (Ruby 2.2.0)</a>
 </p>
 
 <p>
@@ -4868,7 +4872,7 @@ magic comment
 <h4 id="orgheadline202">ruby入門のサイトを変更したい</h4>
 <div class="outline-text-4" id="text-orgheadline202">
 <p>
-<a href="http://www.rubylife.jp/ini/">Ruby入門</a>
+<a href="https://www.rubylife.jp/ini/">Ruby入門</a>
 </p>
 </div>
 </div>
@@ -4891,17 +4895,17 @@ magic comment
 <div class="outline-text-4" id="text-orgheadline204">
 <p>
 クラス・モジュールの概念 Ruby - Qiita
-<a href="http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de</a>
+<a href="https://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">https://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de</a>
 </p>
 
 <p>
 カレントオブジェクトselfについて Ruby - Qiita
-<a href="http://qiita.com/ToruFukui/items/be29968da6dc9d125315">http://qiita.com/ToruFukui/items/be29968da6dc9d125315</a>
+<a href="https://qiita.com/ToruFukui/items/be29968da6dc9d125315">https://qiita.com/ToruFukui/items/be29968da6dc9d125315</a>
 </p>
 
 <p>
 誤解されている 6 つの Ruby の機能の真相を知る
-<a href="http://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/">http://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/</a>
+<a href="https://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/">https://www.ibm.com/developerworks/jp/opensource/library/os-sixrubyfeatures/</a>
 </p>
 
 <p>
@@ -4914,7 +4918,7 @@ magic comment
 <h4 id="orgheadline205">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</h4>
 <div class="outline-text-4" id="text-orgheadline205">
 <p>
-<a href="http://qiita.com/taiyop/items/0212a54591e078ae15b6">http://qiita.com/taiyop/items/0212a54591e078ae15b6</a>
+<a href="https://qiita.com/taiyop/items/0212a54591e078ae15b6">https://qiita.com/taiyop/items/0212a54591e078ae15b6</a>
 <span class="timestamp-wrapper"><span class="timestamp">[2015-11-13 金 02:17]</span></span>
 </p>
 </div>
@@ -4940,7 +4944,7 @@ pry をやめるとうまく動く
 <h4 id="orgheadline207">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</h4>
 <div class="outline-text-4" id="text-orgheadline207">
 <p>
-<a href="http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html">http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html</a>
+<a href="https://www.atmarkit.co.jp/ait/articles/1501/06/news028.html">https://www.atmarkit.co.jp/ait/articles/1501/06/news028.html</a>
 </p>
 </div>
 </div>
@@ -4949,7 +4953,7 @@ pry をやめるとうまく動く
 <h4 id="orgheadline208">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</h4>
 <div class="outline-text-4" id="text-orgheadline208">
 <p>
-<a href="http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9">http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9</a>
+<a href="https://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9">https://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9</a>
 </p>
 </div>
 </div>
@@ -4972,7 +4976,7 @@ Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 
 
 <div id="outline-container-orgheadline211" class="outline-4">
-<h4 id="orgheadline211">Todo <a href="http://ditaa.sourceforge.net/">ditaa@github</a> install後，ditaa.jar が見つからない</h4>
+<h4 id="orgheadline211">Todo <a href="https://ditaa.sourceforge.net/">ditaa@github</a> install後，ditaa.jar が見つからない</h4>
 <div class="outline-text-4" id="text-orgheadline211">
 <p>
 <a href="lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile">lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile</a>
@@ -4995,12 +4999,12 @@ Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 <h4 id="orgheadline213">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</h4>
 <div class="outline-text-4" id="text-orgheadline213">
 <p>
-<a href="http://d.hatena.ne.jp/tamura70/20100222/org">http://d.hatena.ne.jp/tamura70/20100222/org</a>
+<a href="https://d.hatena.ne.jp/tamura70/20100222/org">https://d.hatena.ne.jp/tamura70/20100222/org</a>
 </p>
 
 <p>
 org-modeでGraphviz(dot)を使う
-<a href="http://misohena.jp/article/emacs_org_textfigures/dot.html">http://misohena.jp/article/emacs_org_textfigures/dot.html</a>
+<a href="https://misohena.jp/article/emacs_org_textfigures/dot.html">https://misohena.jp/article/emacs_org_textfigures/dot.html</a>
 </p>
 </div>
 </div>
@@ -5028,8 +5032,8 @@ org-modeでGraphviz(dot)を使う
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-31 月 09:31</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2016-11-14 月 09:28</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

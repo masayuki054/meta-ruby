@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-31 月 09:31 -->
+<!-- 2016-11-13 日 20:26 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 Emacs</title>
@@ -94,17 +94,17 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/bigblow.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/hideshow.js"></script>
-<script type="text/javascript" src="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -151,6 +151,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -223,15 +245,19 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline36">2.8. #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline45">3. org文書の構造</a>
+<li><a href="#orgheadline40">3. org文書の構造</a>
 <ul>
 <li><a href="#orgheadline38">3.1. #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</a></li>
-<li><a href="#orgheadline39">3.2. 文章の構造</a></li>
-<li><a href="#orgheadline40">3.3. ruby ソースコードの埋め込み方</a></li>
-<li><a href="#orgheadline41">3.4. ruby ソースコードのedit</a></li>
-<li><a href="#orgheadline42">3.5. ruby ソースコードの実行方法</a></li>
-<li><a href="#orgheadline43">3.6. ruby ソースコードの export</a></li>
-<li><a href="#orgheadline44">3.7. ruby ソースコードの extract</a></li>
+<li><a href="#orgheadline39">3.2. 文書の構造</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline46">4. 文芸的プログラミング</a>
+<ul>
+<li><a href="#orgheadline41">4.1. ruby ソースコードの埋め込み方</a></li>
+<li><a href="#orgheadline42">4.2. ruby ソースコードのedit</a></li>
+<li><a href="#orgheadline43">4.3. ruby ソースコードの実行方法</a></li>
+<li><a href="#orgheadline44">4.4. ruby ソースコードの export</a></li>
+<li><a href="#orgheadline45">4.5. ruby ソースコードの extract</a></li>
 </ul>
 </li>
 </ul>
@@ -245,7 +271,7 @@ for the JavaScript code in this tag.
 <a href="./emacs.html">emacs</a> / 
 <a href="./meta-ruby.html">meta-ruby</a> /
 <a href="./note.html">note</a> /
-<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a>
+<a href="https://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a>
 </p>
 
 <div id="outline-container-orgheadline28" class="outline-2">
@@ -322,7 +348,7 @@ init.elの中身です:
 <h4 id="orgheadline3">emacs package について</h4>
 <div class="outline-text-4" id="text-orgheadline3">
 <p>
-<a href="http://emacs-jp.github.io/packages/package-management/package-el.html">package.el - Emacs JP</a> のまとめ
+<a href="https://emacs-jp.github.io/packages/package-management/package-el.html">package.el - Emacs JP</a> のまとめ
 </p>
 </div>
 
@@ -335,19 +361,19 @@ init.elの中身です:
 
 ;; MELPAを追加
 (add-to-list 'package-archives 
-	     '("melpa" . "http://melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;; MELPA-stableを追加
 (add-to-list 'package-archives
-	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; Marmaladeを追加
 (add-to-list 'package-archives  
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+	     '("marmalade" . "https://marmalade-repo.org/packages/") t)
 
 ;; Orgを追加
 (add-to-list 'package-archives 
-	     '("org" . "http://orgmode.org/elpa/") t)
+	     '("org" . "https://orgmode.org/elpa/") t)
 
 ;; 初期化
 (package-initialize)
@@ -459,7 +485,7 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 <h4 id="orgheadline8">emacsのruby環境をセットアップする</h4>
 <div class="outline-text-4" id="text-orgheadline8">
 <p>
-<a href="http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/">http://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/</a>
+<a href="https://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/">https://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/</a>
 </p>
 </div>
 </div>
@@ -485,7 +511,7 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 
 <pre class="src src-elisp">;; --------------------------------------------------
 ;; ruby-mode
-;; http://shibayu36.hatenablog.com/entry/2013/03/18/192651
+;; https://shibayu36.hatenablog.com/entry/2013/03/18/192651
 ;; --------------------------------------------------
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)
@@ -516,7 +542,7 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 ;; --------------------------------------------------
 ;; ruby-end
 ;; endや括弧などを自動挿入する
-;; http://blog.livedoor.jp/ooboofo3/archives/53748087.html
+;; https://blog.livedoor.jp/ooboofo3/archives/53748087.html
 ;; --------------------------------------------------
 (require 'ruby-end)
 (add-hook 'ruby-mode-hook
@@ -601,7 +627,7 @@ which pry
 
 <pre class="src src-elisp">;; --------------------------------------------------
 ;; robe
-;; http://codeout.hatenablog.com/entry/2014/02/04/210237
+;; https://codeout.hatenablog.com/entry/2014/02/04/210237
 ;; --------------------------------------------------
 (add-hook 'ruby-mode-hook 'robe-mode)
 (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
@@ -975,7 +1001,7 @@ helm と組合せると検索もできて便利
 <div class="org-src-container">
 
 <pre class="src src-elisp">;; recentf and recentf-ext.el
-;; http://keisanbutsuriya.hateblo.jp/entry/2015/02/15/174758
+;; https://keisanbutsuriya.hateblo.jp/entry/2015/02/15/174758
 
 (require 'recentf)
 (setq recentf-save-file (expand-file-name "~/.emacs.d/.recentf"))
@@ -995,7 +1021,7 @@ helm と組合せると検索もできて便利
 <h3 id="orgheadline32"><span class="section-number-3">2.4</span> Emacs での テキストブラウザ eww を使えるレベルにする</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<a href="http://futurismo.biz/archives/2950">http://futurismo.biz/archives/2950</a>
+<a href="https://futurismo.biz/archives/2950">https://futurismo.biz/archives/2950</a>
 </p>
 
 <p>
@@ -1069,7 +1095,7 @@ initialization.
 <h3 id="orgheadline34"><span class="section-number-3">2.6</span> Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
-<a href="http://rubikitch.com/2014/11/19/eww-nocolor/">http://rubikitch.com/2014/11/19/eww-nocolor/</a>
+<a href="https://rubikitch.com/2014/11/19/eww-nocolor/">https://rubikitch.com/2014/11/19/eww-nocolor/</a>
 </p>
 </div>
 </div>
@@ -1081,7 +1107,7 @@ initialization.
 <h3 id="orgheadline35"><span class="section-number-3">2.7</span> Emacs24.5日本語マニュアル登場！！info作成方法</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-<a href="http://emacs.rubikitch.com/emacs245-manual-ja/">http://emacs.rubikitch.com/emacs245-manual-ja/</a>
+<a href="https://emacs.rubikitch.com/emacs245-manual-ja/">https://emacs.rubikitch.com/emacs245-manual-ja/</a>
 </p>
 
 <p>
@@ -1094,41 +1120,66 @@ suzuki@cis.iwate-u.ac.jp:local/info
 <h3 id="orgheadline36"><span class="section-number-3">2.8</span> #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
-<a href="http://emacs.rubikitch.com/sd1503-helm/">http://emacs.rubikitch.com/sd1503-helm/</a>
+<a href="https://emacs.rubikitch.com/sd1503-helm/">https://emacs.rubikitch.com/sd1503-helm/</a>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline45" class="outline-2">
-<h2 id="orgheadline45"><span class="section-number-2">3</span> org文書の構造</h2>
+<div id="outline-container-orgheadline40" class="outline-2">
+<h2 id="orgheadline40"><span class="section-number-2">3</span> org文書の構造</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-orgheadline38" class="outline-3">
 <h3 id="orgheadline38"><span class="section-number-3">3.1</span> #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-<a href="http://emacs.rubikitch.com/sd1502-org-mode/">http://emacs.rubikitch.com/sd1502-org-mode/</a>
+<a href="https://emacs.rubikitch.com/sd1502-org-mode/">https://emacs.rubikitch.com/sd1502-org-mode/</a>
 </p>
 </div>
 </div>
 
 <div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">3.2</span> 文章の構造</h3>
+<h3 id="orgheadline39"><span class="section-number-3">3.2</span> 文書の構造</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-<a href="org.html#document-structure">org#document structure</a>
+Emacs で M-x info で，Org-mode を開き，Document Structure を読みましょ
+う。
 </p>
+
+<p>
+org 文書の中で，
+</p>
+
+
+
+
+<p>
+\[\[info:org#document structure\]\]
+</p>
+
 <ul class="org-ul">
 <li>headlines</li>
 <li>lists</li>
 <li>drawers</li>
-<li>blocks</li>
+<li>blocks
+<ul class="org-ul">
+<li></li>
+</ul></li>
 </ul>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">3.3</span> ruby ソースコードの埋め込み方</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46"><span class="section-number-2">4</span> 文芸的プログラミング</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="https://d.hatena.ne.jp/tamura70/20100310/org">org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記</a>
+</p>
+</div>
+
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">4.1</span> ruby ソースコードの埋め込み方</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 <a href="org.html#working-with-source-code">org#working with source code</a> 
 </p>
@@ -1146,9 +1197,9 @@ body
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-3">
-<h3 id="orgheadline41"><span class="section-number-3">3.4</span> ruby ソースコードのedit</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">4.2</span> ruby ソースコードのedit</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 <a href="org.html#Editing-source-code">org#Editing source code</a>
 </p>
@@ -1159,9 +1210,9 @@ C-c '
 </div>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">3.5</span> ruby ソースコードの実行方法</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">4.3</span> ruby ソースコードの実行方法</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 <a href="org.html#Evaluating-code-blocks">org#Evaluating code blocks</a>
 </p>
@@ -1169,9 +1220,9 @@ C-c '
 </div>
 
 
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">3.6</span> ruby ソースコードの export</h3>
-<div class="outline-text-3" id="text-3-6">
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">4.4</span> ruby ソースコードの export</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
 <a href="org.html#Exporting-code-blocks">org#Exporting code blocks</a>
 </p>
@@ -1184,9 +1235,9 @@ body
 </div>
 </div>
 
-<div id="outline-container-orgheadline44" class="outline-3">
-<h3 id="orgheadline44"><span class="section-number-3">3.7</span> ruby ソースコードの extract</h3>
-<div class="outline-text-3" id="text-3-7">
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">4.5</span> ruby ソースコードの extract</h3>
+<div class="outline-text-3" id="text-4-5">
 <p>
 <a href="org.html#Extracting-source-code">org#Extracting source code</a>
 </p>
@@ -1203,8 +1254,8 @@ body
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-10-31 月 09:31</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2016-11-13 日 20:26</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

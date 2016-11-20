@@ -1,4 +1,3 @@
-
 class Greeter
   def initialize(name = "World")
      @name = name
@@ -37,7 +36,7 @@ class MegaGreeter
       if @names.nil?
         puts "..."
       elsif @names.respond_to?("join")
-      # Join the list elements with commas
+        # Join the list elements with commas
         puts "Goodby #{@names.join(", ")}. come back soon!"
       else
         puts "Goodby #{@names}. come back soon!"

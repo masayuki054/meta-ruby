@@ -112,6 +112,7 @@ class_hier(Integer)
 : => Module => Object => BasicObjectnil
 : => Numeric => Object => BasicObjectnil
 
+
 ** self 
 
 #+BEGIN_SRC ruby :session ruby :results output
