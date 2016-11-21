@@ -1,3 +1,6 @@
+
+#,!/usr/bin/env ruby
+#, coding:utf-8
 class Greeter
   def initialize(name = "World")
      @name = name
@@ -36,7 +39,7 @@ class MegaGreeter
       if @names.nil?
         puts "..."
       elsif @names.respond_to?("join")
-        # Join the list elements with commas
+      # Join the list elements with commas
         puts "Goodby #{@names.join(", ")}. come back soon!"
       else
         puts "Goodby #{@names}. come back soon!"
@@ -45,17 +48,21 @@ class MegaGreeter
   end
 end
 
+
 if __FILE__ == $0
+
+  # スクリプトとして実行されている場合
+
   mg = MegaGreeter.new
   mg.say_hi
   mg.say_bye
 
   mg.names = "zeke"
-
   mg.say_hi
   mg.say_bye
 
   mg.names = ["Albert", "Brenda", "Charles"]
   mg.say_hi
   mg.say_bye
+
 end

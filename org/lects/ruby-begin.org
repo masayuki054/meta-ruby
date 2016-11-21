@@ -499,7 +499,7 @@ end
   - openされたファイルは，IOとして扱える
   - IO.read, 
 
-#+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/file_print.rb
+#+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/file_print.rb :results output raw
 
 def file_print(file_name)
   File.open(file_name) do |io|
@@ -509,10 +509,125 @@ end
 
 if __FILE__==$0
 
+   file_print("ruby-begin.org")
+
+end
+
+file_print("ruby-begin.org")
+
+#+END_SRC
+
+C-c C-v C-t source code output to file
+C-c C-c excute
+C-c ' edit 
+
+#+BEGIN_SRC ruby :results output raw
+
+path = File.expand_path("~suzuki")
+
+Dir.chdir(path) do 
+  Dir.glob("*").each do |file|
+    puts file
+  end
 end
 
 #+END_SRC
 
+#+BEGIN_SRC ruby :results output :session ruby
 
+string = <<EOF
+abc
+def
+EOF
+
+puts string
+
+PI = 3.14
+
+puts PI
+
+PI = 3.1415
+
+puts PI
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+irb(main):002:0* irb(main):003:0" irb(main):004:0" irb(main):005:0" => "abc\ndef\n"
+irb(main):007:0* abc
+def
+=> nil
+irb(main):009:0* => 3.14
+irb(main):011:0* 3.14
+=> nil
+irb(main):013:0* (irb):13: warning: already initialized constant PI
+(irb):9: warning: previous definition of PI was here
+=> 3.1415
+irb(main):015:0* 3.1415
+#+end_example
+
+
+#+BEGIN_SRC ruby :results output
+
+class MyClass
+  PI = 3.14
+end
+
+puts MyClass::PI
+# puts PI
+
+#+END_SRC
+
+#+RESULTS:
+: 3.14
+
+
+#+BEGIN_SRC ruby :results output
+
+path = File.expand_path("~suzuki")
+p (files = Dir.glob("#{path}/*"))
+p files.class
+p files.size
+p files[2..3]
+files.each do |file| 
+  p file
+end
+
+ary = [1, 2, 3, 4]
+p ary[6] = 6
+p ary
+p ary.include?(6)
+p ary[2..4]
+p ary.join(",")
+
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC ruby :results output
+
+mon = {"Jan" => 1, "Feb" => 2}
+p mon["Jan"]
+p mon["Feb"]
+p mon.size
+
+mon.each do |key,val|
+  p "#{key}=#{val}"
+end
+
+
+
+
+
+#+END_SRC
+
+#+RESULTS:
+: 1
+: 2
+: 2
+: "Jan=1"
+: "Feb=2"
 
 
