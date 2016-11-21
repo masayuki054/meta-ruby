@@ -4,3 +4,5 @@
 #+include: lects/07/plan.org 
 #+include: lects/note.org 
 
+
+
