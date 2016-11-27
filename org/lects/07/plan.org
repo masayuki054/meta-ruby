@@ -12,7 +12,7 @@
      : ~suzuki/rubys/ruby-begin.org
 
 **** Doing [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     11/14 ~ 2回
+     11/21 ~ 2回
 
 **** Doing Ruby programming
      
@@ -20,15 +20,14 @@
 
      : ~suzuki/rubys/ruby-begin.org
 
-
 *** Todo オブジェクト指向について
     SCHEDULED: <2016-11-14 月>
   
 **** [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] を読みまとめ
     始めましょう。
 
-    - [ ] ソフトウェア危機
-    - [ ] 構造化プログラミング
+    - [X] ソフトウェア危機
+    - [X] 構造化プログラミング
     - [ ] モジュラープログラミング
 
     oo.org にまとめはじめましょう 
@@ -63,7 +62,6 @@ self.methods
 *** Ruby オブジェクト指向プログラミング
 
     まだ始まりません。
-
 
 ** 講義のための環境つくり
 
