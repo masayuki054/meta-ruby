@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-21 月 09:41 -->
+<!-- 2016-11-27 日 20:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 ObjectOrientedについて</title>
@@ -312,17 +312,47 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline62">4.2. オブジェクトが広まった理由</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline73">5. Strategic Choice を読もう</a>
+<li><a href="#orgheadline88">5. Strategic Choice を読もう</a>
 <ul>
 <li><a href="#orgheadline64">5.1. 記事一覧</a></li>
-<li><a href="#orgheadline65">5.2. 抽象データ型 - Strategic Choice</a></li>
-<li><a href="#orgheadline66">5.3. オブジェクト指向の本懐 - Strategic Choice</a></li>
-<li><a href="#orgheadline67">5.4. オブジェクト指向設計原則 - Strategic Choice</a></li>
-<li><a href="#orgheadline68">5.5. プログラミング原則 [Unix思想] - Strategic Choice</a></li>
-<li><a href="#orgheadline69">5.6. ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
-<li><a href="#orgheadline70">5.7. ソフトウェア開発原則一覧 - Strategic Choice</a></li>
-<li><a href="#orgheadline71">5.8. 七つの設計原理 - Strategic Choice</a></li>
-<li><a href="#orgheadline72">5.9. 漏れのある抽象化の法則 - Strategic Choice</a></li>
+<li><a href="#orgheadline65">5.2. 構造化プログラミング</a></li>
+<li><a href="#orgheadline68">5.3. パルナスの規則</a>
+<ul>
+<li><a href="#orgheadline66">解釈</a></li>
+<li><a href="#orgheadline67">なんで？</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline72">5.4. 抽象データ型 - Strategic Choice</a>
+<ul>
+<li><a href="#orgheadline69">どういうこと？</a></li>
+<li><a href="#orgheadline70">モジュールとの関連</a></li>
+<li><a href="#orgheadline71">クラスとの関連</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline81">5.5. オブジェクト指向の本懐 - Strategic Choice</a>
+<ul>
+<li><a href="#orgheadline73">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</a>
+<ul>
+<li><a href="#orgheadline74">概念(conceptual)</a></li>
+<li><a href="#orgheadline75">仕様(specification)</a></li>
+<li><a href="#orgheadline76">実装(implementation)</a></li>
+<li><a href="#orgheadline77">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</a>
+<ul>
+<li><a href="#orgheadline78">概念レベル</a></li>
+<li><a href="#orgheadline79">仕様レベル</a></li>
+<li><a href="#orgheadline80">実装レベル</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline82">5.6. オブジェクト指向設計原則 - Strategic Choice</a></li>
+<li><a href="#orgheadline83">5.7. プログラミング原則 [Unix思想] - Strategic Choice</a></li>
+<li><a href="#orgheadline84">5.8. ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
+<li><a href="#orgheadline85">5.9. ソフトウェア開発原則一覧 - Strategic Choice</a></li>
+<li><a href="#orgheadline86">5.10. 七つの設計原理 - Strategic Choice</a></li>
+<li><a href="#orgheadline87">5.11. 漏れのある抽象化の法則 - Strategic Choice</a></li>
 </ul>
 </li>
 </ul>
@@ -1860,6 +1890,7 @@ Proxy.new &lt;&lt; 1
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgheadline56" class="outline-2">
 <h2 id="orgheadline56"><span class="section-number-2">3</span> オブジェクト指向に至るまで (まとめのまとめ）</h2>
 <div class="outline-text-2" id="text-3">
@@ -2069,7 +2100,6 @@ initという関数の中ですべてのデータ構造の初期化を
 型にひもづいた関数でしか操作することができないという考え方だ。</li>
 </ul>
 
-
 <p>
 内部構造を隠し，型とインタフェースを公開する。
 </p>
@@ -2101,8 +2131,6 @@ initという関数の中ですべてのデータ構造の初期化を
 </div>
 </div>
 </div>
-
-
 
 <div id="outline-container-orgheadline41" class="outline-3">
 <h3 id="orgheadline41"><span class="section-number-3">3.2</span> オブジェクト指向?</h3>
@@ -2153,8 +2181,6 @@ Smalltalkは、Simulaのコンセプトに「メッセージング」という�
 </p>
 </div>
 </div>
-
-
 
 <div id="outline-container-orgheadline48" class="outline-3">
 <h3 id="orgheadline48"><span class="section-number-3">3.3</span> Simula &amp; C++のオブジェクト指向</h3>
@@ -2363,7 +2389,6 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-orgheadline55" class="outline-3">
 <h3 id="orgheadline55"><span class="section-number-3">3.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
@@ -2988,8 +3013,8 @@ OOPLだけがそうしている」という主張と読みました。</li>
 </div>
 </div>
 
-<div id="outline-container-orgheadline73" class="outline-2">
-<h2 id="orgheadline73"><span class="section-number-2">5</span> Strategic Choice を読もう</h2>
+<div id="outline-container-orgheadline88" class="outline-2">
+<h2 id="orgheadline88"><span class="section-number-2">5</span> Strategic Choice を読もう</h2>
 <div class="outline-text-2" id="text-5">
 </div><div id="outline-container-orgheadline64" class="outline-3">
 <h3 id="orgheadline64"><span class="section-number-3">5.1</span> 記事一覧</h3>
@@ -3001,77 +3026,355 @@ OOPLだけがそうしている」という主張と読みました。</li>
 </div>
 
 <div id="outline-container-orgheadline65" class="outline-3">
-<h3 id="orgheadline65"><span class="section-number-3">5.2</span> 抽象データ型 - Strategic Choice</h3>
+<h3 id="orgheadline65"><span class="section-number-3">5.2</span> 構造化プログラミング</h3>
 <div class="outline-text-3" id="text-5-2">
+<p>
+■[構造化プログラミング]構造化プログラミング入門
+</p>
+
+<p>
+構造化プログラミング
+</p>
+
+<p>
+構造化とは、構造のない、いわば行き当たりばったりのものを、指針に基づいた構造へと整理する作
+ 業。 
+</p>
+
+<ul class="org-ul">
+<li>オブジェクト指向も、オブジェクトという構造に整理するという1つの構造化であるといえる。</li>
+</ul>
+
+<p>
+現在でも見通しの良い整理されたコードを書くにあたって、構造化プログラミングは有効に作用する。
+</p>
+
+<p>
+定義
+</p>
+
+<p>
+1つの入り口と1つの出口を持つようなプログラムは「順次・反復・分岐」の3つの基本的な論理構造
+によって記述できる
+</p>
+
+<p>
+基本手段
+</p>
+
+<ul class="org-ul">
+<li>基本3構造 
+
+<ul class="org-ul">
+<li>順次（連接）</li>
+<li>反復（繰り返し）</li>
+<li>分岐</li>
+</ul></li>
+
+<li>段階的詳細化 
+
+<ul class="org-ul">
+<li>言葉どおりに捉えれば段階的に詳細にしていくということ</li>
+<li>つまりトップダウンで詳細化するということ</li>
+<li>基準が必要</li>
+
+<li>凝集度</li>
+<li>結合度</li>
+</ul></li>
+</ul>
+
+<p>
+取上理由
+</p>
+
+<ul class="org-ul">
+<li>構造化プログラミングにおけるトップダウンの機能分解には、確かに問題がある。 
+
+<ul class="org-ul">
+<li>この問題がオブジェクト指向の動機にもなっている。</li>
+</ul></li>
+
+<li>ただし、構造化プログラミングの実装部分のエッセンス（特に凝集度・結合度の考え方）は今でも参考
+になる。 
+
+<ul class="org-ul">
+<li>[構造化プログラミング]段階的詳細化</li>
+<li>[構造化プログラミング]凝集度</li>
+<li>[構造化プログラミング]結合度</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">5.3</span> パルナスの規則</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+&gt; モジュールの利用者には、そのモジュールを利用するために必要なすべての
+&gt; 情報を与え、それ以外の情報は一切見せないこと。
+</p>
+
+<p>
+&gt; モジュールの作成者には、そのモジュールを実装するために必要なすべての
+&gt; 情報を与え、それ以外の情報は一切見せないこと。
+</p>
+</div>
+
+<div id="outline-container-orgheadline66" class="outline-4">
+<h4 id="orgheadline66">解釈</h4>
+<div class="outline-text-4" id="text-orgheadline66">
+<p>
+インターフェイスと実装の分離を行い、情報隠蔽またはカプセル化を実現する。 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67">なんで？</h4>
+<div class="outline-text-4" id="text-orgheadline67">
+<p>
+システムの部分同士は最小かつ明快なつながりで結ばれていることが望ましい。
+</p>
+
+<ul class="org-ul">
+<li>内部を知らなくても使える（再利用）</li>
+<li>利用者に影響を与えず実装を入れ替えることが出来る（保守）</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72"><span class="section-number-3">5.4</span> 抽象データ型 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-4">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090225/1235547089">https://d.hatena.ne.jp/asakichy/20090225/1235547089</a>
 </p>
 
 <p>
-モジュールという考え方があった。
-しかし，複数のインスタンスが作れない。
+abstract data type (ADT)
 </p>
 </div>
+
+<div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69">どういうこと？</h4>
+<div class="outline-text-4" id="text-orgheadline69">
+<ul class="org-ul">
+<li>型定義を公開できること。 
+
+<ul class="org-ul">
+<li>プログラマがデータ型を定義。</li>
+</ul></li>
+
+<li>インスタンスに対する操作が利用出来ること。 
+
+<ul class="org-ul">
+<li>「do(data)」ではなく「data.do()」。</li>
+</ul></li>
+
+<li>内部のデータを保護し、上記の操作のみがアクセス出来ること。 
+
+<ul class="org-ul">
+<li>情報隠蔽。</li>
+</ul></li>
+
+<li>複数のインスタンスを作れること。 
+
+<ul class="org-ul">
+<li>マルチプルインスタンス。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70">モジュールとの関連</h4>
+<div class="outline-text-4" id="text-orgheadline70">
+<ul class="org-ul">
+<li>モジュールで情報隠蔽までは可能だった。（パルナスの規則）</li>
+<li>しかし複数インスタンスが作れない。</li>
+<li>これを満たすのがADT。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71">クラスとの関連</h4>
+<div class="outline-text-4" id="text-orgheadline71">
+<ul class="org-ul">
+<li>クラスは，抽象データ型を実現するもの</li>
+<li>これに加えて，下記を特徴として持つ:
+<ul class="org-ul">
+<li><b>継承</b></li>
+<li><b>ポリモーフィズム</b> ((s-:?))</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-orgheadline66" class="outline-3">
-<h3 id="orgheadline66"><span class="section-number-3">5.3</span> オブジェクト指向の本懐 - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-orgheadline81" class="outline-3">
+<h3 id="orgheadline81"><span class="section-number-3">5.5</span> オブジェクト指向の本懐 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-5">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090421/1240277448">https://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
 </p>
 </div>
+
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</h4>
+<div class="outline-text-4" id="text-orgheadline73">
+<p>
+オブジェクト指向の考察の前提知識， 
+マーチン・ファウラー「UMLモデリングのエッセンス」で提唱
+</p>
 </div>
 
-<div id="outline-container-orgheadline67" class="outline-3">
-<h3 id="orgheadline67"><span class="section-number-3">5.4</span> オブジェクト指向設計原則 - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-4">
+<div id="outline-container-orgheadline74" class="outline-5">
+<h5 id="orgheadline74">概念(conceptual)</h5>
+<div class="outline-text-5" id="text-orgheadline74">
+<ul class="org-ul">
+<li>調査対象領域における概念を表現。</li>
+<li>実装とは関係なく導き出される。</li>
+<li>「私は何に対して責任があるのか？」</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline75" class="outline-5">
+<h5 id="orgheadline75">仕様(specification)</h5>
+<div class="outline-text-5" id="text-orgheadline75">
+<ul class="org-ul">
+<li>ソフトウェアを考慮。</li>
+<li>実装ではなく、インターフェイスの考慮 。</li>
+<li>「私はどのように使用されるのか？」</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline76" class="outline-5">
+<h5 id="orgheadline76">実装(implementation)</h5>
+<div class="outline-text-5" id="text-orgheadline76">
+<ul class="org-ul">
+<li>ソースコード自体を考慮。</li>
+<li>上の2つを考えた後。</li>
+<li>「私はどのように自身の責任を全うするのか？」</li>
+</ul>
+
+<p>
+この観点の使い分けが非常に重要
+</p>
+
+<ul class="org-ul">
+<li>概念レベルでコミュニケーションを取とると、お互いの詳細は知らなくて良
+いことになります。</li>
+<li>設計はまずここで考えることになります。すなわちソフトウェア以下は考慮
+しません。</li>
+<li>すると設計アウトプットにおいて、使用者に概念をそのままにして実装を変
+更できるため、結果的に使用者に対して（発生しやすい変更である）実装変
+更から守ることになります。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-5">
+<h5 id="orgheadline77">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</h5>
+<div class="outline-text-5" id="text-orgheadline77">
+<p>
+ソフトウェア開発プロセスの観点とオブジェクト指向設計がよくマッチするから。
+以下にオブジェクトと観点のマッピングを示す:
+</p>
+</div>
+
+<div id="outline-container-orgheadline78" class="outline-6">
+<h6 id="orgheadline78">概念レベル</h6>
+<div class="outline-text-6" id="text-orgheadline78">
+<ul class="org-ul">
+<li>オブジェクトは責任の集合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline79" class="outline-6">
+<h6 id="orgheadline79">仕様レベル</h6>
+<div class="outline-text-6" id="text-orgheadline79">
+<ul class="org-ul">
+<li>オブジェクトはその他のオブジェクトや自ら起動することが出来るメソッドの集合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline80" class="outline-6">
+<h6 id="orgheadline80">実装レベル</h6>
+<div class="outline-text-6" id="text-orgheadline80">
+<ul class="org-ul">
+<li>オブジェクトはコードとデータ、それらの相互演算処理</li>
+</ul>
+
+<p>
+そしてこの観点の使い分けがわかると、既存の開発手法から「オブジェクト指
+向（の本質）」にパラダイムシフトし易くなります。
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82"><span class="section-number-3">5.6</span> オブジェクト指向設計原則 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-6">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090122/1232879842">https://d.hatena.ne.jp/asakichy/20090122/1232879842</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline68" class="outline-3">
-<h3 id="orgheadline68"><span class="section-number-3">5.5</span> プログラミング原則 [Unix思想] - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-5">
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">5.7</span> プログラミング原則 [Unix思想] - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-7">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D">https://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline69" class="outline-3">
-<h3 id="orgheadline69"><span class="section-number-3">5.6</span> ソフトウェア開発の真実とウソ - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-6">
+<div id="outline-container-orgheadline84" class="outline-3">
+<h3 id="orgheadline84"><span class="section-number-3">5.8</span> ソフトウェア開発の真実とウソ - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-8">
 <p>
 ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline70" class="outline-3">
-<h3 id="orgheadline70"><span class="section-number-3">5.7</span> ソフトウェア開発原則一覧 - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-7">
+<div id="outline-container-orgheadline85" class="outline-3">
+<h3 id="orgheadline85"><span class="section-number-3">5.9</span> ソフトウェア開発原則一覧 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-9">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20100205/1265329796">https://d.hatena.ne.jp/asakichy/20100205/1265329796</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline71" class="outline-3">
-<h3 id="orgheadline71"><span class="section-number-3">5.8</span> 七つの設計原理 - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-8">
+<div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86"><span class="section-number-3">5.10</span> 七つの設計原理 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-10">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090806/1249526499">https://d.hatena.ne.jp/asakichy/20090806/1249526499</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline72" class="outline-3">
-<h3 id="orgheadline72"><span class="section-number-3">5.9</span> 漏れのある抽象化の法則 - Strategic Choice</h3>
-<div class="outline-text-3" id="text-5-9">
+<div id="outline-container-orgheadline87" class="outline-3">
+<h3 id="orgheadline87"><span class="section-number-3">5.11</span> 漏れのある抽象化の法則 - Strategic Choice</h3>
+<div class="outline-text-3" id="text-5-11">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20160729/1469743543">https://d.hatena.ne.jp/asakichy/20160729/1469743543</a>
 </p>
@@ -3081,7 +3384,7 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-11-21 月 09:41</p>
+<p class="date">Created: 2016-11-27 日 20:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
