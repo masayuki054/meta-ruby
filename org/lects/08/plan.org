@@ -1,6 +1,6 @@
 * 講義予定 (8) 2016-11-28
 
-  self => ~suzuki/meta-ruby.git/org/lects/07/plan.org
+  self => ~suzuki/meta-ruby.git/org/lects/08/plan.org
 
 ** 講義内容
 
@@ -9,57 +9,54 @@
 
     ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 
-     : ~suzuki/rubys/ruby-begin.org
-
+    - file://~suzuki/rubys/ruby-begin.org emacsで見てください
+    - [[https://github.com/masayuki054/meta-ruby/org/lects/ruby-begin.org][ruby-begin.org@repos]] github 適宜raw mode で見てください
+     
 **** Doing [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     11/21 ~ 2回
+
+     - begin~end, 例外処理
+     - 正規表現
+     - メソッド
+     - クラス
 
 **** Doing Ruby programming
      
-    ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+     ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
 
-     : ~suzuki/rubys/ruby-begin.org
+     File，Dir, Array, String のクラスについて，調べながら，
+     実践的なプログラムを作ってみましょう。
+
+     - [X] file_print.rb <2016-11-21 月>
+     - [ ] home_directory.rb <2016-11-28 月>
+     - [ ] shuzo-meigen.rb <2016-11-28 月> home work
+     - [ ] dir_traverse.rb <2016-12-08 木>
 
 *** Todo オブジェクト指向について
     SCHEDULED: <2016-11-14 月>
   
-**** [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] を読みまとめ
-    始めましょう。
+**** [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] 
+
+     読みまとめ始めましょう。Strategic Choice も参考にします。
 
     - [X] ソフトウェア危機
     - [X] 構造化プログラミング
     - [X] モジュラープログラミング
     - [X] 抽象データ型
-    - [ ] 
+    - [ ] オブジェクト指向 メッセージングと動的ディスパッチ
 
-    oo.org にまとめはじめましょう 
+    oo.org にまとめてください。
+ 
     : ~/rubys/oo.org
+
     - org-mode で書いてみましょう 
       file://~suzuki/rubys/oo.org
 
 *** Todo メタプログラミング Ruby
     SCHEDULED: <2016-11-07 月>
 
+    file://~suzuki/COMM/Lects/meta-ruby/book を使います。
+
     : ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
-
-    まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
-    - self の存在
-    - いったい self とは何でしょう？
-
-#+BEGIN_SRC ruby :results output :exports both
-self
-
-self.class
-
-self.class.ancestors
-
-self.methods
-
-#+END_SRC
-
-#+RESULTS:
-
-    Ruby入門で行なったプログラムの実行について考察しましょう。
 
 *** Ruby オブジェクト指向プログラミング
 

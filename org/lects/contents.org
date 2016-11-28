@@ -6,4 +6,6 @@
 #+include: 04/contents.org :minlevel 1
 #+include: 05/contents.org :minlevel 1
 #+include: 06/contents.org :minlevel 1
+#+include: 07/contents.org :minlevel 1
+
 

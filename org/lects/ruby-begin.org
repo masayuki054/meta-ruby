@@ -475,65 +475,405 @@ end
 : c
 : => ["a", "b", "c"]
 
-* メタな視点
 
-** 見えるもの
- 
-- オブジェクト，クラス，メソッド がある
+* とほほ Ruby入門 
 
-- すべて，メッセージングで行なわれること
-  - あるクラスのインスタンスを作ることも
+  [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]]
 
-クラス
-- オープン・クラスであること
-- クラスが開ける 
+** Ruby入門 - 構文
+**** Rubyの書き方
 
-* 例題
+「Hello World!」を出力するプログラム
 
-** file_print.rb
+#+BEGIN_EXAMPLE
+    puts "Hello World!\n"
+#+END_EXAMPLE
 
-あるファイルの
+#+BEGIN_HTML
+  </div>
+#+END_HTML
 
-- 利用クラスライブラリ: File<IO
-  - File.open, 
-  - openされたファイルは，IOとして扱える
-  - IO.read, 
+**** [[][文・式]]
 
-#+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/file_print.rb :results output raw
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
 
-def file_print(file_name)
-  File.open(file_name) do |io|
-    print (io.read)
-  end
-end
+Perl, PHP, Javaなどでは、式(文)はセミコロン(;)で区切りますが、Ruby
+では通常改行で区切ります。
 
-if __FILE__==$0
+#+BEGIN_EXAMPLE
+    puts "Hello\n"
+    puts "World\n"
+#+END_EXAMPLE
 
-  ARGV.each do |file|
-    file_print(file)
-  end
+ただし、セミコロン(*;*)を用いることで、複数の式を1行に記述することもできます。
 
-end
+#+BEGIN_EXAMPLE
+    puts "Hello\n"; puts "World\n"
+#+END_EXAMPLE
 
-file_print("ruby-begin.org")
+式の途中で改行したい場合、バックスラッシュ(*\*)を用います。
 
-#+END_SRC
+#+BEGIN_EXAMPLE
+    ans = 1 + 2 + 3 + \
+          4 + 5 + 6
+#+END_EXAMPLE
 
-C-c C-v C-t source code output to file
-C-c C-c excute
-C-c ' edit 
+#+BEGIN_HTML
+  </div>
+#+END_HTML
 
-#+BEGIN_SRC ruby :results output raw
+**** [[][コメント(#)]]
 
-path = File.expand_path("~suzuki")
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
 
-Dir.chdir(path) do 
-  Dir.glob("*").each do |file|
-    puts file
-  end
-end
+*#* から行末の間はコメントとして解釈されます。
 
-#+END_SRC
+#+BEGIN_EXAMPLE
+    <?php
+    # ここはコメントになります。
+    puts "ここは本文\n";
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+--------------
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+Copyright(C) 2014 杜甫々
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+初版：2014年12月30日、最終更新：2014年12月30日
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+http://www.tohoho-web.com/ruby/syntax.html
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+** 変数
+   - local variable :: x in block
+   - instance variable  :: @x in self
+   - class variable  ::  @@x in self.class
+   - global variable ::  $x in system toplevel
+   - constant :: ::M1::M2::C in nesting module
+   - constant :: C in クラス継承
+
+
+
+** Ruby入門 - 数値・文字列・型
+*** [[][整数(Integer)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+*整数*(*Integer*)は下記の様に記述します。
+
+#+BEGIN_EXAMPLE
+    num = 1234        // 正の整数
+    num = -1234       // 負の整数
+#+END_EXAMPLE
+
+*0d*, *0x*, *0o*, *0b*
+はそれぞれ、10進数、16進数、8進数、2進数を意味します。
+
+#+BEGIN_EXAMPLE
+    num = 0d1234       // 10進数 (0dで始まる数値は10進数とみなされる)
+    num = 0xffff       // 16進数 (0xで始まる数値は16進数とみなされる)
+    num = 0o777        //  8進数 (0oで始まる数値は 8進数とみなされる)
+    num = 0b11000100   //  2進数 (0bで始まる数値は 2進数とみなされる)
+#+END_EXAMPLE
+
+数値の途中のアンダーバー(*\_*)は無視されます。これは、桁数の多い数値をわかりやすく表現する際に利用されます。
+
+#+BEGIN_EXAMPLE
+    num = 1_230_000_000       // 1,230,000,000
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][浮動小数点数(Float)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+*浮動少数点数*(*Float*)は下記の様に記述します。
+
+#+BEGIN_EXAMPLE
+    num = 1.234     // 浮動小数点数
+    num = 1.2e3     // 浮動小数点数(指数表記) 1.2 × 103
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][論理型(Boolean)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+*論理値*(*Boolean*)は、*true* または *false*
+で表します。これらは、TrueClass, FalseClass
+クラスの唯一のインスタンスです。
+
+#+BEGIN_EXAMPLE
+    bool = true
+    bool = false
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][文字列(String)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+*文字列*(*String*)は、ダブルクォート(*"*)、またはシングルクォート(*'*)で囲みます。
+
+#+BEGIN_EXAMPLE
+    str = "Hello world"
+    str = 'Hello world'
+#+END_EXAMPLE
+
+"..." の中では ' を、'...' の中では " を使うことができます。"..." の中で
+" を、'...' の中で '
+を使用するには、バックスラッシュ(*\*)を用いて引用符をエスケープ(無効化)します。
+
+#+BEGIN_EXAMPLE
+    str = "He said \"I'll be back.\""
+    str = 'He said "I\'ll be back."'
+#+END_EXAMPLE
+
+"..."
+の中では、後述のバックスラッシュ記法や、式展開を用いることができます。'...'
+の中では \\ と \' のみが意味を持ちます。
+
+#+BEGIN_EXAMPLE
+    str = "My name is #{name}.\n"
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][エスケープシーケンス(\x)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+"..."
+の中では、バックスラッシュ(*\*)を用いて、下記の*エスケープシーケンス*を使用できます。
+
+#+BEGIN_EXAMPLE
+    \t : タブ(TAB:0x09)
+    \v : 垂直タブ(VT:0x0b)
+    \n : 改行(ラインフィード:LF:0x0a)
+    \r : キャリッジリターン(CR:0x0d)
+    \f : フォームフィード(FF:0x0c)
+    \b : バックスペース(BS:0x08)
+    \a : ベル(BEL:0x07)
+    \e : エスケープ(ESC:0x1b)
+    \s : 空白(SPC:0x20)
+    \\ : バックスラッシュ(\)
+    \改行 : 改行(LF:0x0a)
+    \nnn : 8進表記文字(nは0～7)
+    \xnn : 16進表記文字(nは0～f)
+    \unnnn : ユニコード文字nnnn (Ruby 1.9～)
+    \u{nnnn} : ユニコード文字nnnn (Ruby 1.9～)
+    \cx : コントロール文字(xはASCII文字)
+    \C-x : コントロール文字(xはASCII文字)
+    \M-x : メタ文字(xはASCII文字)
+    \M-\C-x : メタコントロール
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][式展開(#{...})]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+文字列の中では、*#{式}* の形式で *式展開* することができます。
+
+#+BEGIN_EXAMPLE
+    name = "Tanaka"
+    puts "My name is #{name}"          #=> My name is Tanaka
+
+    x = 5; y = 3
+    puts "Answer is #{ x + y }"        #=> Answer is 8
+#+END_EXAMPLE
+
+式が変数で、@ や $ で始まる場合は、{ } を省略することができます。
+
+#+BEGIN_EXAMPLE
+    puts "My name is #{@name}"
+    puts "My name is #@name"
+#+END_EXAMPLE
+
+式展開を抑止するには、# の前にバックスラッシュ(*/*)を書きます。
+
+#+BEGIN_EXAMPLE
+    puts "You can use \#{expression} notation in the ruby string."
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][コマンド出力(`...`)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+バッククォート(*`*)で囲まれた文字列は、バックスラッシュ記法や式展開が行われた後、*コマンド出力*として実行され、コマンドの実行結果が文字列として返されます。
+
+#+BEGIN_EXAMPLE
+    puts `date`        # => Thu Sat 18 18:15:47 JST 2013
+#+END_EXAMPLE
+
+コマンドの終了ステータスを得るには、*$?* を参照します。
+
+#+BEGIN_EXAMPLE
+    date = `date`
+    status = $?
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+*** [[][ヒアドキュメント(<<)]]
+
+#+BEGIN_HTML
+  <div class="i">
+#+END_HTML
+
+*ヒアドキュメント*(*<<識別子*)の構文を用いて、複数行の文字列を現すことができます。下記の例では、This
+is ～
+の2行が表示されます。識別子は、アンダーバー(\_)を含む半角英数字(最初の文字は数値以外)であれば何でも使用できます。
+
+#+BEGIN_EXAMPLE
+    print <<END_OF_STRING
+    This is Japan.
+    This is America.
+    END_OF_STRING
+#+END_EXAMPLE
+
+最後の識別子のみの行は、行頭や行末にスペースを入れることが許されません。ただし、*<<-識別子*
+の構文を用いると、先頭のスペースが許可されます。
+
+#+BEGIN_EXAMPLE
+      print <<-EOS
+    This is Japan.
+    This is America.
+      EOS
+#+END_EXAMPLE
+
+識別子をダブルクォート(")、シングルクォート(')、バッククォート(`)で囲むと、それぞれ、"...",
+'...', `...` で囲まれた文字列の様に振る舞います。ただし、"..." の中での
+" や、'...' の中での ' はエスケープする必要はありません。
+
+#+BEGIN_EXAMPLE
+    print <<EOS            # Same as "EOS"
+    My name is #{name}.
+    EOS
+
+    print <<"EOS"
+    My name is #{name}.
+    EOS
+
+    print <<'EOS'
+    You can use #{expression} notation.
+    EOS
+
+    print <<`EOS`
+    date
+    EOS
+#+END_EXAMPLE
+
+一度に複数のヒアドキュメントを使用することもできます。
+
+#+BEGIN_EXAMPLE
+    print <<FIRST, <<SECOND
+      This is the first string.
+    FIRST
+      This is the second string.
+    SECOND
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+--------------
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+Copyright(C) 2014 杜甫々
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+初版：2014年12月30日、最終更新：2014年12月30日
+
+#+BEGIN_HTML
+  </div>
+#+END_HTML
+
+#+BEGIN_HTML
+  <div>
+#+END_HTML
+
+http://www.tohoho-web.com/ruby/types.html
+
+
+  </div>
+#+END_HTML
+
 
 #+BEGIN_SRC ruby :results output :session ruby
 
@@ -586,6 +926,114 @@ puts MyClass::PI
 : 3.14
 
 
+** array
+
+#+BEGIN_SRC 
+ary = [1, 2, 3, 4]
+p ary[6] = 6
+p ary
+p ary.include?(6)
+p ary[2..4]
+p ary.join(",")
+
+#+END_SRC
+
+#+RESULTS:
+
+
+** hash
+
+#+BEGIN_SRC ruby :results output
+mon = {"Jan" => 1, "Feb" => 2}
+p mon["Jan"]
+p mon["Feb"]
+p mon.size
+
+mon.each do |key,val|
+  p "#{key}=#{val}"
+end
+#+END_SRC
+
+#+RESULTS:
+: 1
+: 2
+: 2
+: "Jan=1"
+: "Feb=2"
+
+
+
+
+* メタな視点
+
+** 見えるもの
+ 
+オブジェクト，クラス，メソッド がある
+
+*** オブジェクト
+
+- すべて，メッセージングで行なわれること
+  - あるクラスのインスタンスを作ることも
+- オブジェクトが実行する
+
+*** クラス
+
+- オープン・クラスであること
+- クラスが開ける 
+
+*** 定数
+
+- 名前のついたオブジェクト
+- オブジェクトにつけた名前
+  
+
+* 例題
+
+** file_print.rb
+
+あるファイルの
+
+- 利用クラスライブラリ: File<IO
+  - File.open, 
+  - openされたファイルは，IOとして扱える
+  - IO.read, 
+
+#+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/file_print.rb :results output raw
+
+def file_print(file_name)
+  File.open(file_name) do |io|
+    print (io.read)
+  end
+end
+
+if __FILE__==$0
+
+  ARGV.each do |file|
+    file_print(file)
+  end
+
+end
+
+file_print("ruby-begin.org")
+
+#+END_SRC
+
+C-c C-v C-t source code output to file
+C-c C-c excute
+C-c ' edit 
+
+#+BEGIN_SRC ruby :results output raw
+
+path = File.expand_path("~suzuki")
+
+Dir.chdir(path) do 
+  Dir.glob("*").each do |file|
+    puts file
+  end
+end
+
+#+END_SRC
+
 #+BEGIN_SRC ruby :results output
 
 path = File.expand_path("~suzuki")
@@ -596,6 +1044,7 @@ p files[2..3]
 files.each do |file| 
   p file
 #+END_SRC
+
 
 ** home_directory.rb
 
@@ -621,47 +1070,21 @@ end
 
 #+END_SRC
 
-** array
-
-#+BEGIN_SRC 
-ary = [1, 2, 3, 4]
-p ary[6] = 6
-p ary
-p ary.include?(6)
-p ary[2..4]
-p ary.join(",")
-
-#+END_SRC
-
-#+RESULTS:
-
-** hash
-
-#+BEGIN_SRC ruby :results output
-mon = {"Jan" => 1, "Feb" => 2}
-p mon["Jan"]
-p mon["Feb"]
-p mon.size
-
-mon.each do |key,val|
-  p "#{key}=#{val}"
-end
-#+END_SRC
-
-#+RESULTS:
-: 1
-: 2
-: 2
-: "Jan=1"
-: "Feb=2"
 
 
-** shuzo_
+** shuzo_meigen.rb
 
-meigen.rb
+[[http://qiita.com/seiya1121/items/3dde2dae7319fe261323][Nokogiriで簡単なWebスクレイピング - Qiita]] を参考に
 
-   [[http://qiita.com/seiya1121/items/3dde2dae7319fe261323][Nokogiriで簡単なWebスクレイピング - Qiita]] を参考に
-   
+- IOの拡張としてのWebページ処理 'open-uri'
+- 文字列の処理
+- 
+- 構文解析
+- gem を使う
+
+  #+BEGIN_SRC sh
+  gem install nokogiri
+  #+END_SRC
 
 #+BEGIN_SRC ruby :tangle ~suzuki/rubys/examples/shuzo_meigen.rb :results output raw :exports both
 
@@ -794,3 +1217,68 @@ end
 返せたように見える一球。
 しかし、僕にとっては
 何千球と練習をしたうちの一球だ。
+
+
+** Directory の走査 (traverse)
+
+*** あるディレクトリ配下のファイル名を一覧表示する。
+
+#+BEGIN_SRC ruby :results output raw
+
+def dir_tree_traverse(di)
+  Dir.chdir(di) do
+    Dir.glob("*").each do |f|
+      p `pwd`+"/"+arg
+      if File.directory?(f)
+        dir_tree_traverse(di+"/"+f)
+      end
+    end
+  end
+end
+
+if __FILE__==$0
+  
+  dir_tree_traverse(File.path_expand("~/working"))
+
+end
+#+END_SRC
+
+- 再帰   
+
+
+*** あるディレクトリ配下のファイル名を木構造表示する
+
+    宿題
+
+*** あるディレクトリ配下のあるファイル達に対し，何かする
+
+入力
+- dir :: ディレクトリ
+- pattern :: ファイル名のパターン
+- test :: 再帰を行なうかの検査 (関数)
+- prog ::ファイルへの処理
+
+#+BEGIN_SRC ruby :results output raw
+
+def dir_tree_traverse(dir, pattern, test, proc)
+  Dir.chdir(dir) do
+    Dir.glob(pattern).each do |f|
+      proc.call(f)
+      if test.call(f)
+        dir_tree_traverse(dir+"/"+f, pattern, test, proc)
+      end
+    end
+  end
+end
+
+if __FILE__==$0
+
+  tst = Proc.new { |arg| File.directory?(arg) }
+  prc = Proc.new { |arg| p `pwd`+"/"+arg }
+  dir_tree_traverse(".", "*", tst, prc)
+
+end
+#+END_SRC
+
+#+RESULTS:
+

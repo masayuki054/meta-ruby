@@ -1,0 +1,274 @@
+* サイトの木構造
+
+#+BEGIN_EXAMPLE
+~suzuki/meta-ruby.git
++-README.md
++-docs-+-emacs.html
+|      +-index.html
+|      +-lects.html
+|      +-links.html
+|      +-meta-ruby.html
+|      +-note.html
+|      +-oo.html
+|      +-ruby.html
++-org-+-Makefile
+      +-Makefile.org
+      +-Rakefile
+      +-Rakefile.org
+      +-Rakefile.setup.rb
+      +-docs.org
+      +-emacs-+-contents.org
+      |       +-emacs-note.org
+      |       +-emacs-setup.org
+      |       +-org-note.org
+      +-emacs.html
+      +-emacs.org
+      +-index.html
+      +-index.html~
+      +-index.org
+      +-info-+-common-header.html
+      |      +-common-header.org
+      |      +-index-bigblow-header.setup
+      |      +-index-readtheorg-header.setup
+      |      +-index-sos-header.setup
+      |      +-links.org
+      |      +-org-link-make.org
+      |      +-site-tree.org
+      +-lects-+-#note.org#
+      |       +-01-+-01-GTD.org
+      |       |    +-01-todo.org
+      |       |    +-1.html
+      |       |    +-1.org
+      |       |    +-contents.org
+      |       |    +-plan.org
+      |       +-02-+-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.org
+      |       +-03-+-03-note.org
+      |       |    +-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.org
+      |       |    +-response.org
+      |       |    +-resume.org
+      |       +-04-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.org
+      |       +-05-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-note.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       |    +-resume.org
+      |       |    +-working.org
+      |       +-06-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-07-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-08-+-#plan.org#
+      |       |    +-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-09-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-10-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-11-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-12-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-13-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-14-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-15-+-Makefile
+      |       |    +-contents.org
+      |       |    +-index.html
+      |       |    +-index.org
+      |       |    +-plan.html
+      |       |    +-plan.org
+      |       +-Makefile
+      |       +-a.org
+      |       +-announce.org
+      |       +-contents.org
+      |       +-index.html
+      |       +-index.org
+      |       +-meta-programming-ruby.org
+      |       +-note.org
+      |       +-openning.org
+      |       +-org-links.org
+      |       +-preface.org
+      |       +-ri20min.rb
+      |       +-ruby-begin.org
+      |       +-ruby-note.org
+      |       +-tohoho-ruby-1.org
+      +-lects.html
+      +-lects.org
+      +-links.org
+      +-log.org
+      +-matz-+-Makefile
+      |      +-index.html
+      |      +-index.org
+      |      +-matz-1-1.org
+      |      +-matz-1-2.org
+      |      +-matz-1-3.org
+      |      +-matz-2.org
+      |      +-matz-3.org
+      |      +-matz-4.org
+      |      +-matz-4.org.txt
+      |      +-matz-6.org
+      +-meta-ruby-+-Makefile
+      |           +-block.org
+      |           +-class.org
+      |           +-contents.org
+      |           +-index.html
+      |           +-index.org
+      |           +-intro.org
+      |           +-methods.org
+      |           +-object_model.org
+      |           +-resume.org
+      +-meta-ruby.html
+      +-meta-ruby.org
+      +-note-+-Makefile
+      |      +-babel-+-sqlite3-master-test.rb
+      |      |       +-sqlite3-master.rb
+      |      |       +-test-+-test_sample.rb
+      |      +-class_hier.graffle
+      |      +-class_hier.png
+      |      +-contents.org
+      |      +-index.html
+      |      +-index.org
+      |      +-memo.org
+      |      +-poker.org
+      |      +-ruby-begin-note.org
+      |      +-ruby-life.org
+      |      +-ruby-note-begin.org
+      |      +-ruby-note-meta-block.org
+      |      +-ruby-note-refe.org
+      |      +-ruby-note-sinatra-org.org
+      |      +-ruby-note-sqlite.org
+      |      +-ruby-note-string.org
+      |      +-ruby-note-test.org
+      |      +-ruby-note.html
+      |      +-ruby-note.org
+      |      +-sinatra-org-+-org-+-original-run.org
+      |                    |     +-run.org
+      |                    +-readme.org
+      |                    +-run-+-0
+      |                    |     +-1
+      |                    +-src-+-Gemfile
+      |                          +-Gemfile.lock
+      |                          +-app.rb
+      |                          +-config.ru
+      |                          +-ruby-note-meta.html
+      |                          +-ruby-note.html
+      +-note.html
+      +-note.org
+      +-oo-+-contents.org
+      |    +-index.html
+      |    +-index.org
+      |    +-oo-note-oo-sucks.org
+      |    +-strategic-choice.org
+      |    +-to_oo.org
+      |    +-to_oo_note.org
+      +-oo.html
+      +-oo.org
+      +-org-docs-+-Makefile
+      |          +-Makefile.org
+      |          +-contents.org
+      |          +-index.html
+      |          +-index.org
+      +-poker-+-Rakefile.org
+      |       +-babel-+-Rakefile
+      |       |       +-poker.rb
+      |       |       +-src-+-card.rb
+      |       |       |     +-constant.rb
+      |       |       |     +-deck.rb
+      |       |       |     +-hand.rb
+      |       |       |     +-player.rb
+      |       |       +-test-+-test-card.rb
+      |       |              +-test-constant.rb
+      |       |              +-test-deck.rb
+      |       |              +-test-hand.rb
+      |       |              +-test-player.rb
+      |       +-card.org
+      |       +-constant.org
+      |       +-deck.org
+      |       +-hand.org
+      |       +-index.html
+      |       +-index.org
+      |       +-old_src-+-*shell*
+      |       |         +-Rakefile
+      |       |         +-Rakefile.org
+      |       |         +-card.rb
+      |       |         +-card.rb.org
+      |       |         +-constant.rb
+      |       |         +-constant.rb.org
+      |       |         +-deck.rb
+      |       |         +-deck.rb.org
+      |       |         +-hand.rb
+      |       |         +-hand.rb.org
+      |       |         +-play.rb
+      |       |         +-player.rb
+      |       |         +-player.rb.org
+      |       |         +-poker.rb
+      |       |         +-poker.rb.org
+      |       |         +-test-card.rb
+      |       |         +-test-card.rb.org
+      |       |         +-test-constant.rb
+      |       |         +-test-constant.rb.org
+      |       |         +-test-deck.rb
+      |       |         +-test-deck.rb.org
+      |       |         +-test-hand.rb
+      |       |         +-test-poker.rb
+      |       +-org-test.org
+      |       +-player.org
+      |       +-poker.html
+      |       +-poker.org
+      +-ruby-+-contents.org
+      |      +-pry.org
+      |      +-ruby.org
+      +-ruby.html
+      +-ruby.org
+#+END_EXAMPLE
