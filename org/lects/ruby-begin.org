@@ -520,10 +520,6 @@ Perl, PHP, Javaなどでは、式(文)はセミコロン(;)で区切りますが
           4 + 5 + 6
 #+END_EXAMPLE
 
-#+BEGIN_HTML
-  </div>
-#+END_HTML
-
 **** [[][コメント(#)]]
 
 #+BEGIN_HTML
@@ -574,6 +570,7 @@ http://www.tohoho-web.com/ruby/syntax.html
   </div>
 #+END_HTML
 
+
 ** 変数
    - local variable :: x in block
    - instance variable  :: @x in self
@@ -581,8 +578,6 @@ http://www.tohoho-web.com/ruby/syntax.html
    - global variable ::  $x in system toplevel
    - constant :: ::M1::M2::C in nesting module
    - constant :: C in クラス継承
-
-
 
 ** Ruby入門 - 数値・文字列・型
 *** [[][整数(Integer)]]
@@ -962,7 +957,87 @@ end
 : "Feb=2"
 
 
+*** exception handling
 
+#+BEGIN_SRC ruby :results output raw
+def square(n)
+  if n>10 then
+    raise RangeError, "ERROR"
+  end
+  return n*n
+end
+
+begin
+  x = 1/0
+  x = square(5)
+  puts x
+  x = square(15)
+  puts x
+rescue RangeError
+  puts "ERROR:RangeError"
+ensure
+  x = 0
+end
+
+#+END_SRC    
+
+#+RESULTS:
+ERROR:ZeroDiv
+25
+ERROR:RangeError
+
+*** class inheritance
+
+#+BEGIN_SRC ruby :results output raw
+class MyMember
+
+  def initialize
+    @name = "hoge"
+  end
+
+  def setName(str)
+    @name = str
+  end
+
+  def getName
+    @name
+  end
+end
+
+class MyMember2 < MyMember
+  @addr = "foga"
+  def setAddr(str)
+    @addr = str
+  end
+
+  def getAddr
+    @addr
+  end
+end
+
+puts obj = MyMember2.new
+puts obj.getName
+puts obj.setName("Tanaka")
+puts obj.setAddr("Tokyo")
+puts obj.getName
+puts obj.getAddr
+#+END_SRC    
+
+#+RESULTS:
+#<MyMember2:0x007f42f2836170>
+hoge
+Tanaka
+Tokyo
+Tanaka
+Tokyo
+#<MyMember2:0x007fc0379962f0>
+
+Tanaka
+Tokyo
+Tanaka
+Tokyo
+Tanaka
+Tokyo
 
 * メタな視点
 
@@ -1078,7 +1153,6 @@ end
 
 - IOの拡張としてのWebページ処理 'open-uri'
 - 文字列の処理
-- 
 - 構文解析
 - gem を使う
 
