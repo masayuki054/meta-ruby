@@ -58,12 +58,29 @@
 
     ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 
-    - 「オブジェクトモデル」を読み始めます
+    - 「オブジェクトモデル」を読み始めます。
 
 *** Ruby オブジェクト指向プログラミング
 
-    まだ始まりません。
+    単体テストを体験しましょう。
 
+
+    - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
+      [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
+
+    - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+      
+      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] のtest-unit を読んでください。
+
+	https://github.com/masayuki054/blob/tree/org/note/ruby-note-test.org
+
+
+
+    
+    
+
+
+    
 ** 講義のための環境つくり
 
 *** Doing 文芸的プログラミング環境 

@@ -1,6 +1,9 @@
 * ruby/test
 
 ** test-unit 
+
+   [[https://docs.ruby-lang.org/ja/2.0.0/library/test=2funit.html][library test/unit (Ruby 2.0.0)]] 
+
    新らしい単体テスト・フレームワークを使いましょう:
    - [[http://qiita.com/repeatedly/items/727b08599d87af7fa671][Ruby - Test::Unitでテストを書く - Qiita]]
 
