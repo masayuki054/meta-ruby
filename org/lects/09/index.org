@@ -1,7 +1,7 @@
 #+setupfile: ~/COMM/public_html/org-html-theme/index-bigblow-header.setup
 #+include: ~/COMM/Lects/meta-ruby/site/info/common-header.org
 
-#+TITLE: 9回目の講義予定
+#+TITLE: 7回目の講義予定
 
 #+include: plan.org
 

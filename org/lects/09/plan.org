@@ -1,22 +1,18 @@
-* 講義予定 (9) 2016-12-05
+* 講義予定 (8) 2016-11-28
 
   self => ~suzuki/meta-ruby.git/org/lects/09/plan.org
-  self.html => https://masayuki054.github.io/meta-ruby/lects.org
-  self.org => https://github.com/masayuki054/tree/master/org/lects/09/plan.org
-
-
 
 ** 講義内容
 
-*** Doing Ruby入門 [1/2]
-    SCHEDULED: <2016-10-24 月>
-
+*** Done Ruby入門 [1/2]
+    CLOSED: [2016-11-29 火] SCHEDULED: <2016-10-24 月>
     ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 
     - file://~suzuki/rubys/ruby-begin.org emacsで見てください
-    - [[https://github.com/masayuki054/meta-ruby/org/lects/ruby-begin.org][ruby-begin.org@repos]] github 適宜raw mode で見てください
+    - [[https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org][ruby-begin.org@repos]] github 適宜raw mode で見てください
      
-**** Doing [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
+**** Done [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
+     CLOSED: [2016-11-29 火 19:59]
 
      - begin~end, 例外処理
      - 正規表現
@@ -27,12 +23,12 @@
      
      ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
 
-     File，Dir, Array, String のクラスについて，調べながら，
+***** Doing File，Dir, Array, String のクラスについて，調べながら，
      実践的なプログラムを作ってみましょう。
 
      - [X] file_print.rb <2016-11-21 月>
-     - [ ] home_directory.rb <2016-11-28 月>
-     - [ ] shuzo-meigen.rb <2016-11-28 月> home work
+     - [X] home_directory.rb <2016-11-28 月>
+     - [-] shuzo-meigen.rb <2016-11-28 月> home work
      - [ ] dir_traverse.rb <2016-12-08 木>
 
 *** Todo オブジェクト指向について
@@ -46,7 +42,7 @@
     - [X] 構造化プログラミング
     - [X] モジュラープログラミング
     - [X] 抽象データ型
-    - [ ] オブジェクト指向 メッセージングと動的ディスパッチ
+    - [X] オブジェクト指向 メッセージングと動的ディスパッチ
 
     oo.org にまとめてください。
  
@@ -60,13 +56,21 @@
 
     file://~suzuki/COMM/Lects/meta-ruby/book を使います。
 
-    : ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+    ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+
+    - 「オブジェクトモデル」を読み始めます
 
 *** Ruby オブジェクト指向プログラミング
 
     まだ始まりません。
 
 ** 講義のための環境つくり
+
+*** Doing 文芸的プログラミング環境 
+    - emacs org-mode
+    - emacs org-mode + babel
+
+
 
 *** Done ruby実行環境 
     CLOSED: [2016-10-31 月 20:20]
@@ -92,9 +96,4 @@
     [[./emacs.org][Emacs]]
     - [X] emacs-24.5
     - [X] emacsのパッケージと設定
-
-*** Doing 文芸的プログラミング環境 
-    - emacs org-mode
-    - emacs org-mode + babel
-
 

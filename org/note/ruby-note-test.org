@@ -13,7 +13,6 @@
 ** テストの書き方
 
 *** 基本
-
     - classで書く．
     - TestCase毎に呼ばれる startup/shutdown 
     - Test毎に呼ばれる setup/teardown/cleanup
