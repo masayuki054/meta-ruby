@@ -8,6 +8,6 @@
 [[./meta-ruby.org][meta-ruby]] /
 [[./note.org][note]] /
 [[http://github.com/masayuki054/meta-ruby][github-repos]] /
+[[https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/][svn-repos]]
 [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/][2015]] /
-[[https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/2015][svn-repos:2015]]
 

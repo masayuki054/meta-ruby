@@ -12,6 +12,9 @@
 #+BEGIN_SRC sh 
   gem install test-unit 
 #+END_SRC
+
+#+RESULTS:
+
    
 ** テストの書き方
 
@@ -26,7 +29,7 @@
 #+BEGIN_SRC ruby
 require "rubygems"
 gem "test-unit"
-require 'test/unit'
+require "test/unit"
 #+END_SRC
 
 **** テスト・クラス定義

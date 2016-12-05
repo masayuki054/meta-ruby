@@ -1,5 +1,15 @@
 * サイトの木構造
 
+- https://github.com/masayuki054/meta-ruby/
+- file://~suzuki/meta-ruby.git/
+
+
+#+BEGIN_SRC sh :results example
+lstree ~/COMM/Lects/meta-ruby/git
+#+END_SRC
+
+#+RESULTS:
+
 #+BEGIN_EXAMPLE
 ~suzuki/meta-ruby.git
 +-README.md

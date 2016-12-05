@@ -2,6 +2,19 @@
 
 ここには，((:-s)) の，講義前や講義後に思ったことを，書き留めてあります。
 
+** 2016-12-05 へのメモ
+
+- oo.org, oo-note.org を見せる
+
+- strategic choice 
+
+- meta-ruby 始める
+
+- ~suzuki/meta-ruby.git/book@, ~suzuki/meta-ruby.git/codes@, 
+
+- test-unit 始める
+     
+
 ** 2016-11-28 へのメモ
 
 [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]]

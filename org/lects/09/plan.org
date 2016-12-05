@@ -1,25 +1,10 @@
-* 講義予定 (8) 2016-11-28
+* 講義予定 (9) 2016-12-05
 
   self => ~suzuki/meta-ruby.git/org/lects/09/plan.org
 
 ** 講義内容
 
-*** Done Ruby入門 [1/2]
-    CLOSED: [2016-11-29 火] SCHEDULED: <2016-10-24 月>
-    ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
-
-    - file://~suzuki/rubys/ruby-begin.org emacsで見てください
-    - [[https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org][ruby-begin.org@repos]] github 適宜raw mode で見てください
-     
-**** Done [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
-     CLOSED: [2016-11-29 火 19:59]
-
-     - begin~end, 例外処理
-     - 正規表現
-     - メソッド
-     - クラス
-
-**** Doing Ruby programming
+*** Doing Ruby programming
      
      ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
 
@@ -28,8 +13,25 @@
 
      - [X] file_print.rb <2016-11-21 月>
      - [X] home_directory.rb <2016-11-28 月>
+
      - [-] shuzo-meigen.rb <2016-11-28 月> home work
-     - [ ] dir_traverse.rb <2016-12-08 木>
+     - [-] dir_traverse.rb <2016-12-08 木>
+
+**** Done Ruby入門 [1/2]
+     CLOSED: [2016-11-29 火 19:59]
+
+
+    - file://~suzuki/rubys/ruby-begin.org emacsで見てください
+    - [[https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org][ruby-begin.org@repos]] github 適宜raw mode で見てください
+
+**** Done [[http://www.tohoho-web.com/ruby/][とほほのRuby入門]] ([[./ruby.org]] 2.ruby入門-2.1 2016)
+     CLOSED: [2016-11-29 火 19:59]
+ 
+    ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+     - begin~end, 例外処理
+     - 正規表現
+     - メソッド
+     - クラス
 
 *** Todo オブジェクト指向について
     SCHEDULED: <2016-11-14 月>
@@ -43,6 +45,7 @@
     - [X] モジュラープログラミング
     - [X] 抽象データ型
     - [X] オブジェクト指向 メッセージングと動的ディスパッチ
+    - [ ] オブジェクト指向 仮想機械とメッセージング
 
     oo.org にまとめてください。
  
@@ -64,21 +67,12 @@
 
     単体テストを体験しましょう。
 
-
     - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
       [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
 
     - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
       
-      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] のtest-unit を読んでください。
-
-	https://github.com/masayuki054/blob/tree/org/note/ruby-note-test.org
-
-
-
-    
-    
-
+      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] (([[https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org][.org.github]] [[file://~suzuki/meta-ruby.git/org/note/ruby-note-test.org][.org]].emacs)) のtest-unit を読んでください。
 
     
 ** 講義のための環境つくり
