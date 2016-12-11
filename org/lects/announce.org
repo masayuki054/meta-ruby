@@ -1,12 +1,22 @@
 * おしらせ
+** 2016-12-12 [[https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU][学生さんのフォルダ]]
+
+   レポート提出要に，[[https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU][学生さんのフォルダ]] @ GoogleDriveを用意しました。
+   登録されていない人は言ってください。
+
+** 2016-12-12 [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] 
+
+読む予定のページです。
+
+- [[http://d.hatena.ne.jp/asakichy/20090424/1240533845][オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice]]
+- [[http://d.hatena.ne.jp/asakichy/20090425/1240613767][オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice]]
+
 ** 2016-12-05
 
    サブバージョン リポジトリ
    http://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/ に
 
-   [[http://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/2016][2016]] を
-
-   用意しました。レポート提出に使います。
+   [[http://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/2016][2016]] を 用意しました。
 
 ** 2016-10-17 休講します。
    SCHEDULED: <2016-10-02 日>

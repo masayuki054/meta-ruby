@@ -4,6 +4,7 @@
 [[./lects.org][講義]] /
 [[./ruby.org][ruby]] / 
 [[./oo.org][OO]] / 
+[[./poker.org][poker開発]] /
 [[./emacs.org][emacs]] / 
 [[./meta-ruby.org][meta-ruby]] /
 [[./note.org][note]] /
