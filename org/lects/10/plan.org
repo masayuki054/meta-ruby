@@ -4,20 +4,21 @@
 
 ** 講義内容
 
-*** Doing Ruby programming
+*** Doing Ruby programming 
      
-     ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
+    ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
 
 ***** Doing File，Dir, Array, String のクラスについて，調べながら，
+    
      実践的なプログラムを作ってみましょう。
 
      - [X] file_print.rb <2016-11-21 月>
      - [X] home_directory.rb <2016-11-28 月>
 
      説明します。
+
      - [-] shuzo-meigen.rb <2016-11-28 月> home work
      - [-] dir_traverse.rb <2016-12-08 木>
-
 
 **** Done Ruby入門 [1/2]
      CLOSED: [2016-11-29 火 19:59]
@@ -54,13 +55,11 @@
     - [X] オブジェクト指向 メッセージングと動的ディスパッチ
     - [X] オブジェクト指向 仮想機械とメッセージング
 
-    oo.org にまとめてください。
+    ~/rubys/oo.org にまとめてください。
  
-    : ~/rubys/oo.org
-
     - org-mode で書いてみましょう 
-      file://~suzuki/rubys/oo.org
 
+      file://~suzuki/rubys/oo.org
 
 *** Todo メタプログラミング Ruby
     SCHEDULED: <2016-11-07 月>
@@ -88,8 +87,6 @@
 *** Doing 文芸的プログラミング環境 
     - emacs org-mode
     - emacs org-mode + babel
-
-
 
 *** Done ruby実行環境 
     CLOSED: [2016-10-31 月 20:20]

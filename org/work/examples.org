@@ -93,6 +93,7 @@ end
 
 #+END_SRC
 
+
 ** shuzo_meigen.rb
 
 [[http://qiita.com/seiya1121/items/3dde2dae7319fe261323][Nokogiriで簡単なWebスクレイピング - Qiita]] を参考に,
@@ -273,6 +274,7 @@ end
     dir_tree.rb
 
     宿題
+
 
 *** あるディレクトリ配下のあるファイル達に対し，何かする
 
