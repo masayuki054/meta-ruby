@@ -8,4 +8,6 @@
 
 #+include: strategic-choice.org :minlevel 1
 
+#+include: oo-principle.org :minlevel 1
+
 

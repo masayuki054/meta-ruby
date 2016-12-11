@@ -5,21 +5,76 @@
 ** 講義内容
 
 *** Doing Ruby programming 
-     
-    ~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
 
-***** Doing File，Dir, Array, String のクラスについて，調べながら，
+***** Examples
     
-     実践的なプログラムを作ってみましょう。
+      実践的なプログラムを作ってみましょう。
 
-     - [X] file_print.rb <2016-11-21 月>
+      ~suzuki/rubys/examples/ の下, [[https://github.com/masayuki054/meta-ruby/tree/master/org/work][work]] (github) に，個々のプログラムを置くよう
+      にします。(([[file://~suzuki/rubys/examples.org][@cis]], [[file:~/meta-ruby.git/org/work][@s]]))
+
+     - [X] file_print.rb <2016-11-21 月> 
      - [X] home_directory.rb <2016-11-28 月>
-
-     説明します。
-
      - [-] shuzo-meigen.rb <2016-11-28 月> home work
-     - [-] dir_traverse.rb <2016-12-08 木>
+     - [-] dir_traverse.rb <2016-12-08 木> home work
 
+*** Todo オブジェクト指向について
+    SCHEDULED: <2016-11-14 月>
+
+**** [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] を始めましょう。[/]
+
+     読む予定のページです。~/rubys/oo.org にまとめてください。
+
+     - [ ] [[http://d.hatena.ne.jp/asakichy/20090424/1240533845][オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice]]
+     - [ ]  [[http://d.hatena.ne.jp/asakichy/20090425/1240613767][オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice]]
+
+**** Todo Rubyのオブジェクト原理主義
+
+     https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html
+
+     を読んで Ruby らしさについて考えましょう。
+   
+
+*** Todo メタプログラミング Ruby
+    SCHEDULED: <2016-11-07 月>
+
+    file://~suzuki/COMM/Lects/meta-ruby/book を使います。
+
+    ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+
+    - 「オブジェクトモデル」を読み始めます。
+
+
+*** Ruby オブジェクト指向プログラミング
+
+**** 単体テストを体験しましょう。
+
+    - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
+      [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
+
+    - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+      
+      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] (([[https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org][.org.github]] [[file://~suzuki/meta-ruby.git/org/note/ruby-note-test.org][.org]].emacs)) のtest-unit を読んでください。
+
+**** デザイン・パターン
+
+     [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターンを作りました]] は，ruby で書
+     いたデザイン・パターンの実装例です。
+
+     AbstractFactory を読んで，考えてみましょう。
+
+      - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] ::
+        デザインパターンのリファレンスに使いましょう。
+
+*** 講義のための環境つくり
+
+**** Doing 文芸的プログラミング環境 
+     - emacs org-mode
+     - emacs org-mode + babel
+
+** 終わったこと
+
+*** Doing Ruby programming 
 **** Done Ruby入門 [1/2]
      CLOSED: [2016-11-29 火 19:59]
 
@@ -39,9 +94,6 @@
 
 *** Todo オブジェクト指向について
     SCHEDULED: <2016-11-14 月>
-
-**** Todo Rubyのオブジェクト原理主義
-     
    
 **** Done [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]] 
      CLOSED: [2016-12-06 火 15:52]
@@ -64,52 +116,36 @@
 *** Todo メタプログラミング Ruby
     SCHEDULED: <2016-11-07 月>
 
-    file://~suzuki/COMM/Lects/meta-ruby/book を使います。
-
-    ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
-
-    - 「オブジェクトモデル」を読み始めます。
-
 *** Ruby オブジェクト指向プログラミング
 
-    単体テストを体験しましょう。
+*** 講義のための環境つくり
 
-    - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
-      [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
+**** Doing 文芸的プログラミング環境 
+     - emacs org-mode
+     - emacs org-mode + babel
 
-    - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
-      
-      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] (([[https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org][.org.github]] [[file://~suzuki/meta-ruby.git/org/note/ruby-note-test.org][.org]].emacs)) のtest-unit を読んでください。
+**** Done ruby実行環境 
+     CLOSED: [2016-10-31 月 20:20]
+     [[./ruby.org]] [2/2]
+     - [X] ruby情報
+     - [X] ruby環境作り [4/4]
+       - [X] rbenv とは 
+       - [X] 自前で rbenv+ruby-build をインストール
 
-    
-** 講義のための環境つくり
+       - [X] ruby のインストール
+	 先週，    
+	 : rbenv install 2.3.0-dev 
+	 ができない人がいましたが，どうも，
+         : ~/.rbenv/plugins/ruby-build/bin 
+	 にある，ruby-install が認識されていないためのようです。
+	 取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+         ださい。
+	 
+       - [X] gem (rubyのパッケージ管理)
 
-*** Doing 文芸的プログラミング環境 
-    - emacs org-mode
-    - emacs org-mode + babel
-
-*** Done ruby実行環境 
-    CLOSED: [2016-10-31 月 20:20]
-    [[./ruby.org]] [2/2]
-    - [X] ruby情報
-    - [X] ruby環境作り [4/4]
-      - [X] rbenv とは 
-      - [X] 自前で rbenv+ruby-build をインストール
-
-      - [X] ruby のインストール
-	先週，    
-	: rbenv install 2.3.0-dev 
-	ができない人がいましたが，どうも，
-        : ~/.rbenv/plugins/ruby-build/bin 
-	にある，ruby-install が認識されていないためのようです。
-	取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
-        ださい。
-	
-      - [X] gem (rubyのパッケージ管理)
-
-*** Done ruby プログラミング環境
-    CLOSED: [2016-10-31 月 20:20]
-    [[./emacs.org][Emacs]]
-    - [X] emacs-24.5
-    - [X] emacsのパッケージと設定
+**** Done ruby プログラミング環境
+     CLOSED: [2016-10-31 月 20:20]
+     [[./emacs.org][Emacs]]
+     - [X] emacs-24.5
+     - [X] emacsのパッケージと設定
 
