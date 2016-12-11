@@ -1,4 +1,13 @@
 * おしらせ
+** 2016-12-05
+
+   サブバージョン リポジトリ
+   http://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/ に
+
+   [[http://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/2016][2016]] を
+
+   用意しました。レポート提出に使います。
+
 ** 2016-10-17 休講します。
    SCHEDULED: <2016-10-02 日>
 

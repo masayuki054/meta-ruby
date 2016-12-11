@@ -99,8 +99,8 @@
 
 * Rubyの原理
 
-- 原典: [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html][オブジェクト]]  (ruby-lang.org)
-- 原典:  [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html][クラス (Ruby 2.0.0)]]
+- 原典: [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec~2fobject.html][オブジェクト]]  (ruby-lang.org)
+- 原典:  [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec~2fclass.html][クラス (Ruby 2.0.0)]]
 
 ** オブジェクト
 
@@ -174,27 +174,26 @@
 
 あるオブジェクトだけに定義されたクラス (by ((s-:)))
 
+
 * 言語上のこと
 
-- [[http://docs.ruby-lang.org/ja/2.0.0/doc/s][変数と定数 (Ruby 2.0.0)]]
+** [[http://docs.ruby-lang.org/ja/2.0.0/doc/s][変数と定数 (Ruby 2.0.0)]]
+*** 変数 http://www.rubylife.jp/ini/var/          変数 - Ruby入門
 
-
-* 変数 http://www.rubylife.jp/ini/var/          変数 - Ruby入門
-
-** 変数への代入 
+*** 変数への代入 
 
    変数への代入
-   : 変数 = 値
+   : 変数 ~ 値
 
    多重代入
-   ： 変数1, 変数2, 変数3 = 値1, 値2, 値3
+   ： 変数1, 変数2, 変数3 ~ 値1, 値2, 値3
 
 #+BEGIN_SRC ruby :session ruby :results output
-x1 = 10
+x1 ~ 10
 
-x1, x2, x3 = 1, 2, 3
+x1, x2, x3 ~ 1, 2, 3
 
-x1, x2, x3 = [1, 2, 3]
+x1, x2, x3 ~ [1, 2, 3]
 
 'end'
 #+END_SRC   
@@ -204,7 +203,7 @@ x1, x2, x3 = [1, 2, 3]
 : [1, 2, 3]
 : [1, 2, 3]
 
-** 変数の種類
+*** 変数の種類
 
    http://docs.ruby-lang.org/ja/2.0.0/doc/s 変数と定数 (Ruby 2.0.0)
 
@@ -215,7 +214,7 @@ x1, x2, x3 = [1, 2, 3]
    - クラス変数
    - 定数
 
-** Ruby予約語
+**** Ruby予約語
 
 
 ： BEGIN    class    ensure   nil      self     when
@@ -228,33 +227,30 @@ x1, x2, x3 = [1, 2, 3]
 
 変数名としては使用できません。 
 
-** 自己代入 
-** 多重代入 
+ - 自己代入 
+ - 多重代入 
 
-* スコープ
+*** スコープ
+   講義後半で説明します。
 
-  講義後半で説明します。
+   Block/Module
+    - ローカル変数
+    - グローバル変数 
 
-  Block/Module
-   - ローカル変数
-   - グローバル変数 
+    Object
+    - インスタンス変数
 
-   Object
-   - インスタンス変数
+    Class
+    - クラス変数
 
-   Class
-   - クラス変数
-
-   Module/Class (?) - ((*自信なし*))
-   - 定数
-
+    Module/Class (?) - ((*自信なし*))
+    - 定数
   
-
-* [[http://www.rubylife.jp/ini/method/][メソッド - Ruby入門]]
+** [[http://www.rubylife.jp/ini/method/][メソッド - Ruby入門]]
 
 ** Rubyにおけるトップレベル 
 
-   http://www.rubylife.jp/ini/method/index1.html
+  http://www.rubylife.jp/ini/method/index1.html
 *** トップレベル 
 
 
@@ -300,24 +296,24 @@ self.class
 *** トップレベルに定義されたメソッド
 
 
-    ップレベルの中にもメソッドを定義することが出来ます。
+   ップレベルの中にもメソッドを定義することが出来ます。
 
-    トップレベルに定義されたメソッドは*「Kernel」モジュール*の中に追加
-    されることになっています。
+   トップレベルに定義されたメソッドは*「Kernel」モジュール*の中に追加
+   されることになっています。
 
-   「Kernel」モジュールは全てのクラスの元になっている「Object」クラス
-   に読み込まれています。
+  「Kernel」モジュールは全てのクラスの元になっている「Object」クラス
+  に読み込まれています。
 
-   その為、トップレベルに定義されたモジュールは、「Kernel」モジュール
-   の中で既に定義されている「print」メソッドなどと同じようにどのクラス
-   内からでも呼び出すことができます。
+  その為、トップレベルに定義されたモジュールは、「Kernel」モジュール
+  の中で既に定義されている「print」メソッドなどと同じようにどのクラス
+  内からでも呼び出すことができます。
 
-   またメソッドを呼び出す際に、呼び出し元のオブジェクト(レシーバーと呼
-   ばれています)を省略できるので、あたかも関数のように使用することが可
-   能です。
+  またメソッドを呼び出す際に、呼び出し元のオブジェクト(レシーバーと呼
+  ばれています)を省略できるので、あたかも関数のように使用することが可
+  能です。
 
-   よって特定のクラス内ではなくトップレベルの位置にメソッドを定義すれ
-   ば、関数のように使用できるメソッドを定義することが可能となります。
+  よって特定のクラス内ではなくトップレベルの位置にメソッドを定義すれ
+  ば、関数のように使用できるメソッドを定義することが可能となります。
 
 
 ** メソッドの定義と呼び出し 
@@ -397,14 +393,14 @@ x
 ド定義側では引数にデフォルト値を設定することが可能です。書式は次の通りです。 
 
 
-   : def メソッド名(変数1=デフォルト値1, 変数2=デフォルト値2, ...)
+   : def メソッド名(変数1~デフォルト値1, 変数2~デフォルト値2, ...)
    :   実行する処理
    :   実行する処理
    : end
 
 #+BEGIN_SRC ruby :session ruby :results output
 
-def printHello(msg="No msg", name="No name")
+def printHello(msg~"No msg", name~"No name")
   print(msg + "," + name + "¥n")
 end
 
@@ -412,7 +408,7 @@ printHello("Hello", "Yamada")
 printHello("Hello")
 printHello()
 
-def printHello(msg, name="No name")
+def printHello(msg, name~"No name")
   print(msg + "," + name + "¥n")
 end
 
@@ -428,6 +424,154 @@ printHello("Hello")
 ** 引数を配列として受け取る 
 ** メソッドの戻り値 
 ** 多重代入を使って複数の戻り値を取得 
+
+** [[http://www.rubylife.jp/ini/string/][文字列 - Ruby入門]]
+
+** 文字列オブジェクト 
+   #+BEGIN_SRC ruby :session ruby :results output both
+String.new("こんにちは\n")
+"こんにちは\n"
+"こんにちは\n".class
+String.class
+'end'
+   #+END_SRC
+   
+   #+RESULTS:
+: "こんにちは\n"
+: "こんにちは\n"
+: String
+: Class
+   
+** バックスラッシュ記法によるエスケープ 
+** %Q、%qによる文字列の作成 
+   
+   #+BEGIN_SRC ruby :session ruby :results output data
+require 'kconv'
+print Kconv.toutf8(%Q[こんにちは"佐藤"さん\nお元気ですか]), "\n"
+print Kconv.toutf8(%q|こんにちは\nお元気ですか|), "\n"
+'end
+   #+END_SRC
+   
+   #+RESULTS:
+: false
+: こんにちは"佐藤"さん¥nお元気ですか
+: nil
+: こんにちは\nお元気ですか
+   
+** ヒアドキュメントによる複数行文字列の作成 
+#    #+BEGIN_SRC ruby :session ruby :results output
+# print <<end
+# こんにちは
+# 世界
+# end
+# 'end'
+#    #+END_SRC
+   
+#    #+RESULTS:
+# : 
+# : こんにちは
+# : 世界
+# : nil
+   
+#    #+BEGIN_SRC ruby :session ruby :results output
+
+# print <<EOS, <<EOS
+# こんにちは
+# お元気ですか
+# ではさようなら
+# EOS
+# ではさようなら
+# お元気ですか
+# こんにちは
+# EOS
+
+# 'end'
+#    #+END_SRC
+   
+#    #+RESULTS:
+# : こんにちは
+# : お元気ですか
+# : ではさようなら
+# : ではさようなら
+# : お元気ですか
+# : こんにちは
+# : nil
+   
+** 文字列の中に式を展開 
+   #+BEGIN_SRC ruby :session ruby :results output
+name ~ "東京"
+print("出身は #{name*10} です")
+'end'
+   #+END_SRC
+   
+   #+RESULTS:
+: "東京"
+: 出身は 東京東京東京東京東京東京東京東京東京東京 ですnil
+   
+   便利で，よく使います。
+   
+** 文字列 methods 
+# #+BEGIN_SRC ruby :session ruby :results output
+# s ~ <<EOS
+# こんにちは
+# お元気ですか
+# ではさようなら
+
+# ではさようなら
+# お元気ですか
+# こんにちは
+# EOS
+
+# # 
+# s.length
+
+# # 置換
+# s.sub("では","ではまた")
+# s.gsub("では","ではまた")
+# s.gsub(/さ.*ら/,"good-bye") 
+
+# # split/join
+
+# s.split("\n")
+# s.split("\n").join(" - ")
+
+# # 部分文字列
+# s[10,5]
+# s[10,-1]
+# s.include?("元気")
+# s[s.index("元気"),4]
+
+# # 文字列中の行処理
+# s.each_line { |l| print l.sub("は", "ha") }
+
+# 'end'
+# #+END_SRC
+
+# #+RESULTS:
+# #+begin_example
+# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# 43
+# "こんにちは\nお元気ですか\nではまたさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# "こんにちは\nお元気ですか\nではまたさようなら\n\nではまたさようなら\nお元気ですか\nこんにちは\n"
+# "こんにちは\nお元気ですか\nではgood-bye\n\nではgood-bye\nお元気ですか\nこんにちは\n"
+# ["こんにちは", "お元気ですか", "ではさようなら", "", "ではさようなら", "お元気ですか", "こんにちは"]
+# "こんにちは - お元気ですか - ではさようなら -  - ではさようなら - お元気ですか - こんにちは"
+# "すか\nでは"
+# nil
+# こんにちha
+# お元気ですか
+# でhaさようなら
+
+# でhaさようなら
+# お元気ですか
+# こんにちha
+# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
+# true
+# "元気です"
+# #+end_example
+
+
+
 
 * クラスとは
 
@@ -447,7 +591,6 @@ printHello("Hello")
    - (instance) メソッドの実行
    - 自分の状態 (instance)
 
-
 ** class Car ... end
 
    class は Carクラスから生まれるオブジェクトの振舞を記述する。
@@ -455,7 +598,7 @@ printHello("Hello")
 #+BEGIN_SRC ruby :session ruby :results output
 class Car
   def initialize(carname)
-    @name = carname
+    @name ~ carname
   end
 
   def dispName
@@ -463,14 +606,14 @@ class Car
   end
 end
 
-car = Car.new("crown")
+car ~ Car.new("crown")
 car.dispName
 'end'
 #+END_SRC
 
 #+RESULTS:
 : :dispName
-: #<Car:0x007fb02b7b9368 @name="crown">
+: #<Car:0x007fb02b7b9368 @name~"crown">
 : crownnil
 
 
@@ -480,7 +623,7 @@ car.dispName
 
    - クラスからオブジェクトを作成した後で、
 
-     : car = Car.new
+     : car ~ Car.new
 
    - オブジェクトに対して名前を画面に出力させる
 
@@ -546,7 +689,7 @@ class Car
   end
 end
 
-car = Car.new
+car ~ Car.new
 car.dispClassname
 car.dispString("crown")
 
@@ -589,7 +732,7 @@ class Car
   end
 end
 
-car = Car.new()
+car ~ Car.new()
 car.dispClassname
 car.dispString("crown")
 
@@ -606,14 +749,14 @@ car.dispString("crown")
 
 
 class Reji
-  SHOUHIZEI = 0.05
+  SHOUHIZEI ~ 0.05
 
-  def initialize(init=0)
-    @sum = init
+  def initialize(init~0)
+    @sum ~ init
   end
   
   def kounyuu(kingaku)
-    @sum += kingaku
+    @sum +~ kingaku
   end
   
   def goukei()
@@ -628,7 +771,7 @@ end
 
 #+BEGIN_SRC ruby :session ruby :results output
 
-reji = Reji.new(0)
+reji ~ Reji.new(0)
 reji.kounyuu(100)
 reji.kounyuu(80)
 print(reji.goukei())
@@ -638,7 +781,7 @@ print(reji.goukei())
 #+END_SRC
 
 #+RESULTS:
-: #<Reji:0x007fb02b664120 @sum=0>
+: #<Reji:0x007fb02b664120 @sum~0>
 : 100
 : 180
 : 189.0nil
@@ -660,7 +803,6 @@ Reji::SHOUHIZEI
 : 0.05nil
 : 0.05
 
-
 ** 継承
 
 #+BEGIN_SRC ruby :session ruby :results output
@@ -681,20 +823,20 @@ end
 : :brake
 
 #+BEGIN_SRC ruby :session ruby :results output
-a = Car.new("abc")
+a ~ Car.new("abc")
 a.brake
 'end'
 #+END_SRC
 
 #+RESULTS:
-: #<Car:0x007fb02b647ac0 @name="abc">
+: #<Car:0x007fb02b647ac0 @name~"abc">
 : ブレーキを踏みましたnil
 
 
 #+BEGIN_SRC ruby :session ruby :results output
 class Soarer < Car
   def initialize(name,type)
-     @type = type
+     @type ~ type
      super(name)
   end
   def openroof
@@ -717,8 +859,8 @@ end
 
 #+BEGIN_SRC ruby :session ruby :results output
 
-so = Soarer.new("soarer")
-cr = Crown.new("crwon")
+so ~ Soarer.new("soarer")
+cr ~ Crown.new("crwon")
 
 so.class
 (so.class).superclass
@@ -728,8 +870,8 @@ so.dispName
 #+END_SRC
 \
 #+RESULTS:
-: #<Soarer:0x007fb02b61d888 @name="soarer">
-: #<Crown:0x007fb02b616ec0 @name="crwon">
+: #<Soarer:0x007fb02b61d888 @name~"soarer">
+: #<Crown:0x007fb02b616ec0 @name~"crwon">
 : Soarer
 : Car
 : soarernil
@@ -748,13 +890,13 @@ so.dispName
 
    - [[http://docs.ruby-lang.org/ja/2.0.0/doc/index.html][オブジェクト指向スクリプト言語 Ruby リファレンスマニュアル (Ruby 2.0.0)]]
 
-   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html][オブジェクト (Ruby 2.0.0)]]
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec~2fobject.html][オブジェクト (Ruby 2.0.0)]]
 
-   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fclass.html][クラス (Ruby 2.0.0)]]
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec~2fclass.html][クラス (Ruby 2.0.0)]]
 
    - [[http://docs.ruby-lang.org/ja/2.0.0/class/Module.htm][class Module (Ruby 2.0.0)]]
 
-   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fdef.html][クラス／メソッドの定義 (Ruby 2.0.0)]]
+   - [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec~2fdef.html][クラス／メソッドの定義 (Ruby 2.0.0)]]
 
    - [[http://docs.ruby-lang.org/ja/2.0.0/class/Class.html][class Class (Ruby 2.0.0)]]
 
@@ -769,7 +911,7 @@ module Panda
   end
 
   def panda
-    @panda = "panda"
+    @panda ~ "panda"
   end
 
 end
@@ -796,7 +938,7 @@ Panda.ancestors ## Panda型の階層
 : 	from (irb):23
 : 	from /opt/local/bin/irb:13:in `<main>'
 
-   Panda は Moduleクラスのオブジェクト， Pand = Module.new
+   Panda は Moduleクラスのオブジェクト， Pand ~ Module.new
 
    module Panda; ... ;end は，Panda のトップレベルを開いて，
    実行すること。
@@ -813,7 +955,7 @@ Panda.new
 #+BEGIN_SRC ruby :session first :results output
 module Panda
   def panda
-    @panda = "panda"
+    @panda ~ "panda"
   end
 end
 'end'
@@ -835,7 +977,7 @@ Panda.instance_methods(false)
 
    つまり，Panda にメソッドを定義できる。
 
-   : module Panda; CONST = 'panda const'; end 
+   : module Panda; CONST ~ 'panda const'; end 
    : Panda::CONST
    : CONST
 
@@ -881,7 +1023,7 @@ Zoo.new
 : [Zoo, Object, Kernel, BasicObject]
 : #<Zoo:0x007f8a43816c10>
 
-   Zoo は Classクラスのオブジェクト， Zoo = Class.new
+   Zoo は Classクラスのオブジェクト， Zoo ~ Class.new
 
    class Zoo; ... ; end は， Zoo のトップレベルを開いて，実行すること
 
@@ -894,13 +1036,13 @@ Zoo.new
 class UenoZoo < Zoo    # Zooクラスの継承
   include Panda        # Pandaモジュールを mix-in
   def monkey
-    @monkey = "monkey"
+    @monkey ~ "monkey"
   end
   def elephant
-    @elephant = "elephant"
+    @elephant ~ "elephant"
   end
   def lion
-    @lion = "lion"
+    @lion ~ "lion"
   end
   def self.name        # UenoZooクラスの特異メソッド
     "Ueno Zoo"
@@ -1001,22 +1143,22 @@ module Panda
   end
 
   def panda
-    @panda = "panda"
+    @panda ~ "panda"
   end
 end
 
 class UenoZoo < Zoo
   prepend Panda
   def monkey
-    @monkey = "monkey"
+    @monkey ~ "monkey"
   end
 
   def elephant
-    @elephant = "elephant"
+    @elephant ~ "elephant"
   end
 
   def lion
-    @lion = "lion"
+    @lion ~ "lion"
   end
 
   def self.name
@@ -1027,17 +1169,17 @@ end
 
 > UenoZoo.ancestors
 
-=> [Panda, UenoZoo, Zoo, Object, Kernel, BasicObject]
+~> [Panda, UenoZoo, Zoo, Object, Kernel, BasicObject]
 
 # Panda モジュールが手前にくる。includeだと
 
-# => [UenoZoo, Panda, Zoo, Object, Kernel, BasicObject]
+# ~> [UenoZoo, Panda, Zoo, Object, Kernel, BasicObject]
 
 # Panda モジュールが後ろにくる。
 
 UenoZoo.new.visit_to_Japan
 
-=> "Mr.RanRan and Mr.TonTon"
+~> "Mr.RanRan and Mr.TonTon"
 
 ちなみにクラスにはinitializeメソッドという便利なメソッドが定義されている。
 このメソッドはオブジェクトが作成された時に呼ばれるメソッドである。
@@ -1050,17 +1192,17 @@ UenoZoo.new.visit_to_Japan
 
 class UenoZoo
 
- def initialize(monkey="monkey", elephant="elephant", lion="lion")
-   @monkey = monkey
-   @elephant = elephant
-   @lion = lion
+ def initialize(monkey~"monkey", elephant~"elephant", lion~"lion")
+   @monkey ~ monkey
+   @elephant ~ elephant
+   @lion ~ lion
  end
 
 end
 
 UenoZoo.new.instance_variables
 
-=> [:@monkey, :@elephant, :@lion]
+~> [:@monkey, :@elephant, :@lion]
 #+END_SRC
 
 このままだとメソッドで変数を呼び出せないので, attr_readerを使う。
@@ -1070,19 +1212,19 @@ UenoZoo.new.instance_variables
 class UenoZoo
  attr_reader :monkey, :elephant, :lion  
 
- def initialize(monkey="monkey", elephant="elephant", lion="lion")
-    @monkey = monkey
-    @elephant = elephant
-    @lion = lion
+ def initialize(monkey~"monkey", elephant~"elephant", lion~"lion")
+    @monkey ~ monkey
+    @elephant ~ elephant
+    @lion ~ lion
  end
 
 end
 
 UenoZoo.new.monkey
 
-=> "monkey"
-Ueno.new.monkey = "pokey"
-=>  undefined method `monkey=' for #<UenoZoo:0x007fa782157008> (NoMethodError)
+~> "monkey"
+Ueno.new.monkey ~ "pokey"
+~>  undefined method `monkey~' for #<UenoZoo:0x007fa782157008> (NoMethodError)
 #+END_SRC
 
 ただこのメソッドは格納したインスタンス変数を呼び出す機能しかないので、
@@ -1094,20 +1236,20 @@ attr_writerを使う。
 class UenoZoo
  attr_accessor :monkey, :elephant, :lion  
 
- def initialize(monkey="monkey", elephant="elephant", lion="lion")
-    @monkey = monkey
-    @elephant = elephant
-    @lion = lion
+ def initialize(monkey~"monkey", elephant~"elephant", lion~"lion")
+    @monkey ~ monkey
+    @elephant ~ elephant
+    @lion ~ lion
  end
 
 end
 
 UenoZoo.new.monkey
 
-=> "monkey"
-Ueno.new.monkey = "pokey"
+~> "monkey"
+Ueno.new.monkey ~ "pokey"
 
-=> "pokey"
+~> "pokey"
 
 #+END_SRC
 
@@ -1149,15 +1291,14 @@ module Zoo
 end
 
 > Zoo::Cat.new.tuna
-=> "delicious"
+~> "delicious"
 > Cat.new.tuna
-=> "delicious"
+~> "delicious"
 #+END_SRC
 
     CatクラスとZoo::Catクラスは別々のオブジェクトになる。module名と
     class名は定数だが定数の中から定数を呼ぶ場合はコロンを二個つけて::
     で呼び出す。
-
 
 ** まとめ 
 
@@ -1206,7 +1347,8 @@ GiantPanda.ancestors
 : [GiantPanda, Panda]
 
 
-* meta
+* プログラムで見る Rubyの原理
+  
 ** クラス
 
 - インスタンス化能力を持つ。
@@ -1228,10 +1370,10 @@ GiantPanda.ancestors
 #+BEGIN_SRC ruby :session first :results output
 Class.class
 Class.ancestors
-C = Class.new
+C ~ Class.new
 C.class
 C.ancestors
-c = C.new
+c ~ C.new
 c.class
 c.ancestors
 'end'
@@ -1255,7 +1397,7 @@ NoMethodError: undefined method `ancestors' for #<C:0x007fe5d601fc20>
 #+end_example
 
    定数 Class はクラス(クラス型のオブジェクト)である。
-   - C = Class.new は，クラス(クラス型のオブジェクト)を生成する
+   - C ~ Class.new は，クラス(クラス型のオブジェクト)を生成する
 
      : [Class, Module, Object, Kernel, BasicObject] 
 
@@ -1263,7 +1405,7 @@ NoMethodError: undefined method `ancestors' for #<C:0x007fe5d601fc20>
    - Class と C では new の振る舞いは異なる
 
    定数 Module はクラスでありクラス型のオブジェクトである。
-   - Module = Class.new(Object)
+   - Module ~ Class.new(Object)
   
    あるオブジェクト obj が クラス型であるとは，
    (obj.class).ancestors に Class が含まれること
@@ -1303,6 +1445,275 @@ NoMethodError: undefined method `new' for #<Module:0x007f97339589c8>
 [Class]
 #+end_example
 
+** memo コード
+
+*** class 階層
+
+ #+BEGIN_SRC ruby :session ruby :results output
+1.class
+(1.class).superclass
+(1.class).superclass.superclass
+(1.class).superclass.superclass.superclass
+(1.class).superclass.superclass.superclass.superclass
+(1.class).superclass.superclass.superclass.superclass.superclass
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> Fixnum
+ : ~> Integer
+ : ~> Numeric
+ : ~> Object
+ : ~> BasicObject
+ : ~> nil
+
+
+ #+BEGIN_SRC ruby :session session :results output
+1.methods
+(Object.new).methods
+(BasicObject.new).methods
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> [:%, :&, :*, :+, :-, :/, :<, :>, :^, :|, :~, :-@, :**, :<~>, :<<, :>>, :<~, :>~, :~~, :~=~, :[], :inspect, :size, :succ, :to_s, :to_f, :div, :fdiv, :divmod, :modulo, :abs, :magnitude, :zero?, :odd?, :even?, :bit_length, :to_int, :to_i, :next, :upto, :chr, :ord, :integer?, :floor, :ceil, :round, :truncate, :downto, :times, :pred, :to_r, :numerator, :denominator, :rationalize, :gcd, :lcm, :gcdlcm, :+@, :eql?, :singleton_method_added, :coerce, :i, :remainder, :real?, :nonzero?, :step, :positive?, :negative?, :quo, :arg, :rectangular, :rect, :polar, :real, :imaginary, :imag, :abs2, :angle, :phase, :conjugate, :conj, :to_c, :between?, :instance_variable_get, :public_send, :instance_variable_defined?, :private_methods, :public_methods, :instance_variables, :is_a?, :instance_variable_set, :remove_instance_variable, :instance_of?, :kind_of?, :tap, :extend, :define_singleton_method, :singleton_method, :to_enum, :enum_for, :~~, :!~, :respond_to?, :freeze, :display, :object_id, :send, :method, :public_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :frozen?, :!, :!~, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+ : ~> [:instance_variable_get, :public_send, :instance_variable_defined?, :private_methods, :public_methods, :instance_variables, :is_a?, :instance_variable_set, :remove_instance_variable, :instance_of?, :kind_of?, :tap, :extend, :define_singleton_method, :singleton_method, :to_enum, :enum_for, :<~>, :~=~, :~~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :object_id, :send, :to_s, :method, :public_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :frozen?, :!, :=~, :!~, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+ : NoMethodError: undefined method `methods' for #<BasicObject:0x007fb2e21e4a00>
+ : 	from (irb):3
+ : 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
+
+ - method メソッドはBasicObjectのインスタンス・メソッドではない
+ - method メソッドはObjectのインスタンス・メソッド
+
+ #+BEGIN_SRC ruby :session session :results output
+(1.class).ancestors
+(Object.instance_methods).include?(:methods)
+(Kernel.instance_methods).include?(:methods)
+(BasicObject.instance_methods).include?(:methods)
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> [Fixnum, Integer, Numeric, Comparable, Object, Kernel, BasicObject]
+ : ~> true
+ : ~> true
+ : ~> false
+
+
+ #+BEGIN_SRC ruby :session ruby :results output
+(1.class)
+((1.class).class)
+((1.class).class).superclass
+((1.class).class).superclass.superclass
+((1.class).class).superclass.superclass.superclass
+((1.class).class).superclass.superclass.superclass.superclass
+:end
+ #+END_SRC
+
+ #+BEGIN_SRC ruby :session ruby :results output
+Class
+(Class.class)
+(Class.class).superclass
+(Class.class).superclass.superclass
+(Class.class).superclass.superclass.superclass
+(Class.class).superclass.superclass.superclass.superclass
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ Class
+ Class
+ Module
+ Object
+ BasicObject
+ nil
+
+ #+BEGIN_SRC ruby :session ruby :results output
+Module
+(Module.class)
+(Module.class).superclass
+(Module.class).superclass.superclass
+(Module.class).superclass.superclass.superclass
+(Module.class).superclass.superclass.superclass.superclass
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ : Module
+ : Class
+ : Module
+ : Object
+ : BasicObject
+ : nil
+
+ #+BEGIN_SRC ruby :session ruby :results output
+def class_hier(obj)
+  if obj.superclass
+    print " ~> ", obj.superclass
+    class_hier(obj.superclass)
+  end
+end
+ #+END_SRC
+
+ #+RESULTS:
+
+ #+BEGIN_SRC ruby  :session ruby :results output
+class_hier(Class)
+class_hier(Integer)
+
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> Module ~> Object ~> BasicObjectnil
+ : ~> Numeric ~> Object ~> BasicObjectnil
+
+ #+BEGIN_SRC ruby :session ruby :results output
+Class.singleton_class
+(Class.singleton_class).superclass
+(Class.singleton_class).superclass.superclass
+(Class.singleton_class).superclass.superclass.superclass
+(Class.singleton_class).superclass.superclass.superclass.superclass
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> #<Class:Class>
+ : ~> #<Class:Module>
+ : ~> #<Class:Object>
+ : ~> #<Class:BasicObject>
+ : ~> Class
+
+ #+BEGIN_SRC ruby :session ruby :results output
+(Class.singleton_class).singleton_class
+(Class.singleton_class).singleton_class.singleton_class
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> #<Class:#<Class:Class>>
+ : ~> #<Class:#<Class:#<Class:Class>>>
+
+ #+BEGIN_SRC ruby :session ruby :results output
+(Class.singleton_class).singleton_class
+(Class.singleton_class).singleton_class.superclass
+(Class.singleton_class).singleton_class.superclass.superclass
+(Class.singleton_class).singleton_class.superclass.superclass.superclass
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ : ~> #<Class:#<Class:Class>>
+ : ~> #<Class:#<Class:Module>>
+ : ~> #<Class:#<Class:Object>>
+ : ~> #<Class:#<Class:BasicObject>>
+
+
+ #+BEGIN_SRC ruby :session ruby :results output
+Class.ancestors
+Module.ancestors
+(Class.new).ancestors
+(Module.new).ancestors
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : [Class, Module, Object, Kernel, BasicObject]
+ : [Module, Object, Kernel, BasicObject]
+ : [#<Class:0x007f91320a46a8>, Object, Kernel, BasicObject]
+ : [#<Module:0x007f9131841268>]
+
+ #+BEGIN_SRC ruby :session ruby :resutls output
+Class.singleton_class
+(Class.singleton_class).ancestors
+'end'
+
+ #+END_SRC
+
+ #+RESULTS:
+ : end
+
+*** self 
+
+ #+BEGIN_SRC ruby :results output
+self
+self.class
+
+class H
+  $selfH ~ self
+  def m
+    $selfm ~ self
+    puts "m is called."
+    'm'
+  end
+end
+print "$selfH ~ ", $selfH
+h ~ H.new
+h.m
+print "$selfm ~ ", $selfm
+:end
+ #+END_SRC
+
+ #+RESULTS:
+ : $selfH ~ Hm is called.
+ : $selfm ~ #<H:0x007fc1890877b0>
+
+*** methods
+
+ #+BEGIN_SRC ruby :session ruby :results output
+1.methods - (Numeric.new).methods
+Integer(1001)
+String("abc")
+Array(2)
+Array(1..100)
+Kernel.Array(2)
+self.Array(2)
+
+
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ #+begin_example
+1.methods - (Numeric.new).methods
+
+Integer(1001)
+
+String("abc")
+
+Array(2)
+
+Array(1..100)
+
+Kernel.Array(2)
+
+self.Array(2)
+
+
+
+
+
+'end'
+
+:org_babel_ruby_eoe
+
+
+ #+end_example
+
+ #+BEGIN_SRC ruby :session ruby :results output
+Kernel.methods.include?(:Array)
+Kernel.methods.include?(:Integer)
+'end'
+ #+END_SRC
+
+ #+RESULTS:
+ : true
+ : true
+
+
+
+
+
 
 * メタプログラミング Ruby のノート
 
@@ -1311,9 +1722,9 @@ NoMethodError: undefined method `new' for #<Module:0x007f97339589c8>
 *** class定義
     
 #+BEGIN_SRC ruby :exports both  :session session :results output
-what_is_self_in_class_def =
+what_is_self_in_class_def ~
  class MyClass
-   CONSTANT = 'MyClassの定数'
+   CONSTANT ~ 'MyClassの定数'
    self
  end
 p what_is_self_in_class_def
@@ -1323,22 +1734,22 @@ p what_is_self_in_class_def
 
 #+RESULTS:
 : 
-: irb(main):002:0* irb(main):003:1> irb(main):004:1> irb(main):005:1> => MyClass
+: irb(main):002:0* irb(main):003:1> irb(main):004:1> irb(main):005:1> ~> MyClass
 : MyClass
-: => MyClass
+: ~> MyClass
 
-=class MyClass= は, 
-- =Class=型のオブジェクトを生成し，
-- 定数 =MyClass= にその値をセットし，
-- self を =MyClass= オブジェクトにし，
+~class MyClass~ は, 
+- ~Class~型のオブジェクトを生成し，
+- 定数 ~MyClass~ にその値をセットし，
+- self を ~MyClass~ オブジェクトにし，
 - self のトップレベルで，
-- =end= までの ruby 式を評価し，
+- ~end~ までの ruby 式を評価し，
 - 最後の式の値を返す。
 
 #+BEGIN_SRC ruby :exports both  :session session :results output
 class MyClass
   p CONSTANT
-  KONSTANT = 'MyClassの別の定数'
+  KONSTANT ~ 'MyClassの別の定数'
 end
 p CONSTANT
 p MyClass::CONSTANT
@@ -1352,26 +1763,26 @@ MyClass.constants
 #+begin_example
 
 irb(main):012:1> irb(main):013:1> "MyClassの定数"
-=> "MyClassの別の定数"
+~> "MyClassの別の定数"
 NameError: uninitialized constant CONSTANT
 	from (irb):14
 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
 "MyClassの定数"
-=> "MyClassの定数"
+~> "MyClassの定数"
 "MyClassの別の定数"
-=> "MyClassの別の定数"
-=> [:CONSTANT, :KONSTANT]
+~> "MyClassの別の定数"
+~> [:CONSTANT, :KONSTANT]
 #+end_example
 
-- =class MyClass= で，=MyClass= (クラス)オブジェクトのトップレベルに入
+- ~class MyClass~ で，~MyClass~ (クラス)オブジェクトのトップレベルに入
   る
 - ruby のクラスは変更に対し，開かれている (オープン・クラス)
-- 定数=CONSTANT= はMyClass の名前空間に定義されている
+- 定数~CONSTANT~ はMyClass の名前空間に定義されている
 
 *** object のクラス階層
 #+BEGIN_SRC ruby :exports both  :session session :results output
 
-obj= MyClass.new
+obj~ MyClass.new
 obj.class
 (obj.class).ancestors
 'end'
@@ -1379,9 +1790,9 @@ obj.class
 
 #+RESULTS:
 : 
-: => #<MyClass:0x007fd4425309d0>
-: => MyClass
-: => [MyClass, Object, Kernel, BasicObject]
+: ~> #<MyClass:0x007fd4425309d0>
+: ~> MyClass
+: ~> [MyClass, Object, Kernel, BasicObject]
 
 objの型
 
@@ -1395,8 +1806,8 @@ MyClass.class
 
 #+RESULTS:
 : 
-: => Class
-: => [Class, Module, Object, Kernel, BasicObject]
+: ~> Class
+: ~> [Class, Module, Object, Kernel, BasicObject]
 
 MyClassのオブジェクトとしての型階層
 
@@ -1410,16 +1821,16 @@ MyClass.singleton_class
 
 #+RESULTS:
 : 
-: => #<Class:MyClass>
-: => [#<Class:MyClass>, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]
+: ~> #<Class:MyClass>
+: ~> [#<Class:MyClass>, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]
 
 MyClassのオブジェクトとしての型階層
 *** 特異クラスと特異メソッド
 **** 特異メソッド
 あるオブジェクトにだけ実行できるメソッドを定義できる:
 #+BEGIN_SRC ruby :exports both  :session session :results output
-obj1 = Object.new
-obj2 = Object.new
+obj1 ~ Object.new
+obj2 ~ Object.new
 def obj1.m
   "obj's singleton method"
 end
@@ -1437,21 +1848,21 @@ obj2.methods.include?(:m)
 #+RESULTS:
 #+begin_example
 
-=> #<Object:0x007f5711dd60e8>
-=> #<Object:0x007f5711daf420>
-irb(main):004:1> irb(main):005:1> => :m
-irb(main):007:0* => "obj's singleton method"
+~> #<Object:0x007f5711dd60e8>
+~> #<Object:0x007f5711daf420>
+irb(main):004:1> irb(main):005:1> ~> :m
+irb(main):007:0* ~> "obj's singleton method"
 NoMethodError: undefined method `m' for #<Object:0x007f5711daf420>
 	from (irb):8
 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
-irb(main):010:0* => true
-=> false
+irb(main):010:0* ~> true
+~> false
 #+end_example
 
-**** =m= は何処にあるか？
+**** ~m~ は何処にあるか？
 
-- obj1とobj2 の =class= は，Object. 
-- =class= はリンク。
+- obj1とobj2 の ~class~ は，Object. 
+- ~class~ はリンク。
 - obj1 から Object へのリンクの途中に在る
 
 #+BEGIN_SRC ruby :exports both  :session session :results output
@@ -1463,13 +1874,13 @@ obj1.singleton_class
 #+END_SRC
 
 #+RESULTS:
-: => Object
-: => #<Class:#<Object:0x007f5711dd60e8>>
-: => Class
-: => [:m]
+: ~> Object
+: ~> #<Class:#<Object:0x007f5711dd60e8>>
+: ~> Class
+: ~> [:m]
 
 
-=m= の居場所は，#<Class:#<Object:0x007f5711dd60e8>> 特異クラス
+~m~ の居場所は，#<Class:#<Object:0x007f5711dd60e8>> 特異クラス
 
 #+BEGIN_SRC ruby :exports both  :session session :results output
 
@@ -1492,19 +1903,19 @@ MyClass.ancestors.each do |k|
 *** test class hier
 #+BEGIN_SRC ruby :session session :results output
 def find_instance_method(klass, method)
-  prev = nil
+  prev ~ nil
   klass.ancestors.each do |k|
     break unless  k.instance_methods.include?(method)
-    prev = k
+    prev ~ k
   end
   return prev
 end
 
 def find_singleton_method(klass, method)
-  prev = nil
+  prev ~ nil
   klass.ancestors.each do |k|
     break unless  k.instance_methods.include?(method)
-    prev = k
+    prev ~ k
   end
   return prev
 end
@@ -1520,15 +1931,15 @@ find_singleton_method(Module,:constants)
 #+END_SRC
 
 #+RESULTS:
-: => [MyClass, Object, Kernel, BasicObject]
-: irb(main):220:0* irb(main):221:1> irb(main):222:1> irb(main):223:2* irb(main):224:2> irb(main):225:2> irb(main):226:1> irb(main):227:1> => :find_instance_method
-: irb(main):229:0* irb(main):230:1> irb(main):231:1> irb(main):232:2* irb(main):233:2> irb(main):234:2> irb(main):235:1> irb(main):236:1> => :find_singleton_method
-: irb(main):238:0* irb(main):239:0* => nil
-: => nil
-: => nil
-: => nil
-: => Module
-: => Module
+: ~> [MyClass, Object, Kernel, BasicObject]
+: irb(main):220:0* irb(main):221:1> irb(main):222:1> irb(main):223:2* irb(main):224:2> irb(main):225:2> irb(main):226:1> irb(main):227:1> ~> :find_instance_method
+: irb(main):229:0* irb(main):230:1> irb(main):231:1> irb(main):232:2* irb(main):233:2> irb(main):234:2> irb(main):235:1> irb(main):236:1> ~> :find_singleton_method
+: irb(main):238:0* irb(main):239:0* ~> nil
+: ~> nil
+: ~> nil
+: ~> nil
+: ~> Module
+: ~> Module
 
 
 ** method
@@ -1605,7 +2016,7 @@ find_singleton_method(Module,:constants)
       - class の継承方向のスコープ
 
     
-- クロージャ = block + self (環境)
+- クロージャ ~ block + self (環境)
 
 
 - ブロックが生まれるとき，自身が生まれた環境を閉じ込めた ((*クロージャ*))
@@ -1707,724 +2118,6 @@ lambda は独立したコード
    - オブジェクトにつながれ，
    - オブジェクトのスコープで評価される
 
-* memo コード
-
-** class 階層
-
-#+BEGIN_SRC ruby :session ruby :results output
-1.class
-(1.class).superclass
-(1.class).superclass.superclass
-(1.class).superclass.superclass.superclass
-(1.class).superclass.superclass.superclass.superclass
-(1.class).superclass.superclass.superclass.superclass.superclass
-'end'
-#+END_SRC
-
-#+RESULTS:
-: => Fixnum
-: => Integer
-: => Numeric
-: => Object
-: => BasicObject
-: => nil
-
-
-#+BEGIN_SRC ruby :session session :results output
-1.methods
-(Object.new).methods
-(BasicObject.new).methods
-'end'
-#+END_SRC
-
-#+RESULTS:
-: => [:%, :&, :*, :+, :-, :/, :<, :>, :^, :|, :~, :-@, :**, :<=>, :<<, :>>, :<=, :>=, :==, :===, :[], :inspect, :size, :succ, :to_s, :to_f, :div, :fdiv, :divmod, :modulo, :abs, :magnitude, :zero?, :odd?, :even?, :bit_length, :to_int, :to_i, :next, :upto, :chr, :ord, :integer?, :floor, :ceil, :round, :truncate, :downto, :times, :pred, :to_r, :numerator, :denominator, :rationalize, :gcd, :lcm, :gcdlcm, :+@, :eql?, :singleton_method_added, :coerce, :i, :remainder, :real?, :nonzero?, :step, :positive?, :negative?, :quo, :arg, :rectangular, :rect, :polar, :real, :imaginary, :imag, :abs2, :angle, :phase, :conjugate, :conj, :to_c, :between?, :instance_variable_get, :public_send, :instance_variable_defined?, :private_methods, :public_methods, :instance_variables, :is_a?, :instance_variable_set, :remove_instance_variable, :instance_of?, :kind_of?, :tap, :extend, :define_singleton_method, :singleton_method, :to_enum, :enum_for, :=~, :!~, :respond_to?, :freeze, :display, :object_id, :send, :method, :public_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :frozen?, :!, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
-: => [:instance_variable_get, :public_send, :instance_variable_defined?, :private_methods, :public_methods, :instance_variables, :is_a?, :instance_variable_set, :remove_instance_variable, :instance_of?, :kind_of?, :tap, :extend, :define_singleton_method, :singleton_method, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :object_id, :send, :to_s, :method, :public_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :methods, :singleton_methods, :protected_methods, :frozen?, :!, :==, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
-: NoMethodError: undefined method `methods' for #<BasicObject:0x007fb2e21e4a00>
-: 	from (irb):3
-: 	from /home/staff/suzuki/.rbenv/versions/2.0.0-dev/bin/irb:11:in `<main>'
-
-- method メソッドはBasicObjectのインスタンス・メソッドではない
-- method メソッドはObjectのインスタンス・メソッド
-
-#+BEGIN_SRC ruby :session session :results output
-(1.class).ancestors
-(Object.instance_methods).include?(:methods)
-(Kernel.instance_methods).include?(:methods)
-(BasicObject.instance_methods).include?(:methods)
-'end'
-#+END_SRC
-
-#+RESULTS:
-: => [Fixnum, Integer, Numeric, Comparable, Object, Kernel, BasicObject]
-: => true
-: => true
-: => false
-
-
-#+BEGIN_SRC ruby :session ruby :results output
-(1.class)
-((1.class).class)
-((1.class).class).superclass
-((1.class).class).superclass.superclass
-((1.class).class).superclass.superclass.superclass
-((1.class).class).superclass.superclass.superclass.superclass
-:end
-#+END_SRC
-
-#+BEGIN_SRC ruby :session ruby :results output
-Class
-(Class.class)
-(Class.class).superclass
-(Class.class).superclass.superclass
-(Class.class).superclass.superclass.superclass
-(Class.class).superclass.superclass.superclass.superclass
-:end
-#+END_SRC
-
-#+RESULTS:
-Class
-Class
-Module
-Object
-BasicObject
-nil
-
-#+BEGIN_SRC ruby :session ruby :results output
-Module
-(Module.class)
-(Module.class).superclass
-(Module.class).superclass.superclass
-(Module.class).superclass.superclass.superclass
-(Module.class).superclass.superclass.superclass.superclass
-:end
-#+END_SRC
-
-#+RESULTS:
-: Module
-: Class
-: Module
-: Object
-: BasicObject
-: nil
-
-#+BEGIN_SRC ruby :session ruby :results output
-def class_hier(obj)
-  if obj.superclass
-    print " => ", obj.superclass
-    class_hier(obj.superclass)
-  end
-end
-#+END_SRC
-
-#+RESULTS:
-
-#+BEGIN_SRC ruby  :session ruby :results output
-class_hier(Class)
-class_hier(Integer)
-
-'end'
-#+END_SRC
-
-#+RESULTS:
-: => Module => Object => BasicObjectnil
-: => Numeric => Object => BasicObjectnil
-
-#+BEGIN_SRC ruby :session ruby :results output
-Class.singleton_class
-(Class.singleton_class).superclass
-(Class.singleton_class).superclass.superclass
-(Class.singleton_class).superclass.superclass.superclass
-(Class.singleton_class).superclass.superclass.superclass.superclass
-:end
-#+END_SRC
-
-#+RESULTS:
-: => #<Class:Class>
-: => #<Class:Module>
-: => #<Class:Object>
-: => #<Class:BasicObject>
-: => Class
-
-#+BEGIN_SRC ruby :session ruby :results output
-(Class.singleton_class).singleton_class
-(Class.singleton_class).singleton_class.singleton_class
-:end
-#+END_SRC
-
-#+RESULTS:
-: => #<Class:#<Class:Class>>
-: => #<Class:#<Class:#<Class:Class>>>
-
-#+BEGIN_SRC ruby :session ruby :results output
-(Class.singleton_class).singleton_class
-(Class.singleton_class).singleton_class.superclass
-(Class.singleton_class).singleton_class.superclass.superclass
-(Class.singleton_class).singleton_class.superclass.superclass.superclass
-:end
-#+END_SRC
-
-#+RESULTS:
-: => #<Class:#<Class:Class>>
-: => #<Class:#<Class:Module>>
-: => #<Class:#<Class:Object>>
-: => #<Class:#<Class:BasicObject>>
-
-
-#+BEGIN_SRC ruby :session ruby :results output
-Class.ancestors
-Module.ancestors
-(Class.new).ancestors
-(Module.new).ancestors
-'end'
-#+END_SRC
-
-#+RESULTS:
-: [Class, Module, Object, Kernel, BasicObject]
-: [Module, Object, Kernel, BasicObject]
-: [#<Class:0x007f91320a46a8>, Object, Kernel, BasicObject]
-: [#<Module:0x007f9131841268>]
-
-#+BEGIN_SRC ruby :session ruby :resutls output
-Class.singleton_class
-(Class.singleton_class).ancestors
-'end'
-
-#+END_SRC
-
-#+RESULTS:
-: end
-
-** self 
-
-#+BEGIN_SRC ruby :results output
-self
-self.class
-
-class H
-  $selfH = self
-  def m
-    $selfm = self
-    puts "m is called."
-    'm'
-  end
-end
-print "$selfH = ", $selfH
-h = H.new
-h.m
-print "$selfm = ", $selfm
-:end
-#+END_SRC
-
-#+RESULTS:
-: $selfH = Hm is called.
-: $selfm = #<H:0x007fc1890877b0>
-
-** methods
-
-#+BEGIN_SRC ruby :session ruby :results output
-1.methods - (Numeric.new).methods
-Integer(1001)
-String("abc")
-Array(2)
-Array(1..100)
-Kernel.Array(2)
-self.Array(2)
-
-
-'end'
-#+END_SRC
-
-#+RESULTS:
-#+begin_example
-1.methods - (Numeric.new).methods
-
-Integer(1001)
-
-String("abc")
-
-Array(2)
-
-Array(1..100)
-
-Kernel.Array(2)
-
-self.Array(2)
-
-
-
-
-
-'end'
-
-:org_babel_ruby_eoe
-
-
-#+end_example
-
-#+BEGIN_SRC ruby :session ruby :results output
-Kernel.methods.include?(:Array)
-Kernel.methods.include?(:Integer)
-'end'
-#+END_SRC
-
-#+RESULTS:
-: true
-: true
-
-
-
-
-* クラスライブラリ
-
-** Rubyリファレンス
- 原典
- - http://ref.xaio.jp/ruby/
- - http://ref.xaio.jp/ruby/classes
-
- method名やkeywordからクラスを探せるようにこの org文書を作成しました。
-
-** BasicObject
-
-   http://ref.xaio.jp/ruby/classes/basic_object
-
- *=BasicObject=*クラスは、Ruby 1.9で新しく用意されたクラスで、=Object=
- クラスの親クラスです。通常は、=BasicObject=オブジェクトを直接使うこと
- はありません。
-
- =BasicObject=は=Object=や=Kernel=のメソッドを持たないので、「メソッド
- がほぼゼロの白紙のクラスを作りたい」というときは、=BasicObject=を継承
- したサブクラスで実現できます。
-
-*** メソッド一覧
-
-**** クラスメソッド
-
- -  =new= : インスタンスの作成。
-
-**** インスタンスメソッド
-
- -  =!= : 否定。
- -  =!== : 別のものか調べる。
- -  ==== : オブジェクトの内容が同じか調べる。
- -  =__send__= : メソッドを呼び出す。
- -  =equal?= : 同じオブジェクトか調べる。
- -  =instance_eval= : インスタンスの元でコードを実行。
- -  =instance_exec= : インスタンスの元でコードを実行。
-
-**** 特別な役割のメソッド
-
- -  =initialize= : オブジェクトを作成（=new=）するとき呼ばれる。
- -  =initialize_copy= :
-    オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。
- -  =method_missing= : メソッドが見つからないとき呼ばれる。
- -  =singleton_method_added= : 特異メソッドを定義するとき呼ばれる。
- -  =singleton_method_removed= : 特異メソッドを削除するとき呼ばれる。
- -  =singleton_method_undefined= :
-    特異メソッドを未定義にするとき呼ばれる。
-
- [[/ruby/about][このサイトについて]] [[/ruby/legend][記事の読み方]]
- [[/ruby/references][参考文献]]
-
- Sponsored by [[http://www.oiax.jp/][Oiax Inc.]] / Powered by Ruby on
- Rails and AmiWiki
- 
-
-
-** Object
-
- - http://ref.xaio.jp/ruby/classes/object
-
- *=Object=*クラスは、すべてのクラスの親クラスです。
-
-*** 親クラスとモジュール
-
- =Object=クラスは=Kernel=モジュールをインクルードしています。
-
- =BasicObject=クラスが=Object=クラスの親クラスになりました。
-
- #+BEGIN_EXAMPLE
-    Object < Kernel (< BasicObject)
- #+END_EXAMPLE
-
-*** メソッド一覧
-
-**** クラスメソッド
-
- -  =new= : インスタンスの作成。
-
-**** インスタンスメソッド
-
- これらのメソッドは、実際には=Kernel=モジュールの=public=なメソッドとして実装されていますが、一般的に=Object=クラスのメソッドとして扱われます。また、この一覧には=BasicObject=のメソッドも混ぜてあります。
-
- -  =!= : 否定。Ruby 1.9
- -  =!== : 別のものか調べる。Ruby 1.9
- -  =!~= : パターンマッチの否定。Ruby 1.9
- -  ==== : オブジェクトの内容が同じか調べる。
- -  ===== : =case=式でオブジェクトをテストする。
- -  ==~= : パターンマッチ。
- -  =__id__= : オブジェクトIDを返す。
- -  =__send__= : メソッドを呼び出す。
- -  =class= : オブジェクトのクラスを返す。
- -  =clone= : オブジェクトのコピーを作成する。
- -  =define_singleton_method= : 特異メソッドを定義する。Ruby 1.9
- -  =display= : オブジェクトを文字列として出力する。
- -  =dup= : オブジェクトのコピーを作成する。
- -  =eql?= : ハッシュのキーとして同じか調べる。
- -  =equal?= : 同じオブジェクトか調べる。
- -  =enum_for= : =Enumerator=オブジェクトの作成。Ruby 1.8.7
- -  =extend= : モジュールのメソッドを取り込む。
- -  =freeze= : オブジェクトを凍結する。
- -  =frozen?= : オブジェクトの凍結状態を調べる。
- -  =hash= : ハッシュ値を返す。
- -  =id= : オブジェクトIDを返す。+Ruby 1.9+
- -  =inspect= : 読みやすい文字列に変換。
- -  =instance_eval= : インスタンスの元でコードを実行。
- -  =instance_exec= : インスタンスの元でコードを実行。Ruby 1.8.7
- -  =instance_of?= : クラスに属しているか調べる。
- -  =instance_variable_defined?= : インスタンス変数があるか調べる。
- -  =instance_variable_get= : インスタンス変数の値を得る。
- -  =instance_variable_set= : インスタンス変数の値を変える。
- -  =instance_variables= : インスタンス変数の名前を配列で返す。
- -  =is_a?= : クラスに属しているか調べる。
- -  =kind_of?= : クラスに属しているか調べる。
- -  =method= : メソッドから=Method=オブジェクトを作成。
- -  =methods= : メソッドの名前を配列で返す。
- -  =nil?= : =nil=かどうか調べる。
- -  =object_id= : オブジェクトIDを返す。
- -  =private_methods= : =private=なメソッドの名前を配列で返す。
- -  =protected_methods= : =protected=なメソッドの名前を配列で返す。
- -  =public_method= :
-    =public=なメソッドから=Method=オブジェクトを作成。Ruby 1.9
- -  =public_methods= : =public=なメソッドの名前を配列で返す。
- -  =public_send= : =public=なメソッドを呼び出す。Ruby 1.9
- -  =respond_to?= : メソッドを呼び出せるか調べる。
- -  =send= : メソッドを呼び出す。
- -  =singleton_class= : 特異クラスを返す。Ruby 1.9.2
- -  =singleton_methods= : 特異メソッドの名前を配列で返す。
- -  =taint= : オブジェクトを汚染する。
- -  =tainted?= : 汚染状態を調べる。
- -  =tap= : ブロックに自身を渡し、自身を返す。Ruby 1.8.7
- -  =to_a= : 配列に変換。+Ruby 1.9+
- -  =to_enum= : =Enumerator=オブジェクトの作成。Ruby 1.8.7
- -  =to_s= : 文字列に変換。
- -  =trust= : 信頼される状態に戻す。Ruby 1.9
- -  =type= : オブジェクトのクラスを返す。+Ruby 1.9+
- -  =untaint= : オブジェクトの汚染を除く。
- -  =untrust= : オブジェクトを信頼されない状態にする。Ruby 1.9
- -  =untrusted?= : 信頼状態を調べる。Ruby 1.9
-
-**** privateメソッド
-
- -  =remove_instance_variable= : インスタンス変数の削除。
-
-**** Rubyから呼び出されるメソッド
-
- -  =initialize= : オブジェクトを作成（=new=）するとき呼ばれる。
- -  =initialize_copy= :
-    オブジェクトをコピー（=clone=、=dup=）するとき呼ばれる。
- -  =method_missing= : メソッドが見つからないとき呼ばれる。
- -  =respond_to_missing?= : =respond_to?=が=false=のとき呼ばれる。Ruby
-    1.9.2
- -  =singleton_method_added= : 特異メソッドを定義するとき呼ばれる。
- -  =singleton_method_removed= : 特異メソッドを削除するとき呼ばれる。
- -  =singleton_method_undefined= :
-    特異メソッドを未定義にするとき呼ばれる。
-
-
-
-** Module
-
- =Module=クラスは、クラスとモジュールを表すクラスです。=Class=クラスは
- =Module=のサブクラスで、クラスだけを表します。
-
- クラス・モジュールを定義すると、クラス名・モジュール名は
- =Class=/=Module=オブジェクトを指す変数（定数）になります。
- =Class=/=Module=オブジェクトをレシーバにすれば、=Class=/=Module=クラス
- の=public=メソッドを呼び出せます。
-
- クラス・モジュール定義の中のように、=self=が=Class=/=Module=オブジェク
- トである場所では、=Class=/=Module=クラスの=private=メソッドを呼び出せ
- ます。=attr_accessor=や=include=は=Module=クラスの=private=メソッドで
- す。
-
-*** 親クラスとモジュール
-
- =Module=クラスの親クラスは=Object=クラスです。
-
- #+BEGIN_EXAMPLE
-    Module < Object < Kernel (< BasicObject)
- #+END_EXAMPLE
-
-*** メソッド一覧
-
-**** クラスメソッド
-
- -  =constants= : 現在使える定数名の一覧を返す。
- -  =nesting= : 現在のクラス・モジュールのネスト状態を調べる。
- -  =new= : モジュール定義を使わずにモジュールを作成。
-
-**** publicなインスタンスメソッド
-
- -  =<, <=, >, >== : 2つのクラスやモジュールの関係を調べる。
- -  =<=>= : 2つのクラスやモジュールの関係を調べる。
- -  ==== : 同じものか調べる。
- -  ===== : クラスに属しているか調べる。
- -  =ancestors= : 祖先クラスとモジュールの一覧を返す。
- -  =autoload= : 定数に対応するファイルを自動ロードする。
- -  =autoload?= : 定数が自動ロードされるか調べる。
- -  =class_eval= : クラスやモジュールの元でコードを実行。
- -  =class_exec= : クラスやモジュールの元でコードを実行。Ruby 1.8.7
- -  =class_variable_defined?= : クラス変数があるか調べる。
- -  =class_variables= : クラス変数名の一覧を返す。
- -  =const_defined?= : 定数があるか調べる。
- -  =const_get= : 定数の値を得る。
- -  =const_set= : 定数を設定する。
- -  =constants= : 定数名の一覧を返す。
- -  =freeze= : クラスやモジュールを凍結する。
- -  =include?= : モジュールをインクルードしているか調べる。
- -  =included_modules= : インクルードしているモジュールの一覧を返す。
- -  =instance_method= : メソッドから=UnboundMethod=オブジェクトを作成。
- -  =instance_methods= : メソッドの名前を配列で返す。
- -  =method_defined?= : メソッドがあるか調べる。
- -  =module_eval= : クラスやモジュールの元でコードを実行。
- -  =module_exec= : クラスやモジュールの元でコードを実行。Ruby 1.8.7
- -  =name= : クラスやモジュールの名前を返す。
- -  =private_class_method= : クラスメソッドを=private=にする。
- -  =private_instance_methods= : =private=メソッドの名前を配列で返す。
- -  =private_method_defined?= : =private=メソッドがあるか調べる。
- -  =protected_instance_methods= :
-    =protected=メソッドの名前を配列で返す。
- -  =protected_method_defined?= : =protected=メソッドがあるか調べる。
- -  =public_class_method= : クラスメソッドを=public=にする。
- -  =public_instance_method= :
-    =public=メソッドから=UnboundMethod=オブジェクトを作成。Ruby 1.9
- -  =public_instance_methods= : =public=メソッドの名前を配列で返す。
- -  =public_method_defined?= : =public=メソッドがあるか調べる。
- -  =to_s= : クラスやモジュールを表す文字列を返す。
-
- 以下のメソッドは、Ruby 1.8では=private=でしたが、Ruby
- 1.9では=public=になりました。
-
- -  =class_variable_get= : クラス変数の値を得る。
- -  =class_variable_set= : クラス変数を設定する。
- -  =remove_class_variable= : クラス変数の削除。
-
-**** privateなインスタンスメソッド
-
- -  =alias_method= : メソッドに別名を付ける。
- -  =attr= : インスタンス変数のアクセサを定義する。
- -  =attr_accessor= : インスタンス変数のアクセサを定義する。
- -  =attr_reader= : インスタンス変数の読み出し専用アクセサを定義する。
- -  =attr_writer= : インスタンス変数の書き込み専用アクセサを定義する。
- -  =define_method= : メソッドを定義する。
- -  =include= : モジュールをインクルードする。
- -  =module_function= : モジュールのメソッドをモジュール関数にする。
- -  =private= : メソッドを=private=にする。
- -  =protected= : メソッドを=protected=にする。
- -  =public= : メソッドを=public=にする。
- -  =remove_const= : 定数の削除。
- -  =remove_method= : メソッドの削除。
- -  =undef_method= : メソッドを未定義にする。
-
-**** Rubyから呼び出されるメソッド
-
- -  =append_features= : インクルードされる前に呼ばれる。
- -  =const_missing= : 存在しない定数を参照したときに呼ばれる。
- -  =included= : インクルードされたあとで呼ばれる。
- -  =extended= : オブジェクトに取り込まれたあとで呼ばれる。
- -  =extend_object= : オブジェクトに取り込まれる前に呼ばれる。
- -  =method_added= : メソッドを定義したときに呼ばれる。
- -  =method_removed= : メソッドを削除したときに呼ばれる。
- -  =method_undefined= : メソッドを未定義にしたときに呼ばれる。
-
-
-** Class
-
- =Class=クラスは、クラスを表すクラスで、=Module=クラスのサブクラスです。
-
- クラスに関する機能のほとんどは、=Module=クラスに実装されていますので、=Module=クラスのほうを先に調べるといいでしょう。=Class=クラスの機能は、「=Module=の機能＋インスタンスの作成とクラスの継承」です。
-
-*** 親クラスとモジュール
-
- =Class=クラスの親クラスは=Module=クラスです。
-
- #+BEGIN_EXAMPLE
-    Class < Module < Object < Kernel (< BasicObject)
- #+END_EXAMPLE
-
-*** メソッド一覧
-
-**** クラスメソッド
-
- -  =new= : クラス定義を使わずにクラスを作成。 
-
-    Class.new で無名クラスを作る
-**** インスタンスメソッド
-
- -  =allocate= : インスタンスの作成。
- -  =new= : インスタンスの作成と初期化。
- -  =superclass= : 親クラスを返す。
-
-**** Rubyから呼び出されるメソッド
-
- -  =inherited= : クラスが継承されたときに呼ばれる。
-
- 次のメソッドは=Module=クラスで定義されていますが、=Class=クラスでは未定義にされています：\\
-  =append_features=、=extend_object=
-
- [[/ruby/about][このサイトについて]] [[/ruby/legend][記事の読み方]]
- [[/ruby/references][参考文献]]
-
- Sponsored by [[http://www.oiax.jp/][Oiax Inc.]] / Powered by Ruby on
- Rails and AmiWiki
-
-
-* [[http://www.rubylife.jp/ini/string/][文字列 - Ruby入門]]
-
-** 文字列オブジェクト 
-   #+BEGIN_SRC ruby :session ruby :results output both
-String.new("こんにちは\n")
-"こんにちは\n"
-"こんにちは\n".class
-String.class
-'end'
-   #+END_SRC
-   
-   #+RESULTS:
-: "こんにちは\n"
-: "こんにちは\n"
-: String
-: Class
-   
-** バックスラッシュ記法によるエスケープ 
-** %Q、%qによる文字列の作成 
-   
-   #+BEGIN_SRC ruby :session ruby :results output data
-require 'kconv'
-print Kconv.toutf8(%Q[こんにちは"佐藤"さん\nお元気ですか]), "\n"
-print Kconv.toutf8(%q|こんにちは\nお元気ですか|), "\n"
-'end
-   #+END_SRC
-   
-   #+RESULTS:
-: false
-: こんにちは"佐藤"さん¥nお元気ですか
-: nil
-: こんにちは\nお元気ですか
-   
-** ヒアドキュメントによる複数行文字列の作成 
-#    #+BEGIN_SRC ruby :session ruby :results output
-# print <<end
-# こんにちは
-# 世界
-# end
-# 'end'
-#    #+END_SRC
-   
-#    #+RESULTS:
-# : 
-# : こんにちは
-# : 世界
-# : nil
-   
-#    #+BEGIN_SRC ruby :session ruby :results output
-
-# print <<EOS, <<EOS
-# こんにちは
-# お元気ですか
-# ではさようなら
-# EOS
-# ではさようなら
-# お元気ですか
-# こんにちは
-# EOS
-
-# 'end'
-#    #+END_SRC
-   
-#    #+RESULTS:
-# : こんにちは
-# : お元気ですか
-# : ではさようなら
-# : ではさようなら
-# : お元気ですか
-# : こんにちは
-# : nil
-   
-** 文字列の中に式を展開 
-   #+BEGIN_SRC ruby :session ruby :results output
-name = "東京"
-print("出身は #{name*10} です")
-'end'
-   #+END_SRC
-   
-   #+RESULTS:
-: "東京"
-: 出身は 東京東京東京東京東京東京東京東京東京東京 ですnil
-   
-   便利で，よく使います。
-   
-** 文字列 methods 
-# #+BEGIN_SRC ruby :session ruby :results output
-# s = <<EOS
-# こんにちは
-# お元気ですか
-# ではさようなら
-
-# ではさようなら
-# お元気ですか
-# こんにちは
-# EOS
-
-# # 
-# s.length
-
-# # 置換
-# s.sub("では","ではまた")
-# s.gsub("では","ではまた")
-# s.gsub(/さ.*ら/,"good-bye") 
-
-# # split/join
-
-# s.split("\n")
-# s.split("\n").join(" - ")
-
-# # 部分文字列
-# s[10,5]
-# s[10,-1]
-# s.include?("元気")
-# s[s.index("元気"),4]
-
-# # 文字列中の行処理
-# s.each_line { |l| print l.sub("は", "ha") }
-
-# 'end'
-# #+END_SRC
-
-# #+RESULTS:
-# #+begin_example
-# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
-# 43
-# "こんにちは\nお元気ですか\nではまたさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
-# "こんにちは\nお元気ですか\nではまたさようなら\n\nではまたさようなら\nお元気ですか\nこんにちは\n"
-# "こんにちは\nお元気ですか\nではgood-bye\n\nではgood-bye\nお元気ですか\nこんにちは\n"
-# ["こんにちは", "お元気ですか", "ではさようなら", "", "ではさようなら", "お元気ですか", "こんにちは"]
-# "こんにちは - お元気ですか - ではさようなら -  - ではさようなら - お元気ですか - こんにちは"
-# "すか\nでは"
-# nil
-# こんにちha
-# お元気ですか
-# でhaさようなら
-
-# でhaさようなら
-# お元気ですか
-# こんにちha
-# "こんにちは\nお元気ですか\nではさようなら\n\nではさようなら\nお元気ですか\nこんにちは\n"
-# true
-# "元気です"
-# #+end_example
-
 
 
 
@@ -2433,7 +2126,7 @@ print("出身は #{name*10} です")
 #+include: ruby-note-test.org
     
 
-* プログラミング
+* プログラミングの課題
 
 ** sqlite3-ruby
 
@@ -2458,4 +2151,312 @@ gem install sqlite3
 
 *** sinatra-org
 #+include: ruby-note-sinatra-org.org :minlevel 2
+
+
+
+* クラスライブラリの抜粋
+
+** Rubyリファレンス
+ 原典
+ - http://ref.xaio.jp/ruby/
+ - http://ref.xaio.jp/ruby/classes
+
+ method名やkeywordからクラスを探せるようにこの org文書を作成しました。
+
+
+** BasicObject
+
+   http://ref.xaio.jp/ruby/classes/basic_object
+
+ *~BasicObject~*クラスは、Ruby 1.9で新しく用意されたクラスで、~Object~
+ クラスの親クラスです。通常は、~BasicObject~オブジェクトを直接使うこと
+ はありません。
+
+ ~BasicObject~は~Object~や~Kernel~のメソッドを持たないので、「メソッド
+ がほぼゼロの白紙のクラスを作りたい」というときは、~BasicObject~を継承
+ したサブクラスで実現できます。
+
+*** メソッド一覧
+
+**** クラスメソッド
+
+ -  ~new~ : インスタンスの作成。
+
+**** インスタンスメソッド
+
+ -  ~!~ : 否定。
+ -  ~!=~ : 別のものか調べる。
+ -  ~==~ : オブジェクトの内容が同じか調べる。
+ -  ~__send__~ : メソッドを呼び出す。
+ -  ~equal?~ : 同じオブジェクトか調べる。
+ -  ~instance_eval~ : インスタンスの元でコードを実行。
+ -  ~instance_exec~ : インスタンスの元でコードを実行。
+
+**** 特別な役割のメソッド
+
+ -  ~initialize~ : オブジェクトを作成（~new~）するとき呼ばれる。
+ -  ~initialize_copy~ :
+    オブジェクトをコピー（~clone~、~dup~）するとき呼ばれる。
+ -  ~method_missing~ : メソッドが見つからないとき呼ばれる。
+ -  ~singleton_method_added~ : 特異メソッドを定義するとき呼ばれる。
+ -  ~singleton_method_removed~ : 特異メソッドを削除するとき呼ばれる。
+ -  ~singleton_method_undefined~ :
+    特異メソッドを未定義にするとき呼ばれる。
+
+ [[/ruby/about][このサイトについて]] [[/ruby/legend][記事の読み方]]
+ [[/ruby/references][参考文献]]
+
+ Sponsored by [[http://www.oiax.jp/][Oiax Inc.]] / Powered by Ruby on
+ Rails and AmiWiki
+ 
+
+
+** Object
+
+ - http://ref.xaio.jp/ruby/classes/object
+
+ *~Object~*クラスは、すべてのクラスの親クラスです。
+
+*** 親クラスとモジュール
+
+ ~Object~クラスは~Kernel~モジュールをインクルードしています。
+
+ ~BasicObject~クラスが~Object~クラスの親クラスになりました。
+
+ #+BEGIN_EXAMPLE
+    Object < Kernel (< BasicObject)
+ #+END_EXAMPLE
+
+*** メソッド一覧
+
+**** クラスメソッド
+
+ -  ~new~ : インスタンスの作成。
+
+**** インスタンスメソッド
+
+ これらのメソッドは、実際には~Kernel~モジュールの~public~なメソッドとして実装されていますが、一般的に~Object~クラスのメソッドとして扱われます。また、この一覧には~BasicObject~のメソッドも混ぜてあります。
+
+ -  ~!~ : 否定。Ruby 1.9
+ -  ~!=~ : 別のものか調べる。Ruby 1.9
+ -  ~!~~ : パターンマッチの否定。Ruby 1.9
+ -  ~==~ : オブジェクトの内容が同じか調べる。
+ -  ~===~ : ~case~式でオブジェクトをテストする。
+ -  ~~=~ : パターンマッチ。
+ -  ~__id__~ : オブジェクトIDを返す。
+ -  ~__send__~ : メソッドを呼び出す。
+ -  ~class~ : オブジェクトのクラスを返す。
+ -  ~clone~ : オブジェクトのコピーを作成する。
+ -  ~define_singleton_method~ : 特異メソッドを定義する。Ruby 1.9
+ -  ~display~ : オブジェクトを文字列として出力する。
+ -  ~dup~ : オブジェクトのコピーを作成する。
+ -  ~eql?~ : ハッシュのキーとして同じか調べる。
+ -  ~equal?~ : 同じオブジェクトか調べる。
+ -  ~enum_for~ : ~Enumerator~オブジェクトの作成。Ruby 1.8.7
+ -  ~extend~ : モジュールのメソッドを取り込む。
+ -  ~freeze~ : オブジェクトを凍結する。
+ -  ~frozen?~ : オブジェクトの凍結状態を調べる。
+ -  ~hash~ : ハッシュ値を返す。
+ -  ~id~ : オブジェクトIDを返す。+Ruby 1.9+
+ -  ~inspect~ : 読みやすい文字列に変換。
+ -  ~instance_eval~ : インスタンスの元でコードを実行。
+ -  ~instance_exec~ : インスタンスの元でコードを実行。Ruby 1.8.7
+ -  ~instance_of?~ : クラスに属しているか調べる。
+ -  ~instance_variable_defined?~ : インスタンス変数があるか調べる。
+ -  ~instance_variable_get~ : インスタンス変数の値を得る。
+ -  ~instance_variable_set~ : インスタンス変数の値を変える。
+ -  ~instance_variables~ : インスタンス変数の名前を配列で返す。
+ -  ~is_a?~ : クラスに属しているか調べる。
+ -  ~kind_of?~ : クラスに属しているか調べる。
+ -  ~method~ : メソッドから~Method~オブジェクトを作成。
+ -  ~methods~ : メソッドの名前を配列で返す。
+ -  ~nil?~ : ~nil~かどうか調べる。
+ -  ~object_id~ : オブジェクトIDを返す。
+ -  ~private_methods~ : ~private~なメソッドの名前を配列で返す。
+ -  ~protected_methods~ : ~protected~なメソッドの名前を配列で返す。
+ -  ~public_method~ :
+    ~public~なメソッドから~Method~オブジェクトを作成。Ruby 1.9
+ -  ~public_methods~ : ~public~なメソッドの名前を配列で返す。
+ -  ~public_send~ : ~public~なメソッドを呼び出す。Ruby 1.9
+ -  ~respond_to?~ : メソッドを呼び出せるか調べる。
+ -  ~send~ : メソッドを呼び出す。
+ -  ~singleton_class~ : 特異クラスを返す。Ruby 1.9.2
+ -  ~singleton_methods~ : 特異メソッドの名前を配列で返す。
+ -  ~taint~ : オブジェクトを汚染する。
+ -  ~tainted?~ : 汚染状態を調べる。
+ -  ~tap~ : ブロックに自身を渡し、自身を返す。Ruby 1.8.7
+ -  ~to_a~ : 配列に変換。+Ruby 1.9+
+ -  ~to_enum~ : ~Enumerator~オブジェクトの作成。Ruby 1.8.7
+ -  ~to_s~ : 文字列に変換。
+ -  ~trust~ : 信頼される状態に戻す。Ruby 1.9
+ -  ~type~ : オブジェクトのクラスを返す。+Ruby 1.9+
+ -  ~untaint~ : オブジェクトの汚染を除く。
+ -  ~untrust~ : オブジェクトを信頼されない状態にする。Ruby 1.9
+ -  ~untrusted?~ : 信頼状態を調べる。Ruby 1.9
+
+**** privateメソッド
+
+ -  ~remove_instance_variable~ : インスタンス変数の削除。
+
+**** Rubyから呼び出されるメソッド
+
+ -  ~initialize~ : オブジェクトを作成（~new~）するとき呼ばれる。
+ -  ~initialize_copy~ :
+    オブジェクトをコピー（~clone~、~dup~）するとき呼ばれる。
+ -  ~method_missing~ : メソッドが見つからないとき呼ばれる。
+ -  ~respond_to_missing?~ : ~respond_to?~が~false~のとき呼ばれる。Ruby
+    1.9.2
+ -  ~singleton_method_added~ : 特異メソッドを定義するとき呼ばれる。
+ -  ~singleton_method_removed~ : 特異メソッドを削除するとき呼ばれる。
+ -  ~singleton_method_undefined~ :
+    特異メソッドを未定義にするとき呼ばれる。
+
+
+
+** Module
+
+ ~Module~クラスは、クラスとモジュールを表すクラスです。~Class~クラスは
+ ~Module~のサブクラスで、クラスだけを表します。
+
+ クラス・モジュールを定義すると、クラス名・モジュール名は
+ ~Class~/~Module~オブジェクトを指す変数（定数）になります。
+ ~Class~/~Module~オブジェクトをレシーバにすれば、~Class~/~Module~クラス
+ の~public~メソッドを呼び出せます。
+
+ クラス・モジュール定義の中のように、~self~が~Class~/~Module~オブジェク
+ トである場所では、~Class~/~Module~クラスの~private~メソッドを呼び出せ
+ ます。~attr_accessor~や~include~は~Module~クラスの~private~メソッドで
+ す。
+
+*** 親クラスとモジュール
+
+ ~Module~クラスの親クラスは~Object~クラスです。
+
+ #+BEGIN_EXAMPLE
+    Module < Object < Kernel (< BasicObject)
+ #+END_EXAMPLE
+
+*** メソッド一覧
+
+**** クラスメソッド
+
+ -  ~constants~ : 現在使える定数名の一覧を返す。
+ -  ~nesting~ : 現在のクラス・モジュールのネスト状態を調べる。
+ -  ~new~ : モジュール定義を使わずにモジュールを作成。
+
+**** publicなインスタンスメソッド
+
+ -  ~<~, ~<=~, ~>~, ~>=~ : 2つのクラスやモジュールの関係を調べる。
+ -  ~<=>~ : 2つのクラスやモジュールの関係を調べる。
+ -  ~==~ : 同じものか調べる。
+ -  ~===~ : クラスに属しているか調べる。
+ -  ~ancestors~ : 祖先クラスとモジュールの一覧を返す。
+ -  ~autoload~ : 定数に対応するファイルを自動ロードする。
+ -  ~autoload?~ : 定数が自動ロードされるか調べる。
+ -  ~class_eval~ : クラスやモジュールの元でコードを実行。
+ -  ~class_exec~ : クラスやモジュールの元でコードを実行。Ruby 1.8.7
+ -  ~class_variable_defined?~ : クラス変数があるか調べる。
+ -  ~class_variables~ : クラス変数名の一覧を返す。
+ -  ~const_defined?~ : 定数があるか調べる。
+ -  ~const_get~ : 定数の値を得る。
+ -  ~const_set~ : 定数を設定する。
+ -  ~constants~ : 定数名の一覧を返す。
+ -  ~freeze~ : クラスやモジュールを凍結する。
+ -  ~include?~ : モジュールをインクルードしているか調べる。
+ -  ~included_modules~ : インクルードしているモジュールの一覧を返す。
+ -  ~instance_method~ : メソッドから~UnboundMethod~オブジェクトを作成。
+ -  ~instance_methods~ : メソッドの名前を配列で返す。
+ -  ~method_defined?~ : メソッドがあるか調べる。
+ -  ~module_eval~ : クラスやモジュールの元でコードを実行。
+ -  ~module_exec~ : クラスやモジュールの元でコードを実行。Ruby 1.8.7
+ -  ~name~ : クラスやモジュールの名前を返す。
+ -  ~private_class_method~ : クラスメソッドを~private~にする。
+ -  ~private_instance_methods~ : ~private~メソッドの名前を配列で返す。
+ -  ~private_method_defined?~ : ~private~メソッドがあるか調べる。
+ -  ~protected_instance_methods~ :
+    ~protected~メソッドの名前を配列で返す。
+ -  ~protected_method_defined?~ : ~protected~メソッドがあるか調べる。
+ -  ~public_class_method~ : クラスメソッドを~public~にする。
+ -  ~public_instance_method~ :
+    ~public~メソッドから~UnboundMethod~オブジェクトを作成。Ruby 1.9
+ -  ~public_instance_methods~ : ~public~メソッドの名前を配列で返す。
+ -  ~public_method_defined?~ : ~public~メソッドがあるか調べる。
+ -  ~to_s~ : クラスやモジュールを表す文字列を返す。
+
+ 以下のメソッドは、Ruby 1.8では~private~でしたが、Ruby
+ 1.9では~public~になりました。
+
+ -  ~class_variable_get~ : クラス変数の値を得る。
+ -  ~class_variable_set~ : クラス変数を設定する。
+ -  ~remove_class_variable~ : クラス変数の削除。
+
+**** privateなインスタンスメソッド
+
+ -  ~alias_method~ : メソッドに別名を付ける。
+ -  ~attr~ : インスタンス変数のアクセサを定義する。
+ -  ~attr_accessor~ : インスタンス変数のアクセサを定義する。
+ -  ~attr_reader~ : インスタンス変数の読み出し専用アクセサを定義する。
+ -  ~attr_writer~ : インスタンス変数の書き込み専用アクセサを定義する。
+ -  ~define_method~ : メソッドを定義する。
+ -  ~include~ : モジュールをインクルードする。
+ -  ~module_function~ : モジュールのメソッドをモジュール関数にする。
+ -  ~private~ : メソッドを~private~にする。
+ -  ~protected~ : メソッドを~protected~にする。
+ -  ~public~ : メソッドを~public~にする。
+ -  ~remove_const~ : 定数の削除。
+ -  ~remove_method~ : メソッドの削除。
+ -  ~undef_method~ : メソッドを未定義にする。
+
+**** Rubyから呼び出されるメソッド
+
+ -  ~append_features~ : インクルードされる前に呼ばれる。
+ -  ~const_missing~ : 存在しない定数を参照したときに呼ばれる。
+ -  ~included~ : インクルードされたあとで呼ばれる。
+ -  ~extended~ : オブジェクトに取り込まれたあとで呼ばれる。
+ -  ~extend_object~ : オブジェクトに取り込まれる前に呼ばれる。
+ -  ~method_added~ : メソッドを定義したときに呼ばれる。
+ -  ~method_removed~ : メソッドを削除したときに呼ばれる。
+ -  ~method_undefined~ : メソッドを未定義にしたときに呼ばれる。
+
+
+** Class
+
+ ~Class~クラスは、クラスを表すクラスで、~Module~クラスのサブクラスです。
+
+ クラスに関する機能のほとんどは、~Module~クラスに実装されていますので、~Module~クラスのほうを先に調べるといいでしょう。~Class~クラスの機能は、「~Module~の機能＋インスタンスの作成とクラスの継承」です。
+
+*** 親クラスとモジュール
+
+ ~Class~クラスの親クラスは~Module~クラスです。
+
+ #+BEGIN_EXAMPLE
+    Class < Module < Object < Kernel (< BasicObject)
+ #+END_EXAMPLE
+
+*** メソッド一覧
+
+**** クラスメソッド
+
+ -  ~new~ : クラス定義を使わずにクラスを作成。 
+
+    Class.new で無名クラスを作る
+**** インスタンスメソッド
+
+ -  ~allocate~ : インスタンスの作成。
+ -  ~new~ : インスタンスの作成と初期化。
+ -  ~superclass~ : 親クラスを返す。
+
+**** Rubyから呼び出されるメソッド
+
+ -  ~inherited~ : クラスが継承されたときに呼ばれる。
+
+ 次のメソッドは~Module~クラスで定義されていますが、~Class~クラスでは未定義にされています：\\
+  ~append_features~、~extend_object~
+
+ [[/ruby/about][このサイトについて]] [[/ruby/legend][記事の読み方]]
+ [[/ruby/references][参考文献]]
+
+ Sponsored by [[http://www.oiax.jp/][Oiax Inc.]] / Powered by Ruby on
+ Rails and AmiWiki
+
 
