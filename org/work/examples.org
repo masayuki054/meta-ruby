@@ -1,0 +1,308 @@
+* 例題
+
+** file_print.rb
+
+あるファイルの内容をプリントする.
+
+学ぶこと:
+
+- 利用クラスライブラリ: File<IO
+  - File.open, 
+  - openされたファイルは，IOとして扱える
+  - IO.read, 
+
+- load もできて，script としても実行できる方法
+
+#+BEGIN_SRC ruby :tangle ./examples/file_print.rb :results output raw
+
+def file_print(file_name)
+  File.open(file_name) do |io|
+    print (io.read)
+  end
+end
+
+if __FILE__==$0
+
+  ARGV.each do |file|
+    file_print(file)
+  end
+
+end
+
+file_print("ruby-begin.org")
+
+#+END_SRC
+
+C-c C-v C-t source code output to file
+C-c C-c excute
+C-c ' edit 
+
+#+BEGIN_SRC ruby :results output raw
+
+path = File.expand_path("~suzuki")
+
+Dir.chdir(path) do 
+  Dir.glob("*").each do |file|
+    puts file
+  end
+end
+
+#+END_SRC
+
+#+BEGIN_SRC ruby :results output
+
+path = File.expand_path("~suzuki")
+p (files = Dir.glob("#{path}/*"))
+p files.class
+p files.size
+p files[2..3]
+files.each do |file| 
+  p file
+#+END_SRC
+
+
+** home_directory.rb
+
+自分のホームディレクトリをプリントする。
+
+学ぶこと:
+- Dir クラス 
+  - ブロック付メソッド
+    - chdir 
+    - glob
+
+#+BEGIN_SRC ruby :tangle ./examples/home_directory.rb :results output raw :export both
+
+def home_directory()
+  home_path = File.expand_path("~")
+  Dir.chdir(home_path) do 
+    Dir.glob("*").each do |file|
+       p file
+    end
+  end
+end
+
+home_directory
+
+if __FILE__==$0
+
+  ARGV.each do |file|
+    file_print(file)
+  end
+end
+
+#+END_SRC
+
+** shuzo_meigen.rb
+
+[[http://qiita.com/seiya1121/items/3dde2dae7319fe261323][Nokogiriで簡単なWebスクレイピング - Qiita]] を参考に,
+あるぺーじのhtmlタグで囲まれた要素を取り出す。
+
+学ぶこと:
+- IOの拡張としてのWebページ処理 'open-uri'
+- 文字列の処理
+- 構文解析
+- gem を使う
+
+#+BEGIN_SRC sh
+gem install nokogiri
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle ./examples/shuzo_meigen.rb :results output raw :exports both
+
+# coding:utf-8
+require 'open-uri' 
+require 'nokogiri' 
+
+# URL，変更しました ((s-:))
+url = 'http:/earth-words.org/archives/2746' 
+charset = nil
+
+html = open(url) do |f|
+  charset = f.charset 
+  f.read 
+end
+
+# htmlを解析し、オブジェクト化
+page = Nokogiri::HTML.parse(html, nil, charset) 
+
+# 名言は<blockquote>タグに囲まれている
+shuzo_meigen = page.search('blockquote') 
+
+# shuzo_meigenで取得したデータをテキストに変換
+shuzo_meigen.each do |phrase|
+  print phrase.text.gsub("\r",'')
+end
+
+#+END_SRC
+
+#+RESULTS:
+
+一番になるっていったよな？
+日本一なるっつったよな！ 
+ぬるま湯なんか
+つかってんじゃねぇよお前！！
+
+100回叩くと
+壊れる壁があったとする。
+でもみんな何回叩けば
+壊れるかわからないから、
+90回まで来ていても
+途中であきらめてしまう。
+
+諦めんなよ!
+諦めんなよ、お前！！ 
+どうしてそこでやめるんだ、
+そこで！！
+もう少し頑張ってみろよ！ 
+ダメダメダメ!諦めたら!
+周りのこと思えよ、
+応援してる人たちのこと
+思ってみろって!
+あともうちょっとの
+ところなんだから!
+
+本気になれば自分が変わる！ 
+本気になれば全てが変わる！！
+
+過去のことを
+思っちゃダメだよ。
+何であんなことしたんだろ…
+って怒りに変わってくるから。 
+未来のことも思っちゃダメ。
+大丈夫かな、あはぁ～ん。 
+不安になってくるでしょ？ 
+ならば、一所懸命、
+一つの所に命を懸ける！ 
+そうだ！今ここを生きていけば、
+みんなイキイキするぞ！！
+
+もっと熱くなれよ…!!
+熱い血燃やしてけよ…!!
+人間熱くなったときが
+ホントの自分に出会えるんだ！
+
+言い訳してるんじゃないですか？ 
+できないこと、無理だって、
+諦めてるんじゃないですか？ 
+駄目だ駄目だ！
+あきらめちゃだめだ！ 
+できる！できる！
+絶対にできるんだから！
+
+よく、時間が解決してくれる
+と言うけれど、そうは思わない。
+でも、行動した時間なら
+解決してくれるはずだ。
+
+わがままではなく、
+あるがままに。
+
+悔しがればいい、
+泣けばいい、喜べばいい。
+それが人間だ！
+
+君が次に叩く１回で、
+壁は打ち破れる
+かもしれないんだ！
+
+真剣に考えても、
+深刻になるな！
+
+反省はしろ！
+後悔はするな！
+
+勝ち負けなんか、
+ちっぽけなこと。
+大事なことは、
+本気だったかどうかだ！
+
+心の底から好きなことに
+本気で取り組めるなら、
+それは幸せ。
+
+何よりも大切なのは、
+あなた自身がどうしたいかだ。
+
+家族は
+　史上最強の味方だ！
+
+一所懸命生きていれば、
+不思議なことに疲れない。
+
+勝敗を分けるのは
+いつでもたった一球だ。
+だが、プレーをしているときは、
+どれがその一球か分からない。
+
+偶然にもうまく
+返せたように見える一球。
+しかし、僕にとっては
+何千球と練習をしたうちの一球だ。
+
+
+** Directory の走査 (traverse)
+
+*** あるディレクトリ配下のファイル名を一覧表示する。
+
+#+BEGIN_SRC ruby :results output raw :tangle ./examples/dir_print.rb
+
+def dir_tree_print(di)
+  Dir.chdir(di) do
+    Dir.glob("*").each do |f|
+      p `pwd`+"/"+arg
+      if File.directory?(f)
+        dir_tree_print(di+"/"+f)
+      end
+    end
+  end
+end
+
+if __FILE__==$0
+  
+  dir_print(File.path_expand("~/working"))
+
+end
+#+END_SRC
+
+- 再帰   
+
+
+*** あるディレクトリ配下のファイル名を木構造表示する
+
+    dir_tree.rb
+
+    宿題
+
+*** あるディレクトリ配下のあるファイル達に対し，何かする
+
+入力
+- dir :: ディレクトリ
+- pattern :: ファイル名のパターン
+- test :: 再帰を行なうかの検査 (関数)
+- prog ::ファイルへの処理
+
+#+BEGIN_SRC ruby :results output raw ./examples/dir_tree_travers.rb
+
+def dir_tree_traverse(dir, pattern, test, proc)
+  Dir.chdir(dir) do
+    Dir.glob(pattern).each do |f|
+      proc.call(f)
+      if test.call(f)
+        dir_tree_traverse(dir+"/"+f, pattern, test, proc)
+      end
+    end
+  end
+end
+
+if __FILE__==$0
+
+  tst = Proc.new { |arg| File.directory?(arg) }
+  prc = Proc.new { |arg| p `pwd`+"/"+arg }
+  dir_tree_traverse(".", "*", tst, prc)
+
+end
+#+END_SRC
+
+#+RESULTS:
+

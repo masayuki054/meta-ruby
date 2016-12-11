@@ -1,0 +1,190 @@
+* オブジェクトモデル
+
+** Ruby の Object とは
+
+   [[http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fobject.html][オブジェクト (Ruby 2.0.0)]]
+
+** オープンクラス
+
+   [[file:~/COMM/Prog/ruby/meta/object_model/alphanumeric.rb][object_model/alphanumeric.rb]]
+
+   [[file:~/COMM/Prog/ruby/meta/object_model/test_alphanumeric.rb][oject_model/test_alphanumeric.rb]]
+
+   [[file:~/COMM/Prog/ruby/meta/object_model/replace.rb][object_model/replace.rb]]
+
+   - クラスは定数で，
+
+   - クラス定数で指定でき， String, class String ... end;
+
+   - 変更に対して開かれている．
+
+*** クラス定義
+
+**** クラス定義の中身
+
+     (({class})) はそのクラスのスコープを開き，(({end}))までの間のプログラムを
+     そのスコープ内で，実行していく
+
+     - 既存のメソッドを（無意識に）変更することもできる．
+
+     - 無意識は問題だが，意識的な場合は便利なこときまわりない．
+
+     [[file:~/COMM/Prog/ruby/meta/object_model/open_class.rb][object_model/open_class.rb]]
+
+
+**** クラスの (拡張) メソッドをどこにおくか
+
+   - (({class String}))と書けば，既存の String クラスが開かれ，変更可
+     能．
+
+   - (({calss MyString < String})) と書けば，独自の String クラスの拡張
+     が作れる．
+
+   - (({def s.method ... end})) と書けば，あるオブジェクトだけが拡張で
+     きる
+
+** クラスの真実
+
+   [[file:~/COMM/Prog/ruby/meta/object_model/class.rb][object_model/class.rb]]
+
+*** オブジェクトの中身
+
+**** instance 変数 (オブジェクトが持つ状態)
+
+    [[file:~/COMM/Prog/ruby/meta/object_model/object_instance_variables.rb][object_model/object_instance_variables.rb]]
+
+    - インスタンス変数はオブジェクトにあり，
+    - メソッドはクラスにある
+    - オブジェクトに所属するメソッドは，特異（メソッド）
+
+*** クラス再び
+
+    「(({class C})) 定義されるクラス C もオブジェクト」
+
+    - クラスは Class クラスのオブジェクト。
+      CはClass クラスのオブジェクト
+
+    o.class, (o.class).instance_methods, C.superclass, C.ancestors
+
+    Classは，(({new()})), (({allocate()})), (({superclass()})) のメソッ
+    ドが追加された Module 
+
+*** 定数 object_model/constant.rb
+   
+    [[file:~/COMM/Prog/ruby/meta/object_model/constant.rb][object_model/constant.rb]]
+
+    モジュール構造の入れ子構造が定数のスコープ．
+
+#+BEGIN_SRC ruby
+
+module MyModule
+  MyConstant = 1
+  class MyClass
+    MyConstant = 2
+  end
+end
+
+#+END_SRC
+
+    二つの定数のパス
+    - ::MyModule::MyConstant
+    - ::MyModule::MyClass::MyConstant
+
+    定数をまとめるだけのモジュールのことを，((*ネームスペース*))と呼ぶ
+
+*** オブジェクトとクラスのまとめ
+
+    - オブジェクトとは何か?
+      
+      - インスタンス変数の集り + クラスへのリンク
+
+    - クラスとは何か？
+    
+      - Classクラスのインスタンス 
+      - インスタンスメソッド一覧 
+      - スーパークラスへのリンク
+
+      ClassクラスはModuleクラスのサブクラス
+
+      - つまりクラスはモジュール
+
+** 引かれていない線
+
+   [[file:~/COMM/Prog/ruby/meta/object_model/quiz.rb][quiz.rb]]
+
+** メソッドを呼び出すときに何が起きているの?
+
+   メソッド呼び出しを深く理解する
+
+*** メソッドを呼び出すこと
+
+    - メソッドを探す ( ((* メソッド探索 *)) )
+    - メソッドを実行 ( ((* self *)) が必要)
+      - self は実行の主体
+      
+*** メソッド探索
+    
+    (現在実行の）オブジェクトのクラスを探しメソッドを見つける
+
+    ((* レシーバ *)) と ((* 継承チェーン *))
+
+***** レシーバ
+
+      呼び出すメソッドが属するオブジェクト
+      
+***** 継承チェーン
+
+      [[file:~/COMM/Prog/ruby/meta/object_model/lookup.rb][lookup.rb]]
+
+      - ruby 1.8
+        : [MySubclass, MyClass, Object, Kernel]
+
+      - ruby 1.9~
+        : [MySubclass, MyClass, Object, Kernel, BasicObject]
+
+      Kernel はモジュール 
+
+**** モジュールとメソッド探索
+
+     [[file:~/COMM/Prog/ruby/meta/object_model/lookup_modules.rb][lookup_modules.rb]]
+
+     - include は継承に似ていて，
+     - self クラスとsuperclass の間に入る
+     
+**** Kernel
+ 
+    [[file:~/COMM/Prog/ruby/meta/object_model/kernel.rb][kernel.rb]]
+
+     (({ print })) は Kernel モジュールのプライベートインスタンスメソッ
+     ド
+
+*** メソッドの実行
+
+    [[file:~/COMM/Prog/ruby/meta/object_model/self.rb][self.rb]]
+
+    * self カレントオブジェクト
+    * self のコンテキストが実行の場
+    * トップレベルコンテキスト main
+
+**** クラス定義とself
+
+     クラスやモジュールの定義中，self は？
+
+** オブジェクトとクラスのまとめ
+
+   オブジェクトとは何か?
+   * インスタンス変数の集り + クラスへのリンク
+
+   クラスとは何か？
+   * Classクラスのインスタンス + インスタンスメソッド一覧 + スーパーク
+     ラスへのリンク
+
+   * ClassクラスはModuleクラスのサブクラス
+
+   * つまりクラスはモジュール
+
+   [[file://~/COMM/Prog/ruby/meta/object_model/private.rb][private.rb]]
+
+
+
+
