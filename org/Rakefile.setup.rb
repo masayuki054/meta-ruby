@@ -11,6 +11,7 @@ ORGS = [
   "oo.org", 
   "meta-ruby.org",
   "note.org",
+  "poker.org",
   "emacs.org"
 ]
 
@@ -21,7 +22,6 @@ SUBDIRS = [
   "ruby",
   "emacs", 
   "org-docs", 
-  "poker"
 ]
 
 HTMLS = ORGS.map do |f|
