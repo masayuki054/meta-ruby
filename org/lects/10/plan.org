@@ -42,19 +42,9 @@
 
     ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 
-    - 「オブジェクトモデル」を読み始めます。
-
+    - 「オブジェクトモデル」の残りをやります。
 
 *** Ruby オブジェクト指向プログラミング
-
-**** 単体テストを体験しましょう。
-
-    - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
-      [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
-
-    - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
-      
-      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] (([[https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org][.org.github]] [[file://~suzuki/meta-ruby.git/org/note/ruby-note-test.org][.org]].emacs)) のtest-unit を読んでください。
 
 **** デザイン・パターン
 
@@ -65,6 +55,23 @@
 
       - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] ::
         デザインパターンのリファレンスに使いましょう。
+
+
+
+**** ポーカーゲームのテスト駆動開発
+
+     [[./poker.org][poker開発]] 
+
+     [[https://github.com/masayuki054/meta-ruby/tree/master/org/poker][meta-ruby/org/poker at master · masayuki054/meta-ruby]]
+
+**** 単体テストを体験しましょう。
+
+    - テストとかテストによる開発については，簡単に，[[https://masayuki054.github.io/prog/org-docs/software-test.html][ソフトウェア・テスト]]，
+      [[https://masayuki054.github.io/prog/org-docs/what-is-tdd.html][テスト駆動開発とは]] で紹介します。
+
+    - Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+      
+      - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/][note]] (([[https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org][.org.github]] [[file://~suzuki/meta-ruby.git/org/note/ruby-note-test.org][.org]].emacs)) のtest-unit を読んでください。
 
 *** 講義のための環境つくり
 
