@@ -46,7 +46,7 @@
 
 *** Ruby オブジェクト指向プログラミング
 
-**** デザイン・パターン
+**** デザイン・パターン  ([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][@github]] [[file:~/meta-ruby.git/org/work/design-pattern.org][@cis]] [[file:~/meta-ruby.git/org/work/design-pattern.org][@s]])
 
      [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターンを作りました]] は，ruby で書
      いたデザイン・パターンの実装例です。
@@ -55,8 +55,6 @@
 
       - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] ::
         デザインパターンのリファレンスに使いましょう。
-
-
 
 **** ポーカーゲームのテスト駆動開発
 
