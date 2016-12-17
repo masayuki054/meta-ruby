@@ -12,6 +12,14 @@ gem install sqlite3
 
 #+END_SRC
 
+#+RESULTS:
+| Building     | native        | extensions.    | This           | could          | take  | a | while... |
+| Successfully | installed     | sqlite3-1.3.12 |                |                |       |   |          |
+| Parsing      | documentation | for            | sqlite3-1.3.12 |                |       |   |          |
+| Installing   | ri            | documentation  | for            | sqlite3-1.3.12 |       |   |          |
+| Done         | installing    | documentation  | for            | sqlite3        | after | 1 | seconds  |
+| 1            | gem           | installed      |                |                |       |   |          |
+
 ** sqlite
 
 [[http://ja.wikipedia.org/wiki/SQLite][SQLite (wikipedia)]] 手軽なローカル・ファイル型の軽量データベース
@@ -62,9 +70,6 @@ db.close
 #+END_SRC
 
 #+RESULTS:
-: New file is created.
-: hoge	26	hage
-: hage	62	hoge
 
 
 ** firefox sqlite database handling
@@ -76,7 +81,7 @@ firefox が使っている sqlite データベースをコピーして，
 
 #+BEGIN_SRC sh :results output scalar
 ls ~/.mozilla/firefox
-cp -p ~/.mozilla/firefox/5rot7npz.default/content-prefs.sqlite .
+cp -p ~/.mozilla/firefox/5rot7npz.default/places.sqlite .
 #+END_SRC
 
 #+RESULTS:
@@ -92,7 +97,7 @@ require 'rubygems'
 require 'sqlite3'
 require 'pp'
 
-file = "content-prefs.sqlite"
+file = "places.sqlite"
 
 db = SQLite3::Database.open(file)
 

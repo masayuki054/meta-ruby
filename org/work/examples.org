@@ -2,7 +2,7 @@
 
 ** file_print.rb
 
-あるファイルの内容をプリントする.
+   あるファイルの内容をプリントする.
 
 学ぶこと:
 
@@ -108,6 +108,25 @@ end
 #+BEGIN_SRC sh
 gem install nokogiri
 #+END_SRC
+
+C-c ' : ruby-mode で edit
+C-c C-v C-t : file へ出力
+
+#+BEGIN_SRC sh
+gem install nokogiri
+
+#+END_SRC
+
+#+RESULTS:
+| Successfully | installed     | mini_portile2-2.1.0 |                     |                     |          |       |          |         |
+| Building     | native        | extensions.         | This                | could               | take     | a     | while... |         |
+| Successfully | installed     | nokogiri-1.6.8.1    |                     |                     |          |       |          |         |
+| Parsing      | documentation | for                 | mini_portile2-2.1.0 |                     |          |       |          |         |
+| Installing   | ri            | documentation       | for                 | mini_portile2-2.1.0 |          |       |          |         |
+| Parsing      | documentation | for                 | nokogiri-1.6.8.1    |                     |          |       |          |         |
+| Installing   | ri            | documentation       | for                 | nokogiri-1.6.8.1    |          |       |          |         |
+| Done         | installing    | documentation       | for                 | mini_portile2,      | nokogiri | after |        7 | seconds |
+| 2            | gems          | installed           |                     |                     |          |       |          |         |
 
 #+BEGIN_SRC ruby :tangle ./examples/shuzo_meigen.rb :results output raw :exports both
 

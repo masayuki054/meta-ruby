@@ -50,3 +50,115 @@ GoFのデザインパターンには下のプリンシパルがあります：
     - オブザーバ/Observer 
     - ストラテジ/Strategy 
     - テンプレートメソッド/Template Method 
+
+*** abstractFactory 
+
+#+BEGIN_SRC ruby :tangle abstract_factory/duck_and_frog.rb :mkdirp yes
+class Duck
+  def initialize(name)
+    @name = name
+  end
+
+  def eat
+    puts "duck #{@name} は食事中です."
+  end
+end
+
+class Frog
+  def initialize(name)
+    @name = name
+  end
+
+  def eat
+    puts "frog #{@name} は食事中です."
+  end
+end
+#+END_SRC    
+
+#+BEGIN_SRC ruby :tangle abstract_factory/waterlily_and_algae.rb
+
+class Algae
+  def initialize(name)
+    @name = name
+  end
+
+  def grow
+    puts("藻 #{name} は成長中です.")
+  end
+  
+end
+
+class WaterLily
+  def initialize(name)
+    @name = name
+  end
+
+  def grow
+    puts("睡蓮 #{name} は成長中です.")
+  end
+  
+end
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle abstract_factory/organism_factory.rb
+class OrganismFactory
+  def initialize(number_animals, number_plants)
+    @animals = []
+    number_animals.times do |i|
+      animal = new_animal("動物#{i}")
+      @animals << animal 
+    end
+
+    @plants = []
+    number_plants.times do |i|
+      plant = new_plant("動物#{i}")
+      @plants << plant 
+    end
+  end
+
+  def get_plats
+    @plants
+  end
+
+  def get_animals
+    @animals
+  end
+  
+end
+
+class FrogAndALgaeFactory < OrganismFactory
+  private
+
+  def new_animal(name)
+    Frong.new(name)
+  end
+
+  def new_plant(name)
+    Algae.new(name)
+  end
+end
+
+class DuckAndWaterLilyFactory < OrganismFactory
+  private
+
+  def new_animal(name)
+    Duck.new(name)
+  end
+
+
+  def new_plant(name)
+    WaterLily.new(name)
+  end
+end
+
+#+END_SRC
+
+
+#+BEGIN_SRC ruby
+require 'duck_and_frog.rb'
+require 'organism_factory.rb'
+require 'waterlily_and_algae.rb'
+
+
+
+#+END_SRC
