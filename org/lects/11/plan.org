@@ -6,6 +6,11 @@
 
 *** Doing Ruby programming 
 
+    - 自分のレポート提出フォルダに，Examples フォルダを作成し，
+    - 課題ごとに，作成したプログラムと，その説明，実行とその結果をまと
+      めた org 文書を作成し，
+    - 上記 Examples/ フォルダに提出してください。
+
 ***** Examples
     
       実践的なプログラムを作ってみましょう。
@@ -22,11 +27,17 @@
     SCHEDULED: <2016-11-14 月>
 
 **** [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] を始めましょう。[1/2]
+
 #+name: olm
 #+BEGIN_SRC sh :results output org  :var args="meta-ruby oo/strategic-choice.org  strategic-choice.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
-     ((strategic-choice.orgへのリンク [[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][org@cis]]/[[file+emacs:~/{lect}.git/org/oo/strategic-choice.org][@]]))
+
+     参考にしてほしい資料
+     
+     - ((s-:)) のまとめ strategic-choice.org
+       (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][org@cis]]/[[file+emacs:~/{lect}.git/org/oo/strategic-choice.org][@]]))
+
 
      読む予定のページです。~/rubys/oo.org にまとめてください。
 
@@ -74,7 +85,12 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 #+BEGIN_SRC sh :results output org  :var args="meta-ruby work/design-pattern.org  design-pattern.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
-      ((s-:)) の design-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/design-pattern.org][org@cis]]/[[file+emacs:~/{lect}.git/org/work/design-pattern.org][@]]))
+     - ((s-:)) の design-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/design-pattern.org][org@cis]]/[[file+emacs:~/{lect}.git/org/work/design-pattern.org][@]]))
+
+     - [[https://workflowy.com/s/6H5yFmqIOn][workflowyのメモ]]
+
+     - [[https://ja.wikipedia.org/wiki/Abstract_Factory_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Abstract Factory パターン - Wikipedia]]
+
 
 **** 単体テストを体験しましょう。
 
