@@ -1,6 +1,7 @@
 * sqlite3-ruby
 
 ** 関連サイト
+
 - [[http://shuzo-kino.hateblo.jp/entry/20120913/1347551619][Rubyでsqlite3を使ってみる - Bye Bye Moore]]
 - [[https://sites.google.com/site/rubycocoamemo/Home/ruby-guan-lian/sqlite-wo--ruby-de-tsukau][SQLite を Ruby で使う - RubyCocoa メモ]]
 - [[https://github.com/sparklemotion/sqlite3-ruby][sparklemotion/sqlite3-ruby - Ruby]]
@@ -638,9 +639,6 @@ irb(main):154:0* [["groups"], ["settings"], ["prefs"]]
 => [["groups"], ["settings"], ["prefs"]]
 irb(main):156:0* => #<SQLite3::Database:0x007f54f97c0d30 @tracefunc=nil, @authorizer=nil, @encoding=#<Encoding:UTF-8>, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=true, @type_translation=nil, @readonly=false>
 #+end_example
-
-
-https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20%28Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20%283%29%29._Icon%0D?dl=0
 
 
 ** firefox sqlite database handling 2
@@ -1312,6 +1310,3 @@ irb(main):044:0* [["groups"], ["settings"], ["prefs"]]
 => [["groups"], ["settings"], ["prefs"]]
 irb(main):046:0* => #<SQLite3::Database:0x007f58a1bfb778 @tracefunc=nil, @authorizer=nil, @encoding=#<Encoding:UTF-8>, @busy_handler=nil, @collations={}, @functions={}, @results_as_hash=nil, @type_translation=nil, @readonly=false>
 #+end_example
-
-
-https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20%28Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20%283%29%29._Icon%0D?dl=0

@@ -1,20 +1,22 @@
-* references
+* org-doc web service
+
+** references
 
 - ~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)
 - [[http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/][OrgBabelで文芸的プログラミング · ops●tokyo]]
 - [[http://www.sinatrarb.com/intro-ja.html][Sinatra: README (Japanese)]]
 
-* what
+** what
 
 ./notes にある .org 文書を表示する Webサービスを作成する。
 
-* how
+** how
 
 - rubygems の sinatra，org-convergeを用いる
 
 - readme.org に全てを記述する
 
-* directory
+** directory
 : .
 : +-- readme.org 
 : |
@@ -26,7 +28,7 @@
 : |
 : +-- notes@
 
-* sinatraのための設定
+** sinatraのための設定
 ** bundler 
 
 bundler を gem install
@@ -49,7 +51,6 @@ gem 'org-converge'
 ** config.ru
 
 sinatraアプリケーションを起動するための設定
-    
 #+BEGIN_SRC ruby :tangle src/config.ru
 # src/config.ru
 require './app.rb'
@@ -57,7 +58,7 @@ run Sinatra::Application
 
 #+END_SRC
 
-* service
+** service
 ** application
 
 sinatra のDSLで，Webサービスを記述:

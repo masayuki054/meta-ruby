@@ -1,4 +1,1 @@
-** [[plan.org][02.plan]]
-
-# ** [[response.org][01.response]]
-# ** [[resume.org][01.resume]]
+#+include: plan.org

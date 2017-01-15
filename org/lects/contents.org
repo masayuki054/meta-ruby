@@ -7,5 +7,11 @@
 #+include: 05/contents.org :minlevel 1
 #+include: 06/contents.org :minlevel 1
 #+include: 07/contents.org :minlevel 1
+#+include: 08/contents.org :minlevel 1
+#+include: 09/contents.org :minlevel 1
+#+include: 10/contents.org :minlevel 1
+#+include: 11/contents.org :minlevel 1
+#+include: 12/contents.org :minlevel 1
+
 
 
