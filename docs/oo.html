@@ -3,23 +3,30 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>2016 ObjectOrientedについて</title>
-<!-- 2016-12-18 日 22:06 -->
+<!-- 2017-01-15 日 22:09 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>2016 ObjectOrientedについて</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -89,19 +95,19 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/css/sos.css">
-<link rel="stylesheet" type="text/css" href="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/jquery.zclip.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./styles/sos/css/sos.css">
+<link rel="stylesheet" type="text/css" href="./styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="./styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="./styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="./styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="./styles/bigblow/js/jquery.zclip.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/js/hideshow.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/js/hideshow.js"></script>
-<script type="text/javascript" src="https://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/sos/js/sos.js"></script>
+<script type="text/javascript" src="./styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="./styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./styles/sos/js/hideshow.js"></script>
+<script type="text/javascript" src="./styles/sos/js/sos.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -156,222 +162,243 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. オブジェクト指向に至る軌跡</a>
+<li><a href="#orgheadline29">1. オブジェクト指向に至る軌跡</a>
 <ul>
-<li><a href="#sec-1-1">1.1. オブジェクト指向以前</a>
+<li><a href="#orgheadline11">1.1. オブジェクト指向以前</a>
 <ul>
-<li><a href="#sec-1-1-1">ソフトウェア危機</a></li>
-<li><a href="#sec-1-1-2">構造化プログラミング</a>
-<ul>
-<li>
-<ul>
-<li><a href="#sec-1-1-2-0-1">Todo 構造化プログラミングとは</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-1-1-3">モジュラプログラミング</a>
+<li><a href="#orgheadline1">ソフトウェア危機</a></li>
+<li><a href="#orgheadline2">構造化プログラミング</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-1-3-0-1">凝集度と結合度</a></li>
-<li><a href="#sec-1-1-3-0-2">悪い結合、良い結合</a></li>
-<li><a href="#sec-1-1-3-0-3">悪い凝集、良い凝集</a></li>
-<li><a href="#sec-1-1-3-0-4">状態と副作用の支配</a></li>
+<li><a href="#orgheadline3">Todo 構造化プログラミングとは</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-1-1-4">抽象データ型</a>
+<li><a href="#orgheadline4">モジュラプログラミング</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
+<li><a href="#orgheadline5">凝集度と結合度</a></li>
+<li><a href="#orgheadline6">悪い結合、良い結合</a></li>
+<li><a href="#orgheadline7">悪い凝集、良い凝集</a></li>
+<li><a href="#orgheadline8">状態と副作用の支配</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#sec-1-2">1.2. オブジェクト指向?</a></li>
-<li><a href="#sec-1-3">1.3. Simula &amp; C++のオブジェクト指向</a>
-<ul>
-<li><a href="#sec-1-3-1">どの処理を呼び出すか決めるメカニズム</a>
+<li><a href="#orgheadline9">抽象データ型</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-1-3-1-0-1">動的ディスパッチ</a></li>
-<li><a href="#sec-1-3-1-0-2">継承と委譲</a>
+<li><a href="#orgheadline10">抽象データ型の情報隠蔽とカプセル化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline12">1.2. オブジェクト指向?</a></li>
+<li><a href="#orgheadline19">1.3. Simula &amp; C++のオブジェクト指向</a>
 <ul>
-<li><a href="#sec-1-3-1-0-2-1">継承</a></li>
-<li><a href="#sec-1-3-1-0-2-2">委譲</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-3-1-0-3">オブジェクト指向の要素</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-1-4">1.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
-<ul>
-<li><a href="#sec-1-4-1">仮想機械としてのオブジェクト</a></li>
-<li><a href="#sec-1-4-2">メッセージング</a>
-<ul>
-<li><a href="#sec-1-4-2-1">動的な送信</a></li>
-<li><a href="#sec-1-4-2-2">メッセージ転送</a></li>
-<li><a href="#sec-1-4-2-3">非同期送信</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-4-3">オブジェクト指向という言葉が意味していること</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-5">1.5. まとめ</a></li>
-<li><a href="#sec-1-6">1.6. あとがき</a></li>
-</ul>
-</li>
-<li><a href="#sec-2">2. オブジェクト指向あれこれ</a></li>
-<li><a href="#sec-3">3. オブジェクト指向に至るまで (まとめのまとめ）</a>
-<ul>
-<li><a href="#sec-3-1">3.1. オブジェクト指向に至るまで</a>
-<ul>
-<li><a href="#sec-3-1-1">ソフトウェア危機</a></li>
-<li><a href="#sec-3-1-2">構造化プログラミング</a></li>
-<li><a href="#sec-3-1-3">モジュラプログラミング</a>
+<li><a href="#orgheadline13">どの処理を呼び出すか決めるメカニズム</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-3-1-3-0-1">凝集度と結合度</a></li>
-<li><a href="#sec-3-1-3-0-2">悪い結合、良い結合</a></li>
-<li><a href="#sec-3-1-3-0-3">悪い凝集、良い凝集</a></li>
-<li><a href="#sec-3-1-3-0-4">状態と副作用の支配</a></li>
+<li><a href="#orgheadline14">動的ディスパッチ</a></li>
+<li><a href="#orgheadline17">継承と委譲</a>
+<ul>
+<li><a href="#orgheadline15">継承</a></li>
+<li><a href="#orgheadline16">委譲</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline18">オブジェクト指向の要素</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-3-1-4">抽象データ型</a>
+</ul>
+</li>
+<li><a href="#orgheadline26">1.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<ul>
+<li><a href="#orgheadline20">仮想機械としてのオブジェクト</a></li>
+<li><a href="#orgheadline21">メッセージング</a>
+<ul>
+<li><a href="#orgheadline22">動的な送信</a></li>
+<li><a href="#orgheadline23">メッセージ転送</a></li>
+<li><a href="#orgheadline24">非同期送信</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline25">オブジェクト指向という言葉が意味していること</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">1.5. まとめ</a></li>
+<li><a href="#orgheadline28">1.6. あとがき</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline30">2. オブジェクト指向あれこれ</a></li>
+<li><a href="#orgheadline56">3. オブジェクト指向に至るまで (まとめのまとめ）</a>
+<ul>
+<li><a href="#orgheadline40">3.1. オブジェクト指向に至るまで</a>
+<ul>
+<li><a href="#orgheadline31">ソフトウェア危機</a></li>
+<li><a href="#orgheadline32">構造化プログラミング</a></li>
+<li><a href="#orgheadline33">モジュラプログラミング</a>
 <ul>
 <li>
 <ul>
-<li><a href="#sec-3-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</a></li>
+<li><a href="#orgheadline34">凝集度と結合度</a></li>
+<li><a href="#orgheadline35">悪い結合、良い結合</a></li>
+<li><a href="#orgheadline36">悪い凝集、良い凝集</a></li>
+<li><a href="#orgheadline37">状態と副作用の支配</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#sec-3-2">3.2. オブジェクト指向?</a></li>
-<li><a href="#sec-3-3">3.3. Simula &amp; C++のオブジェクト指向</a>
+<li><a href="#orgheadline38">抽象データ型</a>
 <ul>
-<li><a href="#sec-3-3-1">どの処理を呼び出すか決めるメカニズム</a>
+<li>
 <ul>
-<li><a href="#sec-3-3-1-1">動的ディスパッチ</a></li>
-<li><a href="#sec-3-3-1-2">継承と委譲</a>
+<li><a href="#orgheadline39">抽象データ型の情報隠蔽とカプセル化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline41">3.2. オブジェクト指向?</a></li>
+<li><a href="#orgheadline48">3.3. Simula &amp; C++のオブジェクト指向</a>
 <ul>
-<li><a href="#sec-3-3-1-2-1">継承</a></li>
-<li><a href="#sec-3-3-1-2-2">委譲</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-3-3-2">オブジェクト指向の要素</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-4">3.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
+<li><a href="#orgheadline42">どの処理を呼び出すか決めるメカニズム</a>
 <ul>
-<li><a href="#sec-3-4-1">仮想機械としてのオブジェクト</a></li>
-<li><a href="#sec-3-4-2">メッセージング</a>
+<li><a href="#orgheadline43">動的ディスパッチ</a></li>
+<li><a href="#orgheadline46">継承と委譲</a>
 <ul>
-<li><a href="#sec-3-4-2-1">動的な送信</a></li>
-<li><a href="#sec-3-4-2-2">メッセージ転送  (Wikipedia)</a></li>
-<li><a href="#sec-3-4-2-3">非同期送信</a></li>
-</ul>
-</li>
-<li><a href="#sec-3-4-3">オブジェクト指向という言葉が意味していること</a></li>
+<li><a href="#orgheadline44">継承</a></li>
+<li><a href="#orgheadline45">委譲</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4">4. Joe Armstrongのオブジェクト指向はクソだ！</a>
+<li><a href="#orgheadline47">オブジェクト指向の要素</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline55">3.4. Smalltalk &amp; Objective-Cのオブジェクト指向</a>
 <ul>
-<li><a href="#sec-4-1">4.1. オブジェクト指向が"Suck"である理由</a>
+<li><a href="#orgheadline49">仮想機械としてのオブジェクト</a></li>
+<li><a href="#orgheadline50">メッセージング</a>
 <ul>
-<li><a href="#sec-4-1-1">反論その１</a></li>
-<li><a href="#sec-4-1-2">反論その２</a></li>
-<li><a href="#sec-4-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</a></li>
-<li><a href="#sec-4-1-4">反論その４</a></li>
+<li><a href="#orgheadline51">動的な送信</a></li>
+<li><a href="#orgheadline52">メッセージ転送  (Wikipedia)</a></li>
+<li><a href="#orgheadline53">非同期送信</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-2">4.2. オブジェクトが広まった理由</a></li>
-</ul>
-</li>
-<li><a href="#sec-5">5. Strategic Choice を読もう</a>
-<ul>
-<li><a href="#sec-5-1">5.1. 記事一覧</a></li>
-<li><a href="#sec-5-2">5.2. 構造化プログラミング</a></li>
-<li><a href="#sec-5-3">5.3. パルナスの規則</a>
-<ul>
-<li><a href="#sec-5-3-1">解釈</a></li>
-<li><a href="#sec-5-3-2">なんで？</a></li>
-</ul>
-</li>
-<li><a href="#sec-5-4">5.4. 抽象データ型 - Strategic Choice</a>
-<ul>
-<li><a href="#sec-5-4-1">どういうこと？</a></li>
-<li><a href="#sec-5-4-2">モジュールとの関連</a></li>
-<li><a href="#sec-5-4-3">クラスとの関連</a></li>
-</ul>
-</li>
-<li><a href="#sec-5-5">5.5. オブジェクト指向の本懐 - Strategic Choice</a>
-<ul>
-<li><a href="#sec-5-5-1">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</a>
-<ul>
-<li><a href="#sec-5-5-1-1">概念(conceptual)</a></li>
-<li><a href="#sec-5-5-1-2">仕様(specification)</a></li>
-<li><a href="#sec-5-5-1-3">実装(implementation)</a></li>
-<li><a href="#sec-5-5-1-4">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</a>
-<ul>
-<li><a href="#sec-5-5-1-4-1">概念レベル</a></li>
-<li><a href="#sec-5-5-1-4-2">仕様レベル</a></li>
-<li><a href="#sec-5-5-1-4-3">実装レベル</a></li>
+<li><a href="#orgheadline54">オブジェクト指向という言葉が意味していること</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-5-5-2">オブジェクト指向黎明期の誤解 &#x2013; オブジェクト指向の本懐（３）・</a>
+<li><a href="#orgheadline63">4. Joe Armstrongのオブジェクト指向はクソだ！</a>
 <ul>
-<li><a href="#sec-5-5-2-1">代表的な誤解</a></li>
-<li><a href="#sec-5-5-2-2">オブジェクト指向の正しい理解</a>
+<li><a href="#orgheadline61">4.1. オブジェクト指向が"Suck"である理由</a>
 <ul>
-<li><a href="#sec-5-5-2-2-1">カプセル化の意味</a></li>
-<li><a href="#sec-5-5-2-2-2">オブジェクト指向のウソについて</a></li>
+<li><a href="#orgheadline57">反論その１</a></li>
+<li><a href="#orgheadline58">反論その２</a></li>
+<li><a href="#orgheadline59">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</a></li>
+<li><a href="#orgheadline60">反論その４</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline62">4.2. オブジェクトが広まった理由</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#sec-5-6">5.6. オブジェクト指向設計原則 - Strategic Choice</a></li>
-<li><a href="#sec-5-7">5.7. プログラミング原則 [Unix思想] - Strategic Choice</a></li>
-<li><a href="#sec-5-8">5.8. ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
-<li><a href="#sec-5-9">5.9. ソフトウェア開発原則一覧 - Strategic Choice</a></li>
-<li><a href="#sec-5-10">5.10. 七つの設計原理 - Strategic Choice</a></li>
-<li><a href="#sec-5-11">5.11. 漏れのある抽象化の法則 - Strategic Choice</a></li>
-</ul>
-</li>
-<li><a href="#sec-6">6. オブジェクト指向プログラミングとは</a>
+<li><a href="#orgheadline105">5. Strategic Choice を読もう</a>
 <ul>
-<li><a href="#sec-6-1">6.1. プログラム言語とは</a>
+<li><a href="#orgheadline64">5.1. 記事一覧</a></li>
+<li><a href="#orgheadline65">5.2. 構造化プログラミング</a></li>
+<li><a href="#orgheadline68">5.3. パルナスの規則</a>
 <ul>
-<li><a href="#sec-6-1-1">記述のための要素</a></li>
-<li><a href="#sec-6-1-2">実行するということ</a></li>
-<li><a href="#sec-6-1-3">メタプログラミング</a></li>
+<li><a href="#orgheadline66">解釈</a></li>
+<li><a href="#orgheadline67">なんで？</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-2">6.2. WikiPedia.search("オブジェクト指向プログラミング")</a></li>
-<li><a href="#sec-6-3">6.3. 僕の考え</a></li>
-<li><a href="#sec-6-4">6.4. Ruby オブジェクト原理主義</a></li>
+<li><a href="#orgheadline72">5.4. 抽象データ型 - Strategic Choice</a>
+<ul>
+<li><a href="#orgheadline69">どういうこと？</a></li>
+<li><a href="#orgheadline70">モジュールとの関連</a></li>
+<li><a href="#orgheadline71">クラスとの関連</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline98">5.5. オブジェクト指向の本懐 - Strategic Choice</a>
+<ul>
+<li><a href="#orgheadline78">オブジェクト指向前 &#x2013; オブジェクト指向の本懐（２）・</a>
+<ul>
+<li><a href="#orgheadline73">機能分解</a></li>
+<li><a href="#orgheadline74">好ましくない副作用</a></li>
+<li><a href="#orgheadline75">オブジェクト指向へ</a></li>
+<li><a href="#orgheadline76">機能とデータ</a></li>
+<li><a href="#orgheadline77">デグレードの原因</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline79">オブジェクト指向黎明期の誤解 &#x2013; オブジェクト指向の本懐（３）・</a>
+<ul>
+<li><a href="#orgheadline80">代表的な誤解</a></li>
+<li><a href="#orgheadline81">オブジェクト指向の正しい理解</a>
+<ul>
+<li><a href="#orgheadline82">カプセル化の意味</a></li>
+<li><a href="#orgheadline83">オブジェクト指向のウソについて</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline84">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</a>
+<ul>
+<li><a href="#orgheadline85">概念(conceptual)</a></li>
+<li><a href="#orgheadline86">仕様(specification)</a></li>
+<li><a href="#orgheadline87">実装(implementation)</a></li>
+<li><a href="#orgheadline88">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</a>
+<ul>
+<li><a href="#orgheadline89">概念レベル</a></li>
+<li><a href="#orgheadline90">仕様レベル</a></li>
+<li><a href="#orgheadline91">実装レベル</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline97">オブジェクト指向パラダイム &#x2013; オブジェクト指向の本懐（５）</a>
+<ul>
+<li><a href="#orgheadline92">オブジェクトとは責任である</a></li>
+<li><a href="#orgheadline93">開発の手順</a></li>
+<li><a href="#orgheadline96">補足</a>
+<ul>
+<li><a href="#orgheadline94">変更はいつするのか？</a></li>
+<li><a href="#orgheadline95">変更に本当につよいのか？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline99">5.6. オブジェクト指向設計原則 - Strategic Choice</a></li>
+<li><a href="#orgheadline100">5.7. プログラミング原則 [Unix思想] - Strategic Choice</a></li>
+<li><a href="#orgheadline101">5.8. ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
+<li><a href="#orgheadline102">5.9. ソフトウェア開発原則一覧 - Strategic Choice</a></li>
+<li><a href="#orgheadline103">5.10. 七つの設計原理 - Strategic Choice</a></li>
+<li><a href="#orgheadline104">5.11. 漏れのある抽象化の法則 - Strategic Choice</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline113">6. オブジェクト指向プログラミングとは</a>
+<ul>
+<li><a href="#orgheadline109">6.1. プログラム言語とは</a>
+<ul>
+<li><a href="#orgheadline106">記述のための要素</a></li>
+<li><a href="#orgheadline107">実行するということ</a></li>
+<li><a href="#orgheadline108">メタプログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline110">6.2. WikiPedia.search("オブジェクト指向プログラミング")</a></li>
+<li><a href="#orgheadline111">6.3. 僕の考え</a></li>
+<li><a href="#orgheadline112">6.4. Ruby オブジェクト原理主義</a></li>
 </ul>
 </li>
 </ul>
@@ -390,17 +417,17 @@ for the JavaScript code in this tag.
 <a href="https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/">svn-repos</a>
 <a href="https://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a> /
 </p>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> オブジェクト指向に至る軌跡</h2>
+
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">1</span> オブジェクト指向に至る軌跡</h2>
 <div class="outline-text-2" id="text-1">
 <dl class="org-dl">
-<dt> 出展 </dt><dd><a href="https://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">新人プログラマに知っておいてもらいたい人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a>
-</dd>
+<dt>出展</dt><dd><a href="https://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">新人プログラマに知っておいてもらいたい人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></dd>
 </dl>
 </div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> オブジェクト指向以前</h3>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.1</span> オブジェクト指向以前</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 オブジェクト指向プログラミング、あるいはオブジェクト指向言語は、
@@ -415,9 +442,9 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-sec-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">ソフトウェア危機</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1">ソフトウェア危機</h4>
+<div class="outline-text-4" id="text-orgheadline1">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> (wikipedia) とは
 </p>
@@ -452,9 +479,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">構造化プログラミング</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2">構造化プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline2">
 <p>
 ダイクストラは構造化プログラミングを提案した
 </p>
@@ -465,36 +492,28 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-sec-1-1-2-0-1" class="outline-6">
-<h6 id="sec-1-1-2-0-1">Todo 構造化プログラミングとは</h6>
-<div class="outline-text-6" id="text-1-1-2-0-1">
+<div id="outline-container-orgheadline3" class="outline-6">
+<h6 id="orgheadline3">Todo 構造化プログラミングとは</h6>
+<div class="outline-text-6" id="text-orgheadline3">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
 </p>
 
 <ul class="org-ul">
 <li>構造化プログラミングではプログラミング言語が持つステートメントを
-直接使ってプログラムを記述するのではなく、
-</li>
-<li>それらを抽象化したステートメントを持つ仮想機械を想定し、
-</li>
-<li>その仮想機械上でプログラムを記述する。
-</li>
+直接使ってプログラムを記述するのではなく、</li>
+<li>それらを抽象化したステートメントを持つ仮想機械を想定し、</li>
+<li>その仮想機械上でプログラムを記述する。</li>
 
 <li>普通、抽象化は1段階ではなく階層的である。
 <ul class="org-ul">
-<li>各階層での実装の詳細は他の階層と隔離されており、
-</li>
+<li>各階層での実装の詳細は他の階層と隔離されており、</li>
 <li>実装の変更の影響はその階層内のみに留まる(Abstract data
-structures)。
-</li>
+structures)。</li>
 <li>各階層はアプリケーションに近い抽象的な方から土台に向かって順
-序付けられている。
-</li>
-<li>この順序は各階層を設計した時間的な順番とは必ずしも一致しない
-</li>
-</ul>
-</li>
+序付けられている。</li>
+<li>この順序は各階層を設計した時間的な順番とは必ずしも一致しない</li>
+</ul></li>
 </ul>
 
 <p>
@@ -522,18 +541,18 @@ structures)。
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3">モジュラプログラミング</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4">モジュラプログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline4">
 <p>
 こういった背景のなか、プログラムは大きく複雑になり続ける。至極自然
 な流れとして、それを分割しようとしていく。
 </p>
 </div>
 
-<div id="outline-container-sec-1-1-3-0-1" class="outline-6">
-<h6 id="sec-1-1-3-0-1">凝集度と結合度</h6>
-<div class="outline-text-6" id="text-1-1-3-0-1">
+<div id="outline-container-orgheadline5" class="outline-6">
+<h6 id="orgheadline5">凝集度と結合度</h6>
+<div class="outline-text-6" id="text-orgheadline5">
 <p>
 モジュールの分割には、大きな指針がなかった。現在でもやろうと思え
 ば全然関係のない機能を１つのモジュールに詰め込むことはできる。
@@ -573,9 +592,9 @@ structures)。
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-3-0-2" class="outline-6">
-<h6 id="sec-1-1-3-0-2">悪い結合、良い結合</h6>
-<div class="outline-text-6" id="text-1-1-3-0-2">
+<div id="outline-container-orgheadline6" class="outline-6">
+<h6 id="orgheadline6">悪い結合、良い結合</h6>
+<div class="outline-text-6" id="text-orgheadline6">
 <p>
 悪い結合としては、あるモジュールが依存しているモジュールの内部デー
 タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
@@ -602,21 +621,19 @@ structures)。
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-3-0-3" class="outline-6">
-<h6 id="sec-1-1-3-0-3">悪い凝集、良い凝集</h6>
-<div class="outline-text-6" id="text-1-1-3-0-3">
+<div id="outline-container-orgheadline7" class="outline-6">
+<h6 id="orgheadline7">悪い凝集、良い凝集</h6>
+<div class="outline-text-6" id="text-orgheadline7">
 <p>
 凝集度が低い状態とは，つまり悪い凝集とは，何か，
 </p>
 
 <dl class="org-dl">
-<dt> 暗合的凝集 </dt><dd>アトランダムに選んできた処理を集めたモジュールは
-悪い。何を根拠に集めたのかわからないものも悪い凝集だ。
-</dd>
+<dt>暗合的凝集</dt><dd>アトランダムに選んできた処理を集めたモジュールは
+悪い。何を根拠に集めたのかわからないものも悪い凝集だ。</dd>
 
-<dt> 論理的凝集 </dt><dd>論理的に似ている処理だからという理由だけで集めて
-はいけない。
-</dd>
+<dt>論理的凝集</dt><dd>論理的に似ている処理だからという理由だけで集めて
+はいけない。</dd>
 </dl>
 
 <p>
@@ -654,11 +671,10 @@ openという関数にif文やswitch文を大量に入れて、あらゆるopen�
 </p>
 
 <dl class="org-dl">
-<dt> 時間的凝集 </dt><dd>他にも同じようなタイミングで実施されるからといっ
+<dt>時間的凝集</dt><dd>他にも同じようなタイミングで実施されるからといっ
 て、モジュール化するのもの問題がある。たとえば、
 initという関数の中ですべてのデータ構造の初期化を
-するイメージをしてほしい。
-</dd>
+するイメージをしてほしい。</dd>
 </dl>
 
 <p>
@@ -666,36 +682,34 @@ initという関数の中ですべてのデータ構造の初期化を
 </p>
 
 <dl class="org-dl">
-<dt> 通信的凝集 </dt><dd>とあるデータに触れる処理をまとめることであるとか、
-</dd>
+<dt>通信的凝集</dt><dd>とあるデータに触れる処理をまとめることであるとか、</dd>
 
-<dt> 情報的凝集 </dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
-にすること。
-</dd>
+<dt>情報的凝集</dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
+にすること。</dd>
 
-<dt> 機能的凝集 </dt><dd>それによって、ひとつのうまく定義されたタスクをこ
-なせるように集めることである。
-</dd>
+<dt>機能的凝集</dt><dd>それによって、ひとつのうまく定義されたタスクをこ
+なせるように集めることである。</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-3-0-4" class="outline-6">
-<h6 id="sec-1-1-3-0-4">状態と副作用の支配</h6>
-<div class="outline-text-6" id="text-1-1-3-0-4">
+<div id="outline-container-orgheadline8" class="outline-6">
+<h6 id="orgheadline8">状態と副作用の支配</h6>
+<div class="outline-text-6" id="text-orgheadline8">
 <p>
 よいモジュール分割とはなにか
 </p>
 
 <ul class="org-ul">
-<li>それは、処理とそれに関連するデータの関係性を明らかにして支配し
+<li><p>
+それは、処理とそれに関連するデータの関係性を明らかにして支配し
 ていくことの重要性だ。
+</p>
 
 <p>
 できれば、完全にデータの存在を隠蔽できてしまえると良いが、現実
 のプログラムではそうは行かない場合も多い。
-</p>
-</li>
+</p></li>
 </ul>
 
 <p>
@@ -813,9 +827,9 @@ void person_set_name(person *p,char *name){
 </div>
 </div>
 
-<div id="outline-container-sec-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4">抽象データ型</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9">抽象データ型</h4>
+<div class="outline-text-4" id="text-orgheadline9">
 <p>
 よいモジュール化の肝は、状態と副作用を隠蔽し、データとアルゴリズム
 をひとまとめにすることだった。
@@ -913,9 +927,9 @@ _person_private(person *p,....);
 </p>
 </div>
 
-<div id="outline-container-sec-1-1-4-0-1" class="outline-6">
-<h6 id="sec-1-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</h6>
-<div class="outline-text-6" id="text-1-1-4-0-1">
+<div id="outline-container-orgheadline10" class="outline-6">
+<h6 id="orgheadline10">抽象データ型の情報隠蔽とカプセル化</h6>
+<div class="outline-text-6" id="text-orgheadline10">
 <p>
 C言語の構造体であっても、ヘッダファイルの定義と実装を分けることで、
 抽象データ型の内部構造を隠蔽することができたが、言語機能として外
@@ -950,8 +964,8 @@ PerlやJavaScriptなどアクセス修飾子の無い言語では、公開と非
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> オブジェクト指向?</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.2</span> オブジェクト指向?</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 最初のオブジェクト指向言語は、1960年代に出現したSimulaという言語だ。
@@ -1010,8 +1024,8 @@ Smalltalkは、Simulaのコンセプトに「メッセージング」という�
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Simula &amp; C++のオブジェクト指向</h3>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.3</span> Simula &amp; C++のオブジェクト指向</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 C++の作者であるビャーネ・ストロヴストルップは、オブジェクト指向を
@@ -1026,9 +1040,9 @@ C++ではメソッドのことをメンバー関数と呼ぶ。これはSimula�
 </p>
 </div>
 
-<div id="outline-container-sec-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1">どの処理を呼び出すか決めるメカニズム</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13">どの処理を呼び出すか決めるメカニズム</h4>
+<div class="outline-text-4" id="text-orgheadline13">
 <p>
 さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
 </p>
@@ -1156,9 +1170,9 @@ function toString(IStringValue sv) string {
 </p>
 </div>
 
-<div id="outline-container-sec-1-3-1-0-1" class="outline-6">
-<h6 id="sec-1-3-1-0-1">動的ディスパッチ</h6>
-<div class="outline-text-6" id="text-1-3-1-0-1">
+<div id="outline-container-orgheadline14" class="outline-6">
+<h6 id="orgheadline14">動的ディスパッチ</h6>
+<div class="outline-text-6" id="text-orgheadline14">
 <p>
 動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
 ており、また、実行時に関数テーブルを探索して、どの関数を実行する
@@ -1264,12 +1278,9 @@ methodCall(object,"getName");
 </p>
 
 <ul class="org-ul">
-<li>データに自分自身が何者か教える機能
-</li>
-<li>メソッドを呼び出した際にそれを探索する機能
-</li>
-<li>オブジェクト自身を参照できるように引数に束縛する機能
-</li>
+<li>データに自分自身が何者か教える機能</li>
+<li>メソッドを呼び出した際にそれを探索する機能</li>
+<li>オブジェクト自身を参照できるように引数に束縛する機能</li>
 </ul>
 
 <p>
@@ -1316,12 +1327,12 @@ $person-&gt;get_name;
 </div>
 </div>
 
-<div id="outline-container-sec-1-3-1-0-2" class="outline-6">
-<h6 id="sec-1-3-1-0-2">継承と委譲</h6>
-<div class="outline-text-6" id="text-1-3-1-0-2">
-</div><div id="outline-container-sec-1-3-1-0-2-1" class="outline-7">
-<h7 id="sec-1-3-1-0-2-1">継承</h7>
-<div class="outline-text-7" id="text-1-3-1-0-2-1">
+<div id="outline-container-orgheadline17" class="outline-6">
+<h6 id="orgheadline17">継承と委譲</h6>
+<div class="outline-text-6" id="text-orgheadline17">
+</div><div id="outline-container-orgheadline15" class="outline-7">
+<h7 id="orgheadline15">継承</h7>
+<div class="outline-text-7" id="text-orgheadline15">
 <p>
 さて、SimulaとC++がもたらした最後の要素は継承だ。継承は、あるク
 ラスの機能をもったまま、別の機能を追加したもう一つのクラスを作る
@@ -1522,9 +1533,9 @@ methodCall(object,"getName");
 </div>
 </div>
 
-<div id="outline-container-sec-1-3-1-0-2-2" class="outline-7">
-<h7 id="sec-1-3-1-0-2-2">委譲</h7>
-<div class="outline-text-7" id="text-1-3-1-0-2-2">
+<div id="outline-container-orgheadline16" class="outline-7">
+<h7 id="orgheadline16">委譲</h7>
+<div class="outline-text-7" id="text-orgheadline16">
 <p>
 継承の代わりに委譲という手段を用いているプログラミング言語がある。
 これはSimulaとC++の系譜とは少し違うが、動的ディスパッチの話をしたので
@@ -1640,9 +1651,9 @@ rubyのmoduleやそのinclude,prepend、特異メソッド、特異クラスな�
 </div>
 </div>
 </div>
-<div id="outline-container-sec-1-3-1-0-3" class="outline-6">
-<h6 id="sec-1-3-1-0-3">オブジェクト指向の要素</h6>
-<div class="outline-text-6" id="text-1-3-1-0-3">
+<div id="outline-container-orgheadline18" class="outline-6">
+<h6 id="orgheadline18">オブジェクト指向の要素</h6>
+<div class="outline-text-6" id="text-orgheadline18">
 <p>
 このようにオブジェクト指向のための機能は、
 </p>
@@ -1663,8 +1674,8 @@ rubyのmoduleやそのinclude,prepend、特異メソッド、特異クラスな�
 </div>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">1.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 アランケイの「オブジェクト指向」の定義:
@@ -1677,9 +1688,9 @@ rubyのmoduleやそのinclude,prepend、特異メソッド、特異クラスな�
 </blockquote>
 </div>
 
-<div id="outline-container-sec-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1">仮想機械としてのオブジェクト</h4>
-<div class="outline-text-4" id="text-1-4-1">
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20">仮想機械としてのオブジェクト</h4>
+<div class="outline-text-4" id="text-orgheadline20">
 <p>
 アランケイの世界観の中では、メモリとCPUとそれに対する命令を持つ機械
 をさらに抽象化するとしたら、それは同じくデータと処理と命令セットを
@@ -1702,9 +1713,9 @@ Smalltalkの実行環境もまた仮想機械として作られている。
 </div>
 </div>
 
-<div id="outline-container-sec-1-4-2" class="outline-4">
-<h4 id="sec-1-4-2">メッセージング</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21">メッセージング</h4>
+<div class="outline-text-4" id="text-orgheadline21">
 <p>
 Smalltalkでメッセージ送信は下記のように記述する:
 </p>
@@ -1737,9 +1748,9 @@ Objective-Cであれば、C言語の中に次のように書く:
 </p>
 </div>
 
-<div id="outline-container-sec-1-4-2-1" class="outline-5">
-<h5 id="sec-1-4-2-1">動的な送信</h5>
-<div class="outline-text-5" id="text-1-4-2-1">
+<div id="outline-container-orgheadline22" class="outline-5">
+<h5 id="orgheadline22">動的な送信</h5>
+<div class="outline-text-5" id="text-orgheadline22">
 <p>
 メッセージ内容もまたオブジェクトにすぎないので、動的に作成し、送ることができる。
 たとえば、rubyのObject#sendがその性質をそのまま表現している。
@@ -1763,9 +1774,9 @@ a.send(method)
 </div>
 </div>
 
-<div id="outline-container-sec-1-4-2-2" class="outline-5">
-<h5 id="sec-1-4-2-2">メッセージ転送</h5>
-<div class="outline-text-5" id="text-1-4-2-2">
+<div id="outline-container-orgheadline23" class="outline-5">
+<h5 id="orgheadline23">メッセージ転送</h5>
+<div class="outline-text-5" id="text-orgheadline23">
 <p>
 受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
 り扱うことができる。
@@ -1778,11 +1789,9 @@ a.send(method)
 <ul class="org-ul">
 <li>rubyの method_missing や Objective-C の forwardInvocation がそれ
 にあたる。他にもPerlのAUTOLOADなど、最近の動的型言語には用意され
-ていることが多い。
-</li>
+ていることが多い。</li>
 
-<li>proxy.rb
-</li>
+<li>proxy.rb</li>
 </ul>
 
 <div class="org-src-container">
@@ -1810,9 +1819,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-1-4-2-3" class="outline-5">
-<h5 id="sec-1-4-2-3">非同期送信</h5>
-<div class="outline-text-5" id="text-1-4-2-3">
+<div id="outline-container-orgheadline24" class="outline-5">
+<h5 id="orgheadline24">非同期送信</h5>
+<div class="outline-text-5" id="text-orgheadline24">
 <p>
 ほとんどの言語でメッセージの結果を同期的に受け取るようになっている
 ので、意識しづらいが、メッセージというアナロジーである以上、それを
@@ -1822,9 +1831,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-1-4-3" class="outline-4">
-<h4 id="sec-1-4-3">オブジェクト指向という言葉が意味していること</h4>
-<div class="outline-text-4" id="text-1-4-3">
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25">オブジェクト指向という言葉が意味していること</h4>
+<div class="outline-text-4" id="text-orgheadline25">
 <p>
 このようにメッセージパッシングというアナロジーを使うことで、様々な
 性質がオブジェクト指向には加わることになった。
@@ -1867,30 +1876,26 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> まとめ</h3>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">1.5</span> まとめ</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
-<li>オブジェクト指向も構造化プログラミングも問題の抽象化で同じことを見ていた。
-</li>
+<li>オブジェクト指向も構造化プログラミングも問題の抽象化で同じことを見ていた。</li>
 
-<li>C++はSimulaからモジュール化や抽象データ型、動的多態といった良い性質を採用した。
-</li>
+<li>C++はSimulaからモジュール化や抽象データ型、動的多態といった良い性質を採用した。</li>
 
 <li>一方、SmalltalkはSimulaの着想をメッセージとオブジェクトという概念
 で統合した。それによって、様々な動的な性質を現在の言語にもたらして
-きた。
-</li>
+きた。</li>
 
 <li>また、メッセージパッシングという概念は、本質的には現在注目を浴びて
-いる Actor や CSP のような並行モデルと似通っており、興味深い。
-</li>
+いる Actor や CSP のような並行モデルと似通っており、興味深い。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> あとがき</h3>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">1.6</span> あとがき</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 少しはオブジェクト指向という考え方の背景が見えてきて、それがより良い
@@ -1909,8 +1914,8 @@ Proxy.new &lt;&lt; 1
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> オブジェクト指向あれこれ</h2>
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">2</span> オブジェクト指向あれこれ</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 オブジェクト指向あれこれ
@@ -1934,15 +1939,15 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> オブジェクト指向に至るまで (まとめのまとめ）</h2>
+<div id="outline-container-orgheadline56" class="outline-2">
+<h2 id="orgheadline56"><span class="section-number-2">3</span> オブジェクト指向に至るまで (まとめのまとめ）</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> オブジェクト指向に至るまで</h3>
+</div><div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">3.1</span> オブジェクト指向に至るまで</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-sec-3-1-1" class="outline-4">
-<h4 id="sec-3-1-1">ソフトウェア危機</h4>
-<div class="outline-text-4" id="text-3-1-1">
+</div><div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31">ソフトウェア危機</h4>
+<div class="outline-text-4" id="text-orgheadline31">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%8D%B1%E6%A9%9F">ソフトウェア危機</a> 
 </p>
@@ -1959,9 +1964,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-2" class="outline-4">
-<h4 id="sec-3-1-2">構造化プログラミング</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32">構造化プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline32">
 <p>
 <a href="https://ja.wikipedia.org/wiki/%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">構造化プログラミング(wikipedia)</a>
 </p>
@@ -1979,17 +1984,17 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3" class="outline-4">
-<h4 id="sec-3-1-3">モジュラプログラミング</h4>
-<div class="outline-text-4" id="text-3-1-3">
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33">モジュラプログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline33">
 <p>
 大きく複雑になるプログラムの分割
 </p>
 </div>
 
-<div id="outline-container-sec-3-1-3-0-1" class="outline-6">
-<h6 id="sec-3-1-3-0-1">凝集度と結合度</h6>
-<div class="outline-text-6" id="text-3-1-3-0-1">
+<div id="outline-container-orgheadline34" class="outline-6">
+<h6 id="orgheadline34">凝集度と結合度</h6>
+<div class="outline-text-6" id="text-orgheadline34">
 <p>
 結合度：よいコラボレーションとわるいコラボレーションを定義した
 <a href="https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6">https://ja.wikipedia.org/wiki/%E7%B5%90%E5%90%88%E5%BA%A6</a>
@@ -2013,9 +2018,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3-0-2" class="outline-6">
-<h6 id="sec-3-1-3-0-2">悪い結合、良い結合</h6>
-<div class="outline-text-6" id="text-3-1-3-0-2">
+<div id="outline-container-orgheadline35" class="outline-6">
+<h6 id="orgheadline35">悪い結合、良い結合</h6>
+<div class="outline-text-6" id="text-orgheadline35">
 <p>
 悪い結合としては、あるモジュールが依存しているモジュールの内部デー
 タをそのまま使っていたり（内容結合）、同じグローバル変数（共通結
@@ -2042,27 +2047,24 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3-0-3" class="outline-6">
-<h6 id="sec-3-1-3-0-3">悪い凝集、良い凝集</h6>
-<div class="outline-text-6" id="text-3-1-3-0-3">
+<div id="outline-container-orgheadline36" class="outline-6">
+<h6 id="orgheadline36">悪い凝集、良い凝集</h6>
+<div class="outline-text-6" id="text-orgheadline36">
 <p>
 凝集度が低い状態とは，つまり悪い凝集とは，何か，
 </p>
 
 <dl class="org-dl">
-<dt> 暗合的凝集 </dt><dd>アトランダムに選んできた処理を集めたモジュールは
-悪い。何を根拠に集めたのかわからないものも悪い凝集だ。
-</dd>
+<dt>暗合的凝集</dt><dd>アトランダムに選んできた処理を集めたモジュールは
+悪い。何を根拠に集めたのかわからないものも悪い凝集だ。</dd>
 
-<dt> 論理的凝集 </dt><dd>論理的に似ている処理だからという理由だけで集めて
-はいけない。
-</dd>
+<dt>論理的凝集</dt><dd>論理的に似ている処理だからという理由だけで集めて
+はいけない。</dd>
 
-<dt> 時間的凝集 </dt><dd>他にも同じようなタイミングで実施されるからといっ
+<dt>時間的凝集</dt><dd>他にも同じようなタイミングで実施されるからといっ
 て、モジュール化するのもの問題がある。たとえば、
 initという関数の中ですべてのデータ構造の初期化を
-するイメージをしてほしい。
-</dd>
+するイメージをしてほしい。</dd>
 </dl>
 
 <p>
@@ -2070,36 +2072,34 @@ initという関数の中ですべてのデータ構造の初期化を
 </p>
 
 <dl class="org-dl">
-<dt> 通信的凝集 </dt><dd>とあるデータに触れる処理をまとめることであるとか、
-</dd>
+<dt>通信的凝集</dt><dd>とあるデータに触れる処理をまとめることであるとか、</dd>
 
-<dt> 情報的凝集 </dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
-にすること。
-</dd>
+<dt>情報的凝集</dt><dd>適切な概念とデータ構造とアルゴリズムをひとまとめ
+にすること。</dd>
 
-<dt> 機能的凝集 </dt><dd>それによって、ひとつのうまく定義されたタスクをこ
-なせるように集めることである。
-</dd>
+<dt>機能的凝集</dt><dd>それによって、ひとつのうまく定義されたタスクをこ
+なせるように集めることである。</dd>
 </dl>
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3-0-4" class="outline-6">
-<h6 id="sec-3-1-3-0-4">状態と副作用の支配</h6>
-<div class="outline-text-6" id="text-3-1-3-0-4">
+<div id="outline-container-orgheadline37" class="outline-6">
+<h6 id="orgheadline37">状態と副作用の支配</h6>
+<div class="outline-text-6" id="text-orgheadline37">
 <p>
 よいモジュール分割とはなにか
 </p>
 
 <ul class="org-ul">
-<li>それは、処理とそれに関連するデータの関係性を明らかにして支配し
+<li><p>
+それは、処理とそれに関連するデータの関係性を明らかにして支配し
 ていくことの重要性だ。
+</p>
 
 <p>
 できれば、完全にデータの存在を隠蔽できてしまえると良いが、現実
 のプログラムではそうは行かない場合も多い。
-</p>
-</li>
+</p></li>
 </ul>
 
 <p>
@@ -2122,17 +2122,15 @@ initという関数の中ですべてのデータ構造の初期化を
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-4" class="outline-4">
-<h4 id="sec-3-1-4">抽象データ型</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38">抽象データ型</h4>
+<div class="outline-text-4" id="text-orgheadline38">
 <p>
 よいモジュール化の肝
 </p>
 <ul class="org-ul">
-<li>状態と副作用を隠蔽し、
-</li>
-<li>データとアルゴリズムをひとまとめにする
-</li>
+<li>状態と副作用を隠蔽し、</li>
+<li>データとアルゴリズムをひとまとめにする</li>
 </ul>
 
 <p>
@@ -2144,12 +2142,10 @@ initという関数の中ですべてのデータ構造の初期化を
 </p>
 <ul class="org-ul">
 <li>すなわちデータとそれに関連する処理をひとまとめにしたデータ型のこ
-とだ。
-</li>
+とだ。</li>
 
 <li>抽象データ型のポイントは、その内部データへのアクセスを抽象データ
-型にひもづいた関数でしか操作することができないという考え方だ。
-</li>
+型にひもづいた関数でしか操作することができないという考え方だ。</li>
 </ul>
 
 <p>
@@ -2158,14 +2154,13 @@ initという関数の中ですべてのデータ構造の初期化を
 
 <ul class="org-ul">
 <li>公開するヘッダと非公開のヘッダを分けることで、情報の隠蔽を行い抽象
-データ型としての役目を成り立たせている。
-</li>
+データ型としての役目を成り立たせている。</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-3-1-4-0-1" class="outline-6">
-<h6 id="sec-3-1-4-0-1">抽象データ型の情報隠蔽とカプセル化</h6>
-<div class="outline-text-6" id="text-3-1-4-0-1">
+<div id="outline-container-orgheadline39" class="outline-6">
+<h6 id="orgheadline39">抽象データ型の情報隠蔽とカプセル化</h6>
+<div class="outline-text-6" id="text-orgheadline39">
 <p>
 言語機能として外部からのアクセスを制限できるようにした。
 </p>
@@ -2185,23 +2180,18 @@ initという関数の中ですべてのデータ構造の初期化を
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> オブジェクト指向?</h3>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">3.2</span> オブジェクト指向?</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 simula
 </p>
 <ul class="org-ul">
-<li>オブジェクト、
-</li>
-<li>クラス（抽象データ型）、
-</li>
-<li>動的ディスパッチ、
-</li>
-<li>継承
-</li>
-<li>ガーベジコレクト
-</li>
+<li>オブジェクト、</li>
+<li>クラス（抽象データ型）、</li>
+<li>動的ディスパッチ、</li>
+<li>継承</li>
+<li>ガーベジコレクト</li>
 </ul>
 
 <p>
@@ -2240,8 +2230,8 @@ Smalltalkは、Simulaのコンセプトに「メッセージング」という�
 </div>
 </div>
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Simula &amp; C++のオブジェクト指向</h3>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">3.3</span> Simula &amp; C++のオブジェクト指向</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 C++のオブジェクト指向
@@ -2254,9 +2244,9 @@ C++のオブジェクト指向
 </blockquote>
 </div>
 
-<div id="outline-container-sec-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1">どの処理を呼び出すか決めるメカニズム</h4>
-<div class="outline-text-4" id="text-3-3-1">
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42">どの処理を呼び出すか決めるメカニズム</h4>
+<div class="outline-text-4" id="text-orgheadline42">
 <p>
 さて、継承と多態を足した抽象データ型といっても、なんだか良くわからない。
 </p>
@@ -2384,9 +2374,9 @@ function toString(IStringValue sv) string {
 </div>
 
 
-<div id="outline-container-sec-3-3-1-1" class="outline-5">
-<h5 id="sec-3-3-1-1">動的ディスパッチ</h5>
-<div class="outline-text-5" id="text-3-3-1-1">
+<div id="outline-container-orgheadline43" class="outline-5">
+<h5 id="orgheadline43">動的ディスパッチ</h5>
+<div class="outline-text-5" id="text-orgheadline43">
 <p>
 動的ディスパッチのキモは、オブジェクト自身が自分が何者であるか知っ
 ており、また、実行時に関数テーブルを探索して、どの関数を実行する
@@ -2398,26 +2388,23 @@ function toString(IStringValue sv) string {
 </p>
 
 <ul class="org-ul">
-<li>データに自分自身が何者か教える機能
-</li>
-<li>メソッドを呼び出した際にそれを探索する機能
-</li>
-<li>オブジェクト自身を参照できるように引数に束縛する機能
-</li>
+<li>データに自分自身が何者か教える機能</li>
+<li>メソッドを呼び出した際にそれを探索する機能</li>
+<li>オブジェクト自身を参照できるように引数に束縛する機能</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3-1-2" class="outline-5">
-<h5 id="sec-3-3-1-2">継承と委譲</h5>
-<div class="outline-text-5" id="text-3-3-1-2">
-</div><div id="outline-container-sec-3-3-1-2-1" class="outline-6">
-<h6 id="sec-3-3-1-2-1">継承</h6>
+<div id="outline-container-orgheadline46" class="outline-5">
+<h5 id="orgheadline46">継承と委譲</h5>
+<div class="outline-text-5" id="text-orgheadline46">
+</div><div id="outline-container-orgheadline44" class="outline-6">
+<h6 id="orgheadline44">継承</h6>
 </div>
 
-<div id="outline-container-sec-3-3-1-2-2" class="outline-6">
-<h6 id="sec-3-3-1-2-2">委譲</h6>
-<div class="outline-text-6" id="text-3-3-1-2-2">
+<div id="outline-container-orgheadline45" class="outline-6">
+<h6 id="orgheadline45">委譲</h6>
+<div class="outline-text-6" id="text-orgheadline45">
 <p>
 このようにメソッドの動的な探索に対して、どのような機構をつけるのかというのが
 オブジェクト指向では重要な構成要素と言える。
@@ -2433,20 +2420,15 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </div>
 
 
-<div id="outline-container-sec-3-3-2" class="outline-4">
-<h4 id="sec-3-3-2">オブジェクト指向の要素</h4>
-<div class="outline-text-4" id="text-3-3-2">
+<div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47">オブジェクト指向の要素</h4>
+<div class="outline-text-4" id="text-orgheadline47">
 <ul class="org-ul">
-<li>抽象データ型：データと処理をひもづける
-</li>
-<li>抽象データ型：情報の隠蔽を行うことができる
-</li>
-<li>オブジェクト：データ自身が何者か知っている
-</li>
-<li>動的多態：オブジェクト自身のデータと処理を自動的に探索する
-</li>
-<li>探索先の設定：継承、委譲
-</li>
+<li>抽象データ型：データと処理をひもづける</li>
+<li>抽象データ型：情報の隠蔽を行うことができる</li>
+<li>オブジェクト：データ自身が何者か知っている</li>
+<li>動的多態：オブジェクト自身のデータと処理を自動的に探索する</li>
+<li>探索先の設定：継承、委譲</li>
 </ul>
 
 <p>
@@ -2456,8 +2438,8 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </div>
 </div>
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">3.4</span> Smalltalk &amp; Objective-Cのオブジェクト指向</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 アランケイによるオブジェクト指向の定義：
@@ -2471,20 +2453,17 @@ rubyの module やその include, prepend、特異メソッド，特異クラス
 </blockquote>
 </div>
 
-<div id="outline-container-sec-3-4-1" class="outline-4">
-<h4 id="sec-3-4-1">仮想機械としてのオブジェクト</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49">仮想機械としてのオブジェクト</h4>
+<div class="outline-text-4" id="text-orgheadline49">
 <dl class="org-dl">
-<dt> アランケイの世界観 </dt><dd>         コンピュータを抽象化するとしたら、データと処理と命令セットをも
-つ仮想機械で抽象化されるべき
-</dd>
+<dt>アランケイの世界観</dt><dd>コンピュータを抽象化するとしたら、データと処理と命令セットをも
+つ仮想機械で抽象化されるべき</dd>
 
-<dt> 構造化プログラミング </dt><dd>        仮想機械として階層的に抽象化すべき
-</dd>
+<dt>構造化プログラミング</dt><dd>仮想機械として階層的に抽象化すべき</dd>
 
-<dt> オブジェクト指向 </dt><dd>         オブジェクトを独立した機械と見なし、それに対してメッセージを送
-り、自ら持つデータの責任は自らが負う。
-</dd>
+<dt>オブジェクト指向</dt><dd>オブジェクトを独立した機械と見なし、それに対してメッセージを送
+り、自ら持つデータの責任は自らが負う。</dd>
 </dl>
 
 <p>
@@ -2493,9 +2472,9 @@ Smalltalkの実行環境もまた仮想機械として作られている。
 </div>
 </div>
 
-<div id="outline-container-sec-3-4-2" class="outline-4">
-<h4 id="sec-3-4-2">メッセージング</h4>
-<div class="outline-text-4" id="text-3-4-2">
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50">メッセージング</h4>
+<div class="outline-text-4" id="text-orgheadline50">
 <p>
 Smalltalkでメッセージ送信は下記のように記述する:
 </p>
@@ -2511,11 +2490,9 @@ Smalltalkでメッセージ送信は下記のように記述する:
 </p>
 
 <ul class="org-ul">
-<li>アドレスさえ知っていれば、メッセージは自由に送れる。
-</li>
+<li>アドレスさえ知っていれば、メッセージは自由に送れる。</li>
 
-<li>レシーバはメッセージを受け取リ，その解釈はレシーバ自身が行う
-</li>
+<li>レシーバはメッセージを受け取リ，その解釈はレシーバ自身が行う</li>
 </ul>
 
 <p>
@@ -2523,9 +2500,9 @@ Smalltalkでメッセージ送信は下記のように記述する:
 </p>
 </div>
 
-<div id="outline-container-sec-3-4-2-1" class="outline-5">
-<h5 id="sec-3-4-2-1">動的な送信</h5>
-<div class="outline-text-5" id="text-3-4-2-1">
+<div id="outline-container-orgheadline51" class="outline-5">
+<h5 id="orgheadline51">動的な送信</h5>
+<div class="outline-text-5" id="text-orgheadline51">
 <p>
 メッセージの内容もまたオブジェクトなので、動的に作成し送ることができる。
 </p>
@@ -2548,23 +2525,24 @@ a.send(method)
 </div>
 </div>
 
-<div id="outline-container-sec-3-4-2-2" class="outline-5">
-<h5 id="sec-3-4-2-2">メッセージ転送  <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">(Wikipedia)</a></h5>
-<div class="outline-text-5" id="text-3-4-2-2">
+<div id="outline-container-orgheadline52" class="outline-5">
+<h5 id="orgheadline52">メッセージ転送  <a href="https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E8%BB%A2%E9%80%81">(Wikipedia)</a></h5>
+<div class="outline-text-5" id="text-orgheadline52">
 <p>
 受け取ったメッセージは、仮にメソッド定義がなかったとしても自由に取
 り扱うことができる。
 </p>
 
 <ul class="org-ul">
-<li>rubyの method_missing は，メソッドがない時に呼ばれるメソッド。
+<li><p>
+rubyの method_missing は，メソッドがない時に呼ばれるメソッド。
 メソッドの未定義を知ることができ，その処理を他のオブジェクトにま
 かせるのが，メッセージ転送。
+</p>
 
 <p>
 proxy.rb
-</p>
-</li>
+</p></li>
 </ul>
 
 <div class="org-src-container">
@@ -2587,9 +2565,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-4-2-3" class="outline-5">
-<h5 id="sec-3-4-2-3">非同期送信</h5>
-<div class="outline-text-5" id="text-3-4-2-3">
+<div id="outline-container-orgheadline53" class="outline-5">
+<h5 id="orgheadline53">非同期送信</h5>
+<div class="outline-text-5" id="text-orgheadline53">
 <p>
 メッセージの送信と結果の受信を別々に行なう。
 </p>
@@ -2601,9 +2579,9 @@ Proxy.new &lt;&lt; 1
 </div>
 </div>
 
-<div id="outline-container-sec-3-4-3" class="outline-4">
-<h4 id="sec-3-4-3">オブジェクト指向という言葉が意味していること</h4>
-<div class="outline-text-4" id="text-3-4-3">
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54">オブジェクト指向という言葉が意味していること</h4>
+<div class="outline-text-4" id="text-orgheadline54">
 <p>
 <a href="https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang">https://www.infoq.com/jp/news/2010/07/objects-smalltalk-erlang</a>
 </p>
@@ -2613,35 +2591,31 @@ Proxy.new &lt;&lt; 1
 </p>
 
 <ul class="org-ul">
-<li>メッセージ送信に基づいて、
-</li>
+<li>メッセージ送信に基づいて、</li>
 
-<li>オブジェクト間で分離し、
-</li>
+<li>オブジェクト間で分離し、</li>
 
-<li>ポリモーフィズムを持つ
-</li>
+<li>ポリモーフィズムを持つ</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Joe Armstrongのオブジェクト指向はクソだ！</h2>
+<div id="outline-container-orgheadline63" class="outline-2">
+<h2 id="orgheadline63"><span class="section-number-2">4</span> Joe Armstrongのオブジェクト指向はクソだ！</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://qiita.com/lambda-knight/items/fb7530232912dc4176c4">オブジェクト指向はクソか？ - Qiita</a> を読んで
 </p>
 
 <ul class="org-ul">
-<li>後から見つけた，<a href="https://gist.github.com/posaunehm/4087971">Why OO Sucks by Joe Armstrong</a> の訳の方がぴんときます。
-</li>
+<li>後から見つけた，<a href="https://gist.github.com/posaunehm/4087971">Why OO Sucks by Joe Armstrong</a> の訳の方がぴんときます。</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> オブジェクト指向が"Suck"である理由</h3>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">4.1</span> オブジェクト指向が"Suck"である理由</h3>
 <div class="outline-text-3" id="text-4-1">
 <blockquote>
 <p>
@@ -2651,17 +2625,16 @@ Proxy.new &lt;&lt; 1
 </blockquote>
 </div>
 
-<div id="outline-container-sec-4-1-1" class="outline-4">
-<h4 id="sec-4-1-1">反論その１</h4>
-<div class="outline-text-4" id="text-4-1-1">
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57">反論その１</h4>
+<div class="outline-text-4" id="text-orgheadline57">
 <blockquote>
 <p>
 
 </p>
 
 <ul class="org-ul">
-<li>データ構造と機能は一緒にすべきではない
-</li>
+<li>データ構造と機能は一緒にすべきではない</li>
 </ul>
 
 <p>
@@ -2681,16 +2654,12 @@ together）
 <ul class="org-ul">
 <li>「関数とデータは異なる世界に存在するからです」は，理由が希薄です。
 <ul class="org-ul">
-<li>「関数とデータは，異なるものです。」は認めます。
-</li>
+<li>「関数とデータは，異なるものです。」は認めます。</li>
 <li>データとその処理関数は近くにあって，同時に見られた方が，分かりやす
-いことが多いと思う。
-</li>
+いことが多いと思う。</li>
 <li>データだけからなるクラスがあってもいいし，インタフェースだけからな
-るモジュールがあってもいい。Rubyではそうなっている。
-</li>
-</ul>
-</li>
+るモジュールがあってもいい。Rubyではそうなっている。</li>
+</ul></li>
 </ul>
 
 <blockquote>
@@ -2708,8 +2677,7 @@ together）
 </blockquote>
 
 <ul class="org-ul">
-<li>関数についての説明はそのとおり。
-</li>
+<li>関数についての説明はそのとおり。</li>
 </ul>
 
 <blockquote>
@@ -2722,8 +2690,7 @@ together）
 
 <ul class="org-ul">
 <li>これは違うと思う。データ構造だけを見て，データ構造を用いてできる
-ことを理解することは，ほんとうに難しいこと，だと思う。
-</li>
+ことを理解することは，ほんとうに難しいこと，だと思う。</li>
 </ul>
 
 <blockquote>
@@ -2737,8 +2704,7 @@ together）
 <ul class="org-ul">
 <li>些細なことですが，「入力と出力を理解すれば関数を理解したことになり
 ます」ではなくて，関数を利用できることになるだと思います。そして，
-「関数を利用できない人に，関数の中身は記述できません」だと思います。
-</li>
+「関数を利用できない人に，関数の中身は記述できません」だと思います。</li>
 </ul>
 
 <blockquote>
@@ -2749,21 +2715,18 @@ together）
 </blockquote>
 
 <ul class="org-ul">
-<li>ここは最初，理解できませんでした。
-</li>
+<li>ここは最初，理解できませんでした。</li>
 <li>「関数を書くには，複数のデータを見なくてはいけない。ある一つの型を主
 にみて，書くことはよくない」と言ってるのかな。
 <ul class="org-ul">
-<li>そうかもしれないが，。。。
-</li>
-<li>適切な抽象度で見れば，関数のやってることは下記の3種 (ほんとかな？):
+<li>そうかもしれないが，。。。</li>
+<li><p>
+適切な抽象度で見れば，関数のやってることは下記の3種 (ほんとかな？):
+</p>
 <dl class="org-dl">
-<dt> 変換 </dt><dd>自身 -&gt; 自身
-</dd>
-<dt> 簡約 </dt><dd>自身 -&gt; 自明なもの
-</dd>
-<dt> 合成 </dt><dd>自身 -&gt; 高いレベルのもの
-</dd>
+<dt>変換</dt><dd>自身 -&gt; 自身</dd>
+<dt>簡約</dt><dd>自身 -&gt; 自明なもの</dd>
+<dt>合成</dt><dd>自身 -&gt; 高いレベルのもの</dd>
 </dl>
 <p>
 だとすると，変換や簡約は自身と一緒に記述してあると，わかりやすい。
@@ -2775,10 +2738,8 @@ together）
 入力が複数ある場合は，「どれか主になるものがある」場合や，「一纏
 めとして扱うことができる」場合は，型(データ)を主に，処理の記述が
 でき，何をやっているのかが，分かりやすいと，思えます。
-</p>
-</li>
-</ul>
-</li>
+</p></li>
+</ul></li>
 </ul>
 
 <blockquote>
@@ -2789,17 +2750,16 @@ together）
 </blockquote>
 
 <ul class="org-ul">
-<li>「異なるタイプの生き物を同じカゴに閉じ込めるのは間違い」は，理由になっていません。
-</li>
+<li>「異なるタイプの生き物を同じカゴに閉じ込めるのは間違い」は，理由になっていません。</li>
 
-<li>関数とデータ構造を近くに置いて，同時に見られることは，いいことです。
-</li>
+<li>関数とデータ構造を近くに置いて，同時に見られることは，いいことです。</li>
 
 <li>問題があるとすれば，同じデータ構造に対し，異なる操作関数からなるク
-ラスが沢山ある場合の冗長さかな。
-</li>
+ラスが沢山ある場合の冗長さかな。</li>
 
-<li>「データを理解することは簡単」が考え方の違いの根本ですね，きっと。
+<li><p>
+「データを理解することは簡単」が考え方の違いの根本ですね，きっと。
+</p>
 
 <p>
 データ駆動なのか関数駆動(こんな言葉ある？)なのかの違いですね。
@@ -2814,24 +2774,22 @@ together）
 <p>
 オブジェクト指向では，その解釈や適応できることを，書いておきたいんだ
 よね。きっと。
-</p>
-</li>
+</p></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-4-1-2" class="outline-4">
-<h4 id="sec-4-1-2">反論その２</h4>
-<div class="outline-text-4" id="text-4-1-2">
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58">反論その２</h4>
+<div class="outline-text-4" id="text-orgheadline58">
 <blockquote>
 <p>
 
 </p>
 
 <ul class="org-ul">
-<li>すべてはオブジェクトではない
-</li>
+<li>すべてはオブジェクトではない</li>
 </ul>
 
 <p>
@@ -2849,8 +2807,7 @@ together）
 <ul class="org-ul">
 <li>時刻を表すデータ型はあったほうがいいでしょう。自明だと思います。時
 刻を表すのに整数の組み合わせをもちいたいならそうもできます。
-オブジェクトであるべきかどうかの議論にはなっていません。
-</li>
+オブジェクトであるべきかどうかの議論にはなっていません。</li>
 </ul>
 
 <pre class="example">
@@ -2872,16 +2829,15 @@ together）
 </pre>
 
 <ul class="org-ul">
-<li>これらはインタフェース群とクラス (abstime(), hms()) )に見えるなぁ。
-</li>
+<li>これらはインタフェース群とクラス (abstime(), hms()) )に見えるなぁ。</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-4-1-3" class="outline-4">
-<h4 id="sec-4-1-3">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</h4>
-<div class="outline-text-4" id="text-4-1-3">
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59">反論その３-オブジェクト指向言語ではデータタイプ定義はあちこちに散らばってしまう</h4>
+<div class="outline-text-4" id="text-orgheadline59">
 <blockquote>
 <p>
 (Objection 3 - In an OOPL data type definitions are spread out all over
@@ -2902,8 +2858,7 @@ the place.)
 階層を作り，require によって，必要なライブラリを記述し，
 適切な抽象度で，見ることができる。散らばっているのではなく，
 適切なまとまりごとに*リンク*づけられている。
-一望したければ，ツールをつくればいいだろう。
-</li>
+一望したければ，ツールをつくればいいだろう。</li>
 </ul>
 
 <blockquote>
@@ -2939,17 +2894,16 @@ OOPLでは私は汎用的なデータ構造を定義する際にはなにかベ�
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-4" class="outline-4">
-<h4 id="sec-4-1-4">反論その４</h4>
-<div class="outline-text-4" id="text-4-1-4">
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60">反論その４</h4>
+<div class="outline-text-4" id="text-orgheadline60">
 <blockquote>
 <p>
 
 </p>
 
 <ul class="org-ul">
-<li>オブジェクトはプライベートな状態を持っている
-</li>
+<li>オブジェクトはプライベートな状態を持っている</li>
 </ul>
 
 <p>
@@ -2965,8 +2919,7 @@ OOPLでは私は汎用的なデータ構造を定義する際にはなにかベ�
 
 <ul class="org-ul">
 <li>はい，実世界をモデル化するプログラムでは，状態を持つことは 避けら
-れませんね。
-</li>
+れませんね。</li>
 </ul>
 
 <blockquote>
@@ -3010,20 +2963,18 @@ OOPLはプログラマから状態を隠しなさいといいます。状態は�
 
 <ul class="org-ul">
 <li>よく理解できていませんが，「プログラマから状態を隠すのは良くない，
-OOPLだけがそうしている」という主張と読みました。
-</li>
+OOPLだけがそうしている」という主張と読みました。</li>
 
 <li>「隠くすことも，公開することも，できるようにしよう」という立場だと思
 います。アクセスすべきものは，アクセスできるようにします。でも，アク
-セスする時は，その持ち主のメソッドを通してというのが，Rubyのやり方。
-</li>
+セスする時は，その持ち主のメソッドを通してというのが，Rubyのやり方。</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> オブジェクトが広まった理由</h3>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">4.2</span> オブジェクトが広まった理由</h3>
 <div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
@@ -3036,14 +2987,12 @@ OOPLだけがそうしている」という主張と読みました。
 
 <ul class="org-ul">
 <li>Reason 1 - It was thought to be easy to learn.
-（簡単に学べると思われていたから）
-</li>
+（簡単に学べると思われていたから）</li>
 </ul>
 </blockquote>
 
 <ul class="org-ul">
-<li>Ruby は簡単に学べると思う。
-</li>
+<li>Ruby は簡単に学べると思う。</li>
 </ul>
 
 <blockquote>
@@ -3053,14 +3002,12 @@ OOPLだけがそうしている」という主張と読みました。
 
 <ul class="org-ul">
 <li>Reason 2 - It was thought to make code reuse easier.
-（再利用がより簡単だと思われているから）
-</li>
+（再利用がより簡単だと思われているから）</li>
 </ul>
 </blockquote>
 
 <ul class="org-ul">
-<li>Rubyでは，再利用が簡単だと思う。
-</li>
+<li>Rubyでは，再利用が簡単だと思う。</li>
 </ul>
 
 <blockquote>
@@ -3070,18 +3017,15 @@ OOPLだけがそうしている」という主張と読みました。
 
 <ul class="org-ul">
 <li>Reason 3 - It was hyped.
-（売り込まれたから）
-</li>
+（売り込まれたから）</li>
 
 <li>Reason 4 - It created a new software industry.
-（新しいソフトウエア産業を作ったから）
-</li>
+（新しいソフトウエア産業を作ったから）</li>
 </ul>
 </blockquote>
 
 <ul class="org-ul">
-<li>そういう風潮もありますね。
-</li>
+<li>そういう風潮もありますね。</li>
 </ul>
 
 <blockquote>
@@ -3093,8 +3037,7 @@ OOPLだけがそうしている」という主張と読みました。
 </blockquote>
 
 <ul class="org-ul">
-<li>筆者は Ruby を使ったことがあるのかなぁ？
-</li>
+<li>筆者は Ruby を使ったことがあるのかなぁ？</li>
 </ul>
 
 <blockquote>
@@ -3112,18 +3055,17 @@ OOPLだけがそうしている」という主張と読みました。
 </blockquote>
 
 <ul class="org-ul">
-<li>そういう風潮もありますね。
-</li>
+<li>そういう風潮もありますね。</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Strategic Choice を読もう</h2>
+<div id="outline-container-orgheadline105" class="outline-2">
+<h2 id="orgheadline105"><span class="section-number-2">5</span> Strategic Choice を読もう</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 記事一覧</h3>
+</div><div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64"><span class="section-number-3">5.1</span> 記事一覧</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/archive">https://d.hatena.ne.jp/asakichy/archive</a>
@@ -3131,8 +3073,8 @@ OOPLだけがそうしている」という主張と読みました。
 </div>
 </div>
 
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 構造化プログラミング</h3>
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">5.2</span> 構造化プログラミング</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 ■[構造化プログラミング]構造化プログラミング入門
@@ -3148,8 +3090,7 @@ OOPLだけがそうしている」という主張と読みました。
 </p>
 
 <ul class="org-ul">
-<li>オブジェクト指向も、オブジェクトという構造に整理するという1つの構造化であるといえる。 
-</li>
+<li>オブジェクト指向も、オブジェクトという構造に整理するという1つの構造化であるといえる。</li>
 </ul>
 
 <p>
@@ -3173,31 +3114,21 @@ OOPLだけがそうしている」という主張と読みました。
 <li>基本3構造 
 
 <ul class="org-ul">
-<li>順次（連接） 
-</li>
-<li>反復（繰り返し） 
-</li>
-<li>分岐 
-</li>
-</ul>
-</li>
+<li>順次（連接）</li>
+<li>反復（繰り返し）</li>
+<li>分岐</li>
+</ul></li>
 
 <li>段階的詳細化 
 
 <ul class="org-ul">
-<li>言葉どおりに捉えれば段階的に詳細にしていくということ 
-</li>
-<li>つまりトップダウンで詳細化するということ 
-</li>
-<li>基準が必要 
-</li>
+<li>言葉どおりに捉えれば段階的に詳細にしていくということ</li>
+<li>つまりトップダウンで詳細化するということ</li>
+<li>基準が必要</li>
 
-<li>凝集度 
-</li>
-<li>結合度 
-</li>
-</ul>
-</li>
+<li>凝集度</li>
+<li>結合度</li>
+</ul></li>
 </ul>
 
 <p>
@@ -3208,30 +3139,24 @@ OOPLだけがそうしている」という主張と読みました。
 <li>構造化プログラミングにおけるトップダウンの機能分解には、確かに問題がある。 
 
 <ul class="org-ul">
-<li>この問題がオブジェクト指向の動機にもなっている。 
-</li>
-</ul>
-</li>
+<li>この問題がオブジェクト指向の動機にもなっている。</li>
+</ul></li>
 
 <li>ただし、構造化プログラミングの実装部分のエッセンス（特に凝集度・結合度の考え方）は今でも参考
 になる。 
 
 <ul class="org-ul">
-<li>[構造化プログラミング]段階的詳細化 
-</li>
-<li>[構造化プログラミング]凝集度 
-</li>
-<li>[構造化プログラミング]結合度 
-</li>
-</ul>
-</li>
+<li>[構造化プログラミング]段階的詳細化</li>
+<li>[構造化プログラミング]凝集度</li>
+<li>[構造化プログラミング]結合度</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-5-3" class="outline-3">
-<h3 id="sec-5-3"><span class="section-number-3">5.3</span> パルナスの規則</h3>
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">5.3</span> パルナスの規則</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 &gt; モジュールの利用者には、そのモジュールを利用するために必要なすべての
@@ -3244,27 +3169,25 @@ OOPLだけがそうしている」という主張と読みました。
 </p>
 </div>
 
-<div id="outline-container-sec-5-3-1" class="outline-4">
-<h4 id="sec-5-3-1">解釈</h4>
-<div class="outline-text-4" id="text-5-3-1">
+<div id="outline-container-orgheadline66" class="outline-4">
+<h4 id="orgheadline66">解釈</h4>
+<div class="outline-text-4" id="text-orgheadline66">
 <p>
 インターフェイスと実装の分離を行い、情報隠蔽またはカプセル化を実現する。 
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-5-3-2" class="outline-4">
-<h4 id="sec-5-3-2">なんで？</h4>
-<div class="outline-text-4" id="text-5-3-2">
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67">なんで？</h4>
+<div class="outline-text-4" id="text-orgheadline67">
 <p>
 システムの部分同士は最小かつ明快なつながりで結ばれていることが望ましい。
 </p>
 
 <ul class="org-ul">
-<li>内部を知らなくても使える（再利用） 
-</li>
-<li>利用者に影響を与えず実装を入れ替えることが出来る（保守） 
-</li>
+<li>内部を知らなくても使える（再利用）</li>
+<li>利用者に影響を与えず実装を入れ替えることが出来る（保守）</li>
 </ul>
 </div>
 </div>
@@ -3273,8 +3196,8 @@ OOPLだけがそうしている」という主張と読みました。
 
 
 
-<div id="outline-container-sec-5-4" class="outline-3">
-<h3 id="sec-5-4"><span class="section-number-3">5.4</span> 抽象データ型 - Strategic Choice</h3>
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72"><span class="section-number-3">5.4</span> 抽象データ型 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090225/1235547089">https://d.hatena.ne.jp/asakichy/20090225/1235547089</a>
@@ -3285,207 +3208,235 @@ abstract data type (ADT)
 </p>
 </div>
 
-<div id="outline-container-sec-5-4-1" class="outline-4">
-<h4 id="sec-5-4-1">どういうこと？</h4>
-<div class="outline-text-4" id="text-5-4-1">
+<div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69">どういうこと？</h4>
+<div class="outline-text-4" id="text-orgheadline69">
 <ul class="org-ul">
 <li>型定義を公開できること。 
 
 <ul class="org-ul">
-<li>プログラマがデータ型を定義。 
-</li>
-</ul>
-</li>
+<li>プログラマがデータ型を定義。</li>
+</ul></li>
 
 <li>インスタンスに対する操作が利用出来ること。 
 
 <ul class="org-ul">
-<li>「do(data)」ではなく「data.do()」。 
-</li>
-</ul>
-</li>
+<li>「do(data)」ではなく「data.do()」。</li>
+</ul></li>
 
 <li>内部のデータを保護し、上記の操作のみがアクセス出来ること。 
 
 <ul class="org-ul">
-<li>情報隠蔽。 
-</li>
-</ul>
-</li>
+<li>情報隠蔽。</li>
+</ul></li>
 
 <li>複数のインスタンスを作れること。 
 
 <ul class="org-ul">
-<li>マルチプルインスタンス。 
-</li>
-</ul>
-</li>
+<li>マルチプルインスタンス。</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-5-4-2" class="outline-4">
-<h4 id="sec-5-4-2">モジュールとの関連</h4>
-<div class="outline-text-4" id="text-5-4-2">
+<div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70">モジュールとの関連</h4>
+<div class="outline-text-4" id="text-orgheadline70">
 <ul class="org-ul">
-<li>モジュールで情報隠蔽までは可能だった。（パルナスの規則） 
-</li>
-<li>しかし複数インスタンスが作れない。 
-</li>
-<li>これを満たすのがADT。 
-</li>
+<li>モジュールで情報隠蔽までは可能だった。（パルナスの規則）</li>
+<li>しかし複数インスタンスが作れない。</li>
+<li>これを満たすのがADT。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-5-4-3" class="outline-4">
-<h4 id="sec-5-4-3">クラスとの関連</h4>
-<div class="outline-text-4" id="text-5-4-3">
+<div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71">クラスとの関連</h4>
+<div class="outline-text-4" id="text-orgheadline71">
 <ul class="org-ul">
-<li>クラスは，抽象データ型を実現するもの
-</li>
+<li>クラスは，抽象データ型を実現するもの</li>
 <li>これに加えて，下記を特徴として持つ:
 <ul class="org-ul">
-<li><b>継承</b> 
-</li>
-<li><b>ポリモーフィズム</b> ((s-:?))
-</li>
-</ul>
-</li>
+<li><b>継承</b></li>
+<li><b>ポリモーフィズム</b> ((s-:?))</li>
+</ul></li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-5-5" class="outline-3">
-<h3 id="sec-5-5"><span class="section-number-3">5.5</span> オブジェクト指向の本懐 - Strategic Choice</h3>
+<div id="outline-container-orgheadline98" class="outline-3">
+<h3 id="orgheadline98"><span class="section-number-3">5.5</span> オブジェクト指向の本懐 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090421/1240277448">https://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
 </p>
 </div>
 
-<div id="outline-container-sec-5-5-1" class="outline-4">
-<h4 id="sec-5-5-1">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</h4>
-<div class="outline-text-4" id="text-5-5-1">
+<div id="outline-container-orgheadline78" class="outline-4">
+<h4 id="orgheadline78">オブジェクト指向前 &#x2013; オブジェクト指向の本懐（２）・</h4>
+<div class="outline-text-4" id="text-orgheadline78">
+</div><div id="outline-container-orgheadline73" class="outline-5">
+<h5 id="orgheadline73">機能分解</h5>
+<div class="outline-text-5" id="text-orgheadline73">
 <p>
-オブジェクト指向の考察の前提知識， 
-マーチン・ファウラー「UMLモデリングのエッセンス」で提唱
-</p>
-</div>
-
-<div id="outline-container-sec-5-5-1-1" class="outline-5">
-<h5 id="sec-5-5-1-1">概念(conceptual)</h5>
-<div class="outline-text-5" id="text-5-5-1-1">
-<ul class="org-ul">
-<li>調査対象領域における概念を表現。 
-</li>
-<li>実装とは関係なく導き出される。 
-</li>
-<li>「私は何に対して責任があるのか？」 
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-5-5-1-2" class="outline-5">
-<h5 id="sec-5-5-1-2">仕様(specification)</h5>
-<div class="outline-text-5" id="text-5-5-1-2">
-<ul class="org-ul">
-<li>ソフトウェアを考慮。 
-</li>
-<li>実装ではなく、インターフェイスの考慮 。 
-</li>
-<li>「私はどのように使用されるのか？」 
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-5-5-1-3" class="outline-5">
-<h5 id="sec-5-5-1-3">実装(implementation)</h5>
-<div class="outline-text-5" id="text-5-5-1-3">
-<ul class="org-ul">
-<li>ソースコード自体を考慮。 
-</li>
-<li>上の2つを考えた後。 
-</li>
-<li>「私はどのように自身の責任を全うするのか？」 
-</li>
-</ul>
-
-<p>
-この観点の使い分けが非常に重要
+「構造化プログラミング」時代と呼ばれ、
+機能分解（functional decomposition）の手法がとられていました。
 </p>
 
 <ul class="org-ul">
-<li>概念レベルでコミュニケーションを取とると、お互いの詳細は知らなくて良
-いことになります。
-</li>
+<li>問題を小さな機能にブレークダウンしていき、複雑さを回避しようとするアプローチで
+す。</li>
 
-<li>設計はまずここで考えることになります。すなわちソフトウェア以下は考慮
-しません。
-</li>
+<li>図にするとピラミッドストラクチャのようになります。</li>
 
-<li>すると設計アウトプットにおいて、使用者に概念をそのままにして実装を変
-更できるため、結果的に使用者に対して（発生しやすい変更である）実装変
-更から守ることになります。
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-5-5-1-4" class="outline-5">
-<h5 id="sec-5-5-1-4">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</h5>
-<div class="outline-text-5" id="text-5-5-1-4">
-<p>
-ソフトウェア開発プロセスの観点とオブジェクト指向設計がよくマッチするから。
-以下にオブジェクトと観点のマッピングを示す:
-</p>
-</div>
-
-<div id="outline-container-sec-5-5-1-4-1" class="outline-6">
-<h6 id="sec-5-5-1-4-1">概念レベル</h6>
-<div class="outline-text-6" id="text-5-5-1-4-1">
-<ul class="org-ul">
-<li>オブジェクトは責任の集合 
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-5-5-1-4-2" class="outline-6">
-<h6 id="sec-5-5-1-4-2">仕様レベル</h6>
-<div class="outline-text-6" id="text-5-5-1-4-2">
-<ul class="org-ul">
-<li>オブジェクトはその他のオブジェクトや自ら起動することが出来るメ
-ソッドの集合
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-5-5-1-4-3" class="outline-6">
-<h6 id="sec-5-5-1-4-3">実装レベル</h6>
-<div class="outline-text-6" id="text-5-5-1-4-3">
-<ul class="org-ul">
-<li>オブジェクトはコードとデータ、それらの相互演算処理
-</li>
+<li>ブレークダウンされるごとに凝集度は高まり、見通しも良くなるので自然と複雑度は下がります。</li>
 </ul>
 
 <p>
-そしてこの観点の使い分けがわかると、既存の開発手法から「オブジェクト指
-向（の本質）」にパラダイムシフトし易くなります。
+しかし、ここには落とし穴がありました。
+</p>
+
+<ul class="org-ul">
+<li><p>
+このアプローチでは、結果的に「メイン」モジュールが必要となります。
+</p>
+
+<p>
+機能の組合わせとその呼び出し順を正し
+く制御する、大きな責任を持ったモジュールです。
+</p></li>
+
+<li><p>
+こういった構造になっていると、モジュールの変更が制御できなくなります。
+</p>
+
+<p>
+「他の関数」「データ」「やり取り」「順番」等、注意を払うべき項目が多
+すぎるからです。
+</p></li>
+
+<li>機能やデータを変更すると、他の機能や他のデータに影響が及び、それがま
+た他の機能に影響を及ぼすという修正の連鎖が「芋蔓式」に発生し、「将棋
+倒し」が起こります。</li>
+
+<li><p>
+その中でも特に影響が大きいのが「データ」の変更についてで、
+</p>
+
+<p>
+データが機能に従属して拡散してしまっているため（方々で使っているだけ
+でなく、引数による上下渡り歩きも含む）、影響範囲の見極めが非常に困難
+になります。
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline74" class="outline-5">
+<h5 id="orgheadline74">好ましくない副作用</h5>
+<div class="outline-text-5" id="text-orgheadline74">
+<p>
+この時代、多くのバグが、変更によって生み出されていました。
+</p>
+
+<ul class="org-ul">
+<li>変更による不具合のことを「好ましくない副作用」といいます。</li>
+
+<li>機能に注力することは、発見しにくい副作用を生み出す近道になってしまう
+のです。</li>
+
+<li>そして保守作業とデバッグ作業にかかる時間の大半は、バグの除去に充てら
+れる時間ではなく、バグの発見、および修正によって生み出された好ましく
+ない副作用の回避手段を考え出す時間に充てられていました。</li>
+</ul>
+
+<p>
+つまり、機能分解は、ソフトウェアライフサイクルに常備されている「変更」
+というイベントにおいて、例えばバグ修正時であれば二次バグ、機能追加時で
+あればデグレードの発生など、常に危険に晒されている手法だということです。
+</p>
+
+<p>
+そして、本来使うべき開発そのものの時間ではなく、この副作用の収束に多く
+の時間を取られるという形で問題が顕在化したのです。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline75" class="outline-5">
+<h5 id="orgheadline75">オブジェクト指向へ</h5>
+<div class="outline-text-5" id="text-orgheadline75">
+<p>
+変更は必ず発生するものです。
+</p>
+
+<p>
+どう変わるかはわかりませんが、どこが変わりそうかはある程度予想できるの
+です。
+</p>
+
+<p>
+そこでオブジェクト指向が登場します。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline76" class="outline-5">
+<h5 id="orgheadline76">機能とデータ</h5>
+<div class="outline-text-5" id="text-orgheadline76">
+<p>
+書籍「オブジェクト指向入門」の中でトップダウン機能分解の弊害に言及して
+います。
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+オブジェクト指向でないアプローチでは何の抵抗もされずに、機能がデー
+タを支配するが、その後データが「復讐」を始めた。復讐はサボタージュ
+の形で現れた。アーキテクチャの基礎そのものを攻撃することによって、
+データはシステムを変更に耐えられないようにした。
+</p>
+</blockquote>
+
+<p>
+トップダウンの機能階層図は一見きれいですが、実はごちゃ混ぜのデータ転送
+が含まれており、変更時は管理不能に陥ってしまいます。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-5">
+<h5 id="orgheadline77">デグレードの原因</h5>
+<div class="outline-text-5" id="text-orgheadline77">
+<p>
+変更して、その変更が原因で、元の機能に不具合が発生してしまうのがデグレー
+ドです。このデグレードが発生した時、私は「もう少し気をつけて修正すれば」
+とか「もっと慎重に修正すればよかった」と反省してしまいます。しかし、そ
+もそもの根本原因は、修正方法よりもその設計にあることが多いという実感が
+あります。
+</p>
+
+<p>
+そこに気が付いて、「割れ窓理論」（＠書籍「達人プログラマー」）に陥らな
+いよう、変更に強い設計に改善していかなければなりません。
+</p>
+
+<p>
+そのためのオブジェクト指向だと思っています。
 </p>
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-sec-5-5-2" class="outline-4">
-<h4 id="sec-5-5-2">オブジェクト指向黎明期の誤解 &#x2013; オブジェクト指向の本懐（３）・</h4>
-<div class="outline-text-4" id="text-5-5-2">
+<div id="outline-container-orgheadline79" class="outline-4">
+<h4 id="orgheadline79">オブジェクト指向黎明期の誤解 &#x2013; オブジェクト指向の本懐（３）・</h4>
+<div class="outline-text-4" id="text-orgheadline79">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向黎明期の誤解 - Strategic Choice</a>
 </p>
@@ -3495,18 +3446,15 @@ abstract data type (ADT)
 </p>
 </div>
 
-<div id="outline-container-sec-5-5-2-1" class="outline-5">
-<h5 id="sec-5-5-2-1">代表的な誤解</h5>
-<div class="outline-text-5" id="text-5-5-2-1">
+<div id="outline-container-orgheadline80" class="outline-5">
+<h5 id="orgheadline80">代表的な誤解</h5>
+<div class="outline-text-5" id="text-orgheadline80">
 <ul class="org-ul">
-<li>オブジェクトとはデータ＋操作である。
-</li>
+<li>オブジェクトとはデータ＋操作である。</li>
 
-<li>カプセル化とはデータの隠蔽である。
-</li>
+<li>カプセル化とはデータの隠蔽である。</li>
 
-<li>継承は特殊化と再利用の手段である。
-</li>
+<li>継承は特殊化と再利用の手段である。</li>
 </ul>
 
 <p>
@@ -3519,22 +3467,19 @@ abstract data type (ADT)
 </div>
 </div>
 
-<div id="outline-container-sec-5-5-2-2" class="outline-5">
-<h5 id="sec-5-5-2-2">オブジェクト指向の正しい理解</h5>
-<div class="outline-text-5" id="text-5-5-2-2">
+<div id="outline-container-orgheadline81" class="outline-5">
+<h5 id="orgheadline81">オブジェクト指向の正しい理解</h5>
+<div class="outline-text-5" id="text-orgheadline81">
 <p>
 正しい理解は以下になります。
 </p>
 
 <ul class="org-ul">
-<li>オブジェクトとは責務である。
-</li>
+<li>オブジェクトとは責務である。</li>
 
-<li>カプセル化とは流動的要素の隠蔽である。
-</li>
+<li>カプセル化とは流動的要素の隠蔽である。</li>
 
-<li>継承はオブジェクトを分類する手段である。
-</li>
+<li>継承はオブジェクトを分類する手段である。</li>
 </ul>
 
 <p>
@@ -3542,9 +3487,9 @@ abstract data type (ADT)
 </p>
 </div>
 
-<div id="outline-container-sec-5-5-2-2-1" class="outline-6">
-<h6 id="sec-5-5-2-2-1">カプセル化の意味</h6>
-<div class="outline-text-6" id="text-5-5-2-2-1">
+<div id="outline-container-orgheadline82" class="outline-6">
+<h6 id="orgheadline82">カプセル化の意味</h6>
+<div class="outline-text-6" id="text-orgheadline82">
 <p>
 「カプセル化、情報隠蔽、データ隠蔽」という用語は、余りにも意味が揺れて
 いるため、はっきりとしたことは言えないようです。
@@ -3557,22 +3502,19 @@ abstract data type (ADT)
 </div>
 </div>
 
-<div id="outline-container-sec-5-5-2-2-2" class="outline-6">
-<h6 id="sec-5-5-2-2-2">オブジェクト指向のウソについて</h6>
-<div class="outline-text-6" id="text-5-5-2-2-2">
+<div id="outline-container-orgheadline83" class="outline-6">
+<h6 id="orgheadline83">オブジェクト指向のウソについて</h6>
+<div class="outline-text-6" id="text-orgheadline83">
 <p>
 オブジェクト指向の黎明期は、その特徴について以下のように喧伝されていました。
 </p>
 
 <ul class="org-ul">
-<li>現実世界をそのままモデリング（クラス化）できる。
-</li>
+<li>現実世界をそのままモデリング（クラス化）できる。</li>
 
-<li>実装は簡単で、属人性も排除できる。
-</li>
+<li>実装は簡単で、属人性も排除できる。</li>
 
-<li>差分プログラミングで簡単に再利用できる。
-</li>
+<li>差分プログラミングで簡単に再利用できる。</li>
 </ul>
 
 <p>
@@ -3587,31 +3529,24 @@ abstract data type (ADT)
 ものは1つもでてきません。
 
 <ul class="org-ul">
-<li>((s-:)) いっぱいでてきますよ。文法，構文木，生成規則，&#x2026; 
-</li>
-</ul>
-</li>
+<li>((s-:)) いっぱいでてきますよ。文法，構文木，生成規則，&#x2026;</li>
+</ul></li>
 
 <li>モデリングは「捨象」です。つまり、抽象化してほとんどの部分を捨て
 てしまいます。「そのまま」クラスにはなりません。
 
 <ul class="org-ul">
 <li>((s-:)) 本質的なものだけを残すのがモデリングで，それはクラスに
-なります。
-</li>
-</ul>
-</li>
+なります。</li>
+</ul></li>
 
 <li>デザインパターンにおいて、その登場クラスのほとんどは「人工品」で、
 現実世界には存在しません。
 
 <ul class="org-ul">
-<li>((s-:)) 人工物も一度できれば現実です。
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>((s-:)) 人工物も一度できれば現実です。</li>
+</ul></li>
+</ul></li>
 
 <li>実装は簡単で、属人性も排除できる
 
@@ -3621,21 +3556,16 @@ abstract data type (ADT)
 
 <ul class="org-ul">
 <li>((s-:)) 簡単さは，なんといっても再利用が簡単になることじゃない
-かなぁ。
-</li>
-</ul>
-</li>
+かなぁ。</li>
+</ul></li>
 
 <li>余りにも実装寄りの話でオブジェクト指向の本質とは全く関係ありませ
 んので、根拠に乏しいと思います。
 
 <ul class="org-ul">
-<li>((s-:)) 属人性を，メッセージングで解決することでは？
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>((s-:)) 属人性を，メッセージングで解決することでは？</li>
+</ul></li>
+</ul></li>
 
 <li>差分プログラミングで簡単に再利用できる
 
@@ -3645,35 +3575,296 @@ abstract data type (ADT)
 しかしこれも実装面から見た話ですし、
 
 <ul class="org-ul">
-<li>((s-:)) 差のみを書くことには，積極的な意味があると思います。
-</li>
-</ul>
-</li>
+<li>((s-:)) 差のみを書くことには，積極的な意味があると思います。</li>
+</ul></li>
 
 <li>差分プログラミングそのものはオブジェクト指向（言語）でなくても可
-能です。
-</li>
+能です。</li>
 
 <li>さらに、継承を紡いでいく拡張には設計的にも実装的にも問題点があり
 ます。
 
 <ul class="org-ul">
 <li>((s-:)) 問題の構造がそうなら，継承を紡いでいく拡張が正しいのだ
-と思います。
-</li>
-</ul>
-</li>
-</ul>
-</li>
+と思います。</li>
+</ul></li>
+</ul></li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline84" class="outline-4">
+<h4 id="orgheadline84">ソフトウエア開発プロセスの観点 &#x2013; オブジェクト指向の本懐（４）</h4>
+<div class="outline-text-4" id="text-orgheadline84">
+<p>
+オブジェクト指向の考察の前提知識， 
+マーチン・ファウラー「UMLモデリングのエッセンス」で提唱
+</p>
+</div>
+
+<div id="outline-container-orgheadline85" class="outline-5">
+<h5 id="orgheadline85">概念(conceptual)</h5>
+<div class="outline-text-5" id="text-orgheadline85">
+<ul class="org-ul">
+<li>調査対象領域における概念を表現。</li>
+<li>実装とは関係なく導き出される。</li>
+<li>「私は何に対して責任があるのか？」</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline86" class="outline-5">
+<h5 id="orgheadline86">仕様(specification)</h5>
+<div class="outline-text-5" id="text-orgheadline86">
+<ul class="org-ul">
+<li>ソフトウェアを考慮。</li>
+<li>実装ではなく、インターフェイスの考慮 。</li>
+<li>「私はどのように使用されるのか？」</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline87" class="outline-5">
+<h5 id="orgheadline87">実装(implementation)</h5>
+<div class="outline-text-5" id="text-orgheadline87">
+<ul class="org-ul">
+<li>ソースコード自体を考慮。</li>
+<li>上の2つを考えた後。</li>
+<li>「私はどのように自身の責任を全うするのか？」</li>
+</ul>
+
+<p>
+この観点の使い分けが非常に重要
+</p>
+
+<ul class="org-ul">
+<li>概念レベルでコミュニケーションを取とると、お互いの詳細は知らなくて良
+いことになります。</li>
+
+<li>設計はまずここで考えることになります。すなわちソフトウェア以下は考慮
+しません。</li>
+
+<li>すると設計アウトプットにおいて、使用者に概念をそのままにして実装を変
+更できるため、結果的に使用者に対して（発生しやすい変更である）実装変
+更から守ることになります。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline88" class="outline-5">
+<h5 id="orgheadline88">オブジェクトとソフトウエア開発プロセスの観点の間のマッピング</h5>
+<div class="outline-text-5" id="text-orgheadline88">
+<p>
+ソフトウェア開発プロセスの観点とオブジェクト指向設計がよくマッチするから。
+以下にオブジェクトと観点のマッピングを示す:
+</p>
+</div>
+
+<div id="outline-container-orgheadline89" class="outline-6">
+<h6 id="orgheadline89">概念レベル</h6>
+<div class="outline-text-6" id="text-orgheadline89">
+<ul class="org-ul">
+<li>オブジェクトは責任の集合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline90" class="outline-6">
+<h6 id="orgheadline90">仕様レベル</h6>
+<div class="outline-text-6" id="text-orgheadline90">
+<ul class="org-ul">
+<li>オブジェクトはその他のオブジェクトや自ら起動することが出来るメ
+ソッドの集合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline91" class="outline-6">
+<h6 id="orgheadline91">実装レベル</h6>
+<div class="outline-text-6" id="text-orgheadline91">
+<ul class="org-ul">
+<li>オブジェクトはコードとデータ、それらの相互演算処理</li>
+</ul>
+
+<p>
+そしてこの観点の使い分けがわかると、既存の開発手法から「オブジェクト指
+向（の本質）」にパラダイムシフトし易くなります。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline97" class="outline-4">
+<h4 id="orgheadline97">オブジェクト指向パラダイム &#x2013; オブジェクト指向の本懐（５）</h4>
+<div class="outline-text-4" id="text-orgheadline97">
+</div><div id="outline-container-orgheadline92" class="outline-5">
+<h5 id="orgheadline92">オブジェクトとは責任である</h5>
+<div class="outline-text-5" id="text-orgheadline92">
+<p>
+オブジェクト指向では、機能に分解するのではなく、 *オブジェクト * に分解
+します。
+</p>
+
+<p>
+オブジェクトとは「データ＋操作」ではありません。
+</p>
+
+<ul class="org-ul">
+<li>決して「賢いデータ」程度の物ではないのです。</li>
+
+<li>これは実装の観点からしか見ていない、狭いものの見
+方です。</li>
+</ul>
+
+<p>
+それではオブジェクトとは何か。
+</p>
+
+<ul class="org-ul">
+<li>オブジェクトとは <b>責任</b> です。責務を備えた実体です。</li>
+
+<li>それは <b>概念レベル*，*仕様レベル</b> から考察した結果導き出されるもので
+す。実装レベルを混ぜてはいけません。</li>
+
+<li><b>オブジェクトがどう実装されるか</b> ではなく
+*オブジェクトが何を実行するのか*に着目しなければならないのです。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline93" class="outline-5">
+<h5 id="orgheadline93">開発の手順</h5>
+<div class="outline-text-5" id="text-orgheadline93">
+<p>
+オブジェクト指向に沿ったソフトウェア開発の手順はこうなります。
+</p>
+
+<ol class="org-ol">
+<li>詳細をすべて考慮することなく、予備的な設計を行う</li>
+<li>その設計を実装する</li>
+</ol>
+
+<p>
+つまり、
+</p>
+
+<ol class="org-ol">
+<li>まず概念レベル（＝責任）で考えることになります。</li>
+
+<li><p>
+そして、責任を果たすために、他のオブジェクトが使用するためのインター
+フェイスを考えます。
+</p>
+
+<p>
+これを <b>公開インターフェイス</b> といいます。
+</p>
+
+<p>
+実装をそのインターフェイスの背後に隠蔽することで、実装とそれを使用
+するオブジェクトを分離しているのです。
+</p></li>
+</ol>
+
+<p>
+実装レベルで考えているだけだと、結局機能分解の時と同じ問題が発生します。
+</p>
+
+<ul class="org-ul">
+<li>つまり、変更から守られないということです。</li>
+
+<li>差分プログラミング的な、誤解されたオブジェクト指向もこの範疇に入ります。</li>
+</ul>
+
+<p>
+一方、概念レベルでコミュニケーションをはかり、別のレベルで（実装）要求
+を遂行する、という風に分けて考えると、
+</p>
+
+<ul class="org-ul">
+<li>リクエストする側は何が起こるかの概略だけ知っていればよいことになります。</li>
+
+<li>つまり、その概略（責任・インターフェイス）をそのままに、実装詳細の変
+更から、リクエスト側を守ることができるということです。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline96" class="outline-5">
+<h5 id="orgheadline96">補足</h5>
+<div class="outline-text-5" id="text-orgheadline96">
+</div><div id="outline-container-orgheadline94" class="outline-6">
+<h6 id="orgheadline94">変更はいつするのか？</h6>
+<div class="outline-text-6" id="text-orgheadline94">
+<p>
+書籍「達人プログラマー」では、DRY原則の説明の中で、メンテナンスについてこういっています。
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+メンテナンスとは「バグの修正と機能拡張であり、アプリケーションがリ
+リースされた時から始まるものである」という考えは間違いです。
+</p>
+
+<p>
+プログラマーは常に「メンテナンス・モード」であり、理解は日々変わっ
+ていくものです。
+</p>
+
+<p>
+設計やコーディング中でも新たな要求が発生するため、メンテナンスと開
+発工程は分けて考えられるものではなく、メンテナンスはすべての開発工
+程を通じて行う日常業務なのです。
+</p>
+</blockquote>
+
+<p>
+いわゆる製品リリース後をメンテナンスと捉えるのではなく、新しい製品の開
+発中も含めてメンテナンスと言っています。
+</p>
+
+<p>
+つまり * 変更は常時 * ということです。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline95" class="outline-6">
+<h6 id="orgheadline95">変更に本当につよいのか？</h6>
+<div class="outline-text-6" id="text-orgheadline95">
+<p>
+私はオブジェクト指向が変更に強いと言われても最初はなかなか実感が湧きま
+せんでした。なぜならその実例がないからです。
+</p>
+
+<p>
+書籍のサンプルには、当たり前ですが「仕様変更」や「追加要求」がありませ
+ん。変更に強く、それが目的あると言われてもピンとこないのも無理はないの
+です。
+</p>
+
+<p>
+しかし、それをやっと実感できたのが「デザインパターンとともに学ぶオブジェ
+クト指向のこころ」を読んだ時でした。
+</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-5-6" class="outline-3">
-<h3 id="sec-5-6"><span class="section-number-3">5.6</span> オブジェクト指向設計原則 - Strategic Choice</h3>
+
+<div id="outline-container-orgheadline99" class="outline-3">
+<h3 id="orgheadline99"><span class="section-number-3">5.6</span> オブジェクト指向設計原則 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090122/1232879842">https://d.hatena.ne.jp/asakichy/20090122/1232879842</a>
@@ -3681,17 +3872,17 @@ abstract data type (ADT)
 </div>
 </div>
 
-<div id="outline-container-sec-5-7" class="outline-3">
-<h3 id="sec-5-7"><span class="section-number-3">5.7</span> プログラミング原則 [Unix思想] - Strategic Choice</h3>
+<div id="outline-container-orgheadline100" class="outline-3">
+<h3 id="orgheadline100"><span class="section-number-3">5.7</span> プログラミング原則 [Unix思想] - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-7">
 <p>
-<a href="https://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]">https://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]</a>
+<a href="https://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D">https://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-5-8" class="outline-3">
-<h3 id="sec-5-8"><span class="section-number-3">5.8</span> ソフトウェア開発の真実とウソ - Strategic Choice</h3>
+<div id="outline-container-orgheadline101" class="outline-3">
+<h3 id="orgheadline101"><span class="section-number-3">5.8</span> ソフトウェア開発の真実とウソ - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-8">
 <p>
 ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
@@ -3699,8 +3890,8 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 
-<div id="outline-container-sec-5-9" class="outline-3">
-<h3 id="sec-5-9"><span class="section-number-3">5.9</span> ソフトウェア開発原則一覧 - Strategic Choice</h3>
+<div id="outline-container-orgheadline102" class="outline-3">
+<h3 id="orgheadline102"><span class="section-number-3">5.9</span> ソフトウェア開発原則一覧 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-9">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20100205/1265329796">https://d.hatena.ne.jp/asakichy/20100205/1265329796</a>
@@ -3708,8 +3899,8 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 
-<div id="outline-container-sec-5-10" class="outline-3">
-<h3 id="sec-5-10"><span class="section-number-3">5.10</span> 七つの設計原理 - Strategic Choice</h3>
+<div id="outline-container-orgheadline103" class="outline-3">
+<h3 id="orgheadline103"><span class="section-number-3">5.10</span> 七つの設計原理 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-10">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20090806/1249526499">https://d.hatena.ne.jp/asakichy/20090806/1249526499</a>
@@ -3717,8 +3908,8 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 
-<div id="outline-container-sec-5-11" class="outline-3">
-<h3 id="sec-5-11"><span class="section-number-3">5.11</span> 漏れのある抽象化の法則 - Strategic Choice</h3>
+<div id="outline-container-orgheadline104" class="outline-3">
+<h3 id="orgheadline104"><span class="section-number-3">5.11</span> 漏れのある抽象化の法則 - Strategic Choice</h3>
 <div class="outline-text-3" id="text-5-11">
 <p>
 <a href="https://d.hatena.ne.jp/asakichy/20160729/1469743543">https://d.hatena.ne.jp/asakichy/20160729/1469743543</a>
@@ -3727,123 +3918,95 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> オブジェクト指向プログラミングとは</h2>
+<div id="outline-container-orgheadline113" class="outline-2">
+<h2 id="orgheadline113"><span class="section-number-2">6</span> オブジェクト指向プログラミングとは</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> プログラム言語とは</h3>
+</div><div id="outline-container-orgheadline109" class="outline-3">
+<h3 id="orgheadline109"><span class="section-number-3">6.1</span> プログラム言語とは</h3>
 <div class="outline-text-3" id="text-6-1">
-</div><div id="outline-container-sec-6-1-1" class="outline-4">
-<h4 id="sec-6-1-1">記述のための要素</h4>
-<div class="outline-text-4" id="text-6-1-1">
+</div><div id="outline-container-orgheadline106" class="outline-4">
+<h4 id="orgheadline106">記述のための要素</h4>
+<div class="outline-text-4" id="text-orgheadline106">
 <ul class="org-ul">
-<li>値と定数
-</li>
-<li>データ構造体
-</li>
-<li>型と演算
-</li>
-<li>変数と代入
-</li>
-<li>文と流れ
-</li>
+<li>値と定数</li>
+<li>データ構造体</li>
+<li>型と演算</li>
+<li>変数と代入</li>
+<li>文と流れ</li>
 <li>関数（手続き)
 <ul class="org-ul">
-<li>定義
-</li>
-<li>呼出し
-</li>
-</ul>
-</li>
-<li>スコープ
-</li>
-<li>モジュール
-</li>
+<li>定義</li>
+<li>呼出し</li>
+</ul></li>
+<li>スコープ</li>
+<li>モジュール</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-6-1-2" class="outline-4">
-<h4 id="sec-6-1-2">実行するということ</h4>
-<div class="outline-text-4" id="text-6-1-2">
+<div id="outline-container-orgheadline107" class="outline-4">
+<h4 id="orgheadline107">実行するということ</h4>
+<div class="outline-text-4" id="text-orgheadline107">
 <ul class="org-ul">
-<li>コードインタープリタ
-</li>
+<li>コードインタープリタ</li>
 <li>環境
 <ul class="org-ul">
-<li>実行の流れを保存するスタック
-</li>
-<li>名前を解決する束縛
-</li>
-<li>静的か動的か
-</li>
-</ul>
-</li>
+<li>実行の流れを保存するスタック</li>
+<li>名前を解決する束縛</li>
+<li>静的か動的か</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-6-1-3" class="outline-4">
-<h4 id="sec-6-1-3">メタプログラミング</h4>
-<div class="outline-text-4" id="text-6-1-3">
+<div id="outline-container-orgheadline108" class="outline-4">
+<h4 id="orgheadline108">メタプログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline108">
 <ul class="org-ul">
-<li>プログラムを生成するプログラムをつくること
-</li>
+<li>プログラムを生成するプログラムをつくること</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> WikiPedia.search("オブジェクト指向プログラミング")</h3>
+<div id="outline-container-orgheadline110" class="outline-3">
+<h3 id="orgheadline110"><span class="section-number-3">6.2</span> WikiPedia.search("オブジェクト指向プログラミング")</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 特徴
 </p>
 <ul class="org-ul">
-<li>情報隠蔽
-</li>
-<li>多相性
-</li>
-<li>動的束縛
-</li>
-<li>継承
-</li>
+<li>情報隠蔽</li>
+<li>多相性</li>
+<li>動的束縛</li>
+<li>継承</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 僕の考え</h3>
+<div id="outline-container-orgheadline111" class="outline-3">
+<h3 id="orgheadline111"><span class="section-number-3">6.3</span> 僕の考え</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
-<li>モジュール
-</li>
-<li>メッセージパッシング
-</li>
-<li>差をプログラムする
-</li>
+<li>モジュール</li>
+<li>メッセージパッシング</li>
+<li>差をプログラムする</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-6-4" class="outline-3">
-<h3 id="sec-6-4"><span class="section-number-3">6.4</span> Ruby オブジェクト原理主義</h3>
+<div id="outline-container-orgheadline112" class="outline-3">
+<h3 id="orgheadline112"><span class="section-number-3">6.4</span> Ruby オブジェクト原理主義</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
-<li>純粋オブジェクト指向
-</li>
-<li>プログラム可能なものは全て，オブジェクト
-</li>
-<li>クラスもオブジェクト
-</li>
-<li>実行はすべてメッセージパッシングで起こる
-</li>
-<li>オブジェクトは実行の場
-</li>
+<li>純粋オブジェクト指向</li>
+<li>プログラム可能なものは全て，オブジェクト</li>
+<li>クラスもオブジェクト</li>
+<li>実行はすべてメッセージパッシングで起こる</li>
+<li>オブジェクトは実行の場</li>
 </ul>
 </div>
 </div>
@@ -3851,8 +4014,7 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-12-18 日 22:06</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="https://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2017-01-15 日 22:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
