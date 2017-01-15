@@ -1,4 +1,3 @@
-
 class OrganismFactory
   def initialize(number_animals, number_plants)
     @animals = []

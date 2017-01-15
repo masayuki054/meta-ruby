@@ -1,4 +1,3 @@
-
 class Plant
 
   def grow

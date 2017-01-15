@@ -1,4 +1,3 @@
-
 require 'abstract_factory/plant'
 class Algae < Plant
   def initialize(name)
