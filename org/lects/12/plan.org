@@ -11,7 +11,7 @@
       めた org 文書を作成し，
     - 上記 Examples/ フォルダに提出してください。
 
-***** Examples
+***** Doing Examples [4/5]
     
       実践的なプログラムを作ってみましょう。
 
@@ -20,8 +20,19 @@
 
      - [X] file_print.rb <2016-11-21 月> 
      - [X] home_directory.rb <2016-11-28 月>
-     - [-] shuzo-meigen.rb <2016-11-28 月> home work
-     - [-] dir_traverse.rb <2016-12-08 木> home work
+     - [X] shuzo-meigen.rb <2016-11-28 月> home work
+     - [X] dir_traverse.rb <2016-12-08 木> home work
+     - [ ] sinatra による org-mode 文書閲覧サービス <2017-01-16 月>
+       home work
+
+       説明は
+       (([[https://github.com/masayuki054/meta-ruby/tree/master/org/note/ruby-note-sinatra-org.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/note/ruby-note-sinatra-org.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/note/ruby-note-sinatra-org.org][@s]]))
+       にあります。
+
+#+name: olm
+#+BEGIN_SRC sh :results output org  :var args="meta-ruby note/ruby-note-sinatra-org.org  org-server.org"
+sh ~/COMM/Lects/bin/github_link.sh $args
+#+END_SRC
 
 *** Todo オブジェクト指向について
     SCHEDULED: <2016-11-14 月>
@@ -36,8 +47,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
      参考にしてほしい資料
      
      - ((s-:)) のまとめ strategic-choice.org
-       (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][org@cis]]/[[file+emacs:~/{lect}.git/org/oo/strategic-choice.org][@]]))
-
+       ([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@s]])
 
      読む予定のページです。~/rubys/oo.org にまとめてください。[3/3]
 

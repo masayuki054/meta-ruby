@@ -9,22 +9,31 @@
 Emacs で M-x info で，Org-mode を開き，Document Structure を読みましょ
 う。
 
-org 文書の中で，
-
-
-
-
-\[\[info:org#document structure\]\]
-
    - headlines
    - lists
    - drawers
    - blocks
-     - 
 
-* 文芸的プログラミング
+** org-mode UML図の埋め込み 		       :embed:diagram:emacs:org:mode:
 
-  [[http://d.hatena.ne.jp/tamura70/20100310/org][org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記]]
+    - [[http://mickey-happygolucky.hatenablog.com/entry/2016/01/21/005944][PlantUMLをemacsから使用する(puml-mode) - メモ]]
+
+    - [[http://qiita.com/sambatriste/items/2e01d5aa91903ae72b24][org-modeでUMLを埋め込み(PlantUML) - Qiita]]
+      org-mode の設定など
+   
+    - [[http://tanehp.ec-net.jp/heppoko-lab/prog/resource/org_mode/org_mode_memo.html][Emacs Org-mode の覚え書き]]
+
+* 文芸的プログラミング (literate programming)
+
+  programming と documentation を同じ文書で行なうこと
+
+** 参考サイト
+
+   - [[http://howardism.org/Technical/Emacs/literate-programming-tutorial.html][Introduction to Literate Programming]]
+
+     英語ですが，シンプルで知りたいことがほぼ完璧に書いてあります。
+
+   - [[http://d.hatena.ne.jp/tamura70/20100310/org][org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記]]
 
 ** ruby ソースコードの埋め込み方
 
@@ -69,6 +78,4 @@ body
 body
 #+end_src
 #+end_example
-
-  
 

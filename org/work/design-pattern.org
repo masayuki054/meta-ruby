@@ -2,6 +2,94 @@
 
 Ruby 2.0.0で学ぶ、14個のデザインパターンを作りました[GoF][Design Pattern] - 酒と泪とRubyとRailsと
 https://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
+
+
+** ruby [[http://jetglass.hatenablog.jp/archive/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][デザインパターン ]]
+   [[http://jetglass.hatenablog.jp/entry/2015/04/02/151034][Rubyによるデザインパターン【Builder】 - Shred IT!!!!]]
+
+** Introduction to Literate Programming	      :literate:programming:org:mode:
+   [[http://www.howardism.org/Technical/Emacs/literate-programming-tutorial.html][Introduction to Literate Programming]] 
+
+   必要なことが全て書いてある。
+
+   [2017-01-15 日 13:01]
+   [[info:org#Top]]
+
+** ruby design pattern
+
+Ruby 2.0.0で学ぶ、14個のデザインパターンを作りました[GoF][Design Pattern] - 酒と泪とRubyとRailsと
+https://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
+
+
+
+
+
+
+*** GoFのシングルトンの前提条件
+
+- 作成したクラスは唯一1つだけのインスタンスを自身で作成する
+
+- システム内のどこでもその1つだけのインスタンスにアクセスできる
+
+*** サンプルソース
+
+シングルトンパターンのサンプルを作成していきます。
+
+ここでは、Rubyの標準ライブラリであるSingletonモジュールを使います。 こ
+のSingletonモジュールを使うことで、Mix-inしたクラスのインスタンスは常
+に同一のものを返すようになります。
+
+#+BEGIN_SRC ruby :tangle 
+
+# Singletonは、Mix-inしたクラスのinstanceは同一のインスタンスを返すようになる
+require 'singleton'
+
+# シングルトン
+class SingletonObject
+  # instanceメソッドが定義され、newメソッドがprivateに設定される
+  include Singleton
+  attr_accessor :counter
+
+  def initialize
+    @counter = 0
+  end
+end
+#+END_SRC
+
+
+obj1 = SingletonObject.instance
+obj1.counter += 1
+puts(obj1.counter)
+# 1
+
+obj2 = SingletonObject.instance
+obj2.counter += 1
+puts(obj2.counter)
+# 2
+# ↑ 前回の+1が引き継がれている #
+
+Singletonの条件を満たすオブジェクトを生成できている事がわかります。 また、Object#newが失敗することも次のコードで確認できます。
+
+	
+
+obj3 = SingletonObject.new
+# private method `new' called for SingletonObject:Class (NoMethodError)
+# ↑ newでのインスタンスの作成に失敗
+
+説明は以上です。 このサンプルソースはGitHubにも置いています。
+** memo org-mode 埋め込み		       :embed:diagram:emacs:org:mode:
+
+*** [[file:/NFS/ufs/mac/masayuki/working/plantuml/plantuml.org::*]]
+ 
+    [[http://mickey-happygolucky.hatenablog.com/entry/2016/01/21/005944][PlantUMLをemacsから使用する(puml-mode) - メモ]]
+
+    [[http://qiita.com/sambatriste/items/2e01d5aa91903ae72b24][org-modeでUMLを埋め込み(PlantUML) - Qiita]]
+    - org-mode の設定など
+   
+    [[http://tanehp.ec-net.jp/heppoko-lab/prog/resource/org_mode/org_mode_memo.html][Emacs Org-mode の覚え書き]]
+
+
+
 ** UML
 
    [[http://plantuml.com][plant_uml]] サイト
@@ -59,11 +147,14 @@ GoFのデザインパターンには下のプリンシパルがあります：
     - ストラテジ/Strategy 
     - テンプレートメソッド/Template Method 
 
+
 ** [[http://morizyun.github.io/blog/ruby-design-pattern-10-singleton/][シングルトン]]
 
-[[https://ja.wikipedia.org/wiki/Singleton_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Singleton パターン - Wikipedia]]
+*** 参考サイト
 
-[[https://www.techscore.com/tech/DesignPattern/Singleton.html/][Singleton パターン | TECHSCORE(テックスコア)]]
+ [[https://ja.wikipedia.org/wiki/Singleton_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Singleton パターン - Wikipedia]]
+
+ [[https://www.techscore.com/tech/DesignPattern/Singleton.html/][Singleton パターン | TECHSCORE(テックスコア)]]
 
 *** GoFのシングルトンの前提条件
 
@@ -73,7 +164,9 @@ GoFのデザインパターンには下のプリンシパルがあります：
 
 *** クラス図
 
-#+BEGIN_SRC plantuml :file class-diagram/singleton.png :mkdirp yes
+    
+
+#+BEGIN_SRC plantuml :file ~/meta-ruby.git/docs/Figs/class-diagram/singleton.png :mkdirp yes :exports both
 class mySingleton {
   -mysingleton
   -include(Singleton) Singletonインタフェースをとりこむ
@@ -84,7 +177,7 @@ class mySingleton {
 #+END_SRC
 
 #+RESULTS:
-[[file:class-diagram/singleton.png]]
+[[file:~/meta-ruby.git/docs/Figs/class-diagram/singleton.png]]
 
 [[elisp:(org-toggle-inline-images)]]
 

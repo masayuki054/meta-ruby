@@ -16,12 +16,12 @@ ORGS = [
 ]
 
 SUBDIRS = [
-  "info", 
-  "lects",
-  "meta-ruby",
-  "ruby",
-  "emacs", 
-  "org-docs", 
+#  "info", 
+#  "lects",
+#  "meta-ruby",
+#  "ruby",
+#  "emacs", 
+#  "org-docs", 
 ]
 
 HTMLS = ORGS.map do |f|
