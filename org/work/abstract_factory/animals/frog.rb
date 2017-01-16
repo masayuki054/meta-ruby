@@ -1,4 +1,3 @@
-
 require 'abstract_factory/animal'
 
 class Frog < Animal

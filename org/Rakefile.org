@@ -22,7 +22,7 @@ if File.exist?("Rakefile.setup.rb")
   load "./Rakefile.setup.rb"
 else
   SUBDIRS = org_sub_dir
-  EXCLUDES = FielList ["Makefile.org", "Rakefile.org", "log.org", "0*.org"]
+  EXCLUDES = FileList ["Makefile.org", "Rakefile.org", "log.org", "0*.org"]
   ORGS = FileList["*.org"] - EXCLUDES
   HTMLS = ORGS.ext(".html")
 end

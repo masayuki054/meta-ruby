@@ -1,4 +1,3 @@
-
 require 'abstract_factory/plant'
 
 class WaterLily < Plant

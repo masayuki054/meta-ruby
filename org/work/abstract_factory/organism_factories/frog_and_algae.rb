@@ -1,4 +1,3 @@
-
 require 'abstract_factory/organism_factory'
 require 'abstract_factory/animals/frog.rb'
 require 'abstract_factory/plants/algae.rb'

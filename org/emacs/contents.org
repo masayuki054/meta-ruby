@@ -1,4 +1,5 @@
 # * Emacs
-#+include: emacs-setup.org 
-#+include: emacs-note.org 
-#+include: org-note.org 
+#+include: org-note.org :minlevel 1
+#+include: emacs-note.org :minlevel 1
+#+include: emacs-setup.org :minlevel 1
+

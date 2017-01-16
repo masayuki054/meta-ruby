@@ -1,3 +1,25 @@
+
+
+* work/design-pattern.org
+  [[file:work/design-pattern.org][file:~/COMM/Lects/meta-ruby/git/org/work/design-pattern.org]]
+
+* emacs/org-note.org <2017-01-16 月 06:13>
+  [[file:~/COMM/Lects/meta-ruby/git/org/emacs/org-note.org::*org-mode%20UML%E5%9B%B3%E3%81%AE%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF][org-mode UML図の埋め込み]] meta-ruby/emacs/org-mode
+
+  
+* github_link の作成 <2016-12-19 月>
+
+#+name: olm
+#+BEGIN_SRC sh :results output org  :var args="meta-ruby oo/strategic-choice.org  strategic-choice.org" :exports both
+sh ~/COMM/Lects/bin/github_link.sh $args
+#+END_SRC
+
+#+RESULTS: olm
+#+BEGIN_SRC org
+- strategic-choice.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][org@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@]]))
+#+END_SRC
+
+
 * oo/strategic-choice.org <2016-11-27 日>
   - [[file:oo/strategic-choice.org::*%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0][構造化プログラミング]] まとめた
   - [[file:oo/strategic-choice.org::*%E3%83%91%E3%83%AB%E3%83%8A%E3%82%B9%E3%81%AE%E8%A6%8F%E5%89%87][パルナスの規則]] まとめた
