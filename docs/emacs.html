@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-16 月 05:51 -->
+<!-- 2017-01-16 月 09:38 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 Emacs</title>
@@ -151,28 +151,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -181,81 +159,83 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline3">1. org文書の構造</a>
+<li><a href="#orgheadline4">1. org文書の構造</a>
 <ul>
 <li><a href="#orgheadline1">1.1. #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</a></li>
 <li><a href="#orgheadline2">1.2. 文書の構造</a></li>
+<li><a href="#orgheadline3">1.3. org-mode UML図の埋め込み&#xa0;&#xa0;&#xa0;<span class="tag"><span class="embed">embed</span>&#xa0;<span class="diagram">diagram</span>&#xa0;<span class="emacs">emacs</span>&#xa0;<span class="org">org</span>&#xa0;<span class="mode">mode</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. 文芸的プログラミング</a>
+<li><a href="#orgheadline11">2. 文芸的プログラミング (literate programming)</a>
 <ul>
-<li><a href="#orgheadline4">2.1. ruby ソースコードの埋め込み方</a></li>
-<li><a href="#orgheadline5">2.2. ruby ソースコードのedit</a></li>
-<li><a href="#orgheadline6">2.3. ruby ソースコードの実行方法</a></li>
-<li><a href="#orgheadline7">2.4. ruby ソースコードの export</a></li>
-<li><a href="#orgheadline8">2.5. ruby ソースコードの extract</a></li>
+<li><a href="#orgheadline5">2.1. 参考サイト</a></li>
+<li><a href="#orgheadline6">2.2. ruby ソースコードの埋め込み方</a></li>
+<li><a href="#orgheadline7">2.3. ruby ソースコードのedit</a></li>
+<li><a href="#orgheadline8">2.4. ruby ソースコードの実行方法</a></li>
+<li><a href="#orgheadline9">2.5. ruby ソースコードの export</a></li>
+<li><a href="#orgheadline10">2.6. ruby ソースコードの extract</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">3. emacs アレコレ</a>
+<li><a href="#orgheadline20">3. emacs アレコレ</a>
 <ul>
-<li><a href="#orgheadline10">3.1. emacs</a></li>
-<li><a href="#orgheadline11">3.2. C-x r コマンド レジスタ関連</a></li>
-<li><a href="#orgheadline12">3.3. recentf</a></li>
-<li><a href="#orgheadline13">3.4. Emacs での テキストブラウザ eww を使えるレベルにする</a></li>
-<li><a href="#orgheadline14">3.5. eww-mode (eww.el) binding</a></li>
-<li><a href="#orgheadline15">3.6. Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</a></li>
-<li><a href="#orgheadline16">3.7. Emacs24.5日本語マニュアル登場！！info作成方法</a></li>
-<li><a href="#orgheadline17">3.8. #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</a></li>
+<li><a href="#orgheadline12">3.1. emacs</a></li>
+<li><a href="#orgheadline13">3.2. C-x r コマンド レジスタ関連</a></li>
+<li><a href="#orgheadline14">3.3. recentf</a></li>
+<li><a href="#orgheadline15">3.4. Emacs での テキストブラウザ eww を使えるレベルにする</a></li>
+<li><a href="#orgheadline16">3.5. eww-mode (eww.el) binding</a></li>
+<li><a href="#orgheadline17">3.6. Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</a></li>
+<li><a href="#orgheadline18">3.7. Emacs24.5日本語マニュアル登場！！info作成方法</a></li>
+<li><a href="#orgheadline19">3.8. #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline46">4. emacs 設定 for meta-ruby</a>
+<li><a href="#orgheadline48">4. emacs 設定 for meta-ruby</a>
 <ul>
-<li><a href="#orgheadline19">4.1. emacs-24.5</a></li>
-<li><a href="#orgheadline20">4.2. emacsのパッケージと設定</a></li>
-<li><a href="#orgheadline45">4.3. package</a>
+<li><a href="#orgheadline21">4.1. emacs-24.5</a></li>
+<li><a href="#orgheadline22">4.2. emacsのパッケージと設定</a></li>
+<li><a href="#orgheadline47">4.3. package</a>
 <ul>
-<li><a href="#orgheadline21">emacs package について</a>
+<li><a href="#orgheadline23">emacs package について</a>
 <ul>
-<li><a href="#orgheadline22">設定</a></li>
-<li><a href="#orgheadline23">利用方法</a></li>
-<li><a href="#orgheadline24">管理例</a></li>
-<li><a href="#orgheadline25">更新</a></li>
+<li><a href="#orgheadline24">設定</a></li>
+<li><a href="#orgheadline25">利用方法</a></li>
+<li><a href="#orgheadline26">管理例</a></li>
+<li><a href="#orgheadline27">更新</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">emacsのruby環境をセットアップする</a></li>
-<li><a href="#orgheadline29">ruby-mode,ruby-end,ruby-blockをインストール</a>
+<li><a href="#orgheadline28">emacsのruby環境をセットアップする</a></li>
+<li><a href="#orgheadline31">ruby-mode,ruby-end,ruby-blockをインストール</a>
 <ul>
-<li><a href="#orgheadline27">packages</a></li>
-<li><a href="#orgheadline28">設定</a></li>
+<li><a href="#orgheadline29">packages</a></li>
+<li><a href="#orgheadline30">設定</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline32">auto-completeのインストール</a>
+<li><a href="#orgheadline34">auto-completeのインストール</a>
 <ul>
-<li><a href="#orgheadline30">packages</a></li>
-<li><a href="#orgheadline31">設定</a></li>
+<li><a href="#orgheadline32">packages</a></li>
+<li><a href="#orgheadline33">設定</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline37">robeのインストール</a>
+<li><a href="#orgheadline39">robeのインストール</a>
 <ul>
-<li><a href="#orgheadline33">pryのインストール</a></li>
-<li><a href="#orgheadline34">package</a></li>
-<li><a href="#orgheadline35">設定</a></li>
-<li><a href="#orgheadline36">robeの起動方法</a></li>
+<li><a href="#orgheadline35">pryのインストール</a></li>
+<li><a href="#orgheadline36">package</a></li>
+<li><a href="#orgheadline37">設定</a></li>
+<li><a href="#orgheadline38">robeの起動方法</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline38">rbenvのパスを通す</a>
+<li><a href="#orgheadline40">rbenvのパスを通す</a>
 <ul>
-<li><a href="#orgheadline39">package</a></li>
-<li><a href="#orgheadline40">設定</a></li>
+<li><a href="#orgheadline41">package</a></li>
+<li><a href="#orgheadline42">設定</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">smart-newlineを導入する</a>
+<li><a href="#orgheadline43">smart-newlineを導入する</a>
 <ul>
-<li><a href="#orgheadline42">package</a></li>
-<li><a href="#orgheadline43">設定</a></li>
+<li><a href="#orgheadline44">package</a></li>
+<li><a href="#orgheadline45">設定</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline44">Todo emacsの org-mode 環境をセットアップする</a></li>
+<li><a href="#orgheadline46">Todo emacsの org-mode 環境をセットアップする</a></li>
 </ul>
 </li>
 </ul>
@@ -277,8 +257,8 @@ for the JavaScript code in this tag.
 <a href="https://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a> /
 </p>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">1</span> org文書の構造</h2>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> org文書の構造</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</h3>
@@ -297,41 +277,58 @@ Emacs で M-x info で，Org-mode を開き，Document Structure を読みまし
 う。
 </p>
 
-<p>
-org 文書の中で，
-</p>
-
-
-
-
-<p>
-\[\[info:org#document structure\]\]
-</p>
-
 <ul class="org-ul">
 <li>headlines</li>
 <li>lists</li>
 <li>drawers</li>
-<li>blocks
+<li>blocks</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> org-mode UML図の埋め込み&#xa0;&#xa0;&#xa0;<span class="tag"><span class="embed">embed</span>&#xa0;<span class="diagram">diagram</span>&#xa0;<span class="emacs">emacs</span>&#xa0;<span class="org">org</span>&#xa0;<span class="mode">mode</span></span></h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li></li>
-</ul></li>
+<li><a href="https://mickey-happygolucky.hatenablog.com/entry/2016/01/21/005944">PlantUMLをemacsから使用する(puml-mode) - メモ</a></li>
+
+<li><a href="https://qiita.com/sambatriste/items/2e01d5aa91903ae72b24">org-modeでUMLを埋め込み(PlantUML) - Qiita</a>
+      org-mode の設定など</li>
+
+<li><a href="https://tanehp.ec-net.jp/heppoko-lab/prog/resource/org_mode/org_mode_memo.html">Emacs Org-mode の覚え書き</a></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">2</span> 文芸的プログラミング</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">2</span> 文芸的プログラミング (literate programming)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="https://d.hatena.ne.jp/tamura70/20100310/org">org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記</a>
+programming と documentation を同じ文書で行なうこと
 </p>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.1</span> ruby ソースコードの埋め込み方</h3>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.1</span> 参考サイト</h3>
 <div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><p>
+<a href="https://howardism.org/Technical/Emacs/literate-programming-tutorial.html">Introduction to Literate Programming</a>
+</p>
+
+<p>
+英語ですが，シンプルで知りたいことがほぼ完璧に書いてあります。
+</p></li>
+
+<li><a href="https://d.hatena.ne.jp/tamura70/20100310/org">org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.2</span> ruby ソースコードの埋め込み方</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 <a href="org.html#working-with-source-code">org#working with source code</a> 
 </p>
@@ -349,9 +346,9 @@ body
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.2</span> ruby ソースコードのedit</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.3</span> ruby ソースコードのedit</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 <a href="org.html#Editing-source-code">org#Editing source code</a>
 </p>
@@ -362,9 +359,9 @@ C-c '
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.3</span> ruby ソースコードの実行方法</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.4</span> ruby ソースコードの実行方法</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 <a href="org.html#Evaluating-code-blocks">org#Evaluating code blocks</a>
 </p>
@@ -372,9 +369,9 @@ C-c '
 </div>
 
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.4</span> ruby ソースコードの export</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.5</span> ruby ソースコードの export</h3>
+<div class="outline-text-3" id="text-2-5">
 <p>
 <a href="org.html#Exporting-code-blocks">org#Exporting code blocks</a>
 </p>
@@ -387,9 +384,9 @@ body
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.5</span> ruby ソースコードの extract</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.6</span> ruby ソースコードの extract</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 <a href="org.html#Extracting-source-code">org#Extracting source code</a>
 </p>
@@ -403,11 +400,11 @@ body
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">3</span> emacs アレコレ</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> emacs アレコレ</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.1</span> emacs</h3>
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.1</span> emacs</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 C-x SPC (rectangle-mark-mode &amp;optional ARG) 
@@ -421,8 +418,8 @@ M-x string-insert-rectangle
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">3.2</span> C-x r コマンド レジスタ関連</h3>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">3.2</span> C-x r コマンド レジスタ関連</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 C-x r C-@     point-to-register
@@ -456,8 +453,8 @@ C-x r M-w     copy-rectangle-as-kill
 </div>
 
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.3</span> recentf</h3>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.3</span> recentf</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 ~/.emacs.d/.recentf に最近使ったfile一覧を保存し、
@@ -487,8 +484,8 @@ helm と組合せると検索もできて便利
 
 
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">3.4</span> Emacs での テキストブラウザ eww を使えるレベルにする</h3>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.4</span> Emacs での テキストブラウザ eww を使えるレベルにする</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <a href="https://futurismo.biz/archives/2950">https://futurismo.biz/archives/2950</a>
@@ -514,8 +511,8 @@ q (quit-window)
 </div>
 
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.5</span> eww-mode (eww.el) binding</h3>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.5</span> eww-mode (eww.el) binding</h3>
 <div class="outline-text-3" id="text-3-5">
 <pre class="example">
 key             binding
@@ -561,8 +558,8 @@ initialization.
 </div>
 
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.6</span> Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</h3>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.6</span> Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法 | るびきち「日刊Emacs」</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 <a href="https://rubikitch.com/2014/11/19/eww-nocolor/">https://rubikitch.com/2014/11/19/eww-nocolor/</a>
@@ -573,8 +570,8 @@ initialization.
 
 
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">3.7</span> Emacs24.5日本語マニュアル登場！！info作成方法</h3>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.7</span> Emacs24.5日本語マニュアル登場！！info作成方法</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 <a href="https://emacs.rubikitch.com/emacs245-manual-ja/">https://emacs.rubikitch.com/emacs245-manual-ja/</a>
@@ -586,8 +583,8 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">3.8</span> #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</h3>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.8</span> #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 <a href="https://emacs.rubikitch.com/sd1503-helm/">https://emacs.rubikitch.com/sd1503-helm/</a>
@@ -596,11 +593,11 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </div>
 </div>
 
-<div id="outline-container-orgheadline46" class="outline-2">
-<h2 id="orgheadline46"><span class="section-number-2">4</span> emacs 設定 for meta-ruby</h2>
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48"><span class="section-number-2">4</span> emacs 設定 for meta-ruby</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">4.1</span> emacs-24.5</h3>
+</div><div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">4.1</span> emacs-24.5</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 emacs-24.5 を ~suzuki/local/ にインストールしました。
@@ -624,8 +621,8 @@ emacs-24.5 を ~suzuki/local/ にインストールしました。
 
 
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">4.2</span> emacsのパッケージと設定</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">4.2</span> emacsのパッケージと設定</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 emacs の設定などは，~suzuki/local/share/emacs/site-lisp/ に置きまし
@@ -663,20 +660,20 @@ init.elの中身です:
 </div>
 
 
-<div id="outline-container-orgheadline45" class="outline-3">
-<h3 id="orgheadline45"><span class="section-number-3">4.3</span> package</h3>
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">4.3</span> package</h3>
 <div class="outline-text-3" id="text-4-3">
-</div><div id="outline-container-orgheadline21" class="outline-4">
-<h4 id="orgheadline21">emacs package について</h4>
-<div class="outline-text-4" id="text-orgheadline21">
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23">emacs package について</h4>
+<div class="outline-text-4" id="text-orgheadline23">
 <p>
 <a href="https://emacs-jp.github.io/packages/package-management/package-el.html">package.el - Emacs JP</a> のまとめ
 </p>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-5">
-<h5 id="orgheadline22">設定</h5>
-<div class="outline-text-5" id="text-orgheadline22">
+<div id="outline-container-orgheadline24" class="outline-5">
+<h5 id="orgheadline24">設定</h5>
+<div class="outline-text-5" id="text-orgheadline24">
 <div class="org-src-container">
 
 <pre class="src src-elisp">(require 'package)
@@ -704,9 +701,9 @@ init.elの中身です:
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-5">
-<h5 id="orgheadline23">利用方法</h5>
-<div class="outline-text-5" id="text-orgheadline23">
+<div id="outline-container-orgheadline25" class="outline-5">
+<h5 id="orgheadline25">利用方法</h5>
+<div class="outline-text-5" id="text-orgheadline25">
 <pre class="example">
 M-x package-install
 </pre>
@@ -735,9 +732,9 @@ M-x package-list-packages
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-5">
-<h5 id="orgheadline24">管理例</h5>
-<div class="outline-text-5" id="text-orgheadline24">
+<div id="outline-container-orgheadline26" class="outline-5">
+<h5 id="orgheadline26">管理例</h5>
+<div class="outline-text-5" id="text-orgheadline26">
 <p>
 (package-installed-p package-name)で package-nameがインストール済み
 で あるかを確認することができるので, package-installed-pが nilを返
@@ -791,9 +788,9 @@ package-installed-p関数はあくまでインストールしているかどう�
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-5">
-<h5 id="orgheadline25">更新</h5>
-<div class="outline-text-5" id="text-orgheadline25">
+<div id="outline-container-orgheadline27" class="outline-5">
+<h5 id="orgheadline27">更新</h5>
+<div class="outline-text-5" id="text-orgheadline27">
 <p>
 package-list-packagesを実行し, U, xとすることで, インストール済みの パッ
 ケージをすべて upgradeできる.
@@ -803,21 +800,21 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 </div>
 
 
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26">emacsのruby環境をセットアップする</h4>
-<div class="outline-text-4" id="text-orgheadline26">
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28">emacsのruby環境をセットアップする</h4>
+<div class="outline-text-4" id="text-orgheadline28">
 <p>
 <a href="https://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/">https://blog.10rane.com/2014/09/01/set-up-ruby-mode-of-emacs/</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29">ruby-mode,ruby-end,ruby-blockをインストール</h4>
-<div class="outline-text-4" id="text-orgheadline29">
-</div><div id="outline-container-orgheadline27" class="outline-5">
-<h5 id="orgheadline27">packages</h5>
-<div class="outline-text-5" id="text-orgheadline27">
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31">ruby-mode,ruby-end,ruby-blockをインストール</h4>
+<div class="outline-text-4" id="text-orgheadline31">
+</div><div id="outline-container-orgheadline29" class="outline-5">
+<h5 id="orgheadline29">packages</h5>
+<div class="outline-text-5" id="text-orgheadline29">
 <ul class="org-ul">
 <li>ruby-mode</li>
 <li>ruby-end</li>
@@ -826,9 +823,9 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-5">
-<h5 id="orgheadline28">設定</h5>
-<div class="outline-text-5" id="text-orgheadline28">
+<div id="outline-container-orgheadline30" class="outline-5">
+<h5 id="orgheadline30">設定</h5>
+<div class="outline-text-5" id="text-orgheadline30">
 <div class="org-src-container">
 
 <pre class="src src-elisp">;; --------------------------------------------------
@@ -887,12 +884,12 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32">auto-completeのインストール</h4>
-<div class="outline-text-4" id="text-orgheadline32">
-</div><div id="outline-container-orgheadline30" class="outline-5">
-<h5 id="orgheadline30">packages</h5>
-<div class="outline-text-5" id="text-orgheadline30">
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34">auto-completeのインストール</h4>
+<div class="outline-text-4" id="text-orgheadline34">
+</div><div id="outline-container-orgheadline32" class="outline-5">
+<h5 id="orgheadline32">packages</h5>
+<div class="outline-text-5" id="text-orgheadline32">
 <ul class="org-ul">
 <li>auto-complete</li>
 <li>fuzzy</li>
@@ -901,9 +898,9 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-5">
-<h5 id="orgheadline31">設定</h5>
-<div class="outline-text-5" id="text-orgheadline31">
+<div id="outline-container-orgheadline33" class="outline-5">
+<h5 id="orgheadline33">設定</h5>
+<div class="outline-text-5" id="text-orgheadline33">
 <div class="org-src-container">
 
 <pre class="src src-elisp">(require 'auto-complete-config)
@@ -916,12 +913,12 @@ package-list-packagesを実行し, U, xとすることで, インストール済
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-4">
-<h4 id="orgheadline37">robeのインストール</h4>
-<div class="outline-text-4" id="text-orgheadline37">
-</div><div id="outline-container-orgheadline33" class="outline-5">
-<h5 id="orgheadline33">pryのインストール</h5>
-<div class="outline-text-5" id="text-orgheadline33">
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39">robeのインストール</h4>
+<div class="outline-text-4" id="text-orgheadline39">
+</div><div id="outline-container-orgheadline35" class="outline-5">
+<h5 id="orgheadline35">pryのインストール</h5>
+<div class="outline-text-5" id="text-orgheadline35">
 <div class="org-src-container">
 
 <pre class="src src-sh">gem install pry pry-doc bundler
@@ -932,9 +929,9 @@ which pry
 </div>
 </div>
 
-<div id="outline-container-orgheadline34" class="outline-5">
-<h5 id="orgheadline34">package</h5>
-<div class="outline-text-5" id="text-orgheadline34">
+<div id="outline-container-orgheadline36" class="outline-5">
+<h5 id="orgheadline36">package</h5>
+<div class="outline-text-5" id="text-orgheadline36">
 <ul class="org-ul">
 <li>robe</li>
 <li>inf-ruby</li>
@@ -942,9 +939,9 @@ which pry
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-5">
-<h5 id="orgheadline35">設定</h5>
-<div class="outline-text-5" id="text-orgheadline35">
+<div id="outline-container-orgheadline37" class="outline-5">
+<h5 id="orgheadline37">設定</h5>
+<div class="outline-text-5" id="text-orgheadline37">
 <div class="org-src-container">
 
 <pre class="src src-elisp">;; --------------------------------------------------
@@ -960,9 +957,9 @@ which pry
 </div>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-5">
-<h5 id="orgheadline36">robeの起動方法</h5>
-<div class="outline-text-5" id="text-orgheadline36">
+<div id="outline-container-orgheadline38" class="outline-5">
+<h5 id="orgheadline38">robeの起動方法</h5>
+<div class="outline-text-5" id="text-orgheadline38">
 <p>
 robeを利用するには、
 </p>
@@ -977,26 +974,26 @@ M-x robe-start ;; で初めてrobeが使えるようになります。
 </div>
 </div>
 
-<div id="outline-container-orgheadline38" class="outline-4">
-<h4 id="orgheadline38">rbenvのパスを通す</h4>
-<div class="outline-text-4" id="text-orgheadline38">
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40">rbenvのパスを通す</h4>
+<div class="outline-text-4" id="text-orgheadline40">
 <p>
 Emacs の中で，rbenvのパスを通してくれます。
 </p>
 </div>
 
-<div id="outline-container-orgheadline39" class="outline-5">
-<h5 id="orgheadline39">package</h5>
-<div class="outline-text-5" id="text-orgheadline39">
+<div id="outline-container-orgheadline41" class="outline-5">
+<h5 id="orgheadline41">package</h5>
+<div class="outline-text-5" id="text-orgheadline41">
 <ul class="org-ul">
 <li>rbenv</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-5">
-<h5 id="orgheadline40">設定</h5>
-<div class="outline-text-5" id="text-orgheadline40">
+<div id="outline-container-orgheadline42" class="outline-5">
+<h5 id="orgheadline42">設定</h5>
+<div class="outline-text-5" id="text-orgheadline42">
 <div class="org-src-container">
 
 <pre class="src src-elisp">(require 'rbenv)
@@ -1008,26 +1005,26 @@ Emacs の中で，rbenvのパスを通してくれます。
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41">smart-newlineを導入する</h4>
-<div class="outline-text-4" id="text-orgheadline41">
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43">smart-newlineを導入する</h4>
+<div class="outline-text-4" id="text-orgheadline43">
 <p>
 改行をよしなにやってくれます。素敵です。
 </p>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-5">
-<h5 id="orgheadline42">package</h5>
-<div class="outline-text-5" id="text-orgheadline42">
+<div id="outline-container-orgheadline44" class="outline-5">
+<h5 id="orgheadline44">package</h5>
+<div class="outline-text-5" id="text-orgheadline44">
 <ul class="org-ul">
 <li>smart-newline</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-5">
-<h5 id="orgheadline43">設定</h5>
-<div class="outline-text-5" id="text-orgheadline43">
+<div id="outline-container-orgheadline45" class="outline-5">
+<h5 id="orgheadline45">設定</h5>
+<div class="outline-text-5" id="text-orgheadline45">
 <div class="org-src-container">
 
 <pre class="src src-elisp">(add-hook 'ruby-mode-hook
@@ -1040,9 +1037,9 @@ Emacs の中で，rbenvのパスを通してくれます。
 </div>
 
 
-<div id="outline-container-orgheadline44" class="outline-4">
-<h4 id="orgheadline44">Todo emacsの org-mode 環境をセットアップする</h4>
-<div class="outline-text-4" id="text-orgheadline44">
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46">Todo emacsの org-mode 環境をセットアップする</h4>
+<div class="outline-text-4" id="text-orgheadline46">
 <div class="org-src-container">
 
 <pre class="src src-elisp">(require 'org)
@@ -1258,7 +1255,7 @@ Emacs の中で，rbenvのパスを通してくれます。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2017-01-16 月 05:51</p>
+<p class="date">Created: 2017-01-16 月 09:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
