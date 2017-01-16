@@ -1,4 +1,3 @@
-# coding: utf-8
 
 class OrganismFactory
   def initialize(number_animals, number_plants)
@@ -10,7 +9,7 @@ class OrganismFactory
 
     @plants = []
     number_plants.times do |i|
-      plant = new_plant("動物#{i}")
+      plant = new_plant("植物#{i}")
       @plants << plant 
     end
   end
@@ -23,29 +22,4 @@ class OrganismFactory
     @animals
   end
   
-end
-
-class FrogAndAlgaeFactory < OrganismFactory
-  private
-
-  def new_animal(name)
-    Frog.new(name)
-  end
-
-  def new_plant(name)
-    Algae.new(name)
-  end
-end
-
-class DuckAndWaterLilyFactory < OrganismFactory
-  private
-
-  def new_animal(name)
-    Duck.new(name)
-  end
-
-
-  def new_plant(name)
-    WaterLily.new(name)
-  end
 end
