@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-15 日 22:09 -->
+<!-- 2017-01-16 月 09:38 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 ObjectOrientedについて</title>
@@ -3064,7 +3064,13 @@ OOPLだけがそうしている」という主張と読みました。</li>
 <div id="outline-container-orgheadline105" class="outline-2">
 <h2 id="orgheadline105"><span class="section-number-2">5</span> Strategic Choice を読もう</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline64" class="outline-3">
+<p>
+<a href="https://d.hatena.ne.jp/asakichy/archive">https://d.hatena.ne.jp/asakichy/archive</a>
+を読んで，まとめをつくり，自分の理解を作りましょう。
+</p>
+</div>
+
+<div id="outline-container-orgheadline64" class="outline-3">
 <h3 id="orgheadline64"><span class="section-number-3">5.1</span> 記事一覧</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
@@ -3461,11 +3467,14 @@ abstract data type (ADT)
 これらはもっともらしく見えますが、本質ではありません。
 </p>
 
+<blockquote>
 <p>
 ((s-:)) 実装寄りの見方なんですね。
 </p>
+</blockquote>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline81" class="outline-5">
 <h5 id="orgheadline81">オブジェクト指向の正しい理解</h5>
@@ -3482,10 +3491,13 @@ abstract data type (ADT)
 <li>継承はオブジェクトを分類する手段である。</li>
 </ul>
 
+<blockquote>
 <p>
 ((s-:)) 概念・仕様レベルの見方ですね。
 </p>
+</blockquote>
 </div>
+
 
 <div id="outline-container-orgheadline82" class="outline-6">
 <h6 id="orgheadline82">カプセル化の意味</h6>
@@ -3495,12 +3507,15 @@ abstract data type (ADT)
 いるため、はっきりとしたことは言えないようです。
 </p>
 
+<blockquote>
 <p>
 ((s-:)) すべての機能をモジュールの中に閉じ込め，公開インタフェースを通
 してのみ，利用可能にすること。
 </p>
+</blockquote>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline83" class="outline-6">
 <h6 id="orgheadline83">オブジェクト指向のウソについて</h6>
@@ -3526,68 +3541,97 @@ abstract data type (ADT)
 
 <ul class="org-ul">
 <li>例えばコンパイラを作ろうとしたら現実にある
-ものは1つもでてきません。
+ものは1つもでてきません。</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>
+((s-:)) いっぱいでてきますよ。文法，構文木，生成規則，&#x2026; 
+</p>
+</blockquote>
+
 
 <ul class="org-ul">
-<li>((s-:)) いっぱいでてきますよ。文法，構文木，生成規則，&#x2026;</li>
-</ul></li>
-
-<li>モデリングは「捨象」です。つまり、抽象化してほとんどの部分を捨て
+<li><p>
+モデリングは「捨象」です。つまり、抽象化してほとんどの部分を捨て
 てしまいます。「そのまま」クラスにはなりません。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 本質的なものだけを残すのがモデリングで，それはクラスに
-なります。</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) 本質的なものだけを残すのがモデリングで，それはクラスに
+なります。
+</p>
+</blockquote></li>
 
-<li>デザインパターンにおいて、その登場クラスのほとんどは「人工品」で、
+<li><p>
+デザインパターンにおいて、その登場クラスのほとんどは「人工品」で、
 現実世界には存在しません。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 人工物も一度できれば現実です。</li>
-</ul></li>
-</ul></li>
-
+<blockquote>
+<p>
+((s-:)) 人工物も一度できれば現実です。
+</p>
+</blockquote></li>
+</ul>
+<ol class="org-ol">
 <li>実装は簡単で、属人性も排除できる
 
 <ul class="org-ul">
-<li>言語仕様的に便利になった部分（典型的にはC→Javaのメモリ管理）で従
+<li><p>
+言語仕様的に便利になった部分（典型的にはC→Javaのメモリ管理）で従
 来よりは品質上がるのでしょうが、
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 簡単さは，なんといっても再利用が簡単になることじゃない
-かなぁ。</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) 簡単さは，なんといっても再利用が簡単になることじゃない
+かなぁ。
+</p>
+</blockquote></li>
 
-<li>余りにも実装寄りの話でオブジェクト指向の本質とは全く関係ありませ
+<li><p>
+余りにも実装寄りの話でオブジェクト指向の本質とは全く関係ありませ
 んので、根拠に乏しいと思います。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 属人性を，メッセージングで解決することでは？</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) 属人性を，メッセージングで解決することでは？
+</p>
+</blockquote></li>
 </ul></li>
 
 <li>差分プログラミングで簡単に再利用できる
 
 <ul class="org-ul">
-<li>「よく似た既存クラスがあれば、それを継承し、違う部分だけを実装すれ
+<li><p>
+「よく似た既存クラスがあれば、それを継承し、違う部分だけを実装すれ
 ば再利用できる」という主張で、確かにそういった一面はあると思います。
 しかしこれも実装面から見た話ですし、
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 差のみを書くことには，積極的な意味があると思います。</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) 差のみを書くことには，積極的な意味があると思います。
+</p>
+</blockquote></li>
 
 <li>差分プログラミングそのものはオブジェクト指向（言語）でなくても可
 能です。</li>
 
-<li>さらに、継承を紡いでいく拡張には設計的にも実装的にも問題点があり
+<li><p>
+さらに、継承を紡いでいく拡張には設計的にも実装的にも問題点があり
 ます。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 問題の構造がそうなら，継承を紡いでいく拡張が正しいのだ
-と思います。</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) 問題の構造がそうなら，継承を紡いでいく拡張が正しいのだと
+思います。
+</p>
+</blockquote></li>
 </ul></li>
 </ol>
 </div>
@@ -4014,7 +4058,7 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2017-01-15 日 22:09</p>
+<p class="date">Created: 2017-01-16 月 09:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
