@@ -16,12 +16,42 @@ Emacs で M-x info で，Org-mode を開き，Document Structure を読みまし
 
 ** org-mode UML図の埋め込み 		       :embed:diagram:emacs:org:mode:
 
+   [[file:/NFS/ufs/mac/masayuki/working/plantuml/plantuml.org::*]]
     - [[http://mickey-happygolucky.hatenablog.com/entry/2016/01/21/005944][PlantUMLをemacsから使用する(puml-mode) - メモ]]
 
     - [[http://qiita.com/sambatriste/items/2e01d5aa91903ae72b24][org-modeでUMLを埋め込み(PlantUML) - Qiita]]
       org-mode の設定など
    
     - [[http://tanehp.ec-net.jp/heppoko-lab/prog/resource/org_mode/org_mode_memo.html][Emacs Org-mode の覚え書き]]
+
+** example
+
+#+BEGIN_SRC plantuml :file pngs/example-class-01.png
+package Package #GreenYellow/LightGoldenRodYellow {
+Class01 <|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+}
+#+END_SRC
+
+
+** 設定
+
+: setenv GRAPHVIZ_DOT /opt/local/bin/dot
+: export GRAPHVIZ_DOT
+
+: ;; plantuml.jarへのパスを設定
+: (setq org-plantuml-jar-path "~/local/jar/plantuml.jar")
+:   ...
+:   (plantuml . t)
+
+
+** org-toggle-inline-images
+
+ [[elisp:(org-toggle-inline-images)]] で画像のインライン表示を on/off
+
 
 * 文芸的プログラミング (literate programming)
 
@@ -31,7 +61,7 @@ Emacs で M-x info で，Org-mode を開き，Document Structure を読みまし
 
    - [[http://howardism.org/Technical/Emacs/literate-programming-tutorial.html][Introduction to Literate Programming]]
 
-     英語ですが，シンプルで知りたいことがほぼ完璧に書いてあります。
+     英語ですが，シンプルで, 知りたいことがほぼ完璧に書いてあります。
 
    - [[http://d.hatena.ne.jp/tamura70/20100310/org][org-babel-perlを使う1/4 - 屯遁のパズルとプログラミングの日記]]
 

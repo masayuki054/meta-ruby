@@ -8,9 +8,10 @@
 
    - [[https://github.com/masayuki054/meta-ruby/tree/master/Figs/object_and_class.png][オブジクトとクラス図]]
 
-   - [[https://github.com/masayuki054/tree/master/meta-ruby/Figs/class_hier.png][メタクラス階層図]]
+   - [[https://github.com/masayuki054/meta-ruby/tree/master/docs/Figs/class_hier.png][メタクラス階層図]]
 
    [[https://github.com/masayuki054/meta-ruby/tree/master/docs/Figs/class_diagram][デザインパターンクラス図置き場]]
+
    - すみません，作図失敗してました。
 
 ** 講義内容

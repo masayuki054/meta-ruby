@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-16 月 09:38 -->
+<!-- 2017-01-22 日 20:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 講義ノート・メモ</title>
@@ -416,16 +416,19 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline142">what</a></li>
 <li><a href="#orgheadline143">how</a></li>
 <li><a href="#orgheadline144">directory</a></li>
-<li><a href="#orgheadline145">sinatraのための設定</a></li>
-<li><a href="#orgheadline146">bundler</a></li>
-<li><a href="#orgheadline147">gemfile</a></li>
-<li><a href="#orgheadline148">config.ru</a></li>
-<li><a href="#orgheadline149">service</a></li>
-<li><a href="#orgheadline150">application</a></li>
-<li><a href="#orgheadline151">起動</a>
+<li><a href="#orgheadline148">sinatraのための設定</a>
 <ul>
-<li><a href="#orgheadline152">確認</a></li>
-<li><a href="#orgheadline153">起動用 org 文書 (org/run.org)</a></li>
+<li><a href="#orgheadline145">bundler</a></li>
+<li><a href="#orgheadline146">gemfile</a></li>
+<li><a href="#orgheadline147">config.ru</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline153">service</a>
+<ul>
+<li><a href="#orgheadline149">application</a></li>
+<li><a href="#orgheadline150">起動</a></li>
+<li><a href="#orgheadline151">確認</a></li>
+<li><a href="#orgheadline152">起動用 org 文書 (org/run.org)</a></li>
 </ul>
 </li>
 </ul>
@@ -3918,8 +3921,33 @@ db.close
 <h4 id="orgheadline141">references</h4>
 <div class="outline-text-4" id="text-orgheadline141">
 <ul class="org-ul">
-<li>~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)</li>
-<li><a href="https://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a></li>
+<li>~suzuki/meta-ruby.git/org/lects/note/sinatra-org/readme.org (self)
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/note/ruby-note-sinatra-org.org">@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@s</a>))</li>
+
+<li><p>
+<a href="https://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a>
+</p>
+
+<p>
+すみません，このリンク切れていました。<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-22 日&gt;</span></span>
+</p></li>
+
+<li><p>
+org-converge <a href="https://github.com/wallyqs/org-converge">wallyqs/org-converge: Literate reproducible runs using Org mode and Ruby.</a>
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+A framework to create documented reproducible runs using Org Mode,
+borrowing several ideas of what is possible to do with tools like
+chef-solo, rake, foreman and capistrano.
+</p>
+</blockquote></li>
+
 <li><a href="https://www.sinatrarb.com/intro-ja.html">Sinatra: README (Japanese)</a></li>
 </ul>
 </div>
@@ -3958,32 +3986,54 @@ db.close
 |       +-- Gemfile
 |       +-- config.ru
 |
-+-- notes@
++-- notes
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">mkdir -p org-doc/ org-doc/org org-doc/src org-doc/notes
+cp ./ruby-note-sinatra-org.org org-doc/readme.org
 </pre>
 </div>
 </div>
-
-<div id="outline-container-orgheadline145" class="outline-4">
-<h4 id="orgheadline145">sinatraのための設定</h4>
 </div>
-<div id="outline-container-orgheadline146" class="outline-4">
-<h4 id="orgheadline146">bundler</h4>
-<div class="outline-text-4" id="text-orgheadline146">
+
+<div id="outline-container-orgheadline148" class="outline-4">
+<h4 id="orgheadline148">sinatraのための設定</h4>
+<div class="outline-text-4" id="text-orgheadline148">
+</div><div id="outline-container-orgheadline145" class="outline-5">
+<h5 id="orgheadline145">bundler</h5>
+<div class="outline-text-5" id="text-orgheadline145">
 <p>
 bundler を gem install
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-sh">gem install bundler
+<pre class="src src-sh">which gem 
+
+gem install bundler
+
+echo $PATH
+</pre>
+</div>
+
+<pre class="example">
+/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims/gem
+Bundler and RubyGems.org are free for anyone to use, but maintaining them costs more than $25,000 USD every month. Help us cover those costs so that we can keep the gem ecosystem free for everyone: https://ruby.to/support-bundler
+Successfully installed bundler-1.14.1
+Parsing documentation for bundler-1.14.1
+Installing ri documentation for bundler-1.14.1
+Done installing documentation for bundler after 15 seconds
+1 gem installed
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims:/users/home/masayuki/local/bin:/users/home/masayuki/.cask/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/versions/bin:/users/home/masayuki/COMM/bin:/users/home/masayuki/bin:/opt/local/bin
 </pre>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline147" class="outline-4">
-<h4 id="orgheadline147">gemfile</h4>
-<div class="outline-text-4" id="text-orgheadline147">
+<div id="outline-container-orgheadline146" class="outline-5">
+<h5 id="orgheadline146">gemfile</h5>
+<div class="outline-text-5" id="text-orgheadline146">
 <p>
 必要な gem を記述
 </p>
@@ -3998,9 +4048,9 @@ gem 'org-converge'
 </div>
 </div>
 
-<div id="outline-container-orgheadline148" class="outline-4">
-<h4 id="orgheadline148">config.ru</h4>
-<div class="outline-text-4" id="text-orgheadline148">
+<div id="outline-container-orgheadline147" class="outline-5">
+<h5 id="orgheadline147">config.ru</h5>
+<div class="outline-text-5" id="text-orgheadline147">
 <p>
 sinatraアプリケーションを起動するための設定
 </p>
@@ -4013,13 +4063,14 @@ run Sinatra::Application
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline149" class="outline-4">
-<h4 id="orgheadline149">service</h4>
 </div>
-<div id="outline-container-orgheadline150" class="outline-4">
-<h4 id="orgheadline150">application</h4>
-<div class="outline-text-4" id="text-orgheadline150">
+
+<div id="outline-container-orgheadline153" class="outline-4">
+<h4 id="orgheadline153">service</h4>
+<div class="outline-text-4" id="text-orgheadline153">
+</div><div id="outline-container-orgheadline149" class="outline-5">
+<h5 id="orgheadline149">application</h5>
+<div class="outline-text-5" id="text-orgheadline149">
 <p>
 sinatra のDSLで，Webサービスを記述:
 </p>
@@ -4038,7 +4089,7 @@ get '/org' do
 end
 
 get '/org/*.org' do |doc|
-  `(cd ../notes; org2html #{doc}.org)`
+  `(cd ../notes; sh ~/bin/org2html #{doc}.org)`
   `cat ../notes/#{doc}.html`
 end
 </pre>
@@ -4055,9 +4106,9 @@ rubygem/org-ruby を使ってもいいかもしれません。
 </div>
 </div>
 
-<div id="outline-container-orgheadline151" class="outline-4">
-<h4 id="orgheadline151">起動</h4>
-<div class="outline-text-4" id="text-orgheadline151">
+<div id="outline-container-orgheadline150" class="outline-5">
+<h5 id="orgheadline150">起動</h5>
+<div class="outline-text-5" id="text-orgheadline150">
 <p>
 この文書を，emacs org-mode で C-c C-v C-t して，書き出し，
 下記コマンドでサーバを立ち上げる。
@@ -4069,10 +4120,11 @@ rubygem/org-ruby を使ってもいいかもしれません。
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgheadline152" class="outline-5">
-<h5 id="orgheadline152">確認</h5>
-<div class="outline-text-5" id="text-orgheadline152">
+<div id="outline-container-orgheadline151" class="outline-5">
+<h5 id="orgheadline151">確認</h5>
+<div class="outline-text-5" id="text-orgheadline151">
 <p>
 ブラウザで，下記URLにアクセスする:
 </p>
@@ -4084,9 +4136,9 @@ rubygem/org-ruby を使ってもいいかもしれません。
 </div>
 </div>
 
-<div id="outline-container-orgheadline153" class="outline-5">
-<h5 id="orgheadline153">起動用 org 文書 (org/run.org)</h5>
-<div class="outline-text-5" id="text-orgheadline153">
+<div id="outline-container-orgheadline152" class="outline-5">
+<h5 id="orgheadline152">起動用 org 文書 (org/run.org)</h5>
+<div class="outline-text-5" id="text-orgheadline152">
 <div class="org-src-container">
 
 <pre class="src src-org">#+title: running the application
@@ -5026,7 +5078,7 @@ org-modeでGraphviz(dot)を使う
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2017-01-16 月 09:38</p>
+<p class="date">Created: 2017-01-22 日 20:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

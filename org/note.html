@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-18 日 07:08 -->
+<!-- 2017-01-22 日 20:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 講義ノート・メモ</title>
@@ -159,7 +159,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline181">1. ruby のノート</a>
+<li><a href="#orgheadline182">1. ruby のノート</a>
 <ul>
 <li><a href="#orgheadline3">1.1. Ruby紹介</a>
 <ul>
@@ -410,76 +410,77 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline141">1.11. references</a></li>
-<li><a href="#orgheadline142">1.12. what</a></li>
-<li><a href="#orgheadline143">1.13. how</a></li>
-<li><a href="#orgheadline144">1.14. directory</a></li>
-<li><a href="#orgheadline148">1.15. sinatraのための設定</a>
+<li><a href="#orgheadline154">1.11. org-doc web service</a>
+<ul>
+<li><a href="#orgheadline141">references</a></li>
+<li><a href="#orgheadline142">what</a></li>
+<li><a href="#orgheadline143">how</a></li>
+<li><a href="#orgheadline144">directory</a></li>
+<li><a href="#orgheadline148">sinatraのための設定</a>
 <ul>
 <li><a href="#orgheadline145">bundler</a></li>
 <li><a href="#orgheadline146">gemfile</a></li>
 <li><a href="#orgheadline147">config.ru</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline153">1.16. service</a>
+<li><a href="#orgheadline153">service</a>
 <ul>
 <li><a href="#orgheadline149">application</a></li>
-<li><a href="#orgheadline150">起動</a>
-<ul>
+<li><a href="#orgheadline150">起動</a></li>
 <li><a href="#orgheadline151">確認</a></li>
 <li><a href="#orgheadline152">起動用 org 文書 (org/run.org)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline180">1.17. クラスライブラリの抜粋</a>
+<li><a href="#orgheadline181">1.12. クラスライブラリの抜粋</a>
 <ul>
-<li><a href="#orgheadline154">Rubyリファレンス</a></li>
-<li><a href="#orgheadline155">BasicObject</a>
+<li><a href="#orgheadline155">Rubyリファレンス</a></li>
+<li><a href="#orgheadline156">BasicObject</a>
 <ul>
-<li><a href="#orgheadline159">メソッド一覧</a>
+<li><a href="#orgheadline160">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline156">クラスメソッド</a></li>
-<li><a href="#orgheadline157">インスタンスメソッド</a></li>
-<li><a href="#orgheadline158">特別な役割のメソッド</a></li>
+<li><a href="#orgheadline157">クラスメソッド</a></li>
+<li><a href="#orgheadline158">インスタンスメソッド</a></li>
+<li><a href="#orgheadline159">特別な役割のメソッド</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline160">Object</a>
+<li><a href="#orgheadline161">Object</a>
 <ul>
-<li><a href="#orgheadline161">親クラスとモジュール</a></li>
-<li><a href="#orgheadline166">メソッド一覧</a>
+<li><a href="#orgheadline162">親クラスとモジュール</a></li>
+<li><a href="#orgheadline167">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline162">クラスメソッド</a></li>
-<li><a href="#orgheadline163">インスタンスメソッド</a></li>
-<li><a href="#orgheadline164">privateメソッド</a></li>
-<li><a href="#orgheadline165">Rubyから呼び出されるメソッド</a></li>
+<li><a href="#orgheadline163">クラスメソッド</a></li>
+<li><a href="#orgheadline164">インスタンスメソッド</a></li>
+<li><a href="#orgheadline165">privateメソッド</a></li>
+<li><a href="#orgheadline166">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline167">Module</a>
+<li><a href="#orgheadline168">Module</a>
 <ul>
-<li><a href="#orgheadline168">親クラスとモジュール</a></li>
-<li><a href="#orgheadline173">メソッド一覧</a>
+<li><a href="#orgheadline169">親クラスとモジュール</a></li>
+<li><a href="#orgheadline174">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline169">クラスメソッド</a></li>
-<li><a href="#orgheadline170">publicなインスタンスメソッド</a></li>
-<li><a href="#orgheadline171">privateなインスタンスメソッド</a></li>
-<li><a href="#orgheadline172">Rubyから呼び出されるメソッド</a></li>
+<li><a href="#orgheadline170">クラスメソッド</a></li>
+<li><a href="#orgheadline171">publicなインスタンスメソッド</a></li>
+<li><a href="#orgheadline172">privateなインスタンスメソッド</a></li>
+<li><a href="#orgheadline173">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline174">Class</a>
+<li><a href="#orgheadline175">Class</a>
 <ul>
-<li><a href="#orgheadline175">親クラスとモジュール</a></li>
-<li><a href="#orgheadline179">メソッド一覧</a>
+<li><a href="#orgheadline176">親クラスとモジュール</a></li>
+<li><a href="#orgheadline180">メソッド一覧</a>
 <ul>
-<li><a href="#orgheadline176">クラスメソッド</a></li>
-<li><a href="#orgheadline177">インスタンスメソッド</a></li>
-<li><a href="#orgheadline178">Rubyから呼び出されるメソッド</a></li>
+<li><a href="#orgheadline177">クラスメソッド</a></li>
+<li><a href="#orgheadline178">インスタンスメソッド</a></li>
+<li><a href="#orgheadline179">Rubyから呼び出されるメソッド</a></li>
 </ul>
 </li>
 </ul>
@@ -488,52 +489,52 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline216">2. memo</a>
+<li><a href="#orgheadline217">2. memo</a>
 <ul>
-<li><a href="#orgheadline215">2.1. memo</a>
+<li><a href="#orgheadline216">2.1. memo</a>
 <ul>
-<li><a href="#orgheadline182">Doing test-unit</a></li>
-<li><a href="#orgheadline183">Doing poker.org</a></li>
-<li><a href="#orgheadline184">global</a></li>
-<li><a href="#orgheadline185">ソースコード解説</a></li>
-<li><a href="#orgheadline186">ソースコード pry-doc</a></li>
-<li><a href="#orgheadline187">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</a></li>
-<li><a href="#orgheadline188">gem install spreadsheet for meta-ruby</a></li>
-<li><a href="#orgheadline189">meta-ruby 講義内容</a></li>
-<li><a href="#orgheadline194">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
+<li><a href="#orgheadline183">Doing test-unit</a></li>
+<li><a href="#orgheadline184">Doing poker.org</a></li>
+<li><a href="#orgheadline185">global</a></li>
+<li><a href="#orgheadline186">ソースコード解説</a></li>
+<li><a href="#orgheadline187">ソースコード pry-doc</a></li>
+<li><a href="#orgheadline188">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</a></li>
+<li><a href="#orgheadline189">gem install spreadsheet for meta-ruby</a></li>
+<li><a href="#orgheadline190">meta-ruby 講義内容</a></li>
+<li><a href="#orgheadline195">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
 <ul>
-<li><a href="#orgheadline190">why</a></li>
-<li><a href="#orgheadline191">how</a></li>
-<li><a href="#orgheadline192">script</a></li>
-<li><a href="#orgheadline193">working directory</a></li>
+<li><a href="#orgheadline191">why</a></li>
+<li><a href="#orgheadline192">how</a></li>
+<li><a href="#orgheadline193">script</a></li>
+<li><a href="#orgheadline194">working directory</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline198">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
+<li><a href="#orgheadline199">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></a>
 <ul>
-<li><a href="#orgheadline197">tangle を make できるように</a>
+<li><a href="#orgheadline198">tangle を make できるように</a>
 <ul>
-<li><a href="#orgheadline195">ruby gem org-converge 中の org-tangle</a></li>
-<li><a href="#orgheadline196">シェルコマンド化</a></li>
+<li><a href="#orgheadline196">ruby gem org-converge 中の org-tangle</a></li>
+<li><a href="#orgheadline197">シェルコマンド化</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline199">new org-mode babel-include を展開する</a></li>
-<li><a href="#orgheadline200">ruby 日本語</a></li>
-<li><a href="#orgheadline201">ruby入門のサイトを変更したい</a></li>
-<li><a href="#orgheadline202">org babelを調べる</a></li>
-<li><a href="#orgheadline203">meta-ruby</a></li>
-<li><a href="#orgheadline204">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</a></li>
-<li><a href="#orgheadline205">ob-ruby</a></li>
-<li><a href="#orgheadline206">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</a></li>
-<li><a href="#orgheadline207">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</a></li>
-<li><a href="#orgheadline208">emacs-24.5 for @cis.iwate-u.ac.jp</a></li>
-<li><a href="#orgheadline209">~/bin/org2html index.org</a></li>
-<li><a href="#orgheadline210">Todo ditaa@github install後，ditaa.jar が見つからない</a></li>
-<li><a href="#orgheadline211">log new_file  graphviz</a></li>
-<li><a href="#orgheadline212">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</a></li>
-<li><a href="#orgheadline213">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></a></li>
-<li><a href="#orgheadline214">org2HTMLの自動化</a></li>
+<li><a href="#orgheadline200">new org-mode babel-include を展開する</a></li>
+<li><a href="#orgheadline201">ruby 日本語</a></li>
+<li><a href="#orgheadline202">ruby入門のサイトを変更したい</a></li>
+<li><a href="#orgheadline203">org babelを調べる</a></li>
+<li><a href="#orgheadline204">meta-ruby</a></li>
+<li><a href="#orgheadline205">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</a></li>
+<li><a href="#orgheadline206">ob-ruby</a></li>
+<li><a href="#orgheadline207">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</a></li>
+<li><a href="#orgheadline208">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</a></li>
+<li><a href="#orgheadline209">emacs-24.5 for @cis.iwate-u.ac.jp</a></li>
+<li><a href="#orgheadline210">~/bin/org2html index.org</a></li>
+<li><a href="#orgheadline211">Todo ditaa@github install後，ditaa.jar が見つからない</a></li>
+<li><a href="#orgheadline212">log new_file  graphviz</a></li>
+<li><a href="#orgheadline213">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</a></li>
+<li><a href="#orgheadline214">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></a></li>
+<li><a href="#orgheadline215">org2HTMLの自動化</a></li>
 </ul>
 </li>
 </ul>
@@ -554,8 +555,8 @@ for the JavaScript code in this tag.
 <a href="https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/">svn-repos</a>
 <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a> /
 </p>
-<div id="outline-container-orgheadline181" class="outline-2">
-<h2 id="orgheadline181"><span class="section-number-2">1</span> ruby のノート</h2>
+<div id="outline-container-orgheadline182" class="outline-2">
+<h2 id="orgheadline182"><span class="section-number-2">1</span> ruby のノート</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline3" class="outline-3">
 <h3 id="orgheadline3"><span class="section-number-3">1.1</span> Ruby紹介</h3>
@@ -3792,11 +3793,6 @@ db.close
 'end'
 </pre>
 </div>
-
-
-<p>
-<a href="https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0">https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0</a>
-</p>
 </div>
 </div>
 
@@ -3879,11 +3875,6 @@ db.close
 'end'
 </pre>
 </div>
-
-
-<p>
-<a href="https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0">https://www.dropbox.com/s/kf035hpu5r7dkqo/._%20(Masayuki%20Suzuki%20%E3%81%AE%E7%AB%B6%E5%90%88%E3%82%B3%E3%83%94%E3%83%BC%202016-01-07%20(3))._Icon%0D?dl=0</a>
-</p>
 </div>
 
 <div id="outline-container-orgheadline136" class="outline-5">
@@ -3923,29 +3914,57 @@ db.close
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline141" class="outline-3">
-<h3 id="orgheadline141"><span class="section-number-3">1.11</span> references</h3>
+<div id="outline-container-orgheadline154" class="outline-3">
+<h3 id="orgheadline154"><span class="section-number-3">1.11</span> org-doc web service</h3>
 <div class="outline-text-3" id="text-1-11">
+</div><div id="outline-container-orgheadline141" class="outline-4">
+<h4 id="orgheadline141">references</h4>
+<div class="outline-text-4" id="text-orgheadline141">
 <ul class="org-ul">
-<li>~suzuki/COMM/Lects/meta-ruby/site/lects/note/sinatra-org/readme.org (self)</li>
-<li><a href="http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a></li>
+<li>~suzuki/meta-ruby.git/org/lects/note/sinatra-org/readme.org (self)
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/note/ruby-note-sinatra-org.org">@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@s</a>))</li>
+
+<li><p>
+<a href="http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/">OrgBabelで文芸的プログラミング · ops●tokyo</a>
+</p>
+
+<p>
+すみません，このリンク切れていました。<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-22 日&gt;</span></span>
+</p></li>
+
+<li><p>
+org-converge <a href="https://github.com/wallyqs/org-converge">wallyqs/org-converge: Literate reproducible runs using Org mode and Ruby.</a>
+</p>
+
+<blockquote>
+<p>
+
+</p>
+
+<p>
+A framework to create documented reproducible runs using Org Mode,
+borrowing several ideas of what is possible to do with tools like
+chef-solo, rake, foreman and capistrano.
+</p>
+</blockquote></li>
+
 <li><a href="http://www.sinatrarb.com/intro-ja.html">Sinatra: README (Japanese)</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline142" class="outline-3">
-<h3 id="orgheadline142"><span class="section-number-3">1.12</span> what</h3>
-<div class="outline-text-3" id="text-1-12">
+<div id="outline-container-orgheadline142" class="outline-4">
+<h4 id="orgheadline142">what</h4>
+<div class="outline-text-4" id="text-orgheadline142">
 <p>
 ./notes にある .org 文書を表示する Webサービスを作成する。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline143" class="outline-3">
-<h3 id="orgheadline143"><span class="section-number-3">1.13</span> how</h3>
-<div class="outline-text-3" id="text-1-13">
+<div id="outline-container-orgheadline143" class="outline-4">
+<h4 id="orgheadline143">how</h4>
+<div class="outline-text-4" id="text-orgheadline143">
 <ul class="org-ul">
 <li>rubygems の sinatra，org-convergeを用いる</li>
 
@@ -3954,9 +3973,9 @@ db.close
 </div>
 </div>
 
-<div id="outline-container-orgheadline144" class="outline-3">
-<h3 id="orgheadline144"><span class="section-number-3">1.14</span> directory</h3>
-<div class="outline-text-3" id="text-1-14">
+<div id="outline-container-orgheadline144" class="outline-4">
+<h4 id="orgheadline144">directory</h4>
+<div class="outline-text-4" id="text-orgheadline144">
 <pre class="example">
 .
 +-- readme.org 
@@ -3967,32 +3986,54 @@ db.close
 |       +-- Gemfile
 |       +-- config.ru
 |
-+-- notes@
++-- notes
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">mkdir -p org-doc/ org-doc/org org-doc/src org-doc/notes
+cp ./ruby-note-sinatra-org.org org-doc/readme.org
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgheadline148" class="outline-3">
-<h3 id="orgheadline148"><span class="section-number-3">1.15</span> sinatraのための設定</h3>
-<div class="outline-text-3" id="text-1-15">
-</div><div id="outline-container-orgheadline145" class="outline-4">
-<h4 id="orgheadline145">bundler</h4>
-<div class="outline-text-4" id="text-orgheadline145">
+<div id="outline-container-orgheadline148" class="outline-4">
+<h4 id="orgheadline148">sinatraのための設定</h4>
+<div class="outline-text-4" id="text-orgheadline148">
+</div><div id="outline-container-orgheadline145" class="outline-5">
+<h5 id="orgheadline145">bundler</h5>
+<div class="outline-text-5" id="text-orgheadline145">
 <p>
 bundler を gem install
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-sh">gem install bundler
+<pre class="src src-sh">which gem 
+
+gem install bundler
+
+echo $PATH
+</pre>
+</div>
+
+<pre class="example">
+/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims/gem
+Bundler and RubyGems.org are free for anyone to use, but maintaining them costs more than $25,000 USD every month. Help us cover those costs so that we can keep the gem ecosystem free for everyone: https://ruby.to/support-bundler
+Successfully installed bundler-1.14.1
+Parsing documentation for bundler-1.14.1
+Installing ri documentation for bundler-1.14.1
+Done installing documentation for bundler after 15 seconds
+1 gem installed
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims:/users/home/masayuki/local/bin:/users/home/masayuki/.cask/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/versions/bin:/users/home/masayuki/COMM/bin:/users/home/masayuki/bin:/opt/local/bin
 </pre>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline146" class="outline-4">
-<h4 id="orgheadline146">gemfile</h4>
-<div class="outline-text-4" id="text-orgheadline146">
+<div id="outline-container-orgheadline146" class="outline-5">
+<h5 id="orgheadline146">gemfile</h5>
+<div class="outline-text-5" id="text-orgheadline146">
 <p>
 必要な gem を記述
 </p>
@@ -4007,13 +4048,12 @@ gem 'org-converge'
 </div>
 </div>
 
-<div id="outline-container-orgheadline147" class="outline-4">
-<h4 id="orgheadline147">config.ru</h4>
-<div class="outline-text-4" id="text-orgheadline147">
+<div id="outline-container-orgheadline147" class="outline-5">
+<h5 id="orgheadline147">config.ru</h5>
+<div class="outline-text-5" id="text-orgheadline147">
 <p>
 sinatraアプリケーションを起動するための設定
 </p>
-
 <div class="org-src-container">
 
 <pre class="src src-ruby"># src/config.ru
@@ -4025,12 +4065,12 @@ run Sinatra::Application
 </div>
 </div>
 
-<div id="outline-container-orgheadline153" class="outline-3">
-<h3 id="orgheadline153"><span class="section-number-3">1.16</span> service</h3>
-<div class="outline-text-3" id="text-1-16">
-</div><div id="outline-container-orgheadline149" class="outline-4">
-<h4 id="orgheadline149">application</h4>
-<div class="outline-text-4" id="text-orgheadline149">
+<div id="outline-container-orgheadline153" class="outline-4">
+<h4 id="orgheadline153">service</h4>
+<div class="outline-text-4" id="text-orgheadline153">
+</div><div id="outline-container-orgheadline149" class="outline-5">
+<h5 id="orgheadline149">application</h5>
+<div class="outline-text-5" id="text-orgheadline149">
 <p>
 sinatra のDSLで，Webサービスを記述:
 </p>
@@ -4049,7 +4089,7 @@ get '/org' do
 end
 
 get '/org/*.org' do |doc|
-  `(cd ../notes; org2html #{doc}.org)`
+  `(cd ../notes; sh ~/bin/org2html #{doc}.org)`
   `cat ../notes/#{doc}.html`
 end
 </pre>
@@ -4066,9 +4106,9 @@ rubygem/org-ruby を使ってもいいかもしれません。
 </div>
 </div>
 
-<div id="outline-container-orgheadline150" class="outline-4">
-<h4 id="orgheadline150">起動</h4>
-<div class="outline-text-4" id="text-orgheadline150">
+<div id="outline-container-orgheadline150" class="outline-5">
+<h5 id="orgheadline150">起動</h5>
+<div class="outline-text-5" id="text-orgheadline150">
 <p>
 この文書を，emacs org-mode で C-c C-v C-t して，書き出し，
 下記コマンドでサーバを立ち上げる。
@@ -4078,6 +4118,7 @@ rubygem/org-ruby を使ってもいいかもしれません。
 
 <pre class="src src-sh">org-converge org/run.org
 </pre>
+</div>
 </div>
 </div>
 
@@ -4135,12 +4176,12 @@ bundle exec rackup
 
 
 
-<div id="outline-container-orgheadline180" class="outline-3">
-<h3 id="orgheadline180"><span class="section-number-3">1.17</span> クラスライブラリの抜粋</h3>
-<div class="outline-text-3" id="text-1-17">
-</div><div id="outline-container-orgheadline154" class="outline-4">
-<h4 id="orgheadline154">Rubyリファレンス</h4>
-<div class="outline-text-4" id="text-orgheadline154">
+<div id="outline-container-orgheadline181" class="outline-3">
+<h3 id="orgheadline181"><span class="section-number-3">1.12</span> クラスライブラリの抜粋</h3>
+<div class="outline-text-3" id="text-1-12">
+</div><div id="outline-container-orgheadline155" class="outline-4">
+<h4 id="orgheadline155">Rubyリファレンス</h4>
+<div class="outline-text-4" id="text-orgheadline155">
 <p>
 原典
 </p>
@@ -4156,9 +4197,9 @@ method名やkeywordからクラスを探せるようにこの org文書を作成
 </div>
 
 
-<div id="outline-container-orgheadline155" class="outline-4">
-<h4 id="orgheadline155">BasicObject</h4>
-<div class="outline-text-4" id="text-orgheadline155">
+<div id="outline-container-orgheadline156" class="outline-4">
+<h4 id="orgheadline156">BasicObject</h4>
+<div class="outline-text-4" id="text-orgheadline156">
 <p>
 <a href="http://ref.xaio.jp/ruby/classes/basic_object">http://ref.xaio.jp/ruby/classes/basic_object</a>
 </p>
@@ -4176,21 +4217,21 @@ method名やkeywordからクラスを探せるようにこの org文書を作成
 </p>
 </div>
 
-<div id="outline-container-orgheadline159" class="outline-5">
-<h5 id="orgheadline159">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline159">
-</div><div id="outline-container-orgheadline156" class="outline-6">
-<h6 id="orgheadline156">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline156">
+<div id="outline-container-orgheadline160" class="outline-5">
+<h5 id="orgheadline160">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline160">
+</div><div id="outline-container-orgheadline157" class="outline-6">
+<h6 id="orgheadline157">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline157">
 <ul class="org-ul">
 <li><code>new</code> : インスタンスの作成。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline157" class="outline-6">
-<h6 id="orgheadline157">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline157">
+<div id="outline-container-orgheadline158" class="outline-6">
+<h6 id="orgheadline158">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline158">
 <ul class="org-ul">
 <li><code>!</code> : 否定。</li>
 <li><code>!=</code> : 別のものか調べる。</li>
@@ -4203,9 +4244,9 @@ method名やkeywordからクラスを探せるようにこの org文書を作成
 </div>
 </div>
 
-<div id="outline-container-orgheadline158" class="outline-6">
-<h6 id="orgheadline158">特別な役割のメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline158">
+<div id="outline-container-orgheadline159" class="outline-6">
+<h6 id="orgheadline159">特別な役割のメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline159">
 <ul class="org-ul">
 <li><code>initialize</code> : オブジェクトを作成（~new~）するとき呼ばれる。</li>
 <li><code>initialize_copy</code> :
@@ -4233,9 +4274,9 @@ Rails and AmiWiki
 
 
 
-<div id="outline-container-orgheadline160" class="outline-4">
-<h4 id="orgheadline160">Object</h4>
-<div class="outline-text-4" id="text-orgheadline160">
+<div id="outline-container-orgheadline161" class="outline-4">
+<h4 id="orgheadline161">Object</h4>
+<div class="outline-text-4" id="text-orgheadline161">
 <ul class="org-ul">
 <li><a href="http://ref.xaio.jp/ruby/classes/object">http://ref.xaio.jp/ruby/classes/object</a></li>
 </ul>
@@ -4245,9 +4286,9 @@ Rails and AmiWiki
 </p>
 </div>
 
-<div id="outline-container-orgheadline161" class="outline-5">
-<h5 id="orgheadline161">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline161">
+<div id="outline-container-orgheadline162" class="outline-5">
+<h5 id="orgheadline162">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline162">
 <p>
 ~Object~クラスは~Kernel~モジュールをインクルードしています。
 </p>
@@ -4262,21 +4303,21 @@ Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline166" class="outline-5">
-<h5 id="orgheadline166">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline166">
-</div><div id="outline-container-orgheadline162" class="outline-6">
-<h6 id="orgheadline162">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline162">
+<div id="outline-container-orgheadline167" class="outline-5">
+<h5 id="orgheadline167">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline167">
+</div><div id="outline-container-orgheadline163" class="outline-6">
+<h6 id="orgheadline163">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline163">
 <ul class="org-ul">
 <li><code>new</code> : インスタンスの作成。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline163" class="outline-6">
-<h6 id="orgheadline163">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline163">
+<div id="outline-container-orgheadline164" class="outline-6">
+<h6 id="orgheadline164">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline164">
 <p>
 これらのメソッドは、実際には~Kernel~モジュールの~public~なメソッドとして実装されていますが、一般的に~Object~クラスのメソッドとして扱われます。また、この一覧には~BasicObject~のメソッドも混ぜてあります。
 </p>
@@ -4342,18 +4383,18 @@ Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline164" class="outline-6">
-<h6 id="orgheadline164">privateメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline164">
+<div id="outline-container-orgheadline165" class="outline-6">
+<h6 id="orgheadline165">privateメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline165">
 <ul class="org-ul">
 <li><code>remove_instance_variable</code> : インスタンス変数の削除。</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline165" class="outline-6">
-<h6 id="orgheadline165">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline165">
+<div id="outline-container-orgheadline166" class="outline-6">
+<h6 id="orgheadline166">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline166">
 <ul class="org-ul">
 <li><code>initialize</code> : オブジェクトを作成（~new~）するとき呼ばれる。</li>
 <li><code>initialize_copy</code> :
@@ -4373,9 +4414,9 @@ Object &lt; Kernel (&lt; BasicObject)
 
 
 
-<div id="outline-container-orgheadline167" class="outline-4">
-<h4 id="orgheadline167">Module</h4>
-<div class="outline-text-4" id="text-orgheadline167">
+<div id="outline-container-orgheadline168" class="outline-4">
+<h4 id="orgheadline168">Module</h4>
+<div class="outline-text-4" id="text-orgheadline168">
 <p>
 ~Module~クラスは、クラスとモジュールを表すクラスです。~Class~クラスは
 ~Module~のサブクラスで、クラスだけを表します。
@@ -4396,9 +4437,9 @@ Object &lt; Kernel (&lt; BasicObject)
 </p>
 </div>
 
-<div id="outline-container-orgheadline168" class="outline-5">
-<h5 id="orgheadline168">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline168">
+<div id="outline-container-orgheadline169" class="outline-5">
+<h5 id="orgheadline169">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline169">
 <p>
 ~Module~クラスの親クラスは~Object~クラスです。
 </p>
@@ -4409,12 +4450,12 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline173" class="outline-5">
-<h5 id="orgheadline173">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline173">
-</div><div id="outline-container-orgheadline169" class="outline-6">
-<h6 id="orgheadline169">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline169">
+<div id="outline-container-orgheadline174" class="outline-5">
+<h5 id="orgheadline174">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline174">
+</div><div id="outline-container-orgheadline170" class="outline-6">
+<h6 id="orgheadline170">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline170">
 <ul class="org-ul">
 <li><code>constants</code> : 現在使える定数名の一覧を返す。</li>
 <li><code>nesting</code> : 現在のクラス・モジュールのネスト状態を調べる。</li>
@@ -4423,9 +4464,9 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline170" class="outline-6">
-<h6 id="orgheadline170">publicなインスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline170">
+<div id="outline-container-orgheadline171" class="outline-6">
+<h6 id="orgheadline171">publicなインスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline171">
 <ul class="org-ul">
 <li><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> : 2つのクラスやモジュールの関係を調べる。</li>
 <li><code>&lt;=&gt;</code> : 2つのクラスやモジュールの関係を調べる。</li>
@@ -4478,9 +4519,9 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline171" class="outline-6">
-<h6 id="orgheadline171">privateなインスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline171">
+<div id="outline-container-orgheadline172" class="outline-6">
+<h6 id="orgheadline172">privateなインスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline172">
 <ul class="org-ul">
 <li><code>alias_method</code> : メソッドに別名を付ける。</li>
 <li><code>attr</code> : インスタンス変数のアクセサを定義する。</li>
@@ -4500,9 +4541,9 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline172" class="outline-6">
-<h6 id="orgheadline172">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline172">
+<div id="outline-container-orgheadline173" class="outline-6">
+<h6 id="orgheadline173">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline173">
 <ul class="org-ul">
 <li><code>append_features</code> : インクルードされる前に呼ばれる。</li>
 <li><code>const_missing</code> : 存在しない定数を参照したときに呼ばれる。</li>
@@ -4519,9 +4560,9 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 
 
-<div id="outline-container-orgheadline174" class="outline-4">
-<h4 id="orgheadline174">Class</h4>
-<div class="outline-text-4" id="text-orgheadline174">
+<div id="outline-container-orgheadline175" class="outline-4">
+<h4 id="orgheadline175">Class</h4>
+<div class="outline-text-4" id="text-orgheadline175">
 <p>
 ~Class~クラスは、クラスを表すクラスで、~Module~クラスのサブクラスです。
 </p>
@@ -4531,9 +4572,9 @@ Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </p>
 </div>
 
-<div id="outline-container-orgheadline175" class="outline-5">
-<h5 id="orgheadline175">親クラスとモジュール</h5>
-<div class="outline-text-5" id="text-orgheadline175">
+<div id="outline-container-orgheadline176" class="outline-5">
+<h5 id="orgheadline176">親クラスとモジュール</h5>
+<div class="outline-text-5" id="text-orgheadline176">
 <p>
 ~Class~クラスの親クラスは~Module~クラスです。
 </p>
@@ -4544,12 +4585,12 @@ Class &lt; Module &lt; Object &lt; Kernel (&lt; BasicObject)
 </div>
 </div>
 
-<div id="outline-container-orgheadline179" class="outline-5">
-<h5 id="orgheadline179">メソッド一覧</h5>
-<div class="outline-text-5" id="text-orgheadline179">
-</div><div id="outline-container-orgheadline176" class="outline-6">
-<h6 id="orgheadline176">クラスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline176">
+<div id="outline-container-orgheadline180" class="outline-5">
+<h5 id="orgheadline180">メソッド一覧</h5>
+<div class="outline-text-5" id="text-orgheadline180">
+</div><div id="outline-container-orgheadline177" class="outline-6">
+<h6 id="orgheadline177">クラスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline177">
 <ul class="org-ul">
 <li><p>
 <code>new</code> : クラス定義を使わずにクラスを作成。 
@@ -4561,9 +4602,9 @@ Class.new で無名クラスを作る
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline177" class="outline-6">
-<h6 id="orgheadline177">インスタンスメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline177">
+<div id="outline-container-orgheadline178" class="outline-6">
+<h6 id="orgheadline178">インスタンスメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline178">
 <ul class="org-ul">
 <li><code>allocate</code> : インスタンスの作成。</li>
 <li><code>new</code> : インスタンスの作成と初期化。</li>
@@ -4572,9 +4613,9 @@ Class.new で無名クラスを作る
 </div>
 </div>
 
-<div id="outline-container-orgheadline178" class="outline-6">
-<h6 id="orgheadline178">Rubyから呼び出されるメソッド</h6>
-<div class="outline-text-6" id="text-orgheadline178">
+<div id="outline-container-orgheadline179" class="outline-6">
+<h6 id="orgheadline179">Rubyから呼び出されるメソッド</h6>
+<div class="outline-text-6" id="text-orgheadline179">
 <ul class="org-ul">
 <li><code>inherited</code> : クラスが継承されたときに呼ばれる。</li>
 </ul>
@@ -4600,15 +4641,15 @@ Rails and AmiWiki
 </div>
 </div>
 
-<div id="outline-container-orgheadline216" class="outline-2">
-<h2 id="orgheadline216"><span class="section-number-2">2</span> memo</h2>
+<div id="outline-container-orgheadline217" class="outline-2">
+<h2 id="orgheadline217"><span class="section-number-2">2</span> memo</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline215" class="outline-3">
-<h3 id="orgheadline215"><span class="section-number-3">2.1</span> memo</h3>
+</div><div id="outline-container-orgheadline216" class="outline-3">
+<h3 id="orgheadline216"><span class="section-number-3">2.1</span> memo</h3>
 <div class="outline-text-3" id="text-2-1">
-</div><div id="outline-container-orgheadline182" class="outline-4">
-<h4 id="orgheadline182">Doing test-unit</h4>
-<div class="outline-text-4" id="text-orgheadline182">
+</div><div id="outline-container-orgheadline183" class="outline-4">
+<h4 id="orgheadline183">Doing test-unit</h4>
+<div class="outline-text-4" id="text-orgheadline183">
 <p>
 単体テストの使い方をまとめました。
 </p>
@@ -4620,9 +4661,9 @@ Rails and AmiWiki
 </div>
 
 
-<div id="outline-container-orgheadline183" class="outline-4">
-<h4 id="orgheadline183">Doing poker.org</h4>
-<div class="outline-text-4" id="text-orgheadline183">
+<div id="outline-container-orgheadline184" class="outline-4">
+<h4 id="orgheadline184">Doing poker.org</h4>
+<div class="outline-text-4" id="text-orgheadline184">
 <p>
 ~suzuki/COMM/Lects/meta-ruby/site/lects/poker の下に org 文書を作り
 ました。
@@ -4630,9 +4671,9 @@ Rails and AmiWiki
 </div>
 </div>
 
-<div id="outline-container-orgheadline184" class="outline-4">
-<h4 id="orgheadline184">global</h4>
-<div class="outline-text-4" id="text-orgheadline184">
+<div id="outline-container-orgheadline185" class="outline-4">
+<h4 id="orgheadline185">global</h4>
+<div class="outline-text-4" id="text-orgheadline185">
 <p>
 <a href="http://www.machu.jp/diary/20090307.html#p01">ソースコードを快適に読むための GNU GLOBAL 入門 (前編) - まちゅダイアリー(2009-03-07)</a>
 <a href="http://horoama.hatenablog.com/entry/2015/05/16/183359">globalを使いブラウザで快適にソースコードを読む - ほろあま記念館</a>
@@ -4659,9 +4700,9 @@ Rails and AmiWiki
 </div>
 </div>
 
-<div id="outline-container-orgheadline185" class="outline-4">
-<h4 id="orgheadline185">ソースコード解説</h4>
-<div class="outline-text-4" id="text-orgheadline185">
+<div id="outline-container-orgheadline186" class="outline-4">
+<h4 id="orgheadline186">ソースコード解説</h4>
+<div class="outline-text-4" id="text-orgheadline186">
 <p>
 <a href="http://wiki.cis.iwate-u.ac.jp/~wiki/rhg.cgi?%E8%AC%9B%E7%BE%A9%E5%86%85%E5%AE%B9">R.H.G. Wikky - 講義内容</a> 
 </p>
@@ -4673,9 +4714,9 @@ Rails and AmiWiki
 </div>
 
 
-<div id="outline-container-orgheadline186" class="outline-4">
-<h4 id="orgheadline186">ソースコード pry-doc</h4>
-<div class="outline-text-4" id="text-orgheadline186">
+<div id="outline-container-orgheadline187" class="outline-4">
+<h4 id="orgheadline187">ソースコード pry-doc</h4>
+<div class="outline-text-4" id="text-orgheadline187">
 <p>
 <a href="http://qiita.com/joker1007/items/42f00b12c65bbec0e50a">pry-docでカジュアルにRubyのソースコードを読む - Qiita</a>
 </p>
@@ -4683,22 +4724,22 @@ Rails and AmiWiki
 </div>
 
 
-<div id="outline-container-orgheadline187" class="outline-4">
-<h4 id="orgheadline187">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</h4>
-<div class="outline-text-4" id="text-orgheadline187">
+<div id="outline-container-orgheadline188" class="outline-4">
+<h4 id="orgheadline188">EmacsでPATHの設定が引き継がれない問題をエレガントに解決する - Qiita</h4>
+<div class="outline-text-4" id="text-orgheadline188">
 <p>
 <a href="http://qiita.com/catatsuy/items/3dda714f4c60c435bb25">http://qiita.com/catatsuy/items/3dda714f4c60c435bb25</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline188" class="outline-4">
-<h4 id="orgheadline188">gem install spreadsheet for meta-ruby</h4>
+<div id="outline-container-orgheadline189" class="outline-4">
+<h4 id="orgheadline189">gem install spreadsheet for meta-ruby</h4>
 </div>
 
-<div id="outline-container-orgheadline189" class="outline-4">
-<h4 id="orgheadline189">meta-ruby 講義内容</h4>
-<div class="outline-text-4" id="text-orgheadline189">
+<div id="outline-container-orgheadline190" class="outline-4">
+<h4 id="orgheadline190">meta-ruby 講義内容</h4>
+<div class="outline-text-4" id="text-orgheadline190">
 <ul class="org-ul">
 <li>meta な説明
 <ul class="org-ul">
@@ -4710,20 +4751,20 @@ Rails and AmiWiki
 </div>
 </div>
 
-<div id="outline-container-orgheadline194" class="outline-4">
-<h4 id="orgheadline194">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline194">
-</div><div id="outline-container-orgheadline190" class="outline-5">
-<h5 id="orgheadline190">why</h5>
-<div class="outline-text-5" id="text-orgheadline190">
+<div id="outline-container-orgheadline195" class="outline-4">
+<h4 id="orgheadline195">Done .ob org-mode #+babel_include の導入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="include">include</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
+<div class="outline-text-4" id="text-orgheadline195">
+</div><div id="outline-container-orgheadline191" class="outline-5">
+<h5 id="orgheadline191">why</h5>
+<div class="outline-text-5" id="text-orgheadline191">
 <p>
 include ファイル中の named_src_block の noweb 参照ができない
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline191" class="outline-5">
-<h5 id="orgheadline191">how</h5>
-<div class="outline-text-5" id="text-orgheadline191">
+<div id="outline-container-orgheadline192" class="outline-5">
+<h5 id="orgheadline192">how</h5>
+<div class="outline-text-5" id="text-orgheadline192">
 <ul class="org-ul">
 <li>同一ファイル中の named_src_block は noweb 参照ができるので，
 include を展開することにした。</li>
@@ -4732,9 +4773,9 @@ include を展開することにした。</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline192" class="outline-5">
-<h5 id="orgheadline192">script</h5>
-<div class="outline-text-5" id="text-orgheadline192">
+<div id="outline-container-orgheadline193" class="outline-5">
+<h5 id="orgheadline193">script</h5>
+<div class="outline-text-5" id="text-orgheadline193">
 <div class="org-src-container">
 
 <pre class="src src-ruby">#!/usr/bin/env ruby
@@ -4759,9 +4800,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgheadline193" class="outline-5">
-<h5 id="orgheadline193">working directory</h5>
-<div class="outline-text-5" id="text-orgheadline193">
+<div id="outline-container-orgheadline194" class="outline-5">
+<h5 id="orgheadline194">working directory</h5>
+<div class="outline-text-5" id="text-orgheadline194">
 <p>
 <a href="file:///users/home/masayuki/COMM/Prog/org/babel-include/">file:///users/home/masayuki/COMM/Prog/org/babel-include/</a>
 </p>
@@ -4769,24 +4810,24 @@ end
 </div>
 </div>
 
-<div id="outline-container-orgheadline198" class="outline-4">
-<h4 id="orgheadline198">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline198">
-</div><div id="outline-container-orgheadline197" class="outline-5">
-<h5 id="orgheadline197">tangle を make できるように</h5>
-<div class="outline-text-5" id="text-orgheadline197">
-</div><div id="outline-container-orgheadline195" class="outline-6">
-<h6 id="orgheadline195">ruby gem org-converge 中の org-tangle</h6>
-<div class="outline-text-6" id="text-orgheadline195">
+<div id="outline-container-orgheadline199" class="outline-4">
+<h4 id="orgheadline199">Doing org-tangle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="auto">auto</span>&#xa0;<span class="tangle">tangle</span>&#xa0;<span class="babel">babel</span>&#xa0;<span class="org">org</span></span></h4>
+<div class="outline-text-4" id="text-orgheadline199">
+</div><div id="outline-container-orgheadline198" class="outline-5">
+<h5 id="orgheadline198">tangle を make できるように</h5>
+<div class="outline-text-5" id="text-orgheadline198">
+</div><div id="outline-container-orgheadline196" class="outline-6">
+<h6 id="orgheadline196">ruby gem org-converge 中の org-tangle</h6>
+<div class="outline-text-6" id="text-orgheadline196">
 <p>
 :nowebの機能が使えないので，あきらめる
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline196" class="outline-6">
-<h6 id="orgheadline196">シェルコマンド化</h6>
-<div class="outline-text-6" id="text-orgheadline196">
+<div id="outline-container-orgheadline197" class="outline-6">
+<h6 id="orgheadline197">シェルコマンド化</h6>
+<div class="outline-text-6" id="text-orgheadline197">
 <p>
 <a href="file:///users/home/masayuki/bin/org2html">org2html</a> と同様に， org_tangle を作成
 </p>
@@ -4827,9 +4868,9 @@ done
 </div>
 
 
-<div id="outline-container-orgheadline199" class="outline-4">
-<h4 id="orgheadline199">new org-mode babel-include を展開する</h4>
-<div class="outline-text-4" id="text-orgheadline199">
+<div id="outline-container-orgheadline200" class="outline-4">
+<h4 id="orgheadline200">new org-mode babel-include を展開する</h4>
+<div class="outline-text-4" id="text-orgheadline200">
 <p>
 <a href="file:///users/home/masayuki/COMM/Prog/org/babel-include/">file:///users/home/masayuki/COMM/Prog/org/babel-include/</a> 
 </p>
@@ -4840,9 +4881,9 @@ done
 </div>
 </div>
 
-<div id="outline-container-orgheadline200" class="outline-4">
-<h4 id="orgheadline200">ruby 日本語</h4>
-<div class="outline-text-4" id="text-orgheadline200">
+<div id="outline-container-orgheadline201" class="outline-4">
+<h4 id="orgheadline201">ruby 日本語</h4>
+<div class="outline-text-4" id="text-orgheadline201">
 <p>
 ruby -K [e|s|u|n] euc-jp|cp932|utf-8|ascii-8
 </p>
@@ -4873,18 +4914,18 @@ magic comment
 </div>
 </div>
 
-<div id="outline-container-orgheadline201" class="outline-4">
-<h4 id="orgheadline201">ruby入門のサイトを変更したい</h4>
-<div class="outline-text-4" id="text-orgheadline201">
+<div id="outline-container-orgheadline202" class="outline-4">
+<h4 id="orgheadline202">ruby入門のサイトを変更したい</h4>
+<div class="outline-text-4" id="text-orgheadline202">
 <p>
 <a href="http://www.rubylife.jp/ini/">Ruby入門</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline202" class="outline-4">
-<h4 id="orgheadline202">org babelを調べる</h4>
-<div class="outline-text-4" id="text-orgheadline202">
+<div id="outline-container-orgheadline203" class="outline-4">
+<h4 id="orgheadline203">org babelを調べる</h4>
+<div class="outline-text-4" id="text-orgheadline203">
 <p>
 <a href="file:///NFS/ufs/mac/masayuki/COMM/working/ob-ruby.html">file:///NFS/ufs/mac/masayuki/COMM/working/ob-ruby.html</a>
 </p>
@@ -4895,9 +4936,9 @@ magic comment
 </div>
 </div>
 
-<div id="outline-container-orgheadline203" class="outline-4">
-<h4 id="orgheadline203">meta-ruby</h4>
-<div class="outline-text-4" id="text-orgheadline203">
+<div id="outline-container-orgheadline204" class="outline-4">
+<h4 id="orgheadline204">meta-ruby</h4>
+<div class="outline-text-4" id="text-orgheadline204">
 <p>
 クラス・モジュールの概念 Ruby - Qiita
 <a href="http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de">http://qiita.com/ToruFukui/items/2dd4d2d1ce6ed05928de</a>
@@ -4919,9 +4960,9 @@ magic comment
 </div>
 </div>
 
-<div id="outline-container-orgheadline204" class="outline-4">
-<h4 id="orgheadline204">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</h4>
-<div class="outline-text-4" id="text-orgheadline204">
+<div id="outline-container-orgheadline205" class="outline-4">
+<h4 id="orgheadline205">Rubyを勉強する上で有用な情報源まとめてみた - Qiita</h4>
+<div class="outline-text-4" id="text-orgheadline205">
 <p>
 <a href="http://qiita.com/taiyop/items/0212a54591e078ae15b6">http://qiita.com/taiyop/items/0212a54591e078ae15b6</a>
 <span class="timestamp-wrapper"><span class="timestamp">[2015-11-13 金 02:17]</span></span>
@@ -4929,9 +4970,9 @@ magic comment
 </div>
 </div>
 
-<div id="outline-container-orgheadline205" class="outline-4">
-<h4 id="orgheadline205">ob-ruby</h4>
-<div class="outline-text-4" id="text-orgheadline205">
+<div id="outline-container-orgheadline206" class="outline-4">
+<h4 id="orgheadline206">ob-ruby</h4>
+<div class="outline-text-4" id="text-orgheadline206">
 <p>
 :session name
 を指定すると*nameバッファで inf-ruby が動く
@@ -4945,31 +4986,31 @@ pry をやめるとうまく動く
 </div>
 </div>
 
-<div id="outline-container-orgheadline206" class="outline-4">
-<h4 id="orgheadline206">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</h4>
-<div class="outline-text-4" id="text-orgheadline206">
+<div id="outline-container-orgheadline207" class="outline-4">
+<h4 id="orgheadline207">若手エンジニア／初心者のためのRuby 2.1入門（12）：難しいが強力！ Rubyのメタプログラミング、self、特異クラス／メソッド、オープンクラスとモンキーパッチ (1/4) - ＠IT</h4>
+<div class="outline-text-4" id="text-orgheadline207">
 <p>
 <a href="http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html">http://www.atmarkit.co.jp/ait/articles/1501/06/news028.html</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline207" class="outline-4">
-<h4 id="orgheadline207">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</h4>
-<div class="outline-text-4" id="text-orgheadline207">
+<div id="outline-container-orgheadline208" class="outline-4">
+<h4 id="orgheadline208">Ruby - 【mkdirからデプロイまで3分】Sinatra+Haml+Sass+Coffee でサクッとHerokuに公開して捨てるwebアプリ - Qiita</h4>
+<div class="outline-text-4" id="text-orgheadline208">
 <p>
 <a href="http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9">http://qiita.com/gogotanaka/items/760d4e6ad2b19ff78ff9</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline208" class="outline-4">
-<h4 id="orgheadline208">emacs-24.5 for @cis.iwate-u.ac.jp</h4>
+<div id="outline-container-orgheadline209" class="outline-4">
+<h4 id="orgheadline209">emacs-24.5 for @cis.iwate-u.ac.jp</h4>
 </div>
 
-<div id="outline-container-orgheadline209" class="outline-4">
-<h4 id="orgheadline209">~/bin/org2html index.org</h4>
-<div class="outline-text-4" id="text-orgheadline209">
+<div id="outline-container-orgheadline210" class="outline-4">
+<h4 id="orgheadline210">~/bin/org2html index.org</h4>
+<div class="outline-text-4" id="text-orgheadline210">
 <p>
 Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 </p>
@@ -4980,9 +5021,9 @@ Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 </div>
 
 
-<div id="outline-container-orgheadline210" class="outline-4">
-<h4 id="orgheadline210">Todo <a href="http://ditaa.sourceforge.net/">ditaa@github</a> install後，ditaa.jar が見つからない</h4>
-<div class="outline-text-4" id="text-orgheadline210">
+<div id="outline-container-orgheadline211" class="outline-4">
+<h4 id="orgheadline211">Todo <a href="http://ditaa.sourceforge.net/">ditaa@github</a> install後，ditaa.jar が見つからない</h4>
+<div class="outline-text-4" id="text-orgheadline211">
 <p>
 <a href="lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile">lv /opt/local/var/macports/sources/rsync.macports.org/release/ports/java/ditaa/Portfile</a>
 </p>
@@ -4990,9 +5031,9 @@ Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 </div>
 
 
-<div id="outline-container-orgheadline211" class="outline-4">
-<h4 id="orgheadline211">log new_file  <a href="file:///users/home/masayuki/COMM/working/org-graphvix.html#MissingReference">graphviz</a></h4>
-<div class="outline-text-4" id="text-orgheadline211">
+<div id="outline-container-orgheadline212" class="outline-4">
+<h4 id="orgheadline212">log new_file  <a href="file:///users/home/masayuki/COMM/working/org-graphvix.html#MissingReference">graphviz</a></h4>
+<div class="outline-text-4" id="text-orgheadline212">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2015-10-09 金 15:54]</span></span>
 </p>
@@ -5000,9 +5041,9 @@ Cannot fontify src block (htmlize.el &gt;= 1.34 required)
 </div>
 
 
-<div id="outline-container-orgheadline212" class="outline-4">
-<h4 id="orgheadline212">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</h4>
-<div class="outline-text-4" id="text-orgheadline212">
+<div id="outline-container-orgheadline213" class="outline-4">
+<h4 id="orgheadline213">Emacs org-modeを使ってみる: (19) graphvizとditaaの図を埋め込む - 屯遁のパズルとプログラミングの日記</h4>
+<div class="outline-text-4" id="text-orgheadline213">
 <p>
 <a href="http://d.hatena.ne.jp/tamura70/20100222/org">http://d.hatena.ne.jp/tamura70/20100222/org</a>
 </p>
@@ -5014,9 +5055,9 @@ org-modeでGraphviz(dot)を使う
 </div>
 </div>
 
-<div id="outline-container-orgheadline213" class="outline-4">
-<h4 id="orgheadline213">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline213">
+<div id="outline-container-orgheadline214" class="outline-4">
+<h4 id="orgheadline214">memo lstree&#xa0;&#xa0;&#xa0;<span class="tag"><span class="directory">directory</span></span></h4>
+<div class="outline-text-4" id="text-orgheadline214">
 <p>
 <a href="file:///users/home/masayuki/COMM/Prog/ruby/lstree/lstree.rb">file:///users/home/masayuki/COMM/Prog/ruby/lstree/lstree.rb</a>
 </p>
@@ -5024,9 +5065,9 @@ org-modeでGraphviz(dot)を使う
 </div>
 
 
-<div id="outline-container-orgheadline214" class="outline-4">
-<h4 id="orgheadline214">org2HTMLの自動化</h4>
-<div class="outline-text-4" id="text-orgheadline214">
+<div id="outline-container-orgheadline215" class="outline-4">
+<h4 id="orgheadline215">org2HTMLの自動化</h4>
+<div class="outline-text-4" id="text-orgheadline215">
 <p>
 ~/COMM/bin/org2html
 </p>
@@ -5037,7 +5078,7 @@ org-modeでGraphviz(dot)を使う
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-12-18 日 07:08</p>
+<p class="date">Created: 2017-01-22 日 20:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
