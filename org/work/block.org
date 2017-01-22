@@ -8,41 +8,21 @@
 
 ** ブロックの基本
 
-#+BEGIN_SRC ruby :exports both :tangle babel/mymethod.rb :mkdirp yes
-class Myclass
-  def mymethod(a, b)
-    z = -100
-    if block_given?
-      yield(a, b)
-    else
-      a + b
-    end
+#+BEGIN_SRC ruby
+def a_method(a, b)
+  if block_given?
+    a + yield(a, b)
+  else
+    a
   end
 end
-z=100
-p @obj = Myclass.new
-p @obj.mymethod(1,2) { |x,y| x+y+z  }
-p @obj.mymethod(1,2) do |x,y| x+y+z; end
-p @prc = Proc.new { |x,y| x+y+z }
-p @prc.binding
-p (@prc.binding).eval("z")
-
+y=10
+a_method(1,2) do |x| x+y end
+  
 #+END_SRC
 
 #+RESULTS:
-
-#+BEGIN_SRC sh :results output :export both
-ruby babel/mymethod.rb
-
-#+END_SRC
-
-#+RESULTS:
-: #<Myclass:0x007f86a11619d8>
-: 103
-: 3
-: #<Proc:0x007f86a11617f8@babel/mymethod.rb:14>
-: #<Binding:0x007f86a1161708>
-: 100
+: 12
 
 *** ブロックの作成
 - do ... end が block 
@@ -54,9 +34,10 @@ ruby babel/mymethod.rb
    
 *** ブロックの呼び出し
 - 呼ばれたメソッド側で yield により呼び出せる
-- しかし，block は，block が作られた *環境* で実行される
+- しかし，block は，block が作られた*環境*で実行される
 
 ** クイズ: Ruby#
+
 *** using
 
 リソースの確保，コードの実行，リソースの開放を記述。コードの実行中に例
@@ -78,7 +59,6 @@ ruby babel/mymethod.rb
 :  end
 : end
 
-
 ** クロージャ
 
 変数のスコープを超える方法を学ぼう
@@ -86,8 +66,8 @@ ruby babel/mymethod.rb
 *** コードの実行
 
 - ブロックはコード
-- *self*が実行の主体 (場)
-- クロージャ = コード + *束縛* (局所変数，インスタンス変数，... )
+- *self* が実行の主体 (場)
+- クロージャ = コード + *環境* (局所変数，インスタンス変数，... )
 
 file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb
 
@@ -96,7 +76,7 @@ file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb
 
 クロージャが実行される時は，その環境で実行される
 - 定数はselfのクラスから辿れる
-- インスタンス変数、特異メソッドには self から辿れる
+- インスタンス変数、特異メソッドは self から辿れる
 
 **** ブロックローカル変数
 

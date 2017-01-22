@@ -9,3 +9,8 @@
 #+include: ./class.org :minlevel 1
 #+include: ./block.org :minlevel 1
 #+include: ./resume.org :minlevel 1
+
+* リソース
+  [[https://github.com/hamamatsu-rb/hamamatsu-rb.github.com/wiki/メタプログラミングruby読書会][メタプログラミングruby読書会]]
+  [[http://pragprog.com/titles/ppmetr/source_code][source code]]
+

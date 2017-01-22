@@ -1,4 +1,4 @@
-\* メソッド
+* メソッド
 
 ** 静的言語と動的言語，
    
@@ -342,7 +342,4 @@ end
 
     
 
-* リソース
-  [[https://github.com/hamamatsu-rb/hamamatsu-rb.github.com/wiki/メタプログラミングruby読書会][メタプログラミングruby読書会]]
-  [[http://pragprog.com/titles/ppmetr/source_code][source code]]
 
