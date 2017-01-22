@@ -1,4 +1,3 @@
-
 * [[http://morizyun.github.io/blog/ruby-design-pattern-12-builder/][ビルダー]]
 
 ** class図
@@ -34,7 +33,7 @@ SugarWaterBuilder o-- SugarWater
 
 * 
 
-** class
+** びるだclass図
 
 #+BEGIN_SRC plantuml :file class-diagram/material-water-builder.png :mkdirp yes
 

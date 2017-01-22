@@ -8,18 +8,6 @@
 
 - [[http://ops.tokyo/posts/2014/12/12/using-org-babel-for-lp-jp/][OrgBabelで文芸的プログラミング · ops●tokyo]]
 
-  すみません，このリンク切れていました。<2017-01-22 日>
-
-- org-converge [[https://github.com/wallyqs/org-converge][wallyqs/org-converge: Literate reproducible runs using Org mode and Ruby.]]
-
-  #+BEGIN_QUOTE
-
-  A framework to create documented reproducible runs using Org Mode,
-  borrowing several ideas of what is possible to do with tools like
-  chef-solo, rake, foreman and capistrano.
-
-  #+END_QUOTE
-
 - [[http://www.sinatrarb.com/intro-ja.html][Sinatra: README (Japanese)]]
 
 ** what
@@ -58,8 +46,6 @@ cp ./ruby-note-sinatra-org.org org-doc/readme.org
  bundler を gem install
 
 #+BEGIN_SRC sh :exports both :results output
-which gem 
-
 gem install bundler
 
 echo $PATH
@@ -67,14 +53,7 @@ echo $PATH
 #+END_SRC
 
 #+RESULTS:
-: /users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims/gem
-: Bundler and RubyGems.org are free for anyone to use, but maintaining them costs more than $25,000 USD every month. Help us cover those costs so that we can keep the gem ecosystem free for everyone: https://ruby.to/support-bundler
-: Successfully installed bundler-1.14.1
-: Parsing documentation for bundler-1.14.1
-: Installing ri documentation for bundler-1.14.1
-: Done installing documentation for bundler after 15 seconds
-: 1 gem installed
-: /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims:/users/home/masayuki/local/bin:/users/home/masayuki/.cask/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/versions/bin:/users/home/masayuki/COMM/bin:/users/home/masayuki/bin:/opt/local/bin
+: /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/shims:/users/home/masayuki/local/bin:/users/home/masayuki/.rbenv/Darwin.x86_64.14.5.0/versions/bin:/users/home/masayuki/.rbenv/shims:/users/home/masayuki/.cask/bin:/opt/local/bin:/usr/local/teTeX/bin:/sbin/:/usr/local/sbin:/usr/X11R6/bin:/users/home/masayuki/bin:/users/home/masayuki/depot_tools:/users/home/masayuki/COMM/bin
 
 *** gemfile
 
@@ -114,7 +93,7 @@ get '/org' do
 end
 
 get '/org/*.org' do |doc|
-  `(cd ../notes; sh ~/bin/org2html #{doc}.org)`
+  `(cd ../notes; org2html #{doc}.org)`
   `cat ../notes/#{doc}.html`
 end
 

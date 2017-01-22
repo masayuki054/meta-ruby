@@ -1,98 +1,17 @@
-* [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターン]]
+* [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターン]] を学ぶ
 
-Ruby 2.0.0で学ぶ、14個のデザインパターンを作りました[GoF][Design Pattern] - 酒と泪とRubyとRailsと
-https://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
+** emacs org-mode でまとめる
 
+   emacs org-mode を使って学んだことをまとめましょう。
 
-** ruby [[http://jetglass.hatenablog.jp/archive/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][デザインパターン ]]
-   [[http://jetglass.hatenablog.jp/entry/2015/04/02/151034][Rubyによるデザインパターン【Builder】 - Shred IT!!!!]]
+   literate programming や 図の埋め込みなど，
+  [[emacs.org]] を参考にしてください。
 
-** Introduction to Literate Programming	      :literate:programming:org:mode:
-   [[http://www.howardism.org/Technical/Emacs/literate-programming-tutorial.html][Introduction to Literate Programming]] 
+** UML を知る
 
-   必要なことが全て書いてある。
+   [[http://objectclub.jp/technicaldoc/uml/umlintro2#class][UML超入門_第2章]]
 
-   [2017-01-15 日 13:01]
-   [[info:org#Top]]
-
-** ruby design pattern
-
-Ruby 2.0.0で学ぶ、14個のデザインパターンを作りました[GoF][Design Pattern] - 酒と泪とRubyとRailsと
-https://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
-
-
-
-
-
-
-*** GoFのシングルトンの前提条件
-
-- 作成したクラスは唯一1つだけのインスタンスを自身で作成する
-
-- システム内のどこでもその1つだけのインスタンスにアクセスできる
-
-*** サンプルソース
-
-シングルトンパターンのサンプルを作成していきます。
-
-ここでは、Rubyの標準ライブラリであるSingletonモジュールを使います。 こ
-のSingletonモジュールを使うことで、Mix-inしたクラスのインスタンスは常
-に同一のものを返すようになります。
-
-#+BEGIN_SRC ruby :tangle 
-
-# Singletonは、Mix-inしたクラスのinstanceは同一のインスタンスを返すようになる
-require 'singleton'
-
-# シングルトン
-class SingletonObject
-  # instanceメソッドが定義され、newメソッドがprivateに設定される
-  include Singleton
-  attr_accessor :counter
-
-  def initialize
-    @counter = 0
-  end
-end
-#+END_SRC
-
-
-obj1 = SingletonObject.instance
-obj1.counter += 1
-puts(obj1.counter)
-# 1
-
-obj2 = SingletonObject.instance
-obj2.counter += 1
-puts(obj2.counter)
-# 2
-# ↑ 前回の+1が引き継がれている #
-
-Singletonの条件を満たすオブジェクトを生成できている事がわかります。 また、Object#newが失敗することも次のコードで確認できます。
-
-	
-
-obj3 = SingletonObject.new
-# private method `new' called for SingletonObject:Class (NoMethodError)
-# ↑ newでのインスタンスの作成に失敗
-
-説明は以上です。 このサンプルソースはGitHubにも置いています。
-** memo org-mode 埋め込み		       :embed:diagram:emacs:org:mode:
-
-*** [[file:/NFS/ufs/mac/masayuki/working/plantuml/plantuml.org::*]]
- 
-    [[http://mickey-happygolucky.hatenablog.com/entry/2016/01/21/005944][PlantUMLをemacsから使用する(puml-mode) - メモ]]
-
-    [[http://qiita.com/sambatriste/items/2e01d5aa91903ae72b24][org-modeでUMLを埋め込み(PlantUML) - Qiita]]
-    - org-mode の設定など
-   
-    [[http://tanehp.ec-net.jp/heppoko-lab/prog/resource/org_mode/org_mode_memo.html][Emacs Org-mode の覚え書き]]
-
-
-
-** UML
-
-   [[http://plantuml.com][plant_uml]] サイト
+   http://plantuml.com
 
 
 ** GoFのデザインパターンとは、
@@ -107,6 +26,7 @@ obj3 = SingletonObject.new
 
 - 先人たちの試行錯誤の結果です。
   
+
 ** デザインパターンの重要要素
 
 GoFのデザインパターンには下のプリンシパルがあります：
@@ -121,7 +41,7 @@ GoFのデザインパターンには下のプリンシパルがあります：
 
    - 必要になるまで作るな (You Ain’t Gonna Need It./YAGNI) 
 
-** 各デザインパターンの説明
+** デザインパターンの分類
 
 *** 生成に関するパターン
 
@@ -152,9 +72,9 @@ GoFのデザインパターンには下のプリンシパルがあります：
 
 *** 参考サイト
 
- [[https://ja.wikipedia.org/wiki/Singleton_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Singleton パターン - Wikipedia]]
+[[https://ja.wikipedia.org/wiki/Singleton_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Singleton パターン - Wikipedia]]
 
- [[https://www.techscore.com/tech/DesignPattern/Singleton.html/][Singleton パターン | TECHSCORE(テックスコア)]]
+[[https://www.techscore.com/tech/DesignPattern/Singleton.html/][Singleton パターン | TECHSCORE(テックスコア)]]
 
 *** GoFのシングルトンの前提条件
 
@@ -164,7 +84,7 @@ GoFのデザインパターンには下のプリンシパルがあります：
 
 *** クラス図
 
-    
+plantuml で描いてみます:
 
 #+BEGIN_SRC plantuml :file ~/meta-ruby.git/docs/Figs/class-diagram/singleton.png :mkdirp yes :exports both
 class mySingleton {
@@ -179,7 +99,7 @@ class mySingleton {
 #+RESULTS:
 [[file:~/meta-ruby.git/docs/Figs/class-diagram/singleton.png]]
 
-[[elisp:(org-toggle-inline-images)]]
+[[elisp:(org-toggle-inline-images)]] で image の表示をon/off 
 
 *** ruby の Singleton モジュール
 
@@ -236,18 +156,44 @@ obj3 = SingletonObject.new
 
 説明は以上です。 このサンプルソースはGitHubにも置いています。
 
-
-
 *** 他の例
 
     [[http://qiita.com/kasei-san/items/3d3e13cf6f3d598dcceb][Singleton パターン - Qiita]]
 
 
-* [[http://morizyun.github.io/blog/ruby-design-pattern-12-builder/][ビルダー]]
+** [[http://morizyun.github.io/blog/ruby-design-pattern-12-builder/][ビルダー]]
 
-** class図
+*** 参考サイト
+     [[http://jetglass.hatenablog.jp/entry/2015/04/02/151034][Rubyによるデザインパターン【Builder】 - Shred IT!!!!]] この説明がわか
+     りやすい
+   
+     http://morizyun.github.io/blog/ruby-design-pattern-12-builder/
 
-#+BEGIN_SRC plantuml :file class-diagram/sugar-water-builder.png :mkdirp yes
+
+*** 場面
+ビルダーパターンは次のような場面で使われます。
+
+- オブジェクトの生成に大量のコードが必要
+- オブジェクトを作り出すのが難しい
+- オブジェクト生成時に必要なチェックを行いたい
+
+*** ビルダーとは？
+
+ビルダーは、作成過程を決定する「Director」 と作業インターフェースを持
+つ「Builder」を組み合わせることで、柔軟にオブジェクトを生成をすること
+ができるデザインパターンです。
+
+ビルダーには次の３つの構成要素があります。
+
+- ディレクタ(Director)：Builderで提供されているインタフェースのみを使用して処理を行う
+- ビルダー(Builder)：各メソッドのインタフェースを定める
+- 具体ビルダー(ConcreteBuilder)：Builderが定めたインタフェースの実装
+
+*** サンプル1
+
+class図 のみ示し，ソースコードの説明は省きます:
+
+ #+BEGIN_SRC plantuml :file class-diagram/sugar-water-builder.png :mkdirp yes :export both
 class SugarWater {
   - @water
   - @sugar
@@ -270,14 +216,14 @@ class Director {
 
 Director o-- SugarWaterBuilder
 SugarWaterBuilder o-- SugarWater
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-[[file:class-diagram/sugar-water-builder.png]]
+ #+RESULTS:
+ [[file:class-diagram/sugar-water-builder.png]]
 
-** class
+*** サンプルソース2
 
-#+BEGIN_SRC plantuml :file class-diagram/material-water-builder.png :mkdirp yes
+ #+BEGIN_SRC plantuml :file class-diagram/material-water-builder.png :mkdirp yes :exports both
 
 class SaltWater {
 note "塩水クラス :ビルダーの実装部分"
@@ -309,10 +255,10 @@ WaterWithMaterialBuilder<|-->SugarWater
 WaterWithMaterialBuilder<|-->SaltWater
 
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-[[file:class-diagram/material-water-builder.png]]
+ #+RESULTS:
+ [[file:class-diagram/material-water-builder.png]]
 
 
 #+BEGIN_SRC ruby :tangle builder-pattern/builders/saltwater.rb :mkdirp yes
@@ -331,9 +277,9 @@ class SaltWater
     @salt += salt_amount
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/builders/sugarwater.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/builders/sugarwater.rb
 # -*- coding: utf-8 -*-
 
 # SugarWater: 砂糖水クラス (ConcreteBuilder：ビルダーの実装部分)
@@ -349,12 +295,12 @@ class SugarWater
     @sugar += sugar_amount
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/builder.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/builder.rb
 # -*- coding: utf-8 -*-
 
-# SugarWaterBuilder: 加工水クラス (Builder)
+# 加工水クラス (Builder)
 class WaterWithMaterialBuilder
   def initialize(class_name)
     @water_with_material = class_name.new(0,0)
@@ -375,9 +321,9 @@ class WaterWithMaterialBuilder
     @water_with_material
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/director.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/director.rb
 # -*- coding: utf-8 -*-
 
 # Director: 加工水の作成過程を取り決める
@@ -392,9 +338,9 @@ class Director
     @builder.add_material(35)
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/test_builder-pattern.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/test_builder-pattern.rb
 # -*- coding: utf-8 -*-
 builder = WaterWithMaterialBuilder.new(SugarWater)
 director = Director.new(builder)
@@ -409,11 +355,37 @@ director.cook
 
 p builder.result
 #=> #<SaltWater:0x007f92cc103ba8 @water=450, @salt=125>
-#+END_SRC
+ #+END_SRC
 
-**  [[http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/][アブストラクトファクトリ/Abstract Factory]]
 
-    
+#+BEGIN_EXAMPLE
++-builder-pattern-+-builder.rb
+|                 +-builders-+-saltwater.rb
+|                 |          +-sugarwater.rb
+|                 +-director.rb
+|                 +-test_builder-pattern.rb
+
+#+END_EXAMPLE
+
+** [[http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/][アブストラクトファクトリ/Abstract Factory]]
+
+#+BEGIN_EXAMPLE
++-abstract_factory-+-animal.rb
+|                  +-animals-+-duck.rb
+|                  |         +-frog.rb
+|                  |         +-frog.rb~
+|                  +-do_duck_and_waterlily_factory.rb
+|                  +-do_frog_and_algae_factory.rb
+|                  +-organism_factories-+-#frog_and_algae.rb#
+|                  |                    +-duck_and_waterlily.rb
+|                  |                    +-frog_and_algae.rb
+|                  |                    +-frog_and_algae.rb~
+|                  +-organism_factory.rb
+|                  +-plant.rb
+|                  +-plants-+-algae.rb
+|                           +-waterlily.rb
+
+#+END_EXAMPLE
 
 *** concrete animals
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# SugarWaterBuilder: 加工水クラス (Builder)
+# 加工水クラス (Builder)
 class WaterWithMaterialBuilder
   def initialize(class_name)
     @water_with_material = class_name.new(0,0)

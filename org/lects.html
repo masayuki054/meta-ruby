@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>2016 講義のこと</title>
-<!-- 2016-12-12 月 09:29 -->
+<!-- 2017-01-22 日 20:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>2016 講義のこと</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="suzuki@cis.iwate-u.ac.jp" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -156,264 +162,512 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 講義のねらい</a>
+<li><a href="#orgheadline3">1. 講義のねらい</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 主たるねらい</a></li>
-<li><a href="#sec-1-2">1.2. もうひとつのねらい</a></li>
+<li><a href="#orgheadline1">1.1. 主たるねらい</a></li>
+<li><a href="#orgheadline2">1.2. もうひとつのねらい</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. おしらせ</a>
+<li><a href="#orgheadline11">2. おしらせ</a>
 <ul>
-<li><a href="#sec-2-1">2.1. 2016-12-12 学生さんのフォルダ</a></li>
-<li><a href="#sec-2-2">2.2. 2016-12-12 オブジェクト指向の本懐 - Strategic Choice 始めましょう。</a></li>
-<li><a href="#sec-2-3">2.3. 2016-12-12 例題プログラムを github に置きました</a></li>
-<li><a href="#sec-2-4">2.4. 2016-12-05</a></li>
-<li><a href="#sec-2-5">2.5. 2016-10-17 休講します。</a></li>
-<li><a href="#sec-2-6">2.6. 2016-10-12</a></li>
-<li><a href="#sec-2-7">2.7. 2016-10-03 開講します。</a></li>
+<li><a href="#orgheadline4">2.1. 2016-12-12 学生さんのフォルダ</a></li>
+<li><a href="#orgheadline5">2.2. 2016-12-12 オブジェクト指向の本懐 - Strategic Choice 始めましょう。</a></li>
+<li><a href="#orgheadline6">2.3. 2016-12-12 例題プログラムを github に置きました</a></li>
+<li><a href="#orgheadline7">2.4. 2016-12-05</a></li>
+<li><a href="#orgheadline8">2.5. 2016-10-17 休講します。</a></li>
+<li><a href="#orgheadline9">2.6. 2016-10-12</a></li>
+<li><a href="#orgheadline10">2.7. 2016-10-03 開講します。</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. 講義予定 (1) 2016-10-03</a>
+<li><a href="#orgheadline40">3. 講義予定 (1) 2016-10-03</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 講義資料の説明</a></li>
-<li><a href="#sec-3-2">3.2. オブジェクト指向プログラミング</a>
+<li><a href="#orgheadline12">3.1. 講義資料の説明</a></li>
+<li><a href="#orgheadline20">3.2. オブジェクト指向プログラミング</a>
 <ul>
-<li><a href="#sec-3-2-1">プログラム言語とは</a>
+<li><a href="#orgheadline16">プログラム言語とは</a>
 <ul>
-<li><a href="#sec-3-2-1-1">記述のための要素</a></li>
-<li><a href="#sec-3-2-1-2">実行するということ</a></li>
-<li><a href="#sec-3-2-1-3">メタプログラミング</a></li>
+<li><a href="#orgheadline13">記述のための要素</a></li>
+<li><a href="#orgheadline14">実行するということ</a></li>
+<li><a href="#orgheadline15">メタプログラミング</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2-2">WikiPedia.search("オブジェクト指向プログラミング")</a></li>
-<li><a href="#sec-3-2-3">僕の考え</a></li>
-<li><a href="#sec-3-2-4">Ruby オブジェクト原理主義</a></li>
+<li><a href="#orgheadline17">WikiPedia.search("オブジェクト指向プログラミング")</a></li>
+<li><a href="#orgheadline18">僕の考え</a></li>
+<li><a href="#orgheadline19">Ruby オブジェクト原理主義</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-3">3.3. 講義のための環境つくり</a>
+<li><a href="#orgheadline24">3.3. 講義のための環境つくり</a>
 <ul>
-<li><a href="#sec-3-3-1">ruby実行環境</a></li>
-<li><a href="#sec-3-3-2">ruby プログラミング環境</a></li>
-<li><a href="#sec-3-3-3">文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline21">ruby実行環境</a></li>
+<li><a href="#orgheadline22">ruby プログラミング環境</a></li>
+<li><a href="#orgheadline23">文芸的プログラミング環境</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-4">3.4. Ruby入門</a></li>
-<li><a href="#sec-3-5">3.5. オブジェクト指向へ至るまで</a></li>
-<li><a href="#sec-3-6">3.6. メタプログラミング Ruby</a></li>
-<li><a href="#sec-3-7">3.7. オブジェクト指向プログラミング</a>
+<li><a href="#orgheadline25">3.4. Ruby入門</a></li>
+<li><a href="#orgheadline26">3.5. オブジェクト指向へ至るまで</a></li>
+<li><a href="#orgheadline27">3.6. メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline39">3.7. オブジェクト指向プログラミング</a>
 <ul>
-<li><a href="#sec-3-7-1">Strategic Choice を読もう</a>
+<li><a href="#orgheadline37">Strategic Choice を読もう</a>
 <ul>
-<li><a href="#sec-3-7-1-1">記事一覧</a></li>
-<li><a href="#sec-3-7-1-2">抽象データ型 - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-3">オブジェクト指向の本懐 - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-4">オブジェクト指向設計原則 - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-5">プログラミング原則 [Unix思想] - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-6">ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-7">ソフトウェア開発原則一覧 - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-8">七つの設計原理 - Strategic Choice</a></li>
-<li><a href="#sec-3-7-1-9">漏れのある抽象化の法則 - Strategic Choice</a></li>
+<li><a href="#orgheadline28">記事一覧</a></li>
+<li><a href="#orgheadline29">抽象データ型 - Strategic Choice</a></li>
+<li><a href="#orgheadline30">オブジェクト指向の本懐 - Strategic Choice</a></li>
+<li><a href="#orgheadline31">オブジェクト指向設計原則 - Strategic Choice</a></li>
+<li><a href="#orgheadline32">プログラミング原則 [Unix思想] - Strategic Choice</a></li>
+<li><a href="#orgheadline33">ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
+<li><a href="#orgheadline34">ソフトウェア開発原則一覧 - Strategic Choice</a></li>
+<li><a href="#orgheadline35">七つの設計原理 - Strategic Choice</a></li>
+<li><a href="#orgheadline36">漏れのある抽象化の法則 - Strategic Choice</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-7-2">デザイン・パターン</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-4">4. 講義予定 (2) 2016-10-12</a>
-<ul>
-<li><a href="#sec-4-1">4.1. 講義内容（の提案）</a>
-<ul>
-<li><a href="#sec-4-1-1">Ruby入門</a></li>
-<li><a href="#sec-4-1-2">オブジェクト指向について学ぶ</a>
-<ul>
-<li><a href="#sec-4-1-2-1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita を読もう。</a></li>
-<li><a href="#sec-4-1-2-2">Strategic Choice を読もう</a>
-<ul>
-<li><a href="#sec-4-1-2-2-1">記事一覧</a></li>
-<li><a href="#sec-4-1-2-2-2">抽象データ型 - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-3">オブジェクト指向の本懐 - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-4">オブジェクト指向設計原則 - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-5">プログラミング原則 [Unix思想] - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-6">ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-7">ソフトウェア開発原則一覧 - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-8">七つの設計原理 - Strategic Choice</a></li>
-<li><a href="#sec-4-1-2-2-9">漏れのある抽象化の法則 - Strategic Choice</a></li>
+<li><a href="#orgheadline38">デザイン・パターン</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4-1-3">メタプログラミング Ruby</a></li>
-<li><a href="#sec-4-1-4">Ruby オブジェクト指向プログラミング</a>
+<li><a href="#orgheadline64">4. 講義予定 (2) 2016-10-12</a>
 <ul>
-<li><a href="#sec-4-1-4-1">poker ゲーム</a></li>
-<li><a href="#sec-4-1-4-2">デザイン・パターン</a></li>
+<li><a href="#orgheadline58">4.1. 講義内容（の提案）</a>
+<ul>
+<li><a href="#orgheadline41">Ruby入門</a></li>
+<li><a href="#orgheadline42">オブジェクト指向について学ぶ</a>
+<ul>
+<li><a href="#orgheadline43">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita を読もう。</a></li>
+<li><a href="#orgheadline53">Strategic Choice を読もう</a>
+<ul>
+<li><a href="#orgheadline44">記事一覧</a></li>
+<li><a href="#orgheadline45">抽象データ型 - Strategic Choice</a></li>
+<li><a href="#orgheadline46">オブジェクト指向の本懐 - Strategic Choice</a></li>
+<li><a href="#orgheadline47">オブジェクト指向設計原則 - Strategic Choice</a></li>
+<li><a href="#orgheadline48">プログラミング原則 [Unix思想] - Strategic Choice</a></li>
+<li><a href="#orgheadline49">ソフトウェア開発の真実とウソ - Strategic Choice</a></li>
+<li><a href="#orgheadline50">ソフトウェア開発原則一覧 - Strategic Choice</a></li>
+<li><a href="#orgheadline51">七つの設計原理 - Strategic Choice</a></li>
+<li><a href="#orgheadline52">漏れのある抽象化の法則 - Strategic Choice</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4-2">4.2. 講義のための環境つくり</a>
+<li><a href="#orgheadline54">メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline57">Ruby オブジェクト指向プログラミング</a>
 <ul>
-<li><a href="#sec-4-2-1">ruby実行環境</a></li>
-<li><a href="#sec-4-2-2">ruby プログラミング環境</a></li>
-<li><a href="#sec-4-2-3">文芸的プログラミング環境</a></li>
-</ul>
-</li>
-<li><a href="#sec-4-3">4.3. ruby入門</a></li>
-</ul>
-</li>
-<li><a href="#sec-5">5. 講義予定 (3) 2016-10-24</a>
-<ul>
-<li><a href="#sec-5-1">5.1. 講義内容</a>
-<ul>
-<li><a href="#sec-5-1-1">Todo Ruby入門 <code>[0/2]</code></a>
-<ul>
-<li><a href="#sec-5-1-1-1">Todo 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
-<li><a href="#sec-5-1-1-2">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
-</ul>
-</li>
-<li><a href="#sec-5-1-2">オブジェクト指向について</a>
-<ul>
-<li><a href="#sec-5-1-2-1">oo.org にまとめはじめましょう</a></li>
-</ul>
-</li>
-<li><a href="#sec-5-1-3">Todo メタプログラミング Ruby</a></li>
-<li><a href="#sec-5-1-4">Ruby オブジェクト指向プログラミング</a></li>
-</ul>
-</li>
-<li><a href="#sec-5-2">5.2. 講義のための環境つくり</a>
-<ul>
-<li><a href="#sec-5-2-1">ruby実行環境</a></li>
-<li><a href="#sec-5-2-2">ruby プログラミング環境</a></li>
-<li><a href="#sec-5-2-3">文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline55">poker ゲーム</a></li>
+<li><a href="#orgheadline56">デザイン・パターン</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-6">6. 2016.10.24 のメモ</a>
+<li><a href="#orgheadline62">4.2. 講義のための環境つくり</a>
 <ul>
-<li><a href="#sec-6-1">6.1. emacsの設定</a>
-<ul>
-<li><a href="#sec-6-1-1">Emacs24.5日本語マニュアル登場！！info作成方法</a></li>
-<li><a href="#sec-6-1-2">#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</a></li>
+<li><a href="#orgheadline59">ruby実行環境</a></li>
+<li><a href="#orgheadline60">ruby プログラミング環境</a></li>
+<li><a href="#orgheadline61">文芸的プログラミング環境</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-2">6.2. org-mode の紹介</a>
-<ul>
-<li><a href="#sec-6-2-1">#10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</a></li>
+<li><a href="#orgheadline63">4.3. ruby入門</a></li>
 </ul>
 </li>
-<li><a href="#sec-6-3">6.3. org-mode babel の紹介</a></li>
+<li><a href="#orgheadline77">5. 講義予定 (3) 2016-10-24</a>
+<ul>
+<li><a href="#orgheadline72">5.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline65">Todo Ruby入門 <code>[0/2]</code></a>
+<ul>
+<li><a href="#orgheadline66">Todo 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline67">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
 </ul>
 </li>
-<li><a href="#sec-7">7. 講義予定 (4) 2016-10-31</a>
+<li><a href="#orgheadline68">オブジェクト指向について</a>
 <ul>
-<li><a href="#sec-7-1">7.1. 講義内容</a>
-<ul>
-<li><a href="#sec-7-1-1">Doing Ruby入門 <code>[0/2]</code></a>
-<ul>
-<li><a href="#sec-7-1-1-1">Doing 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
-<li><a href="#sec-7-1-1-2">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline69">oo.org にまとめはじめましょう</a></li>
 </ul>
 </li>
-<li><a href="#sec-7-1-2">Todo オブジェクト指向について</a>
-<ul>
-<li><a href="#sec-7-1-2-1">oo.org にまとめはじめましょう</a></li>
+<li><a href="#orgheadline70">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline71">Ruby オブジェクト指向プログラミング</a></li>
 </ul>
 </li>
-<li><a href="#sec-7-1-3">Todo メタプログラミング Ruby</a></li>
-<li><a href="#sec-7-1-4">Ruby オブジェクト指向プログラミング</a></li>
-</ul>
-</li>
-<li><a href="#sec-7-2">7.2. 講義のための環境つくり</a>
+<li><a href="#orgheadline76">5.2. 講義のための環境つくり</a>
 <ul>
-<li><a href="#sec-7-2-1">Done ruby実行環境</a></li>
-<li><a href="#sec-7-2-2">Done ruby プログラミング環境</a></li>
-<li><a href="#sec-7-2-3">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline73">ruby実行環境</a></li>
+<li><a href="#orgheadline74">ruby プログラミング環境</a></li>
+<li><a href="#orgheadline75">文芸的プログラミング環境</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-8">8. 講義実施内容 (5) 2016-11-07</a>
+<li><a href="#orgheadline84">6. 2016.10.24 のメモ</a>
 <ul>
-<li><a href="#sec-8-1">8.1. 講義内容</a>
+<li><a href="#orgheadline80">6.1. emacsの設定</a>
 <ul>
-<li><a href="#sec-8-1-1">Doing Ruby入門 <code>[1/2]</code></a>
-<ul>
-<li><a href="#sec-8-1-1-1">Done 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
-<li><a href="#sec-8-1-1-2">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline78">Emacs24.5日本語マニュアル登場！！info作成方法</a></li>
+<li><a href="#orgheadline79">#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</a></li>
 </ul>
 </li>
-<li><a href="#sec-8-1-2">Todo オブジェクト指向について</a>
+<li><a href="#orgheadline82">6.2. org-mode の紹介</a>
 <ul>
-<li><a href="#sec-8-1-2-1">oo.org にまとめはじめましょう</a></li>
+<li><a href="#orgheadline81">#10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</a></li>
 </ul>
 </li>
-<li><a href="#sec-8-1-3">Doing メタプログラミング Ruby</a></li>
-<li><a href="#sec-8-1-4">Ruby オブジェクト指向プログラミング</a></li>
+<li><a href="#orgheadline83">6.3. org-mode babel の紹介</a></li>
 </ul>
 </li>
-<li><a href="#sec-8-2">8.2. 講義のための環境つくり</a>
+<li><a href="#orgheadline97">7. 講義予定 (4) 2016-10-31</a>
 <ul>
-<li><a href="#sec-8-2-1">Done ruby実行環境</a></li>
-<li><a href="#sec-8-2-2">Done ruby プログラミング環境</a></li>
-<li><a href="#sec-8-2-3">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline92">7.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline85">Doing Ruby入門 <code>[0/2]</code></a>
+<ul>
+<li><a href="#orgheadline86">Doing 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline87">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline88">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline89">oo.org にまとめはじめましょう</a></li>
 </ul>
 </li>
-<li><a href="#sec-9">9. 講義予定 (6) 2016-11-14</a>
-<ul>
-<li><a href="#sec-9-1">9.1. 講義内容</a>
-<ul>
-<li><a href="#sec-9-1-1">Doing Ruby入門 <code>[1/2]</code></a>
-<ul>
-<li><a href="#sec-9-1-1-1">Done 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
-<li><a href="#sec-9-1-1-2">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline90">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline91">Ruby オブジェクト指向プログラミング</a></li>
 </ul>
 </li>
-<li><a href="#sec-9-1-2">Todo オブジェクト指向について</a>
+<li><a href="#orgheadline96">7.2. 講義のための環境つくり</a>
 <ul>
-<li><a href="#sec-9-1-2-1">oo.org にまとめはじめましょう</a></li>
-</ul>
-</li>
-<li><a href="#sec-9-1-3">Todo メタプログラミング Ruby</a></li>
-<li><a href="#sec-9-1-4">Ruby オブジェクト指向プログラミング</a></li>
-</ul>
-</li>
-<li><a href="#sec-9-2">9.2. 講義のための環境つくり</a>
-<ul>
-<li><a href="#sec-9-2-1">Done ruby実行環境</a></li>
-<li><a href="#sec-9-2-2">Done ruby プログラミング環境</a></li>
-<li><a href="#sec-9-2-3">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline93">Done ruby実行環境</a></li>
+<li><a href="#orgheadline94">Done ruby プログラミング環境</a></li>
+<li><a href="#orgheadline95">Doing 文芸的プログラミング環境</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-10">10. 講義予定 (7) 2016-11-21</a>
+<li><a href="#orgheadline110">8. 講義実施内容 (5) 2016-11-07</a>
 <ul>
-<li><a href="#sec-10-1">10.1. 講義内容</a>
+<li><a href="#orgheadline105">8.1. 講義内容</a>
 <ul>
-<li><a href="#sec-10-1-1">Doing Ruby入門 <code>[1/2]</code></a>
+<li><a href="#orgheadline98">Doing Ruby入門 <code>[1/2]</code></a>
 <ul>
-<li><a href="#sec-10-1-1-1">Doing とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
-<li><a href="#sec-10-1-1-2">Doing Ruby programming</a></li>
+<li><a href="#orgheadline99">Done 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline100">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
 </ul>
 </li>
-<li><a href="#sec-10-1-2">Todo オブジェクト指向について</a>
+<li><a href="#orgheadline101">Todo オブジェクト指向について</a>
 <ul>
-<li><a href="#sec-10-1-2-1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita を読みまとめ</a></li>
+<li><a href="#orgheadline102">oo.org にまとめはじめましょう</a></li>
 </ul>
 </li>
-<li><a href="#sec-10-1-3">Todo メタプログラミング Ruby</a></li>
-<li><a href="#sec-10-1-4">Ruby オブジェクト指向プログラミング</a></li>
+<li><a href="#orgheadline103">Doing メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline104">Ruby オブジェクト指向プログラミング</a></li>
 </ul>
 </li>
-<li><a href="#sec-10-2">10.2. 講義のための環境つくり</a>
+<li><a href="#orgheadline109">8.2. 講義のための環境つくり</a>
 <ul>
-<li><a href="#sec-10-2-1">Done ruby実行環境</a></li>
-<li><a href="#sec-10-2-2">Done ruby プログラミング環境</a></li>
-<li><a href="#sec-10-2-3">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline106">Done ruby実行環境</a></li>
+<li><a href="#orgheadline107">Done ruby プログラミング環境</a></li>
+<li><a href="#orgheadline108">Doing 文芸的プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline123">9. 講義予定 (6) 2016-11-14</a>
+<ul>
+<li><a href="#orgheadline118">9.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline111">Doing Ruby入門 <code>[1/2]</code></a>
+<ul>
+<li><a href="#orgheadline112">Done 20分ではじめるRuby (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline113">Todo とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline114">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline115">oo.org にまとめはじめましょう</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline116">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline117">Ruby オブジェクト指向プログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline122">9.2. 講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline119">Done ruby実行環境</a></li>
+<li><a href="#orgheadline120">Done ruby プログラミング環境</a></li>
+<li><a href="#orgheadline121">Doing 文芸的プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline136">10. 講義予定 (7) 2016-11-21</a>
+<ul>
+<li><a href="#orgheadline131">10.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline124">Doing Ruby入門 <code>[1/2]</code></a>
+<ul>
+<li><a href="#orgheadline125">Doing とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline126">Doing Ruby programming</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline127">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline128">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita を読みまとめ</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline129">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline130">Ruby オブジェクト指向プログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline135">10.2. 講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline132">Done ruby実行環境</a></li>
+<li><a href="#orgheadline133">Done ruby プログラミング環境</a></li>
+<li><a href="#orgheadline134">Doing 文芸的プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline149">11. 講義予定 (8) 2016-11-28</a>
+<ul>
+<li><a href="#orgheadline144">11.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline137">Doing Ruby入門 <code>[1/2]</code></a>
+<ul>
+<li><a href="#orgheadline138">Doing とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+<li><a href="#orgheadline139">Doing Ruby programming</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline140">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline141">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline142">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline143">Ruby オブジェクト指向プログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline148">11.2. 講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline145">Done ruby実行環境</a></li>
+<li><a href="#orgheadline146">Done ruby プログラミング環境</a></li>
+<li><a href="#orgheadline147">Doing 文芸的プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline163">12. 講義予定 (9) 2016-12-05</a>
+<ul>
+<li><a href="#orgheadline158">12.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline150">Doing Ruby programming</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline151">Doing File，Dir, Array, String のクラスについて，調べながら，</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline152">Done Ruby入門 <code>[1/2]</code></a></li>
+<li><a href="#orgheadline153">Done とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline154">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline155">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline156">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline157">Ruby オブジェクト指向プログラミング</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline162">12.2. 講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline159">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline160">Done ruby実行環境</a></li>
+<li><a href="#orgheadline161">Done ruby プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline189">13. 講義予定 (10) 2016-12-12</a>
+<ul>
+<li><a href="#orgheadline176">13.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline165">Doing Ruby programming</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline164">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline166">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline167">オブジェクト指向の本懐 - Strategic Choice を始めましょう。<code>[/]</code></a></li>
+<li><a href="#orgheadline168">Todo Rubyのオブジェクト原理主義</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline169">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline173">Ruby オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#orgheadline170">デザイン・パターン  (@github @cis @s)</a></li>
+<li><a href="#orgheadline171">ポーカーゲームのテスト駆動開発</a></li>
+<li><a href="#orgheadline172">単体テストを体験しましょう。</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline175">講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline174">Doing 文芸的プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline188">13.2. 終わったこと</a>
+<ul>
+<li><a href="#orgheadline179">Doing Ruby programming</a>
+<ul>
+<li><a href="#orgheadline177">Done Ruby入門 <code>[1/2]</code></a></li>
+<li><a href="#orgheadline178">Done とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline180">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline181">Done 人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline182">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline183">Ruby オブジェクト指向プログラミング</a></li>
+<li><a href="#orgheadline187">講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline184">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline185">Done ruby実行環境</a></li>
+<li><a href="#orgheadline186">Done ruby プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline215">14. 講義予定 (11) 2016-12-19</a>
+<ul>
+<li><a href="#orgheadline199">14.1. 講義内容</a>
+<ul>
+<li><a href="#orgheadline190">Doing Ruby programming</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline191">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline192">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline193">オブジェクト指向の本懐 - Strategic Choice を始めましょう。<code>[1/2]</code></a></li>
+<li><a href="#orgheadline194">Todo Rubyのオブジェクト原理主義</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline195">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline198">Ruby オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#orgheadline196">デザイン・パターン  (@github @cis @s)</a></li>
+<li><a href="#orgheadline197">単体テストを体験しましょう。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline211">14.2. 終わったこと</a>
+<ul>
+<li><a href="#orgheadline202">Doing Ruby programming</a>
+<ul>
+<li><a href="#orgheadline200">Done Ruby入門 <code>[1/2]</code></a></li>
+<li><a href="#orgheadline201">Done とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline203">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline204">Done 人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline205">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline206">Ruby オブジェクト指向プログラミング</a></li>
+<li><a href="#orgheadline210">講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline207">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline208">Done ruby実行環境</a></li>
+<li><a href="#orgheadline209">Done ruby プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline214">14.3. やらなかったこと</a>
+<ul>
+<li><a href="#orgheadline213">Ruby オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#orgheadline212">ポーカーゲームのテスト駆動開発</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline242">15. 講義予定 (12) 2017-01-16</a>
+<ul>
+<li><a href="#orgheadline216">15.1. 図を描きました</a></li>
+<li><a href="#orgheadline226">15.2. 講義内容</a>
+<ul>
+<li><a href="#orgheadline217">Doing Ruby programming</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline218">Doing Examples <code>[4/5]</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline219">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline220">オブジェクト指向の本懐 - Strategic Choice を始めましょう。<code>[3/3]</code></a></li>
+<li><a href="#orgheadline221">Todo Rubyのオブジェクト原理主義</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline222">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline225">Ruby オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#orgheadline223">デザイン・パターン  (@github @cis @s)</a></li>
+<li><a href="#orgheadline224">単体テストを体験しましょう。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline238">15.3. 終わったこと</a>
+<ul>
+<li><a href="#orgheadline229">Doing Ruby programming</a>
+<ul>
+<li><a href="#orgheadline227">Done Ruby入門 <code>[1/2]</code></a></li>
+<li><a href="#orgheadline228">Done とほほのRuby入門 (2.ruby入門-2.1 2016)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline230">Todo オブジェクト指向について</a>
+<ul>
+<li><a href="#orgheadline231">Done 人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline232">Todo メタプログラミング Ruby</a></li>
+<li><a href="#orgheadline233">Ruby オブジェクト指向プログラミング</a></li>
+<li><a href="#orgheadline237">講義のための環境つくり</a>
+<ul>
+<li><a href="#orgheadline234">Doing 文芸的プログラミング環境</a></li>
+<li><a href="#orgheadline235">Done ruby実行環境</a></li>
+<li><a href="#orgheadline236">Done ruby プログラミング環境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline241">15.4. やらなかったこと</a>
+<ul>
+<li><a href="#orgheadline240">Ruby オブジェクト指向プログラミング</a>
+<ul>
+<li><a href="#orgheadline239">ポーカーゲームのテスト駆動開発</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -434,11 +688,11 @@ for the JavaScript code in this tag.
 <a href="https://wiki.cis.iwate-u.ac.jp/svn/meta-ruby/">svn-repos</a>
 <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/">2015</a> /
 </p>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 講義のねらい</h2>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> 講義のねらい</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 主たるねらい</h3>
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 主たるねらい</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 オブジェクト指向プログラミングの本質，
@@ -459,8 +713,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> もうひとつのねらい</h3>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> もうひとつのねらい</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 emacs org-mode + babel を使って，
@@ -480,11 +734,11 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> おしらせ</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">2</span> おしらせ</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 2016-12-12 <a href="https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU">学生さんのフォルダ</a></h3>
+</div><div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.1</span> 2016-12-12 <a href="https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU">学生さんのフォルダ</a></h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 レポート提出要に，<a href="https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU">学生さんのフォルダ</a> @ GoogleDriveを用意しました。
@@ -493,24 +747,22 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 2016-12-12 <a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">オブジェクト指向の本懐 - Strategic Choice</a> 始めましょう。</h3>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.2</span> 2016-12-12 <a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">オブジェクト指向の本懐 - Strategic Choice</a> 始めましょう。</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 読む予定のページです。
 </p>
 
 <ul class="org-ul">
-<li><a href="http://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice</a>
-</li>
-<li><a href="http://d.hatena.ne.jp/asakichy/20090425/1240613767">オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice</a>
-</li>
+<li><a href="http://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice</a></li>
+<li><a href="http://d.hatena.ne.jp/asakichy/20090425/1240613767">オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 2016-12-12 例題プログラムを github に置きました</h3>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.3</span> 2016-12-12 例題プログラムを github に置きました</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work">work</a> に置きました。
@@ -518,8 +770,8 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 2016-12-05</h3>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.4</span> 2016-12-05</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 サブバージョン リポジトリ
@@ -532,8 +784,8 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 2016-10-17 休講します。</h3>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.5</span> 2016-10-17 休講します。</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 ((s-:)) ネンリンピック長崎 サッカー出場のため
@@ -541,8 +793,8 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 2016-10-12</h3>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.6</span> 2016-10-12</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 初回の講義に参加できなかった人のために，
@@ -551,221 +803,182 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> 2016-10-03 開講します。</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.7</span> 2016-10-03 開講します。</h3>
 <div class="outline-text-3" id="text-2-7">
 </div>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 講義予定 (1) 2016-10-03</h2>
+<div id="outline-container-orgheadline40" class="outline-2">
+<h2 id="orgheadline40"><span class="section-number-2">3</span> 講義予定 (1) 2016-10-03</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 講義資料の説明</h3>
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.1</span> 講義資料の説明</h3>
 <div class="outline-text-3" id="text-3-1">
 <dl class="org-dl">
-<dt> <a href="./index.html">ホーム</a> </dt><dd><a href="https://masayuki054.github.io/meta-ruby">https://masayuki054.github.io/meta-ruby</a>
-</dd>
-<dt> <a href="./ruby.html">ruby</a> </dt><dd>ruby 関連資料
-</dd>
-<dt> <a href="./oo.html">OO</a> </dt><dd>Object指向についての資料
-</dd>
-<dt> <a href="./emacs.html">emacs</a> </dt><dd>Emacs についての資料
-</dd>
-<dt> <a href="./meta-ruby.html">meta-ruby</a> </dt><dd>ruby の メタプログラミングについての資料
-</dd>
-<dt> <a href="./note.html">note</a> </dt><dd>昨年度の講義に関するメモ
-</dd>
+<dt><a href="./index.html">ホーム</a></dt><dd><a href="https://masayuki054.github.io/meta-ruby">https://masayuki054.github.io/meta-ruby</a></dd>
+<dt><a href="./ruby.html">ruby</a></dt><dd>ruby 関連資料</dd>
+<dt><a href="./oo.html">OO</a></dt><dd>Object指向についての資料</dd>
+<dt><a href="./emacs.html">emacs</a></dt><dd>Emacs についての資料</dd>
+<dt><a href="./meta-ruby.html">meta-ruby</a></dt><dd>ruby の メタプログラミングについての資料</dd>
+<dt><a href="./note.html">note</a></dt><dd>昨年度の講義に関するメモ</dd>
 </dl>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> オブジェクト指向プログラミング</h3>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">3.2</span> オブジェクト指向プログラミング</h3>
 <div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-sec-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1">プログラム言語とは</h4>
-<div class="outline-text-4" id="text-3-2-1">
-</div><div id="outline-container-sec-3-2-1-1" class="outline-5">
-<h5 id="sec-3-2-1-1">記述のための要素</h5>
-<div class="outline-text-5" id="text-3-2-1-1">
+</div><div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16">プログラム言語とは</h4>
+<div class="outline-text-4" id="text-orgheadline16">
+</div><div id="outline-container-orgheadline13" class="outline-5">
+<h5 id="orgheadline13">記述のための要素</h5>
+<div class="outline-text-5" id="text-orgheadline13">
 <ul class="org-ul">
-<li>値と定数
-</li>
-<li>データ構造体
-</li>
-<li>型と演算
-</li>
-<li>変数と代入
-</li>
-<li>文と流れ
-</li>
+<li>値と定数</li>
+<li>データ構造体</li>
+<li>型と演算</li>
+<li>変数と代入</li>
+<li>文と流れ</li>
 <li>関数（手続き)
 <ul class="org-ul">
-<li>定義
-</li>
-<li>呼出し
-</li>
-</ul>
-</li>
-<li>スコープ
-</li>
-<li>モジュール
-</li>
+<li>定義</li>
+<li>呼出し</li>
+</ul></li>
+<li>スコープ</li>
+<li>モジュール</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2-1-2" class="outline-5">
-<h5 id="sec-3-2-1-2">実行するということ</h5>
-<div class="outline-text-5" id="text-3-2-1-2">
+<div id="outline-container-orgheadline14" class="outline-5">
+<h5 id="orgheadline14">実行するということ</h5>
+<div class="outline-text-5" id="text-orgheadline14">
 <ul class="org-ul">
-<li>コードインタープリタ
-</li>
+<li>コードインタープリタ</li>
 <li>環境
 <ul class="org-ul">
-<li>実行の流れを保存するスタック
-</li>
-<li>名前を解決する束縛
-</li>
-<li>静的か動的か
-</li>
-</ul>
-</li>
+<li>実行の流れを保存するスタック</li>
+<li>名前を解決する束縛</li>
+<li>静的か動的か</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2-1-3" class="outline-5">
-<h5 id="sec-3-2-1-3">メタプログラミング</h5>
-<div class="outline-text-5" id="text-3-2-1-3">
+<div id="outline-container-orgheadline15" class="outline-5">
+<h5 id="orgheadline15">メタプログラミング</h5>
+<div class="outline-text-5" id="text-orgheadline15">
 <ul class="org-ul">
-<li>プログラムを生成するプログラムをつくること
-</li>
+<li>プログラムを生成するプログラムをつくること</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2">WikiPedia.search("オブジェクト指向プログラミング")</h4>
-<div class="outline-text-4" id="text-3-2-2">
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17">WikiPedia.search("オブジェクト指向プログラミング")</h4>
+<div class="outline-text-4" id="text-orgheadline17">
 <p>
 特徴
 </p>
 <ul class="org-ul">
-<li>情報隠蔽
-</li>
-<li>多相性
-</li>
-<li>動的束縛
-</li>
-<li>継承
-</li>
+<li>情報隠蔽</li>
+<li>多相性</li>
+<li>動的束縛</li>
+<li>継承</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-2-3" class="outline-4">
-<h4 id="sec-3-2-3">僕の考え</h4>
-<div class="outline-text-4" id="text-3-2-3">
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18">僕の考え</h4>
+<div class="outline-text-4" id="text-orgheadline18">
 <ul class="org-ul">
-<li>モジュール
-</li>
-<li>メッセージパッシング
-</li>
-<li>差をプログラムする
-</li>
+<li>モジュール</li>
+<li>メッセージパッシング</li>
+<li>差をプログラムする</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-2-4" class="outline-4">
-<h4 id="sec-3-2-4">Ruby オブジェクト原理主義</h4>
-<div class="outline-text-4" id="text-3-2-4">
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19">Ruby オブジェクト原理主義</h4>
+<div class="outline-text-4" id="text-orgheadline19">
 <ul class="org-ul">
-<li>純粋オブジェクト指向
-</li>
-<li>プログラム可能なものは全て，オブジェクト
-</li>
-<li>クラスもオブジェクト
-</li>
-<li>実行はすべてメッセージパッシングで起こる
-</li>
-<li>オブジェクトは実行の場
-</li>
+<li>純粋オブジェクト指向</li>
+<li>プログラム可能なものは全て，オブジェクト</li>
+<li>クラスもオブジェクト</li>
+<li>実行はすべてメッセージパッシングで起こる</li>
+<li>オブジェクトは実行の場</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">3.3</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-3-3">
-</div><div id="outline-container-sec-3-3-1" class="outline-4">
-<h4 id="sec-3-3-1">ruby実行環境</h4>
-<div class="outline-text-4" id="text-3-3-1">
+</div><div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21">ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline21">
 <ul class="org-ul">
-<li>rbenv, gem
-</li>
+<li>rbenv, gem</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3-2" class="outline-4">
-<h4 id="sec-3-3-2">ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-3-3-2">
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22">ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline22">
 <ul class="org-ul">
-<li>Emacs package
-</li>
+<li>Emacs package</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-3-3" class="outline-4">
-<h4 id="sec-3-3-3">文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-3-3-3">
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23">文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline23">
 <ul class="org-ul">
-<li>emacs org-mode 
-</li>
+<li>emacs org-mode</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Ruby入門</h3>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">3.4</span> Ruby入門</h3>
 </div>
 
-<div id="outline-container-sec-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> オブジェクト指向へ至るまで</h3>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">3.5</span> オブジェクト指向へ至るまで</h3>
 </div>
 
 
-<div id="outline-container-sec-3-6" class="outline-3">
-<h3 id="sec-3-6"><span class="section-number-3">3.6</span> メタプログラミング Ruby</h3>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">3.6</span> メタプログラミング Ruby</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 今年は，黒魔術本のその本質だけやるつもりです。
 </p>
 
 <ul class="org-ul">
-<li>Ruby の原理
-</li>
-<li>Ruby の動的プログラミング(メタプログラミング)
-</li>
+<li>Ruby の原理</li>
+<li>Ruby の動的プログラミング(メタプログラミング)</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7" class="outline-3">
-<h3 id="sec-3-7"><span class="section-number-3">3.7</span> オブジェクト指向プログラミング</h3>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">3.7</span> オブジェクト指向プログラミング</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 オブジェクト指向設計原則やプログラミング原則について一緒に勉強しましょ
@@ -776,26 +989,25 @@ emacs org-mode + babel を使って，
 </p>
 </div>
 
-<div id="outline-container-sec-3-7-1" class="outline-4">
-<h4 id="sec-3-7-1">Strategic Choice を読もう</h4>
-<div class="outline-text-4" id="text-3-7-1">
-</div><div id="outline-container-sec-3-7-1-1" class="outline-5">
-<h5 id="sec-3-7-1-1">記事一覧</h5>
-<div class="outline-text-5" id="text-3-7-1-1">
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37">Strategic Choice を読もう</h4>
+<div class="outline-text-4" id="text-orgheadline37">
+</div><div id="outline-container-orgheadline28" class="outline-5">
+<h5 id="orgheadline28">記事一覧</h5>
+<div class="outline-text-5" id="text-orgheadline28">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/archive">http://d.hatena.ne.jp/asakichy/archive</a>
 </p>
 
 <ul class="org-ul">
-<li>meta programming ruby の講義の一部にしよう
-</li>
+<li>meta programming ruby の講義の一部にしよう</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-2" class="outline-5">
-<h5 id="sec-3-7-1-2">抽象データ型 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-2">
+<div id="outline-container-orgheadline29" class="outline-5">
+<h5 id="orgheadline29">抽象データ型 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline29">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090225/1235547089">http://d.hatena.ne.jp/asakichy/20090225/1235547089</a>
 </p>
@@ -807,63 +1019,63 @@ emacs org-mode + babel を使って，
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-3" class="outline-5">
-<h5 id="sec-3-7-1-3">オブジェクト指向の本懐 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-3">
+<div id="outline-container-orgheadline30" class="outline-5">
+<h5 id="orgheadline30">オブジェクト指向の本懐 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline30">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">http://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-4" class="outline-5">
-<h5 id="sec-3-7-1-4">オブジェクト指向設計原則 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-4">
+<div id="outline-container-orgheadline31" class="outline-5">
+<h5 id="orgheadline31">オブジェクト指向設計原則 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline31">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090122/1232879842">http://d.hatena.ne.jp/asakichy/20090122/1232879842</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-5" class="outline-5">
-<h5 id="sec-3-7-1-5">プログラミング原則 [Unix思想] - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-5">
+<div id="outline-container-orgheadline32" class="outline-5">
+<h5 id="orgheadline32">プログラミング原則 [Unix思想] - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline32">
 <p>
-<a href="http://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]">http://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]</a>
+<a href="http://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D">http://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-6" class="outline-5">
-<h5 id="sec-3-7-1-6">ソフトウェア開発の真実とウソ - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-6">
+<div id="outline-container-orgheadline33" class="outline-5">
+<h5 id="orgheadline33">ソフトウェア開発の真実とウソ - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline33">
 <p>
 ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-7" class="outline-5">
-<h5 id="sec-3-7-1-7">ソフトウェア開発原則一覧 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-7">
+<div id="outline-container-orgheadline34" class="outline-5">
+<h5 id="orgheadline34">ソフトウェア開発原則一覧 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline34">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20100205/1265329796">http://d.hatena.ne.jp/asakichy/20100205/1265329796</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-8" class="outline-5">
-<h5 id="sec-3-7-1-8">七つの設計原理 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-8">
+<div id="outline-container-orgheadline35" class="outline-5">
+<h5 id="orgheadline35">七つの設計原理 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline35">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090806/1249526499">http://d.hatena.ne.jp/asakichy/20090806/1249526499</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-7-1-9" class="outline-5">
-<h5 id="sec-3-7-1-9">漏れのある抽象化の法則 - Strategic Choice</h5>
-<div class="outline-text-5" id="text-3-7-1-9">
+<div id="outline-container-orgheadline36" class="outline-5">
+<h5 id="orgheadline36">漏れのある抽象化の法則 - Strategic Choice</h5>
+<div class="outline-text-5" id="text-orgheadline36">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20160729/1469743543">http://d.hatena.ne.jp/asakichy/20160729/1469743543</a>
 </p>
@@ -872,67 +1084,64 @@ ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 
 
-<div id="outline-container-sec-3-7-2" class="outline-4">
-<h4 id="sec-3-7-2">デザイン・パターン</h4>
-<div class="outline-text-4" id="text-3-7-2">
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38">デザイン・パターン</h4>
+<div class="outline-text-4" id="text-orgheadline38">
 <p>
 デザイン・パターンも
 </p>
 
 <ul class="org-ul">
-<li><a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました - 酒と泪とRubyとRailsと</a>
-</li>
+<li><a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました - 酒と泪とRubyとRailsと</a></li>
 
-<li><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a>
-</li>
+<li><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 講義予定 (2) 2016-10-12</h2>
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">4</span> 講義予定 (2) 2016-10-12</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 講義内容（の提案）</h3>
+</div><div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">4.1</span> 講義内容（の提案）</h3>
 <div class="outline-text-3" id="text-4-1">
-</div><div id="outline-container-sec-4-1-1" class="outline-4">
-<h4 id="sec-4-1-1">Ruby入門</h4>
+</div><div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41">Ruby入門</h4>
 </div>
 
 
-<div id="outline-container-sec-4-1-2" class="outline-4">
-<h4 id="sec-4-1-2">オブジェクト指向について学ぶ</h4>
-<div class="outline-text-4" id="text-4-1-2">
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42">オブジェクト指向について学ぶ</h4>
+<div class="outline-text-4" id="text-orgheadline42">
 <p>
 オブジェクト指向設計原則やプログラミング原則について一緒に勉強しましょう。  
 </p>
 </div>
 
-<div id="outline-container-sec-4-1-2-1" class="outline-5">
-<h5 id="sec-4-1-2-1"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読もう。</h5>
+<div id="outline-container-orgheadline43" class="outline-5">
+<h5 id="orgheadline43"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読もう。</h5>
 </div>
 
-<div id="outline-container-sec-4-1-2-2" class="outline-5">
-<h5 id="sec-4-1-2-2">Strategic Choice を読もう</h5>
-<div class="outline-text-5" id="text-4-1-2-2">
-</div><div id="outline-container-sec-4-1-2-2-1" class="outline-6">
-<h6 id="sec-4-1-2-2-1">記事一覧</h6>
-<div class="outline-text-6" id="text-4-1-2-2-1">
+<div id="outline-container-orgheadline53" class="outline-5">
+<h5 id="orgheadline53">Strategic Choice を読もう</h5>
+<div class="outline-text-5" id="text-orgheadline53">
+</div><div id="outline-container-orgheadline44" class="outline-6">
+<h6 id="orgheadline44">記事一覧</h6>
+<div class="outline-text-6" id="text-orgheadline44">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/archive">http://d.hatena.ne.jp/asakichy/archive</a>
 </p>
 
 <ul class="org-ul">
-<li>meta programming ruby の講義の一部にしよう
-</li>
+<li>meta programming ruby の講義の一部にしよう</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-2" class="outline-6">
-<h6 id="sec-4-1-2-2-2">抽象データ型 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-2">
+<div id="outline-container-orgheadline45" class="outline-6">
+<h6 id="orgheadline45">抽象データ型 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline45">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090225/1235547089">http://d.hatena.ne.jp/asakichy/20090225/1235547089</a>
 </p>
@@ -944,63 +1153,63 @@ ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-3" class="outline-6">
-<h6 id="sec-4-1-2-2-3">オブジェクト指向の本懐 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-3">
+<div id="outline-container-orgheadline46" class="outline-6">
+<h6 id="orgheadline46">オブジェクト指向の本懐 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline46">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">http://d.hatena.ne.jp/asakichy/20090421/1240277448</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-4" class="outline-6">
-<h6 id="sec-4-1-2-2-4">オブジェクト指向設計原則 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-4">
+<div id="outline-container-orgheadline47" class="outline-6">
+<h6 id="orgheadline47">オブジェクト指向設計原則 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline47">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090122/1232879842">http://d.hatena.ne.jp/asakichy/20090122/1232879842</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-5" class="outline-6">
-<h6 id="sec-4-1-2-2-5">プログラミング原則 [Unix思想] - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-5">
+<div id="outline-container-orgheadline48" class="outline-6">
+<h6 id="orgheadline48">プログラミング原則 [Unix思想] - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline48">
 <p>
-<a href="http://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]">http://d.hatena.ne.jp/asakichy/searchdiary?word=*[Unix%C2%BB%C3%97%C3%81%C3%9B]</a>
+<a href="http://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D">http://d.hatena.ne.jp/asakichy/searchdiary?word=*%5BUnix%C2%BB%C3%97%C3%81%C3%9B%5D</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-6" class="outline-6">
-<h6 id="sec-4-1-2-2-6">ソフトウェア開発の真実とウソ - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-6">
+<div id="outline-container-orgheadline49" class="outline-6">
+<h6 id="orgheadline49">ソフトウェア開発の真実とウソ - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline49">
 <p>
 ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-7" class="outline-6">
-<h6 id="sec-4-1-2-2-7">ソフトウェア開発原則一覧 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-7">
+<div id="outline-container-orgheadline50" class="outline-6">
+<h6 id="orgheadline50">ソフトウェア開発原則一覧 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline50">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20100205/1265329796">http://d.hatena.ne.jp/asakichy/20100205/1265329796</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-8" class="outline-6">
-<h6 id="sec-4-1-2-2-8">七つの設計原理 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-8">
+<div id="outline-container-orgheadline51" class="outline-6">
+<h6 id="orgheadline51">七つの設計原理 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline51">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20090806/1249526499">http://d.hatena.ne.jp/asakichy/20090806/1249526499</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-2-2-9" class="outline-6">
-<h6 id="sec-4-1-2-2-9">漏れのある抽象化の法則 - Strategic Choice</h6>
-<div class="outline-text-6" id="text-4-1-2-2-9">
+<div id="outline-container-orgheadline52" class="outline-6">
+<h6 id="orgheadline52">漏れのある抽象化の法則 - Strategic Choice</h6>
+<div class="outline-text-6" id="text-orgheadline52">
 <p>
 <a href="http://d.hatena.ne.jp/asakichy/20160729/1469743543">http://d.hatena.ne.jp/asakichy/20160729/1469743543</a>
 </p>
@@ -1010,103 +1219,90 @@ ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 
 
-<div id="outline-container-sec-4-1-3" class="outline-4">
-<h4 id="sec-4-1-3">メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-4-1-3">
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54">メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline54">
 <p>
 今年は，黒魔術本のその本質だけやるつもりです。
 </p>
 
 <ul class="org-ul">
-<li>Ruby の原理
-</li>
-<li>Ruby の動的プログラミング(メタプログラミング)
-</li>
+<li>Ruby の原理</li>
+<li>Ruby の動的プログラミング(メタプログラミング)</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4-1-4" class="outline-4">
-<h4 id="sec-4-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-4-1-4">
-</div><div id="outline-container-sec-4-1-4-1" class="outline-5">
-<h5 id="sec-4-1-4-1">poker ゲーム</h5>
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline57">
+</div><div id="outline-container-orgheadline55" class="outline-5">
+<h5 id="orgheadline55">poker ゲーム</h5>
 </div>
-<div id="outline-container-sec-4-1-4-2" class="outline-5">
-<h5 id="sec-4-1-4-2">デザイン・パターン</h5>
-<div class="outline-text-5" id="text-4-1-4-2">
+<div id="outline-container-orgheadline56" class="outline-5">
+<h5 id="orgheadline56">デザイン・パターン</h5>
+<div class="outline-text-5" id="text-orgheadline56">
 <p>
 デザイン・パターンについても下記サイトを読んでみましょう:
 </p>
 
 <dl class="org-dl">
-<dt> <a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました</a> </dt><dd>      ruby で書いたデザイン・パターンの実装例です。
-</dd>
+<dt><a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました</a></dt><dd>ruby で書いたデザイン・パターンの実装例です。</dd>
 
-<dt> <a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a> </dt><dd>      デザインパターンのリファレンスに使いましょう。
-</dd>
+<dt><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a></dt><dd>デザインパターンのリファレンスに使いましょう。</dd>
 </dl>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">4.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-4-2">
-</div><div id="outline-container-sec-4-2-1" class="outline-4">
-<h4 id="sec-4-2-1">ruby実行環境</h4>
-<div class="outline-text-4" id="text-4-2-1">
+</div><div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59">ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline59">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[0/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> ruby情報
-</li>
-<li><code>[&#xa0;]</code> ruby環境作り <code>[0/3]</code>
+<li class="off"><code>[&#xa0;]</code> ruby情報</li>
+<li class="off"><code>[&#xa0;]</code> ruby環境作り <code>[0/3]</code>
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> rbenv とは 
-</li>
-<li><code>[&#xa0;]</code> 自前で rbenv+ruby-build をインストール
-</li>
-<li><code>[&#xa0;]</code> ruby のインストール
-</li>
-<li><code>[&#xa0;]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="off"><code>[&#xa0;]</code> rbenv とは</li>
+<li class="off"><code>[&#xa0;]</code> 自前で rbenv+ruby-build をインストール</li>
+<li class="off"><code>[&#xa0;]</code> ruby のインストール</li>
+<li class="off"><code>[&#xa0;]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4-2-2" class="outline-4">
-<h4 id="sec-4-2-2">ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-4-2-2">
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60">ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline60">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> emacs-24.5
-</li>
-<li><code>[&#xa0;]</code> emacsのパッケージと設定
-</li>
+<li class="off"><code>[&#xa0;]</code> emacs-24.5</li>
+<li class="off"><code>[&#xa0;]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4-2-3" class="outline-4">
-<h4 id="sec-4-2-3">文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-4-2-3">
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61">文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline61">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
+<li>emacs org-mode</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> ruby入門</h3>
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">4.3</span> ruby入門</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a>  (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016) 
@@ -1114,37 +1310,37 @@ ohttp://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 講義予定 (3) 2016-10-24</h2>
+<div id="outline-container-orgheadline77" class="outline-2">
+<h2 id="orgheadline77"><span class="section-number-2">5</span> 講義予定 (3) 2016-10-24</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/03/plan.org
 </p>
 </div>
 
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 講義内容</h3>
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72"><span class="section-number-3">5.1</span> 講義内容</h3>
 <div class="outline-text-3" id="text-5-1">
-</div><div id="outline-container-sec-5-1-1" class="outline-4">
-<h4 id="sec-5-1-1">Todo Ruby入門 <code>[0/2]</code></h4>
-<div class="outline-text-4" id="text-5-1-1">
+</div><div id="outline-container-orgheadline65" class="outline-4">
+<h4 id="orgheadline65">Todo Ruby入門 <code>[0/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline65">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
 </div>
 
-<div id="outline-container-sec-5-1-1-1" class="outline-5">
-<h5 id="sec-5-1-1-1">Todo <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-5-1-1-1">
+<div id="outline-container-orgheadline66" class="outline-5">
+<h5 id="orgheadline66">Todo <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline66">
 <p>
 10/24 終了予定
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-5-1-1-2" class="outline-5">
-<h5 id="sec-5-1-1-2">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-5-1-1-2">
+<div id="outline-container-orgheadline67" class="outline-5">
+<h5 id="orgheadline67">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline67">
 <p>
 10/24~ 2~3回
 </p>
@@ -1152,36 +1348,33 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/03/plan.org
 </div>
 </div>
 
-<div id="outline-container-sec-5-1-2" class="outline-4">
-<h4 id="sec-5-1-2">オブジェクト指向について</h4>
-<div class="outline-text-4" id="text-5-1-2">
+<div id="outline-container-orgheadline68" class="outline-4">
+<h4 id="orgheadline68">オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline68">
 <p>
 <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ
 始めましょう。
 </p>
 
 <ul class="org-ul">
-<li>ソフトウェア危機
-</li>
-<li>構造化プログラミング
-</li>
+<li>ソフトウェア危機</li>
+<li>構造化プログラミング</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-5-1-2-1" class="outline-5">
-<h5 id="sec-5-1-2-1">oo.org にまとめはじめましょう</h5>
-<div class="outline-text-5" id="text-5-1-2-1">
+<div id="outline-container-orgheadline69" class="outline-5">
+<h5 id="orgheadline69">oo.org にまとめはじめましょう</h5>
+<div class="outline-text-5" id="text-orgheadline69">
 <ul class="org-ul">
-<li>org-mode で書いてみましょう
-</li>
+<li>org-mode で書いてみましょう</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-5-1-3" class="outline-4">
-<h4 id="sec-5-1-3">Todo メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-5-1-3">
+<div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline70">
 <p>
 ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 </p>
@@ -1190,10 +1383,8 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/03/plan.org
 まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
 </p>
 <ul class="org-ul">
-<li>self の存在
-</li>
-<li>いったい self とは何でしょう？
-</li>
+<li>self の存在</li>
+<li>いったい self とは何でしょう？</li>
 </ul>
 
 <div class="org-src-container">
@@ -1215,9 +1406,9 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 
 
-<div id="outline-container-sec-5-1-4" class="outline-4">
-<h4 id="sec-5-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-5-1-4">
+<div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline71">
 <p>
 まだ始まりません。
 </p>
@@ -1225,82 +1416,71 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">5.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-5-2">
-</div><div id="outline-container-sec-5-2-1" class="outline-4">
-<h4 id="sec-5-2-1">ruby実行環境</h4>
-<div class="outline-text-4" id="text-5-2-1">
+</div><div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73">ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline73">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> ruby情報
-</li>
-<li><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
 <ul class="org-ul">
-<li><code>[X]</code> rbenv とは 
-</li>
-<li><code>[X]</code> 自前で rbenv+ruby-build をインストール
-</li>
-<li><code>[X]</code> ruby のインストール
-</li>
-<li><code>[X]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+<li class="on"><code>[X]</code> ruby のインストール</li>
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-5-2-2" class="outline-4">
-<h4 id="sec-5-2-2">ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-5-2-2">
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74">ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline74">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> emacs-24.5
-</li>
-<li><code>[&#xa0;]</code> emacsのパッケージと設定
-</li>
+<li class="off"><code>[&#xa0;]</code> emacs-24.5</li>
+<li class="off"><code>[&#xa0;]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-5-2-3" class="outline-4">
-<h4 id="sec-5-2-3">文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-5-2-3">
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75">文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline75">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
+<li>emacs org-mode</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> 2016.10.24 のメモ</h2>
+<div id="outline-container-orgheadline84" class="outline-2">
+<h2 id="orgheadline84"><span class="section-number-2">6</span> 2016.10.24 のメモ</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/03/03-note.org
 </p>
 </div>
 
-<div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> emacsの設定</h3>
+<div id="outline-container-orgheadline80" class="outline-3">
+<h3 id="orgheadline80"><span class="section-number-3">6.1</span> emacsの設定</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
-<li>ruby-mode
-</li>
-<li>org-mode
-</li>
+<li>ruby-mode</li>
+<li>org-mode</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-6-1-1" class="outline-4">
-<h4 id="sec-6-1-1">Emacs24.5日本語マニュアル登場！！info作成方法</h4>
-<div class="outline-text-4" id="text-6-1-1">
+<div id="outline-container-orgheadline78" class="outline-4">
+<h4 id="orgheadline78">Emacs24.5日本語マニュアル登場！！info作成方法</h4>
+<div class="outline-text-4" id="text-orgheadline78">
 <p>
 <a href="http://emacs.rubikitch.com/emacs245-manual-ja/">http://emacs.rubikitch.com/emacs245-manual-ja/</a>
 </p>
@@ -1311,9 +1491,9 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </div>
 </div>
 
-<div id="outline-container-sec-6-1-2" class="outline-4">
-<h4 id="sec-6-1-2">#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</h4>
-<div class="outline-text-4" id="text-6-1-2">
+<div id="outline-container-orgheadline79" class="outline-4">
+<h4 id="orgheadline79">#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方</h4>
+<div class="outline-text-4" id="text-orgheadline79">
 <p>
 <a href="http://emacs.rubikitch.com/sd1503-helm/">http://emacs.rubikitch.com/sd1503-helm/</a>
 </p>
@@ -1321,11 +1501,11 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </div>
 </div>
 
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> org-mode の紹介</h3>
+<div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82"><span class="section-number-3">6.2</span> org-mode の紹介</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
-<a href="org">org</a>
+<a href="org.html#Top">org</a>
 </p>
 
 <p>
@@ -1333,9 +1513,9 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </p>
 </div>
 
-<div id="outline-container-sec-6-2-1" class="outline-4">
-<h4 id="sec-6-2-1">#10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</h4>
-<div class="outline-text-4" id="text-6-2-1">
+<div id="outline-container-orgheadline81" class="outline-4">
+<h4 id="orgheadline81">#10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方</h4>
+<div class="outline-text-4" id="text-orgheadline81">
 <p>
 <a href="http://emacs.rubikitch.com/sd1502-org-mode/">http://emacs.rubikitch.com/sd1502-org-mode/</a>
 </p>
@@ -1351,8 +1531,8 @@ suzuki@cis.iwate-u.ac.jp:local/info
 </div>
 
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> org-mode babel の紹介</h3>
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">6.3</span> org-mode babel の紹介</h3>
 <div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
 
@@ -1368,28 +1548,28 @@ String
 </div>
 </div>
 </div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> 講義予定 (4) 2016-10-31</h2>
+<div id="outline-container-orgheadline97" class="outline-2">
+<h2 id="orgheadline97"><span class="section-number-2">7</span> 講義予定 (4) 2016-10-31</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 </p>
 </div>
 
-<div id="outline-container-sec-7-1" class="outline-3">
-<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 講義内容</h3>
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92"><span class="section-number-3">7.1</span> 講義内容</h3>
 <div class="outline-text-3" id="text-7-1">
-</div><div id="outline-container-sec-7-1-1" class="outline-4">
-<h4 id="sec-7-1-1">Doing Ruby入門 <code>[0/2]</code></h4>
-<div class="outline-text-4" id="text-7-1-1">
+</div><div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85">Doing Ruby入門 <code>[0/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline85">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
 </div>
 
-<div id="outline-container-sec-7-1-1-1" class="outline-5">
-<h5 id="sec-7-1-1-1">Doing <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-7-1-1-1">
+<div id="outline-container-orgheadline86" class="outline-5">
+<h5 id="orgheadline86">Doing <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline86">
 <p>
 10/31 終了予定
 </p>
@@ -1400,9 +1580,9 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 </div>
 </div>
 
-<div id="outline-container-sec-7-1-1-2" class="outline-5">
-<h5 id="sec-7-1-1-2">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-7-1-1-2">
+<div id="outline-container-orgheadline87" class="outline-5">
+<h5 id="orgheadline87">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline87">
 <p>
 10/31~ 2~3回
 </p>
@@ -1410,40 +1590,37 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 </div>
 </div>
 
-<div id="outline-container-sec-7-1-2" class="outline-4">
-<h4 id="sec-7-1-2">Todo オブジェクト指向について</h4>
-<div class="outline-text-4" id="text-7-1-2">
+<div id="outline-container-orgheadline88" class="outline-4">
+<h4 id="orgheadline88">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline88">
 <p>
 <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ
 始めましょう。
 </p>
 
 <ul class="org-ul">
-<li>ソフトウェア危機
-</li>
-<li>構造化プログラミング
-</li>
+<li>ソフトウェア危機</li>
+<li>構造化プログラミング</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-7-1-2-1" class="outline-5">
-<h5 id="sec-7-1-2-1">oo.org にまとめはじめましょう</h5>
-<div class="outline-text-5" id="text-7-1-2-1">
+<div id="outline-container-orgheadline89" class="outline-5">
+<h5 id="orgheadline89">oo.org にまとめはじめましょう</h5>
+<div class="outline-text-5" id="text-orgheadline89">
 <pre class="example">
 ~/rubys/oo.org
 </pre>
 
 <ul class="org-ul">
-<li>org-mode で書いてみましょう
-</li>
+<li>org-mode で書いてみましょう</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-7-1-3" class="outline-4">
-<h4 id="sec-7-1-3">Todo メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-7-1-3">
+<div id="outline-container-orgheadline90" class="outline-4">
+<h4 id="orgheadline90">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline90">
 <pre class="example">
 ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 </pre>
@@ -1452,10 +1629,8 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
 </p>
 <ul class="org-ul">
-<li>self の存在
-</li>
-<li>いったい self とは何でしょう？
-</li>
+<li>self の存在</li>
+<li>いったい self とは何でしょう？</li>
 </ul>
 
 <div class="org-src-container">
@@ -1476,9 +1651,9 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-7-1-4" class="outline-4">
-<h4 id="sec-7-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-7-1-4">
+<div id="outline-container-orgheadline91" class="outline-4">
+<h4 id="orgheadline91">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline91">
 <p>
 まだ始まりません。
 </p>
@@ -1486,27 +1661,26 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-7-2" class="outline-3">
-<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline96" class="outline-3">
+<h3 id="orgheadline96"><span class="section-number-3">7.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-7-2">
-</div><div id="outline-container-sec-7-2-1" class="outline-4">
-<h4 id="sec-7-2-1">Done ruby実行環境</h4>
-<div class="outline-text-4" id="text-7-2-1">
+</div><div id="outline-container-orgheadline93" class="outline-4">
+<h4 id="orgheadline93">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline93">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> ruby情報
-</li>
-<li><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
 <ul class="org-ul">
-<li><code>[X]</code> rbenv とは 
-</li>
-<li><code>[X]</code> 自前で rbenv+ruby-build をインストール
-</li>
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
 
-<li><code>[X]</code> ruby のインストール
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
 先週，    
+</p>
 <pre class="example">
 rbenv install 2.3.0-dev 
 </pre>
@@ -1520,74 +1694,68 @@ rbenv install 2.3.0-dev
 にある，ruby-install が認識されていないためのようです。
 取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
 ださい。
-</p>
-</li>
+</p></li>
 
-<li><code>[X]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-7-2-2" class="outline-4">
-<h4 id="sec-7-2-2">Done ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-7-2-2">
+<div id="outline-container-orgheadline94" class="outline-4">
+<h4 id="orgheadline94">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline94">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> emacs-24.5
-</li>
-<li><code>[X]</code> emacsのパッケージと設定
-</li>
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-7-2-3" class="outline-4">
-<h4 id="sec-7-2-3">Doing 文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-7-2-3">
+<div id="outline-container-orgheadline95" class="outline-4">
+<h4 id="orgheadline95">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline95">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
+<li>emacs org-mode</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> 講義実施内容 (5) 2016-11-07</h2>
+<div id="outline-container-orgheadline110" class="outline-2">
+<h2 id="orgheadline110"><span class="section-number-2">8</span> 講義実施内容 (5) 2016-11-07</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 </p>
 </div>
 
-<div id="outline-container-sec-8-1" class="outline-3">
-<h3 id="sec-8-1"><span class="section-number-3">8.1</span> 講義内容</h3>
+<div id="outline-container-orgheadline105" class="outline-3">
+<h3 id="orgheadline105"><span class="section-number-3">8.1</span> 講義内容</h3>
 <div class="outline-text-3" id="text-8-1">
-</div><div id="outline-container-sec-8-1-1" class="outline-4">
-<h4 id="sec-8-1-1">Doing Ruby入門 <code>[1/2]</code></h4>
-<div class="outline-text-4" id="text-8-1-1">
+</div><div id="outline-container-orgheadline98" class="outline-4">
+<h4 id="orgheadline98">Doing Ruby入門 <code>[1/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline98">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
 </div>
 
-<div id="outline-container-sec-8-1-1-1" class="outline-5">
-<h5 id="sec-8-1-1-1">Done <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-8-1-1-1">
+<div id="outline-container-orgheadline99" class="outline-5">
+<h5 id="orgheadline99">Done <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline99">
 <pre class="example">
 ~suzuki/rubys/ruby-begin.org
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-8-1-1-2" class="outline-5">
-<h5 id="sec-8-1-1-2">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-8-1-1-2">
+<div id="outline-container-orgheadline100" class="outline-5">
+<h5 id="orgheadline100">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline100">
 <p>
 11/07 ~ 2~3回
 </p>
@@ -1595,40 +1763,37 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 </div>
 </div>
 
-<div id="outline-container-sec-8-1-2" class="outline-4">
-<h4 id="sec-8-1-2">Todo オブジェクト指向について</h4>
-<div class="outline-text-4" id="text-8-1-2">
+<div id="outline-container-orgheadline101" class="outline-4">
+<h4 id="orgheadline101">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline101">
 <p>
 <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ
 始めましょう。
 </p>
 
 <ul class="org-ul">
-<li>ソフトウェア危機
-</li>
-<li>構造化プログラミング
-</li>
+<li>ソフトウェア危機</li>
+<li>構造化プログラミング</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-8-1-2-1" class="outline-5">
-<h5 id="sec-8-1-2-1">oo.org にまとめはじめましょう</h5>
-<div class="outline-text-5" id="text-8-1-2-1">
+<div id="outline-container-orgheadline102" class="outline-5">
+<h5 id="orgheadline102">oo.org にまとめはじめましょう</h5>
+<div class="outline-text-5" id="text-orgheadline102">
 <pre class="example">
 ~/rubys/oo.org
 </pre>
 
 <ul class="org-ul">
-<li>org-mode で書いてみましょう
-</li>
+<li>org-mode で書いてみましょう</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-8-1-3" class="outline-4">
-<h4 id="sec-8-1-3">Doing メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-8-1-3">
+<div id="outline-container-orgheadline103" class="outline-4">
+<h4 id="orgheadline103">Doing メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline103">
 <pre class="example">
 ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 </pre>
@@ -1637,10 +1802,8 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/04/plan.org
 まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
 </p>
 <ul class="org-ul">
-<li>self の存在
-</li>
-<li>いったい self とは何でしょう？
-</li>
+<li>self の存在</li>
+<li>いったい self とは何でしょう？</li>
 </ul>
 
 <div class="org-src-container">
@@ -1661,9 +1824,9 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-8-1-4" class="outline-4">
-<h4 id="sec-8-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-8-1-4">
+<div id="outline-container-orgheadline104" class="outline-4">
+<h4 id="orgheadline104">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline104">
 <p>
 まだ始まりません。
 </p>
@@ -1671,27 +1834,26 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-8-2" class="outline-3">
-<h3 id="sec-8-2"><span class="section-number-3">8.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline109" class="outline-3">
+<h3 id="orgheadline109"><span class="section-number-3">8.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-8-2">
-</div><div id="outline-container-sec-8-2-1" class="outline-4">
-<h4 id="sec-8-2-1">Done ruby実行環境</h4>
-<div class="outline-text-4" id="text-8-2-1">
+</div><div id="outline-container-orgheadline106" class="outline-4">
+<h4 id="orgheadline106">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline106">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> ruby情報
-</li>
-<li><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
 <ul class="org-ul">
-<li><code>[X]</code> rbenv とは 
-</li>
-<li><code>[X]</code> 自前で rbenv+ruby-build をインストール
-</li>
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
 
-<li><code>[X]</code> ruby のインストール
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
 先週，    
+</p>
 <pre class="example">
 rbenv install 2.3.0-dev 
 </pre>
@@ -1705,74 +1867,68 @@ rbenv install 2.3.0-dev
 にある，ruby-install が認識されていないためのようです。
 取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
 ださい。
-</p>
-</li>
+</p></li>
 
-<li><code>[X]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-8-2-2" class="outline-4">
-<h4 id="sec-8-2-2">Done ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-8-2-2">
+<div id="outline-container-orgheadline107" class="outline-4">
+<h4 id="orgheadline107">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline107">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> emacs-24.5
-</li>
-<li><code>[X]</code> emacsのパッケージと設定
-</li>
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-8-2-3" class="outline-4">
-<h4 id="sec-8-2-3">Doing 文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-8-2-3">
+<div id="outline-container-orgheadline108" class="outline-4">
+<h4 id="orgheadline108">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline108">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
+<li>emacs org-mode</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-9" class="outline-2">
-<h2 id="sec-9"><span class="section-number-2">9</span> 講義予定 (6) 2016-11-14</h2>
+<div id="outline-container-orgheadline123" class="outline-2">
+<h2 id="orgheadline123"><span class="section-number-2">9</span> 講義予定 (6) 2016-11-14</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/06/plan.org
 </p>
 </div>
 
-<div id="outline-container-sec-9-1" class="outline-3">
-<h3 id="sec-9-1"><span class="section-number-3">9.1</span> 講義内容</h3>
+<div id="outline-container-orgheadline118" class="outline-3">
+<h3 id="orgheadline118"><span class="section-number-3">9.1</span> 講義内容</h3>
 <div class="outline-text-3" id="text-9-1">
-</div><div id="outline-container-sec-9-1-1" class="outline-4">
-<h4 id="sec-9-1-1">Doing Ruby入門 <code>[1/2]</code></h4>
-<div class="outline-text-4" id="text-9-1-1">
+</div><div id="outline-container-orgheadline111" class="outline-4">
+<h4 id="orgheadline111">Doing Ruby入門 <code>[1/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline111">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
 </div>
 
-<div id="outline-container-sec-9-1-1-1" class="outline-5">
-<h5 id="sec-9-1-1-1">Done <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-9-1-1-1">
+<div id="outline-container-orgheadline112" class="outline-5">
+<h5 id="orgheadline112">Done <a href="https://www.ruby-lang.org/ja/documentation/quickstart/">20分ではじめるRuby</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline112">
 <pre class="example">
 ~suzuki/rubys/ruby-begin.org
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-9-1-1-2" class="outline-5">
-<h5 id="sec-9-1-1-2">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-9-1-1-2">
+<div id="outline-container-orgheadline113" class="outline-5">
+<h5 id="orgheadline113">Todo <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline113">
 <p>
 11/14 ~ 2回
 </p>
@@ -1783,41 +1939,38 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/06/plan.org
 
 
 
-<div id="outline-container-sec-9-1-2" class="outline-4">
-<h4 id="sec-9-1-2">Todo オブジェクト指向について</h4>
-<div class="outline-text-4" id="text-9-1-2">
+<div id="outline-container-orgheadline114" class="outline-4">
+<h4 id="orgheadline114">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline114">
 <p>
 <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ
 始めましょう。
 </p>
 
 <ul class="org-ul">
-<li>ソフトウェア危機
-</li>
-<li>構造化プログラミング
-</li>
+<li>ソフトウェア危機</li>
+<li>構造化プログラミング</li>
 </ul>
 </div>
 
-<div id="outline-container-sec-9-1-2-1" class="outline-5">
-<h5 id="sec-9-1-2-1">oo.org にまとめはじめましょう</h5>
-<div class="outline-text-5" id="text-9-1-2-1">
+<div id="outline-container-orgheadline115" class="outline-5">
+<h5 id="orgheadline115">oo.org にまとめはじめましょう</h5>
+<div class="outline-text-5" id="text-orgheadline115">
 <pre class="example">
 ~/rubys/oo.org
 </pre>
 
 <ul class="org-ul">
-<li>org-mode で書いてみましょう
-</li>
+<li>org-mode で書いてみましょう</li>
 </ul>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-9-1-3" class="outline-4">
-<h4 id="sec-9-1-3">Todo メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-9-1-3">
+<div id="outline-container-orgheadline116" class="outline-4">
+<h4 id="orgheadline116">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline116">
 <pre class="example">
 ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 </pre>
@@ -1826,10 +1979,8 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/06/plan.org
 まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
 </p>
 <ul class="org-ul">
-<li>self の存在
-</li>
-<li>いったい self とは何でしょう？
-</li>
+<li>self の存在</li>
+<li>いったい self とは何でしょう？</li>
 </ul>
 
 <div class="org-src-container">
@@ -1850,9 +2001,9 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-9-1-4" class="outline-4">
-<h4 id="sec-9-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-9-1-4">
+<div id="outline-container-orgheadline117" class="outline-4">
+<h4 id="orgheadline117">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline117">
 <p>
 まだ始まりません。
 </p>
@@ -1861,27 +2012,26 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 
 
-<div id="outline-container-sec-9-2" class="outline-3">
-<h3 id="sec-9-2"><span class="section-number-3">9.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline122" class="outline-3">
+<h3 id="orgheadline122"><span class="section-number-3">9.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-9-2">
-</div><div id="outline-container-sec-9-2-1" class="outline-4">
-<h4 id="sec-9-2-1">Done ruby実行環境</h4>
-<div class="outline-text-4" id="text-9-2-1">
+</div><div id="outline-container-orgheadline119" class="outline-4">
+<h4 id="orgheadline119">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline119">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> ruby情報
-</li>
-<li><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
 <ul class="org-ul">
-<li><code>[X]</code> rbenv とは 
-</li>
-<li><code>[X]</code> 自前で rbenv+ruby-build をインストール
-</li>
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
 
-<li><code>[X]</code> ruby のインストール
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
 先週，    
+</p>
 <pre class="example">
 rbenv install 2.3.0-dev 
 </pre>
@@ -1895,59 +2045,52 @@ rbenv install 2.3.0-dev
 にある，ruby-install が認識されていないためのようです。
 取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
 ださい。
-</p>
-</li>
+</p></li>
 
-<li><code>[X]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-9-2-2" class="outline-4">
-<h4 id="sec-9-2-2">Done ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-9-2-2">
+<div id="outline-container-orgheadline120" class="outline-4">
+<h4 id="orgheadline120">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline120">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> emacs-24.5
-</li>
-<li><code>[X]</code> emacsのパッケージと設定
-</li>
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-9-2-3" class="outline-4">
-<h4 id="sec-9-2-3">Doing 文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-9-2-3">
+<div id="outline-container-orgheadline121" class="outline-4">
+<h4 id="orgheadline121">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline121">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
-<li>emacs org-mode + babel
-</li>
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-10" class="outline-2">
-<h2 id="sec-10"><span class="section-number-2">10</span> 講義予定 (7) 2016-11-21</h2>
+<div id="outline-container-orgheadline136" class="outline-2">
+<h2 id="orgheadline136"><span class="section-number-2">10</span> 講義予定 (7) 2016-11-21</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 self =&gt; ~suzuki/meta-ruby.git/org/lects/07/plan.org
 </p>
 </div>
 
-<div id="outline-container-sec-10-1" class="outline-3">
-<h3 id="sec-10-1"><span class="section-number-3">10.1</span> 講義内容</h3>
+<div id="outline-container-orgheadline131" class="outline-3">
+<h3 id="orgheadline131"><span class="section-number-3">10.1</span> 講義内容</h3>
 <div class="outline-text-3" id="text-10-1">
-</div><div id="outline-container-sec-10-1-1" class="outline-4">
-<h4 id="sec-10-1-1">Doing Ruby入門 <code>[1/2]</code></h4>
-<div class="outline-text-4" id="text-10-1-1">
+</div><div id="outline-container-orgheadline124" class="outline-4">
+<h4 id="orgheadline124">Doing Ruby入門 <code>[1/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline124">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
@@ -1957,18 +2100,18 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/07/plan.org
 </pre>
 </div>
 
-<div id="outline-container-sec-10-1-1-1" class="outline-5">
-<h5 id="sec-10-1-1-1">Doing <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
-<div class="outline-text-5" id="text-10-1-1-1">
+<div id="outline-container-orgheadline125" class="outline-5">
+<h5 id="orgheadline125">Doing <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline125">
 <p>
 11/21 ~ 2回
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-10-1-1-2" class="outline-5">
-<h5 id="sec-10-1-1-2">Doing Ruby programming</h5>
-<div class="outline-text-5" id="text-10-1-1-2">
+<div id="outline-container-orgheadline126" class="outline-5">
+<h5 id="orgheadline126">Doing Ruby programming</h5>
+<div class="outline-text-5" id="text-orgheadline126">
 <p>
 ~/rubys/ruby-begin.org にまとめながらやっていきましょう。
 </p>
@@ -1980,25 +2123,22 @@ self =&gt; ~suzuki/meta-ruby.git/org/lects/07/plan.org
 </div>
 </div>
 
-<div id="outline-container-sec-10-1-2" class="outline-4">
-<h4 id="sec-10-1-2">Todo オブジェクト指向について</h4>
-<div class="outline-text-4" id="text-10-1-2">
+<div id="outline-container-orgheadline127" class="outline-4">
+<h4 id="orgheadline127">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline127">
 </div>
 
-<div id="outline-container-sec-10-1-2-1" class="outline-5">
-<h5 id="sec-10-1-2-1"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ</h5>
-<div class="outline-text-5" id="text-10-1-2-1">
+<div id="outline-container-orgheadline128" class="outline-5">
+<h5 id="orgheadline128"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a> を読みまとめ</h5>
+<div class="outline-text-5" id="text-orgheadline128">
 <p>
 始めましょう。
 </p>
 
 <ul class="org-ul">
-<li><code>[X]</code> ソフトウェア危機
-</li>
-<li><code>[X]</code> 構造化プログラミング
-</li>
-<li><code>[&#xa0;]</code> モジュラープログラミング
-</li>
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="off"><code>[&#xa0;]</code> モジュラープログラミング</li>
 </ul>
 
 <p>
@@ -2009,16 +2149,15 @@ oo.org にまとめはじめましょう
 </pre>
 <ul class="org-ul">
 <li>org-mode で書いてみましょう 
-<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a>
-</li>
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-10-1-3" class="outline-4">
-<h4 id="sec-10-1-3">Todo メタプログラミング Ruby</h4>
-<div class="outline-text-4" id="text-10-1-3">
+<div id="outline-container-orgheadline129" class="outline-4">
+<h4 id="orgheadline129">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline129">
 <pre class="example">
 ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 </pre>
@@ -2027,10 +2166,8 @@ oo.org にまとめはじめましょう
 まずは，Ruby入門で行なったプログラムの実行について，考察しましょう。
 </p>
 <ul class="org-ul">
-<li>self の存在
-</li>
-<li>いったい self とは何でしょう？
-</li>
+<li>self の存在</li>
+<li>いったい self とは何でしょう？</li>
 </ul>
 
 <div class="org-src-container">
@@ -2051,9 +2188,9 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-10-1-4" class="outline-4">
-<h4 id="sec-10-1-4">Ruby オブジェクト指向プログラミング</h4>
-<div class="outline-text-4" id="text-10-1-4">
+<div id="outline-container-orgheadline130" class="outline-4">
+<h4 id="orgheadline130">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline130">
 <p>
 まだ始まりません。
 </p>
@@ -2061,27 +2198,26 @@ Ruby入門で行なったプログラムの実行について考察しましょ�
 </div>
 </div>
 
-<div id="outline-container-sec-10-2" class="outline-3">
-<h3 id="sec-10-2"><span class="section-number-3">10.2</span> 講義のための環境つくり</h3>
+<div id="outline-container-orgheadline135" class="outline-3">
+<h3 id="orgheadline135"><span class="section-number-3">10.2</span> 講義のための環境つくり</h3>
 <div class="outline-text-3" id="text-10-2">
-</div><div id="outline-container-sec-10-2-1" class="outline-4">
-<h4 id="sec-10-2-1">Done ruby実行環境</h4>
-<div class="outline-text-4" id="text-10-2-1">
+</div><div id="outline-container-orgheadline132" class="outline-4">
+<h4 id="orgheadline132">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline132">
 <p>
 <a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> ruby情報
-</li>
-<li><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
 <ul class="org-ul">
-<li><code>[X]</code> rbenv とは 
-</li>
-<li><code>[X]</code> 自前で rbenv+ruby-build をインストール
-</li>
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
 
-<li><code>[X]</code> ruby のインストール
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
 先週，    
+</p>
 <pre class="example">
 rbenv install 2.3.0-dev 
 </pre>
@@ -2095,41 +2231,1460 @@ rbenv install 2.3.0-dev
 にある，ruby-install が認識されていないためのようです。
 取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
 ださい。
-</p>
-</li>
+</p></li>
 
-<li><code>[X]</code> gem (rubyのパッケージ管理)
-</li>
-</ul>
-</li>
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-10-2-2" class="outline-4">
-<h4 id="sec-10-2-2">Done ruby プログラミング環境</h4>
-<div class="outline-text-4" id="text-10-2-2">
+<div id="outline-container-orgheadline133" class="outline-4">
+<h4 id="orgheadline133">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline133">
 <p>
 <a href="./emacs.html">Emacs</a>
 </p>
 <ul class="org-ul">
-<li><code>[X]</code> emacs-24.5
-</li>
-<li><code>[X]</code> emacsのパッケージと設定
-</li>
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-10-2-3" class="outline-4">
-<h4 id="sec-10-2-3">Doing 文芸的プログラミング環境</h4>
-<div class="outline-text-4" id="text-10-2-3">
+<div id="outline-container-orgheadline134" class="outline-4">
+<h4 id="orgheadline134">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline134">
 <ul class="org-ul">
-<li>emacs org-mode
-</li>
-<li>emacs org-mode + babel
-</li>
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline149" class="outline-2">
+<h2 id="orgheadline149"><span class="section-number-2">11</span> 講義予定 (8) 2016-11-28</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+self =&gt; ~suzuki/meta-ruby.git/org/lects/08/plan.org
+</p>
+</div>
+
+<div id="outline-container-orgheadline144" class="outline-3">
+<h3 id="orgheadline144"><span class="section-number-3">11.1</span> 講義内容</h3>
+<div class="outline-text-3" id="text-11-1">
+</div><div id="outline-container-orgheadline137" class="outline-4">
+<h4 id="orgheadline137">Doing Ruby入門 <code>[1/2]</code></h4>
+<div class="outline-text-4" id="text-orgheadline137">
+<p>
+~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+</p>
+
+<ul class="org-ul">
+<li><a href="file://~suzuki/rubys/ruby-begin.html">file://~suzuki/rubys/ruby-begin.html</a> emacsで見てください</li>
+<li><a href="https://github.com/masayuki054/meta-ruby/org/lects/ruby-begin.org">ruby-begin.org@repos</a> github 適宜raw mode で見てください</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline138" class="outline-5">
+<h5 id="orgheadline138">Doing <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline138">
+<ul class="org-ul">
+<li>begin~end, 例外処理</li>
+<li>正規表現</li>
+<li>メソッド</li>
+<li>クラス</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline139" class="outline-5">
+<h5 id="orgheadline139">Doing Ruby programming</h5>
+<div class="outline-text-5" id="text-orgheadline139">
+<p>
+~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
+</p>
+
+<p>
+File，Dir, Array, String のクラスについて，調べながら，
+実践的なプログラムを作ってみましょう。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> file_print.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-21 月&gt;</span></span></li>
+<li class="off"><code>[&#xa0;]</code> home_directory.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt;</span></span></li>
+<li class="off"><code>[&#xa0;]</code> shuzo-meigen.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt; </span></span> home work</li>
+<li class="off"><code>[&#xa0;]</code> dir_traverse.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 木&gt;</span></span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline140" class="outline-4">
+<h4 id="orgheadline140">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline140">
+</div>
+
+<div id="outline-container-orgheadline141" class="outline-5">
+<h5 id="orgheadline141"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></h5>
+<div class="outline-text-5" id="text-orgheadline141">
+<p>
+読みまとめ始めましょう。Strategic Choice も参考にします。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="on"><code>[X]</code> モジュラープログラミング</li>
+<li class="on"><code>[X]</code> 抽象データ型</li>
+<li class="off"><code>[&#xa0;]</code> オブジェクト指向 メッセージングと動的ディスパッチ</li>
+</ul>
+
+<p>
+oo.org にまとめてください。
+</p>
+
+<pre class="example">
+~/rubys/oo.org
+</pre>
+
+<ul class="org-ul">
+<li>org-mode で書いてみましょう 
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline142" class="outline-4">
+<h4 id="orgheadline142">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline142">
+<p>
+<a href="file://~suzuki/COMM/Lects/meta-ruby/book">file://~suzuki/COMM/Lects/meta-ruby/book</a> を使います。
+</p>
+
+<pre class="example">
+~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline143" class="outline-4">
+<h4 id="orgheadline143">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline143">
+<p>
+まだ始まりません。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline148" class="outline-3">
+<h3 id="orgheadline148"><span class="section-number-3">11.2</span> 講義のための環境つくり</h3>
+<div class="outline-text-3" id="text-11-2">
+</div><div id="outline-container-orgheadline145" class="outline-4">
+<h4 id="orgheadline145">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline145">
+<p>
+<a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline146" class="outline-4">
+<h4 id="orgheadline146">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline146">
+<p>
+<a href="./emacs.html">Emacs</a>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline147" class="outline-4">
+<h4 id="orgheadline147">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline147">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline163" class="outline-2">
+<h2 id="orgheadline163"><span class="section-number-2">12</span> 講義予定 (9) 2016-12-05</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+self =&gt; ~suzuki/meta-ruby.git/org/lects/09/plan.org
+</p>
+</div>
+
+<div id="outline-container-orgheadline158" class="outline-3">
+<h3 id="orgheadline158"><span class="section-number-3">12.1</span> 講義内容</h3>
+<div class="outline-text-3" id="text-12-1">
+</div><div id="outline-container-orgheadline150" class="outline-4">
+<h4 id="orgheadline150">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline150">
+<p>
+~suzuki/rubys/examples/ の下に，個々のプログラムを置くようにします。
+</p>
+</div>
+
+<div id="outline-container-orgheadline151" class="outline-6">
+<h6 id="orgheadline151">Doing File，Dir, Array, String のクラスについて，調べながら，</h6>
+<div class="outline-text-6" id="text-orgheadline151">
+<p>
+実践的なプログラムを作ってみましょう。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> file_print.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-21 月&gt;</span></span></li>
+<li class="on"><code>[X]</code> home_directory.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt;</span></span></li>
+
+<li class="trans"><code>[-]</code> shuzo-meigen.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt; </span></span> home work</li>
+<li class="trans"><code>[-]</code> dir_traverse.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 木&gt;</span></span></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline152" class="outline-5">
+<h5 id="orgheadline152">Done Ruby入門 <code>[1/2]</code></h5>
+<div class="outline-text-5" id="text-orgheadline152">
+<ul class="org-ul">
+<li><a href="file://~suzuki/rubys/ruby-begin.html">file://~suzuki/rubys/ruby-begin.html</a> emacsで見てください</li>
+<li><a href="https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org">ruby-begin.org@repos</a> github 適宜raw mode で見てください</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline153" class="outline-5">
+<h5 id="orgheadline153">Done <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline153">
+<p>
+~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+</p>
+<ul class="org-ul">
+<li>begin~end, 例外処理</li>
+<li>正規表現</li>
+<li>メソッド</li>
+<li>クラス</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline154" class="outline-4">
+<h4 id="orgheadline154">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline154">
+</div>
+
+<div id="outline-container-orgheadline155" class="outline-5">
+<h5 id="orgheadline155"><a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></h5>
+<div class="outline-text-5" id="text-orgheadline155">
+<p>
+読みまとめ始めましょう。Strategic Choice も参考にします。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="on"><code>[X]</code> モジュラープログラミング</li>
+<li class="on"><code>[X]</code> 抽象データ型</li>
+<li class="on"><code>[X]</code> オブジェクト指向 メッセージングと動的ディスパッチ</li>
+<li class="off"><code>[&#xa0;]</code> オブジェクト指向 仮想機械とメッセージング</li>
+</ul>
+
+<p>
+oo.org にまとめてください。
+</p>
+
+<pre class="example">
+~/rubys/oo.org
+</pre>
+
+<ul class="org-ul">
+<li>org-mode で書いてみましょう 
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline156" class="outline-4">
+<h4 id="orgheadline156">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline156">
+<p>
+<a href="file://~suzuki/COMM/Lects/meta-ruby/book">file://~suzuki/COMM/Lects/meta-ruby/book</a> を使います。
+</p>
+
+<p>
+~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+</p>
+
+<ul class="org-ul">
+<li>「オブジェクトモデル」を読み始めます。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline157" class="outline-4">
+<h4 id="orgheadline157">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline157">
+<p>
+単体テストを体験しましょう。
+</p>
+
+<ul class="org-ul">
+<li>テストとかテストによる開発については，簡単に，<a href="https://masayuki054.github.io/prog/org-docs/software-test.html">ソフトウェア・テスト</a>，
+<a href="https://masayuki054.github.io/prog/org-docs/what-is-tdd.html">テスト駆動開発とは</a> で紹介します。</li>
+
+<li>Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> ((<a href="https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org">.org.github</a> <a href="file://~suzuki/meta-ruby.git/org/note/ruby-note-test.html">.org</a>.emacs)) のtest-unit を読んでください。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline162" class="outline-3">
+<h3 id="orgheadline162"><span class="section-number-3">12.2</span> 講義のための環境つくり</h3>
+<div class="outline-text-3" id="text-12-2">
+</div><div id="outline-container-orgheadline159" class="outline-4">
+<h4 id="orgheadline159">Doing 文芸的プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline159">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline160" class="outline-4">
+<h4 id="orgheadline160">Done ruby実行環境</h4>
+<div class="outline-text-4" id="text-orgheadline160">
+<p>
+<a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline161" class="outline-4">
+<h4 id="orgheadline161">Done ruby プログラミング環境</h4>
+<div class="outline-text-4" id="text-orgheadline161">
+<p>
+<a href="./emacs.html">Emacs</a>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline189" class="outline-2">
+<h2 id="orgheadline189"><span class="section-number-2">13</span> 講義予定 (10) 2016-12-12</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+self =&gt; ~suzuki/meta-ruby.git/org/lects/10/plan.org
+</p>
+</div>
+
+<div id="outline-container-orgheadline176" class="outline-3">
+<h3 id="orgheadline176"><span class="section-number-3">13.1</span> 講義内容</h3>
+<div class="outline-text-3" id="text-13-1">
+</div><div id="outline-container-orgheadline165" class="outline-4">
+<h4 id="orgheadline165">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline165">
+</div><div id="outline-container-orgheadline164" class="outline-6">
+<h6 id="orgheadline164">Examples</h6>
+<div class="outline-text-6" id="text-orgheadline164">
+<p>
+実践的なプログラムを作ってみましょう。
+</p>
+
+<p>
+~suzuki/rubys/examples/ の下, <a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work">work</a> (github) に，個々のプログラムを置くよう
+にします。((<a href="file://~suzuki/rubys/examples.html">@cis</a>, <a href="file:///users/home/masayuki/meta-ruby.git/org/work">@s</a>))
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> file_print.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-21 月&gt; </span></span></li>
+<li class="on"><code>[X]</code> home_directory.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt;</span></span></li>
+<li class="trans"><code>[-]</code> shuzo-meigen.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt; </span></span> home work</li>
+<li class="trans"><code>[-]</code> dir_traverse.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 木&gt; </span></span> home work</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline166" class="outline-4">
+<h4 id="orgheadline166">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline166">
+</div>
+
+<div id="outline-container-orgheadline167" class="outline-5">
+<h5 id="orgheadline167"><a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">オブジェクト指向の本懐 - Strategic Choice</a> を始めましょう。<code>[/]</code></h5>
+<div class="outline-text-5" id="text-orgheadline167">
+<p>
+読む予定のページです。~/rubys/oo.org にまとめてください。
+</p>
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <a href="http://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="http://d.hatena.ne.jp/asakichy/20090425/1240613767">オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline168" class="outline-5">
+<h5 id="orgheadline168">Todo Rubyのオブジェクト原理主義</h5>
+<div class="outline-text-5" id="text-orgheadline168">
+<p>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html</a>
+</p>
+
+<p>
+を読んで Ruby らしさについて考えましょう。
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline169" class="outline-4">
+<h4 id="orgheadline169">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline169">
+<p>
+<a href="file://~suzuki/COMM/Lects/meta-ruby/book">file://~suzuki/COMM/Lects/meta-ruby/book</a> を使います。
+</p>
+
+<p>
+~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+</p>
+
+<ul class="org-ul">
+<li>「オブジェクトモデル」の残りをやります。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline173" class="outline-4">
+<h4 id="orgheadline173">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline173">
+</div><div id="outline-container-orgheadline170" class="outline-5">
+<h5 id="orgheadline170">デザイン・パターン  (<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org">@github</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@cis</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@s</a>)</h5>
+<div class="outline-text-5" id="text-orgheadline170">
+<p>
+<a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました</a> は，ruby で書
+いたデザイン・パターンの実装例です。
+</p>
+
+<p>
+AbstractFactory を読んで，考えてみましょう。
+</p>
+
+<dl class="org-dl">
+<dt><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a></dt><dd>デザインパターンのリファレンスに使いましょう。</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline171" class="outline-5">
+<h5 id="orgheadline171">ポーカーゲームのテスト駆動開発</h5>
+<div class="outline-text-5" id="text-orgheadline171">
+<p>
+<a href="./poker.html">poker開発</a> 
+</p>
+
+<p>
+<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/poker">meta-ruby/org/poker at master · masayuki054/meta-ruby</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline172" class="outline-5">
+<h5 id="orgheadline172">単体テストを体験しましょう。</h5>
+<div class="outline-text-5" id="text-orgheadline172">
+<ul class="org-ul">
+<li>テストとかテストによる開発については，簡単に，<a href="https://masayuki054.github.io/prog/org-docs/software-test.html">ソフトウェア・テスト</a>，
+<a href="https://masayuki054.github.io/prog/org-docs/what-is-tdd.html">テスト駆動開発とは</a> で紹介します。</li>
+
+<li>Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> ((<a href="https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org">.org.github</a> <a href="file://~suzuki/meta-ruby.git/org/note/ruby-note-test.html">.org</a>.emacs)) のtest-unit を読んでください。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline175" class="outline-4">
+<h4 id="orgheadline175">講義のための環境つくり</h4>
+<div class="outline-text-4" id="text-orgheadline175">
+</div><div id="outline-container-orgheadline174" class="outline-5">
+<h5 id="orgheadline174">Doing 文芸的プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline174">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline188" class="outline-3">
+<h3 id="orgheadline188"><span class="section-number-3">13.2</span> 終わったこと</h3>
+<div class="outline-text-3" id="text-13-2">
+</div><div id="outline-container-orgheadline179" class="outline-4">
+<h4 id="orgheadline179">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline179">
+</div><div id="outline-container-orgheadline177" class="outline-5">
+<h5 id="orgheadline177">Done Ruby入門 <code>[1/2]</code></h5>
+<div class="outline-text-5" id="text-orgheadline177">
+<ul class="org-ul">
+<li><a href="file://~suzuki/rubys/ruby-begin.html">file://~suzuki/rubys/ruby-begin.html</a> emacsで見てください</li>
+<li><a href="https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org">ruby-begin.org@repos</a> github 適宜raw mode で見てください</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline178" class="outline-5">
+<h5 id="orgheadline178">Done <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline178">
+<p>
+~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+</p>
+<ul class="org-ul">
+<li>begin~end, 例外処理</li>
+<li>正規表現</li>
+<li>メソッド</li>
+<li>クラス</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline180" class="outline-4">
+<h4 id="orgheadline180">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline180">
+</div>
+
+<div id="outline-container-orgheadline181" class="outline-5">
+<h5 id="orgheadline181">Done <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></h5>
+<div class="outline-text-5" id="text-orgheadline181">
+<p>
+読みまとめ始めましょう。Strategic Choice も参考にします。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="on"><code>[X]</code> モジュラープログラミング</li>
+<li class="on"><code>[X]</code> 抽象データ型</li>
+<li class="on"><code>[X]</code> オブジェクト指向 メッセージングと動的ディスパッチ</li>
+<li class="on"><code>[X]</code> オブジェクト指向 仮想機械とメッセージング</li>
+</ul>
+
+<p>
+~/rubys/oo.org にまとめてください。
+</p>
+
+<ul class="org-ul">
+<li><p>
+org-mode で書いてみましょう 
+</p>
+
+<p>
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a>
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline182" class="outline-4">
+<h4 id="orgheadline182">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline182">
+</div>
+</div>
+
+<div id="outline-container-orgheadline183" class="outline-4">
+<h4 id="orgheadline183">Ruby オブジェクト指向プログラミング</h4>
+</div>
+
+<div id="outline-container-orgheadline187" class="outline-4">
+<h4 id="orgheadline187">講義のための環境つくり</h4>
+<div class="outline-text-4" id="text-orgheadline187">
+</div><div id="outline-container-orgheadline184" class="outline-5">
+<h5 id="orgheadline184">Doing 文芸的プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline184">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline185" class="outline-5">
+<h5 id="orgheadline185">Done ruby実行環境</h5>
+<div class="outline-text-5" id="text-orgheadline185">
+<p>
+<a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline186" class="outline-5">
+<h5 id="orgheadline186">Done ruby プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline186">
+<p>
+<a href="./emacs.html">Emacs</a>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline215" class="outline-2">
+<h2 id="orgheadline215"><span class="section-number-2">14</span> 講義予定 (11) 2016-12-19</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+self =&gt; ~suzuki/meta-ruby.git/org/lects/10/plan.org
+</p>
+</div>
+
+<div id="outline-container-orgheadline199" class="outline-3">
+<h3 id="orgheadline199"><span class="section-number-3">14.1</span> 講義内容</h3>
+<div class="outline-text-3" id="text-14-1">
+</div><div id="outline-container-orgheadline190" class="outline-4">
+<h4 id="orgheadline190">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline190">
+<ul class="org-ul">
+<li>自分のレポート提出フォルダに，Examples フォルダを作成し，</li>
+<li>課題ごとに，作成したプログラムと，その説明，実行とその結果をまと
+めた org 文書を作成し，</li>
+<li>上記 Examples/ フォルダに提出してください。</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline191" class="outline-6">
+<h6 id="orgheadline191">Examples</h6>
+<div class="outline-text-6" id="text-orgheadline191">
+<p>
+実践的なプログラムを作ってみましょう。
+</p>
+
+<p>
+~suzuki/rubys/examples/ の下, <a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work">work</a> (github) に，個々のプログラムを置くよう
+にします。((<a href="file://~suzuki/rubys/examples.html">@cis</a>, <a href="file:///users/home/masayuki/meta-ruby.git/org/work">@s</a>))
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> file_print.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-21 月&gt; </span></span></li>
+<li class="on"><code>[X]</code> home_directory.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt;</span></span></li>
+<li class="trans"><code>[-]</code> shuzo-meigen.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt; </span></span> home work</li>
+<li class="trans"><code>[-]</code> dir_traverse.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 木&gt; </span></span> home work</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline192" class="outline-4">
+<h4 id="orgheadline192">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline192">
+</div>
+
+<div id="outline-container-orgheadline193" class="outline-5">
+<h5 id="orgheadline193"><a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">オブジェクト指向の本懐 - Strategic Choice</a> を始めましょう。<code>[1/2]</code></h5>
+<div class="outline-text-5" id="text-orgheadline193">
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock1">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+
+<p>
+参考にしてほしい資料
+</p>
+
+<ul class="org-ul">
+<li>((s-:)) のまとめ strategic-choice.org
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org">org@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/oo/strategic-choice.html">org@cis</a>/<a href="file:///users/home/masayuki/{lect}.git/org/oo/strategic-choice.html">@</a>))</li>
+</ul>
+
+
+<p>
+読む予定のページです。~/rubys/oo.org にまとめてください。
+</p>
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 月&gt;</span></span><a href="http://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice</a></li>
+
+<li class="on"><code>[X]</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 月&gt; </span></span> <a href="http://d.hatena.ne.jp/asakichy/20090425/1240613767">オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline194" class="outline-5">
+<h5 id="orgheadline194">Todo Rubyのオブジェクト原理主義</h5>
+<div class="outline-text-5" id="text-orgheadline194">
+<p>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html</a>
+</p>
+
+<p>
+を読んで Ruby らしさについて考えましょう。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline195" class="outline-4">
+<h4 id="orgheadline195">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline195">
+<p>
+<a href="file://~suzuki/COMM/Lects/meta-ruby/book">file://~suzuki/COMM/Lects/meta-ruby/book</a> を使います。
+</p>
+
+<p>
+~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+</p>
+
+<ul class="org-ul">
+<li>「オブジェクトモデル」の残りをやります。</li>
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock2">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>((s-:)) の meta-programming-ruby.org ((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/meta-programming-ruby.org">org@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/meta-programming-ruby.html">org@cis</a>/<a href="file:///users/home/masayuki/{lect}.git/org/work/meta-programming-ruby.html">@</a>))</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline198" class="outline-4">
+<h4 id="orgheadline198">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline198">
+</div><div id="outline-container-orgheadline196" class="outline-5">
+<h5 id="orgheadline196">デザイン・パターン  (<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org">@github</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@cis</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@s</a>)</h5>
+<div class="outline-text-5" id="text-orgheadline196">
+<p>
+<a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました</a> は，ruby で書
+いたデザイン・パターンの実装例です。
+</p>
+
+<p>
+AbstractFactory を読んで，考えてみましょう。
+</p>
+
+<dl class="org-dl">
+<dt><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a></dt><dd>デザインパターンのリファレンスに使いましょう。</dd>
+</dl>
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock3">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+<ul class="org-ul">
+<li>((s-:)) の design-pattern.org ((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org">org@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">org@cis</a>/<a href="file:///users/home/masayuki/{lect}.git/org/work/design-pattern.html">@</a>))</li>
+
+<li><a href="https://workflowy.com/s/6H5yFmqIOn">workflowyのメモ</a></li>
+
+<li><a href="https://ja.wikipedia.org/wiki/Abstract_Factory_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">Abstract Factory パターン - Wikipedia</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline197" class="outline-5">
+<h5 id="orgheadline197">単体テストを体験しましょう。</h5>
+<div class="outline-text-5" id="text-orgheadline197">
+<ul class="org-ul">
+<li>テストとかテストによる開発については，簡単に，<a href="https://masayuki054.github.io/prog/org-docs/software-test.html">ソフトウェア・テスト</a>，
+<a href="https://masayuki054.github.io/prog/org-docs/what-is-tdd.html">テスト駆動開発とは</a> で紹介します。</li>
+
+<li>Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> ((<a href="https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org">.org.github</a> <a href="file://~suzuki/meta-ruby.git/org/note/ruby-note-test.html">.org</a>.emacs)) のtest-unit を読んでください。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline211" class="outline-3">
+<h3 id="orgheadline211"><span class="section-number-3">14.2</span> 終わったこと</h3>
+<div class="outline-text-3" id="text-14-2">
+</div><div id="outline-container-orgheadline202" class="outline-4">
+<h4 id="orgheadline202">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline202">
+</div><div id="outline-container-orgheadline200" class="outline-5">
+<h5 id="orgheadline200">Done Ruby入門 <code>[1/2]</code></h5>
+<div class="outline-text-5" id="text-orgheadline200">
+<ul class="org-ul">
+<li><a href="file://~suzuki/rubys/ruby-begin.html">file://~suzuki/rubys/ruby-begin.html</a> emacsで見てください</li>
+<li><a href="https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org">ruby-begin.org@repos</a> github 適宜raw mode で見てください</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline201" class="outline-5">
+<h5 id="orgheadline201">Done <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline201">
+<p>
+~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+</p>
+<ul class="org-ul">
+<li>begin~end, 例外処理</li>
+<li>正規表現</li>
+<li>メソッド</li>
+<li>クラス</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline203" class="outline-4">
+<h4 id="orgheadline203">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline203">
+</div>
+
+<div id="outline-container-orgheadline204" class="outline-5">
+<h5 id="orgheadline204">Done <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></h5>
+<div class="outline-text-5" id="text-orgheadline204">
+<p>
+読みまとめ始めましょう。Strategic Choice も参考にします。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="on"><code>[X]</code> モジュラープログラミング</li>
+<li class="on"><code>[X]</code> 抽象データ型</li>
+<li class="on"><code>[X]</code> オブジェクト指向 メッセージングと動的ディスパッチ</li>
+<li class="on"><code>[X]</code> オブジェクト指向 仮想機械とメッセージング</li>
+</ul>
+
+<p>
+~/rubys/oo.org にまとめてください。
+</p>
+
+<ul class="org-ul">
+<li><p>
+org-mode で書いてみましょう 
+</p>
+
+<p>
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a>
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline205" class="outline-4">
+<h4 id="orgheadline205">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline205">
+</div>
+</div>
+
+<div id="outline-container-orgheadline206" class="outline-4">
+<h4 id="orgheadline206">Ruby オブジェクト指向プログラミング</h4>
+</div>
+
+
+<div id="outline-container-orgheadline210" class="outline-4">
+<h4 id="orgheadline210">講義のための環境つくり</h4>
+<div class="outline-text-4" id="text-orgheadline210">
+</div><div id="outline-container-orgheadline207" class="outline-5">
+<h5 id="orgheadline207">Doing 文芸的プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline207">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline208" class="outline-5">
+<h5 id="orgheadline208">Done ruby実行環境</h5>
+<div class="outline-text-5" id="text-orgheadline208">
+<p>
+<a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline209" class="outline-5">
+<h5 id="orgheadline209">Done ruby プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline209">
+<p>
+<a href="./emacs.html">Emacs</a>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline214" class="outline-3">
+<h3 id="orgheadline214"><span class="section-number-3">14.3</span> やらなかったこと</h3>
+<div class="outline-text-3" id="text-14-3">
+</div><div id="outline-container-orgheadline213" class="outline-4">
+<h4 id="orgheadline213">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline213">
+</div><div id="outline-container-orgheadline212" class="outline-5">
+<h5 id="orgheadline212">ポーカーゲームのテスト駆動開発</h5>
+<div class="outline-text-5" id="text-orgheadline212">
+<p>
+<a href="./poker.html">poker開発</a> 
+</p>
+
+<p>
+<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/poker">meta-ruby/org/poker at master · masayuki054/meta-ruby</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline242" class="outline-2">
+<h2 id="orgheadline242"><span class="section-number-2">15</span> 講義予定 (12) 2017-01-16</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+self =&gt; ~suzuki/meta-ruby.git/org/lects/12/plan.org
+</p>
+</div>
+
+<div id="outline-container-orgheadline216" class="outline-3">
+<h3 id="orgheadline216"><span class="section-number-3">15.1</span> 図を描きました</h3>
+<div class="outline-text-3" id="text-15-1">
+<p>
+<a href="https://github.com/masayuki054/meta-ruby/tree/master/docs/Figs">図の置き場所</a>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/masayuki054/meta-ruby/tree/master/Figs/object_and_class.png">オブジクトとクラス図</a></li>
+
+<li><a href="https://github.com/masayuki054/meta-ruby/tree/master/docs/Figs/class_hier.png">メタクラス階層図</a></li>
+</ul>
+
+<p>
+<a href="https://github.com/masayuki054/meta-ruby/tree/master/docs/Figs/class_diagram">デザインパターンクラス図置き場</a>
+</p>
+
+<ul class="org-ul">
+<li>すみません，作図失敗してました。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline226" class="outline-3">
+<h3 id="orgheadline226"><span class="section-number-3">15.2</span> 講義内容</h3>
+<div class="outline-text-3" id="text-15-2">
+</div><div id="outline-container-orgheadline217" class="outline-4">
+<h4 id="orgheadline217">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline217">
+<ul class="org-ul">
+<li>自分のレポート提出フォルダに，Examples フォルダを作成し，</li>
+<li>課題ごとに，作成したプログラムと，その説明，実行とその結果をまと
+めた org 文書を作成し，</li>
+<li>上記 Examples/ フォルダに提出してください。</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline218" class="outline-6">
+<h6 id="orgheadline218">Doing Examples <code>[4/5]</code></h6>
+<div class="outline-text-6" id="text-orgheadline218">
+<p>
+実践的なプログラムを作ってみましょう。
+</p>
+
+<p>
+~suzuki/rubys/examples/ の下, <a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work">work</a> (github) に，個々のプログラムを置くよう
+にします。((<a href="file://~suzuki/rubys/examples.html">@cis</a>, <a href="file:///users/home/masayuki/meta-ruby.git/org/work">@s</a>))
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> file_print.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-21 月&gt; </span></span></li>
+<li class="on"><code>[X]</code> home_directory.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt;</span></span></li>
+<li class="on"><code>[X]</code> shuzo-meigen.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-28 月&gt; </span></span> home work</li>
+<li class="on"><code>[X]</code> dir_traverse.rb <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-08 木&gt; </span></span> home work</li>
+<li class="off"><code>[&#xa0;]</code> <p>
+sinatra による org-mode 文書閲覧サービス <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-16 月&gt;</span></span>
+       home work
+</p>
+
+<p>
+説明は
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/note/ruby-note-sinatra-org.org">@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/note/ruby-note-sinatra-org.html">@s</a>))
+にあります。
+</p></li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock4">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline219" class="outline-4">
+<h4 id="orgheadline219">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline219">
+</div>
+
+<div id="outline-container-orgheadline220" class="outline-5">
+<h5 id="orgheadline220"><a href="http://d.hatena.ne.jp/asakichy/20090421/1240277448">オブジェクト指向の本懐 - Strategic Choice</a> を始めましょう。<code>[3/3]</code></h5>
+<div class="outline-text-5" id="text-orgheadline220">
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock5">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+
+<p>
+参考にしてほしい資料
+</p>
+
+<ul class="org-ul">
+<li>((s-:)) のまとめ strategic-choice.org
+(<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org">@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/oo/strategic-choice.html">@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/oo/strategic-choice.html">@s</a>)</li>
+</ul>
+
+<p>
+読む予定のページです。~/rubys/oo.org にまとめてください。<code>[3/3]</code>
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-16 月&gt;</span></span><a href="http://d.hatena.ne.jp/asakichy/20090426/1240703715">オブジェクト指向の本懐（５）・オブジェクト指向パラダイム - Strategic Choice</a></li>
+
+<li class="on"><code>[X]</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 月&gt;</span></span><a href="http://d.hatena.ne.jp/asakichy/20090424/1240533845">オブジェクト指向の本懐（３）・オブジェクト指向黎明期の誤解 - Strategic Choice</a></li>
+
+<li class="on"><code>[X]</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-12 月&gt; </span></span> <a href="http://d.hatena.ne.jp/asakichy/20090425/1240613767">オブジェクト指向の本懐（４）・ソフトウエア開発プロセスの観点 - Strategic Choice</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline221" class="outline-5">
+<h5 id="orgheadline221">Todo Rubyのオブジェクト原理主義</h5>
+<div class="outline-text-5" id="text-orgheadline221">
+<p>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html</a>
+</p>
+
+<p>
+を読んで Ruby らしさについて考えましょう。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline222" class="outline-4">
+<h4 id="orgheadline222">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline222">
+<p>
+<a href="file://~suzuki/COMM/Lects/meta-ruby/book">file://~suzuki/COMM/Lects/meta-ruby/book</a> を使います。
+</p>
+
+<p>
+~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
+</p>
+
+
+<p>
+今日は，((s-:)) の meta-programming-ruby.org
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/meta-programming-ruby.org">org@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/meta-programming-ruby.html">org@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/meta-programming-ruby.html">@</a>))
+を使って，クラス階層，特異メソッド，メタクラス階層について，説明します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock6">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline225" class="outline-4">
+<h4 id="orgheadline225">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline225">
+</div><div id="outline-container-orgheadline223" class="outline-5">
+<h5 id="orgheadline223">デザイン・パターン  (<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org">@github</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@cis</a> <a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@s</a>)</h5>
+<div class="outline-text-5" id="text-orgheadline223">
+<p>
+<a href="http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/">Ruby2.0.0で学ぶ、14個のデザインパターンを作りました</a> は，ruby で書
+いたデザイン・パターンの実装例です。
+</p>
+
+<p>
+AbstractFactory を読んで，考えてみましょう。
+</p>
+
+<dl class="org-dl">
+<dt><a href="http://www.techscore.com/tech/DesignPattern/index.html/">デザインパターン | TECHSCORE(テックスコア)</a></dt><dd>デザインパターンのリファレンスに使いましょう。</dd>
+</dl>
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="orgsrcblock7">sh ~/COMM/Lects/bin/github_link.sh $args
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>((s-:)) の design-pattern.org
+((<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org">org@github</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">org@cis</a>/<a href="file:///users/home/masayuki/meta-ruby.git/org/work/design-pattern.html">@</a>))
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> シングルトン・パターン</li>
+
+<li class="off"><code>[&#xa0;]</code> ビルダ・パターン</li>
+</ul></li>
+
+<li><a href="https://workflowy.com/s/6H5yFmqIOn">workflowyのメモ</a></li>
+
+<li><a href="https://ja.wikipedia.org/wiki/Abstract_Factory_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">Abstract Factory パターン - Wikipedia</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline224" class="outline-5">
+<h5 id="orgheadline224">単体テストを体験しましょう。</h5>
+<div class="outline-text-5" id="text-orgheadline224">
+<ul class="org-ul">
+<li>テストとかテストによる開発については，簡単に，<a href="https://masayuki054.github.io/prog/org-docs/software-test.html">ソフトウェア・テスト</a>，
+<a href="https://masayuki054.github.io/prog/org-docs/what-is-tdd.html">テスト駆動開発とは</a> で紹介します。</li>
+
+<li>Ruby の単体テスト・フレームワーク Test::Unit をやってみましょう.
+
+<ul class="org-ul">
+<li><a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/lects/meta-ruby/lects/note/">note</a> ((<a href="https://github.com/masayuki054/meta-ruby/blob/master/org/note/ruby-note-test.org">.org.github</a> <a href="file://~suzuki/meta-ruby.git/org/note/ruby-note-test.html">.org</a>.emacs)) のtest-unit を読んでください。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline238" class="outline-3">
+<h3 id="orgheadline238"><span class="section-number-3">15.3</span> 終わったこと</h3>
+<div class="outline-text-3" id="text-15-3">
+</div><div id="outline-container-orgheadline229" class="outline-4">
+<h4 id="orgheadline229">Doing Ruby programming</h4>
+<div class="outline-text-4" id="text-orgheadline229">
+</div><div id="outline-container-orgheadline227" class="outline-5">
+<h5 id="orgheadline227">Done Ruby入門 <code>[1/2]</code></h5>
+<div class="outline-text-5" id="text-orgheadline227">
+<ul class="org-ul">
+<li><a href="file://~suzuki/rubys/ruby-begin.html">file://~suzuki/rubys/ruby-begin.html</a> emacsで見てください</li>
+<li><a href="https://github.com/masayuki054/meta-ruby/blob/master/org/lects/ruby-begin.org">ruby-begin.org@repos</a> github 適宜raw mode で見てください</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline228" class="outline-5">
+<h5 id="orgheadline228">Done <a href="http://www.tohoho-web.com/ruby/">とほほのRuby入門</a> (<a href="./ruby.html">./ruby.html</a> 2.ruby入門-2.1 2016)</h5>
+<div class="outline-text-5" id="text-orgheadline228">
+<p>
+~/rubys/ruby-begin.org にまとめながらやっていきましょう。
+</p>
+<ul class="org-ul">
+<li>begin~end, 例外処理</li>
+<li>正規表現</li>
+<li>メソッド</li>
+<li>クラス</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline230" class="outline-4">
+<h4 id="orgheadline230">Todo オブジェクト指向について</h4>
+<div class="outline-text-4" id="text-orgheadline230">
+</div>
+
+<div id="outline-container-orgheadline231" class="outline-5">
+<h5 id="orgheadline231">Done <a href="http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1">人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita</a></h5>
+<div class="outline-text-5" id="text-orgheadline231">
+<p>
+読みまとめ始めましょう。Strategic Choice も参考にします。
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ソフトウェア危機</li>
+<li class="on"><code>[X]</code> 構造化プログラミング</li>
+<li class="on"><code>[X]</code> モジュラープログラミング</li>
+<li class="on"><code>[X]</code> 抽象データ型</li>
+<li class="on"><code>[X]</code> オブジェクト指向 メッセージングと動的ディスパッチ</li>
+<li class="on"><code>[X]</code> オブジェクト指向 仮想機械とメッセージング</li>
+</ul>
+
+<p>
+~/rubys/oo.org にまとめてください。
+</p>
+
+<ul class="org-ul">
+<li><p>
+org-mode で書いてみましょう 
+</p>
+
+<p>
+<a href="file://~suzuki/rubys/oo.html">file://~suzuki/rubys/oo.html</a>
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline232" class="outline-4">
+<h4 id="orgheadline232">Todo メタプログラミング Ruby</h4>
+<div class="outline-text-4" id="text-orgheadline232">
+</div>
+</div>
+
+<div id="outline-container-orgheadline233" class="outline-4">
+<h4 id="orgheadline233">Ruby オブジェクト指向プログラミング</h4>
+</div>
+
+
+<div id="outline-container-orgheadline237" class="outline-4">
+<h4 id="orgheadline237">講義のための環境つくり</h4>
+<div class="outline-text-4" id="text-orgheadline237">
+</div><div id="outline-container-orgheadline234" class="outline-5">
+<h5 id="orgheadline234">Doing 文芸的プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline234">
+<ul class="org-ul">
+<li>emacs org-mode</li>
+<li>emacs org-mode + babel</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline235" class="outline-5">
+<h5 id="orgheadline235">Done ruby実行環境</h5>
+<div class="outline-text-5" id="text-orgheadline235">
+<p>
+<a href="./ruby.html">./ruby.html</a> <code>[2/2]</code>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> ruby情報</li>
+<li class="on"><code>[X]</code> ruby環境作り <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> rbenv とは</li>
+<li class="on"><code>[X]</code> 自前で rbenv+ruby-build をインストール</li>
+
+<li class="on"><code>[X]</code> <p>
+ruby のインストール
+先週，    
+</p>
+<pre class="example">
+rbenv install 2.3.0-dev 
+</pre>
+<p>
+ができない人がいましたが，どうも，
+</p>
+<pre class="example">
+~/.rbenv/plugins/ruby-build/bin 
+</pre>
+<p>
+にある，ruby-install が認識されていないためのようです。
+取り敢えず，~/.rbenv/plugins/ruby-build/bin を PATH に入れてく
+ださい。
+</p></li>
+
+<li class="on"><code>[X]</code> gem (rubyのパッケージ管理)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline236" class="outline-5">
+<h5 id="orgheadline236">Done ruby プログラミング環境</h5>
+<div class="outline-text-5" id="text-orgheadline236">
+<p>
+<a href="./emacs.html">Emacs</a>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> emacs-24.5</li>
+<li class="on"><code>[X]</code> emacsのパッケージと設定</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline241" class="outline-3">
+<h3 id="orgheadline241"><span class="section-number-3">15.4</span> やらなかったこと</h3>
+<div class="outline-text-3" id="text-15-4">
+</div><div id="outline-container-orgheadline240" class="outline-4">
+<h4 id="orgheadline240">Ruby オブジェクト指向プログラミング</h4>
+<div class="outline-text-4" id="text-orgheadline240">
+</div><div id="outline-container-orgheadline239" class="outline-5">
+<h5 id="orgheadline239">ポーカーゲームのテスト駆動開発</h5>
+<div class="outline-text-5" id="text-orgheadline239">
+<p>
+<a href="./poker.html">poker開発</a> 
+</p>
+
+<p>
+<a href="https://github.com/masayuki054/meta-ruby/tree/master/org/poker">meta-ruby/org/poker at master · masayuki054/meta-ruby</a>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -2137,8 +3692,7 @@ rbenv install 2.3.0-dev
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2016-12-12 月 09:29</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2017-01-22 日 20:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
