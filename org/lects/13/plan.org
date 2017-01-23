@@ -21,19 +21,19 @@
      今日は，課題 「sinatra による org-mode 文書閲覧サービス」について
      説明します:
 
-**** やり方
+**** 課題の提出
 
      - 自分のレポート提出フォルダに，Examples フォルダを作成し，
      - 課題ごとに，作成したプログラムと，その説明，実行とその結果をまと
        めた org 文書を作成し，
      - 上記 Examples/ フォルダに提出してください。
 
-***** Doing Examples [4/5]
+**** Doing Examples [4/5]
     
       実践的なプログラムを作ってみましょう。
 
-      ~suzuki/rubys/examples/ の下, [[https://github.com/masayuki054/meta-ruby/tree/master/org/work][work]] (github) に，個々のプログラムを置くよう
-      にします。(([[file://~suzuki/rubys/examples.org][@cis]], [[file:~/meta-ruby.git/org/work][@s]]))
+      先生の見本は，~suzuki/rubys/examples/ の下, [[https://github.com/masayuki054/meta-ruby/tree/master/org/work][work]] (github) に，個々
+      のプログラムを置くようにします。(([[file://~suzuki/rubys/examples.org][@cis]], [[file:~/meta-ruby.git/org/work][@s]]))
 
      - [X] file_print.rb <2016-11-21 月> 
      - [X] home_directory.rb <2016-11-28 月>
@@ -44,7 +44,7 @@
        説明は (([[https://github.com/masayuki054/meta-ruby/tree/master/org/note/ruby-note-sinatra-org.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/note/ruby-note-sinatra-org.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/note/ruby-note-sinatra-org.org][@s]])) にあります。
 
 #+name: olm
-#+BEGIN_SRC sh :results output org  :var args="meta-ruby note/ruby-note-sinatra-org.org  org-server.org"
+#+BEGIN_SRC sh :exports none :results output org  :var args="meta-ruby note/ruby-note-sinatra-org.org  org-server.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 
@@ -55,7 +55,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 **** [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] を始めましょう。[3/4]
 
 #+name: olm
-#+BEGIN_SRC sh :results output org  :var args="meta-ruby oo/strategic-choice.org  strategic-choice.org"
+#+BEGIN_SRC sh :exports none :results output org  :var args="meta-ruby oo/strategic-choice.org  strategic-choice.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 
@@ -85,15 +85,14 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 
     ~/rubys/meta-programming-ruby.org にまとめながらやっていきましょう。
 
-    今日は，((s-:)) の meta-programming-ruby.org
-    (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/meta-programming-ruby.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/meta-programming-ruby.org][org@cis]]/[[file+emacs:~/meta-ruby.git/org/work/meta-programming-ruby.org][@]]))
-    を使って，
+    今日は，[[./meta-ruby.org][meta-ruby]] と meta-programming-ruby.org
+    (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/meta-programming-ruby.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/meta-programming-ruby.org][org@cis]]/[[file+emacs:~/meta-ruby.git/org/work/meta-programming-ruby.org][@]])) を使って，
 
-    - [ ] <2017-01-22 日> ブロックとクロージャについて説明します。
+    - [ ] <2017-01-23 月> ブロックとクロージャについて説明します。
     - [X] クラス階層，特異メソッド，メタクラス階層について，説明します。
 
 #+name: olm
-#+BEGIN_SRC sh :results output org  :var args="meta-ruby work/meta-programming-ruby.org  meta-programming-ruby.org"
+#+BEGIN_SRC sh :exports none :results output org  :var args="meta-ruby work/meta-programming-ruby.org  meta-programming-ruby.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 
@@ -109,7 +108,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
         デザインパターンのリファレンスに使いましょう。
 
 #+name: olm
-#+BEGIN_SRC sh :results output org  :var args="meta-ruby work/uml.org  uml.org"
+#+BEGIN_SRC sh :exports none :results output org  :var args="meta-ruby work/uml.org  uml.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 

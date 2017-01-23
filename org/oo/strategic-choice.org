@@ -48,13 +48,13 @@ http://d.hatena.ne.jp/asakichy/archive
    - ただし、構造化プログラミングの実装部分のエッセンス（特に凝集度・結合度の考え方）は今でも参考
      になる。 
 
-     * [構造化プログラミング]段階的詳細化 
+     * 構造化プログラミング -- 段階的詳細化 
        [[http://d.hatena.ne.jp/asakichy/20090217/1234830611][段階的詳細化 - Strategic Choice]]
 
-     * [構造化プログラミング]凝集度 
+     * 構造化プログラミング -- 凝集度 
        [[http://d.hatena.ne.jp/asakichy/20090218/1234990542][凝集度 - Strategic Choice]]
 
-     * [構造化プログラミング]結合度 
+     * 構造化プログラミング -- 結合度 
        [[http://d.hatena.ne.jp/asakichy/20090219/1234936956       ][結合度 - Strategic Choice]]
 
 ** パルナスの規則
@@ -489,7 +489,6 @@ http://d.hatena.ne.jp/asakichy/20090421/1240277448
 
 
 *** オブジェクト指向技術 - オブジェクト指向の本懐（６）
-
 オブジェクト指向の「見方」はわかりました。
 
 次はどうやって実現するかの「手段」部分です。
@@ -668,7 +667,7 @@ http://cdn-ak.f.st-hatena.com/images/fotolife/g/glass-_-onion/20090528/200905281
 ** オブジェクト指向設計原則 - Strategic Choice
 http://d.hatena.ne.jp/asakichy/20090122/1232879842
 
-** プログラミング原則 [Unix思想] - Strategic Choice
+** プログラミング原則 Unix思想 - Strategic Choice
 http://d.hatena.ne.jp/asakichy/searchdiary?word=%2A%5BUnix%BB%D7%C1%DB%5D
 
 ** ソフトウェア開発の真実とウソ - Strategic Choice

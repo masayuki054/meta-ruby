@@ -4,24 +4,76 @@
 - file://~suzuki/meta-ruby.git/
 
 
-#+BEGIN_SRC sh :results example
+#+BEGIN_SRC sh :results output example :exports both
 lstree ~/COMM/Lects/meta-ruby/git
 #+END_SRC
 
 #+RESULTS:
+#+begin_example
+/users/home/masayuki/COMM/Lects/meta-ruby/git@2017年 1月23日 月曜日 09時42分23秒 JST
 
-#+BEGIN_EXAMPLE
-~suzuki/meta-ruby.git
 +-README.md
-+-docs-+-emacs.html
++-docs-+-Figs-+-class-diagram-+-singleton.png
+|      |      +-class_hier.png
+|      |      +-object_and_class.png
+|      +-emacs.html
 |      +-index.html
 |      +-lects.html
 |      +-links.html
 |      +-meta-ruby.html
 |      +-note.html
 |      +-oo.html
+|      +-poker.html
 |      +-ruby.html
-+-org-+-Makefile
+|      +-styles-+-bigblow-+-css-+-bigblow.css
+|               |         |     +-hideshow.css
+|               |         |     +-htmlize.css
+|               |         +-images-+-checked.png
+|               |         |        +-fixme.png
+|               |         |        +-halfchecked.png
+|               |         |        +-info.png
+|               |         |        +-note.png
+|               |         |        +-tip.png
+|               |         |        +-unchecked.png
+|               |         |        +-warning.png
+|               |         +-js-+-ZeroClipboard.swf
+|               |              +-bigblow.js
+|               |              +-hideshow.js
+|               |              +-jquery-1.11.0.min.js
+|               |              +-jquery-1.9.1.min.js
+|               |              +-jquery-ui-1.10.2.min.js
+|               |              +-jquery.localscroll-min.js
+|               |              +-jquery.scrollTo-1.4.3.1-min.js
+|               |              +-jquery.zclip.min.js
+|               +-lib-+-js-+-jquery.stickytableheaders.min.js
+|               |          +-stickytableheaders-license.txt
+|               +-readtheorg-+-css-+-htmlize.css
+|               |            |     +-readtheorg.css
+|               |            |     +-rtd-full.css
+|               |            +-js-+-readtheorg.js
+|               |            +-readtheorg.org
+|               +-sos-+-css-+-bigblow.css
+|                     |     +-hideshow.css
+|                     |     +-htmlize.css
+|                     |     +-sos.css
+|                     +-images-+-checked.png
+|                     |        +-fixme.png
+|                     |        +-halfchecked.png
+|                     |        +-info.png
+|                     |        +-note.png
+|                     |        +-tip.png
+|                     |        +-unchecked.png
+|                     |        +-warning.png
+|                     +-js-+-ZeroClipboard.swf
+|                          +-bigblow.js
+|                          +-hideshow.js
+|                          +-readtheorg.js
+|                          +-sos.js
+|                          +-sos.js~
+|                          +-sos.org
+|                          +-tags
++-org-+-#index.org#
+      +-Makefile
       +-Makefile.org
       +-Rakefile
       +-Rakefile.org
@@ -44,8 +96,7 @@ lstree ~/COMM/Lects/meta-ruby/git
       |      +-links.org
       |      +-org-link-make.org
       |      +-site-tree.org
-      +-lects-+-#note.org#
-      |       +-01-+-01-GTD.org
+      +-lects-+-01-+-01-GTD.org
       |       |    +-01-todo.org
       |       |    +-1.html
       |       |    +-1.org
@@ -89,8 +140,7 @@ lstree ~/COMM/Lects/meta-ruby/git
       |       |    +-index.org
       |       |    +-plan.html
       |       |    +-plan.org
-      |       +-08-+-#plan.org#
-      |       |    +-Makefile
+      |       +-08-+-Makefile
       |       |    +-contents.org
       |       |    +-index.html
       |       |    +-index.org
@@ -169,6 +219,7 @@ lstree ~/COMM/Lects/meta-ruby/git
       |      +-matz-4.org.txt
       |      +-matz-6.org
       +-meta-ruby-+-Makefile
+      |           +-babel-+-mymethod.rb
       |           +-block.org
       |           +-class.org
       |           +-contents.org
@@ -178,6 +229,8 @@ lstree ~/COMM/Lects/meta-ruby/git
       |           +-methods.org
       |           +-object_model.org
       |           +-resume.org
+      |           +-resume_meta_ruby.org
+      |           +-resume_object_model.org
       +-meta-ruby.html
       +-meta-ruby.org
       +-note-+-Makefile
@@ -190,6 +243,15 @@ lstree ~/COMM/Lects/meta-ruby/git
       |      +-index.html
       |      +-index.org
       |      +-memo.org
+      |      +-org-doc-+-notes-+-readme.html
+      |      |         |       +-readme.org
+      |      |         +-org-+-run.org
+      |      |         +-readme.org
+      |      |         +-run-+-0
+      |      |         |     +-1
+      |      |         +-src-+-Gemfile
+      |      |               +-app.rb
+      |      |               +-config.ru
       |      +-poker.org
       |      +-ruby-begin-note.org
       |      +-ruby-life.org
@@ -214,15 +276,18 @@ lstree ~/COMM/Lects/meta-ruby/git
       |                          +-ruby-note-meta.html
       |                          +-ruby-note.html
       +-note.html
+      +-note.html~
       +-note.org
       +-oo-+-contents.org
       |    +-index.html
       |    +-index.org
       |    +-oo-note-oo-sucks.org
+      |    +-oo-principle.org
       |    +-strategic-choice.org
       |    +-to_oo.org
       |    +-to_oo_note.org
       +-oo.html
+      +-oo.html~
       +-oo.org
       +-org-docs-+-Makefile
       |          +-Makefile.org
@@ -276,9 +341,60 @@ lstree ~/COMM/Lects/meta-ruby/git
       |       +-player.org
       |       +-poker.html
       |       +-poker.org
+      +-poker.html
+      +-poker.org
       +-ruby-+-contents.org
       |      +-pry.org
       |      +-ruby.org
       +-ruby.html
       +-ruby.org
-#+END_EXAMPLE
+      +-touch
+      +-work-+-abstract_factory-+-animal.rb
+             |                  +-animals-+-duck.rb
+             |                  |         +-frog.rb
+             |                  +-do_duck_and_waterlily_factory.rb
+             |                  +-do_frog_and_algae_factory.rb
+             |                  +-duck_and_frog.rb
+             |                  +-organism_factories-+-#frog_and_algae.rb#
+             |                  |                    +-duck_and_waterlily.rb
+             |                  |                    +-frog_and_algae.rb
+             |                  +-organism_factory.rb
+             |                  +-plant.rb
+             |                  +-plants-+-algae.rb
+             |                  |        +-waterlily.rb
+             |                  +-waterlily_and_algae.rb
+             +-babel-+-meta-class-hierarchy.rb
+             +-block.org
+             +-builder-pattern-+-builder.rb
+             |                 +-builders-+-saltwater.rb
+             |                 |          +-sugarwater.rb
+             |                 +-director.rb
+             |                 +-test_builder-pattern.rb
+             +-builder-pattern.org
+             +-class-diagram-+-material-water-builder.png
+             |               +-singleton.png
+             |               +-sugar-water-builder.png
+             +-design-pattern.org
+             +-doc-+-_index.html
+             |     +-class_list.html
+             |     +-css-+-common.css
+             |     |     +-full_list.css
+             |     |     +-style.css
+             |     +-file_list.html
+             |     +-frames.html
+             |     +-index.html
+             |     +-js-+-app.js
+             |     |    +-full_list.js
+             |     |    +-jquery.js
+             |     +-method_list.html
+             |     +-top-level-namespace.html
+             +-examples-+-dir_print.rb
+             |          +-file_print.rb
+             |          +-home_directory.rb
+             |          +-shuzo_meigen.rb
+             +-examples.org
+             +-meta-programming-ruby.org
+             +-singleton-+-singleton.rb
+             +-uml.org
+#+end_example
+
