@@ -122,7 +122,7 @@ end
 
 ここでは，org->HTML変換には，~suzuki/COMM/bin/org2html コマンドを利用しています。
 
-代わりに，((% pandoc -f html -t org %))コマンドを使ってもいいですし，
+代わりに，((% pandoc -t html -f org %))コマンドを使ってもいいですし，
 rubygem/org-ruby を使ってもいいかもしれません。
 
 *** 起動

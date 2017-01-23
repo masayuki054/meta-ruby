@@ -1,3 +1,4 @@
+
 # src/app.rb
 require 'sinatra'
 
