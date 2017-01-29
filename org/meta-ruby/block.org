@@ -91,6 +91,43 @@ ruby babel/mymethod.rb
 
 file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb
 
+#+BEGIN_SRC ruby :tangle babel/make_and_do_block.rb
+
+def do_block
+  x = "do block"
+  yield("yield_block")
+end
+
+class Myclass
+  C = "constant"
+  def make_and_do_block
+    x = "make block"
+    do_block {|y| "Variables C:#{C} x:#{x}, y:#{y}" }
+  end
+end
+
+puts block = (Myclass.new).make_and_do_block
+#+END_SRC
+
+#+BEGIN_SRC sh :results output raw
+ruby babel/make_and_do_block.rb
+
+#+END_SRC
+
+#+RESULTS:
+Variables C:constant x:make block, y:yield_block
+
+- =Myclass= のオブジェクトの =make_and_do_block= メソッド中で作られたブ
+ロック ={|y| "Variables C:#{C} x:#{x}, y:#{y}" }= は，do_blockの中で，
+=yield= で呼び出され実行される。
+
+- ="Variables C:#{C} x:#{x}, y:#{y}"= が実行され，
+
+- 実行されている環境で見える， 定数 =C=, =x=， =y= の値が使われる。
+
+- その値から，=Myclass=の中の =make_and_do_block= メソッドの中にいる
+  ことがわかる。
+
 ブロックが生まれるとき，自身が生まれた環境を閉じ込めた ((*クロージャ*))
 となる
 
@@ -100,17 +137,27 @@ file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb
 
 **** ブロックローカル変数
 
-: def my_method
-:   yield
-: end
-:
-: top_level_variable = 1
-: my_method do 
-:   top_level_variable += 1
-:   local_to_block = 1
-: end
-: top_level_variable
-: local_to_block
+#+BEGIN_SRC ruby :tangle babel/block_local_variables.rb
+
+def my_method
+  yield
+end
+
+top_level_variable = 1
+my_method do 
+  top_level_variable += 1
+  local_to_block = 1
+end
+puts 'top_level_variable = ',top_level_variable
+puts 'local_to_block =', local_to_block
+
+#+END_SRC
+
+#+BEGIN_SRC sh :results output raw
+ruby babel/block_local_variables.rb
+#+END_SRC
+
+#+RESULTS:
 
 top_level_variable は block のネスティング が行われ, 
 外側のブロックのローカル変数を参照していることを示している．
@@ -195,7 +242,7 @@ file:://~suzuki/COMM/Lects/meta-ruby/code/blocks/shared_scope.rb]]
 
 - Rubyのスコープには束縛がある
 - スコープは class, module, def のスコープゲートで区切られ。
-- スコープゲートは，Class.new(), Module.new(), Moduel#define_method()
+- スコープゲートは，Class.new(), Module.new(), Module#define_method()
   で置き換え，それらに束縛を閉じこめたクロージャを与える。
 - クロージャにより，束縛の共有も可能となる
 

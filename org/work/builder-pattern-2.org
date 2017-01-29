@@ -1,8 +1,36 @@
 * [[http://morizyun.github.io/blog/ruby-design-pattern-12-builder/][ビルダー]]
 
-** class図
+** 参考サイト
+    [[http://jetglass.hatenablog.jp/entry/2015/04/02/151034][Rubyによるデザインパターン【Builder】 - Shred IT!!!!]] この説明がわか
+    りやすい
+   
+    http://morizyun.github.io/blog/ruby-design-pattern-12-builder/
 
-#+BEGIN_SRC plantuml :file class-diagram/sugar-water-builder.png :mkdirp yes
+
+** 場面
+ビルダーパターンは次のような場面で使われます。
+
+- オブジェクトの生成に大量のコードが必要
+- オブジェクトを作り出すのが難しい
+- オブジェクト生成時に必要なチェックを行いたい
+
+** ビルダーとは？
+
+ビルダーは、作成過程を決定する「Director」 と作業インターフェースを持
+つ「Builder」を組み合わせることで、柔軟にオブジェクトを生成をすること
+ができるデザインパターンです。
+
+ビルダーには次の３つの構成要素があります。
+
+- ディレクタ(Director)：Builderで提供されているインタフェースのみを使用して処理を行う
+- ビルダー(Builder)：各メソッドのインタフェースを定める
+- 具体ビルダー(ConcreteBuilder)：Builderが定めたインタフェースの実装
+
+** サンプル1
+
+class図 のみ示し，ソースコードの説明は省きます:
+
+ #+BEGIN_SRC plantuml :file class-diagram/sugar-water-builder.png :mkdirp yes :export both
 class SugarWater {
   - @water
   - @sugar
@@ -25,15 +53,14 @@ class Director {
 
 Director o-- SugarWaterBuilder
 SugarWaterBuilder o-- SugarWater
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-[[file:class-diagram/sugar-water-builder.png]]
+ #+RESULTS:
+ [[file:class-diagram/sugar-water-builder.png]]
 
+** サンプルソース2
 
-** びるだclass図
-
-#+BEGIN_SRC plantuml :file class-diagram/material-water-builder.png :mkdirp yes
+ #+BEGIN_SRC plantuml :file class-diagram/material-water-builder.png :mkdirp yes :exports both
 
 class SaltWater {
 note "塩水クラス :ビルダーの実装部分"
@@ -65,13 +92,13 @@ WaterWithMaterialBuilder<|-->SugarWater
 WaterWithMaterialBuilder<|-->SaltWater
 
 
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-[[file:class-diagram/material-water-builder.png]]
+ #+RESULTS:
+ [[file:class-diagram/material-water-builder.png]]
 
 
-#+BEGIN_SRC ruby :tangle builder-pattern/builders/saltwater.rb
+#+BEGIN_SRC ruby :tangle builder-pattern/builders/saltwater.rb :mkdirp yes
 # -*- coding: utf-8 -*-
 
 # SaltWater: 塩水クラス (ConcreteBuilder：ビルダーの実装部分)
@@ -87,9 +114,9 @@ class SaltWater
     @salt += salt_amount
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/builders/sugarwater.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/builders/sugarwater.rb
 # -*- coding: utf-8 -*-
 
 # SugarWater: 砂糖水クラス (ConcreteBuilder：ビルダーの実装部分)
@@ -105,12 +132,12 @@ class SugarWater
     @sugar += sugar_amount
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/builder.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/builder.rb
 # -*- coding: utf-8 -*-
 
-# SugarWaterBuilder: 加工水クラス (Builder)
+# 加工水クラス (Builder)
 class WaterWithMaterialBuilder
   def initialize(class_name)
     @water_with_material = class_name.new(0,0)
@@ -131,9 +158,9 @@ class WaterWithMaterialBuilder
     @water_with_material
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/director.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/director.rb
 # -*- coding: utf-8 -*-
 
 # Director: 加工水の作成過程を取り決める
@@ -148,9 +175,9 @@ class Director
     @builder.add_material(35)
   end
 end
-#+END_SRC
+ #+END_SRC
 
-#+BEGIN_SRC ruby :tangle builder-pattern/test_builder-pattern.rb
+ #+BEGIN_SRC ruby :tangle builder-pattern/test_builder-pattern.rb
 # -*- coding: utf-8 -*-
 builder = WaterWithMaterialBuilder.new(SugarWater)
 director = Director.new(builder)
@@ -166,3 +193,12 @@ director.cook
 p builder.result
 #=> #<SaltWater:0x007f92cc103ba8 @water=450, @salt=125>
 #+END_SRC
+
+#+BEGIN_EXAMPLE
++-builder-pattern-+-builder.rb
+|                 +-builders-+-saltwater.rb
+|                 |          +-sugarwater.rb
+|                 +-director.rb
+|                 +-test_builder-pattern.rb
+
+#+END_EXAMPLE

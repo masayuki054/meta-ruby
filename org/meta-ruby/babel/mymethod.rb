@@ -1,5 +1,6 @@
 class Myclass
   def mymethod(a, b)
+    z = -100
     if block_given?
       yield(a, b)
     else

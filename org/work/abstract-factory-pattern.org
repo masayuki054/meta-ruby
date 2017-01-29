@@ -1,0 +1,251 @@
+*  [[http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/][アブストラクトファクトリ/Abstract Factory]]
+
+** 参考サイト
+   - [[https://ja.wikipedia.org/wiki/Abstract_Factory_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Abstract Factory パターン - Wikipedia]]
+
+** directory
+
+#+BEGIN_EXAMPLE
++-abstract_factory-+-animal.rb
+|                  +-animals-+-duck.rb
+|                  |         +-frog.rb
+|                  |         +-frog.rb~
+|                  +-do_duck_and_waterlily_factory.rb
+|                  +-do_frog_and_algae_factory.rb
+|                  +-organism_factories-+-#frog_and_algae.rb#
+|                  |                    +-duck_and_waterlily.rb
+|                  |                    +-frog_and_algae.rb
+|                  |                    +-frog_and_algae.rb~
+|                  +-organism_factory.rb
+|                  +-plant.rb
+|                  +-plants-+-algae.rb
+|                           +-waterlily.rb
+
+#+END_EXAMPLE
+
+** 抽象的な OrganismFactory, Animal, Plant
+
+#+BEGIN_SRC ruby :tangle abstract_factory/organism_factory.rb :mkdirp y
+class OrganismFactory
+  def initialize(number_animals, number_plants)
+    @animals = []
+    number_animals.times do |i|
+      animal = new_animal("動物#{i}")
+      @animals << animal 
+    end
+
+    @plants = []
+    number_plants.times do |i|
+      plant = new_plant("植物#{i}")
+      @plants << plant 
+    end
+  end
+
+  def get_plants
+    @plants
+  end
+
+  def get_animals
+    @animals
+  end
+  
+end
+ #+END_SRC
+
+ #+BEGIN_SRC ruby :tangle abstract_factory/animal.rb :mkdirp yes
+class Animal
+
+  def eat
+    puts "Animalは食べるものですから。"
+  end
+  
+end
+ #+END_SRC
+
+ #+BEGIN_SRC ruby :tangle abstract_factory/plant.rb :mkdirp yes
+class Plant
+
+  def grow
+    puts "Plant は成長するものですから。"
+  end
+  
+end
+ #+END_SRC
+
+    
+** 具体的な OrganismFactory
+
+#+BEGIN_SRC ruby :tangle abstract_factory/organism_factories/frog_and_algae.rb :mkdirp yes
+require 'abstract_factory/organism_factory'
+require 'abstract_factory/animals/frog.rb'
+require 'abstract_factory/plants/algae.rb'
+
+class FrogAndAlgaeFactory < OrganismFactory
+  private
+
+  def new_animal(name)
+    Frog.new(name)
+  end
+
+  def new_plant(name)
+    Algae.new(name)
+  end
+end
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle abstract_factory/organism_factories/duck_and_waterlily.rb :mkdirp yes
+require 'abstract_factory/organism_factory'
+require 'abstract_factory/animals/duck.rb'
+require 'abstract_factory/plants/waterlily.rb'
+
+class DuckAndWaterLilyFactory < OrganismFactory
+  private
+
+  def new_animal(name)
+    Duck.new(name)
+  end
+
+  def new_plant(name)
+    WaterLily.new(name)
+  end
+end
+
+#+END_SRC
+
+** 具体的な動物 animals/
+
+#+BEGIN_SRC ruby :tangle abstract_factory/animals/duck.rb :mkdirp yes
+require 'abstract_factory/animal'
+
+class Duck < Animal
+  def initialize(name)
+    @name = name
+  end
+
+  def eat
+    puts "duck #{@name} は食事中です."
+    super
+  end
+end
+#+END_SRC    
+
+#+BEGIN_SRC ruby :tangle abstract_factory/animals/frog.rb :mkdirp yes
+require 'abstract_factory/animal'
+
+class Frog < Animal
+  def initialize(name)
+    @name = name
+  end
+
+  def eat
+    puts "frog #{@name} は食事中です."
+    super
+  end
+end
+#+END_SRC    
+
+** 具体的な植物達 plants/
+
+#+BEGIN_SRC ruby :tangle abstract_factory/plants/algae.rb :mkdirp yes
+require 'abstract_factory/plant'
+class Algae < Plant
+  def initialize(name)
+    @name = name
+  end
+
+  def grow
+    puts("藻 #{@name} は成長中です.")
+    super
+  end
+  
+end
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle abstract_factory/plants/waterlily.rb :mkdirp yes
+require 'abstract_factory/plant'
+
+class WaterLily < Plant
+  def initialize(name)
+    @name = name
+  end
+
+  def grow
+    puts("睡蓮 #{@name} は成長中です.")
+  end
+  
+end
+#+END_SRC
+
+** test
+
+#+BEGIN_SRC ruby :tangle abstract_factory/do_frog_and_algae_factory.rb :results output
+$: << "."
+
+require 'abstract_factory/organism_factory'
+require 'abstract_factory/organism_factories/frog_and_algae'
+# require 'abstract_factory/animals/frog'
+# require 'abstract_factory/plants/algae'
+
+
+factory = FrogAndAlgaeFactory.new(4,1)
+animals = factory.get_animals
+animals.each do |animal| 
+  animal.eat
+end
+
+plants = factory.get_plants
+plants.each do |plant|
+  plant.grow
+end
+
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+frog 動物0 は食事中です.
+Animalは食べるものですから。
+frog 動物1 は食事中です.
+Animalは食べるものですから。
+frog 動物2 は食事中です.
+Animalは食べるものですから。
+frog 動物3 は食事中です.
+Animalは食べるものですから。
+藻 植物0 は成長中です.
+Plant は成長するものですから。
+#+end_example
+
+
+#+BEGIN_SRC ruby :tangle abstract_factory/do_duck_and_waterlily_factory.rb :results output
+$: << "."
+
+require 'abstract_factory/organism_factory'
+require 'abstract_factory/organism_factories/duck_and_waterlily'
+# require 'abstract_factory/animals/duck'
+# require 'abstract_factory/plants/waterlily'
+
+factory = DuckAndWaterLilyFactory.new(4,1)
+animals = factory.get_animals
+animals.each do |animal| 
+  animal.eat
+end
+
+plants = factory.get_plants
+plants.each do |plant|
+  plant.grow
+end
+
+
+#+END_SRC
+
+#+RESULTS:
+: duck 動物0 は食事中です.
+: Animalは食べるものですから。
+: duck 動物1 は食事中です.
+: Animalは食べるものですから。
+: duck 動物2 は食事中です.
+: Animalは食べるものですから。
+: duck 動物3 は食事中です.
+: Animalは食べるものですから。
+: 睡蓮 植物0 は成長中です.
+
