@@ -1,0 +1,179 @@
+* [[http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/][オブザーバー・パターン]]
+
+** 必要な場面
+
+  - オブジェクトの状態が変化する可能性がある
+  - 変化したことを他のオブジェクトに通知する必要がある
+
+** オブザーバーとは？
+
+あるオブジェクトの状態が変化した際に、そのオブジェクト自身が *観察者* 
+に *通知* する仕組み。
+
+以下の3つのオブジェクトによって構成される:
+2
+- サブジェクト(subject) :: 変化する側のオブジェクト
+
+- オブザーバ(Observer) :: 状態の変化を関連するオブジェクトに通知するインタフェース
+
+- 具象オブザーバ(ConcreteObserver) :: 状態の変化に関連して具体的な処理を行う
+
+** オブザーバのメリット
+
+- オブジェクト間の依存度を下げることができる
+
+- 通知先の管理をオブザーバが行うことで、サブジェクトは通知側を意識しなくていい
+
+
+** 参考サイト
+
+- [[https://ja.wikipedia.org/wiki/Observer_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Observer パターン - Wikipedia]]
+- [[https://www.techscore.com/tech/DesignPattern/Observer.html/][17．Observer パターン | TECHSCORE(テックスコア)]]
+
+
+
+** class図
+
+#+BEGIN_SRC plantuml :file class-diagram/observer-pattern.png :mkdirp yes
+abstract Observer {
+  + update()
+}
+
+class Payroll {
+  + update()
+}
+
+class TaxMan {
+  + update()
+}
+ 
+abstract Subject 
+interface Observable {
+  + notify_observers()
+  + add_observer()
+  + delete_observer()
+}
+
+class Employee { 
+  + @observers
+}
+
+Observer <--o Subject
+Observer <|.. Payroll
+Observer <|.. TaxMan
+Subject .|> Observable
+Subject <|-- Employee
+Employee --> Payroll : update_observers
+Employee --> TaxMan : update_observers
+
+
+#+END_SRC
+
+#+RESULTS:
+[[file:class-diagram/observer-pattern.png]]
+
+
+** source
+
+*** 構造
+#+BEGIN_SRC sh :exports code
+mkdir observer-pattern
+mkdir observer-pattern/observers
+mkdir observer-pattern/subjects
+
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC ruby :tangle observer-pattern/subject.rb
+# -*- coding: utf-8 -*-
+
+require 'observer'
+
+class Subject
+  include Observable # 監視されうる
+end
+
+#+END_SRC
+
+
+#+BEGIN_SRC ruby :tangle observer-pattern/subjects/employee.rb
+# -*- coding: utf-8 -*-
+
+require 'observer-mine'
+require 'observers/payroll'
+require 'observers/taxman'
+
+class Employee < Subject
+
+  attr_reader :name, :title, :salary
+
+  def initialize(name, title, salary)
+    @name = name
+    @title = title
+    @salary = salary
+    add_observer(Payroll.new)
+    add_observer(TaxMan.new)
+  end
+
+  # 給与をセットして、ConcreteObserverに通知する
+  def salary=(new_salary)
+    @salary = new_salary
+    changed
+    notify_observers(self)
+  end
+end
+ #+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC ruby :tangle observer-pattern/observer-mine.rb
+# -*- coding: utf-8 -*-
+
+class Observer
+  def update(); end
+end
+
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle observer-pattern/observers/payroll.rb
+# -*- coding: utf-8 -*-
+
+# 給与の小切手の発行を行う
+class Payroll
+  def update(changed_employee)
+    puts "彼の給料は#{changed_employee.salary}になりました！#{changed_employee.title}のために新しい小切手を切ります。"
+  end
+end
+
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle observer-pattern/observers/taxman.rb
+# -*- coding: utf-8 -*-
+
+# 税金の請求書の発行を行う
+class TaxMan
+  def update(changed_employee)
+    puts "#{changed_employee.name}に新しい税金の請求書を送ります"
+  end
+end
+
+#+END_SRC
+
+#+BEGIN_SRC ruby :tangle observer-pattern/test_observer-pattern.rb :dir observer-pattern
+# -*- coding: utf-8 -*-
+
+$: << "."
+
+require 'subject'
+require 'subjects/employee'
+require './observer-mine'
+
+john = Employee.new('John', 'Senior Vice President', 5000)
+john.salary = 6000
+john.salary = 7000
+#+END_SRC
+
+#+RESULTS:
+

@@ -96,6 +96,11 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 
+#+RESULTS: olm
+#+BEGIN_SRC org
+- design-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/design-pattern.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/design-pattern.org][@s]]))
+#+END_SRC
+
 *** Ruby オブジェクト指向プログラミング
 
 **** デザイン・パターン  ([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][@github]] [[file:~/meta-ruby.git/org/work/design-pattern.org][@cis]] [[file:~/meta-ruby.git/org/work/design-pattern.org][@s]]) 
@@ -104,7 +109,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
      いたデザイン・パターンの実装例です。これを読んで，デザイン・パター
      ンの心を理解しましょう。
 
-      - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] ::
+      - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] 
         デザインパターンのリファレンスに使いましょう。
 
 #+name: olm
@@ -116,7 +121,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
         UMLについてのメモを作成しています。<2017-01-17 火>
 
 #+name: olm
-#+BEGIN_SRC sh :results output org  :var args="meta-ruby work/design-pattern.org  design-pattern.org"
+#+BEGIN_SRC sh exports none :results output org  :var args="meta-ruby work/design-pattern.org  design-pattern.org"
 sh ~/COMM/Lects/bin/github_link.sh $args
 #+END_SRC
 

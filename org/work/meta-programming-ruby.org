@@ -260,3 +260,5 @@ p class_hi(o2.class.singleton_class)
 : 
 :     return obj;
 : }
+
+* block
