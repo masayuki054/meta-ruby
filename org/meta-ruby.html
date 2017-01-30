@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-23 月 08:58 -->
+<!-- 2017-01-30 月 06:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 メタプログラミングRubyのまとめ</title>
@@ -2612,6 +2612,51 @@ end
 <a href="file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb">file://~suzuki/COMM/Lects/meta-ruby/code/blocks/closure.rb</a>
 </p>
 
+<div class="org-src-container">
+
+<pre class="src src-ruby">def do_block
+  x = "do block"
+  yield("yield_block")
+end
+
+class Myclass
+  C = "constant"
+  def make_and_do_block
+    x = "make block"
+    do_block {|y| "Variables C:#{C} x:#{x}, y:#{y}" }
+  end
+end
+
+puts block = (Myclass.new).make_and_do_block
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">ruby babel/make_and_do_block.rb
+</pre>
+</div>
+<p>
+Variables C:constant x:make block, y:yield_block
+</p>
+
+<ul class="org-ul">
+<li><code>Myclass</code> のオブジェクトの <code>make_and_do_block</code> メソッド中で作られたブ</li>
+</ul>
+<p>
+ロック <code>{|y| "Variables C:#{C} x:#{x}, y:#{y}" }</code> は，do_blockの中で，
+<code>yield</code> で呼び出され実行される。
+</p>
+
+<ul class="org-ul">
+<li>="Variables C:#{C} x:#{x}, y:#{y}"= が実行され，</li>
+
+<li>実行されている環境で見える， 定数 <code>C</code>, <code>x=， =y</code> の値が使われる。</li>
+
+<li>その値から，=Myclass=の中の <code>make_and_do_block</code> メソッドの中にいる
+ことがわかる。</li>
+</ul>
+
 <p>
 ブロックが生まれるとき，自身が生まれた環境を閉じ込めた ((<b>クロージャ</b>))
 となる
@@ -2629,8 +2674,9 @@ end
 <div id="outline-container-orgheadline127" class="outline-5">
 <h5 id="orgheadline127">ブロックローカル変数</h5>
 <div class="outline-text-5" id="text-orgheadline127">
-<pre class="example">
-def my_method
+<div class="org-src-container">
+
+<pre class="src src-ruby">def my_method
   yield
 end
 
@@ -2639,9 +2685,16 @@ my_method do
   top_level_variable += 1
   local_to_block = 1
 end
-top_level_variable
-local_to_block
+puts 'top_level_variable = ',top_level_variable
+puts 'local_to_block =', local_to_block
 </pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">ruby babel/block_local_variables.rb
+</pre>
+</div>
 
 <p>
 top_level_variable は block のネスティング が行われ, 
@@ -2782,7 +2835,7 @@ Kernel モジュール内に couter, inc メソッドを定義する</li>
 <ul class="org-ul">
 <li>Rubyのスコープには束縛がある</li>
 <li>スコープは class, module, def のスコープゲートで区切られ。</li>
-<li>スコープゲートは，Class.new(), Module.new(), Moduel#define_method()
+<li>スコープゲートは，Class.new(), Module.new(), Module#define_method()
 で置き換え，それらに束縛を閉じこめたクロージャを与える。</li>
 <li>クロージャにより，束縛の共有も可能となる</li>
 </ul>
@@ -3388,7 +3441,7 @@ rhg source eval.c#Init_Proc
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2017-01-23 月 08:58</p>
+<p class="date">Created: 2017-01-30 月 06:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

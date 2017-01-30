@@ -11,7 +11,7 @@
 に *通知* する仕組み。
 
 以下の3つのオブジェクトによって構成される:
-2
+
 - サブジェクト(subject) :: 変化する側のオブジェクト
 
 - オブザーバ(Observer) :: 状態の変化を関連するオブジェクトに通知するインタフェース
@@ -29,7 +29,6 @@
 
 - [[https://ja.wikipedia.org/wiki/Observer_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3][Observer パターン - Wikipedia]]
 - [[https://www.techscore.com/tech/DesignPattern/Observer.html/][17．Observer パターン | TECHSCORE(テックスコア)]]
-
 
 
 ** class図
@@ -87,6 +86,7 @@ mkdir observer-pattern/subjects
 
 
 #+BEGIN_SRC ruby :tangle observer-pattern/subject.rb
+# observer-pattern/subject.rb
 # -*- coding: utf-8 -*-
 
 require 'observer'
@@ -97,8 +97,8 @@ end
 
 #+END_SRC
 
-
 #+BEGIN_SRC ruby :tangle observer-pattern/subjects/employee.rb
+# observer-pattern/subjects/employee.rb
 # -*- coding: utf-8 -*-
 
 require 'observer-mine'
@@ -129,6 +129,7 @@ end
 #+RESULTS:
 
 #+BEGIN_SRC ruby :tangle observer-pattern/observer-mine.rb
+# observer-pattern/observer-mine.rb
 # -*- coding: utf-8 -*-
 
 class Observer
@@ -138,6 +139,7 @@ end
 #+END_SRC
 
 #+BEGIN_SRC ruby :tangle observer-pattern/observers/payroll.rb
+# observer-pattern/observers/payroll.rb
 # -*- coding: utf-8 -*-
 
 # 給与の小切手の発行を行う
@@ -150,6 +152,7 @@ end
 #+END_SRC
 
 #+BEGIN_SRC ruby :tangle observer-pattern/observers/taxman.rb
+# observer-pattern/observers/taxman.rb
 # -*- coding: utf-8 -*-
 
 # 税金の請求書の発行を行う
@@ -162,6 +165,7 @@ end
 #+END_SRC
 
 #+BEGIN_SRC ruby :tangle observer-pattern/test_observer-pattern.rb :dir observer-pattern
+# observer-pattern/test_observer-pattern.rb :dir observer-pattern
 # -*- coding: utf-8 -*-
 
 $: << "."
