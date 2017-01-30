@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-30 月 06:03 -->
+<!-- 2017-01-30 月 09:04 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>2016 ObjectOrientedについて</title>
@@ -3591,15 +3591,18 @@ abstract data type (ADT)
 <li>モデリング
 
 <ul class="org-ul">
-<li>例えばコンパイラを作ろうとしたら現実にある
-ものは1つもでてきません。</li>
-</ul></li>
-</ol>
+<li><p>
+例えばコンパイラを作ろうとしたら現実にある
+ものは1つもでてきません。
+</p>
+
 <blockquote>
 <p>
 ((s-:)) いっぱいでてきますよ。文法，構文木，生成規則，&#x2026; 
 </p>
-</blockquote>
+</blockquote></li>
+</ul></li>
+</ol>
 
 
 <ul class="org-ul">
@@ -3800,7 +3803,7 @@ abstract data type (ADT)
 <h5 id="orgheadline96">オブジェクトとは責任である</h5>
 <div class="outline-text-5" id="text-orgheadline96">
 <p>
-オブジェクト指向では、機能に分解するのではなく、 *オブジェクト * に分解
+オブジェクト指向では、機能に分解するのではなく、 <b>オブジェクト</b> に分解
 します。
 </p>
 
@@ -3811,7 +3814,7 @@ abstract data type (ADT)
 <ul class="org-ul">
 <li>決して「賢いデータ」程度の物ではないのです。</li>
 
-<li>これは実装の観点からしか見ていない、狭いものの見
+<li>これは実装の観点からしか見ていない, 狭いものの見
 方です。</li>
 </ul>
 
@@ -3822,11 +3825,11 @@ abstract data type (ADT)
 <ul class="org-ul">
 <li>オブジェクトとは <b>責任</b> です。責務を備えた実体です。</li>
 
-<li>それは <b>概念レベル*，*仕様レベル</b> から考察した結果導き出されるもので
+<li>それは <b>概念レベル</b>, <b>仕様レベル</b> から考察した結果導き出されるもので
 す。実装レベルを混ぜてはいけません。</li>
 
 <li><b>オブジェクトがどう実装されるか</b> ではなく
-*オブジェクトが何を実行するのか*に着目しなければならないのです。</li>
+<b>オブジェクトが何を実行するのか</b> に着目しなければならないのです。</li>
 </ul>
 </div>
 </div>
@@ -3896,7 +3899,7 @@ abstract data type (ADT)
 <h6 id="orgheadline98">変更はいつするのか？</h6>
 <div class="outline-text-6" id="text-orgheadline98">
 <p>
-書籍「達人プログラマー」では、DRY原則の説明の中で、メンテナンスについてこういっています。
+書籍「達人プログラマー」DRY原則の説明の中
 </p>
 
 <blockquote>
@@ -3922,42 +3925,30 @@ abstract data type (ADT)
 </blockquote>
 
 <p>
-いわゆる製品リリース後をメンテナンスと捉えるのではなく、新しい製品の開
-発中も含めてメンテナンスと言っています。
-</p>
-
-<p>
-つまり * 変更は常時 * ということです。
+つまり <b>変更は常時</b> ということです。
 </p>
 </div>
 </div>
-
 
 <div id="outline-container-orgheadline99" class="outline-6">
 <h6 id="orgheadline99">変更に本当につよいのか？</h6>
 <div class="outline-text-6" id="text-orgheadline99">
 <p>
-私はオブジェクト指向が変更に強いと言われても最初はなかなか実感が湧きま
-せんでした。なぜならその実例がないからです。
+最初はなかなか実感が湧きませんでした。
 </p>
 
 <p>
-書籍のサンプルには、当たり前ですが「仕様変更」や「追加要求」がありませ
-ん。変更に強く、それが目的あると言われてもピンとこないのも無理はないの
-です。
+書籍のサンプルには，「仕様変更」や「追加要求」がないから。
 </p>
 
 <p>
-しかし、それをやっと実感できたのが「デザインパターンとともに学ぶオブジェ
-クト指向のこころ」を読んだ時でした。
+「デザインパターンとともに学ぶオブジェクト指向のこころ」を読んで実感で
+きた。
 </p>
 </div>
 </div>
 </div>
 </div>
-
-
-
 
 <div id="outline-container-orgheadline102" class="outline-4">
 <h4 id="orgheadline102">オブジェクト指向技術 - オブジェクト指向の本懐（６）</h4>
@@ -3975,9 +3966,8 @@ abstract data type (ADT)
 <h5 id="orgheadline103">クラスとは</h5>
 <div class="outline-text-5" id="text-orgheadline103">
 <p>
-オブジェクトの共通する作業やデータをオブジェクト毎に持たせるのは効率的
-ではありません。そこで「クラス」を使用します。クラスには以下の要素が含
-まれています。
+オブジェクトの共通する作業やデータを <b>クラス</b> に持たせる。
+クラスは以下の要素を含む:
 </p>
 
 <ul class="org-ul">
@@ -3992,9 +3982,8 @@ abstract data type (ADT)
 <h5 id="orgheadline104">型としてのクラス</h5>
 <div class="outline-text-5" id="text-orgheadline104">
 <p>
-クラスは「抽象データ型（abstract data type : ADT)」の機能を持っていま
-す。抽象データ型の表現方法がクラスといってもいいかもしれません。
-抽象データ型は以下の特徴をもっています。
+抽象データ型の一つの表現方法がクラス，
+抽象データ型は以下の特徴をもつ:
 </p>
 
 <ul class="org-ul">
@@ -4022,37 +4011,57 @@ abstract data type (ADT)
 <h5 id="orgheadline105">継承の用途</h5>
 <div class="outline-text-5" id="text-orgheadline105">
 <p>
-ある型のグループを包含するような汎用の型、つまり抽象型の必要性がで
-てきます。これがいわゆる抽象クラス（基底クラス）と呼ばれるもので、それ
-を継承しているそれぞれの型は具象クラスと呼ばれます。
+ある型のグループを包含するような汎用の型が必要性となる
+</p>
+
+<ul class="org-ul">
+<li>汎用の型が <b>抽象クラス*（ *基底クラス</b> ）と呼び，</li>
+<li>それを継承している型を <b>具象クラス</b> と呼ぶ。</li>
+</ul>
+
+<p>
+抽象クラスは、それが表現している概念を具体化したクラスの実装を
+まとめることができる。
 </p>
 
 <p>
-抽象クラスは、それが表現している概念を具体化したクラスの実装を格納する
-ための場所を提供する、という意味です。
+つまり、継承は <b>オブジェクトの分類</b> に使用する：
 </p>
 
-<p>
-つまり、抽象クラスによって関連のあるクラス群に名前を割り当てる方法が与
-えられ、関連のあるクラス群を１つの概念として扱えるようになるわけです。
-継承はこのように「オブジェクトの分類」に使用します。
-</p>
+<ul class="org-ul">
+<li>抽象クラスによって関連のあるクラス群に名前を割り当てる方法が与えられ、</li>
+<li>関連のあるクラス群を１つの概念として扱えるようになる</li>
+</ul>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline106" class="outline-5">
 <h5 id="orgheadline106">継承の問題点</h5>
 <div class="outline-text-5" id="text-orgheadline106">
 <p>
-「継承は特殊化と再利用の手段である」というのは本質ではありません。濫用
-すると問題があります。
+「継承は特殊化と再利用の手段である」というのは本質ではない。
+</p>
+
+<ul class="org-ul">
+<li><p>
+問題が起こる例
+</p>
+<blockquote>
+<p>
+
 </p>
 
 <p>
-例をあげます。図形で5角形を表現するPentagonクラスがあるとします。ここ
-で継承を使って「縁」機能を持つPentagonBorderを作成します。すると、以下
-のような不具合が発生します。
+図形で5角形を表現するPentagonクラスがあるとします。
 </p>
+
+<p>
+継承を使って「縁」機能を持つPentagonBorderを作成します。
+</p>
+</blockquote></li>
+
+<li>以下のような不具合が発生します:
 
 <ul class="org-ul">
 <li>凝集度が低下する可能性がある
@@ -4068,23 +4077,27 @@ abstract data type (ADT)
 <li>違った観点の変更に対応出来ない。</li>
 <li>次に「網掛け」機能が必要になったら、クラスの組合わせが爆発してくる。</li>
 </ul></li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>継承はかつて実装的側面で語られることが多かったといいます。いわ
+ゆる「差分プログラミング」と称して推奨された <b>特化の継承</b> にはこのような問
+題点もあったわけです。</li>
 </ul>
 
 <p>
-継承はかつて実装的側面で語られることが多かったといいます。しかし、いわ
-ゆる「差分プログラミング」と称して推奨された特化の継承にはこのような問
-題点もあったわけです。
+継承に関する多くの問題を起すキーは <b>責任</b> という概念だと思います。
 </p>
 
-<p>
-これ以外にも、継承に関して多くの問題点が指摘されています。そのキーはや
-はり「責任」という概念だと思います。オブジェクトは「責任」であり、さら
-に責任とは「責任をもった者同士の委譲である」といいます。
-</p>
+<ul class="org-ul">
+<li>オブジェクトは「責任」であり、</li>
 
-<p>
-継承は同じ責任内で働くため、委譲をうまく取り扱えません。
-</p>
+<li>さらに責任とは「責任をもった者同士の委譲である」といいます。</li>
+
+<li>継承は同じ責任内で働くため、委譲をうまく取り扱えません。</li>
+</ul>
 </div>
 </div>
 
@@ -4159,11 +4172,15 @@ abstract data type (ADT)
 <div id="outline-container-orgheadline109" class="outline-5">
 <h5 id="orgheadline109">オブジェクトの変遷</h5>
 <div class="outline-text-5" id="text-orgheadline109">
-<p>
-分析・設計時は責任を考えながらオブジェクトを考え、ソースコードではそれ
-がクラスになり、実行時にはそのクラスのインスタンスとなります。クラスの
-インスタンスはオブジェクトとも言いますので、ややこしいです。
-</p>
+<ul class="org-ul">
+<li>分析・設計時は責任を考えながらオブジェクトを考え、</li>
+
+<li>ソースコードではそれがクラスになり、</li>
+
+<li>実行時にはそのクラスのインスタンスとなります。</li>
+
+<li>クラスのインスタンスはオブジェクトとも言いますので、ややこしいです。</li>
+</ul>
 </div>
 </div>
 
@@ -4171,11 +4188,11 @@ abstract data type (ADT)
 <h5 id="orgheadline110">継承のポテンシャル</h5>
 <div class="outline-text-5" id="text-orgheadline110">
 <p>
-継承はパワフルで、その種類も豊富です。
+継承はパワフルで、その種類も豊富です:
 </p>
 
 <ul class="org-ul">
-<li>「オブジェクト指向プログラqミング入門」では「継承の形態（7.3）」で8種
+<li>「オブジェクト指向プログラミング入門」では「継承の形態（7.3）」で8種
 類の継承が、</li>
 
 <li>「オブジェクト指向入門」では「継承の使用（24.5）」で12カテゴリの正し
@@ -4255,11 +4272,7 @@ abstract data type (ADT)
 <div class="outline-text-5" id="text-orgheadline112">
 <p>
 データ項目をオブジェクト毎に保持し、メソッドは共通に使用できる仕組みは
-マルチプルインスタンスが実現しています。このマルチプルインスタンスにつ
-いては「疑りぶかいあなたのためのオブジェクト指向再入門＠前橋さん」に詳
-しく説明されています。その中で「オブジェクト指向の本質はマルチプルイン
-スタンスにこそある」と主張されていて、その結論を導いた道程が詳しく書い
-てあります。
+マルチプルインスタンスが実現しています。
 </p>
 </div>
 </div>
@@ -4351,30 +4364,31 @@ abstract data type (ADT)
 <div id="outline-container-orgheadline115" class="outline-6">
 <h6 id="orgheadline115">AbstractClassは、</h6>
 <div class="outline-text-6" id="text-orgheadline115">
-<p>
-これらのオブジェクトが行わなければならないこと（概念上の観点）に着目す
-ることで、それらの呼び出し方法（仕様上の観点）を決定することができます。
-</p>
+<ul class="org-ul">
+<li>これらのオブジェクトが行わなければならないこと（概念上の観点）に着目
+することで、それらの呼び出し方法（仕様上の観点）を決定することができ
+ます。</li>
+</ul>
 </div>
 </div>
 
 <div id="outline-container-orgheadline116" class="outline-6">
 <h6 id="orgheadline116">ConcreteClassは、</h6>
 <div class="outline-text-6" id="text-orgheadline116">
-<p>
-これらのクラスを実装する際、正しい実装と分割が可能になるよう、APIは十
-分な情報の提供を保証しなければなりません。
-</p>
+<ul class="org-ul">
+<li>これらのクラスを実装する際、正しい実装と分割が可能になるよう、APIは十
+分な情報の提供を保証しなければなりません。</li>
+</ul>
 </div>
 </div>
 
 <div id="outline-container-orgheadline117" class="outline-6">
 <h6 id="orgheadline117">「仕様上の観点」は、</h6>
 <div class="outline-text-6" id="text-orgheadline117">
-<p>
-共通性/可変性分析どちらの観点も含んでいることにな
-ります。
-</p>
+<ul class="org-ul">
+<li>共通性/可変性分析どちらの観点も含んでいることにな
+ります。</li>
+</ul>
 </div>
 </div>
 
@@ -4410,22 +4424,35 @@ abstract data type (ADT)
 </p>
 
 <ul class="org-ul">
-<li>これは要求仕様に（＝現実世界に）全てのクラスが埋まっているわけではな
+<li><p>
+これは要求仕様に（＝現実世界に）全てのクラスが埋まっているわけではな
 いので、当然うまくいかないことになります。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) 完全ではないけれど，とっかかりには最適な方法だと，僕は思っ
-ている。</li>
-</ul></li>
+<blockquote>
+<p>
 
-<li>要求仕様に完全網羅性は期待できませんし、自然言語で書かれていて、かつ
+</p>
+
+<p>
+((s-:)) 完全ではないけれど，とっかかりには最適な方法だと，僕は思って
+いる。
+</p>
+</blockquote></li>
+
+<li><p>
+要求仕様に完全網羅性は期待できませんし、自然言語で書かれていて、かつ
 その書式で変更されていくものなので、これを基に設計をするのは労多くし
 て功少なしです。
+</p>
 
-<ul class="org-ul">
-<li>((s-:)) では何を基に？</li>
-</ul></li>
+<blockquote>
+<p>
+((s-:)) では何を基に？ 
+</p>
+</blockquote></li>
 </ul>
+
 
 <p>
 「オブジェクト指向入門」での抽象クラスを見つける方法についての言及:
@@ -4458,29 +4485,22 @@ abstract data type (ADT)
 <h5 id="orgheadline122">オブジェクト指向の本懐</h5>
 <div class="outline-text-5" id="text-orgheadline122">
 <p>
-オブジェクト指向の本懐は、
-</p>
-
-<p>
 複雑さに勝ち、かつ「変更に勝つ」ことです。
-</p>
-
-<p>
 この変更を考慮する設計アプローチがオブジェクト指向の本質です。
 </p>
 
-
 <p>
-変更を考慮すると言っても、変更「内容」を正確に予測しようとしてはいけま
-せん。
+変更を考慮する:
 </p>
 
-<p>
-「どこに」変更が発生するかを予測するのが正しい姿勢です。
-</p>
+<ul class="org-ul">
+<li>変更「内容」を正確に予測しようとしてはいけません。</li>
+
+<li>「どこに」変更が発生するかを予測するのが正しい姿勢です。</li>
+</ul>
 
 <p>
-その変更「地点」を「流動的要素」と呼び、その取り扱いを考慮するアプロー
+その変更「地点」を <b>流動的要素</b> と呼び、その取り扱いを考慮するアプロー
 チです。
 </p>
 
@@ -4542,7 +4562,6 @@ abstract data type (ADT)
 </div>
 </div>
 </div>
-
 
 
 <div id="outline-container-orgheadline125" class="outline-3">
@@ -4696,7 +4715,7 @@ ohttps://d.hatena.ne.jp/asakichy/20131007/1381097627
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@cis.iwate-u.ac.jp</p>
-<p class="date">Created: 2017-01-30 月 06:03</p>
+<p class="date">Created: 2017-01-30 月 09:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
