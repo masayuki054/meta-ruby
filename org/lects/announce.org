@@ -1,7 +1,16 @@
 * おしらせ
+** 2017-01-30
+
+   レポート
+   - oo.org
+   - meta-ruby.org
+   - examples/
+   - pattern/なにか一つのパターンを動かす
+
+
 ** 2016-12-12 [[https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU][学生さんのフォルダ]]
 
-   レポート提出要に，[[https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU][学生さんのフォルダ]] @ GoogleDriveを用意しました。
+   レポート提出用に，[[https://drive.google.com/open?id=0BwUWvGKIXA9PM1paM0RkS3FUbVU][学生さんのフォルダ]] @ GoogleDriveを用意しました。
    登録されていない人は言ってください。
 
 ** 2016-12-12 [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] 始めましょう。
