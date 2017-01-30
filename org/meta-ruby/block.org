@@ -53,7 +53,7 @@ ruby babel/mymethod.rb
 - block_given? で調べられる
    
 *** ブロックの呼び出し
-- 呼ばれたメソッド側で yield により呼び出せる
+n- 呼ばれたメソッド側で yield により呼び出せる
 - しかし，block は，block が作られた *環境* で実行される
 
 ** クイズ: Ruby#

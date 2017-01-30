@@ -101,7 +101,7 @@ end
 # observer-pattern/subjects/employee.rb
 # -*- coding: utf-8 -*-
 
-require 'observer-mine'
+require 'subject'
 require 'observers/payroll'
 require 'observers/taxman'
 
@@ -170,9 +170,9 @@ end
 
 $: << "."
 
-require 'subject'
+# require 'subject'
 require 'subjects/employee'
-require './observer-mine'
+# require './observer-mine'
 
 john = Employee.new('John', 'Senior Vice President', 5000)
 john.salary = 6000
