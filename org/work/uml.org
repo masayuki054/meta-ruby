@@ -1,16 +1,23 @@
 * UML あれこれ
 
-** http://plantuml.com
+** plantuml
+-  http://plantuml.com
+
+-  [[http://yohshiy.blog.fc2.com/blog-category-22.html][PlantUML | プログラマーズ雑記帳]]
   
-** [[http://www.itmedia.co.jp/im/articles/0302/04/news001.html][初歩のUML：第１回　まずはUMLのクラス図を書いてみよう - ITmedia エンタープライズ]]
+** UML入門
 
-** 分類と分解をUMLで表現する [[http://www.itmedia.co.jp/im/articles/0302/22/news001.html][ここから始めるオブジェクト指向(5) - ITmedia エンタープライズ]]
+- [[http://objectclub.jp/technicaldoc/uml/umlintro2#class][UML超入門_第2章]]
 
- クラスの汎化関係、集約関係を中心にもう少し複雑なクラス図について説明
+- [[http://www.itmedia.co.jp/im/articles/0302/04/news001.html][初歩のUML：第１回　まずはUMLのクラス図を書いてみよう - ITmedia エンタープライズ]]
+
+** 分類と分解をUMLで表現する
+クラスの汎化関係、集約関係を中心にもう少し複雑なクラス図について説明
 
 *** 原本
  - [[http://www.itmedia.co.jp/im/articles/0302/22/news001.html][ここから始めるオブジェクト指向(5) - ITmedia エンタープライズ]]
- - 河合昭男，（有）オブジェクトデザイン研究所
+
+   河合昭男，（有）オブジェクトデザイン研究所
 
 *** 汎化関係
 

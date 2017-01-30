@@ -51,16 +51,7 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 
 **** [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] を始めましょう。[4/4]
 
-call_olm(args="meta-ruby oo/strategic-choice.org strategic-choice.org") {{{results(=- strategic-choice.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@s]]))=)}}}
-
-
-#+RESULTS:
-: - strategic-choice.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@s]]))
-
       strategic-choice.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@s]]))
-
-## call_olm[:var args="meta-ruby oo/strategic-choice.org strategic-choice.org"]() 
-## {{{results(=- strategic-choice.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/oo/strategic-choice.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/oo/strategic-choice.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/oo/strategic-choice.org][@s]]))=)}}}
 
      読む予定のページです。~/rubys/oo.org にまとめてください。
 
@@ -92,7 +83,7 @@ call_olm(args="meta-ruby oo/strategic-choice.org strategic-choice.org") {{{resul
     今日は，[[./meta-ruby.org][meta-ruby]] と meta-programming-ruby.org
     (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/meta-programming-ruby.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/meta-programming-ruby.org][org@cis]]/[[file+emacs:~/meta-ruby.git/org/work/meta-programming-ruby.org][@]])) を使って，
 
-    - [ ] <2017-01-30 月> ブロックとクロージャについて説明します。
+    - [ ] <2017-01-30 月> ブロックとクロージャ，スコープゲートについて説明します。
     - [X] <2017-01-23 月> ブロックとクロージャについて説明します。
     - [X] クラス階層，特異メソッド，メタクラス階層について，説明します。
 
@@ -107,33 +98,37 @@ call_olm(args="meta-ruby oo/strategic-choice.org strategic-choice.org") {{{resul
       - [[http://www.techscore.com/tech/DesignPattern/index.html/][デザインパターン | TECHSCORE(テックスコア)]] 
         デザインパターンのリファレンスに使いましょう。
 
-#+name: olm
-#+BEGIN_SRC sh :exports none :results output org  :var args="meta-ruby work/uml.org  uml.org"
-sh ~/COMM/Lects/bin/github_link.sh $args
-#+END_SRC
-
       - uml.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/uml.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/uml.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/uml.org][@s]]))
         UMLについてのメモを作成しています。<2017-01-17 火>
 
-#+CALL: olm[args="meta-ruby work/uml.org  uml.org"]()
-
 #+RESULTS:
-
-#+name: olm
-#+BEGIN_SRC sh exports none :results output org  :var args="meta-ruby work/design-pattern.org  design-pattern.org"
-sh ~/COMM/Lects/bin/github_link.sh $args
-#+END_SRC
 
      - ((s-:)) の design-pattern.org
        (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/design-pattern.org][org@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/design-pattern.org][org@cis]]/[[file+emacs:~/meta-ruby.git/org/work/design-pattern.org][@]]))
 
        - [X] AbstractFactory・パターン
 
+## call_olm[:var args="meta-ruby work/abstract-factory-pattern.org abstract-factory-pattern.org"]()
+
+             abstract-factory-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/abstract-factory-pattern.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/abstract-factory-pattern.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/abstract-factory-pattern.org][@s]]))
+
        - [X] シングルトン・パターン
 
+## call_olm[:var args="meta-ruby work/singleton.org singleton.org"]() 
+
+             singleton.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/singleton.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/singleton.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/singleton.org][@s]]))
        - [X] ビルダ・パターン
 
+## call_olm[:var args="meta-ruby work/builder-pattern.orgbuilder-pattern.org"]() 
+
+         builder-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/builder-pattern.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/builder-pattern.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/builder-pattern.org][@s]]))
+
        - [ ] オブザーバ・・パターン
+
+## call_olm[:var args="meta-ruby work/observer-pattern.orgobserver-pattern.org"]() 
+
+          observer-pattern.org (([[https://github.com/masayuki054/meta-ruby/tree/master/org/work/observer-pattern.org][@github]]/[[file+emacs:~suzuki/meta-ruby.git/org/work/observer-pattern.org][@cis]]/[[file+emacs:~/meta-ruby.git/org/work/observer-pattern.org][@s]]))
+
 	 
 
 **** 単体テストを体験しましょう。
