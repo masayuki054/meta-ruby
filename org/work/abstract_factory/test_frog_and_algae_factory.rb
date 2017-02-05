@@ -2,9 +2,6 @@ $: << "."
 
 require 'abstract_factory/organism_factory'
 require 'abstract_factory/organism_factories/frog_and_algae'
-# require 'abstract_factory/animals/frog'
-# require 'abstract_factory/plants/algae'
-
 
 factory = FrogAndAlgaeFactory.new(4,1)
 animals = factory.get_animals

@@ -1,8 +1,15 @@
+* [[file:Rakefile.org][file:~/meta-ruby.git/org/Rakefile.org]] <2017-02-05 日>
+
+  copy from ~/prog.git/org/Rakefile.org
+
+* Done [[file:oo/strategic-choice.org::*%5B%5Bhttp:/d.hatena.ne.jp/asakichy/20090429/1241008758%5D%5B%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%AE%E6%9C%AC%E6%87%90%20--%20%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%AE%E6%9C%AC%E6%87%90%EF%BC%88%EF%BC%98%EF%BC%89%5D%5D][オブジェクト指向の本懐 -- オブジェクト指向の本懐（８）]]<2017-02-05 日>
+  CLOSED: [2017-02-05 日 12:10]
+
+* Done [[file:oo/strategic-choice.org::*%5B%5Bhttp:/d.hatena.ne.jp/asakichy/20090428/1240878836%5D%5B%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E5%88%86%E6%9E%90%20--%20%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%AE%E6%9C%AC%E6%87%90%EF%BC%88%EF%BC%97%EF%BC%89%5D%5D][オブジェクト指向分析 -- オブジェクト指向の本懐（７）]]<2017-01-30 月>
+  CLOSED: [2017-02-05 日 12:09]
+
 * Done [[file:oo/strategic-choice.org::*%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E6%8A%80%E8%A1%93%20-%20%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%81%AE%E6%9C%AC%E6%87%90%EF%BC%88%EF%BC%96%EF%BC%89][オブジェクト指向技術 - オブジェクト指向の本懐（６）]] <2017-01-21 土>
   CLOSED: [2017-01-23 月 09:01]
-
-  まとめ中
-
 
 * Doing work/design-pattern.org [0/3]
 
@@ -11,7 +18,6 @@
 ** Doing TODO [[file:work/builder-pattern.org][file:~/COMM/Lects/meta-ruby/git/org/work/builder-pattern.org]]
 
 ** Doing [[file:work/uml.org::*UML%20%E3%81%82%E3%82%8C%E3%81%93%E3%82%8C][UML あれこれ]]   
-
 * emacs/org-note.org <2017-01-16 月 06:13>
   [[file:~/COMM/Lects/meta-ruby/git/org/emacs/org-note.org::*org-mode%20UML%E5%9B%B3%E3%81%AE%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF][org-mode UML図の埋め込み]] meta-ruby/emacs/org-mode
 
