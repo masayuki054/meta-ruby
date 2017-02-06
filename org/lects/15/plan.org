@@ -7,22 +7,10 @@ sh ~/COMM/Lects/bin/github_link.sh $args
 
   self => ~suzuki/meta-ruby.git/org/lects/15/plan.org
 
-** 図を描きました
-
-   [[https://github.com/masayuki054/meta-ruby/blob/master/docs/Figs][図の置き場所]]
-
-   - [[https://github.com/masayuki054/meta-ruby/blob/master/docs/Figs/object_and_class.png][オブジクトとクラス図]]
-
-   - [[https://github.com/masayuki054/meta-ruby/blob/master/docs/Figs/class_hier.png][メタクラス階層図]]
-
-   [[https://github.com/masayuki054/meta-ruby/blob/master/docs/Figs/class-diagram][デザインパターンクラス図置き場]]
-
 ** 講義内容
 
-*** Doing Ruby programming 
-
-     今日は，課題 「sinatra による org-mode 文書閲覧サービス」について
-     説明します:
+*** Done Ruby programming 
+    CLOSED: [2017-02-06 月 09:13]
 
 **** 課題の提出
 
