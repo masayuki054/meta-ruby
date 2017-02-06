@@ -1,11 +1,71 @@
 * おしらせ
 
+** 2017-02-06
+
+   レポート課題です。
+
+   〆切は，成績報告に間に合わせるため，一応 2/16 にします。
+
+   提出が終了したら，その旨メールを下さい。
+
+   宛先は，msyk054@gmail.com です。
+
+   遅れる人も，その旨メールを下さい。
+
+   遅れる人も，3月の第3週末までには提出してください。
+
+*** Object指向に関するまとめ oo.org 
+
+    下記ドキュメントおよび講義中にふれたObject指向に関することを，
+    適切にまとめてください。
+
+    - [[http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1][人類がオブジェクト指向を手に入れるまでの軌跡 - Qiita]]
+
+    - [[http://d.hatena.ne.jp/asakichy/20090421/1240277448][オブジェクト指向の本懐 - Strategic Choice]] 
+
+*** meta-ruby.org
+
+    Ruby における，次の事柄について，まとめてください:
+
+    - オブジェクトとは
+    - クラスとは
+    - クラス階層とは
+    - メタクラス階層とは
+    - スコープとは
+    - クロージャとは
+    - Rubyらしさとは https://docs.ruby-lang.org/ja/latest/doc/spec=2fintro.html
+
+*** ruby programming examples/*.rb
+
+    - [X] file_print.rb <2016-11-21 月> 
+    - [X] home_directory.rb <2016-11-28 月>
+    - [X] shuzo-meigen.rb <2016-11-28 月> home work
+    - [X] dir_traverse.rb <2016-12-08 木> home work
+    - [X] sinatra による org-mode 文書閲覧サービス <2017-01-16 月>
+
+*** デザインパターン pattern/*.org
+
+    [[http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/][Ruby2.0.0で学ぶ、14個のデザインパターンを作りました]] について，講義
+    ではやらなかったデザイン・パターンについて，一つのパターンを動かし
+    てください。
+
+    - org ファイルにまとめる
+    - 適切なディレクトリに分ける
+
+*** 感想と意見 myopinion.org
+
+    講義への感想・意見を書いてください。
+
+
 ** 2017-01-30
 
    レポート
    - oo.org
+
    - meta-ruby.org
-   - examples/
+     
+   - examples/ 
+
    - pattern/なにか一つのパターンを動かす
 
 

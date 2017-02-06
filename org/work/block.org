@@ -369,7 +369,8 @@ lambda は独立したコード
 
 **** メソッド再び
 
-file:~/COMM/Lects/meta-ruby/code/blocks/methods.rb]]
+file:~/COMM/Lects/meta-ruby/code/blocks/methods.rb
+
 
 - Object#method() でメソッドを，Method オブジェクトとして取得可
 - Method オブジェクトは，Method#call() で呼び出し可能
@@ -477,4 +478,121 @@ file:~/COMM/Lects/meta-ruby/code/blocks/monitor_blocks/test_events.rb
 
 ** 参考
    rhg source eval.c#Init_Proc
+
+
+* block programming
+
+** 呼び出し可能なブロックと変数の共有
+
+局所変数を共有する proc   
+
+#+BEGIN_SRC ruby :results output :tangle babel/counter.rb :mkdirp yes
+
+class Mycounter
+  def make_counter(ini)
+    c = ini
+    inc = Proc.new { c = c+1 }
+    dec = Proc.new { c = c-1 }
+    val = Proc.new { c }
+    [inc, dec, val]
+  end
+end
+
+@o = Mycounter.new
+
+@procs = @o.make_counter(1001)
+
+p 'inc'
+p @procs[0].call # increment
+p @procs[2].call # value
+p 'inc'
+p @procs[0].call # inclrement
+p @procs[2].call # value
+p 'dec'
+p @procs[1].call # decrement
+p @procs[2].call # value
+
+p 'procs2 new'
+@procs2 = @o.make_counter(-1001)
+
+p 'procs val'
+p @procs[2].call # value
+
+p '2-inc'
+p @procs2[0].call # increment
+p @procs2[2].call # value
+p '2-inc'
+p @procs2[0].call # inclrement
+p @procs2[2].call # value
+p '2-dec'
+p @procs2[1].call # decrement
+p @procs2[2].call # value
+
+#+END_SRC
+
+#+BEGIN_SRC sh :results output example
+ruby babel/counter.rb
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+"inc"
+1002
+1002
+"inc"
+1003
+1003
+"dec"
+1002
+1002
+"procs2 new"
+"procs val"
+1002
+"2-inc"
+-1000
+-1000
+"2-inc"
+-999
+-999
+"2-dec"
+-1000
+-1000
+#+end_example
+
+
+** threadへ
+   
+*** [[http://blog.codebook-10000.com/entry/20130804/1375631808][Rubyで基礎的なマルチスレッドプログラミングをするためのサンプル]]
+
+
+*** [[http://www.atmarkit.co.jp/ait/articles/1412/12/news037.html][RubyのThread、Fiber、Kernel、forkで並列処理やプロセスの深淵へ (1/3) - ＠IT]]
+
+#+BEGIN_SRC ruby :tangle babel/thread.rb 
+
+names = %w(alice white-rabbit cheshire-cat)
+threads = []
+
+names.each do |name|
+  threads << Thread.new do
+    3.times do |i|
+      print "#{name}:#{i}, "
+    end
+  end
+end
+
+threads.each { |t| t.join }
+
+puts "\nall threds are terminated."
+
+#+END_SRC
+
+#+BEGIN_SRC sh :results output example
+ruby babel/thread.rb
+
+#+END_SRC
+
+#+RESULTS:
+: alice:0, alice:1, alice:2, cheshire-cat:0, cheshire-cat:1, cheshire-cat:2, white-rabbit:0, white-rabbit:1, white-rabbit:2, 
+: all threds are terminated.
 

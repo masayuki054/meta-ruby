@@ -1,8 +1,8 @@
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+title: meta-ruby
-#+include: lects/14/plan.org :minlevel 1
 #+include: lects/announce.org :minlevel 1
+#+include: lects/15/plan.org :minlevel 1
 #+include: lects/note.org :minlevel 1
 #+include: info/site-tree.org :minlevel 1
 

@@ -46,7 +46,7 @@ ORGS.each do |org|
   @depends = `~/COMM/bin/org_dependency.rb #{org}`.chomp.split(",")
   if @depends.size!=0 
     file html => @depends.push(org) do |t|
-      sh "org2html #{org}"
+      sh "~/COMM/bin/org2html #{org}"
       deploy(t.name, "#{SITE}/#{DIR}")
     end
   end
